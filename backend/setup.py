@@ -7,7 +7,7 @@ setup(
     version='0.0.1',
     description='Pyladies Courseware - backend',
     classifiers=[
-        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
     ],
     packages=find_packages(exclude=['doc', 'tests*']),
     install_requires=[

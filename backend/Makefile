@@ -12,3 +12,4 @@ $(venv_dir)/packages-installed: requirements.txt requirements-tests.txt
 	$(venv_dir)/bin/pip install -r requirements.txt
 	$(venv_dir)/bin/pip install -r requirements-tests.txt
 	$(venv_dir)/bin/pip install -e .
+	touch $@
