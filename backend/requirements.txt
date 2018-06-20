@@ -1,0 +1,7 @@
+aiodns
+aiohttp
+aiohttp_session[secure]
+cchardet
+pyyaml
+requests
+requests_oauthlib
