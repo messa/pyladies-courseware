@@ -1,0 +1,23 @@
+{
+  "name": "codemirror20180620",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "export": "next export",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@zeit/next-css": "^0.2.0",
+    "codemirror": "^5.38.0",
+    "next": "^6.0.3",
+    "react": "^16.4.1",
+    "react-codemirror2": "^5.0.4",
+    "react-dom": "^16.4.1"
+  }
+}
