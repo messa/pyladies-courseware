@@ -5,11 +5,15 @@ In production deployment the requests for frontend should be routed by load bala
 
 import aiohttp
 from aiohttp import web
+from aiohttp.client_exceptions import ClientError
 import asyncio
 from asyncio import CancelledError
 from functools import lru_cache
 import logging
+from reprlib import repr as smart_repr
 
+
+frontend_url = 'http://127.0.0.1:3000'
 
 logger = logging.getLogger(__name__)
 
@@ -65,7 +69,7 @@ async def frontend_proxy(request):
         request_headers = {k: request.headers[k] for k in proxy_request_headers if request.headers.get(k)}
         try:
             logger.info('Frontend proxy: %s', url)
-            logger.info('Frontend proxy headers: %s', request_headers)
+            #logger.debug('Frontend proxy headers: %s', request_headers)
             async with session.get(url, headers=request_headers) as r:
                 response_headers = {k: r.headers[k] for k in proxy_response_headers if r.headers.get(k)}
                 logger.debug('Frontend proxy: %s -> %s', url, r.status)
@@ -78,9 +82,9 @@ async def frontend_proxy(request):
                     await wr.write_eof()
                     logger.debug('Frontend proxy: %s done', url)
                     return wr
-                except CancelledError as e:
-                    logger.info('Frontend proxy CancelledError: %r', e)
+                except (CancelledError, ClientError) as e:
+                    logger.info('Frontend proxy %s: %r', type(e), e)
                     return wr
-        except Exception as e:
-            logger.exception('Frontend proxy failed: %r; url: %r', e, url)
-            return web.Response(status=500, text='Frontent proxy error')
+        except ClientError as e:
+            logger.error('Frontend proxy failed: %r; url: %r', e, url)
+            return web.Response(status=500, text='Frontend proxy error')

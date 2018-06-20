@@ -2,12 +2,15 @@ from aiohttp import web
 from aiohttp_session import setup as session_setup
 from aiohttp_session.cookie_storage import EncryptedCookieStorage
 import argparse
+from base64 import urlsafe_b64decode
 import logging
 
 from .views import all_routes
 
 
 logger = logging.getLogger(__name__)
+
+log_format = '%(asctime)s %(name)-31s %(levelname)5s: %(message)s'
 
 
 def cw_backend_main():
@@ -26,9 +29,10 @@ def get_app():
     app = web.Application()
     session_setup(app,  EncryptedCookieStorage(session_secret))
     app.add_routes(all_routes)
+    return app
 
 
 def setup_logging():
     logging.basicConfig(
-        format='%(asctime)s %(name)-15s %(levelname)5s: %(message)s',
+        format=log_format,
         level=logging.DEBUG)

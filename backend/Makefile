@@ -4,6 +4,9 @@ python3=python3
 check: $(venv_dir)/packages-installed
 	$(venv_dir)/bin/python3 -m pytest tests
 
+run: $(venv_dir)/packages-installed
+	$(venv_dir)/bin/python3 -m cw_backend
+
 venv: $(venv_dir)/packages-installed
 
 $(venv_dir)/packages-installed: requirements.txt requirements-tests.txt
