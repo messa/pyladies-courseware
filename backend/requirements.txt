@@ -5,3 +5,4 @@ cchardet
 pyyaml
 requests
 requests_oauthlib
+simplejson
