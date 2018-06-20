@@ -2,6 +2,7 @@ import Head from 'next/head'
 
 export default () => (
   <Head>
-    <title>Demo</title>
+    <title>Pyladies Courseware</title>
+    <link rel='stylesheet' href='/static/main.css' />
   </Head>
 )

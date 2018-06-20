@@ -1,0 +1,9 @@
+body {
+  font-family: sans-serif;
+}
+
+.pageContainer {
+  padding: 1em 1.5rem;
+  margin: 0 auto;
+  max-width: 600px;
+}

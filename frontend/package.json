@@ -1,16 +1,15 @@
 {
-  "name": "codemirror20180620",
+  "name": "pyladies-courseware-frontend",
   "version": "1.0.0",
-  "description": "",
+  "description": "Pyladies Courseware - frontend",
   "main": "index.js",
   "scripts": {
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "export": "next export",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Petr Messner",
   "license": "ISC",
   "dependencies": {
     "@zeit/next-css": "^0.2.0",
