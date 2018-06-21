@@ -19,7 +19,7 @@ async def fb_login_redirect(request):
     session['user'] = None
     session['fb_login_state'] = state
     logger.info('Redirecting to FB login: %s', redirect_url)
-    return  web.HTTPFound(redirect_url)
+    return web.HTTPFound(redirect_url)
 
 
 @routes.get('/auth/facebook/callback')

@@ -17,7 +17,7 @@ export const fetchBackend = async (req, path) => {
 
 const fetchBackendFromNode = async (req, path) => {
   console.debug(`Calling backend: ${path}`)
-  const backendUrl = 'http://127.0.0.1:5000'
+  const backendUrl = 'http://127.0.0.1:5000/api/'
   const res = await fetch(backendUrl + path, {
     headers: {
       'Cookie': req.headers['cookie'],
@@ -27,7 +27,7 @@ const fetchBackendFromNode = async (req, path) => {
 }
 
 const fetchBackendFromBrowser = async (path) => {
-  return await fetch(path, {
+  return await fetch('/api/' + path, {
     credentials: 'include'
   })
 }
