@@ -1,31 +1,21 @@
-import React from 'react'
 import Link from 'next/link'
-import CustomHead from '../components/CustomHead'
-import CodeEditor from '../components/CodeEditor'
+import Layout from '../components/Layout'
 
+export default () => (
+  <Layout>
+    <h1>Pyladies courseware</h1>
 
-export default class extends React.Component {
+    <h2>Aktuálně běžící kurzy</h2>
 
-  state = {
-    value: 'def hello():\n    return 42',
-  }
+    <p>
+      <Link href={{ pathname: '/course', query: { courseId: 'c1' }}}><a>
+        Demo
+      </a></Link>
+    </p>
 
-  handleValueChange = value => this.setState({ value })
+    <h2>Proběhlé kurzy</h2>
 
-  render() {
-    return (
-      <div>
-        <CustomHead />
-        <h1>codemirror demo</h1>
-        <CodeEditor
-          value={this.state.value}
-          onValueChange={this.handleValueChange}
-        />
-        <p>
-          <Link href='/about'><a>About</a></Link>
-        </p>
-      </div>
-    )
-  }
+    <p>TBD&hellip;</p>
 
-}
+  </Layout>
+)
