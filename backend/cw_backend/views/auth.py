@@ -10,9 +10,14 @@ logger = logging.getLogger(__name__)
 routes = web.RouteTableDef()
 
 
-@routes.get('/api/login-capabilities')
-async def login_link(request):
+@routes.get('/api/login-methods')
+async def login_methods(request):
     return web.json_response({
-        'facebook': {'endpoint': '/auth/facebook'},
-        'dev': {'endpoint': '/auth/dev'},
+        'facebook': {'url': '/auth/facebook'},
+        'google': {'url': '/auth/google'},
+        'dev': {
+            'student_url': '/auth/dev?role=student',
+            'coach_url': '/auth/dev?role=coach',
+            'admin_url': '/auth/dev?role=admin',
+        },
     })
