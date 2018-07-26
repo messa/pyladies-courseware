@@ -16,4 +16,9 @@ setup(
         'requests',
         'requests_oauthlib',
         'simplejson',
-    ])
+    ],
+    entry_points={
+        'console_scripts': [
+            'cw-backend=cw_backend:cw_backend_main',
+        ],
+    })
