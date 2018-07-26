@@ -2,21 +2,20 @@ import React from 'react'
 import Link from 'next/link'
 import { Button } from 'semantic-ui-react'
 import Layout from '../components/Layout'
-import fetchFromBackend from '../util/fetchFromBackend'
+import fetchPageData from '../util/fetchPageData'
 import LoginForm from '../components/LoginForm'
 
 export default class extends React.Component {
 
   static async getInitialProps({ req }) {
-    const loginMethods = await fetchFromBackend(req, '/api/login-methods')
-    return { loginMethods }
+    return await fetchPageData(req, { login_methods: 1 })
   }
 
   render() {
-    const { loginMethods } = this.props
-    const { facebook, google, dev } = this.props.loginMethods
+    const { user } = this.props
+    const { facebook, google, dev } = this.props.login_methods
     return (
-      <Layout>
+      <Layout user={user}>
         <h1>Přihlášení</h1>
 
         <div className='loginButtons'>

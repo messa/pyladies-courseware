@@ -1,21 +1,33 @@
+import React from 'react'
 import Link from 'next/link'
 import Layout from '../components/Layout'
+import fetchPageData from '../util/fetchPageData'
 
-export default () => (
-  <Layout>
-    <h1>Pyladies courseware</h1>
+export default class extends React.Component {
 
-    <h2>Aktuálně běžící kurzy</h2>
+  static async getInitialProps({ req }) {
+    return await fetchPageData(req, {})
+  }
 
-    <p>
-      <Link href={{ pathname: '/course', query: { courseId: 'c1' }}}><a>
-        Demo
-      </a></Link>
-    </p>
+  render() {
+    const { user } = this.props
+    return (
+      <Layout user={user}>
+        <h1>Pyladies courseware</h1>
 
-    <h2>Proběhlé kurzy</h2>
+        <h2>Aktuálně běžící kurzy</h2>
 
-    <p>TBD&hellip;</p>
+        <p>
+          <Link href={{ pathname: '/course', query: { courseId: 'c1' }}}><a>
+            Demo
+          </a></Link>
+        </p>
 
-  </Layout>
-)
+        <h2>Proběhlé kurzy</h2>
+
+        <p>TBD&hellip;</p>
+
+      </Layout>
+    )
+  }
+}

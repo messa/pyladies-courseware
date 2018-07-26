@@ -1,23 +1,32 @@
+import React from 'react'
 import Link from 'next/link'
 import Layout from '../components/Layout'
 import CodeEditor from '../components/CodeEditor'
+import fetchPageData from '../util/fetchPageData'
 
-export default () => (
-  <Layout>
-    <h1>Demo úkol</h1>
+export default class extends React.Component {
 
-    <h2>Zadání</h2>
+  static async getInitialProps({ req }) {
+    return await fetchPageData(req, {})
+  }
 
-    <p>Lorem ipsum</p>
+  render() {
+    return (
+      <Layout user={this.props.user}>
+        <h1>Demo úkol</h1>
 
-    <h2>Tvoje řešení</h2>
+        <h2>Zadání</h2>
 
-    <CodeEditor value={'def hello():\n    return 42'} />
+        <p>Lorem ipsum</p>
 
-    <br/>
-    <button>Odevzdat</button>
+        <h2>Tvoje řešení</h2>
 
+        <CodeEditor value={'def hello():\n    return 42'} />
 
+        <br/>
+        <button>Odevzdat</button>
 
-  </Layout>
-)
+      </Layout>
+    )
+  }
+}
