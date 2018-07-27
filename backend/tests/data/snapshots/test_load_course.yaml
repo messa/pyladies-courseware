@@ -1,48 +1,64 @@
-description: {html: "<p>N\xE1rodn\xED technick\xE1 knihovna, Technick\xE1 2710/6,\
-    \ Praha 6, 18:00\u201320:00</p>\n<p>Tady najde\u0161 v\u0161echny materi\xE1ly\
-    \ k brn\u011Bnsk\xE9 verzi za\u010D\xE1te\u010Dnick\xE9ho kurzu PyLadies.</p>\n\
-    <p>Str\xE1nky samotn\xFDch PyLadies jsou na http://pyladies.cz.</p>\n<p>Jednotliv\xE9\
-    \ lekce jsou ur\u010Deny naprost\xFDm za\u010D\xE1te\u010Dnic\xEDm.\nInstrukce\
-    \ jsou uvedeny pro opera\u010Dn\xED syst\xE9my Linux, Windows i macOS.</p>"}
+description:
+  html: |-
+    <p>Národní technická knihovna, Technická 2710/6, Praha 6, 18:00–20:00</p>
+    <p>Tady najdeš všechny materiály k brněnské verzi začátečnického kurzu PyLadies.</p>
+    <p>Stránky samotných PyLadies jsou na http://pyladies.cz.</p>
+    <p>Jednotlivé lekce jsou určeny naprostým začátečnicím.
+    Instrukce jsou uvedeny pro operační systémy Linux, Windows i macOS.</p>
 lessons:
 - date: '2018-03-07'
   slug: 1-instalace
-  title: {html: "Lekce 1 \u2013 Instalace"}
+  title:
+    html: Lekce 1 – Instalace
 - date: '2018-03-14'
   slug: 2-prvni-program
-  title: {html: "Lekce 2 \u2013 Prvn\xED program"}
+  title:
+    html: Lekce 2 – První program
 - date: '2018-03-21'
   slug: '3'
-  title: {html: "Lekce 3 \u2013 Cykly"}
+  title:
+    html: Lekce 3 – Cykly
 - date: '2018-03-28'
   slug: '4'
-  title: {html: "Lekce 4 \u2013 Funkce & \u0158et\u011Bzce"}
+  title:
+    html: Lekce 4 – Funkce & Řetězce
 - date: '2018-04-04'
   slug: '5'
-  title: {html: "Lekce 5 \u2013 Procvi\u010Dov\xE1n\xED a soubory"}
+  title:
+    html: Lekce 5 – Procvičování a soubory
 - date: '2018-04-11'
   slug: '6'
-  title: {html: "Lekce 6 \u2013 Spolupr\xE1ce a Open-Source - Git"}
+  title:
+    html: Lekce 6 – Spolupráce a Open-Source - Git
 - date: '2018-04-18'
   slug: '7'
-  title: {html: "Lekce 7 \u2013 Seznamy"}
+  title:
+    html: Lekce 7 – Seznamy
 - date: '2018-04-25'
   slug: '8'
-  title: {html: "Lekce 8 \u2013 Slovn\xEDky"}
+  title:
+    html: Lekce 8 – Slovníky
 - date: '2018-05-02'
   slug: '9'
-  title: {html: "Lekce 9 \u2013 Testov\xE1n\xED"}
+  title:
+    html: Lekce 9 – Testování
 - date: '2018-05-09'
   slug: '10'
-  title: {html: "Lekce 10 \u2013 Grafika"}
+  title:
+    html: Lekce 10 – Grafika
 - date: '2018-05-16'
   slug: '11'
-  title: {html: "Lekce 11 \u2013 T\u0159\xEDdy"}
+  title:
+    html: Lekce 11 – Třídy
 - date: '2018-05-23'
   slug: '12'
-  title: {html: "Lekce 12 \u2013 Z\xE1v\u011Bre\u010Dn\xFD projekt"}
+  title:
+    html: Lekce 12 – Závěrečný projekt
 - date: '2018-05-30'
   slug: '13'
-  title: {html: "Lekce 13 \u2013 Z\xE1v\u011Bre\u010Dn\xE1 procvi\u010Dovac\xED hodina"}
-subtitle: {html: Praha (NTK) - jaro 2018}
-title: {html: "Za\u010D\xE1te\u010Dnick\xFD kurz PyLadies"}
+  title:
+    html: Lekce 13 – Závěrečná procvičovací hodina
+subtitle:
+  html: Praha (NTK) - jaro 2018
+title:
+  html: Začátečnický kurz PyLadies

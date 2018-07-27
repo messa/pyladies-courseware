@@ -1,8 +1,7 @@
 from datetime import date
 import logging
 from reprlib import repr as smart_repr
-from yaml import safe_load as yaml_load
-from yaml import safe_dump as yaml_dump
+from cw_backend.util import yaml_dump, yaml_load
 
 
 logger = logging.getLogger(__name__)
