@@ -1,0 +1,199 @@
+  # https://github.com/PyLadiesCZ/pyladies.cz/raw/master/original/v1/s002-hello-world/handout/handout2.pdf
+
+homeworks:
+
+- markdown: |
+    Jakou používáš verzi Pythonu?
+
+- section:
+    markdown: |
+      Následující projekty procvičí orientaci v chybových hláškách. Doporučuji je udělat.
+
+- markdown: |
+    Jak se jmenuje druh chyby, která nastane, když…
+
+    - Dáš uvozovky jen na jednu stranu řetězce? — SyntaxError
+    - Zkusíš odečíst číslo od řetězce? —
+    - Dělíš nulou? —
+    - Použiješ proměnnou, která neexistuje? —
+    - Stiskneš Ctrl+C, když se program ptá na vstup (pomocí input)? —
+    - Odsadíš příkaz bez předchozího if:? —
+    - Po if: odsadíš jeden příkaz o čtyři mezery a druhý jen o dvě? —
+    - Neuzavřeš závorku? –
+    - Zkusíš použít vykřičník (!) jako operátor? —
+    - Napíšeš v příkazu print(1, 2, 3) čárku navíc? —
+
+- markdown: |
+    _Podívej se na odpovědi na předchozí otázku, ale Python zkus použít jen na ověření._
+
+    Jaká chyba nastane, když zkusíš použít proměnnou předtím, než do ní něco přiřadíš?
+
+- markdown: |
+    _Podívej se na odpovědi na otázku 1, ale Python použij jen na ověření._
+
+    Jaká chyba nastane, když zkusíš podělit řetězec řetězcem?
+
+- markdown: |
+    Lomítko (`/`) je operátor, ale nedá se použít na řetězce. Vykřičník (`!`) v Pythonu není operátor.
+    Jak se liší „jejich“ chyby?
+
+- section:
+    markdown: |
+      Tenhle projekt by měl přivést k tomu, jak zjišťovat, co v Pythonu jde a co ne.
+      Druhá část je trochu na zamyšlení.
+
+- markdown: |
+    Ne všechno se dá použít jako jméno proměnné.
+    Fungují pro proměnné následující jména? Pokud ne, proč asi?
+
+    `x`
+    `tlacitko4`
+    `34`
+    `3e4`
+    `krůta`
+    `$i`
+    `druha-odmocnina`
+    `readme.txt`
+    `kratsiStrana`
+    `POCET_BODU`
+    `_ (podtržítko)`
+    `π (pí)`
+    `True`
+    `_cache`
+    `__name__`
+    `while`
+
+- section:
+    markdown: |
+      Následující projekty jsou na procvičení toho, co jsme dělaly na srazu. Nemáš-li čas, zatím je přeskoč.
+
+- markdown: |
+    _Zkus se nedívat na programy ze srazu._
+
+    Napiš program, který spočítá povrch a objem krychle o straně 2852 cm.
+
+    Abys nemusela tolik hledat v učebnici (vlastně Wikipedii): povrch S = 6a², objem V = a³
+
+    _Řešení, pro kontrolu: S = 48803424 cm², V = 23197894208 cm³_
+
+- markdown: |
+    Změň program tak, aby stranu/poloměr mohl uživatel zadat.
+
+    _Tady už se na materiály ze srazu klidně podívej._
+
+- section:
+    markdown: |
+      Další dva projekty doplňují program ze srazu.
+      Všechno bude vysvětleno později, takže jestli nemáš čas, přeskoč je.
+
+- markdown: |
+    Ulož si následující program jako `pokus.py` a spusť ho několikrát za sebou. Co dělá?
+
+    ```
+    from random import randrange
+    cislo = randrange(3)
+    print(cislo)
+    ```
+
+    _Jak to funguje, to se dozvíme příště; zatím to ber jako kouzelné zaříkadlo._
+
+    _Aby všechno fungovalo správně, nesmíš mít v aktuálním adresáři soubor jménem `random.py`._
+
+- markdown: |
+    Zkombinuj program z předchozího projektu s programem kámen-nůžky-papír a nastav `tah_pocitace` na:
+
+    a. 'kámen', pokud je cislo 0,
+    b. 'nůžky', pokud je cislo 1,
+    c. jinak na 'papír'.
+
+- section:
+    markdown: |
+      Tyhle projekty kombinují opakování a nové informace. Doporučuji si je projít.
+
+- markdown: |
+    Které pythonní _operátory_ dokážeš z hlavy vyjmenovat?
+
+- markdown: |
+    Zkusila jsi porovnávat řetězce?
+    Doplň tuhle tabulku tužkou; pak ověř odpovědi pomocí Pythonu:
+
+    a b
+    2 > 1
+    1 < 2
+    'abc' == 'abc'
+    'aaa' 'abc'
+    'abc' 'Abc'
+    'abC' 'abc'
+    'abc' 'abcde'
+    'abc' 'ábč'
+    'abc' 10
+
+- markdown: |
+    Jaká je hodnota proměnné po provedení příkazu:
+
+    ```
+    promenna = 1 < 2 ?
+    promenna = 2 < 2 ?
+    promenna = 1 < 2 < 3 ?
+    promenna = 1 < 3 < 2 ?
+    promenna = 1 < 3 < 3 ?
+    promenna = 'abc' < 'ABC' < 'def' < 'zajíc' ?
+    ```
+
+    Tam, kde je hodnota proměnné `False`, dají se některé z porovnávaných hodnot mezi sebou vyměnit, aby
+    byla `True`?
+
+- section:
+    markdown: |
+      Další dva projekty ti umožní kreativně využít, co ses naučila.
+
+- markdown: |
+    Na srazu jsme měli program, který píše různé nesmysly podle uživatelem zadaného věku.
+
+    Zkus napsat program, který píše hlášky podle zadané rychlosti chůze, váhy ulovené ryby, počtu tykadel,
+    teploty vody nebo třeba vzdálenosti od rovníku.
+
+- markdown: |
+    Podle toho, jak jste se na sraze domluvili, pošli řešení e-mailem (např. organizátorům, koučovi, nebo
+    vůbec). Posílej ho jako přílohu, nekopíruj ho do textu e-mailu.
+
+    Jestli procházíš kurz sama a můžeš programování konzultovat s někým zkušenějším, je tento úkol na
+    takovou konzultaci ideální téma.
+
+- markdown: |
+    Napiš program, který po zadání správného hesla vypíše nějakou tajnou informaci.
+
+    _Vhodné tajemství je třeba: V pátek jsem viděla černého havrana._
+
+- section:
+    markdown: |
+      Poslední projekty jsou pokročilejší. Jestli nemáš čas, radši udělej pořádně ty ostatní.
+
+- markdown: |
+    Projdi si v materiálech bonusovou sekci _„Nebo anebo a”_:
+
+    http://naucse.python.cz/lessons/beginners/and-or/
+
+- markdown: |
+    Doplň tuhle tabulku:
+
+
+    a b a and b a or b not a
+    True True
+    False True
+    True False
+    False False
+
+    Tohle je takzvaná _pravdivostní_ tabulka:
+    _Obsahuje jeden řádek pro každou kombinaci booleovských hodnot, které a a b můžou mít. Když se stane, že se v složitějších and a or ztratíš, doporučuji napsat si podobnou tabulku a na každý řádek se podívat zvlášť._
+
+- markdown: |
+    Zkus přepsat Kámen, Nůžky, Papír pomocí `and` a `or`.
+
+    Dokážeš docílit toho, aby se každý z řetězců `'Plichta.'`, `'Počítač vyhrál.'` a `'Vyhrála jsi!'` objevil
+    v programu jen jednou, aniž bys tyhle řetězce musela přiřazovat do proměnných?
+
+    Pokud ano, gratuluji!
+
+- markdown: |
+    Zkus program „šťastná/bohatá“ přepsat pomocí zanořených `if`ů. Která verze ti připadá čitelnější?
