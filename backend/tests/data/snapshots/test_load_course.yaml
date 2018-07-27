@@ -1,556 +1,657 @@
 course_debug_dump:
-  description:
-    html: |-
-      <p>Národní technická knihovna, Technická 2710/6, Praha 6, 18:00–20:00</p>
-      <p>Tady najdeš všechny materiály k brněnské verzi začátečnického kurzu PyLadies.</p>
-      <p>Stránky samotných PyLadies jsou na http://pyladies.cz.</p>
-      <p>Jednotlivé lekce jsou určeny naprostým začátečnicím.
-      Instrukce jsou uvedeny pro operační systémy Linux, Windows i macOS.</p>
-  lessons:
-  - date: '2018-03-07'
-    homework_items:
-    - homework_item_type: task
-      text:
-        html: |-
-          <p>Doma (nebo pár dní po instalaci, pokud nejsi na srazu) si znovu spusť Python a zkus, jestli stále funguje,</p>
-          <p>```</p>
-          <blockquote>
-          <blockquote>
-          <blockquote>
-          <p>1 + 1
-          2
-          ```</p>
-          </blockquote>
-          </blockquote>
-          </blockquote>
-          <p>Funguje i odčítání?</p>
-          <p>```</p>
-          <blockquote>
-          <blockquote>
-          <blockquote>
-          <p>4 - 2
-          ```</p>
-          </blockquote>
-          </blockquote>
-          </blockquote>
-    - homework_item_type: task
-      text:
-        html: '<p>A co násobení? Programátoři nenásobí pomocí · ani ×, použijí jiný <em>operátor</em>: hvězdičku. Vyzkoušej si to.</p>'
-    - homework_item_type: task
-      text:
-        html: <p>Dělení? Znak ÷ se taky na klávesnici těžko píše (zvlášť na české). Jak se asi bude dělit?</p>
-    - homework_item_type: task
-      text:
-        html: |-
-          <p>Závorky v Pythonu fungují jako v matematice. Zkus pomocí Pythonu vypočítat: 3+(4+6)×8÷2−1 =</p>
-          <p>Jak se to zapíše v Pythonu?</p>
-    - homework_item_type: task
-      text:
-        html: |-
-          <p>Jsou i jiné operátory než <code>+</code>, <code>-</code> a ty pro násobení a dělení.
-          Co dělá s čísly operátor <code>%</code> (procento)?</p>
-    - homework_item_type: task
-      text:
-        html: <p>A co dělá operátor <code>**</code> (dvě hvězdičky)?</p>
-    - homework_item_type: task
-      text:
-        html: <p>Až budeš příště sahat po kalkulačce, použij místo ní Python.</p>
-    - homework_item_type: task
-      text:
-        html: |-
-          <p>Python umí i jiné věci než čísla. Třeba takové <em>řetězce</em> – slova, věty nebo jiný text.
-          Řetězce se zadávají v uvozovkách – jednoduchých <code>'</code> nebo dvojitých <code>"</code>:</p>
-          <p>```</p>
-          <blockquote>
-          <blockquote>
-          <blockquote>
-          <p>'Ahoj!'
-          'Ahoj!'
-          ```</p>
-          </blockquote>
-          </blockquote>
-          </blockquote>
-    - homework_item_type: task
-      text:
-        html: |-
-          <p>Řetězce jdou spojovat sčítáním. Vyzkoušej si to:</p>
-          <p>```</p>
-          <blockquote>
-          <blockquote>
-          <blockquote>
-          <p>'A' + "B"
-          'AB'
-          ```</p>
-          </blockquote>
-          </blockquote>
-          </blockquote>
-    - homework_item_type: task
-      text:
-        html: |-
-          <p>Co je tady špatně? Jak to spravit?</p>
-          <p>```</p>
-          <blockquote>
-          <blockquote>
-          <blockquote>
-          <p>'Ahoj' + 'PyLadies!'
-          ```</p>
-          </blockquote>
-          </blockquote>
-          </blockquote>
-    - homework_item_type: task
-      text:
-        html: <p>Řetězce se dají sčítat. Dají se i násobit? Dělit? Odečítat?</p>
-    - homework_item_type: task
-      text:
-        html: <p>Co se stane, když se pokusím sečíst číslo a řetězec?</p>
-    - homework_item_type: task
-      text:
-        html: <p>A vynásobit?</p>
-    lesson_items:
-    - lesson_item_type: attachment
-      title:
-        html: Úvodní prezentace
-      url: http://pyladies.cz/v1/s001-install/uvod-praha.html
-    - lesson_item_type: lesson
-      title:
-        html: Úvod do příkazové řádky
-      url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/cmdline/
-    - lesson_item_type: lesson
-      title:
-        html: Instalace Pythonu
-      url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/install/
-    - lesson_item_type: lesson
-      title:
-        html: První krůčky
-      url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/first-steps/
-    - lesson_item_type: lesson
-      title:
-        html: Instalace editoru
-      url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/install-editor/
-    - lesson_item_type: lesson
-      title:
-        html: Instalace gitu
-      url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/git/install/
-    - lesson_item_type: cheatsheet
-      title:
-        html: Tahák na klávesnici (PDF)
-      url: https://pyvec.github.io/cheatsheets/keyboard/keyboard-cs.pdf
-    slug: 1-instalace
+  Course:
+    description:
+      html: |-
+        <p>Národní technická knihovna, Technická 2710/6, Praha 6, 18:00–20:00</p>
+        <p>Tady najdeš všechny materiály k brněnské verzi začátečnického kurzu PyLadies.</p>
+        <p>Stránky samotných PyLadies jsou na http://pyladies.cz.</p>
+        <p>Jednotlivé lekce jsou určeny naprostým začátečnicím.
+        Instrukce jsou uvedeny pro operační systémy Linux, Windows i macOS.</p>
+    lessons:
+    - Lesson:
+        date: '2018-03-07'
+        homework_items:
+        - HomeworkTask:
+            homework_item_type: task
+            text:
+              html: |-
+                <p>Doma (nebo pár dní po instalaci, pokud nejsi na srazu) si znovu spusť Python a zkus, jestli stále funguje,</p>
+                <p>```</p>
+                <blockquote>
+                <blockquote>
+                <blockquote>
+                <p>1 + 1
+                2
+                ```</p>
+                </blockquote>
+                </blockquote>
+                </blockquote>
+                <p>Funguje i odčítání?</p>
+                <p>```</p>
+                <blockquote>
+                <blockquote>
+                <blockquote>
+                <p>4 - 2
+                ```</p>
+                </blockquote>
+                </blockquote>
+                </blockquote>
+        - HomeworkTask:
+            homework_item_type: task
+            text:
+              html: '<p>A co násobení? Programátoři nenásobí pomocí · ani ×, použijí jiný <em>operátor</em>: hvězdičku. Vyzkoušej si to.</p>'
+        - HomeworkTask:
+            homework_item_type: task
+            text:
+              html: <p>Dělení? Znak ÷ se taky na klávesnici těžko píše (zvlášť na české). Jak se asi bude dělit?</p>
+        - HomeworkTask:
+            homework_item_type: task
+            text:
+              html: |-
+                <p>Závorky v Pythonu fungují jako v matematice. Zkus pomocí Pythonu vypočítat: 3+(4+6)×8÷2−1 =</p>
+                <p>Jak se to zapíše v Pythonu?</p>
+        - HomeworkTask:
+            homework_item_type: task
+            text:
+              html: |-
+                <p>Jsou i jiné operátory než <code>+</code>, <code>-</code> a ty pro násobení a dělení.
+                Co dělá s čísly operátor <code>%</code> (procento)?</p>
+        - HomeworkTask:
+            homework_item_type: task
+            text:
+              html: <p>A co dělá operátor <code>**</code> (dvě hvězdičky)?</p>
+        - HomeworkTask:
+            homework_item_type: task
+            text:
+              html: <p>Až budeš příště sahat po kalkulačce, použij místo ní Python.</p>
+        - HomeworkTask:
+            homework_item_type: task
+            text:
+              html: |-
+                <p>Python umí i jiné věci než čísla. Třeba takové <em>řetězce</em> – slova, věty nebo jiný text.
+                Řetězce se zadávají v uvozovkách – jednoduchých <code>'</code> nebo dvojitých <code>"</code>:</p>
+                <p>```</p>
+                <blockquote>
+                <blockquote>
+                <blockquote>
+                <p>'Ahoj!'
+                'Ahoj!'
+                ```</p>
+                </blockquote>
+                </blockquote>
+                </blockquote>
+        - HomeworkTask:
+            homework_item_type: task
+            text:
+              html: |-
+                <p>Řetězce jdou spojovat sčítáním. Vyzkoušej si to:</p>
+                <p>```</p>
+                <blockquote>
+                <blockquote>
+                <blockquote>
+                <p>'A' + "B"
+                'AB'
+                ```</p>
+                </blockquote>
+                </blockquote>
+                </blockquote>
+        - HomeworkTask:
+            homework_item_type: task
+            text:
+              html: |-
+                <p>Co je tady špatně? Jak to spravit?</p>
+                <p>```</p>
+                <blockquote>
+                <blockquote>
+                <blockquote>
+                <p>'Ahoj' + 'PyLadies!'
+                ```</p>
+                </blockquote>
+                </blockquote>
+                </blockquote>
+        - HomeworkTask:
+            homework_item_type: task
+            text:
+              html: <p>Řetězce se dají sčítat. Dají se i násobit? Dělit? Odečítat?</p>
+        - HomeworkTask:
+            homework_item_type: task
+            text:
+              html: <p>Co se stane, když se pokusím sečíst číslo a řetězec?</p>
+        - HomeworkTask:
+            homework_item_type: task
+            text:
+              html: <p>A vynásobit?</p>
+        lesson_items:
+        - LessonItem:
+            lesson_item_type: attachment
+            title:
+              html: Úvodní prezentace
+            url: http://pyladies.cz/v1/s001-install/uvod-praha.html
+        - LessonItem:
+            lesson_item_type: lesson
+            title:
+              html: Úvod do příkazové řádky
+            url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/cmdline/
+        - LessonItem:
+            lesson_item_type: lesson
+            title:
+              html: Instalace Pythonu
+            url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/install/
+        - LessonItem:
+            lesson_item_type: lesson
+            title:
+              html: První krůčky
+            url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/first-steps/
+        - LessonItem:
+            lesson_item_type: lesson
+            title:
+              html: Instalace editoru
+            url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/install-editor/
+        - LessonItem:
+            lesson_item_type: lesson
+            title:
+              html: Instalace gitu
+            url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/git/install/
+        - LessonItem:
+            lesson_item_type: cheatsheet
+            title:
+              html: Tahák na klávesnici (PDF)
+            url: https://pyvec.github.io/cheatsheets/keyboard/keyboard-cs.pdf
+        slug: 1-instalace
+        title:
+          html: Lekce 1 – Instalace
+    - Lesson:
+        date: '2018-03-14'
+        homework_items:
+        - HomeworkTask:
+            homework_item_type: task
+            text:
+              html: <p>Jakou používáš verzi Pythonu?</p>
+        - HomeworkSection:
+            homework_item_type: section
+            text:
+              html: <p>Následující projekty procvičí orientaci v chybových hláškách. Doporučuji je udělat.</p>
+        - HomeworkTask:
+            homework_item_type: task
+            text:
+              html: |-
+                <p>Jak se jmenuje druh chyby, která nastane, když…</p>
+                <ul>
+                <li>Dáš uvozovky jen na jednu stranu řetězce? — SyntaxError</li>
+                <li>Zkusíš odečíst číslo od řetězce? —</li>
+                <li>Dělíš nulou? —</li>
+                <li>Použiješ proměnnou, která neexistuje? —</li>
+                <li>Stiskneš Ctrl+C, když se program ptá na vstup (pomocí input)? —</li>
+                <li>Odsadíš příkaz bez předchozího if:? —</li>
+                <li>Po if: odsadíš jeden příkaz o čtyři mezery a druhý jen o dvě? —</li>
+                <li>Neuzavřeš závorku? –</li>
+                <li>Zkusíš použít vykřičník (!) jako operátor? —</li>
+                <li>Napíšeš v příkazu print(1, 2, 3) čárku navíc? —</li>
+                </ul>
+        - HomeworkTask:
+            homework_item_type: task
+            text:
+              html: |-
+                <p><em>Podívej se na odpovědi na předchozí otázku, ale Python zkus použít jen na ověření.</em></p>
+                <p>Jaká chyba nastane, když zkusíš použít proměnnou předtím, než do ní něco přiřadíš?</p>
+        - HomeworkTask:
+            homework_item_type: task
+            text:
+              html: |-
+                <p><em>Podívej se na odpovědi na otázku 1, ale Python použij jen na ověření.</em></p>
+                <p>Jaká chyba nastane, když zkusíš podělit řetězec řetězcem?</p>
+        - HomeworkTask:
+            homework_item_type: task
+            text:
+              html: |-
+                <p>Lomítko (<code>/</code>) je operátor, ale nedá se použít na řetězce. Vykřičník (<code>!</code>) v Pythonu není operátor.
+                Jak se liší „jejich“ chyby?</p>
+        - HomeworkSection:
+            homework_item_type: section
+            text:
+              html: |-
+                <p>Tenhle projekt by měl přivést k tomu, jak zjišťovat, co v Pythonu jde a co ne.
+                Druhá část je trochu na zamyšlení.</p>
+        - HomeworkTask:
+            homework_item_type: task
+            text:
+              html: |-
+                <p>Ne všechno se dá použít jako jméno proměnné.
+                Fungují pro proměnné následující jména? Pokud ne, proč asi?</p>
+                <p><code>x</code>
+                <code>tlacitko4</code>
+                <code>34</code>
+                <code>3e4</code>
+                <code>krůta</code>
+                <code>$i</code>
+                <code>druha-odmocnina</code>
+                <code>readme.txt</code>
+                <code>kratsiStrana</code>
+                <code>POCET_BODU</code>
+                <code>_ (podtržítko)</code>
+                <code>π (pí)</code>
+                <code>True</code>
+                <code>_cache</code>
+                <code>__name__</code>
+                <code>while</code></p>
+        - HomeworkSection:
+            homework_item_type: section
+            text:
+              html: <p>Následující projekty jsou na procvičení toho, co jsme dělaly na srazu. Nemáš-li čas, zatím je přeskoč.</p>
+        - HomeworkTask:
+            homework_item_type: task
+            text:
+              html: |-
+                <p><em>Zkus se nedívat na programy ze srazu.</em></p>
+                <p>Napiš program, který spočítá povrch a objem krychle o straně 2852 cm.</p>
+                <p>Abys nemusela tolik hledat v učebnici (vlastně Wikipedii): povrch S = 6a², objem V = a³</p>
+                <p><em>Řešení, pro kontrolu: S = 48803424 cm², V = 23197894208 cm³</em></p>
+        - HomeworkTask:
+            homework_item_type: task
+            text:
+              html: |-
+                <p>Změň program tak, aby stranu/poloměr mohl uživatel zadat.</p>
+                <p><em>Tady už se na materiály ze srazu klidně podívej.</em></p>
+        - HomeworkSection:
+            homework_item_type: section
+            text:
+              html: |-
+                <p>Další dva projekty doplňují program ze srazu.
+                Všechno bude vysvětleno později, takže jestli nemáš čas, přeskoč je.</p>
+        - HomeworkTask:
+            homework_item_type: task
+            text:
+              html: |-
+                <p>Ulož si následující program jako <code>pokus.py</code> a spusť ho několikrát za sebou. Co dělá?</p>
+                <p><code>from random import randrange
+                cislo = randrange(3)
+                print(cislo)</code></p>
+                <p><em>Jak to funguje, to se dozvíme příště; zatím to ber jako kouzelné zaříkadlo.</em></p>
+                <p><em>Aby všechno fungovalo správně, nesmíš mít v aktuálním adresáři soubor jménem <code>random.py</code>.</em></p>
+        - HomeworkTask:
+            homework_item_type: task
+            text:
+              html: |-
+                <p>Zkombinuj program z předchozího projektu s programem kámen-nůžky-papír a nastav <code>tah_pocitace</code> na:</p>
+                <p>a. 'kámen', pokud je cislo 0,
+                b. 'nůžky', pokud je cislo 1,
+                c. jinak na 'papír'.</p>
+        - HomeworkSection:
+            homework_item_type: section
+            text:
+              html: <p>Tyhle projekty kombinují opakování a nové informace. Doporučuji si je projít.</p>
+        - HomeworkTask:
+            homework_item_type: task
+            text:
+              html: <p>Které pythonní <em>operátory</em> dokážeš z hlavy vyjmenovat?</p>
+        - HomeworkTask:
+            homework_item_type: task
+            text:
+              html: |-
+                <p>Zkusila jsi porovnávat řetězce?
+                Doplň tuhle tabulku tužkou; pak ověř odpovědi pomocí Pythonu:</p>
+                <p>a b
+                2 &gt; 1
+                1 &lt; 2
+                'abc' == 'abc'
+                'aaa' 'abc'
+                'abc' 'Abc'
+                'abC' 'abc'
+                'abc' 'abcde'
+                'abc' 'ábč'
+                'abc' 10</p>
+        - HomeworkTask:
+            homework_item_type: task
+            text:
+              html: |-
+                <p>Jaká je hodnota proměnné po provedení příkazu:</p>
+                <p><code>promenna = 1 &lt; 2 ?
+                promenna = 2 &lt; 2 ?
+                promenna = 1 &lt; 2 &lt; 3 ?
+                promenna = 1 &lt; 3 &lt; 2 ?
+                promenna = 1 &lt; 3 &lt; 3 ?
+                promenna = 'abc' &lt; 'ABC' &lt; 'def' &lt; 'zajíc' ?</code></p>
+                <p>Tam, kde je hodnota proměnné <code>False</code>, dají se některé z porovnávaných hodnot mezi sebou vyměnit, aby
+                byla <code>True</code>?</p>
+        - HomeworkSection:
+            homework_item_type: section
+            text:
+              html: <p>Další dva projekty ti umožní kreativně využít, co ses naučila.</p>
+        - HomeworkTask:
+            homework_item_type: task
+            text:
+              html: |-
+                <p>Na srazu jsme měli program, který píše různé nesmysly podle uživatelem zadaného věku.</p>
+                <p>Zkus napsat program, který píše hlášky podle zadané rychlosti chůze, váhy ulovené ryby, počtu tykadel,
+                teploty vody nebo třeba vzdálenosti od rovníku.</p>
+        - HomeworkTask:
+            homework_item_type: task
+            text:
+              html: |-
+                <p>Podle toho, jak jste se na sraze domluvili, pošli řešení e-mailem (např. organizátorům, koučovi, nebo
+                vůbec). Posílej ho jako přílohu, nekopíruj ho do textu e-mailu.</p>
+                <p>Jestli procházíš kurz sama a můžeš programování konzultovat s někým zkušenějším, je tento úkol na
+                takovou konzultaci ideální téma.</p>
+        - HomeworkTask:
+            homework_item_type: task
+            text:
+              html: |-
+                <p>Napiš program, který po zadání správného hesla vypíše nějakou tajnou informaci.</p>
+                <p><em>Vhodné tajemství je třeba: V pátek jsem viděla černého havrana.</em></p>
+        - HomeworkSection:
+            homework_item_type: section
+            text:
+              html: <p>Poslední projekty jsou pokročilejší. Jestli nemáš čas, radši udělej pořádně ty ostatní.</p>
+        - HomeworkTask:
+            homework_item_type: task
+            text:
+              html: |-
+                <p>Projdi si v materiálech bonusovou sekci <em>„Nebo anebo a”</em>:</p>
+                <p>http://naucse.python.cz/lessons/beginners/and-or/</p>
+        - HomeworkTask:
+            homework_item_type: task
+            text:
+              html: |-
+                <p>Doplň tuhle tabulku:</p>
+                <p>a b a and b a or b not a
+                True True
+                False True
+                True False
+                False False</p>
+                <p>Tohle je takzvaná <em>pravdivostní</em> tabulka:
+                <em>Obsahuje jeden řádek pro každou kombinaci booleovských hodnot, které a a b můžou mít. Když se stane, že se v složitějších and a or ztratíš, doporučuji napsat si podobnou tabulku a na každý řádek se podívat zvlášť.</em></p>
+        - HomeworkTask:
+            homework_item_type: task
+            text:
+              html: |-
+                <p>Zkus přepsat Kámen, Nůžky, Papír pomocí <code>and</code> a <code>or</code>.</p>
+                <p>Dokážeš docílit toho, aby se každý z řetězců <code>'Plichta.'</code>, <code>'Počítač vyhrál.'</code> a <code>'Vyhrála jsi!'</code> objevil
+                v programu jen jednou, aniž bys tyhle řetězce musela přiřazovat do proměnných?</p>
+                <p>Pokud ano, gratuluji!</p>
+        - HomeworkTask:
+            homework_item_type: task
+            text:
+              html: <p>Zkus program „šťastná/bohatá“ přepsat pomocí zanořených <code>if</code>ů. Která verze ti připadá čitelnější?</p>
+        lesson_items:
+        - LessonItem:
+            lesson_item_type: lesson
+            title:
+              html: První program
+            url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/hello-world/
+        - LessonItem:
+            lesson_item_type: lesson
+            title:
+              html: Print a chybové hlášky
+            url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/print/
+        - LessonItem:
+            lesson_item_type: lesson
+            title:
+              html: Proměnné
+            url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/variables/
+        - LessonItem:
+            lesson_item_type: lesson
+            title:
+              html: Porovnávání
+            url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/comparisons/
+        - LessonItem:
+            lesson_item_type: lesson
+            title:
+              html: '*Nebo* anebo *a* (bonus)'
+            url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/and-or/
+        - LessonItem:
+            lesson_item_type: cheatsheet
+            title:
+              html: Tahák na příkazovou řádku a první kroky v Pythonu (PDF)
+            url: https://s3-eu-west-1.amazonaws.com/messa-shared-files/2017/09/pyladies_2_lekce_tahak.pdf
+        slug: 2-prvni-program
+        title:
+          html: Lekce 2 – První program
+    - Lesson:
+        date: '2018-03-21'
+        homework_items: []
+        lesson_items:
+        - LessonItem:
+            lesson_item_type: lesson
+            title:
+              html: Funkce
+            url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/functions/
+        - LessonItem:
+            lesson_item_type: lesson
+            title:
+              html: Želva a cykly
+            url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/intro/turtle/
+        - LessonItem:
+            lesson_item_type: lesson
+            title:
+              html: Cyklus While
+            url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/while/
+        - LessonItem:
+            lesson_item_type: cheatsheet
+            title:
+              html: Tahák s užitečnými funkcemi
+            url: https://pyvec.github.io/cheatsheets/basic-functions/basic-functions-cs.pdf
+        slug: '3'
+        title:
+          html: Lekce 3 – Cykly
+    - Lesson:
+        date: '2018-03-28'
+        homework_items: []
+        lesson_items:
+        - LessonItem:
+            lesson_item_type: lesson
+            title:
+              html: Vlastní funkce
+            url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/def/
+        - LessonItem:
+            lesson_item_type: lesson
+            title:
+              html: Řetězce
+            url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/str/
+        - LessonItem:
+            lesson_item_type: cheatsheet
+            title:
+              html: Řetězcový tahák
+            url: https://pyvec.github.io/cheatsheets/strings/strings-cs.pdf
+        slug: '4'
+        title:
+          html: Lekce 4 – Funkce & Řetězce
+    - Lesson:
+        date: '2018-04-04'
+        homework_items: []
+        lesson_items:
+        - LessonItem:
+            lesson_item_type: text
+            text:
+              html: Procvičíme si vše, co jsme se naučily
+        - LessonItem:
+            lesson_item_type: lesson
+            title:
+              html: Soubory
+            url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/files/
+        slug: '5'
+        title:
+          html: Lekce 5 – Procvičování a soubory
+    - Lesson:
+        date: '2018-04-11'
+        homework_items: []
+        lesson_items:
+        - LessonItem:
+            lesson_item_type: lesson
+            title:
+              html: Spolupráce a Git
+            url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/git/git-collaboration-2in1/
+        - LessonItem:
+            lesson_item_type: lesson
+            title:
+              html: Větvení v Gitu (Bonus)
+            url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/git/branching/
+        - LessonItem:
+            lesson_item_type: cheatsheet
+            title:
+              html: Gitový tahák
+            url: https://pyvec.github.io/cheatsheets/basic-git/basic-git-cs.pdf
+        slug: '6'
+        title:
+          html: Lekce 6 – Spolupráce a Open-Source - Git
+    - Lesson:
+        date: '2018-04-18'
+        homework_items: []
+        lesson_items:
+        - LessonItem:
+            lesson_item_type: lesson
+            title:
+              html: Seznamy
+            url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/list/
+        - LessonItem:
+            lesson_item_type: lesson
+            title:
+              html: N-tice
+            url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/tuple/
+        - LessonItem:
+            lesson_item_type: cheatsheet
+            title:
+              html: Tahák na seznamy
+            url: https://pyvec.github.io/cheatsheets/lists/lists-cs.pdf
+        slug: '7'
+        title:
+          html: Lekce 7 – Seznamy
+    - Lesson:
+        date: '2018-04-25'
+        homework_items: []
+        lesson_items:
+        - LessonItem:
+            lesson_item_type: lesson
+            title:
+              html: Slovníky
+            url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/dict/
+        - LessonItem:
+            lesson_item_type: lesson
+            title:
+              html: JSON
+            url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/intro/json/
+        - LessonItem:
+            lesson_item_type: lesson
+            title:
+              html: Github API
+            url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/projects/github-api/
+        - LessonItem:
+            lesson_item_type: cheatsheet
+            title:
+              html: Slovníkový tahák
+            url: https://pyvec.github.io/cheatsheets/dicts/dicts-cs.pdf
+        slug: '8'
+        title:
+          html: Lekce 8 – Slovníky
+    - Lesson:
+        date: '2018-05-02'
+        homework_items: []
+        lesson_items:
+        - LessonItem:
+            lesson_item_type: lesson
+            title:
+              html: Výjimky
+            url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/exceptions/
+        - LessonItem:
+            lesson_item_type: lesson
+            title:
+              html: Moduly
+            url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/modules/
+        - LessonItem:
+            lesson_item_type: lesson
+            title:
+              html: Testování
+            url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/testing/
+        - LessonItem:
+            lesson_item_type: lesson
+            title:
+              html: Cyklické importy
+            url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/circular-imports/
+        - LessonItem:
+            lesson_item_type: cheatsheet
+            title:
+              html: Výjimkový tahák
+            url: https://pyvec.github.io/cheatsheets/exceptions/exceptions-cs.pdf
+        slug: '9'
+        title:
+          html: Lekce 9 – Testování
+    - Lesson:
+        date: '2018-05-09'
+        homework_items: []
+        lesson_items:
+        - LessonItem:
+            lesson_item_type: lesson
+            title:
+              html: Grafika
+            url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/intro/pyglet/
+        - LessonItem:
+            lesson_item_type: lesson
+            title:
+              html: 'Praktické cvičení: Pong'
+            url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/projects/pong/
+        - LessonItem:
+            lesson_item_type: attachment
+            title:
+              html: Kód celé hry Pong
+            url: http://pyladies.cz/v1/s012-pyglet/pong.py
+        - LessonItem:
+            lesson_item_type: cheatsheet
+            title:
+              html: Tahák na Pyglet
+            url: https://pyvec.github.io/cheatsheets/pyglet/pyglet-basics-cs.pdf
+        slug: '10'
+        title:
+          html: Lekce 10 – Grafika
+    - Lesson:
+        date: '2018-05-16'
+        homework_items: []
+        lesson_items:
+        - LessonItem:
+            lesson_item_type: lesson
+            title:
+              html: Třídy
+            url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/class/
+        - LessonItem:
+            lesson_item_type: lesson
+            title:
+              html: Dědičnost
+            url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/inheritance/
+        slug: '11'
+        title:
+          html: Lekce 11 – Třídy
+    - Lesson:
+        date: '2018-05-23'
+        homework_items: []
+        lesson_items:
+        - LessonItem:
+            lesson_item_type: text
+            text:
+              html: Turnaj v piškvorkách
+        - LessonItem:
+            lesson_item_type: lesson
+            title:
+              html: Asteroids
+            url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/projects/asteroids/
+        - LessonItem:
+            lesson_item_type: cheatsheet
+            title:
+              html: Množinový tahák
+            url: https://pyvec.github.io/cheatsheets/sets/sets-cs.pdf
+        - LessonItem:
+            lesson_item_type: cheatsheet
+            title:
+              html: Tahák na geometrii a fyziku 2D her
+            url: https://pyvec.github.io/cheatsheets/game-physics/game-physics-cs.pdf
+        slug: '12'
+        title:
+          html: Lekce 12 – Závěrečný projekt
+    - Lesson:
+        date: '2018-05-30'
+        homework_items: []
+        lesson_items: []
+        slug: '13'
+        title:
+          html: Lekce 13 – Závěrečná procvičovací hodina
+    subtitle:
+      html: Praha (NTK) - jaro 2018
     title:
-      html: Lekce 1 – Instalace
-  - date: '2018-03-14'
-    homework_items:
-    - homework_item_type: task
-      text:
-        html: <p>Jakou používáš verzi Pythonu?</p>
-    - homework_item_type: section
-      text:
-        html: <p>Následující projekty procvičí orientaci v chybových hláškách. Doporučuji je udělat.</p>
-    - homework_item_type: task
-      text:
-        html: |-
-          <p>Jak se jmenuje druh chyby, která nastane, když…</p>
-          <ul>
-          <li>Dáš uvozovky jen na jednu stranu řetězce? — SyntaxError</li>
-          <li>Zkusíš odečíst číslo od řetězce? —</li>
-          <li>Dělíš nulou? —</li>
-          <li>Použiješ proměnnou, která neexistuje? —</li>
-          <li>Stiskneš Ctrl+C, když se program ptá na vstup (pomocí input)? —</li>
-          <li>Odsadíš příkaz bez předchozího if:? —</li>
-          <li>Po if: odsadíš jeden příkaz o čtyři mezery a druhý jen o dvě? —</li>
-          <li>Neuzavřeš závorku? –</li>
-          <li>Zkusíš použít vykřičník (!) jako operátor? —</li>
-          <li>Napíšeš v příkazu print(1, 2, 3) čárku navíc? —</li>
-          </ul>
-    - homework_item_type: task
-      text:
-        html: |-
-          <p><em>Podívej se na odpovědi na předchozí otázku, ale Python zkus použít jen na ověření.</em></p>
-          <p>Jaká chyba nastane, když zkusíš použít proměnnou předtím, než do ní něco přiřadíš?</p>
-    - homework_item_type: task
-      text:
-        html: |-
-          <p><em>Podívej se na odpovědi na otázku 1, ale Python použij jen na ověření.</em></p>
-          <p>Jaká chyba nastane, když zkusíš podělit řetězec řetězcem?</p>
-    - homework_item_type: task
-      text:
-        html: |-
-          <p>Lomítko (<code>/</code>) je operátor, ale nedá se použít na řetězce. Vykřičník (<code>!</code>) v Pythonu není operátor.
-          Jak se liší „jejich“ chyby?</p>
-    - homework_item_type: section
-      text:
-        html: |-
-          <p>Tenhle projekt by měl přivést k tomu, jak zjišťovat, co v Pythonu jde a co ne.
-          Druhá část je trochu na zamyšlení.</p>
-    - homework_item_type: task
-      text:
-        html: |-
-          <p>Ne všechno se dá použít jako jméno proměnné.
-          Fungují pro proměnné následující jména? Pokud ne, proč asi?</p>
-          <p><code>x</code>
-          <code>tlacitko4</code>
-          <code>34</code>
-          <code>3e4</code>
-          <code>krůta</code>
-          <code>$i</code>
-          <code>druha-odmocnina</code>
-          <code>readme.txt</code>
-          <code>kratsiStrana</code>
-          <code>POCET_BODU</code>
-          <code>_ (podtržítko)</code>
-          <code>π (pí)</code>
-          <code>True</code>
-          <code>_cache</code>
-          <code>__name__</code>
-          <code>while</code></p>
-    - homework_item_type: section
-      text:
-        html: <p>Následující projekty jsou na procvičení toho, co jsme dělaly na srazu. Nemáš-li čas, zatím je přeskoč.</p>
-    - homework_item_type: task
-      text:
-        html: |-
-          <p><em>Zkus se nedívat na programy ze srazu.</em></p>
-          <p>Napiš program, který spočítá povrch a objem krychle o straně 2852 cm.</p>
-          <p>Abys nemusela tolik hledat v učebnici (vlastně Wikipedii): povrch S = 6a², objem V = a³</p>
-          <p><em>Řešení, pro kontrolu: S = 48803424 cm², V = 23197894208 cm³</em></p>
-    - homework_item_type: task
-      text:
-        html: |-
-          <p>Změň program tak, aby stranu/poloměr mohl uživatel zadat.</p>
-          <p><em>Tady už se na materiály ze srazu klidně podívej.</em></p>
-    - homework_item_type: section
-      text:
-        html: |-
-          <p>Další dva projekty doplňují program ze srazu.
-          Všechno bude vysvětleno později, takže jestli nemáš čas, přeskoč je.</p>
-    - homework_item_type: task
-      text:
-        html: |-
-          <p>Ulož si následující program jako <code>pokus.py</code> a spusť ho několikrát za sebou. Co dělá?</p>
-          <p><code>from random import randrange
-          cislo = randrange(3)
-          print(cislo)</code></p>
-          <p><em>Jak to funguje, to se dozvíme příště; zatím to ber jako kouzelné zaříkadlo.</em></p>
-          <p><em>Aby všechno fungovalo správně, nesmíš mít v aktuálním adresáři soubor jménem <code>random.py</code>.</em></p>
-    - homework_item_type: task
-      text:
-        html: |-
-          <p>Zkombinuj program z předchozího projektu s programem kámen-nůžky-papír a nastav <code>tah_pocitace</code> na:</p>
-          <p>a. 'kámen', pokud je cislo 0,
-          b. 'nůžky', pokud je cislo 1,
-          c. jinak na 'papír'.</p>
-    - homework_item_type: section
-      text:
-        html: <p>Tyhle projekty kombinují opakování a nové informace. Doporučuji si je projít.</p>
-    - homework_item_type: task
-      text:
-        html: <p>Které pythonní <em>operátory</em> dokážeš z hlavy vyjmenovat?</p>
-    - homework_item_type: task
-      text:
-        html: |-
-          <p>Zkusila jsi porovnávat řetězce?
-          Doplň tuhle tabulku tužkou; pak ověř odpovědi pomocí Pythonu:</p>
-          <p>a b
-          2 &gt; 1
-          1 &lt; 2
-          'abc' == 'abc'
-          'aaa' 'abc'
-          'abc' 'Abc'
-          'abC' 'abc'
-          'abc' 'abcde'
-          'abc' 'ábč'
-          'abc' 10</p>
-    - homework_item_type: task
-      text:
-        html: |-
-          <p>Jaká je hodnota proměnné po provedení příkazu:</p>
-          <p><code>promenna = 1 &lt; 2 ?
-          promenna = 2 &lt; 2 ?
-          promenna = 1 &lt; 2 &lt; 3 ?
-          promenna = 1 &lt; 3 &lt; 2 ?
-          promenna = 1 &lt; 3 &lt; 3 ?
-          promenna = 'abc' &lt; 'ABC' &lt; 'def' &lt; 'zajíc' ?</code></p>
-          <p>Tam, kde je hodnota proměnné <code>False</code>, dají se některé z porovnávaných hodnot mezi sebou vyměnit, aby
-          byla <code>True</code>?</p>
-    - homework_item_type: section
-      text:
-        html: <p>Další dva projekty ti umožní kreativně využít, co ses naučila.</p>
-    - homework_item_type: task
-      text:
-        html: |-
-          <p>Na srazu jsme měli program, který píše různé nesmysly podle uživatelem zadaného věku.</p>
-          <p>Zkus napsat program, který píše hlášky podle zadané rychlosti chůze, váhy ulovené ryby, počtu tykadel,
-          teploty vody nebo třeba vzdálenosti od rovníku.</p>
-    - homework_item_type: task
-      text:
-        html: |-
-          <p>Podle toho, jak jste se na sraze domluvili, pošli řešení e-mailem (např. organizátorům, koučovi, nebo
-          vůbec). Posílej ho jako přílohu, nekopíruj ho do textu e-mailu.</p>
-          <p>Jestli procházíš kurz sama a můžeš programování konzultovat s někým zkušenějším, je tento úkol na
-          takovou konzultaci ideální téma.</p>
-    - homework_item_type: task
-      text:
-        html: |-
-          <p>Napiš program, který po zadání správného hesla vypíše nějakou tajnou informaci.</p>
-          <p><em>Vhodné tajemství je třeba: V pátek jsem viděla černého havrana.</em></p>
-    - homework_item_type: section
-      text:
-        html: <p>Poslední projekty jsou pokročilejší. Jestli nemáš čas, radši udělej pořádně ty ostatní.</p>
-    - homework_item_type: task
-      text:
-        html: |-
-          <p>Projdi si v materiálech bonusovou sekci <em>„Nebo anebo a”</em>:</p>
-          <p>http://naucse.python.cz/lessons/beginners/and-or/</p>
-    - homework_item_type: task
-      text:
-        html: |-
-          <p>Doplň tuhle tabulku:</p>
-          <p>a b a and b a or b not a
-          True True
-          False True
-          True False
-          False False</p>
-          <p>Tohle je takzvaná <em>pravdivostní</em> tabulka:
-          <em>Obsahuje jeden řádek pro každou kombinaci booleovských hodnot, které a a b můžou mít. Když se stane, že se v složitějších and a or ztratíš, doporučuji napsat si podobnou tabulku a na každý řádek se podívat zvlášť.</em></p>
-    - homework_item_type: task
-      text:
-        html: |-
-          <p>Zkus přepsat Kámen, Nůžky, Papír pomocí <code>and</code> a <code>or</code>.</p>
-          <p>Dokážeš docílit toho, aby se každý z řetězců <code>'Plichta.'</code>, <code>'Počítač vyhrál.'</code> a <code>'Vyhrála jsi!'</code> objevil
-          v programu jen jednou, aniž bys tyhle řetězce musela přiřazovat do proměnných?</p>
-          <p>Pokud ano, gratuluji!</p>
-    - homework_item_type: task
-      text:
-        html: <p>Zkus program „šťastná/bohatá“ přepsat pomocí zanořených <code>if</code>ů. Která verze ti připadá čitelnější?</p>
-    lesson_items:
-    - lesson_item_type: lesson
-      title:
-        html: První program
-      url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/hello-world/
-    - lesson_item_type: lesson
-      title:
-        html: Print a chybové hlášky
-      url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/print/
-    - lesson_item_type: lesson
-      title:
-        html: Proměnné
-      url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/variables/
-    - lesson_item_type: lesson
-      title:
-        html: Porovnávání
-      url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/comparisons/
-    - lesson_item_type: lesson
-      title:
-        html: '*Nebo* anebo *a* (bonus)'
-      url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/and-or/
-    - lesson_item_type: cheatsheet
-      title:
-        html: Tahák na příkazovou řádku a první kroky v Pythonu (PDF)
-      url: https://s3-eu-west-1.amazonaws.com/messa-shared-files/2017/09/pyladies_2_lekce_tahak.pdf
-    slug: 2-prvni-program
-    title:
-      html: Lekce 2 – První program
-  - date: '2018-03-21'
-    homework_items: []
-    lesson_items:
-    - lesson_item_type: lesson
-      title:
-        html: Funkce
-      url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/functions/
-    - lesson_item_type: lesson
-      title:
-        html: Želva a cykly
-      url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/intro/turtle/
-    - lesson_item_type: lesson
-      title:
-        html: Cyklus While
-      url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/while/
-    - lesson_item_type: cheatsheet
-      title:
-        html: Tahák s užitečnými funkcemi
-      url: https://pyvec.github.io/cheatsheets/basic-functions/basic-functions-cs.pdf
-    slug: '3'
-    title:
-      html: Lekce 3 – Cykly
-  - date: '2018-03-28'
-    homework_items: []
-    lesson_items:
-    - lesson_item_type: lesson
-      title:
-        html: Vlastní funkce
-      url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/def/
-    - lesson_item_type: lesson
-      title:
-        html: Řetězce
-      url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/str/
-    - lesson_item_type: cheatsheet
-      title:
-        html: Řetězcový tahák
-      url: https://pyvec.github.io/cheatsheets/strings/strings-cs.pdf
-    slug: '4'
-    title:
-      html: Lekce 4 – Funkce & Řetězce
-  - date: '2018-04-04'
-    homework_items: []
-    lesson_items:
-    - lesson_item_type: text
-      text:
-        html: Procvičíme si vše, co jsme se naučily
-    - lesson_item_type: lesson
-      title:
-        html: Soubory
-      url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/files/
-    slug: '5'
-    title:
-      html: Lekce 5 – Procvičování a soubory
-  - date: '2018-04-11'
-    homework_items: []
-    lesson_items:
-    - lesson_item_type: lesson
-      title:
-        html: Spolupráce a Git
-      url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/git/git-collaboration-2in1/
-    - lesson_item_type: lesson
-      title:
-        html: Větvení v Gitu (Bonus)
-      url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/git/branching/
-    - lesson_item_type: cheatsheet
-      title:
-        html: Gitový tahák
-      url: https://pyvec.github.io/cheatsheets/basic-git/basic-git-cs.pdf
-    slug: '6'
-    title:
-      html: Lekce 6 – Spolupráce a Open-Source - Git
-  - date: '2018-04-18'
-    homework_items: []
-    lesson_items:
-    - lesson_item_type: lesson
-      title:
-        html: Seznamy
-      url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/list/
-    - lesson_item_type: lesson
-      title:
-        html: N-tice
-      url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/tuple/
-    - lesson_item_type: cheatsheet
-      title:
-        html: Tahák na seznamy
-      url: https://pyvec.github.io/cheatsheets/lists/lists-cs.pdf
-    slug: '7'
-    title:
-      html: Lekce 7 – Seznamy
-  - date: '2018-04-25'
-    homework_items: []
-    lesson_items:
-    - lesson_item_type: lesson
-      title:
-        html: Slovníky
-      url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/dict/
-    - lesson_item_type: lesson
-      title:
-        html: JSON
-      url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/intro/json/
-    - lesson_item_type: lesson
-      title:
-        html: Github API
-      url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/projects/github-api/
-    - lesson_item_type: cheatsheet
-      title:
-        html: Slovníkový tahák
-      url: https://pyvec.github.io/cheatsheets/dicts/dicts-cs.pdf
-    slug: '8'
-    title:
-      html: Lekce 8 – Slovníky
-  - date: '2018-05-02'
-    homework_items: []
-    lesson_items:
-    - lesson_item_type: lesson
-      title:
-        html: Výjimky
-      url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/exceptions/
-    - lesson_item_type: lesson
-      title:
-        html: Moduly
-      url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/modules/
-    - lesson_item_type: lesson
-      title:
-        html: Testování
-      url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/testing/
-    - lesson_item_type: lesson
-      title:
-        html: Cyklické importy
-      url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/circular-imports/
-    - lesson_item_type: cheatsheet
-      title:
-        html: Výjimkový tahák
-      url: https://pyvec.github.io/cheatsheets/exceptions/exceptions-cs.pdf
-    slug: '9'
-    title:
-      html: Lekce 9 – Testování
-  - date: '2018-05-09'
-    homework_items: []
-    lesson_items:
-    - lesson_item_type: lesson
-      title:
-        html: Grafika
-      url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/intro/pyglet/
-    - lesson_item_type: lesson
-      title:
-        html: 'Praktické cvičení: Pong'
-      url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/projects/pong/
-    - lesson_item_type: attachment
-      title:
-        html: Kód celé hry Pong
-      url: http://pyladies.cz/v1/s012-pyglet/pong.py
-    - lesson_item_type: cheatsheet
-      title:
-        html: Tahák na Pyglet
-      url: https://pyvec.github.io/cheatsheets/pyglet/pyglet-basics-cs.pdf
-    slug: '10'
-    title:
-      html: Lekce 10 – Grafika
-  - date: '2018-05-16'
-    homework_items: []
-    lesson_items:
-    - lesson_item_type: lesson
-      title:
-        html: Třídy
-      url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/class/
-    - lesson_item_type: lesson
-      title:
-        html: Dědičnost
-      url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/inheritance/
-    slug: '11'
-    title:
-      html: Lekce 11 – Třídy
-  - date: '2018-05-23'
-    homework_items: []
-    lesson_items:
-    - lesson_item_type: text
-      text:
-        html: Turnaj v piškvorkách
-    - lesson_item_type: lesson
-      title:
-        html: Asteroids
-      url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/projects/asteroids/
-    - lesson_item_type: cheatsheet
-      title:
-        html: Množinový tahák
-      url: https://pyvec.github.io/cheatsheets/sets/sets-cs.pdf
-    - lesson_item_type: cheatsheet
-      title:
-        html: Tahák na geometrii a fyziku 2D her
-      url: https://pyvec.github.io/cheatsheets/game-physics/game-physics-cs.pdf
-    slug: '12'
-    title:
-      html: Lekce 12 – Závěrečný projekt
-  - date: '2018-05-30'
-    homework_items: []
-    lesson_items: []
-    slug: '13'
-    title:
-      html: Lekce 13 – Závěrečná procvičovací hodina
-  subtitle:
-    html: Praha (NTK) - jaro 2018
-  title:
-    html: Začátečnický kurz PyLadies
+      html: Začátečnický kurz PyLadies
