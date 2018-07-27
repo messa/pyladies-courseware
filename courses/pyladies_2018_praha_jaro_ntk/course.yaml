@@ -1,14 +1,15 @@
 title: Začátečnický kurz PyLadies
 subtitle: Praha (NTK) - jaro 2018
-description: |
-  Národní technická knihovna, Technická 2710/6, Praha 6, 18:00–20:00
+description:
+  markdown: |
+    Národní technická knihovna, Technická 2710/6, Praha 6, 18:00–20:00
 
-  Tady najdeš všechny materiály k brněnské verzi začátečnického kurzu PyLadies.
+    Tady najdeš všechny materiály k brněnské verzi začátečnického kurzu PyLadies.
 
-  Stránky samotných PyLadies jsou na http://pyladies.cz.
+    Stránky samotných PyLadies jsou na http://pyladies.cz.
 
-  Jednotlivé lekce jsou určeny naprostým začátečnicím.
-  Instrukce jsou uvedeny pro operační systémy Linux, Windows i macOS.
+    Jednotlivé lekce jsou určeny naprostým začátečnicím.
+    Instrukce jsou uvedeny pro operační systémy Linux, Windows i macOS.
 
 lessons:
 
@@ -21,13 +22,13 @@ lessons:
   - lesson: Úvod do příkazové řádky
     url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/cmdline/
   - lesson: Instalace Pythonu
-    url; https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/install/
+    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/install/
   - lesson: První krůčky
-    url; https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/first-steps/
+    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/first-steps/
   - lesson: Instalace editoru
-    url; https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/install-editor/
+    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/install-editor/
   - lesson: Instalace gitu
-    url; https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/git/install/
+    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/git/install/
   - cheatsheet: Tahák na klávesnici (PDF)
     url: https://pyvec.github.io/cheatsheets/keyboard/keyboard-cs.pdf
   - homeworks: homeworks-handout1.yaml
@@ -44,7 +45,7 @@ lessons:
     url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/variables/
   - lesson: Porovnávání
     url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/comparisons/
-  - lesson: *Nebo* anebo *a* (bonus)
+  - lesson: '*Nebo* anebo *a* (bonus)'
     url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/and-or/
   - cheatsheet: Tahák na příkazovou řádku a první kroky v Pythonu (PDF)
     url: https://s3-eu-west-1.amazonaws.com/messa-shared-files/2017/09/pyladies_2_lekce_tahak.pdf

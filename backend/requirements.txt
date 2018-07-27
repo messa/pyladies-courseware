@@ -2,6 +2,7 @@ aiodns
 aiohttp
 aiohttp_session[secure]
 cchardet
+markdown
 pyyaml
 requests
 requests_oauthlib
