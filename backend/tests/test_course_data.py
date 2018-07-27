@@ -16,7 +16,7 @@ def test_load_course(project_dir, data_dir):
     course_dir = courses_dir / 'pyladies_2018_praha_jaro_ntk'
     assert courses_dir.is_dir()
     course = load_course(course_dir)
-    out = yaml_dump(debug_dump(course))
+    out = yaml_dump({'course_debug_dump': debug_dump(course)})
     out_path = data_dir / 'snapshots' / 'test_load_course.yaml'
     write_text(out_path.with_suffix('.current.yaml'), out)
     assert out == out_path.read_text()
@@ -36,9 +36,7 @@ def debug_dump(obj):
         return {k: debug_dump(v) for k, v in obj.items()}
     if isinstance(obj, list):
         return [debug_dump(v) for v in obj]
-    if isinstance(obj, Course):
-        return debug_dump(obj.data)
-    if isinstance(obj, Lesson):
+    if isinstance(obj, (Course, Lesson, LessonItem, HomeworkTask, HomeworkSection)):
         return debug_dump(obj.data)
     if isinstance(obj, Text):
         return debug_dump({'html': obj.html})
@@ -66,25 +64,117 @@ class Course:
             'title': Text(raw['title']),
             'subtitle': Text(raw['subtitle']),
             'description': Text(raw['description']),
-            'lessons': [Lesson(x) for x in raw['lessons']],
+            'lessons': [Lesson(x, dir_path=course_dir) for x in raw['lessons']],
         }
         # fix lessons where no slug was specified in course.yaml
         for n, lesson in enumerate(self.data['lessons'], start=1):
-            lesson.set_default_slug(str(n))
+            if not lesson.slug:
+                lesson.slug = str(n)
+
+
+class DataProperty:
+    '''
+    Example:
+
+        class C:
+            def __init__(self):
+                self.data = {'foo': 'bar'}
+            foo = DataProperty('foo')
+
+        # Now you can access C().data['foo'] via C().foo
+        C().foo == 'bar'
+        C().foo = 'baz'
+    '''
+
+    def __init__(self, key):
+        self.key = key
+
+    def __get__(self, instance, owner):
+        return instance.data[self.key]
+
+    def __set__(self, instance, value):
+        instance.data[self.key] = value
 
 
 class Lesson:
 
-    def __init__(self, raw):
+    def __init__(self, raw, dir_path):
         self.data = {
             'title': Text(raw['title']),
             'date': parse_date(raw['date']),
             'slug': str(raw['slug']) if raw.get('slug') else None,
+            'lesson_items': [LessonItem(x) for x in raw.get('items', [])],
+            'homework_items': [],
+        }
+        for raw_hw in raw.get('homeworks', []):
+            if raw_hw.get('file'):
+                self.data['homework_items'].extend(load_homeworks_file(dir_path / raw_hw['file']))
+
+    slug = DataProperty('slug')
+
+
+def load_homeworks_file(data_path):
+    try:
+        raw = yaml_load(data_path.read_text())
+    except Exception as e:
+        raise Exception(f'Failed to load homeworks file {data_path}: {e}')
+    homework_items = []
+    for raw_item in raw['homeworks']:
+        if raw_item.get('section'):
+            homework_items.append(HomeworkSection(raw_item['section']))
+        elif raw_item.get('markdown'):
+            homework_items.append(HomeworkTask(raw_item))
+        else:
+            raise Exception(f'Unknown item in homeworks file {data_path}: {smart_repr(raw_item)}')
+    return homework_items
+
+
+class LessonItem:
+
+    def __init__(self, raw):
+        if raw.get('lesson'):
+            self.data = {
+                'lesson_item_type': 'lesson',
+                'title': Text(raw['lesson']),
+                'url': raw['url'],
+            }
+        elif raw.get('cheatsheet'):
+            self.data = {
+                'lesson_item_type': 'cheatsheet',
+                'title': Text(raw['cheatsheet']),
+                'url': raw['url'],
+            }
+        elif raw.get('attachment'):
+            self.data = {
+                'lesson_item_type': 'attachment',
+                'title': Text(raw['attachment']),
+                'url': raw['url'],
+            }
+        elif raw.get('text'):
+            self.data = {
+                'lesson_item_type': 'text',
+                'text': Text(raw['text']),
+            }
+        else:
+            raise Exception(f'Unknown LessonItem data: {smart_repr(raw)}')
+
+
+class HomeworkSection:
+
+    def __init__(self, raw_section):
+        self.data = {
+            'homework_item_type': 'section',
+            'text': Text(raw_section),
         }
 
-    def set_default_slug(self, default_slug):
-        if not self.data['slug']:
-            self.data['slug'] = default_slug
+
+class HomeworkTask:
+
+    def __init__(self, raw):
+        self.data = {
+            'homework_item_type': 'task',
+            'text': Text(raw),
+        }
 
 
 class Text:

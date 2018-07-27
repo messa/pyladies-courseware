@@ -31,7 +31,8 @@ lessons:
     url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/git/install/
   - cheatsheet: Tahák na klávesnici (PDF)
     url: https://pyvec.github.io/cheatsheets/keyboard/keyboard-cs.pdf
-  - homeworks: homeworks-handout1.yaml
+  homeworks:
+  - file: homeworks-handout1.yaml
 
 - title: Lekce 2 – První program
   date: 14. 3. 2018
@@ -49,7 +50,8 @@ lessons:
     url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/and-or/
   - cheatsheet: Tahák na příkazovou řádku a první kroky v Pythonu (PDF)
     url: https://s3-eu-west-1.amazonaws.com/messa-shared-files/2017/09/pyladies_2_lekce_tahak.pdf
-  - homeworks: homeworks-handout2.yaml
+  homeworks:
+  - file: homeworks-handout2.yaml
 
 - title: Lekce 3 – Cykly
   date: 21. 3. 2018
