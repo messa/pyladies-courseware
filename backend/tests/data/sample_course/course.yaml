@@ -1,0 +1,33 @@
+title: Začátečnický kurz PyLadies
+subtitle: Praha (NTK) - jaro 2018
+description:
+  markdown: |
+    Národní technická knihovna, Technická 2710/6, Praha 6, 18:00–20:00
+
+    Tady najdeš všechny materiály k brněnské verzi začátečnického kurzu PyLadies.
+
+lessons:
+
+- title: Lekce 1 – Instalace
+  date: 7. 3. 2018
+  slug: 1-instalace
+  items:
+  - attachment: Úvodní prezentace
+    url: http://pyladies.cz/v1/s001-install/uvod-praha.html
+  - lesson: Úvod do příkazové řádky
+    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/cmdline/
+  - lesson: Instalace Pythonu
+    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/install/
+  - lesson: Instalace gitu
+    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/git/install/
+  - cheatsheet: Tahák na klávesnici (PDF)
+    url: https://pyvec.github.io/cheatsheets/keyboard/keyboard-cs.pdf
+  homeworks:
+  - file: homeworks1.yaml
+
+- title: Lekce 2 – První program
+  date: 14. 3. 2018
+  slug: 2-prvni-program
+  items:
+  - lesson: První program
+    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/hello-world/

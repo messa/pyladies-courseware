@@ -1,0 +1,9 @@
+homeworks:
+
+- markdown: |
+    Dělení? Znak ÷ se taky na klávesnici těžko píše (zvlášť na české). Jak se asi bude dělit?
+
+- markdown: |
+    Závorky v Pythonu fungují jako v matematice. Zkus pomocí Pythonu vypočítat: 3+(4+6)×8÷2−1 =
+
+    Jak se to zapíše v Pythonu?

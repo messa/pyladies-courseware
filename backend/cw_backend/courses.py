@@ -7,24 +7,8 @@ from .util import yaml_load
 logger = logging.getLogger(__name__)
 
 
-def load_course(course_dir):
-    return Course(course_dir)
-
-
-def debug_dump(obj):
-    if isinstance(obj, dict):
-        return {k: debug_dump(v) for k, v in obj.items()}
-    if isinstance(obj, list):
-        return [debug_dump(v) for v in obj]
-    if isinstance(obj, (Course, Lesson, LessonItem, HomeworkTask, HomeworkSection)):
-        return {obj.__class__.__name__: debug_dump(obj.data)}
-    if isinstance(obj, Text):
-        return debug_dump({'html': obj.html})
-    if isinstance(obj, date):
-        return obj.isoformat()
-    if isinstance(obj, str):
-        return obj
-    raise TypeError(f'Cannot debug_dump: {repr(obj)[:500]}')
+def load_course(course_file):
+    return Course(course_file)
 
 
 class DataProperty:
@@ -53,13 +37,13 @@ class DataProperty:
 
 class Course:
 
-    def __init__(self, course_dir):
-        data_path = course_dir / 'course.yaml'
-        logger.debug('Loading course from %s', data_path)
+    def __init__(self, course_file):
+        logger.debug('Loading course from %s', course_file)
         try:
-            raw = yaml_load(data_path.read_text())
+            raw = yaml_load(course_file.read_text())
         except Exception as e:
-            raise Exception(f'Failed to load course file {data_path}: {e}')
+            raise Exception(f'Failed to load course file {course_file}: {e}')
+        course_dir = course_file.parent
         self.data = {
             'title': Text(raw['title']),
             'subtitle': Text(raw['subtitle']),
@@ -89,11 +73,11 @@ class Lesson:
     slug = DataProperty('slug')
 
 
-def load_homeworks_file(data_path):
+def load_homeworks_file(file_path):
     try:
-        raw = yaml_load(data_path.read_text())
+        raw = yaml_load(file_path.read_text())
     except Exception as e:
-        raise Exception(f'Failed to load homeworks file {data_path}: {e}')
+        raise Exception(f'Failed to load homeworks file {file_path}: {e}')
     homework_items = []
     for raw_item in raw['homeworks']:
         if raw_item.get('section'):
@@ -101,7 +85,7 @@ def load_homeworks_file(data_path):
         elif raw_item.get('markdown'):
             homework_items.append(HomeworkTask(raw_item))
         else:
-            raise Exception(f'Unknown item in homeworks file {data_path}: {smart_repr(raw_item)}')
+            raise Exception(f'Unknown item in homeworks file {file_path}: {smart_repr(raw_item)}')
     return homework_items
 
 
