@@ -3,6 +3,7 @@ This module implements reading course data YAML files.
 '''
 
 from datetime import date
+from itertools import count
 import logging
 from reprlib import repr as smart_repr
 from .util import yaml_load
@@ -146,11 +147,12 @@ def load_homeworks_file(file_path):
     except Exception as e:
         raise Exception(f'Failed to load homeworks file {file_path}: {e}')
     homework_items = []
+    counter = count()
     for raw_item in raw['homeworks']:
         if raw_item.get('section'):
             homework_items.append(HomeworkSection(raw_item['section']))
         elif raw_item.get('markdown'):
-            homework_items.append(HomeworkTask(raw_item))
+            homework_items.append(HomeworkTask(raw_item, next(counter)))
         else:
             raise Exception(f'Unknown item in homeworks file {file_path}: {smart_repr(raw_item)}')
     return homework_items
@@ -204,9 +206,10 @@ class HomeworkSection:
 
 class HomeworkTask:
 
-    def __init__(self, raw):
+    def __init__(self, raw, default_number):
         self.data = {
             'homework_item_type': 'task',
+            'number': default_number,
             'text_html': to_html(raw),
         }
 

@@ -9,10 +9,18 @@ import formatDate from '../util/formatDate'
 
 const HomeworkTask = ({ hwItem }) => (
   <div className='homework-task'>
+    <div className='number'>{hwItem['number']}.</div>
     <div className='homework-body' dangerouslySetInnerHTML={{__html: hwItem['text_html'] }} />
     <style jsx>{`
       .homework-task {
-        margin: 1rem 0;
+        margin: 2rem 0;
+        padding-left: 1.8rem;
+        position: relative;
+      }
+      .homework-task .number {
+        position: absolute;
+        left: 0;
+        font-weight: 600;
       }
       .homework-body :global(pre),
       .homework-body :global(code) {
@@ -39,7 +47,9 @@ const HomeworkSection = ({ hwItem }) => (
     <div dangerouslySetInnerHTML={{__html: hwItem['text_html'] }} />
     <style jsx>{`
       .homework-section {
-        margin: 1rem 0;
+        margin: 2rem 0;
+        color: #038;
+        font-weight: 600;
       }
     `}</style>
   </div>)
@@ -91,11 +101,15 @@ export default class extends React.Component {
 
         <h2>Domácí projekty</h2>
 
-        {lesson['homework_items'].map(hwItem => {
+        {lesson['homework_items'].map((hwItem, i) => {
           switch (hwItem.homework_item_type) {
-            case 'task': return <HomeworkTask hwItem={hwItem} />
-            case 'section': return <HomeworkSection hwItem={hwItem} />
-            default: <pre className='debug'>{JSON.stringify({ hwItem }, null, 2)}</pre>
+            case 'task': return (<HomeworkTask key={i} hwItem={hwItem} />)
+            case 'section': return (<HomeworkSection key={i} hwItem={hwItem} />)
+            default: return (
+              <pre key={i} className='debug'>
+                {JSON.stringify({ hwItem }, null, 2)}
+              </pre>
+            )
           }
         })}
 
