@@ -1,6 +1,6 @@
 # This Dockerfile creates all-in-one image - for now.sh for example.
 # It's pretty messy - it's for demonstration purposes only.
-# Real deployment should have separate images for frontend and backend.
+# Real deployment should have separate images for each component - frontend and backend.
 
 FROM node:10-stretch AS build_frontend
 COPY frontend/package.json frontend/package-lock.json /frontend/

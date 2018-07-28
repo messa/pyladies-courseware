@@ -22,6 +22,10 @@ def page_data(req):
             results.append({'name': 'test2'})
         elif query == 'login_methods':
             results.append(get_login_methods())
+        elif query == 'list_courses':
+            results.append({
+                'active': [c.export() for c in req.app['courses']],
+            })
         else:
             raise Exception(f'Unknown query: {query!r}')
     assert len(results) == len(queries)

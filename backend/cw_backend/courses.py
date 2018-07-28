@@ -11,6 +11,10 @@ def load_course(course_file):
     return Course(course_file)
 
 
+def load_courses(data_dir):
+    return [Course(p) for p in data_dir.glob('courses/*/course.yaml')]
+
+
 class DataProperty:
     '''
     Example:
@@ -45,15 +49,21 @@ class Course:
             raise Exception(f'Failed to load course file {course_file}: {e}')
         course_dir = course_file.parent
         self.data = {
-            'title': Text(raw['title']),
-            'subtitle': Text(raw['subtitle']),
-            'description': Text(raw['description']),
+            'id': course_file.parent.name.replace('_', '-'),
+            'title_html': to_html(raw['title']),
+            'subtitle_html': to_html(raw['subtitle']),
+            'description_html': to_html(raw['description']),
             'lessons': [Lesson(x, dir_path=course_dir) for x in raw['lessons']],
         }
         # fix lessons where no slug was specified in course.yaml
         for n, lesson in enumerate(self.data['lessons'], start=1):
             if not lesson.slug:
                 lesson.slug = str(n)
+
+    def export(self):
+        d = dict(self.data)
+        d.pop('lessons')
+        return d
 
 
 class Lesson:
@@ -136,6 +146,15 @@ class HomeworkTask:
             'homework_item_type': 'task',
             'text': Text(raw),
         }
+
+
+def to_html(raw):
+    if isinstance(raw, str):
+        return raw
+    elif raw.get('markdown'):
+        return markdown_to_html(raw['markdown'])
+    else:
+        raise Exception(f'Unknown type (to_html): {smart_repr(raw)}')
 
 
 class Text:

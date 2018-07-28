@@ -6,22 +6,26 @@ import fetchPageData from '../util/fetchPageData'
 export default class extends React.Component {
 
   static async getInitialProps({ req }) {
-    return await fetchPageData(req, {})
+    return await fetchPageData(req, { courses: 'list_courses' })
   }
 
   render() {
-    const { user } = this.props
+    const { user, courses } = this.props
     return (
       <Layout user={user}>
         <h1>Pyladies courseware</h1>
 
         <h2>Aktuálně běžící kurzy</h2>
 
-        <p>
-          <Link href={{ pathname: '/course', query: { courseId: 'c1' }}}><a>
-            Demo
-          </a></Link>
-        </p>
+        {courses.active.map(course => (
+          <p key={course.id}>
+            <Link href={{ pathname: '/course', query: { courseId: course.id }}}><a>
+              <strong dangerouslySetInnerHTML={{__html: course.title_html}} />
+              {' – '}
+              <span dangerouslySetInnerHTML={{__html: course.subtitle_html}} />
+            </a></Link>
+          </p>
+        ))}
 
         <h2>Proběhlé kurzy</h2>
 
