@@ -3,7 +3,7 @@
 homeworks:
 
 - markdown: |
-    Doma (nebo pár dní po instalaci, pokud nejsi na srazu) si znovu spusť Python a zkus, jestli stále funguje,
+    Doma (nebo pár dní po instalaci, pokud nejsi na srazu) si znovu spusť Python a zkus, jestli stále funguje.
 
     ```
     >>> 1 + 1

@@ -1,64 +1,16 @@
 import React from 'react'
 import Link from 'next/link'
+import { Button } from 'semantic-ui-react'
 import Layout from '../components/Layout'
 import fetchPageData from '../util/fetchPageData'
-
-const LessonItems = ({ lessonItems }) => {
-  return (
-    <ul>
-      {lessonItems.map((item, i) => (
-        <li key={i}>
-          <LessonItem lessonItem={item} />
-        </li>
-      ))}
-    </ul>
-  )
-}
-
-const LessonItem = ({ lessonItem }) => {
-  if (lessonItem['lesson_item_type'] === 'attachment') {
-    return (
-      <a href={lessonItem['url']}>
-        <span dangerouslySetInnerHTML={{__html: lessonItem['title_html']}} />
-      </a>
-    )
-  }
-  if (lessonItem['lesson_item_type'] === 'lesson') {
-    return (
-      <a href={lessonItem['url']}>
-        <span dangerouslySetInnerHTML={{__html: lessonItem['title_html']}} />
-      </a>
-    )
-  }
-  if (lessonItem['lesson_item_type'] === 'cheatsheet') {
-    return (
-      <a href={lessonItem['url']}>
-        <span dangerouslySetInnerHTML={{__html: lessonItem['title_html']}} />
-      </a>
-    )
-  }
-  if (lessonItem['lesson_item_type'] === 'text') {
-    return (
-      <span dangerouslySetInnerHTML={{__html: lessonItem['text_html']}} />
-    )
-  }
-  return <code>{JSON.stringify(lessonItem)}</code>
-}
-
-const monthNames = [
-  'ledna', 'února', 'března', 'dubna', 'května', 'června',
-  'července', 'srpna', 'září', 'října', 'listopadu', 'prosince'
-]
-
-const formatDate = (dt) => {
-  dt = new Date(dt)
-  return `${dt.getDate()}. ${monthNames[dt.getMonth()]} ${dt.getFullYear()}`
-}
+import ALink from '../components/ALink'
+import LessonItems from '../components/LessonItems'
+import formatDate from '../util/formatDate'
 
 export default class extends React.Component {
 
   static async getInitialProps({ req, query }) {
-    const { courseId } = query
+    const courseId = query.course
     return await fetchPageData(req, {
       course: { 'course_detail': { 'course_id': courseId } },
     })
@@ -82,7 +34,8 @@ export default class extends React.Component {
         />
 
         {course['lessons'].map(lesson => (
-          <div key={lesson['slug']}>
+          <div key={lesson['slug']} className='lesson'>
+
             <h2 style={{ marginTop: '1rem' }}>
               <span dangerouslySetInnerHTML={{__html: lesson['title_html']}} />
               {' '}&nbsp;
@@ -93,30 +46,26 @@ export default class extends React.Component {
 
             <LessonItems lessonItems={lesson['lesson_items']} />
 
-            {lesson['homework_items'] && lesson['homework_items'].length > 0 && (
-              <p>{lesson['homework_items'].length} domácí projekty</p>
+            {lesson['has_homeworks'] && (
+              <div>
+                <Button
+                  as={ALink}
+                  href={{
+                    pathname: '/lesson',
+                    query: { course: course.id, lesson: lesson['slug'] }
+                  }}
+                  basic
+                  color='blue'
+                  content='Domácí projekty'
+                  size='small'
+                  icon='home'
+                />
+              </div>
             )}
 
           </div>
         ))}
 
-
-
-
-          <br />
-            <br />
-              <br />
-                <br />
-                  <br />
-                    <br />
-        <br />
-
-        <p>
-          <Link href={{ pathname: '/lesson', query: { courseId: 'c1', lessonId: 'l1' }}}><a>
-            Slovníky
-          </a></Link>
-        </p>
-        <pre>{JSON.stringify({ course }, null, 2)}</pre>
       </Layout>
     )
   }

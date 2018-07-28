@@ -1,3 +1,7 @@
+'''
+This module implements reading course data YAML files.
+'''
+
 from datetime import date
 import logging
 from reprlib import repr as smart_repr
@@ -8,10 +12,17 @@ logger = logging.getLogger(__name__)
 
 
 def load_course(course_file):
+    '''
+    Load one course.yaml files.
+    '''
     return Course(course_file)
 
 
 def load_courses(data_dir):
+    '''
+    Load all files courses/*/course.yaml from a given directory.
+
+    '''
     return Courses(data_dir)
 
 
@@ -19,11 +30,17 @@ class Courses:
 
     def __init__(self, data_dir):
         self.courses = [Course(p) for p in data_dir.glob('courses/*/course.yaml')]
+        # TODO: sort by date
+
+    def __iter__(self):
+        return iter(self.courses)
 
     def list_active(self):
+        # TODO: add list of inactive?
         return list(self.courses)
 
     def get_by_id(self, course_id):
+        assert isinstance(course_id, str)
         for c in self.courses:
             if c.id == course_id:
                 return c
@@ -78,14 +95,21 @@ class Course:
 
     id = DataProperty('id')
 
-    def export_summary(self):
-        return self.data
+    def __repr__(self):
+        return f'<{self.__class__.__name__} id={self.id!r}>'
 
-    def export_detail(self):
-        return {
-            **self.data,
-            'lessons': [lesson.export() for lesson in self.lessons],
-        }
+    def get_lesson_by_slug(self, slug):
+        assert isinstance(slug, str)
+        for lesson in self.lessons:
+            if lesson.slug == slug:
+                return lesson
+        raise Exception(f'Lesson with slug {slug!r} not found in {self}')
+
+    def export(self, lessons=False, homeworks=False):
+        d = dict(self.data)
+        if lessons:
+            d['lessons'] = [lesson.export(homeworks=homeworks) for lesson in self.lessons]
+        return d
 
 
 class Lesson:
@@ -102,15 +126,18 @@ class Lesson:
             if raw_hw.get('file'):
                 self.homework_items.extend(load_homeworks_file(dir_path / raw_hw['file']))
 
-    def export(self):
-        return {
+    slug = DataProperty('slug')
+
+    def export(self, homeworks=False):
+        d = {
             **self.data,
             'date': self.data['date'].isoformat(),
             'lesson_items': [li.export() for li in self.lesson_items],
-            'homework_items': [hi.export() for hi in self.homework_items],
+            'has_homeworks': bool(self.homework_items),
         }
-
-    slug = DataProperty('slug')
+        if homeworks:
+            d['homework_items'] = [hi.export() for hi in self.homework_items]
+        return d
 
 
 def load_homeworks_file(file_path):
@@ -213,4 +240,10 @@ def parse_date(s):
 
 def markdown_to_html(src):
     from markdown import markdown
-    return markdown(src)
+    return markdown(
+        src,
+        extensions=[
+            'markdown.extensions.fenced_code',
+            'markdown.extensions.tables',
+        ],
+        output_format='html5')

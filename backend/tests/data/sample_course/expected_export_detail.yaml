@@ -5,6 +5,7 @@ course_detail:
   id: sample-course
   lessons:
   - date: '2018-03-07'
+    has_homeworks: true
     homework_items:
     - homework_item_type: task
       text_html: <p>Dělení? Znak ÷ se taky na klávesnici těžko píše (zvlášť na české). Jak se asi bude dělit?</p>
@@ -31,6 +32,7 @@ course_detail:
     slug: 1-instalace
     title_html: Lekce 1 – Instalace
   - date: '2018-03-14'
+    has_homeworks: false
     homework_items: []
     lesson_items:
     - lesson_item_type: lesson

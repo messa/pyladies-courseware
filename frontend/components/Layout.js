@@ -11,13 +11,12 @@ export default ({ children, user }) => (
         a {
           color: #03c;
         }
-        pre {
+        pre.debug {
           font-size: 10px;
           line-height: 13px;
-        }
-        h2 {
-          margin-top: 1rem;
-          margin-bottom: 1rem;
+          color: #999;
+          margin-top: 5rem;
+          margin-bottom: 2rem;
         }
       `}</style>
     </Head>

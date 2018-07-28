@@ -19,7 +19,7 @@ export default class extends React.Component {
 
         {courses.active.map(course => (
           <p key={course.id}>
-            <Link href={{ pathname: '/course', query: { courseId: course.id }}}><a>
+            <Link href={{ pathname: '/course', query: { course: course.id }}}><a>
               <strong dangerouslySetInnerHTML={{__html: course.title_html}} />
               {' – '}
               <span dangerouslySetInnerHTML={{__html: course.subtitle_html}} />

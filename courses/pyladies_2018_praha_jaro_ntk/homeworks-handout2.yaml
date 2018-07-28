@@ -18,10 +18,10 @@ homeworks:
     - Použiješ proměnnou, která neexistuje? —
     - Stiskneš Ctrl+C, když se program ptá na vstup (pomocí input)? —
     - Odsadíš příkaz bez předchozího if:? —
-    - Po if: odsadíš jeden příkaz o čtyři mezery a druhý jen o dvě? —
+    - Po `if:` odsadíš jeden příkaz o čtyři mezery a druhý jen o dvě? —
     - Neuzavřeš závorku? –
-    - Zkusíš použít vykřičník (!) jako operátor? —
-    - Napíšeš v příkazu print(1, 2, 3) čárku navíc? —
+    - Zkusíš použít vykřičník (`!`) jako operátor? —
+    - Napíšeš v příkazu `print(1, 2, 3)` čárku navíc? —
 
 - markdown: |
     _Podívej se na odpovědi na předchozí otázku, ale Python zkus použít jen na ověření._
@@ -46,22 +46,24 @@ homeworks:
     Ne všechno se dá použít jako jméno proměnné.
     Fungují pro proměnné následující jména? Pokud ne, proč asi?
 
-    `x`
-    `tlacitko4`
-    `34`
-    `3e4`
-    `krůta`
-    `$i`
-    `druha-odmocnina`
-    `readme.txt`
-    `kratsiStrana`
-    `POCET_BODU`
-    `_ (podtržítko)`
-    `π (pí)`
-    `True`
-    `_cache`
-    `__name__`
-    `while`
+    <div style='column-count: 4'>
+      <code>x</code><br>
+      <code>tlacitko4</code><br>
+      <code>34</code><br>
+      <code>3e4</code><br>
+      <code>krůta</code><br>
+      <code>$i</code><br>
+      <code>druha-odmocnina</code><br>
+      <code>readme.txt</code><br>
+      <code>kratsiStrana</code><br>
+      <code>POCET_BODU</code><br>
+      <code>_ (podtržítko)</code><br>
+      <code>π (pí)</code><br>
+      <code>True</code><br>
+      <code>_cache</code><br>
+      <code>__name__</code><br>
+      <code>while</code><br>
+    </div>
 
 - section:
     markdown: |
@@ -117,16 +119,17 @@ homeworks:
     Zkusila jsi porovnávat řetězce?
     Doplň tuhle tabulku tužkou; pak ověř odpovědi pomocí Pythonu:
 
-    a b
-    2 > 1
-    1 < 2
-    'abc' == 'abc'
-    'aaa' 'abc'
-    'abc' 'Abc'
-    'abC' 'abc'
-    'abc' 'abcde'
-    'abc' 'ábč'
-    'abc' 10
+    | `a`     |      | `b`       |
+    |---------|------|-----------|
+    | `2`     | `>`  | `1`       |
+    | `1`     | `<`  | `2`       |
+    | `'abc'` | `==` | `'abc'`   |
+    | `'aaa'` |      | `'abc'`   |
+    | `'abc'` |      | `'Abc'`   |
+    | `'abC'` |      | `'abc'`   |
+    | `'abc'` |      | `'abcde'` |
+    | `'abc'` |      | `'ábč'`   |
+    | `'abc'` |      | ``10``    |
 
 - markdown: |
     Jaká je hodnota proměnné po provedení příkazu:
@@ -177,12 +180,12 @@ homeworks:
 - markdown: |
     Doplň tuhle tabulku:
 
-
-    a b a and b a or b not a
-    True True
-    False True
-    True False
-    False False
+    | `a`     | `b`     | `a and b` | `a or b` | `not a` |
+    |---------|---------|-----------|----------|---------|
+    | `True`  | `True`  |           |          |         |
+    | `False` | `True`  |           |          |         |
+    | `True`  | `False` |           |          |         |
+    | `False` | `False` |           |          |         |
 
     Tohle je takzvaná _pravdivostní_ tabulka:
     _Obsahuje jeden řádek pro každou kombinaci booleovských hodnot, které a a b můžou mít. Když se stane, že se v složitějších and a or ztratíš, doporučuji napsat si podobnou tabulku a na každý řádek se podívat zvlášť._

@@ -39,8 +39,23 @@ resolvers = {
     'login_methods': lambda req, params: get_login_methods(),
     'list_courses': lambda req, params:
         {
-            'active': [c.export_summary() for c in req.app['courses'].list_active()],
+            'active': [c.export() for c in req.app['courses'].list_active()],
         },
     'course_detail': lambda req, params:
-        req.app['courses'].get_by_id(params['course_id']).export_detail(),
+        req.app['courses'].get_by_id(params['course_id']).export(lessons=True),
 }
+
+
+def resolver(f):
+    resolvers[f.__name__] = f
+    return f
+
+
+@resolver
+def lesson_detail(req, params):
+    course = req.app['courses'].get_by_id(params['course_id'])
+    lesson = course.get_lesson_by_slug(params['lesson_slug'])
+    return {
+        **lesson.export(homeworks=True),
+        'course': course.export(),
+    }

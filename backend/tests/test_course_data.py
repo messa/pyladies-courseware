@@ -15,13 +15,12 @@ def test_parse_date():
 
 def test_can_load_all_real_courses(real_course_file):
     course = load_course(real_course_file)
-    # check that course.export_*() works
-    assert course.export_summary()
-    assert course.export_detail()
+    # check that course.export() works
+    assert course.export()
 
 
 def test_load_sample_course(data_dir):
     course = load_course(data_dir / 'sample_course/course.yaml')
-    out = yaml_dump({'course_detail': course.export_detail()})
+    out = yaml_dump({'course_detail': course.export(lessons=True, homeworks=True)})
     out_path = data_dir / 'sample_course/expected_export_detail.yaml'
     assert out == out_path.read_text()
