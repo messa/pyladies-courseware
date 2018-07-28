@@ -1,5 +1,11 @@
+import React from 'react'
 import Link from 'next/link'
 
-export default ({ href, children, ...props }) => (
-  <Link href={href}><a {...props}>{children}</a></Link>
-)
+export default class extends React.Component {
+  render() {
+    const { href, children, ...rest } = this.props
+    return (
+      <Link href={href}><a {...rest}>{children}</a></Link>
+    )
+  }
+}

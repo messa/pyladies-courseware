@@ -6,11 +6,13 @@ import fetchPageData from '../util/fetchPageData'
 import ALink from '../components/ALink'
 import LessonItems from '../components/LessonItems'
 import formatDate from '../util/formatDate'
+import HomeworkSubmission from '../components/HomeworkSubmission'
 
 const HomeworkTask = ({ hwItem }) => (
   <div className='homework-task'>
     <div className='number'>{hwItem['number']}.</div>
     <div className='homework-body' dangerouslySetInnerHTML={{__html: hwItem['text_html'] }} />
+    <HomeworkSubmission />
     <style jsx>{`
       .homework-task {
         margin: 2rem 0;

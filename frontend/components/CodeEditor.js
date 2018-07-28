@@ -17,8 +17,8 @@ export default class extends React.Component {
 
   handleEditorDidMount = editor => {
     // bez toho refreshe se ukaze prazdny element; chtello by to asi resit lepe
-    setInterval(() => editor.refresh(), 10)
-    setInterval(() => editor.refresh(), 1000)
+    setTimeout(() => editor.refresh(), 10)
+    setTimeout(() => editor.refresh(), 1000)
   }
 
   handleEditorBeforeChange = (editor, data, value) => {

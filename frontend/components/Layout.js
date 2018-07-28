@@ -18,6 +18,17 @@ export default ({ children, user }) => (
           margin-top: 5rem;
           margin-bottom: 2rem;
         }
+
+        @keyframes slide-up {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
       `}</style>
     </Head>
     <div style={{ margin: '1em auto', maxWidth: 700, padding: 12 }}>
