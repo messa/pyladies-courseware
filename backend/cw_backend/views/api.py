@@ -14,10 +14,15 @@ routes = web.RouteTableDef()
 
 @routes.get('/api/page-data')
 def page_data(req):
-    params = json.loads(req.query['p'])
-    data = {
-        'user': {'name': 'test2'},
-    }
-    if params.get('login_methods'):
-        data['login_methods'] = get_login_methods()
-    return web.json_response(data)
+    queries = json.loads(req.query['q'])
+    assert isinstance(queries, list)
+    results = []
+    for query in queries:
+        if query == 'user':
+            results.append({'name': 'test2'})
+        elif query == 'login_methods':
+            results.append(get_login_methods())
+        else:
+            raise Exception(f'Unknown query: {query!r}')
+    assert len(results) == len(queries)
+    return web.json_response(results)

@@ -8,12 +8,12 @@ import LoginForm from '../components/LoginForm'
 export default class extends React.Component {
 
   static async getInitialProps({ req }) {
-    return await fetchPageData(req, { login_methods: 1 })
+    return await fetchPageData(req, { loginMethods: 'login_methods' })
   }
 
   render() {
     const { user } = this.props
-    const { facebook, google, dev } = this.props.login_methods
+    const { facebook, google, dev } = this.props.loginMethods
     return (
       <Layout user={user}>
         <h1>Přihlášení</h1>
