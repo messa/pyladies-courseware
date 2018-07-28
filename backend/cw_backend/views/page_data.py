@@ -18,15 +18,29 @@ def page_data(req):
     assert isinstance(queries, list)
     results = []
     for query in queries:
-        if query == 'user':
-            results.append({'name': 'test2'})
-        elif query == 'login_methods':
-            results.append(get_login_methods())
-        elif query == 'list_courses':
-            results.append({
-                'active': [c.export() for c in req.app['courses']],
-            })
+        if isinstance(query, str):
+            q_key = query
+            q_params = None
+        elif isinstance(query, dict):
+            if len(query) != 1:
+                raise Exception(f'Query must have only one key: {query!r}')
+            (q_key, q_params), = query.items()
         else:
+            raise Exception(f'Unexpected query type: {query!r}')
+        if q_key not in resolvers:
             raise Exception(f'Unknown query: {query!r}')
+        results.append(resolvers[q_key](req, q_params))
     assert len(results) == len(queries)
     return web.json_response(results)
+
+
+resolvers = {
+    'user': lambda req, params: {'name': 'test2'},
+    'login_methods': lambda req, params: get_login_methods(),
+    'list_courses': lambda req, params:
+        {
+            'active': [c.export_summary() for c in req.app['courses'].list_active()],
+        },
+    'course_detail': lambda req, params:
+        req.app['courses'].get_by_id(params['course_id']).export_detail(),
+}

@@ -12,7 +12,22 @@ def load_course(course_file):
 
 
 def load_courses(data_dir):
-    return [Course(p) for p in data_dir.glob('courses/*/course.yaml')]
+    return Courses(data_dir)
+
+
+class Courses:
+
+    def __init__(self, data_dir):
+        self.courses = [Course(p) for p in data_dir.glob('courses/*/course.yaml')]
+
+    def list_active(self):
+        return list(self.courses)
+
+    def get_by_id(self, course_id):
+        for c in self.courses:
+            if c.id == course_id:
+                return c
+        raise Exception(f'Course id {course_id!r} not found')
 
 
 class DataProperty:
@@ -53,32 +68,47 @@ class Course:
             'title_html': to_html(raw['title']),
             'subtitle_html': to_html(raw['subtitle']),
             'description_html': to_html(raw['description']),
-            'lessons': [Lesson(x, dir_path=course_dir) for x in raw['lessons']],
+
         }
+        self.lessons = [Lesson(x, dir_path=course_dir) for x in raw['lessons']]
         # fix lessons where no slug was specified in course.yaml
-        for n, lesson in enumerate(self.data['lessons'], start=1):
+        for n, lesson in enumerate(self.lessons, start=1):
             if not lesson.slug:
                 lesson.slug = str(n)
 
-    def export(self):
-        d = dict(self.data)
-        d.pop('lessons')
-        return d
+    id = DataProperty('id')
+
+    def export_summary(self):
+        return self.data
+
+    def export_detail(self):
+        return {
+            **self.data,
+            'lessons': [lesson.export() for lesson in self.lessons],
+        }
 
 
 class Lesson:
 
     def __init__(self, raw, dir_path):
         self.data = {
-            'title': Text(raw['title']),
+            'title_html': to_html(raw['title']),
             'date': parse_date(raw['date']),
             'slug': str(raw['slug']) if raw.get('slug') else None,
-            'lesson_items': [LessonItem(x) for x in raw.get('items', [])],
-            'homework_items': [],
         }
+        self.lesson_items = [LessonItem(x) for x in raw.get('items', [])]
+        self.homework_items = []
         for raw_hw in raw.get('homeworks', []):
             if raw_hw.get('file'):
-                self.data['homework_items'].extend(load_homeworks_file(dir_path / raw_hw['file']))
+                self.homework_items.extend(load_homeworks_file(dir_path / raw_hw['file']))
+
+    def export(self):
+        return {
+            **self.data,
+            'date': self.data['date'].isoformat(),
+            'lesson_items': [li.export() for li in self.lesson_items],
+            'homework_items': [hi.export() for hi in self.homework_items],
+        }
 
     slug = DataProperty('slug')
 
@@ -105,28 +135,31 @@ class LessonItem:
         if raw.get('lesson'):
             self.data = {
                 'lesson_item_type': 'lesson',
-                'title': Text(raw['lesson']),
+                'title_html': to_html(raw['lesson']),
                 'url': raw['url'],
             }
         elif raw.get('cheatsheet'):
             self.data = {
                 'lesson_item_type': 'cheatsheet',
-                'title': Text(raw['cheatsheet']),
+                'title_html': to_html(raw['cheatsheet']),
                 'url': raw['url'],
             }
         elif raw.get('attachment'):
             self.data = {
                 'lesson_item_type': 'attachment',
-                'title': Text(raw['attachment']),
+                'title_html': to_html(raw['attachment']),
                 'url': raw['url'],
             }
         elif raw.get('text'):
             self.data = {
                 'lesson_item_type': 'text',
-                'text': Text(raw['text']),
+                'text_html': to_html(raw['text']),
             }
         else:
             raise Exception(f'Unknown LessonItem data: {smart_repr(raw)}')
+
+    def export(self):
+        return self.data
 
 
 
@@ -135,8 +168,11 @@ class HomeworkSection:
     def __init__(self, raw_section):
         self.data = {
             'homework_item_type': 'section',
-            'text': Text(raw_section),
+            'text_html': to_html(raw_section),
         }
+
+    def export(self):
+        return self.data
 
 
 class HomeworkTask:
@@ -144,8 +180,11 @@ class HomeworkTask:
     def __init__(self, raw):
         self.data = {
             'homework_item_type': 'task',
-            'text': Text(raw),
+            'text_html': to_html(raw),
         }
+
+    def export(self):
+        return self.data
 
 
 def to_html(raw):
@@ -155,17 +194,6 @@ def to_html(raw):
         return markdown_to_html(raw['markdown'])
     else:
         raise Exception(f'Unknown type (to_html): {smart_repr(raw)}')
-
-
-class Text:
-
-    def __init__(self, raw):
-        if isinstance(raw, str):
-            self.html = raw
-        elif raw.get('markdown'):
-            self.html = markdown_to_html(raw['markdown'])
-        else:
-            raise Exception(f'Cannot load text: {smart_repr(raw)}')
 
 
 def parse_date(s):

@@ -11,6 +11,14 @@ export default ({ children, user }) => (
         a {
           color: #03c;
         }
+        pre {
+          font-size: 10px;
+          line-height: 13px;
+        }
+        h2 {
+          margin-top: 1rem;
+          margin-bottom: 1rem;
+        }
       `}</style>
     </Head>
     <div style={{ margin: '1em auto', maxWidth: 700, padding: 12 }}>
