@@ -7,11 +7,13 @@ import ALink from '../components/ALink'
 import LessonItems from '../components/LessonItems'
 import formatDate from '../util/formatDate'
 import HomeworkSubmission from '../components/HomeworkSubmission'
+import HomeworkSubmissionsReview from '../components/HomeworkSubmissionsReview'
 
 const HomeworkTask = ({ hwItem }) => (
   <div className='homework-task'>
     <div className='number'>{hwItem['number']}.</div>
     <div className='homework-body' dangerouslySetInnerHTML={{__html: hwItem['text_html'] }} />
+    <HomeworkSubmissionsReview />
     <HomeworkSubmission />
     <style jsx>{`
       .homework-task {
