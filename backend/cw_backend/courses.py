@@ -5,7 +5,9 @@ This module implements reading course data YAML files.
 from datetime import date
 from itertools import count
 import logging
+import re
 from reprlib import repr as smart_repr
+
 from .util import yaml_load
 
 
@@ -31,7 +33,8 @@ class Courses:
 
     def __init__(self, data_dir):
         self.courses = [Course(p) for p in data_dir.glob('courses/*/course.yaml')]
-        # TODO: sort by date
+        self.courses.sort(lambda c: c.start_date) # newest first
+        self.courses.sort(lambda c: c.start_date.year, reversed=True)
 
     def __iter__(self):
         return iter(self.courses)
@@ -86,6 +89,8 @@ class Course:
             'title_html': to_html(raw['title']),
             'subtitle_html': to_html(raw['subtitle']),
             'description_html': to_html(raw['description']),
+            'start_date': parse_date(raw.get('start_date')),
+            'end_date': parse_date(raw.get('end_date')),
 
         }
         self.lessons = [Lesson(x, dir_path=course_dir) for x in raw['lessons']]
@@ -93,8 +98,15 @@ class Course:
         for n, lesson in enumerate(self.lessons, start=1):
             if not lesson.slug:
                 lesson.slug = str(n)
+        # get course start/end date from lessons if not specified in course data
+        if not self.data['start_date']:
+            self.data['start_date'] = min(lesson.date for lesson in self.lessons)
+        if not self.data['end_date']:
+            self.data['end_date'] = min(lesson.date for lesson in self.lessons)
 
     id = DataProperty('id')
+    start_date = DataProperty('start_date')
+    end_date = DataProperty('end_date')
 
     def __repr__(self):
         return f'<{self.__class__.__name__} id={self.id!r}>'
@@ -107,7 +119,11 @@ class Course:
         raise Exception(f'Lesson with slug {slug!r} not found in {self}')
 
     def export(self, lessons=False, homeworks=False):
-        d = dict(self.data)
+        d = {
+            **self.data,
+            'start_date': self.data['start_date'].isoformat(),
+            'end_date': self.data['end_date'].isoformat(),
+        }
         if lessons:
             d['lessons'] = [lesson.export(homeworks=homeworks) for lesson in self.lessons]
         return d
@@ -117,17 +133,20 @@ class Lesson:
 
     def __init__(self, raw, dir_path):
         self.data = {
-            'title_html': to_html(raw['title']),
-            'date': parse_date(raw['date']),
             'slug': str(raw['slug']) if raw.get('slug') else None,
+            'date': parse_date(raw['date']),
+            'title_html': to_html(raw['title']),
         }
         self.lesson_items = [LessonItem(x) for x in raw.get('items', [])]
         self.homework_items = []
         for raw_hw in raw.get('homeworks', []):
             if raw_hw.get('file'):
-                self.homework_items.extend(load_homeworks_file(dir_path / raw_hw['file']))
+                self.homework_items.extend(load_homeworks_file(
+                    dir_path / raw_hw['file'],
+                    lesson_slug=self.data['slug']))
 
     slug = DataProperty('slug')
+    date = DataProperty('date')
 
     def export(self, homeworks=False):
         d = {
@@ -141,7 +160,7 @@ class Lesson:
         return d
 
 
-def load_homeworks_file(file_path):
+def load_homeworks_file(file_path, lesson_slug):
     try:
         raw = yaml_load(file_path.read_text())
     except Exception as e:
@@ -152,7 +171,7 @@ def load_homeworks_file(file_path):
         if raw_item.get('section'):
             homework_items.append(HomeworkSection(raw_item['section']))
         elif raw_item.get('markdown'):
-            homework_items.append(HomeworkTask(raw_item, next(counter)))
+            homework_items.append(HomeworkTask(raw_item, lesson_slug, next(counter)))
         else:
             raise Exception(f'Unknown item in homeworks file {file_path}: {smart_repr(raw_item)}')
     return homework_items
@@ -206,9 +225,10 @@ class HomeworkSection:
 
 class HomeworkTask:
 
-    def __init__(self, raw, default_number):
+    def __init__(self, raw, lesson_slug, default_number):
         self.data = {
             'homework_item_type': 'task',
+            'id': str(raw.get('id') or f'{lesson_slug}-{default_number}'),
             'number': default_number,
             'text_html': to_html(raw),
         }
@@ -227,8 +247,8 @@ def to_html(raw):
 
 
 def parse_date(s):
-    from datetime import date
-    import re
+    if not s:
+        return None
     if not isinstance(s, str):
         raise TypeError(f'parse_date argument must be str: {smart_repr(s)}')
     m = re.match(r'^([0-9]{1,2})\. *([0-9]{1,2})\. *([0-9]{4})$', s)

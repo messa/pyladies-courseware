@@ -2,15 +2,18 @@ course_detail:
   description_html: |-
     <p>Národní technická knihovna, Technická 2710/6, Praha 6, 18:00–20:00</p>
     <p>Tady najdeš všechny materiály k brněnské verzi začátečnického kurzu PyLadies.</p>
+  end_date: '2018-03-07'
   id: sample-course
   lessons:
   - date: '2018-03-07'
     has_homeworks: true
     homework_items:
     - homework_item_type: task
+      id: n9mnfIjOerVh
       number: 0
       text_html: <p>Dělení? Znak ÷ se taky na klávesnici těžko píše (zvlášť na české). Jak se asi bude dělit?</p>
     - homework_item_type: task
+      id: 1-instalace-1
       number: 1
       text_html: |-
         <p>Závorky v Pythonu fungují jako v matematice. Zkus pomocí Pythonu vypočítat: 3+(4+6)×8÷2−1 =</p>
@@ -42,5 +45,6 @@ course_detail:
       url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/hello-world/
     slug: 2-prvni-program
     title_html: Lekce 2 – První program
+  start_date: '2018-03-07'
   subtitle_html: Praha (NTK) - jaro 2018
   title_html: Začátečnický kurz PyLadies
