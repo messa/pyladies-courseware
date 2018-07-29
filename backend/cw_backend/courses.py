@@ -5,6 +5,7 @@ This module implements reading course data YAML files.
 from datetime import date
 from itertools import count
 import logging
+from pathlib import Path
 import re
 from reprlib import repr as smart_repr
 
@@ -32,12 +33,16 @@ def load_courses(data_dir):
 class Courses:
 
     def __init__(self, data_dir):
+        assert isinstance(data_dir, Path)
         self.courses = [Course(p) for p in data_dir.glob('courses/*/course.yaml')]
-        self.courses.sort(lambda c: c.start_date) # newest first
-        self.courses.sort(lambda c: c.start_date.year, reversed=True)
+        self.courses.sort(key=lambda c: c.start_date) # newest first
+        self.courses.sort(key=lambda c: c.start_date.year, reverse=True)
 
     def __iter__(self):
         return iter(self.courses)
+
+    def __len__(self):
+        return len(self.courses)
 
     def list_active(self):
         # TODO: add list of inactive?
@@ -78,6 +83,7 @@ class DataProperty:
 class Course:
 
     def __init__(self, course_file):
+        assert isinstance(course_file, Path)
         logger.debug('Loading course from %s', course_file)
         try:
             raw = yaml_load(course_file.read_text())
