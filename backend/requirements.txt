@@ -1,8 +1,10 @@
 aiodns
 aiohttp
 aiohttp_session[secure]
+bcrypt
 cchardet
 markdown
+motor
 pyyaml
 requests
 requests_oauthlib

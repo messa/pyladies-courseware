@@ -12,7 +12,9 @@ setup(
     packages=find_packages(exclude=['doc', 'tests*']),
     install_requires=[
         'aiohttp',
+        'bcrypt',
         'markdown',
+        'motor',
         'pyyaml',
         'requests',
         'requests_oauthlib',

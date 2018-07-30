@@ -1,4 +1,5 @@
 from aiohttp import web
+from aiohttp_session import get_session
 import asyncio
 import logging
 from pathlib import Path
@@ -13,7 +14,7 @@ routes = web.RouteTableDef()
 
 
 @routes.get('/api/page-data')
-def page_data(req):
+async def page_data(req):
     queries = json.loads(req.query['q'])
     assert isinstance(queries, list)
     results = []
@@ -29,14 +30,18 @@ def page_data(req):
             raise Exception(f'Unexpected query type: {query!r}')
         if q_key not in resolvers:
             raise Exception(f'Unknown query: {query!r}')
-        results.append(resolvers[q_key](req, q_params))
+        res = resolvers[q_key](req, q_params)
+        if asyncio.iscoroutine(res):
+            res = await res
+        assert isinstance(res, (dict, list)) or res is None
+        results.append(res)
     assert len(results) == len(queries)
     return web.json_response(results)
 
 
 resolvers = {
     'user': lambda req, params: {'name': 'test2'},
-    'login_methods': lambda req, params: get_login_methods(),
+    'login_methods': lambda req, params: get_login_methods(conf=req.app['conf']),
     'list_courses': lambda req, params:
         {
             'active': [c.export() for c in req.app['courses'].list_active()],
@@ -49,6 +54,17 @@ resolvers = {
 def resolver(f):
     resolvers[f.__name__] = f
     return f
+
+
+@resolver
+async def user(req, params):
+    session = await get_session(req)
+    if not session.get('user'):
+        return None
+    else:
+        return {
+            'raw': session['user'],
+        }
 
 
 @resolver

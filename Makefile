@@ -9,3 +9,7 @@ run-backend:
 
 run-nginx:
 	$(nginx) -c $(PWD)/nginx.conf
+
+run-mongod:
+	mkdir -p mongo_data
+	mongod --dbpath=mongo_data --bind_ip 127.0.0.1 

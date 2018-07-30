@@ -2,11 +2,13 @@ from aiohttp import web
 from aiohttp_session import setup as session_setup
 from aiohttp_session.cookie_storage import EncryptedCookieStorage
 import argparse
-from base64 import urlsafe_b64decode
+from hashlib import sha256
 import logging
+from motor.motor_asyncio import AsyncIOMotorClient
 
 from .configuration import Configuration
 from .courses import load_courses
+from .model import Model
 from .views import all_routes
 
 
@@ -26,13 +28,16 @@ def cw_backend_main():
 
 
 def get_app(conf):
-    #session_secret = secrets.token_bytes(32)
-    session_secret = urlsafe_b64decode(b'yMQe_BcFfRBUVX7SjYAigPm3ZyhiYu7x2_RbcUauveE=')
-    # TODO: ^^^ presunout do konfigurace
+    mongo_client = AsyncIOMotorClient(conf.mongodb.connection_uri)
+    mongo_db = mongo_client[conf.mongodb.db_name]
+    # We use hash function because EncryptedCookieStorage needs
+    # a byte string of specific size.
+    session_secret_hash = sha256(conf.session_secret.encode()).digest()
     app = web.Application()
-    session_setup(app, EncryptedCookieStorage(session_secret))
+    session_setup(app, EncryptedCookieStorage(session_secret_hash))
     app['conf'] = conf
     app['courses'] = load_courses(conf.data_dir)
+    app['model'] = Model(mongo_db, conf)
     app.add_routes(all_routes)
     return app
 
@@ -41,3 +46,4 @@ def setup_logging():
     logging.basicConfig(
         format=log_format,
         level=logging.DEBUG)
+    logging.getLogger('MARKDOWN').setLevel(logging.INFO)

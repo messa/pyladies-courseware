@@ -3,3 +3,4 @@ frontend/node_modules
 frontend/.next
 backend/venv
 backend/*.egg-info
+mongo_data
