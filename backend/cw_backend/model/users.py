@@ -11,9 +11,10 @@ logger = logging.getLogger(__name__)
 
 class Users:
 
-    def __init__(self, db, dev_login_allowed):
+    def __init__(self, db, dev_login_allowed, generate_id=None):
         self.c_users = db['users']  # note: c_ for collection
         self.dev_login_allowed = dev_login_allowed
+        self.generate_id = generate_id or generate_random_id
 
     async def create_indexes(self):
         await self.c_users.create_index('fb_id', sparse=True, unique=True)
@@ -24,7 +25,7 @@ class Users:
         if not self.dev_login_allowed:
             raise Exception('Dev login not allowed')
         user_doc = {
-            '_id': generate_random_id(),
+            '_id': self.generate_id(),
             'name': name,
             'dev_login': True,
         }
@@ -34,7 +35,7 @@ class Users:
     async def create_oauth2_user(self, provider, provider_user_id, name, email):
         assert provider in {'fb', 'google'}
         user_doc = {
-            '_id': generate_random_id(),
+            '_id': self.generate_id(),
             f'{provider}_id': provider_user_id,
             'name': name,
             'email': email,
@@ -50,7 +51,7 @@ class Users:
         get_hash = lambda: bcrypt.hashpw(password.encode(), bcrypt.gensalt())
         pw_hash = await loop.run_in_executor(None, get_hash)
         user_doc = {
-            '_id': generate_random_id(),
+            '_id': self.generate_id(),
             'name': name,
             'email': email,
             'login': email,

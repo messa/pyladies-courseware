@@ -1,3 +1,4 @@
+from itertools import count
 import os
 from pathlib import Path
 from pytest import fixture, skip
@@ -6,6 +7,8 @@ from cw_backend.model import Model
 
 
 here = Path(__file__).resolve().parent
+
+on_CI = not os.environ.get('CI')
 
 
 @fixture
@@ -33,7 +36,8 @@ async def db():
     from motor.motor_asyncio import AsyncIOMotorClient
     from pymongo.errors import ServerSelectionTimeoutError
     if mongodb_is_running is False:
-        skip('MongoDB tests skipped')
+        assert not on_CI
+        skip('MongoDB is not running')
     try:
         client = AsyncIOMotorClient(connectTimeoutMS=250, serverSelectionTimeoutMS=250)
         pid = os.getpid()
@@ -41,10 +45,14 @@ async def db():
         await client.drop_database(db.name)
         mongodb_is_running = True
     except ServerSelectionTimeoutError as e:
+        if on_CI:
+            raise e
         assert mongodb_is_running is None
         mongodb_is_running = False
-        skip(f'MongoDB tests skipped because of ServerSelectionTimeoutError: {e}')
+        skip(f'MongoDB is not running (ServerSelectionTimeoutError: {e})')
     yield db
+    await client.drop_database(db.name)
+
 
 
 @fixture
@@ -55,5 +63,13 @@ def conf():
 
 
 @fixture
-def model(db, conf):
-    return Model(db, conf=conf)
+def generate_id():
+    counter = count()
+    def _generate_id():
+        return f'id_{next(counter)}'
+    return _generate_id
+
+
+@fixture
+def model(db, conf, generate_id):
+    return Model(db, conf=conf, generate_id=generate_id)
