@@ -12,13 +12,12 @@
   "author": "Petr Messner",
   "license": "ISC",
   "dependencies": {
-    "@zeit/next-css": "^0.2.0",
-    "codemirror": "^5.38.0",
-    "isomorphic-unfetch": "^2.0.0",
+    "codemirror": "^5.39.2",
+    "isomorphic-unfetch": "^2.1.1",
     "next": "^6.1.1",
-    "react": "^16.4.1",
-    "react-codemirror2": "^5.0.4",
-    "react-dom": "^16.4.1",
-    "semantic-ui-react": "^0.81.1"
+    "react": "^16.4.2",
+    "react-codemirror2": "^5.1.0",
+    "react-dom": "^16.4.2",
+    "semantic-ui-react": "^0.81.3"
   }
 }
