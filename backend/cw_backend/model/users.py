@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 class Users:
 
     def __init__(self, db, dev_login_allowed, generate_id=None):
-        self.c_users = db['users']  # note: c_ for collection
+        self.c_users = db['users']
         self.dev_login_allowed = dev_login_allowed
         self.generate_id = generate_id or generate_random_id
 
@@ -30,7 +30,7 @@ class Users:
             'dev_login': True,
         }
         await self.c_users.insert_one(user_doc)
-        return User(user_doc)
+        return self._user(user_doc)
 
     async def create_oauth2_user(self, provider, provider_user_id, name, email):
         assert provider in {'fb', 'google'}
@@ -41,7 +41,7 @@ class Users:
             'email': email,
         }
         await self.c_users.insert_one(user_doc)
-        return User(user_doc)
+        return self._user(user_doc)
 
     async def create_password_user(self, email, password, name):
         assert isinstance(email, str)
@@ -58,7 +58,7 @@ class Users:
             'password_bcrypt': pw_hash,
         }
         await self.c_users.insert_one(user_doc)
-        return User(user_doc)
+        return self._user(user_doc)
 
     async def get_user_by_id(self, user_id):
         assert isinstance(user_id, str)
@@ -67,52 +67,55 @@ class Users:
             raise Exception('User not found')
         if user_doc.get('dev_login') and not self.dev_login_allowed:
             raise Exception('Dev login not allowed')
-        return User(user_doc)
+        return self._user(user_doc)
 
-    async def add_user_attended_courses(self, user_id, course_ids):
-        while True:
-            user_doc = await self.c_users.find_one({'_id': user_id})
-            if not user_doc:
-                raise Exception('User not found')
-            new_course_ids = user_doc.get('attended_course_ids') or []
-            new_course_ids += course_ids
-            new_course_ids = sorted(set(new_course_ids))
-            r = await self.c_users.update_one(
-                {'_id': user_id, 'attended_course_ids': user_doc.get('attended_course_ids')},
-                {'$set': {'attended_course_ids': new_course_ids}})
-            if r.matched_count:
-                break
-
-    async def add_user_coached_courses(self, user_id, course_ids):
-        while True:
-            user_doc = await self.c_users.find_one({'_id': user_id})
-            if not user_doc:
-                raise Exception('User not found')
-            new_course_ids = user_doc.get('coached_course_ids') or []
-            new_course_ids += course_ids
-            new_course_ids = sorted(set(new_course_ids))
-            r = await self.c_users.update_one(
-                {'_id': user_id, 'coached_course_ids': user_doc.get('coached_course_ids')},
-                {'$set': {'coached_course_ids': new_course_ids}})
-            if r.matched_count:
-                break
-
-    async def set_user_admin(self, user_id, is_admin):
-        r = await self.c_users.update_one(
-            {'_id': user_id},
-            {'$set': {'is_admin': is_admin}})
-        if not r.matched_count:
-            raise Exception('User not found')
+    def _user(self, user_doc):
+        return User(self.c_users, user_doc)
 
 
 class User:
 
+    def __init__(self, c_users, user_doc):
+        assert isinstance(user_doc, dict)
+        self.id = user_doc['_id']
+        self._c_users = c_users
+        self._view = UserView(user_doc)
+
+    def __getattr__(self, name):
+        return getattr(self._view, name)
+
+    def __repr__(self):
+        return f'<{self.__class__.__name__} id={self.id!r}>'
+
+    async def _update(self, ops):
+        from pymongo import ReturnDocument
+        user_doc = await self._c_users.find_one_and_update(
+            {'_id': self.id}, ops,
+            return_document=ReturnDocument.AFTER)
+        self._view = UserView(user_doc)
+
+    async def add_attended_courses(self, course_ids):
+        assert isinstance(course_ids, list)
+        await self._update({'$addToSet': {
+            'attended_course_ids': {'$each': course_ids},
+        }})
+
+    async def add_coached_courses(self, course_ids):
+        assert isinstance(course_ids, list)
+        await self._update({'$addToSet': {
+            'coached_course_ids': {'$each': course_ids},
+        }})
+
+    async def set_admin(self, is_admin):
+        await self._update({'$set': {
+            'is_admin': bool(is_admin),
+        }})
+
+
+class UserView:
+
     def __init__(self, doc):
-        self.id = doc['_id']
         self.name = doc['name']
         self.attended_course_ids = doc.get('attended_course_ids') or []
         self.coached_course_ids = doc.get('coached_course_ids') or []
         self.is_admin = doc.get('is_admin', False)
-
-    def __repr__(self):
-        return f'<{self.__class__.__name__} id={self.id!r} name={self.name!r}>'
