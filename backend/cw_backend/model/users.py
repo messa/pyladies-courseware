@@ -11,10 +11,11 @@ logger = logging.getLogger(__name__)
 
 class Users:
 
-    def __init__(self, db, dev_login_allowed, generate_id=None):
+    def __init__(self, db, dev_login_allowed, generate_id=None, password_hashing=None):
         self.c_users = db['users']
         self.dev_login_allowed = dev_login_allowed
         self.generate_id = generate_id or generate_random_id
+        self.password_hashing = password_hashing or PasswordHashing()
 
     async def create_indexes(self):
         await self.c_users.create_index('fb_id', sparse=True, unique=True)
@@ -47,9 +48,7 @@ class Users:
         assert isinstance(email, str)
         assert isinstance(password, str)
         assert isinstance(name, str)
-        loop = asyncio.get_event_loop()
-        get_hash = lambda: bcrypt.hashpw(password.encode(), bcrypt.gensalt())
-        pw_hash = await loop.run_in_executor(None, get_hash)
+        pw_hash = await self.password_hashing.get_hash(password)
         user_doc = {
             '_id': self.generate_id(),
             'name': name,
@@ -71,6 +70,28 @@ class Users:
 
     def _user(self, user_doc):
         return User(self.c_users, user_doc)
+
+
+class PasswordHashing:
+
+    async def get_hash(self, password):
+        assert isinstance(password, str)
+        loop = asyncio.get_event_loop()
+        def get_hash():
+            return bcrypt.hashpw(
+                password.encode(), bcrypt.gensalt()
+            ).decode('ascii')
+        pw_hash = await loop.run_in_executor(None, get_hash)
+        assert await self.verify_hash(pw_hash, password)
+        return pw_hash
+
+    async def verify_hash(self, pw_hash, password):
+        assert isinstance(pw_hash, str)
+        assert isinstance(password, str)
+        loop = asyncio.get_event_loop()
+        check = lambda: bcrypt.checkpw(password.encode(), pw_hash.encode())
+        matches = await loop.run_in_executor(None, check)
+        return matches
 
 
 class User:
