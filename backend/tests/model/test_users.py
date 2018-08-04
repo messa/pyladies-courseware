@@ -5,9 +5,9 @@ from pytest import mark
 @mark.asyncio
 async def test_create_dev_user_with_all_roles(db, model):
     user = await model.users.create_dev_user('John Smith')
-    await user.add_attended_courses(['course1', 'course2'])
-    await user.add_coached_courses(['course2', 'course3'])
-    await user.set_admin(True)
+    await user.add_attended_courses(['course1', 'course2'], author_user_id=None)
+    await user.add_coached_courses(['course2', 'course3'], author_user_id=None)
+    await user.set_admin(True, author_user_id=None)
     assert user.id == 'id_0'
     assert user.name == 'John Smith'
     assert user.attended_course_ids == ['course1', 'course2']

@@ -1,7 +1,8 @@
 import asyncio
 import bcrypt
+from bson import ObjectId
 import logging
-from uuid import uuid4
+from pymongo import ReturnDocument
 
 from ..util import generate_random_id
 
@@ -100,6 +101,7 @@ class User:
         assert isinstance(user_doc, dict)
         self.id = user_doc['_id']
         self._c_users = c_users
+        self._c_changes = c_users['changes']
         self._view = UserView(user_doc)
 
     def __getattr__(self, name):
@@ -109,25 +111,44 @@ class User:
         return f'<{self.__class__.__name__} id={self.id!r}>'
 
     async def _update(self, ops):
-        from pymongo import ReturnDocument
+        logger.debug('Updating user %s: %r', self.id, ops)
         user_doc = await self._c_users.find_one_and_update(
             {'_id': self.id}, ops,
             return_document=ReturnDocument.AFTER)
         self._view = UserView(user_doc)
 
-    async def add_attended_courses(self, course_ids):
+    async def _record_change(self, author_user_id, change_type, change_params):
+        await self._c_changes.insert_one({
+            '_id': ObjectId(),
+            'user_id': self.id,
+            'author_user_id': author_user_id,
+            'change_type': change_type,
+            'change_params': change_params,
+        })
+        logger.info('Inserted user change: %s %r', change_type, change_params)
+
+    async def add_attended_courses(self, course_ids, author_user_id):
         assert isinstance(course_ids, list)
+        await self._record_change(author_user_id, 'add_attended_courses', {
+            'course_ids': course_ids,
+        })
         await self._update({'$addToSet': {
             'attended_course_ids': {'$each': course_ids},
         }})
 
-    async def add_coached_courses(self, course_ids):
+    async def add_coached_courses(self, course_ids, author_user_id):
         assert isinstance(course_ids, list)
+        await self._record_change(author_user_id, 'add_coached_courses', {
+            'course_ids': course_ids,
+        })
         await self._update({'$addToSet': {
             'coached_course_ids': {'$each': course_ids},
         }})
 
-    async def set_admin(self, is_admin):
+    async def set_admin(self, is_admin, author_user_id):
+        await self._record_change(author_user_id, 'set_admin', {
+            'is_admin': bool(is_admin),
+        })
         await self._update({'$set': {
             'is_admin': bool(is_admin),
         }})
