@@ -6,6 +6,7 @@ import logging
 from pathlib import Path
 
 from ..util import get_random_name
+from ..model.errors import ModelError, NotFoundError, InvalidPasswordError
 
 
 logger = logging.getLogger(__name__)
@@ -23,6 +24,13 @@ def get_login_methods(conf):
             'admin_url': '/auth/dev?role=admin',
         } if conf.allow_dev_login else None,
     }
+
+
+@routes.get('/auth/logout')
+async def logout(req):
+    session = await get_session(req)
+    session['user'] = None
+    raise  web.HTTPFound('/')
 
 
 @routes.get('/auth/dev')
@@ -48,3 +56,47 @@ async def auth_dev(req):
         'name': user.name,
     }
     return web.Response(text='asd')
+
+
+@routes.post('/auth/register')
+async def register(req):
+    data = await req.json()
+    session = await get_session(req)
+    session['user'] = None
+    errors = []
+    try:
+        user = await req.app['model'].users.create_password_user(
+            name=data['name'], email=data['email'], password=data['password'])
+    except ModelError as e:
+        errors.append(str(e))
+    except Exception as e:
+        logger.exception('create_password_user failed: %r', e)
+        errors.append('Server error')
+    return web.json_response({'errors': errors})
+
+
+@routes.post('/auth/password-login')
+async def register(req):
+    data = await req.json()
+    session = await get_session(req)
+    session['user'] = None
+    errors = []
+    user = None
+    try:
+        user = await req.app['model'].users.login_password_user(
+            email=data['email'], password=data['password'])
+    except (NotFoundError, InvalidPasswordError) as e:
+        errors.append('Nesprávný e-mail nebo heslo')
+    except ModelError as e:
+        errors.append(str(e))
+    except Exception as e:
+        logger.exception('login_password_user failed: %r', e)
+        errors.append('Server error')
+    assert user or errors
+    if user:
+        assert not errors
+        session['user'] = {
+            'id': user.id,
+            'name': user.name,
+        }
+    return web.json_response({'errors': errors})

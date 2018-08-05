@@ -14,10 +14,9 @@ const HomeworkSolution = ({ code }) => (
 export default class HomeworkSubmission extends React.Component {
 
   state = {
-    //open: false,
-    open: true,
-    //currentSolution: null,
-    currentSolution: { code: 'foo\nbar\n' },
+    open: false,
+    currentSolution: null,
+    //currentSolution: { code: 'foo\nbar\n' },
     editCurrentSolution: false,
     submitInProgress: false,
   }

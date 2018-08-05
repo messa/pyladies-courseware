@@ -31,7 +31,7 @@ export default ({ children, user }) => (
         }
       `}</style>
     </Head>
-    <div style={{ margin: '0 auto', maxWidth: 700, padding: 12 }}>
+    <div style={{ margin: '0 auto', maxWidth: 700, padding: 14 }}>
       <Header user={user} />
       {children}
     </div>

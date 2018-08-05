@@ -47,7 +47,6 @@ class CommentReply extends React.Component {
 
 }
 
-
 class CommentThread extends React.Component {
 
   state = {
@@ -99,9 +98,7 @@ class CommentThread extends React.Component {
           </Comment.Content>
         )}
 
-
       </Comment>
-
     )
   }
 
@@ -114,7 +111,6 @@ export default class HomeworkComments extends React.Component {
       <div style={{ marginTop: '1.5rem' }}>
         <Comment.Group>
           <CommentThread />
-
         </Comment.Group>
       </div>
     )

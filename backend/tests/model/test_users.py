@@ -1,5 +1,7 @@
 from pprint import pprint
-from pytest import mark
+from pytest import mark, raises
+
+from cw_backend.model.errors import ModelError, NotFoundError, InvalidPasswordError
 
 
 @mark.asyncio
@@ -66,7 +68,7 @@ async def test_oauth2_users_same_id_different_providers_isolation(db, model):
 
 
 @mark.asyncio
-async def test_create_password_user(db, model):
+async def test_create_password_user_and_login(db, model):
     user = await model.users.create_password_user('joe@example.com', 'topsecret', 'Joe Smith')
     doc, = await db['users'].find().to_list(None)
     assert doc == {
@@ -75,5 +77,16 @@ async def test_create_password_user(db, model):
         'email': 'joe@example.com',
         'login': 'joe@example.com',
         'name': 'Joe Smith',
-        'password_bcrypt': doc['password_bcrypt'],
+        'password_hash': doc['password_hash'],
     }
+
+    with raises(ModelError):
+        await model.users.create_password_user('joe@example.com', 'test', 'Joe')
+
+    assert await model.users.login_password_user('joe@example.com', 'topsecret')
+
+    with raises(InvalidPasswordError):
+        assert await model.users.login_password_user('joe@example.com', 'wrong')
+
+    with raises(NotFoundError):
+        assert await model.users.login_password_user('missing@example.com', 'test')

@@ -6,7 +6,7 @@ from pymongo import ReturnDocument
 from reprlib import repr as smart_repr
 
 from ..util import generate_random_id
-from .errors import ModelError, NotFoundError, RetryNeeded
+from .errors import ModelError, NotFoundError, RetryNeeded, InvalidPasswordError
 
 
 logger = logging.getLogger(__name__)
@@ -54,15 +54,34 @@ class Users:
         assert isinstance(password, str)
         assert isinstance(name, str)
         pw_hash = await self.password_hashing.get_hash(password)
+        already_present = await self.c_users.find_one({'login': email})
+        if already_present:
+            logger.debug('already_present: %r', already_present)
+            raise ModelError(f'User "{email}" already exists')
         user_doc = {
             '_id': self.generate_id(),
             'v': 0,
             'name': name,
             'email': email,
             'login': email,
-            'password_bcrypt': pw_hash,
+            'password_hash': pw_hash,
         }
         await self.c_users.insert_one(user_doc)
+        return self._user(user_doc)
+
+    async def login_password_user(self, email, password):
+        assert isinstance(email, str)
+        assert isinstance(password, str)
+        user_doc = await self.c_users.find_one({'login': email})
+        #if not user_doc:
+        #    user_doc = await self.c_users.find_one({'email': email})
+        if not user_doc:
+            raise NotFoundError(f'User with login or email not {email!r} found')
+        if not user_doc.get('password_hash'):
+            raise NotFoundError('User does not have field password_hash')
+        pw_ok = await self.password_hashing.verify_hash(user_doc['password_hash'], password)
+        if pw_ok is not True:
+            raise InvalidPasswordError('Invalid password')
         return self._user(user_doc)
 
     async def get_user_by_id(self, user_id):
