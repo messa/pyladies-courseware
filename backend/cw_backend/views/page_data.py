@@ -40,7 +40,6 @@ async def page_data(req):
 
 
 resolvers = {
-    'user': lambda req, params: {'name': 'test2'},
     'login_methods': lambda req, params: get_login_methods(conf=req.app['conf']),
     'list_courses': lambda req, params:
         {
@@ -63,7 +62,8 @@ async def user(req, params):
         return None
     else:
         return {
-            'raw': session['user'],
+            'id': session['user']['id'],
+            'name': session['user']['name'],
         }
 
 

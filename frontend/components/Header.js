@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { Button } from 'semantic-ui-react'
 
 export default ({ user }) => (
   <nav style={{ borderBottom: '1px solid #333' }}>
@@ -9,7 +10,19 @@ export default ({ user }) => (
       {!user ? (
         <Link href='/login'><a>Přihlásit se</a></Link>
       ) : (
-        <code>{JSON.stringify(user)}</code>
+        <span className='loggedInUser'>
+          <Link href={{ path: '/profile', query: { userOd: user.id } }}><a>{user.name}</a></Link>
+          <Button
+            as='a'
+            href='/auth/logout'
+            basic
+            color='black'
+            icon='sign out'
+            content='Odhlásit'
+            size='small'
+            style={{ marginLeft: 12 }}
+          />
+        </span>
       )}
     </p>
     <div style={{ clear: 'both' }} />

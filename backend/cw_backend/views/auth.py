@@ -4,6 +4,7 @@ from aiohttp_session import get_session
 import asyncio
 import logging
 from pathlib import Path
+from textwrap import dedent
 
 from ..util import get_random_name
 from ..model.errors import ModelError, NotFoundError, InvalidPasswordError
@@ -12,6 +13,28 @@ from ..model.errors import ModelError, NotFoundError, InvalidPasswordError
 logger = logging.getLogger(__name__)
 
 routes = web.RouteTableDef()
+
+
+redirect_page = dedent('''
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <title>Redirecting</title>
+        </head>
+        <body>
+            <script>
+                let nextUrl = null
+                try {
+                    nextUrl = window.localStorage.getItem('cwUrlAfterLogin')
+                    window.localStorage.removeItem('cwUrlAfterLogin')
+                } catch (err) {
+                }
+                // redirect
+                window.location = nextUrl || '/'
+            </script>
+        </body>
+    </html>
+''')
 
 
 def get_login_methods(conf):
@@ -46,16 +69,16 @@ async def auth_dev(req):
     user = await model.users.create_dev_user(name)
     course_ids = [c.id for c in courses.list_active()]
     if role == 'student':
-        await model.users.add_user_attended_courses(user.id, course_ids)
+        await user.add_attended_courses(course_ids, author_user_id=None)
     if role == 'coach':
-        await model.users.add_user_coached_courses(user.id, course_ids)
+        await user.add_coached_courses(course_ids, author_user_id=None)
     if role == 'admin':
-        await model.users.set_user_admin(user.id, True)
+        await user.set_admin(True, author_user_id=None)
     session['user'] = {
         'id': user.id,
         'name': user.name,
     }
-    return web.Response(text='asd')
+    return web.Response(text=redirect_page, content_type='text/html')
 
 
 @routes.post('/auth/register')

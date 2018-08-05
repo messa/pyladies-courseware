@@ -1,15 +1,11 @@
 import React from 'react'
 import { Button, Form, Message } from 'semantic-ui-react'
-import fetch from 'isomorphic-unfetch'
 
-export default class RegistrationForm extends React.Component {
+export default class LoginForm extends React.Component {
 
   state = {
     email: '',
-    name: '',
     password: '',
-    password2: '',
-    password2Error: false,
     errors: [],
     loading: false,
   }
@@ -19,30 +15,22 @@ export default class RegistrationForm extends React.Component {
   }
 
   handleSubmit = () => {
-    const { email, name, password, password2 } = this.state
+    const { email, password } = this.state
     this.setState({
       errors: [],
       loading: true,
-      password2Error: false,
     })
     const errors = []
     if (email.indexOf('@') === -1) {
       errors.push('E-mail neobsahuje znak @')
     }
-    if (name === '') {
-      errors.push('Jméno je prázdné')
-    }
     if (password === '') {
       errors.push('Heslo je prázdné')
-    }
-    if (password2 !== password) {
-      errors.push('Zopakování hesla není shodné s heslem')
-      this.setState({ password2Error: true })
     }
     if (errors.length > 0) {
       this.setState({ errors, loading: false })
     } else {
-      this.sendData({ email, name, password })
+      this.sendData({ email, password })
     }
   }
 
@@ -57,7 +45,7 @@ export default class RegistrationForm extends React.Component {
       body: JSON.stringify(payload),
     }
     try {
-      const res = await fetch('/auth/register', fetchOptions)
+      const res = await fetch('/auth/password-login', fetchOptions)
       const { errors } = await res.json()
       if (errors && errors.length) {
         this.setState({
@@ -65,23 +53,27 @@ export default class RegistrationForm extends React.Component {
           loading: false,
         })
       } else {
+        let nextUrl = null
+        try {
+          nextUrl = window.localStorage.getItem('cwUrlAfterLogin')
+          window.localStorage.removeItem('cwUrlAfterLogin')
+        } catch (err) {
+        }
         // redirect
-        window.location = '/login?registrationSuccessfull=1'
+        window.location = nextUrl || '/'
       }
     } catch (err) {
       this.setState({
-        errors: [<span key='exc'>Registrace selhala: <code>{err.toString()}</code></span>],
+        errors: [`Přihlášení selhalo: ${err}`],
         loading: false,
       })
     }
   }
-
   render() {
-    const { email, name, password, password2 } = this.state
-    const { password2Error } = this.state
+    const { email, password } = this.state
     const { loading, errors } = this.state
     return (
-      <div className='RegistrationForm'>
+      <div className='LoginForm'>
         <Form onSubmit={this.handleSubmit} error={errors.length > 0}>
 
           {errors.length > 0 && (
@@ -89,41 +81,28 @@ export default class RegistrationForm extends React.Component {
           )}
 
           <Form.Input
-            required inline name='email' label='E-mail:' id='reg-email-input'
+            required inline name='email' label='E-mail:' id='login-email-input'
             type='email' value={email} onChange={this.handleInputChange}
-            disabled={loading}
+            autoComplete='email'
           />
 
           <Form.Input
-            inline name='name' label='Jméno:' id='reg-name-input'
-            type='text' value={name} onChange={this.handleInputChange}
-            disabled={loading}
-          />
-
-          <Form.Input
-            required inline name='password' label='Heslo:' id='reg-password-input'
+            required inline name='password' label='Heslo:' id='login-password-input'
             type='password' value={password} onChange={this.handleInputChange}
-            disabled={loading} autoComplete="new-password"
-          />
-
-          <Form.Input
-            required inline name='password2' label='Heslo znovu:' id='reg-password2-input'
-            type='password' value={password2} onChange={this.handleInputChange}
-            disabled={loading} error={!!password2Error} autoComplete="new-password"
+            autoComplete='current-password'
           />
 
           <Form.Button primary size='small' loading={loading} disabled={loading}>
-            Zaregistrovat se
+            Přihlásit se
           </Form.Button>
 
         </Form>
-
         <style jsx>{`
-          .RegistrationForm :global(input) {
+          .LoginForm :global(input) {
             min-width: 20em;
           }
-          .RegistrationForm :global(label) {
-            min-width: 7em;
+          .LoginForm :global(label) {
+            min-width: 4em;
           }
         `}</style>
       </div>

@@ -3,8 +3,8 @@ import Link from 'next/link'
 import { Button, Tab, Message } from 'semantic-ui-react'
 import Layout from '../components/Layout'
 import fetchPageData from '../util/fetchPageData'
-import LoginForm from '../components/LoginForm'
-import RegistrationForm from '../components/RegistrationForm'
+import LoginForm from '../components/forms/LoginForm'
+import RegistrationForm from '../components/forms/RegistrationForm'
 
 export default class extends React.Component {
 
