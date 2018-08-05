@@ -3,8 +3,10 @@ import bcrypt
 from bson import ObjectId
 import logging
 from pymongo import ReturnDocument
+from reprlib import repr as smart_repr
 
 from ..util import generate_random_id
+from .errors import ModelError, NotFoundError, RetryNeeded
 
 
 logger = logging.getLogger(__name__)
@@ -28,6 +30,7 @@ class Users:
             raise Exception('Dev login not allowed')
         user_doc = {
             '_id': self.generate_id(),
+            'v': 0,
             'name': name,
             'dev_login': True,
         }
@@ -38,6 +41,7 @@ class Users:
         assert provider in {'fb', 'google'}
         user_doc = {
             '_id': self.generate_id(),
+            'v': 0,
             f'{provider}_id': provider_user_id,
             'name': name,
             'email': email,
@@ -52,6 +56,7 @@ class Users:
         pw_hash = await self.password_hashing.get_hash(password)
         user_doc = {
             '_id': self.generate_id(),
+            'v': 0,
             'name': name,
             'email': email,
             'login': email,
@@ -64,9 +69,9 @@ class Users:
         assert isinstance(user_id, str)
         user_doc = await self.c_users.find_one({'_id': user_id})
         if not user_doc:
-            raise Exception('User not found')
+            raise NotFoundError('User not found')
         if user_doc.get('dev_login') and not self.dev_login_allowed:
-            raise Exception('Dev login not allowed')
+            raise ModelError('Dev login not allowed')
         return self._user(user_doc)
 
     def _user(self, user_doc):
@@ -99,9 +104,9 @@ class User:
 
     def __init__(self, c_users, user_doc):
         assert isinstance(user_doc, dict)
-        self.id = user_doc['_id']
         self._c_users = c_users
-        self._c_changes = c_users['changes']
+        self._c_changelog = c_users['changelog']
+        self._user_doc = user_doc
         self._view = UserView(user_doc)
 
     def __getattr__(self, name):
@@ -110,53 +115,73 @@ class User:
     def __repr__(self):
         return f'<{self.__class__.__name__} id={self.id!r}>'
 
-    async def _update(self, ops):
-        logger.debug('Updating user %s: %r', self.id, ops)
-        user_doc = await self._c_users.find_one_and_update(
-            {'_id': self.id}, ops,
-            return_document=ReturnDocument.AFTER)
-        self._view = UserView(user_doc)
-
-    async def _record_change(self, author_user_id, change_type, change_params):
-        await self._c_changes.insert_one({
+    async def _update(self, data, author_user_id):
+        assert isinstance(data, dict)
+        changelog_entry = {
             '_id': ObjectId(),
-            'user_id': self.id,
             'author_user_id': author_user_id,
-            'change_type': change_type,
-            'change_params': change_params,
-        })
-        logger.info('Inserted user change: %s %r', change_type, change_params)
+            'changes': {},
+        }
+        op_set = {}
+        for key, new_value in sorted(data.items()):
+            old_value = self._user_doc.get(key)
+            if new_value == old_value:
+                continue
+            logger.info(
+                'Updating user %s %s: %s -> %s',
+                self.id, key, smart_repr(old_value), smart_repr(new_value))
+            assert key not in op_set
+            op_set[key] = new_value
+            changelog_entry['changes'][key] = {
+                'old_value': old_value,
+                'new_value': new_value,
+            }
+        if not op_set:
+            logger.info('Nothing to update (user %s)', self.id)
+            return
+        new_user_doc = await self._c_users.find_one_and_update(
+            {
+                '_id': self.id,
+                'v': self._user_doc['v'],
+            }, {
+                '$set': op_set,
+                '$push': {'changelog': changelog_entry},
+                '$inc': {'v': 1},
+            },
+            return_document=ReturnDocument.AFTER)
+        if new_user_doc is None:
+            raise RetryNeeded()
+        assert new_user_doc['v'] == self._user_doc['v'] + 1
+        assert new_user_doc['_id'] == self.id
+        self._user_doc = new_user_doc
+        self._view = UserView(new_user_doc)
+        await self._offload_changelog()
 
-    async def add_attended_courses(self, course_ids, author_user_id):
-        assert isinstance(course_ids, list)
-        await self._record_change(author_user_id, 'add_attended_courses', {
-            'course_ids': course_ids,
-        })
-        await self._update({'$addToSet': {
-            'attended_course_ids': {'$each': course_ids},
-        }})
+    async def _offload_changelog(self):
+        entries = self._user_doc.get('changelog')
+        if entries:
+            await self._c_changelog.insert_many(entries, ordered=False)
+            await self._c_users.update_one(
+                {'_id': self.id, 'v': self._user_doc['v']},
+                {'$unset': {'changelog': ''}})
+            logger.debug('Offloaded %d changelog entries', len(entries))
 
-    async def add_coached_courses(self, course_ids, author_user_id):
-        assert isinstance(course_ids, list)
-        await self._record_change(author_user_id, 'add_coached_courses', {
-            'course_ids': course_ids,
-        })
-        await self._update({'$addToSet': {
-            'coached_course_ids': {'$each': course_ids},
-        }})
+    async def add_attended_courses(self, add_course_ids, author_user_id):
+        new_course_ids = sorted(set(add_course_ids) | set(self.attended_course_ids))
+        await self._update({'attended_course_ids': new_course_ids}, author_user_id)
+
+    async def add_coached_courses(self, add_course_ids, author_user_id):
+        new_course_ids = sorted(set(add_course_ids) | set(self.coached_course_ids))
+        await self._update({'coached_course_ids': new_course_ids}, author_user_id)
 
     async def set_admin(self, is_admin, author_user_id):
-        await self._record_change(author_user_id, 'set_admin', {
-            'is_admin': bool(is_admin),
-        })
-        await self._update({'$set': {
-            'is_admin': bool(is_admin),
-        }})
+        await self._update({'is_admin': bool(is_admin)}, author_user_id)
 
 
 class UserView:
 
     def __init__(self, doc):
+        self.id = doc['_id']
         self.name = doc['name']
         self.attended_course_ids = doc.get('attended_course_ids') or []
         self.coached_course_ids = doc.get('coached_course_ids') or []

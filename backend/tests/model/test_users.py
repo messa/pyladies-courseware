@@ -16,12 +16,44 @@ async def test_create_dev_user_with_all_roles(db, model):
     doc, = await db['users'].find().to_list(None)
     assert doc == {
         '_id': 'id_0',
+        'v': 3,
         'attended_course_ids': ['course1', 'course2'],
         'coached_course_ids': ['course2', 'course3'],
         'dev_login': True,
         'is_admin': True,
         'name': 'John Smith',
     }
+    docs = await db['users.changelog'].find(sort=[('_id', 1)]).to_list(None)
+    assert docs == [
+        {
+            '_id': docs[0]['_id'],
+            'author_user_id': None,
+            'changes': {
+                'attended_course_ids': {
+                    'new_value': ['course1', 'course2'],
+                    'old_value': None
+                }
+            }
+        }, {
+            '_id': docs[1]['_id'],
+            'author_user_id': None,
+            'changes': {
+                'coached_course_ids': {
+                    'new_value': ['course2', 'course3'],
+                    'old_value': None
+                }
+            }
+        }, {
+            '_id': docs[2]['_id'],
+            'author_user_id': None,
+            'changes': {
+                'is_admin': {
+                    'new_value': True,
+                    'old_value': None
+                }
+            }
+        }
+    ]
 
 
 @mark.asyncio
@@ -39,6 +71,7 @@ async def test_create_password_user(db, model):
     doc, = await db['users'].find().to_list(None)
     assert doc == {
         '_id': 'id_0',
+        'v': 0,
         'email': 'joe@example.com',
         'login': 'joe@example.com',
         'name': 'Joe Smith',
