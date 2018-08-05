@@ -11,7 +11,7 @@ export default ({ user }) => (
         <Link href='/login'><a>Přihlásit se</a></Link>
       ) : (
         <span className='loggedInUser'>
-          <Link href={{ path: '/profile', query: { userOd: user.id } }}><a>{user.name}</a></Link>
+          <Link href={'/profile'}><a>{user.name}</a></Link>
           <Button
             as='a'
             href='/auth/logout'
