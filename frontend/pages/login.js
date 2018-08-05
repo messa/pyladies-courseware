@@ -1,9 +1,10 @@
 import React from 'react'
 import Link from 'next/link'
-import { Button } from 'semantic-ui-react'
+import { Button, Tab } from 'semantic-ui-react'
 import Layout from '../components/Layout'
 import fetchPageData from '../util/fetchPageData'
 import LoginForm from '../components/LoginForm'
+import RegistrationForm from '../components/RegistrationForm'
 
 export default class extends React.Component {
 
@@ -14,6 +15,21 @@ export default class extends React.Component {
   render() {
     const { user } = this.props
     const { facebook, google, dev } = this.props.loginMethods
+    const panes = [
+      {
+        menuItem: 'Přihlášení',
+        pane: {
+          key: 'login',
+          content: <div style={{ padding: 16 }}><LoginForm /></div>,
+        }
+      }, {
+        menuItem: 'Registrace',
+        pane: {
+          key: 'registration',
+          content: <div style={{ padding: 16 }}><RegistrationForm /></div>,
+        }
+      }
+    ]
     return (
       <Layout user={user}>
         <h1>Přihlášení</h1>
@@ -69,7 +85,8 @@ export default class extends React.Component {
         )}
 
         <h2>Přihlásit se jménem a heslem</h2>
-        <LoginForm />
+
+        <Tab panes={panes} renderActiveOnly={false} />
 
         <style jsx>{`
           .loginButtons :global(a) {
