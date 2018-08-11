@@ -8,7 +8,7 @@ from cw_backend.model import Model
 
 here = Path(__file__).resolve().parent
 
-on_CI = not os.environ.get('CI')
+on_CI = bool(os.environ.get('CI'))
 
 
 @fixture
