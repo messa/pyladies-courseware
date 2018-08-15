@@ -82,8 +82,8 @@ export default class extends React.Component {
 
   render() {
     const { user, courseId, lesson } = this.props
-    const userCanSubmitHomework = user['is_admin'] || arrayContains(user['attended_course_ids'], courseId)
-    const userCanReviewHomework = user['is_admin'] || arrayContains(user['coached_course_ids'], courseId)
+    const userCanSubmitHomework = user && (user['is_admin'] || arrayContains(user['attended_course_ids'], courseId))
+    const userCanReviewHomework = user && (user['is_admin'] || arrayContains(user['coached_course_ids'], courseId))
     const lessonSlug = lesson.slug
     const { course } = lesson
     return (

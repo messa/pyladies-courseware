@@ -23,7 +23,7 @@ class TaskSolutions:
         await self.c_solutions.insert_one(doc)
         return self._solution(doc)
 
-    async def list_for_user_task(self, user, course_id, lesson_slug, task_id):
+    async def find_by_user_task(self, user, course_id, lesson_slug, task_id):
         q = {
             'user_id': user.id,
             'course_id': course_id,
@@ -31,7 +31,7 @@ class TaskSolutions:
             'task_id': task_id,
         }
         docs = await self.c_solutions.find(q).to_list(None)
-        docs.sort(key=itemgetter('_id'))
+        docs.sort(key=itemgetter('_id'), reverse=True)
         return [self._solution(doc) for doc in docs]
 
     def _solution(self, doc):
@@ -42,4 +42,12 @@ class TaskSolution:
 
     def __init__(self, doc):
         self.id = str(doc['_id'])
+        self.date = doc['_id'].generation_time
         self.code = doc['code']
+
+    def export(self):
+        return {
+            'id': self.id,
+            'date': self.date.strftime('%Y-%m-%dT%H:%M:%SZ'),
+            'code': self.code,
+        }

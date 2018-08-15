@@ -14,12 +14,47 @@ const HomeworkSolution = ({ code }) => (
 export default class HomeworkSubmission extends React.Component {
 
   state = {
-    open: true,
+    open: false,
+    loading: true,
+    loadError: null,
     currentSolution: null,
+    comments: null,
     //currentSolution: { code: 'foo\nbar\n' },
     editCurrentSolution: false,
     submitInProgress: false,
     submitError: null,
+  }
+
+  componentDidMount() {
+    this.loadData()
+  }
+
+  async loadData() {
+    try {
+      const { courseId, lessonSlug, taskId } = this.props
+      const url = '/api/tasks/user-solutions' +
+        `?course_id=${encodeURIComponent(courseId)}` +
+        `&lesson_slug=${encodeURIComponent(lessonSlug)}` +
+        `&task_id=${encodeURIComponent(taskId)}`
+      const r = await fetch(url, {
+        credentials: 'same-origin',
+        headers: {
+          'Accept': 'application/json',
+        }
+      })
+      const { task_solutions, comments } = await r.json()
+      this.setState({
+        loading: false,
+        loadError: null,
+        currentSolution: task_solutions[0],
+        comments: comments,
+      })
+    } catch (err) {
+      this.setState({
+        loading: false,
+        loadError: err.toString(),
+      })
+    }
   }
 
   handleOpenButton = () => {
@@ -27,18 +62,18 @@ export default class HomeworkSubmission extends React.Component {
   }
 
   handleSubmitSolution = async ({ code }) => {
-    const { courseId, lessonSlug, taskId } = this.props
-    const payload = {
-      'course_id': courseId,
-      'lesson_slug': lessonSlug,
-      'task_id': taskId,
-      'code': code,
-    }
     this.setState({
       submitInProgress: true,
     })
     try {
-      const r = await fetch('/api/tasks/submit', {
+      const { courseId, lessonSlug, taskId } = this.props
+      const payload = {
+        'course_id': courseId,
+        'lesson_slug': lessonSlug,
+        'task_id': taskId,
+        'code': code,
+      }
+      const r = await fetch('/api/tasks/submit-solution', {
         method: 'POST',
         credentials: 'same-origin',
         headers: {
@@ -70,52 +105,64 @@ export default class HomeworkSubmission extends React.Component {
 
   render() {
     const { open, currentSolution, editCurrentSolution, submitInProgress, submitError } = this.state
-    return (
-      <div className='HomeworkSubmission'>
-        {!open ? (
+    const { loading, loadError, comments } = this.state
+    let content = null
+    if (this.state.loadError) {
+      content = (
+        <Message
+          negative
+          header='Load failed'
+          content={loadError}
+        />
+      )
+    } else if (editCurrentSolution || (open && !currentSolution)) {
+        content = (
+          <>
+            <h4>Odevzdat řešení</h4>
+            {submitError && (
+              <Message
+                negative header='Send failed'
+                content={submitError}
+              />
+            )}
+            <HomeworkSolutionForm
+              onSubmit={this.handleSubmitSolution}
+              code={currentSolution ? currentSolution.code : null}
+              loading={submitInProgress}
+            />
+          </>
+        )
+    } else if (currentSolution) {
+      content = (
+        <>
+          <HomeworkSolution code={currentSolution.code} />
           <Button
             basic
             size='tiny'
             color='blue'
-            content='Odevzdat řešení'
-            icon='reply'
-            onClick={this.handleOpenButton}
+            content='Upravit'
+            icon='edit'
+            onClick={this.handleEditButton}
           />
-        ) : (
-          <div style={{ animation: 'slide-up 0.4s ease', marginTop: '1.5rem' }}>
-            {(!currentSolution || editCurrentSolution) ? (
-              <>
-                <h4>Odevzdat řešení</h4>
-                {submitError && (
-                  <Message
-                    negative header='Send failed'
-                    content={submitError}
-                  />
-                )}
-                <HomeworkSolutionForm
-                  onSubmit={this.handleSubmitSolution}
-                  code={currentSolution ? currentSolution.code : null}
-                  loading={submitInProgress}
-                />
-              </>
-            ) : (
-              <>
-                <HomeworkSolution code={currentSolution.code} />
-                <Button
-                  basic
-                  size='tiny'
-                  color='blue'
-                  content='Upravit'
-                  icon='edit'
-                  onClick={this.handleEditButton}
-                />
-                <HomeworkComments />
-              </>
-            )}
-
-
-          </div>
-        )}
+        </>
+      )
+    } else if (!open && !loading) {
+      content = (
+        <Button
+          basic
+          size='tiny'
+          color='blue'
+          content='Odevzdat řešení'
+          icon='reply'
+          onClick={this.handleOpenButton}
+        />
+      )
+    }
+    return (
+      <div className='HomeworkSubmission'>
+        {loading && (<p><em>Loading</em></p>)}
+        {content}
+        {comments && (<HomeworkComments comments={comments} />)}
         <style jsx>{`
           .HomeworkSubmission {
             margin-top: 1rem;
