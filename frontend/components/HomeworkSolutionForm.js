@@ -2,7 +2,7 @@ import React from 'react'
 import { Button } from 'semantic-ui-react'
 import CodeEditor from './CodeEditor'
 
-const defaultCode = '# sem napiš svoje řešení\n'
+const defaultCode = ''
 
 export default class HomeworkSubmission extends React.Component {
 
