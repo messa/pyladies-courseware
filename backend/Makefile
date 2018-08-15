@@ -5,7 +5,7 @@ check: $(venv_dir)/packages-installed
 	$(venv_dir)/bin/python3 -m pytest -vv --tb=native $(pytest_args) tests
 
 run: $(venv_dir)/packages-installed
-	$(venv_dir)/bin/cw-backend
+	ALLOW_DEV_LOGIN=1 $(venv_dir)/bin/cw-backend
 
 venv: $(venv_dir)/packages-installed
 

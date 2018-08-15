@@ -84,7 +84,7 @@ class Users:
             raise InvalidPasswordError('Invalid password')
         return self._user(user_doc)
 
-    async def get_user_by_id(self, user_id):
+    async def get_by_id(self, user_id):
         assert isinstance(user_id, str)
         user_doc = await self.c_users.find_one({'_id': user_id})
         if not user_doc:
@@ -135,6 +135,7 @@ class User:
         return f'<{self.__class__.__name__} id={self.id!r}>'
 
     async def _update(self, data, author_user_id):
+        # TODO: ten changelog řešit ještě nějak obecněji
         assert isinstance(data, dict)
         changelog_entry = {
             '_id': ObjectId(),

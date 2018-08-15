@@ -7,15 +7,15 @@ import fetchPageData from '../util/fetchPageData'
 export default class ProfilePage extends React.Component {
 
   static async getInitialProps({ req }) {
-    return await fetchPageData(req, {
-      userDetail: 'user_detail',
-    })
+    return await fetchPageData(req, {})
   }
 
   render() {
-    const { userDetail } = this.props
+    const { user } = this.props
     return (
-      <Layout user={this.props.user}>
+      <Layout user={user}>
+
+        <pre>{JSON.stringify(user, null, 2)}</pre>
 
       </Layout>
     )
