@@ -93,6 +93,10 @@ class Users:
             raise ModelError('Dev login not allowed')
         return self._user(user_doc)
 
+    async def list_all(self):
+        user_docs = await self.c_users.find().to_list(None)
+        return [self._user(d) for d in user_docs]
+
     def _user(self, user_doc):
         return User(self.c_users, user_doc)
 
@@ -206,3 +210,12 @@ class UserView:
         self.attended_course_ids = doc.get('attended_course_ids') or []
         self.coached_course_ids = doc.get('coached_course_ids') or []
         self.is_admin = doc.get('is_admin', False)
+
+    def export(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'attended_course_ids': self.attended_course_ids,
+            'coached_course_ids': self.coached_course_ids,
+            'is_admin': self.is_admin,
+        }

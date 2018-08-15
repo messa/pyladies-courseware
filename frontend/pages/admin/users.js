@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Button } from 'semantic-ui-react'
 import Layout from '../../components/Layout'
 import fetchPageData from '../../util/fetchPageData'
-import UserTable from '../../components/admin/UserTable'
+import UserList from '../../components/admin/UserList'
 
 export default class extends React.Component {
 
@@ -18,7 +18,7 @@ export default class extends React.Component {
 
         <h1>Administrace &ndash; Přehled uživatelů</h1>
 
-        <UserTable />
+        <UserList />
 
       </Layout>
     )
