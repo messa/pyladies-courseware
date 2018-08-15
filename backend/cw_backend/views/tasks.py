@@ -11,17 +11,22 @@ logger = logging.getLogger(__name__)
 routes = web.RouteTableDef()
 
 
-@routes.get('/api/admin/users')
-async def list_users(req):
+@routes.post('/api/tasks/submit')
+async def submit_task(req):
     session = await get_session(req)
     model = req.app['model']
     if not session.get('user'):
         raise web.HTTPForbidden()
     user = await model.users.get_by_id(session['user']['id'])
-    if user.is_admin != True:
-        raise web.HTTPForbidden()
-    users = await model.users.list_all()
+    #if user.is_admin != True:
+    #    raise web.HTTPForbidden()
+    data = await req.json()
+    solution = await model.task_solutions.create(
+        user=user,
+        course_id=data['course_id'],
+        lesson_slug=data['lesson_slug'],
+        task_id=data['task_id'],
+        code=data['code'])
     return web.json_response({
-        'paging': None,
-        'items': [u.export() for u in users],
+        'task_solution_id': solution.id,
     })

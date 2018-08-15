@@ -7,14 +7,18 @@ import ALink from '../components/ALink'
 import LessonItems from '../components/LessonItems'
 import formatDate from '../util/formatDate'
 import HomeworkSubmission from '../components/HomeworkSubmission'
-import HomeworkSubmissionsReview from '../components/HomeworkSubmissionsReview'
 
-const HomeworkTask = ({ hwItem }) => (
+const HomeworkTask = ({ hwItem, userCanSubmitHomework, courseId, lessonSlug }) => (
   <div className='homework-task'>
     <div className='number'>{hwItem['number']}.</div>
     <div className='homework-body' dangerouslySetInnerHTML={{__html: hwItem['text_html'] }} />
-    <HomeworkSubmissionsReview />
-    <HomeworkSubmission />
+    {userCanSubmitHomework && (
+      <HomeworkSubmission
+        courseId={courseId}
+        lessonSlug={lessonSlug}
+        taskId={hwItem.id}
+      />
+    )}
     <style jsx>{`
       .homework-task {
         margin: 2rem 0;
@@ -58,18 +62,29 @@ const HomeworkSection = ({ hwItem }) => (
     `}</style>
   </div>)
 
+function arrayContains(array, item) {
+  return array && array.indexOf(item) !== -1
+}
+
 export default class extends React.Component {
 
   static async getInitialProps({ req, query }) {
     const courseId = query.course
     const lessonSlug = query.lesson
-    return await fetchPageData(req, {
+    const data = await fetchPageData(req, {
       lesson: { 'lesson_detail': { 'course_id': courseId, 'lesson_slug': lessonSlug } },
     })
+    return {
+      courseId,
+      ...data
+    }
   }
 
   render() {
-    const { user, lesson } = this.props
+    const { user, courseId, lesson } = this.props
+    const userCanSubmitHomework = user['is_admin'] || arrayContains(user['attended_course_ids'], courseId)
+    const userCanReviewHomework = user['is_admin'] || arrayContains(user['coached_course_ids'], courseId)
+    const lessonSlug = lesson.slug
     const { course } = lesson
     return (
       <Layout user={user}>
@@ -107,8 +122,21 @@ export default class extends React.Component {
 
         {lesson['homework_items'].map((hwItem, i) => {
           switch (hwItem.homework_item_type) {
-            case 'task': return (<HomeworkTask key={i} hwItem={hwItem} />)
-            case 'section': return (<HomeworkSection key={i} hwItem={hwItem} />)
+            case 'task': return (
+              <HomeworkTask
+                key={i}
+                hwItem={hwItem}
+                userCanSubmitHomework={userCanSubmitHomework}
+                courseId={courseId}
+                lessonSlug={lessonSlug}
+              />
+            )
+            case 'section': return (
+              <HomeworkSection
+                key={i}
+                hwItem={hwItem}
+              />
+            )
             default: return (
               <pre key={i} className='debug'>
                 {JSON.stringify({ hwItem }, null, 2)}
@@ -116,8 +144,6 @@ export default class extends React.Component {
             )
           }
         })}
-
-        <pre className='debug'>{JSON.stringify({ lesson }, null, 2)}</pre>
 
       </Layout>
     )
