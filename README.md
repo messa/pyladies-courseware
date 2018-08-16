@@ -16,3 +16,8 @@ Usage:
 $ export ALLOW_DEV_LOGIN=1
 $ make run  # or whatever command you use to run the backend
 ```
+
+Poznámky
+--------
+
+Nějaký pokus o přepsání domácích úkolů proběhl zde: https://github.com/pyvec/naucse.python.cz/pull/153
