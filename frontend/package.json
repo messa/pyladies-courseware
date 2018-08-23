@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Petr Messner",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "codemirror": "^5.39.2",
     "isomorphic-unfetch": "^2.1.1",
