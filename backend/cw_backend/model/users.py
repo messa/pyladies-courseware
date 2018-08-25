@@ -24,6 +24,7 @@ class Users:
         await self.c_users.create_index('fb_id', sparse=True, unique=True)
         await self.c_users.create_index('google_id', sparse=True, unique=True)
         await self.c_users.create_index('login', sparse=True, unique=True)
+        await self.c_users.create_index('attended_course_ids', sparse=True)
 
     async def create_dev_user(self, name):
         if not self.dev_login_allowed:
@@ -35,7 +36,7 @@ class Users:
             'dev_login': True,
         }
         await self.c_users.insert_one(user_doc)
-        return self._user(user_doc)
+        return self._build_user(user_doc)
 
     async def create_oauth2_user(self, provider, provider_user_id, name, email):
         assert provider in {'fb', 'google'}
@@ -47,7 +48,7 @@ class Users:
             'email': email,
         }
         await self.c_users.insert_one(user_doc)
-        return self._user(user_doc)
+        return self._build_user(user_doc)
 
     async def create_password_user(self, email, password, name):
         assert isinstance(email, str)
@@ -67,7 +68,7 @@ class Users:
             'password_hash': pw_hash,
         }
         await self.c_users.insert_one(user_doc)
-        return self._user(user_doc)
+        return self._build_user(user_doc)
 
     async def login_password_user(self, email, password):
         assert isinstance(email, str)
@@ -82,7 +83,7 @@ class Users:
         pw_ok = await self.password_hashing.verify_hash(user_doc['password_hash'], password)
         if pw_ok is not True:
             raise InvalidPasswordError('Invalid password')
-        return self._user(user_doc)
+        return self._build_user(user_doc)
 
     async def get_by_id(self, user_id):
         assert isinstance(user_id, str)
@@ -91,13 +92,19 @@ class Users:
             raise NotFoundError('User not found')
         if user_doc.get('dev_login') and not self.dev_login_allowed:
             raise ModelError('Dev login not allowed')
-        return self._user(user_doc)
+        return self._build_user(user_doc)
 
     async def list_all(self):
-        user_docs = await self.c_users.find().to_list(None)
-        return [self._user(d) for d in user_docs]
+        user_docs = await self.c_users.find({}).to_list(None)
+        return [self._build_user(d) for d in user_docs]
 
-    def _user(self, user_doc):
+    async def find_by_attended_course_id(self, course_id):
+        q = {'attended_course_ids': course_id}
+        user_docs = await self.c_users.find(q).to_list(None)
+        users = [self._build_user(d) for d in user_docs]
+        return sorted(users, key=lambda u: u.get_name_sort_key())
+
+    def _build_user(self, user_doc):
         return User(self.c_users, user_doc)
 
 
@@ -210,6 +217,10 @@ class UserView:
         self.attended_course_ids = doc.get('attended_course_ids') or []
         self.coached_course_ids = doc.get('coached_course_ids') or []
         self.is_admin = doc.get('is_admin', False)
+
+    def get_name_sort_key(self):
+        name_parts = self.name.split()
+        return (name_parts[-1], *name_parts[:-1])
 
     def export(self):
         return {

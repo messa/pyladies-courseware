@@ -51,7 +51,7 @@ class TaskSolutions:
             }, return_document=ReturnDocument.AFTER)
         return self._build_solution(solution_doc)
 
-    async def get_by_task_and_user(self, user, course_id, task_id):
+    async def get_by_task_and_user_id(self, user, course_id, task_id):
         '''
         Returns TaskSolution.
         '''
@@ -61,6 +61,11 @@ class TaskSolutions:
             'user_id': user.id,
         })
         return self._build_solution(doc) if doc else None
+
+    async def find_by_course_and_task_ids(self, course_id, task_ids):
+        q = {'course_id': course_id, 'task_id': {'$in': list(task_ids)}}
+        docs = await self._c_solutions.find(q).to_list(None)
+        return [self._build_solution(doc) for doc in docs]
 
     def _build_solution(self, doc):
         '''
@@ -77,6 +82,10 @@ class TaskSolution:
         self._doc = doc
         self.id = str(doc['_id'])
         self.date = doc['_id'].generation_time
+        self.course_id = doc['course_id']
+        self.task_id = doc['task_id']
+        self.user_id = doc['user_id']
+        self.conclusion = doc['conclusion']
 
     async def get_current_version(self):
         if not self._doc['current_version_id']:
@@ -88,6 +97,10 @@ class TaskSolution:
         d = {
             'id': self.id,
             'date': self.date.strftime('%Y-%m-%dT%H:%M:%SZ'),
+            'course_id': self.course_id,
+            'task_id': self.task_id,
+            'user_id': self.user_id,
+            'conclusion': self.conclusion,
         }
         if with_code:
             cv = await self.get_current_version()

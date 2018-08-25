@@ -7,6 +7,7 @@ import ALink from '../components/ALink'
 import LessonItems from '../components/LessonItems'
 import formatDate from '../util/formatDate'
 import HomeworkSubmission from '../components/HomeworkSubmission'
+import TaskReviewLessonSummary from '../components/TaskReviewLessonSummary'
 
 const HomeworkTask = ({ hwItem, userCanSubmitHomework, courseId, lessonSlug }) => (
   <div className='homework-task'>
@@ -82,10 +83,11 @@ export default class extends React.Component {
 
   render() {
     const { user, courseId, lesson } = this.props
-    const userCanSubmitHomework = user && (user['is_admin'] || arrayContains(user['attended_course_ids'], courseId))
-    const userCanReviewHomework = user && (user['is_admin'] || arrayContains(user['coached_course_ids'], courseId))
+    const userCanSubmitHomeworks = user && (user['is_admin'] || arrayContains(user['attended_course_ids'], courseId))
+    const userCanReviewHomeworks = user && (user['is_admin'] || arrayContains(user['coached_course_ids'], courseId))
     const lessonSlug = lesson.slug
     const { course } = lesson
+    const tasks = lesson['homework_items'].filter(x => x.homework_item_type === 'task')
     return (
       <Layout user={user}>
 
@@ -118,6 +120,16 @@ export default class extends React.Component {
 
         <LessonItems lessonItems={lesson['lesson_items']} />
 
+        {userCanReviewHomeworks && (
+          <>
+            <h2>Odevzdané úkoly</h2>
+            <TaskReviewLessonSummary
+              courseId={courseId}
+              tasks={tasks}
+            />
+          </>
+        )}
+
         <h2>Domácí projekty</h2>
 
         {lesson['homework_items'].map((hwItem, i) => {
@@ -126,7 +138,7 @@ export default class extends React.Component {
               <HomeworkTask
                 key={i}
                 hwItem={hwItem}
-                userCanSubmitHomework={userCanSubmitHomework}
+                userCanSubmitHomework={userCanSubmitHomeworks}
                 courseId={courseId}
                 lessonSlug={lessonSlug}
               />
