@@ -17,10 +17,9 @@ export default class HomeworkSubmission extends React.Component {
     open: false,
     loading: true,
     loadError: null,
-    currentSolution: null,
+    solution: null,
     comments: null,
-    //currentSolution: { code: 'foo\nbar\n' },
-    editCurrentSolution: false,
+    editSolution: false,
     submitInProgress: false,
     submitError: null,
   }
@@ -32,7 +31,7 @@ export default class HomeworkSubmission extends React.Component {
   async loadData() {
     try {
       const { courseId, lessonSlug, taskId } = this.props
-      const url = '/api/tasks/user-solutions' +
+      const url = '/api/tasks/user-solution' +
         `?course_id=${encodeURIComponent(courseId)}` +
         `&lesson_slug=${encodeURIComponent(lessonSlug)}` +
         `&task_id=${encodeURIComponent(taskId)}`
@@ -42,11 +41,11 @@ export default class HomeworkSubmission extends React.Component {
           'Accept': 'application/json',
         }
       })
-      const { task_solutions, comments } = await r.json()
+      const { task_solution, comments } = await r.json()
       this.setState({
         loading: false,
         loadError: null,
-        currentSolution: task_solutions[0],
+        solution: task_solution,
         comments: comments,
       })
     } catch (err) {
@@ -82,12 +81,12 @@ export default class HomeworkSubmission extends React.Component {
         },
         body: JSON.stringify(payload),
       })
-      const { err } = await r.json()
+      const { err, task_solution } = await r.json()
       this.setState({
         submitInProgress: false,
         submitError: null,
-        currentSolution: { code },
-        editCurrentSolution: false,
+        solution: task_solution,
+        editSolution: false,
       })
     } catch (err) {
       this.setState({
@@ -99,12 +98,12 @@ export default class HomeworkSubmission extends React.Component {
 
   handleEditButton = async () => {
     this.setState({
-      editCurrentSolution: true,
+      editSolution: true,
     })
   }
 
   render() {
-    const { open, currentSolution, editCurrentSolution, submitInProgress, submitError } = this.state
+    const { open, solution, editSolution, submitInProgress, submitError } = this.state
     const { loading, loadError, comments } = this.state
     let content = null
     if (this.state.loadError) {
@@ -115,7 +114,7 @@ export default class HomeworkSubmission extends React.Component {
           content={loadError}
         />
       )
-    } else if (editCurrentSolution || (open && !currentSolution)) {
+    } else if (editSolution || (open && !solution)) {
         content = (
           <>
             <h4>Odevzdat řešení</h4>
@@ -127,15 +126,15 @@ export default class HomeworkSubmission extends React.Component {
             )}
             <HomeworkSolutionForm
               onSubmit={this.handleSubmitSolution}
-              code={currentSolution ? currentSolution.code : null}
+              code={solution ? solution.current_version.code : null}
               loading={submitInProgress}
             />
           </>
         )
-    } else if (currentSolution) {
+    } else if (solution) {
       content = (
         <>
-          <HomeworkSolution code={currentSolution.code} />
+          <HomeworkSolution code={solution.current_version.code} />
           <Button
             basic
             size='tiny'

@@ -17,3 +17,4 @@ class Model:
 
     async def create_indexes(self):
         await self.users.create_indexes()
+        await self.task_solutions.create_idnexes()
