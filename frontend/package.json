@@ -18,6 +18,6 @@
     "react": "^16.4.2",
     "react-codemirror2": "^5.1.0",
     "react-dom": "^16.4.2",
-    "semantic-ui-react": "^0.81.3"
+    "semantic-ui-react": "^0.82.3"
   }
 }
