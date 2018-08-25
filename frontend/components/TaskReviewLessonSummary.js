@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import { Table, Message } from 'semantic-ui-react'
 
 export default class TaskReviewLessonSummary extends React.Component {
@@ -45,7 +46,7 @@ export default class TaskReviewLessonSummary extends React.Component {
 
   render() {
     const { loading, loadError, students, taskSolutionsByUserAndTaskId } = this.state
-    const { tasks } = this.props
+    const { courseId, lessonSlug, tasks } = this.props
     return (
       <div>
         {loading && (<p><em>Loading</em></p>)}
@@ -59,6 +60,8 @@ export default class TaskReviewLessonSummary extends React.Component {
 
         {students && (
           <TaskReviewLessonSummaryTable
+            courseId={courseId}
+            lessonSlug={lessonSlug}
             students={students}
             tasks={tasks}
             taskSolutionsByUserAndTaskId={taskSolutionsByUserAndTaskId}
@@ -72,7 +75,7 @@ export default class TaskReviewLessonSummary extends React.Component {
   }
 }
 
-const TaskReviewLessonSummaryTable = ({ students, tasks, taskSolutionsByUserAndTaskId }) => (
+const TaskReviewLessonSummaryTable = ({ courseId, lessonSlug, students, tasks, taskSolutionsByUserAndTaskId }) => (
   <Table basic celled size='small' compact>
     <Table.Header>
       <Table.Row>
@@ -89,7 +92,11 @@ const TaskReviewLessonSummaryTable = ({ students, tasks, taskSolutionsByUserAndT
           <Table.Cell>{student.name}</Table.Cell>
           {tasks.map((task, i) => (
             <Table.Cell key={i}>
-              <TaskStatus taskSolution={taskSolutionsByUserAndTaskId.get(`${student.id}|${task.id}`)} />
+              <TaskStatus
+                courseId={courseId}
+                lessonSlug={lessonSlug}
+                taskSolution={taskSolutionsByUserAndTaskId.get(`${student.id}|${task.id}`)}
+              />
             </Table.Cell>
           ))}
         </Table.Row>
@@ -99,8 +106,21 @@ const TaskReviewLessonSummaryTable = ({ students, tasks, taskSolutionsByUserAndT
 )
 
 
-const TaskStatus = ({ taskSolution }) => {
-  if (!taskSolution) return '·'
-  if (!taskSolution.conclusion) return '◯'
-  return `${taskSolution.conclusion}`
+const TaskStatus = ({ courseId, lessonSlug, taskSolution }) => {
+  if (!taskSolution) {
+    return '·'
+  }
+  let content = '◯'
+  if (taskSolution.conclusion) {
+    content = `${taskSolution.conclusion}`
+  }
+  const href = {
+    pathname: '/lesson',
+    query: {
+      course: courseId,
+      lesson: lessonSlug,
+      reviewUserId: taskSolution.user_id,
+    }
+  }
+  return (<Link href={href}><a>{content}</a></Link>)
 }

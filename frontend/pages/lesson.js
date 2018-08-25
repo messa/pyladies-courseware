@@ -125,6 +125,7 @@ export default class extends React.Component {
             <h2>Odevzdané úkoly</h2>
             <TaskReviewLessonSummary
               courseId={courseId}
+              lessonSlug={lessonSlug}
               tasks={tasks}
             />
           </>
