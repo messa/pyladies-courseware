@@ -10,6 +10,7 @@ run: $(venv_dir)/packages-installed
 venv: $(venv_dir)/packages-installed
 
 $(venv_dir)/packages-installed: requirements.txt requirements-tests.txt
+	$(python3) -c "import sys; print('Your Python: '+'.'.join(map(str, sys.version_info[:3]))) ; assert sys.version_info >= (3,6), 'Sorry Python <3.6 is not supported'"
 	test -d $(venv_dir) || $(python3) -m venv $(venv_dir)
 	$(venv_dir)/bin/pip install -U pip wheel
 	$(venv_dir)/bin/pip install -r requirements.txt
