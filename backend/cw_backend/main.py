@@ -23,13 +23,14 @@ def cw_backend_main():
     args = p.parse_args()
     setup_logging()
     conf = Configuration()
-    app = get_app(conf)
-    web.run_app(app, port=args.port)
+    web.run_app(get_app(conf), port=args.port)
 
 
-def get_app(conf):
+async def get_app(conf):
     mongo_client = AsyncIOMotorClient(conf.mongodb.connection_uri)
     mongo_db = mongo_client[conf.mongodb.db_name]
+    model = Model(mongo_db, conf)
+    await model.create_indexes()
     # We use hash function because EncryptedCookieStorage needs
     # a byte string of specific size.
     session_secret_hash = sha256(conf.session_secret.encode()).digest()
@@ -37,7 +38,7 @@ def get_app(conf):
     session_setup(app, EncryptedCookieStorage(session_secret_hash))
     app['conf'] = conf
     app['courses'] = load_courses(conf.data_dir)
-    app['model'] = Model(mongo_db, conf)
+    app['model'] = model
     app.add_routes(all_routes)
     return app
 
