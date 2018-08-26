@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 
+import sys
 from setuptools import setup, find_packages
+
+if sys.version_info < (3,6):
+    sys.exit('Sorry, Python < 3.6 is not supported')
 
 setup(
     name='cw-backend',
