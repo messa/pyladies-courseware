@@ -1,0 +1,333 @@
+
+homeworks:
+
+- section:
+    markdown: |
+        Na začátek trocha opakování – což neznamená, že se nemůžeš naučit něco nového.
+
+- markdown: |
+    Co dělá funkce `print`?
+
+- markdown: |
+    Co _vrací_ funkce `print`?
+
+- markdown: |
+    Co dělá pojmenovaný argument `end` funkce `print`?
+
+- markdown: |
+    Co dělá pojmenovaný argument `sep` funkce `print`?
+
+- markdown: |
+    Čím se liší chyby, které dostaneš když zadáš tyhle příkazy?
+    - `int('blabla')`
+    - `float('blabla')`
+    - `int('8.9')`
+    - `int(8.9)`
+
+- markdown: |
+    Jak zaokrouhlí funkce `round` tato čísla?
+    - `3`
+    - `3,0`
+    - `3,141`
+    - `2,718`
+    - `-8,3`
+    - `3,5`
+    - `4,5`
+
+- markdown: |
+    Jaké znáš typy hodnot v Pythonu?
+    Pokud znáš jméno funkce, která na daný typ převádí, napiš ho taky.
+
+- markdown: |
+    Pomocí cyklu `for` napiš program, který vypíše:
+    <pre>
+    a
+    a
+    a
+    a
+    a
+    </pre>
+
+- markdown: |
+    Pomocí cyklu `for` napiš program, který vypíše:
+    <pre>
+    a
+    b
+    b
+    b
+    b
+    </pre>
+
+- markdown: |
+    Pomocí cyklu `for` napiš program, který vypíše:
+    <pre>
+    0 na druhou je 0
+    1 na druhou je 1
+    2 na druhou je 4
+    3 na druhou je 9
+    4 na druhou je 16
+    5 na druhou je 25
+    6 na druhou je 36
+    </pre>
+
+- markdown: |
+    Pomocí cyklů `for+ a parametru \verb+end+ pro \verb+print` napiš program, který vypíše:
+    <pre>
+    X X X X X
+    X X X X X
+    X X X X X
+    X X X X X
+    X X X X X
+    </pre>
+
+- markdown: |
+    Pomocí cyklů `for` a parametru `end` pro `print` napiš program, který vypíše:
+    <pre>
+    X X X X X
+    X X X X
+    X X X
+    X X
+    X
+    <pre>
+
+- markdown: |
+    Pomocí cyklů `for` a parametru `end` pro `print` napiš program, který vypíše:
+    <pre>
+    0 0 0 0 0
+    0 1 2 3 4
+    0 2 4 6 8
+    0 3 6 9 12
+    0 4 8 12 16
+    <pre>
+
+- markdown: |
+    Programy s cyklem `for` uprav tak, aby počet řádků
+    (či velikost čtverce/trojúhelníku/tabulky)
+    mohl zadat uživatel.
+
+- markdown: |
+    Co vrací funkce `range`?
+
+- markdown: |
+    Co se stane, když pro příkaz `for`
+    zavoláš funkci `range` se dvěma parametry?
+
+- markdown: |
+    Se třemi?
+
+- markdown: |
+    Nakresli domeček!
+    ```
+    from math import sqrt
+    from texturtle import ctx, forward, left, right
+    with ctx():
+        for i in range(4):
+            forward(50)
+            left(90)
+        left(45)
+        for n in 1, 2, 2, 1:
+            forward(50*sqrt(2)/n)
+            left(90)
+        right(45)
+    ```
+    _Jak pravil Pythagoras, délka šikmé čáry v domečku je $\sqrt2$krát délka stěny. O funkci na odmocninu jsme mluvili na srazu._
+
+- markdown: |
+    Nakresli vesnici!
+    ```
+    from math import sqrt
+    from texturtle import ctx, forward, left, right
+    with ctx():
+        for i in range(10):
+            for i in range(4):
+                forward(50)
+                left(90)
+            left(45)
+            for n in 1, 2, 2, 1:
+                forward(50*sqrt(2)/n)
+                left(90)
+            right(45)
+            forward(20)
+    ```
+
+- markdown: |
+    Nakresli trojúhelník.
+    ```
+    from texturtle import ctx, forward, left, right
+    with ctx():
+        for i in range(3):
+            forward(50)
+            left(120)
+    ```
+    _Rovnostranný trojúhelník má vnitřní úhly 60°. Želva se ale otáčí o vedlejší úhel $180 - 60 = 120$°:_
+
+- markdown: |
+    Nakresli pětiúhelník, šestiúhelník, sedmiúhelník, osmiúhelník.
+    ```
+    from texturtle import ctx, forward, left, right
+    def draw_ngon(n):
+        for i in range(n):
+            forward(200 / n)
+            left(180 - 180 * (1 - 2/n))
+
+    with ctx():
+        draw_ngon(5)
+    with ctx():
+        draw_ngon(6)
+    with ctx():
+        draw_ngon(7)
+    with ctx():
+        draw_ngon(8)
+    ```
+    _Vnitřní úhel pravidelného `n`-úhelníka má `180 × (1-2/n)` stupňů._
+    _Aby byly tvary zhruba stejně veliké, použij pro `n`-úhelník délku strany např. `200/n`_
+
+- markdown: |
+    Nakresli `n`-úhelník, kde `n` zadá uživatel.
+
+- markdown: |
+    Želva umí jen rovné čáry. Jde pomocí rovných čar nakreslit kolečko?
+
+- markdown: |
+    Nakresli pětadevadesátiúhelník.
+
+- markdown: |
+    Nakresli takovýto ornament:
+    ```
+    from texturtle import ctx, forward, left, right
+    with ctx():
+        for i in range(20):
+            forward(i * 4)
+            left(90)
+    ```
+    _\small Nevíš-li si rady, vezmi pravítko a změř délky jednotlivých čar._
+
+- markdown: |
+    Nakresli takovýto ornament:
+    ```
+    from texturtle import ctx, forward, left, right
+    with ctx():
+        for i in range(60):
+            forward(i)
+            left(45)
+    ```
+
+- markdown: |
+    Nakresli spirálu.
+    ```
+    from texturtle import ctx, forward, left, right
+    with ctx():
+        for i in range(600):
+            forward(i / 50)
+            left(10)
+    ```
+    _Od ornamentů ke spirále se dostaneš stejným způsobem jako od `n`-úhelníků ke kolečku._
+
+- markdown: |
+    Nakresli schody.
+    ```
+    from texturtle import ctx, forward, left, right
+    with ctx():
+        for i in range(8):
+            forward(25)
+            left(90)
+            forward(25)
+            right(90)
+    ```
+
+- markdown: |
+    Napiš program, který se zeptá na 3 čísla
+    a zjistí, jestli je jejich součet větší než 10.
+
+- markdown: |
+    Napiš program, který načte číslo a zjistí, jestli je sudé.
+    _Sudá čísla jsou beze _zbytku_ dělitelná dvěma._
+
+- markdown: |
+    Napiš program, který vypíše čísla od jedné do 100, ale:
+    - Pokud je číslo dělitelné třemi, napíše místo něj „bum”.
+    - Pokud je číslo dělitelné pěti, napíše místo něj „bác”.
+    - Pokud je číslo dělitelné pěti i třemi zároveň, napíše místo toho „bum-bác”.
+
+- markdown: |
+    Máš-li ráda matematiku a nebojíš-li se výzvy, načti od uživatele číslo $n$ a:
+    - Vypočti faktoriál `n!` (součin všech celých čísel od 1 do `n`).
+    - Zjisti, jestli je $n$ prvočíslo.
+    - Vypiš prvních $n$ členů Fibonacciho posloupnosti (`1, 1, 2, 3, 5, 8, 13, 21, ... `).
+
+- markdown: |
+    Napiš program, který načte dvě čísla a jednoznakový řetězec
+    – buď `+`, `-`, `*` nebo `/`.
+    Program provede na číslech příslušnou operaci.
+
+- markdown: |
+    Na sraze jsme nakreslili tři čtverce, každý otočený o 20°.
+    Nakresli 18 takových čtverců.
+
+- markdown: |
+    Vezmi program z minulé úlohy a dokresli stonek a listy.
+    Je jenom na tobě, jaký budou mít tvar.
+    Piš komentáře a snaž se opakovat pomocí `for`,
+        ne pomocí Ctrl+C Ctrl+V.
+
+- markdown: |
+    Napiš obrázek! Třeba les ze stromů, město z domů, nebe z hvězd,
+        dav ze smajlíků, hradbu z věží, zikkurat ze schodů, ...
+    Můžeš použít i nějakou z funkcí modulu `random`.
+
+- markdown: |
+    Co dělá tenhle kód?
+    <pre>
+    for c in 'Ahoj světe!':
+        print(c)
+    <pre>
+
+- markdown: |
+    Vymyslíš lepší jméno pro proměnnou `c` z minulé úlohy?
+
+- markdown: |
+    Co dělá tenhle kód?
+    <pre>
+    for c in 38:
+        print(c)
+    <pre>
+
+- markdown: |
+    Napiš program, který se pětkrát zeptá na číslo a nejmenší zadané číslo vypíše.
+
+- markdown: |
+    Jaké nové druhy chyb jsi od posledního srazu viděla?
+
+- markdown: |
+    Tohle je poslední projekt ze třetí sady. Kolik je v této sadě projektů?
+    ```
+    from texturtle import ctx, forward, left, right
+    with ctx():
+        for i in range(18):
+            for i in range(4):
+                forward(50)
+                left(90)
+            left(20)
+
+        right(90)
+        forward(90)
+
+        for cislo_listu in range(12):
+            if cislo_listu % 2 == 1:
+                right(140)
+            else:
+                left(90)
+            for i in range(50):
+                forward(1 + cislo_listu / 5)
+                left(1)
+            right(230)
+            for i in range(50):
+                forward(1 + cislo_listu / 5)
+                left(1)
+            if cislo_listu % 2 == 1:
+                right(90)
+            else:
+                left(40)
+            forward(20 + cislo_listu)
+    ```
+
