@@ -120,6 +120,62 @@ $ export ALLOW_DEV_LOGIN=1
 $ make run-backend
 ```
 
+Project structure
+-----------------
+
+```
+pyladies-courseware
+├── Dockerfile
+├── Makefile
+├── backend
+│   ├── Makefile
+│   ├── cw_backend
+│   │   ├── __init__.py
+│   │   ├── __main__.py
+│   │   ├── configuration.py
+│   │   ├── courses.py
+│   │   ├── main.py
+│   │   ├── model
+│   │   ├── util
+│   │   └── views
+│   ├── requirements-tests.txt
+│   ├── requirements.txt
+│   ├── setup.py
+│   └── tests
+│       ├── conftest.py
+│       ├── data
+│       ├── model
+│       │   ├── test_users.py
+│       │   └── ...
+│       ├── ...
+├── courses
+├── frontend
+│   ├── components
+│   │   ├── ALink.js
+│   │   ├── CodeEditor.js
+│   │   ├── Header.js
+│   │   ├── HomeworkComments.js
+│   │   ├── ...
+│   │   ├── admin
+│   │   └── forms
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── pages
+│   │   ├── admin
+│   │   │   └── users.js
+│   │   ├── course.js
+│   │   ├── index.js
+│   │   ├── lesson.js
+│   │   ├── login.js
+│   │   └── profile.js
+│   ├── static
+│   └── util
+├── nginx.conf - develoment-only nginx configuration
+└── resources - images for README etc.
+    └── local_dev_login.png
+```
+
+
 Poznámky
 --------
 
