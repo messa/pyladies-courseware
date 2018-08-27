@@ -3,11 +3,13 @@ This module implements reading course data YAML files.
 '''
 
 from datetime import date
+from functools import partial
 from itertools import count
 import logging
 from pathlib import Path
 import re
 from reprlib import repr as smart_repr
+from time import monotonic
 
 from .util import yaml_load
 
@@ -18,23 +20,68 @@ logger = logging.getLogger(__name__)
 def load_course(course_file):
     '''
     Load one course.yaml files.
+    Returns Course object. Used in tests.
     '''
-    return Course(course_file)
+    return Course(course_file, file_loader=FileLoader())
 
 
 def load_courses(data_dir):
     '''
     Load all files courses/*/course.yaml from a given directory.
-
+    Returns Courses wrapped inside ReloadingContainer.
     '''
-    return Courses(data_dir)
+    return ReloadingContainer(factory=partial(Courses, data_dir=data_dir))
+
+
+class FileLoader:
+
+    def __init__(self):
+        self.file_state = {} # { Path: ( mtime, size ) }
+
+    def read_text(self, path):
+        return self.read_bytes(path).decode('UTF-8')
+
+    def read_bytes(self, path):
+        path = Path(path).resolve()
+        data = path.read_bytes()
+        self.file_state[path] = (path.stat().st_mtime, len(data))
+        return data
+
+    def dirty(self):
+        t = monotonic()
+        try:
+            for path, (mtime, size) in self.file_state.items():
+                st = path.stat()
+                if st.st_mtime != mtime or st.st_size != size:
+                    return True
+            return False
+        finally:
+            d = monotonic() - t
+            if d > 0.1:
+                logger.debug('Checking course data files took %.3f s', d)
+
+
+class ReloadingContainer:
+
+    def __init__(self, factory):
+        self._factory = factory
+        self._file_loader = FileLoader()
+        self._load()
+
+    def _load(self):
+        self._obj = self._factory(file_loader=self._file_loader)
+
+    def get(self):
+        if self._file_loader.dirty():
+            self._load()
+        return self._obj
 
 
 class Courses:
 
-    def __init__(self, data_dir):
+    def __init__(self, data_dir, file_loader):
         assert isinstance(data_dir, Path)
-        self.courses = [Course(p) for p in data_dir.glob('courses/*/course.yaml')]
+        self.courses = [Course(p, file_loader=file_loader) for p in data_dir.glob('courses/*/course.yaml')]
         self.courses.sort(key=lambda c: c.start_date) # newest first
         self.courses.sort(key=lambda c: c.start_date.year, reverse=True)
 
@@ -82,11 +129,11 @@ class DataProperty:
 
 class Course:
 
-    def __init__(self, course_file):
+    def __init__(self, course_file, file_loader):
         assert isinstance(course_file, Path)
         logger.debug('Loading course from %s', course_file)
         try:
-            raw = yaml_load(course_file.read_text())
+            raw = yaml_load(file_loader.read_text(course_file))
         except Exception as e:
             raise Exception(f'Failed to load course file {course_file}: {e}')
         course_dir = course_file.parent
@@ -99,7 +146,7 @@ class Course:
             'end_date': parse_date(raw.get('end_date')),
 
         }
-        self.lessons = [Lesson(x, dir_path=course_dir) for x in raw['lessons']]
+        self.lessons = [Lesson(x, dir_path=course_dir, file_loader=file_loader) for x in raw['lessons']]
         # fix lessons where no slug was specified in course.yaml
         for n, lesson in enumerate(self.lessons, start=1):
             if not lesson.slug:
@@ -137,7 +184,7 @@ class Course:
 
 class Lesson:
 
-    def __init__(self, raw, dir_path):
+    def __init__(self, raw, dir_path, file_loader):
         self.data = {
             'slug': str(raw['slug']) if raw.get('slug') else None,
             'date': parse_date(raw['date']),
@@ -149,7 +196,8 @@ class Lesson:
             if raw_hw.get('file'):
                 self.homework_items.extend(load_homeworks_file(
                     dir_path / raw_hw['file'],
-                    lesson_slug=self.data['slug']))
+                    lesson_slug=self.data['slug'],
+                    file_loader=file_loader))
 
     slug = DataProperty('slug')
     date = DataProperty('date')
@@ -166,9 +214,9 @@ class Lesson:
         return d
 
 
-def load_homeworks_file(file_path, lesson_slug):
+def load_homeworks_file(file_path, lesson_slug, file_loader):
     try:
-        raw = yaml_load(file_path.read_text())
+        raw = yaml_load(file_loader.read_text(file_path))
     except Exception as e:
         raise Exception(f'Failed to load homeworks file {file_path}: {e}')
     homework_items = []

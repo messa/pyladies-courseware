@@ -43,10 +43,10 @@ resolvers = {
     'login_methods': lambda req, params: get_login_methods(conf=req.app['conf']),
     'list_courses': lambda req, params:
         {
-            'active': [c.export() for c in req.app['courses'].list_active()],
+            'active': [c.export() for c in req.app['courses'].get().list_active()],
         },
     'course_detail': lambda req, params:
-        req.app['courses'].get_by_id(params['course_id']).export(lessons=True),
+        req.app['courses'].get().get_by_id(params['course_id']).export(lessons=True),
 }
 
 
@@ -73,7 +73,7 @@ async def user(req, params):
 
 @resolver
 def lesson_detail(req, params):
-    course = req.app['courses'].get_by_id(params['course_id'])
+    course = req.app['courses'].get().get_by_id(params['course_id'])
     lesson = course.get_lesson_by_slug(params['lesson_slug'])
     return {
         **lesson.export(homeworks=True),

@@ -67,7 +67,7 @@ async def auth_dev(req):
     name = get_random_name()
     logger.debug('Generated random name: %r', name)
     user = await model.users.create_dev_user(name)
-    course_ids = [c.id for c in courses.list_active()]
+    course_ids = [c.id for c in courses.get().list_active()]
     if role == 'student':
         await user.add_attended_courses(course_ids, author_user_id=None)
     if role == 'coach':
