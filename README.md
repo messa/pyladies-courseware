@@ -3,6 +3,7 @@ Pyladies Courseware
 
 Nástroj pro odevzdávání a review domácích úkolů z programování.
 
+
 Todo
 ----
 
@@ -26,6 +27,40 @@ Dlouhodoběji:
 Viz také [issues](https://github.com/messa/pyladies-courseware/issues).
 
 Pokud máte dotaz nebo chcete spustit diskuzi nad některým todo, založte issue (pokud už takové neexistuje).
+
+
+Architecture
+------------
+
+Uses React frontend based on [Next.js](https://github.com/zeit/next.js/) and Python backend based on [aiohttp.server](https://aiohttp.readthedocs.io/en/stable/).
+
+```
+browser --> nginx 
+              - /* ------------> node.js frontend
+              - /api, /auth ---> Python aiohttp backend ---> MongoDB  
+```
+
+Why React:
+
+- the site will be very dynamic, with complex forms, no-reload page updates, notifications etc. React enables to do this on client-side easily
+- so fat we keep the code as simple as possible - no redux, no graphql etc., just "classic" React component state
+
+Why Python backend:
+
+- :)
+
+Why aiohttp:
+
+- supports websockets natively
+- enables the server to be single-process, single-thread, so things like notification broadcasting become much easier
+- powerful enough (just serves JSON API, no template rendering)
+- the MongoDB asyncio client [motor](https://github.com/mongodb/motor) is a "first-class" MongoDB client library
+
+Why MongoDB:
+
+- provides all we need
+- "operations friendly" - replication, migration etc. much easier than with *SQL
+- MongoDB and its Python client [motor](https://github.com/mongodb/motor) provide nice asyncio API
 
 
 Requirements
