@@ -6,10 +6,11 @@ Nástroj pro odevzdávání a review domácích úkolů z programování.
 Requirements
 ------------
 
-Node.js >=8.0
-Python >=3.6 (plus python3-venv)
-MongoDB
-nginx
+- Node.js >= 8.0
+- Python >= 3.6
+  - Ubuntu: install also `python3-venv`
+- MongoDB
+- nginx
 
 
 Local Development
