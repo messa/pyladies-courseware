@@ -3,6 +3,31 @@ Pyladies Courseware
 
 Nástroj pro odevzdávání a review domácích úkolů z programování.
 
+Todo
+----
+
+Next steps:
+
+- dokončit workflow pro review úkolů
+- nějak udělat notifikace
+  - uvnitř aplikace
+  - do Slacku
+  - e-mail
+  - debouncing (neposílat každou zvlášť, ale agregovat)
+- někam to nasadit :)
+- rozběhat FB a Google login
+- přidat Github login
+- dodělat admin uživatelů, ať se dají přiřazovat studenti a koučové do jednotlivých kurzů
+
+Dlouhodoběji:
+
+- odevzdávání přes Github
+
+Viz také [issues](https://github.com/messa/pyladies-courseware/issues).
+
+Pokud máte dotaz nebo chcete spustit diskuzi nad některým todo, založte issue (pokud už takové neexistuje).
+
+
 Requirements
 ------------
 
@@ -32,7 +57,8 @@ Na portu 3000 běží nodejs frontend.
 Na portu 5000 běží aiohttp backend
 Na portu 27017 běží MongoDB
 
-Po změně kódu musíš restartovat příslušý proces.  
+Po změně kódu musíš restartovat příslušý proces.
+
 
 Developer login
 ---------------
