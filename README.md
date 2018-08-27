@@ -7,17 +7,17 @@ Nástroj pro odevzdávání a review domácích úkolů z programování.
 Todo
 ----
 
-Next steps:
+Next steps - deadline September 9:
 
 - dokončit workflow pro review úkolů
-- nějak udělat notifikace
+- rozběhat FB a Google login
+- přidat Github login
+- někam to nasadit :)
+- udělat notifikace
   - uvnitř aplikace
   - do Slacku
   - e-mail
   - debouncing (neposílat každou zvlášť, ale agregovat)
-- někam to nasadit :)
-- rozběhat FB a Google login
-- přidat Github login
 - dodělat admin uživatelů, ať se dají přiřazovat studenti a koučové do jednotlivých kurzů
 
 Dlouhodoběji:
