@@ -43,11 +43,21 @@ browser --> nginx
 Why React:
 
 - the site will be very dynamic, with complex forms, no-reload page updates, notifications etc. React enables to do this on client-side easily
-- so fat we keep the code as simple as possible - no redux, no graphql etc., just "classic" React component state
+- so far we keep the code as simple as possible - no redux, no graphql etc., just "classic" React component state
+
+Why Next.js:
+
+- handles all the boring stuff: webpack, routing, code splitting...
+- we just write the React components, nothing else, no server-side code (except getInitialProps)
+- we don't even use "nice" dynamic URLs to keep things as simple as possible
+  - URL `/lesson?courseId=abc` is served from `pages/lesson.js` with `props: { query: { courseId: 'abc' }}`
 
 Why Python backend:
 
-- :)
+- the language we all love :)
+- libraries for everything
+- more mature language for business logic and advanced I/O, process management etc.
+- API backend is more responsive when the HTML server-rendering is outsourced to client process (or to static files)
 
 Why aiohttp:
 
