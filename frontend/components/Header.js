@@ -8,7 +8,7 @@ export default ({ user }) => (
     </p>
     <p style={{ float: 'right' }}>
       {!user ? (
-        <Link href='/login'><a>Přihlásit se</a></Link>
+        <Link href='/login' prefetch><a>Přihlásit se</a></Link>
       ) : (
         <span className='loggedInUser'>
           <Link href={'/profile'}><a>{user.name}</a></Link>
