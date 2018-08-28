@@ -3,7 +3,7 @@ import fetchFromBackend from './fetchFromBackend'
 const runningOnServer = typeof window === 'undefined'
 // cache only in browser
 const enableCache = !runningOnServer
-const cached = enableCache ? {} : null
+const cache = enableCache ? new Map() : null
 
 export default async function fetchPageData(req, queriesByOutKey) {
   queriesByOutKey['user'] = 'user' // we want user info always
@@ -17,8 +17,8 @@ export default async function fetchPageData(req, queriesByOutKey) {
     if (!alreadyProcessed[sq]) {
       alreadyProcessed[sq] = true
       toFetch.push(sq)
-      if (enableCache && cached[sq]) {
-        resultsBySQ[sq] = cached[sq]
+      if (enableCache && cache.has(sq)) {
+        resultsBySQ[sq] = cache.get(sq)
       } else {
         coveredByCache = false
       }
@@ -34,7 +34,7 @@ export default async function fetchPageData(req, queriesByOutKey) {
     toFetch.forEach((sq, i) => {
       resultsBySQ[sq] = reply[i]
       if (enableCache) {
-        cached[sq] = reply[i]
+        cache.set(sq, reply[i])
       }
     })
   }
