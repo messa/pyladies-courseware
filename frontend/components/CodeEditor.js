@@ -33,10 +33,6 @@ export default class extends React.Component {
     }
     return (
       <div className='CodeEditor'>
-        <Head>
-          <link rel='stylesheet' href='/static/codemirror/codemirror.css' />
-          <link rel='stylesheet' href={`/static/codemirror/theme/${options.theme}.css`} />
-        </Head>
         {!this.state.showEditor ? (
           <pre>{this.state.value}</pre>
         ) : (
