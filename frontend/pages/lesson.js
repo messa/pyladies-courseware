@@ -111,7 +111,7 @@ export default class extends React.Component {
         <h1 style={{ marginTop: '1rem' }}>
           <span dangerouslySetInnerHTML={{__html: lesson['title_html']}} />
           {' '}&nbsp;
-          <small style={{ fontWeight: 300, color: '#c39' }}>
+          <small style={{ fontWeight: 300, color: '#c39', whiteSpace: 'nowrap' }}>
             {formatDate(lesson['date'])}
           </small>
         </h1>
