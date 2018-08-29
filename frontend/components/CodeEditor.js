@@ -3,22 +3,34 @@ import Head from 'next/head'
 
 import {Controlled as CodeMirror} from 'react-codemirror2'
 
+const runningOnServer = typeof window === 'undefined'
+
+if (!runningOnServer) {
+  require('codemirror/mode/python/python.js')
+}
+
 export default class extends React.Component {
 
   state = {
-    showEditor: false,
+    showEditor: !runningOnServer,
   }
 
   componentDidMount() {
-    require('codemirror/mode/python/python.js')
-    this.setState({ showEditor: true })
+    // if this component was rendered on server we need to enable the editor
+    // only after we are on the client (browser)
+    if (!this.state.showEditor) {
+      this.setState({ showEditor: true })
+    }
   }
 
 
   handleEditorDidMount = editor => {
-    // bez toho refreshe se ukaze prazdny element; chtello by to asi resit lepe
-    setTimeout(() => editor.refresh(), 10)
-    setTimeout(() => editor.refresh(), 1000)
+    // bez editor.refresh() se driv nekdy ukazal prazdny element
+    //setTimeout(() => editor.refresh(), 10)
+    //setTimeout(() => editor.refresh(), 1000)
+    if (this.props.focus !== false) {
+      editor.focus()
+    }
   }
 
   handleEditorBeforeChange = (editor, data, value) => {
