@@ -20,15 +20,15 @@ lessons:
   - attachment: Úvodní prezentace
     url: http://pyladies.cz/v1/s001-install/uvod-praha.html
   - lesson: Úvod do příkazové řádky
-    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/cmdline/
+    url: https://naucse.python.cz/2018/pyladies-praha-podzim-ntk/beginners/cmdline/
   - lesson: Instalace Pythonu
-    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/install/
+    url: https://naucse.python.cz/2018/pyladies-praha-podzim-ntk/beginners/install/
   - lesson: První krůčky
-    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/first-steps/
+    url: https://naucse.python.cz/2018/pyladies-praha-podzim-ntk/beginners/first-steps/
   - lesson: Instalace editoru
-    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/install-editor/
+    url: https://naucse.python.cz/2018/pyladies-praha-podzim-ntk/beginners/install-editor/
   - lesson: Instalace gitu
-    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/git/install/
+    url: https://naucse.python.cz/2018/pyladies-praha-podzim-ntk/git/install/
   - cheatsheet: Tahák na klávesnici (PDF)
     url: https://pyvec.github.io/cheatsheets/keyboard/keyboard-cs.pdf
   homeworks:
@@ -39,15 +39,15 @@ lessons:
   slug: 2-prvni-program
   items:
   - lesson: První program
-    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/hello-world/
+    url: https://naucse.python.cz/2018/pyladies-praha-podzim-ntk/beginners/hello-world/
   - lesson: Print a chybové hlášky
-    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/print/
+    url: https://naucse.python.cz/2018/pyladies-praha-podzim-ntk/beginners/print/
   - lesson: Proměnné
-    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/variables/
+    url: https://naucse.python.cz/2018/pyladies-praha-podzim-ntk/beginners/variables/
   - lesson: Porovnávání
-    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/comparisons/
+    url: https://naucse.python.cz/2018/pyladies-praha-podzim-ntk/beginners/comparisons/
   - lesson: '*Nebo* anebo *a* (bonus)'
-    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/and-or/
+    url: https://naucse.python.cz/2018/pyladies-praha-podzim-ntk/beginners/and-or/
   - cheatsheet: Tahák na příkazovou řádku a první kroky v Pythonu (PDF)
     url: https://s3-eu-west-1.amazonaws.com/messa-shared-files/2017/09/pyladies_2_lekce_tahak.pdf
   homeworks:
@@ -57,11 +57,11 @@ lessons:
   date: 26. 9. 2018
   items:
   - lesson: Funkce
-    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/functions/
+    url: https://naucse.python.cz/2018/pyladies-praha-podzim-ntk/beginners/functions/
   - lesson: Želva a cykly
-    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/intro/turtle/
+    url: https://naucse.python.cz/2018/pyladies-praha-podzim-ntk/intro/turtle/
   - lesson: Cyklus While
-    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/while/
+    url: https://naucse.python.cz/2018/pyladies-praha-podzim-ntk/beginners/while/
   - cheatsheet: Tahák s užitečnými funkcemi
     url: https://pyvec.github.io/cheatsheets/basic-functions/basic-functions-cs.pdf
   homeworks:
@@ -71,9 +71,9 @@ lessons:
   date: 3. 10. 2018
   items:
   - lesson: Vlastní funkce
-    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/def/
+    url: https://naucse.python.cz/2018/pyladies-praha-podzim-ntk/beginners/def/
   - lesson: Řetězce
-    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/str/
+    url: https://naucse.python.cz/2018/pyladies-praha-podzim-ntk/beginners/str/
   - cheatsheet: Řetězcový tahák
     url: https://pyvec.github.io/cheatsheets/strings/strings-cs.pdf
   homeworks:
@@ -84,15 +84,15 @@ lessons:
   items:
   - text: Procvičíme si vše, co jsme se naučily
   - lesson: Soubory
-    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/files/
+    url: https://naucse.python.cz/2018/pyladies-praha-podzim-ntk/beginners/files/
 
 - title: Lekce 6 – Spolupráce a Open-Source - Git
   date: 17. 10. 2018
   items:
   - lesson: Spolupráce a Git
-    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/git/git-collaboration-2in1/
+    url: https://naucse.python.cz/2018/pyladies-praha-podzim-ntk/git/git-collaboration-2in1/
   - lesson: Větvení v Gitu (Bonus)
-    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/git/branching/
+    url: https://naucse.python.cz/2018/pyladies-praha-podzim-ntk/git/branching/
   - cheatsheet: Gitový tahák
     url: https://pyvec.github.io/cheatsheets/basic-git/basic-git-cs.pdf
   homeworks:
@@ -102,9 +102,9 @@ lessons:
   date: 24. 10. 2018
   items:
   - lesson: Seznamy
-    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/list/
+    url: https://naucse.python.cz/2018/pyladies-praha-podzim-ntk/beginners/list/
   - lesson: N-tice
-    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/tuple/
+    url: https://naucse.python.cz/2018/pyladies-praha-podzim-ntk/beginners/tuple/
   - cheatsheet: Tahák na seznamy
     url: https://pyvec.github.io/cheatsheets/lists/lists-cs.pdf
   homeworks:
@@ -114,11 +114,11 @@ lessons:
   date: 31. 10. 2018
   items:
   - lesson: Slovníky
-    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/dict/
+    url: https://naucse.python.cz/2018/pyladies-praha-podzim-ntk/beginners/dict/
   - lesson: JSON
-    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/intro/json/
+    url: https://naucse.python.cz/2018/pyladies-praha-podzim-ntk/intro/json/
   - lesson: Github API
-    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/projects/github-api/
+    url: https://naucse.python.cz/2018/pyladies-praha-podzim-ntk/projects/github-api/
   - cheatsheet: Slovníkový tahák
     url: https://pyvec.github.io/cheatsheets/dicts/dicts-cs.pdf
   homeworks:
@@ -128,13 +128,13 @@ lessons:
   date: 7. 11. 2018
   items:
   - lesson: Výjimky
-    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/exceptions/
+    url: https://naucse.python.cz/2018/pyladies-praha-podzim-ntk/beginners/exceptions/
   - lesson: Moduly
-    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/modules/
+    url: https://naucse.python.cz/2018/pyladies-praha-podzim-ntk/beginners/modules/
   - lesson: Testování
-    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/testing/
+    url: https://naucse.python.cz/2018/pyladies-praha-podzim-ntk/beginners/testing/
   - lesson: Cyklické importy
-    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/circular-imports/
+    url: https://naucse.python.cz/2018/pyladies-praha-podzim-ntk/beginners/circular-imports/
   - cheatsheet: Výjimkový tahák
     url: https://pyvec.github.io/cheatsheets/exceptions/exceptions-cs.pdf
   homeworks:
@@ -144,9 +144,9 @@ lessons:
   date: 14. 11. 2018
   items:
   - lesson: Grafika
-    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/intro/pyglet/
+    url: https://naucse.python.cz/2018/pyladies-praha-podzim-ntk/intro/pyglet/
   - lesson: 'Praktické cvičení: Pong'
-    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/projects/pong/
+    url: https://naucse.python.cz/2018/pyladies-praha-podzim-ntk/projects/pong/
   - attachment: Kód celé hry Pong
     url: http://pyladies.cz/v1/s012-pyglet/pong.py
   - cheatsheet: Tahák na Pyglet
@@ -158,9 +158,9 @@ lessons:
   date: 21. 11. 2018
   items:
   - lesson: Třídy
-    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/class/
+    url: https://naucse.python.cz/2018/pyladies-praha-podzim-ntk/beginners/class/
   - lesson: Dědičnost
-    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/inheritance/
+    url: https://naucse.python.cz/2018/pyladies-praha-podzim-ntk/beginners/inheritance/
   homeworks:
   - file: ../shared_2018_podzim/homeworks/handout11.yaml
 
@@ -169,7 +169,7 @@ lessons:
   items:
   - text: Turnaj v piškvorkách
   - lesson: Asteroids
-    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/projects/asteroids/
+    url: https://naucse.python.cz/2018/pyladies-praha-podzim-ntk/projects/asteroids/
   - cheatsheet: Množinový tahák
     url: https://pyvec.github.io/cheatsheets/sets/sets-cs.pdf
   - cheatsheet: Tahák na geometrii a fyziku 2D her
