@@ -1,8 +1,8 @@
 title: Začátečnický kurz PyLadies
-subtitle: Praha (NTK) – jaro 2018
+subtitle: Praha (Olšanka) – podzim 2018
 description:
   markdown: |
-    Národní technická knihovna, Technická 2710/6, Praha 6, 18:00–20:00
+    CZ.NIC, hotel Olšanka, Táboritská 23/1000, Praha 3, 18:00–20:00
 
     Tady najdeš všechny materiály k brněnské verzi začátečnického kurzu PyLadies.
 
@@ -14,7 +14,7 @@ description:
 lessons:
 
 - title: Lekce 1 – Instalace
-  date: 7. 3. 2018
+  date: 11. 9. 2018
   slug: 1-instalace
   items:
   - attachment: Úvodní prezentace
@@ -32,10 +32,10 @@ lessons:
   - cheatsheet: Tahák na klávesnici (PDF)
     url: https://pyvec.github.io/cheatsheets/keyboard/keyboard-cs.pdf
   homeworks:
-  - file: homeworks-handout1.yaml
+  - file: ../shared_2018_podzim/homeworks/handout1.yaml
 
 - title: Lekce 2 – První program
-  date: 14. 3. 2018
+  date: 18. 9. 2018
   slug: 2-prvni-program
   items:
   - lesson: První program
@@ -51,10 +51,10 @@ lessons:
   - cheatsheet: Tahák na příkazovou řádku a první kroky v Pythonu (PDF)
     url: https://s3-eu-west-1.amazonaws.com/messa-shared-files/2017/09/pyladies_2_lekce_tahak.pdf
   homeworks:
-  - file: homeworks-handout2.yaml
+  - file: ../shared_2018_podzim/homeworks/handout2.yaml
 
 - title: Lekce 3 – Cykly
-  date: 21. 3. 2018
+  date: 25. 9. 2018
   items:
   - lesson: Funkce
     url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/functions/
@@ -65,10 +65,10 @@ lessons:
   - cheatsheet: Tahák s užitečnými funkcemi
     url: https://pyvec.github.io/cheatsheets/basic-functions/basic-functions-cs.pdf
   homeworks:
-  - file: homeworks-handout3.yaml
+  - file: ../shared_2018_podzim/homeworks/handout3.yaml
 
 - title: Lekce 4 – Funkce & Řetězce
-  date: 28. 3. 2018
+  date: 2. 10. 2018
   items:
   - lesson: Vlastní funkce
     url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/def/
@@ -77,17 +77,17 @@ lessons:
   - cheatsheet: Řetězcový tahák
     url: https://pyvec.github.io/cheatsheets/strings/strings-cs.pdf
   homeworks:
-  - file: homeworks-handout4.yaml
+  - file: ../shared_2018_podzim/homeworks/handout4.yaml
 
 - title: Lekce 5 – Procvičování a soubory
-  date: 4. 4. 2018
+  date: 9. 10. 2018
   items:
   - text: Procvičíme si vše, co jsme se naučily
   - lesson: Soubory
     url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/files/
 
 - title: Lekce 6 – Spolupráce a Open-Source - Git
-  date: 11. 4. 2018
+  date: 16. 10. 2018
   items:
   - lesson: Spolupráce a Git
     url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/git/git-collaboration-2in1/
@@ -96,10 +96,10 @@ lessons:
   - cheatsheet: Gitový tahák
     url: https://pyvec.github.io/cheatsheets/basic-git/basic-git-cs.pdf
   homeworks:
-  - file: homeworks-handout6.yaml
+  - file: ../shared_2018_podzim/homeworks/handout6.yaml
 
 - title: Lekce 7 – Seznamy
-  date: 18. 4. 2018
+  date: 23. 10. 2018
   items:
   - lesson: Seznamy
     url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/list/
@@ -108,10 +108,10 @@ lessons:
   - cheatsheet: Tahák na seznamy
     url: https://pyvec.github.io/cheatsheets/lists/lists-cs.pdf
   homeworks:
-  - file: homeworks-handout7.yaml
+  - file: ../shared_2018_podzim/homeworks/handout7.yaml
 
 - title: Lekce 8 – Slovníky
-  date: 25. 4. 2018
+  date: 30. 10. 2018
   items:
   - lesson: Slovníky
     url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/dict/
@@ -122,10 +122,10 @@ lessons:
   - cheatsheet: Slovníkový tahák
     url: https://pyvec.github.io/cheatsheets/dicts/dicts-cs.pdf
   homeworks:
-  - file: homeworks-handout8.yaml
+  - file: ../shared_2018_podzim/homeworks/handout8.yaml
 
 - title: Lekce 9 – Testování
-  date: 2. 5. 2018
+  date: 6. 11. 2018
   items:
   - lesson: Výjimky
     url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/exceptions/
@@ -138,10 +138,10 @@ lessons:
   - cheatsheet: Výjimkový tahák
     url: https://pyvec.github.io/cheatsheets/exceptions/exceptions-cs.pdf
   homeworks:
-  - file: homeworks-handout9.yaml
+  - file: ../shared_2018_podzim/homeworks/handout9.yaml
 
 - title: Lekce 10 – Grafika
-  date: 9. 5. 2018
+  date: 13. 11. 2018
   items:
   - lesson: Grafika
     url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/intro/pyglet/
@@ -152,20 +152,20 @@ lessons:
   - cheatsheet: Tahák na Pyglet
     url: https://pyvec.github.io/cheatsheets/pyglet/pyglet-basics-cs.pdf
   homeworks:
-  - file: homeworks-handout10.yaml
+  - file: ../shared_2018_podzim/homeworks/handout10.yaml
 
 - title: Lekce 11 – Třídy
-  date: 16. 5. 2018
+  date: 20. 11. 2018
   items:
   - lesson: Třídy
     url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/class/
   - lesson: Dědičnost
     url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/inheritance/
   homeworks:
-  - file: homeworks-handout11.yaml
+  - file: ../shared_2018_podzim/homeworks/handout11.yaml
 
 - title: Lekce 12 – Závěrečný projekt
-  date: 23. 5. 2018
+  date: 27. 11. 2018
   items:
   - text: Turnaj v piškvorkách
   - lesson: Asteroids
@@ -176,4 +176,4 @@ lessons:
     url: https://pyvec.github.io/cheatsheets/game-physics/game-physics-cs.pdf
 
 - title: Lekce 13 – Závěrečná procvičovací hodina
-  date: 30. 5. 2018
+  date: 4. 12. 2018
