@@ -8,7 +8,7 @@ run-backend:
 	cd backend && make run
 
 run-nginx:
-	$(nginx) -c $(PWD)/nginx.conf
+	PATH=$(PATH):/usr/sbin $(nginx) -c $(PWD)/nginx.conf
 
 run-mongod:
 	mkdir -p mongo_data
