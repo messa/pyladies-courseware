@@ -3,6 +3,8 @@ Pyladies Courseware
 
 Nástroj pro odevzdávání a review domácích úkolů z programování.
 
+[CircleCI](https://circleci.com/gh/messa/pyladies-courseware)
+
 
 Todo
 ----
@@ -35,7 +37,7 @@ Architecture
 Uses React frontend based on [Next.js](https://github.com/zeit/next.js/) and Python backend based on [aiohttp.server](https://aiohttp.readthedocs.io/en/stable/).
 
 ```
-browser --> nginx 
+browser --> nginx
               - /* ------------> node.js frontend
               - /api, /auth ---> Python aiohttp backend ---> MongoDB  
 ```

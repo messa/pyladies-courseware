@@ -182,7 +182,7 @@ async def fb_callback(req):
         provider='fb',
         provider_user_id=str(me['id']),
         name=me['name'],
-        email=me['email'])
+        email=me.get('email'))
     session['user'] = {
         'id': user.id,
         'name': user.name,
@@ -237,7 +237,7 @@ async def google_callback(req):
         provider='google',
         provider_user_id=str(me['id']),
         name=me['name'],
-        email=me['email'])
+        email=me.get('email'))
     session['user'] = {
         'id': user.id,
         'name': user.name,

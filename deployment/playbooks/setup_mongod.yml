@@ -1,0 +1,50 @@
+- name: run MongoDB (mongod)
+  hosts: all
+  vars_files:
+  - ../secrets.yml
+  tasks:
+
+  - name: create base dir
+    file: { path: /srv/cw-mongodb, state: directory, owner: root, group: root, mode: '0751' }
+
+  - name: create conf dir
+    file: { path: /srv/cw-mongodb/conf, state: directory, mode: '0751' }
+
+  - name: create data dir
+    file: { path: /srv/cw-mongodb/data, state: directory, mode: '0751' }
+
+  - name: create mongod conf
+    copy:
+      dest: /srv/cw-mongodb/conf/mongod.conf
+      owner: root
+      group: docker
+      mode: '0640'
+      content: |
+        storage:
+          dbPath: /data/db
+          directoryPerDB: true
+        replication:
+          replSetName: cw0
+        net:
+          port: 27017
+          bindIp: 127.0.0.1
+          ipv6: false
+          unixDomainSocket:
+            enabled: false
+        security:
+          authorization: enabled
+          javascriptEnabled: false
+        setParameter:
+          enableLocalhostAuthBypass: true
+
+  - name: Run mongod container
+    docker_container:
+      name: cw_mongodb
+      image: mongo:4.0-xenial
+      state: started
+      restart_policy: unless-stopped
+      network_mode: host
+      volumes:
+      - /srv/cw-mongodb/conf:/conf
+      - /srv/cw-mongodb/data:/data/db
+      command: --config /conf/mongod.conf

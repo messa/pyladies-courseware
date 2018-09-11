@@ -1,0 +1,53 @@
+- name: build images
+  hosts: all
+  vars_files:
+  - ../secrets.yml
+  tasks:
+
+  - name: create conf dir
+    file: { path: /srv/cw-backend/conf, state: directory, mode: '0751' }
+
+  - name: checkout repo for data
+    git:
+      repo: 'https://github.com/messa/pyladies-courseware.git'
+      dest: /srv/cw-backend/data
+      version: master
+      update: yes
+
+  - name: create backend conf
+    copy:
+      dest: /srv/cw-backend/conf/backend.yaml
+      mode: '0640'
+      content: |
+        mongodb:
+          uri: mongodb://cw_prod:{{ mongo_cw_prod_password }}@127.0.0.1/cw_prod
+        fb:
+          client_id: '318379298718097'
+          client_secret: '{{ facebook_318379298718097_client_secret }}'
+          callback_url: 'https://ukoly.pyladies.cz/auth/facebook/callback'
+        google:
+          client_id: '333840391835-6dmr8pfd2k43u4gpjv901dmlddp8j5dh.apps.googleusercontent.com'
+          client_secret: '{{ google_333840391835_client_secret }}'
+          callback_url: 'https://ukoly.pyladies.cz/auth/google/callback'
+        session_secret: '{{ session_secret }}'
+
+  - name: Load backend image
+    docker_image:
+      name: cw_backend
+      state: present
+      load_path: /home/circleci/docker_image_cw_backend.tar
+      force: true
+
+  - name: Run backend container
+    docker_container:
+      name: cw_backend
+      image: cw_backend
+      state: started
+      restart_policy: unless-stopped
+      network_mode: host
+      volumes:
+      - /srv/cw-backend/conf:/conf
+      - /srv/cw-backend/data:/data
+      env:
+        CW_CONF: /conf/backend.yaml
+        DATA_DIR: /data

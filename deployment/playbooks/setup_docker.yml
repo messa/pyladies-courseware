@@ -1,0 +1,26 @@
+- name: setup docker
+  hosts: all
+  tasks:
+  # inspired by https://github.com/geerlingguy/ansible-role-docker
+
+  - name: dependencies present
+    apt: { name: [ apt-transport-https, ca-certificates ], state: present }
+
+  - name: docker apt key
+    apt_key:
+      url: https://download.docker.com/linux/debian/gpg
+      id: 9DC858229FC7DD38854AE2D88D81803C0EBFCD88
+      state: present
+
+  - name: docker repository
+    apt_repository:
+      repo: "deb [arch=amd64] https://download.docker.com/linux/debian {{ ansible_distribution_release }} stable"
+      state: present
+      filename: docker
+      update_cache: yes
+
+  - name: install docker
+    apt: { name: docker-ce, state: present }
+
+  - name: install python-docker
+    apt: { name: python-docker, state: present }

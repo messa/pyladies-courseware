@@ -1,0 +1,93 @@
+version: 2
+jobs:
+  build_docker_image_frontend:
+    docker:
+      - image: docker:stable
+    working_directory: /src
+    steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - restore_cache:
+          keys:
+          - v2-frontend
+      - run: gunzip /docker_image_cw_frontend.tar.gz || true
+      - run: docker load -i /docker_image_cw_frontend.tar || true
+      - run: docker images
+      - run: cd frontend && docker build -t cw_frontend --pull --cache-from cw_frontend .
+      - run: docker save -o /docker_image_cw_frontend.tar cw_frontend
+      - run: gzip -k3 /docker_image_cw_frontend.tar
+      - save_cache:
+          key: v2-frontend-{{ .Branch }}-{{ epoch }}
+          paths:
+          - /docker_image_cw_frontend.tar.gz
+      - run: docker images
+      #- store_artifacts:
+      #    path: /docker_image_cw_frontend.tar.gz
+      - deploy:
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              set -ex
+              apk add openssh rsync
+              echo '207.154.235.213 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMd2qF3m1mtvgxq45xX8F+po9GLeGFgqXp051IsZZKKi' >> ~/.ssh/known_hosts
+              rsync -vz --progress /docker_image_cw_frontend.tar circleci@207.154.235.213:
+            fi
+
+  build_docker_image_backend:
+    docker:
+      - image: docker:stable
+    working_directory: /src
+    steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - restore_cache:
+          keys:
+          - v2-backend
+      - run: gunzip /docker_image_cw_backend.tar.gz || true
+      - run: docker load -i /docker_image_cw_backend.tar || true
+      - run: cd backend && docker build -t cw_backend --pull --cache-from cw_backend .
+      - run: docker save -o /docker_image_cw_backend.tar cw_backend
+      - run: gzip -k3 /docker_image_cw_backend.tar
+      - save_cache:
+          key: v2-backend-{{ .Branch }}-{{ epoch }}
+          paths:
+          - /docker_image_cw_backend.tar.gz
+      - run: docker images
+      #- store_artifacts:
+      #    path: /docker_image_cw_backend.tar.gz
+      - deploy:
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              set -ex
+              apk add openssh rsync
+              echo '207.154.235.213 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMd2qF3m1mtvgxq45xX8F+po9GLeGFgqXp051IsZZKKi' >> ~/.ssh/known_hosts
+              rsync -vz --progress /docker_image_cw_backend.tar circleci@207.154.235.213:
+            fi
+
+  call_deploy_script:
+    docker:
+      - image: circleci/python:3.6
+    steps:
+      - run: mkdir -p ~/.ssh
+      - run:
+          name: setup SSH server key fingerprint
+          command: |
+            echo '207.154.235.213 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMd2qF3m1mtvgxq45xX8F+po9GLeGFgqXp051IsZZKKi' >> ~/.ssh/known_hosts
+      - deploy:
+          command: |
+            ssh circleci@207.154.235.213 sudo /root/pyladies-courseware/deployment/ci_deploy.sh
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build_docker_image_frontend
+      - build_docker_image_backend
+      - call_deploy_script:
+          requires:
+            - build_docker_image_frontend
+            - build_docker_image_backend
+          filters:
+            branches:
+              only: master

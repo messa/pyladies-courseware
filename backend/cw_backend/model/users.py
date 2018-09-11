@@ -201,11 +201,13 @@ class User:
 
     async def add_attended_courses(self, add_course_ids, author_user_id):
         new_course_ids = sorted(set(add_course_ids) | set(self.attended_course_ids))
-        await self._update({'attended_course_ids': new_course_ids}, author_user_id)
+        if new_course_ids != self.attended_course_ids:
+            await self._update({'attended_course_ids': new_course_ids}, author_user_id)
 
     async def add_coached_courses(self, add_course_ids, author_user_id):
         new_course_ids = sorted(set(add_course_ids) | set(self.coached_course_ids))
-        await self._update({'coached_course_ids': new_course_ids}, author_user_id)
+        if new_course_ids != self.coached_course_ids:
+            await self._update({'coached_course_ids': new_course_ids}, author_user_id)
 
     async def set_admin(self, is_admin, author_user_id):
         await self._update({'is_admin': bool(is_admin)}, author_user_id)

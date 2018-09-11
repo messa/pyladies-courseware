@@ -1,0 +1,21 @@
+- name: build images
+  hosts: all
+  tasks:
+
+  - name: Load frontend image
+    docker_image:
+      name: cw_frontend
+      state: present
+      load_path: /home/circleci/docker_image_cw_frontend.tar
+      force: true
+
+  - name: Run frontend container
+    docker_container:
+      name: cw_frontend
+      image: cw_frontend
+      state: started
+      restart_policy: unless-stopped
+      network_mode: host
+      env:
+        NODE_ENV: production
+

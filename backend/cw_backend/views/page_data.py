@@ -1,6 +1,7 @@
 from aiohttp import web
 from aiohttp_session import get_session
 import asyncio
+from datetime import datetime
 import logging
 from pathlib import Path
 import simplejson as json
@@ -45,8 +46,6 @@ resolvers = {
         {
             'active': [c.export() for c in req.app['courses'].get().list_active()],
         },
-    'course_detail': lambda req, params:
-        req.app['courses'].get().get_by_id(params['course_id']).export(lessons=True),
 }
 
 
@@ -63,6 +62,19 @@ async def user(req, params):
     model = req.app['model']
     user = await model.users.get_by_id(session['user']['id'])
     return user.export()
+
+
+@resolver
+async def course_detail(req, params):
+    session = await get_session(req)
+    model = req.app['model']
+    course = req.app['courses'].get().get_by_id(params['course_id'])
+    if session.get('user'):
+        user = await model.users.get_by_id(session['user']['id'])
+        if course.id == 'pyladies-2018-praha-podzim-olsanka':
+            if datetime.utcnow().strftime('%Y-%m-%d') == '2018-09-11':
+                await user.add_attended_courses([course.id], author_user_id=None)
+    return course.export(lessons=True)
 
 
 @resolver
