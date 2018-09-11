@@ -49,7 +49,7 @@ homeworks:
     >>> 'Ahoj!'
     'Ahoj!'
     ```
-  
+
   submit: false
 
 - markdown: |
@@ -74,6 +74,8 @@ homeworks:
 
 - markdown: |
     Co se stane, když se pokusím sečíst číslo a řetězec?
+
+  mandatory: true
 
 - markdown: |
     A vynásobit?

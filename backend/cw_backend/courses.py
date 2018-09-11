@@ -285,6 +285,8 @@ class HomeworkTask:
             'id': str(raw.get('id') or f'{lesson_slug}-{default_number}'),
             'number': default_number,
             'text_html': to_html(raw),
+            'mandatory': bool(raw.get('mandatory', False)),
+            'submit': bool(raw.get('submit', True)),
         }
 
     def export(self):
@@ -314,6 +316,7 @@ def parse_date(s):
         year, month, day = m.groups()
         return date(int(year), int(month), int(day))
     raise Exception(f'Invalid date format: {s!r}')
+
 
 def markdown_to_html(src):
     from markdown import markdown

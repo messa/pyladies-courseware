@@ -13,8 +13,13 @@ import CourseOverview from '../components/lesson/CourseOverview'
 const HomeworkTask = ({ hwItem, userCanSubmitHomework, courseId, lessonSlug }) => (
   <div className='homework-task'>
     <div className='number'>{hwItem['number']}.</div>
-    <div className='homework-body' dangerouslySetInnerHTML={{__html: hwItem['text_html'] }} />
-    {userCanSubmitHomework && (
+    <div className='homework-body'>
+      {hwItem.mandatory && (
+        <div className='mandatory-sign'>☜</div>
+      )}
+      <span dangerouslySetInnerHTML={{__html: hwItem['text_html'] }} />
+    </div>
+    {userCanSubmitHomework && hwItem.submit && (
       <HomeworkSubmission
         courseId={courseId}
         lessonSlug={lessonSlug}
@@ -31,6 +36,13 @@ const HomeworkTask = ({ hwItem, userCanSubmitHomework, courseId, lessonSlug }) =
         position: absolute;
         left: 0;
         font-weight: 600;
+      }
+      .homework-task .mandatory-sign {
+        position: absolute;
+        right: 0;
+        margin-top: 4px;
+        font-weight: 600;
+        font-size: 36px;
       }
       .homework-body :global(pre),
       .homework-body :global(code) {
