@@ -60,9 +60,9 @@ async def test_create_dev_user_with_all_roles(db, model):
 
 @mark.asyncio
 async def test_oauth2_users_same_id_different_providers_isolation(db, model):
-    user = await model.users.create_oauth2_user(
+    user = await model.users.login_oauth2_user(
         'fb', 'a123', 'Joe Smith', 'joe@example.com')
-    user = await model.users.create_oauth2_user(
+    user = await model.users.login_oauth2_user(
         'google', 'a123', 'Joe Smith', 'joe@example.com')
     assert await db['users'].count_documents({}) == 2
 
