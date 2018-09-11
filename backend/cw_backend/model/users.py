@@ -38,16 +38,18 @@ class Users:
         await self.c_users.insert_one(user_doc)
         return self._build_user(user_doc)
 
-    async def create_oauth2_user(self, provider, provider_user_id, name, email):
+    async def login_oauth2_user(self, provider, provider_user_id, name, email):
         assert provider in {'fb', 'google'}
-        user_doc = {
-            '_id': self.generate_id(),
-            'v': 0,
-            f'{provider}_id': provider_user_id,
-            'name': name,
-            'email': email,
-        }
-        await self.c_users.insert_one(user_doc)
+        user_doc = await self.c_users.find_one({f'{provider}_id': provider_user_id})
+        if not user_doc:
+            user_doc = {
+                '_id': self.generate_id(),
+                'v': 0,
+                f'{provider}_id': provider_user_id,
+                'name': name,
+                'email': email,
+            }
+            await self.c_users.insert_one(user_doc)
         return self._build_user(user_doc)
 
     async def create_password_user(self, email, password, name):
@@ -214,6 +216,9 @@ class UserView:
     def __init__(self, doc):
         self.id = doc['_id']
         self.name = doc['name']
+        self.email = doc.get('email')
+        self.fb_id = doc.get('fb_id')
+        self.google_id = doc.get('google_id')
         self.attended_course_ids = doc.get('attended_course_ids') or []
         self.coached_course_ids = doc.get('coached_course_ids') or []
         self.is_admin = doc.get('is_admin', False)
@@ -226,6 +231,9 @@ class UserView:
         return {
             'id': self.id,
             'name': self.name,
+            'email': self.email,
+            'fb_id': self.fb_id,
+            'google_id': self.google_id,
             'attended_course_ids': self.attended_course_ids,
             'coached_course_ids': self.coached_course_ids,
             'is_admin': self.is_admin,

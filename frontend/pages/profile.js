@@ -18,6 +18,7 @@ export default class ProfilePage extends React.Component {
         <h1>Tvůj profil</h1>
 
         <p>Jméno: {user.name}</p>
+        <p>E-mail: {user.email}</p>
         <p>id: <code>{user.id}</code></p>
 
         {user.attended_course_ids.length > 0 && (

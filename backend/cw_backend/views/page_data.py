@@ -62,13 +62,7 @@ async def user(req, params):
         return None
     model = req.app['model']
     user = await model.users.get_by_id(session['user']['id'])
-    return {
-        'id': session['user']['id'],
-        'name': user.name,
-        'attended_course_ids': user.attended_course_ids,
-        'coached_course_ids': user.coached_course_ids,
-        'is_admin': user.is_admin,
-    }
+    return user.export()
 
 
 @resolver

@@ -4,6 +4,7 @@ from aiohttp_session import get_session
 import asyncio
 import logging
 from pathlib import Path
+from requests_oauthlib import OAuth2Session
 from textwrap import dedent
 
 from ..util import get_random_name
@@ -13,6 +14,15 @@ from ..model.errors import ModelError, NotFoundError, InvalidPasswordError
 logger = logging.getLogger(__name__)
 
 routes = web.RouteTableDef()
+
+
+fb_authorization_base_url = 'https://www.facebook.com/dialog/oauth'
+fb_token_url = 'https://graph.facebook.com/oauth/access_token'
+fb_me_url = 'https://graph.facebook.com/me?fields=id,name,email'
+
+google_authorization_base_url = "https://accounts.google.com/o/oauth2/v2/auth"
+google_token_url = "https://www.googleapis.com/oauth2/v4/token"
+google_user_info_url = 'https://www.googleapis.com/oauth2/v1/userinfo'
 
 
 redirect_page = dedent('''
@@ -121,5 +131,118 @@ async def register(req):
         session['user'] = {
             'id': user.id,
             'name': user.name,
+            'email': user.email,
         }
     return web.json_response({'errors': errors})
+
+
+def get_fb_oauth2_session(conf):
+    from requests_oauthlib.compliance_fixes import facebook_compliance_fix
+    if not conf.client_id:
+        raise web.HTTPInternalServerError(text='credentials not configured')
+    sess = OAuth2Session(client_id=conf.client_id, redirect_uri=conf.callback_url)
+    sess = facebook_compliance_fix(sess)
+    return sess
+
+
+@routes.get('/auth/facebook')
+async def fb_redirect(req):
+    session = await get_session(req)
+    session['user'] = None
+    conf = req.app['conf'].fb_oauth2
+    oauth2_sess = get_fb_oauth2_session(conf)
+    authorization_url, state = oauth2_sess.authorization_url(fb_authorization_base_url)
+    session['oauth2_state'] = state
+    logger.debug('Redirecting to %s', authorization_url)
+    raise web.HTTPFound(authorization_url)
+
+
+@routes.get('/auth/facebook/callback')
+async def fb_callback(req):
+    session = await get_session(req)
+    if req.query['state'] != session['oauth2_state']:
+        raise web.HTTPForbidden(text='state mismatch')
+    del session['oauth2_state']
+    conf = req.app['conf'].fb_oauth2
+
+    def fetch():
+        oauth2_sess = get_fb_oauth2_session(conf)
+        token = oauth2_sess.fetch_token(
+            fb_token_url, client_secret=conf.client_secret, code=req.query['code'])
+        r = oauth2_sess.get(fb_me_url)
+        r.raise_for_status()
+        me = r.json()
+        return token, me
+
+    token, me = await asyncio.get_event_loop().run_in_executor(None, fetch)
+    logger.info('FB me: %r', me)
+    assert me['id']
+    model = req.app['model']
+    user = await model.users.login_oauth2_user(
+        provider='fb',
+        provider_user_id=str(me['id']),
+        name=me['name'],
+        email=me['email'])
+    session['user'] = {
+        'id': user.id,
+        'name': user.name,
+        'email': user.email,
+        'fb_id': me['id'],
+        'fb_token': token,
+    }
+    return web.Response(text=redirect_page, content_type='text/html')
+
+
+def get_google_oauth2_session(conf):
+    scope = [
+        "https://www.googleapis.com/auth/userinfo.email",
+        "https://www.googleapis.com/auth/userinfo.profile"
+    ]
+    return OAuth2Session(conf.client_id, scope=scope, redirect_uri=conf.callback_url)
+
+
+@routes.get('/auth/google')
+async def google_redirect(req):
+    session = await get_session(req)
+    session['user'] = None
+    conf = req.app['conf'].google_oauth2
+    oauth2_sess = get_google_oauth2_session(conf)
+    authorization_url, state = oauth2_sess.authorization_url(google_authorization_base_url)
+    # access_type="offline", prompt="select_account")
+    session['oauth2_state'] = state
+    logger.debug('Redirecting to %s', authorization_url)
+    raise web.HTTPFound(authorization_url)
+
+
+@routes.get('/auth/google/callback')
+async def google_callback(req):
+    session = await get_session(req)
+    if req.query['state'] != session['oauth2_state']:
+        raise web.HTTPForbidden(text='state mismatch')
+    del session['oauth2_state']
+    conf = req.app['conf'].google_oauth2
+
+    def fetch():
+        oauth2_sess = get_google_oauth2_session(conf)
+        token = oauth2_sess.fetch_token(google_token_url,
+            client_secret=conf.client_secret, code=req.query['code'])
+        r = oauth2_sess.get(google_user_info_url)
+        r.raise_for_status()
+        me = r.json()
+        return token, me
+
+    token, me = await asyncio.get_event_loop().run_in_executor(None, fetch)
+    model = req.app['model']
+    user = await model.users.login_oauth2_user(
+        provider='google',
+        provider_user_id=str(me['id']),
+        name=me['name'],
+        email=me['email'])
+    session['user'] = {
+        'id': user.id,
+        'name': user.name,
+        'email': user.email,
+        'google_id': me['id'],
+        'google_token': token,
+    }
+    return web.Response(text=redirect_page, content_type='text/html')
