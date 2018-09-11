@@ -27,6 +27,8 @@ homeworks:
 
     Jak se to zapíše v Pythonu?
 
+  mandatory: true
+
 - markdown: |
     Jsou i jiné operátory než `+`, `-` a ty pro násobení a dělení.
     Co dělá s čísly operátor `%` (procento)?
@@ -37,6 +39,8 @@ homeworks:
 - markdown: |
     Až budeš příště sahat po kalkulačce, použij místo ní Python.
 
+  submit: false
+
 - markdown: |
     Python umí i jiné věci než čísla. Třeba takové _řetězce_ – slova, věty nebo jiný text.
     Řetězce se zadávají v uvozovkách – jednoduchých `'` nebo dvojitých `"`:
@@ -45,6 +49,8 @@ homeworks:
     >>> 'Ahoj!'
     'Ahoj!'
     ```
+  
+  submit: false
 
 - markdown: |
     Řetězce jdou spojovat sčítáním. Vyzkoušej si to:
@@ -53,6 +59,8 @@ homeworks:
     >>> 'A' + "B"
     'AB'
     ```
+
+  submit: false
 
 - markdown: |
     Co je tady špatně? Jak to spravit?
