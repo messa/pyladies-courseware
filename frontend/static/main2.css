@@ -1,0 +1,42 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  font-size: 15px;
+  font-family: Lato, sans-serif;
+  color: #333;
+  background: #fff;
+  /*
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  */
+}
+
+a {
+  xcolor: #c03;
+  color: #C51162;
+}
+a.thin {
+  font-weight: 300;
+}
+a:hover {
+  text-decoration: underline;
+  color: #e06;
+}
+
+h2 {
+  font-weight: 300;
+  color: #024;
+}
+
+pre.debug {
+  font-size: 10px;
+  line-height: 13px;
+  color: #999;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+  white-space: pre-wrap;
+}

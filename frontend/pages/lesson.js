@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { Button } from 'semantic-ui-react'
+import { Button, Grid } from 'semantic-ui-react'
 import Layout from '../components/Layout'
 import fetchPageData from '../util/fetchPageData'
 import ALink from '../components/ALink'
@@ -8,6 +8,7 @@ import LessonItems from '../components/LessonItems'
 import formatDate from '../util/formatDate'
 import HomeworkSubmission from '../components/HomeworkSubmission'
 import TaskReviewLessonSummary from '../components/TaskReviewLessonSummary'
+import CourseOverview from '../components/lesson/CourseOverview'
 
 const HomeworkTask = ({ hwItem, userCanSubmitHomework, courseId, lessonSlug }) => (
   <div className='homework-task'>
@@ -73,91 +74,83 @@ export default class extends React.Component {
     const courseId = query.course
     const lessonSlug = query.lesson
     const data = await fetchPageData(req, {
+      course: { 'course_detail': { 'course_id': courseId } },
       lesson: { 'lesson_detail': { 'course_id': courseId, 'lesson_slug': lessonSlug } },
     })
-    return {
-      courseId,
-      ...data
-    }
+    return { courseId, ...data }
   }
 
   render() {
-    const { user, courseId, lesson } = this.props
+    const { user, courseId, lesson, course } = this.props
     const userCanSubmitHomeworks = user && (user['is_admin'] || arrayContains(user['attended_course_ids'], courseId))
     const userCanReviewHomeworks = user && (user['is_admin'] || arrayContains(user['coached_course_ids'], courseId))
     const lessonSlug = lesson.slug
-    const { course } = lesson
     const tasks = lesson['homework_items'].filter(x => x.homework_item_type === 'task')
     return (
       <Layout user={user}>
+        <Grid relaxed padded>
+          <Grid.Row>
+            <Grid.Column width={4} only='computer'>
 
-        <div style={{ marginTop: '1rem' }}>
-          <Button
-            as={ALink}
-            href={{ pathname: '/course', query: { course: course.id }}}
-            basic
-            color='pink'
-            content={(
-              <span>
-                {'Kurz: '}
-                <strong dangerouslySetInnerHTML={{ __html: course['title_html'] }} />
-              </span>
-            )}
-            size='small'
-            icon='arrow left'
-          />
-        </div>
+              <CourseOverview course={course} />
 
-        <h1 style={{ marginTop: '1rem' }}>
-          <span dangerouslySetInnerHTML={{__html: lesson['title_html']}} />
-          {' '}&nbsp;
-          <small style={{ fontWeight: 300, color: '#c39', whiteSpace: 'nowrap' }}>
-            {formatDate(lesson['date'])}
-          </small>
-        </h1>
+            </Grid.Column>
+            <Grid.Column width={16} computer={12}>
 
-        <h2>Materiály</h2>
+              <h1 style={{ marginTop: '1rem' }}>
+                <span dangerouslySetInnerHTML={{__html: lesson['title_html']}} />
+                {' '}&nbsp;
+                <small style={{ fontWeight: 300, color: '#c39', whiteSpace: 'nowrap' }}>
+                  {formatDate(lesson['date'])}
+                </small>
+              </h1>
 
-        <LessonItems lessonItems={lesson['lesson_items']} />
+              <h2>Materiály</h2>
 
-        {userCanReviewHomeworks && (
-          <>
-            <h2>Odevzdané úkoly</h2>
-            <TaskReviewLessonSummary
-              courseId={courseId}
-              lessonSlug={lessonSlug}
-              tasks={tasks}
-            />
-          </>
-        )}
+              <LessonItems lessonItems={lesson['lesson_items']} />
 
-        <h2>Domácí projekty</h2>
+              {userCanReviewHomeworks && (
+                <>
+                  <h2>Odevzdané úkoly</h2>
+                  <TaskReviewLessonSummary
+                    courseId={courseId}
+                    lessonSlug={lessonSlug}
+                    tasks={tasks}
+                  />
+                </>
+              )}
 
-        {lesson['homework_items'].map((hwItem, i) => {
-          switch (hwItem.homework_item_type) {
-            case 'task': return (
-              <HomeworkTask
-                key={i}
-                hwItem={hwItem}
-                userCanSubmitHomework={userCanSubmitHomeworks}
-                courseId={courseId}
-                lessonSlug={lessonSlug}
-              />
-            )
-            case 'section': return (
-              <HomeworkSection
-                key={i}
-                hwItem={hwItem}
-              />
-            )
-            default: return (
-              <pre key={i} className='debug'>
-                {JSON.stringify({ hwItem }, null, 2)}
-              </pre>
-            )
-          }
-        })}
+              <h2>Domácí projekty</h2>
 
+              {lesson['homework_items'].map((hwItem, i) => {
+                switch (hwItem.homework_item_type) {
+                  case 'task': return (
+                    <HomeworkTask
+                      key={i}
+                      hwItem={hwItem}
+                      userCanSubmitHomework={userCanSubmitHomeworks}
+                      courseId={courseId}
+                      lessonSlug={lessonSlug}
+                    />
+                  )
+                  case 'section': return (
+                    <HomeworkSection
+                      key={i}
+                      hwItem={hwItem}
+                    />
+                  )
+                  default: return (
+                    <pre key={i} className='debug'>
+                      {JSON.stringify({ hwItem }, null, 2)}
+                    </pre>
+                  )
+                }
+              })}
+
+
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
       </Layout>
     )
   }

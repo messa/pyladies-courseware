@@ -1,7 +1,7 @@
 
 export default ({ lessonItems }) => {
   return (
-    <ul>
+    <ul style={{ listStyle: 'none', paddingLeft: 0 }}>
       {lessonItems.map((item, i) => (
         <li key={i}>
           <LessonItem lessonItem={item} />

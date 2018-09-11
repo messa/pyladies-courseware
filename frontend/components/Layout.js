@@ -1,17 +1,40 @@
 import Head from 'next/head'
 import Header from './Header'
+import Footer from './Footer'
 
 export default ({ children, user }) => (
-  <div>
+  <div className='Layout'>
     <Head>
       <title>Pyladies Courseware</title>
-      <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, shrink-to-fit=no" />
-      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" />
-      <link rel="stylesheet" href="/static/main.css" />
+      <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+      <link rel="stylesheet" href="/static/font-lato/lato.css" />
+      <link rel="stylesheet" href="/static/semantic-ui/semantic-2.3.3.no-font.css" />
+      <link rel="stylesheet" href="/static/main2.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.40.0/codemirror.min.css"
+        integrity="sha256-I8NyGs4wjbMuBSUE40o55W6k6P7tu/7G28/JGUUYCIs=" crossorigin="anonymous" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.40.0/theme/solarized.min.css"
+        integrity="sha256-v5CcBJnFb3uNFDq7uhR4sIS7yihsXlBxN+cwxjtzp7c=" crossorigin="anonymous" />
     </Head>
-    <div style={{ margin: '0 auto', maxWidth: 700, padding: 14 }}>
-      <Header user={user} />
+
+    <Header user={user} />
+
+    <div className='pageContent'>
       {children}
     </div>
+
+    <Footer />
+
+    <style jsx global>{`
+      .Layout {
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        min-height: 100vh;
+      }
+      .pageContent {
+        padding-top: 2rem;
+      }
+    `}</style>
+
   </div>
 )

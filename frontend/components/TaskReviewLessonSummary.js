@@ -59,13 +59,15 @@ export default class TaskReviewLessonSummary extends React.Component {
         )}
 
         {students && (
-          <TaskReviewLessonSummaryTable
-            courseId={courseId}
-            lessonSlug={lessonSlug}
-            students={students}
-            tasks={tasks}
-            taskSolutionsByUserAndTaskId={taskSolutionsByUserAndTaskId}
-          />
+          <div style={{ overflowX: 'auto' }}>
+            <TaskReviewLessonSummaryTable
+              courseId={courseId}
+              lessonSlug={lessonSlug}
+              students={students}
+              tasks={tasks}
+              taskSolutionsByUserAndTaskId={taskSolutionsByUserAndTaskId}
+            />
+          </div>
         )}
         <pre className='debug' style={{ display: 'none' }}>
           TaskReviewLessonSummary {JSON.stringify({ props: this.props, state: this.state }, null, 2)}

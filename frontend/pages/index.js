@@ -13,23 +13,40 @@ export default class extends React.Component {
     const { user, courses } = this.props
     return (
       <Layout user={user}>
-        <h1>Pyladies courseware</h1>
+        <div className='indexContent'>
 
-        <h2>Aktuálně běžící kurzy</h2>
+          <h2>Aktuálně běžící kurzy</h2>
 
-        {courses.active.map(course => (
-          <p key={course.id}>
-            <Link href={{ pathname: '/course', query: { course: course.id }}} prefetch><a>
-              <strong dangerouslySetInnerHTML={{__html: course.title_html}} />
-              {' – '}
-              <span dangerouslySetInnerHTML={{__html: course.subtitle_html}} />
-            </a></Link>
-          </p>
-        ))}
+          {courses.active.map(course => (
+            <p key={course.id} className='course'>
+              <Link href={{ pathname: '/course', query: { course: course.id }}} prefetch><a>
+                <strong dangerouslySetInnerHTML={{__html: course.title_html}} />
+                {' – '}
+                <span dangerouslySetInnerHTML={{__html: course.subtitle_html}} />
+              </a></Link>
+            </p>
+          ))}
 
-        <h2>Proběhlé kurzy</h2>
+          {/*
+          <h2>Proběhlé kurzy</h2>
+          <p>TBD&hellip;</p>
+          */}
 
-        <p>TBD&hellip;</p>
+        </div>
+        <style jsx>{`
+          .indexContent {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 16px;
+          }
+          p.course {
+            margin: 1.5rem 0;
+            font-size: 18px;
+          }
+          .course a {
+            font-weight: 300;
+          }
+        `}</style>
 
       </Layout>
     )
