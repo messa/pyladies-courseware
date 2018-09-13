@@ -9,7 +9,7 @@ Nástroj pro odevzdávání a review domácích úkolů z programování.
 Todo
 ----
 
-Next steps - deadline September 9:
+Next steps:
 
 - dokončit workflow pro review úkolů
 - ~rozběhat FB a Google login~
@@ -99,12 +99,18 @@ $ make run-nginx
 
 Otevři http://localhost:8000/
 
-Na portu 8000 běží nginx reverse proxy
-Na portu 3000 běží nodejs frontend.
-Na portu 5000 běží aiohttp backend
-Na portu 27017 běží MongoDB
+| Port  | Služba
+|-------|-------
+| 3000  | Node.js frontend
+| 5000  | aiohttp backend
+| 8000  | nginx reverse proxy
+| 27017 | MongoDB
 
-Po změně kódu musíš restartovat příslušý proces.
+Nginx se spouští kvůli tomu, aby routoval požadavky na frontend a backend – viz diagram výše v sekci Architecture.
+Je to proto, aby celá aplikace moha fungovat na jednom _originu_ (host:port) a AJAX dotazy z frontendu na backend nemusely probíhat v režimu [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS).
+
+Při změně kódu Python backendu je potřeba restartovat proces (tj. znovu spustit `make run-backend`).
+Pro automatizaci tohoto lze použít nějaký watchdog, např. [watch_files.py](https://github.com/messa/tools/blob/master/watch_files.py).
 
 
 Developer login
