@@ -9,6 +9,9 @@
   - template: { src: ../templates/nginx-ukoly.pyladies.cz.j2, dest: /etc/nginx/sites-enabled/ukoly.pyladies.cz }
     notify: [ reload nginx ]
 
+  - template: { src: ../templates/nginx-projekty.pyladies.cz.j2, dest: /etc/nginx/sites-enabled/projekty.pyladies.cz }
+    notify: [ reload nginx ]
+
   handlers:
 
   - name: reload nginx

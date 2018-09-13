@@ -24,11 +24,11 @@
         fb:
           client_id: '318379298718097'
           client_secret: '{{ facebook_318379298718097_client_secret }}'
-          callback_url: 'https://ukoly.pyladies.cz/auth/facebook/callback'
+          callback_url: 'https://projekty.pyladies.cz/auth/facebook/callback'
         google:
           client_id: '333840391835-6dmr8pfd2k43u4gpjv901dmlddp8j5dh.apps.googleusercontent.com'
           client_secret: '{{ google_333840391835_client_secret }}'
-          callback_url: 'https://ukoly.pyladies.cz/auth/google/callback'
+          callback_url: 'https://projekty.pyladies.cz/auth/google/callback'
         session_secret: '{{ session_secret }}'
 
   - name: Load backend image
