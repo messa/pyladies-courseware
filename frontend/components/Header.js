@@ -17,7 +17,7 @@ export default class Header extends React.Component {
                 <span className='pyladiesLogo'>
                   <img src='https://pyladies.cz/static/img/pyladies.png' alt='Pyladies' />
                 </span>
-                Úkoly
+                Projekty
               </a></Link>
             </div>
           </Menu.Item>
