@@ -12,9 +12,9 @@ Todo
 Next steps - deadline September 9:
 
 - dokončit workflow pro review úkolů
-- rozběhat FB a Google login
+- ~rozběhat FB a Google login~
 - přidat Github login
-- někam to nasadit :)
+- ~někam to nasadit :)~
 - udělat notifikace
   - uvnitř aplikace
   - do Slacku
