@@ -12949,8 +12949,12 @@ i.icon.youtube.play:before {
 
 @font-face {
   font-family: 'outline-icons';
-  src: url("./themes/default/assets/fonts/outline-icons.eot");
-  src: url("./themes/default/assets/fonts/outline-icons.eot?#iefix") format('embedded-opentype'), url("./themes/default/assets/fonts/outline-icons.woff2") format('woff2'), url("./themes/default/assets/fonts/outline-icons.woff") format('woff'), url("./themes/default/assets/fonts/outline-icons.ttf") format('truetype'), url("./themes/default/assets/fonts/outline-icons.svg#icons") format('svg');
+  src: url("https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/themes/default/assets/fonts/outline-icons.eot");
+  src: url("https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/themes/default/assets/fonts/outline-icons.eot?#iefix") format('embedded-opentype'),
+       url("https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/themes/default/assets/fonts/outline-icons.woff2") format('woff2'),
+       url("https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/themes/default/assets/fonts/outline-icons.woff") format('woff'),
+       url("https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/themes/default/assets/fonts/outline-icons.ttf") format('truetype'),
+       url("https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/themes/default/assets/fonts/outline-icons.svg#icons") format('svg');
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -13455,8 +13459,12 @@ i.icon.star.empty:before {
 
 @font-face {
   font-family: 'brand-icons';
-  src: url("./themes/default/assets/fonts/brand-icons.eot");
-  src: url("./themes/default/assets/fonts/brand-icons.eot?#iefix") format('embedded-opentype'), url("./themes/default/assets/fonts/brand-icons.woff2") format('woff2'), url("./themes/default/assets/fonts/brand-icons.woff") format('woff'), url("./themes/default/assets/fonts/brand-icons.ttf") format('truetype'), url("./themes/default/assets/fonts/brand-icons.svg#icons") format('svg');
+  src: url("https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/themes/default/assets/fonts/brand-icons.eot");
+  src: url("https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/themes/default/assets/fonts/brand-icons.eot?#iefix") format('embedded-opentype'),
+       url("https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/themes/default/assets/fonts/brand-icons.woff2") format('woff2'),
+       url("https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/themes/default/assets/fonts/brand-icons.woff") format('woff'),
+       url("https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/themes/default/assets/fonts/brand-icons.ttf") format('truetype'),
+       url("https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/themes/default/assets/fonts/brand-icons.svg#icons") format('svg');
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
