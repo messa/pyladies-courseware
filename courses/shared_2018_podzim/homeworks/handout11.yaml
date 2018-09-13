@@ -9,7 +9,5 @@ homeworks:
 
 - markdown: |
     Jako bonus je možné vlastní třídě z předchozího příkladu přepsat metodu
-      `__repr__()` tak, aby bylo v interaktivním režimu poznat, které číslo je
-      standardní `int` a které je z tebou vytvořené třídy.
-
-
+    `__repr__()` tak, aby bylo v interaktivním režimu poznat, které číslo je
+    standardní `int` a které je z tebou vytvořené třídy.

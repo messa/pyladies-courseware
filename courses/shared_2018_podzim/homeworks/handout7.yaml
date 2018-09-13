@@ -2,8 +2,8 @@ homeworks:
 
 - section:
     markdown: |
-        Udělej projekty 11-17 z minulé sady. Na příštím srazu je využiješ.
-        Až to budeš mít hotové, můžeš zkusit udělat pár věcí navíc do Klondike:
+      Udělej projekty 11-17 z minulé sady. Na příštím srazu je využiješ.
+      Až to budeš mít hotové, můžeš zkusit udělat pár věcí navíc do Klondike:
 
 
 - markdown: |
@@ -24,10 +24,10 @@ homeworks:
     Dalo by se to ale zařídit tak, aby po zadání `A3B` počítač
     sám zjistil, že na B patří šestka, a přesunul tři karty.
     Funkce `nacti_tah_` může v tomto případě vracet `pocet=0`; funkce `priprav_tah` pak doplní příslušné číslo.
-    
+
     Dej si pozor, aby chybová hláška neřekla hráči nic o kartách, které jsou
     rubem nahoru.
-    
+
     A taky, jestli tohle uděláš, nezapomeň upravit nápovědu!
 
 - markdown: |
@@ -38,6 +38,5 @@ homeworks:
 
 - markdown: |
     Může _n_-tice obsahovat sama sebe? Zkus co nejjednodušeji udělat takovou _n_-tici, aby platilo:
-    
-    `ntice[5][5][5][5][5][5][5][5][5][5][5][5][5][5][5][5][5][5][0] == 5`.
 
+    `ntice[5][5][5][5][5][5][5][5][5][5][5][5][5][5][5][5][5][5][0] == 5`.

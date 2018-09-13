@@ -3,7 +3,7 @@ homeworks:
 
 - section:
     markdown: |
-        Na začátek trocha opakování – což neznamená, že se nemůžeš naučit něco nového.
+      Na začátek trocha opakování – což neznamená, že se nemůžeš naučit něco nového.
 
 - markdown: |
     Co dělá funkce `print`?
@@ -19,6 +19,7 @@ homeworks:
 
 - markdown: |
     Čím se liší chyby, které dostaneš když zadáš tyhle příkazy?
+
     - `int('blabla')`
     - `float('blabla')`
     - `int('8.9')`
@@ -26,6 +27,7 @@ homeworks:
 
 - markdown: |
     Jak zaokrouhlí funkce `round` tato čísla?
+
     - `3`
     - `3,0`
     - `3,141`
@@ -40,65 +42,59 @@ homeworks:
 
 - markdown: |
     Pomocí cyklu `for` napiš program, který vypíše:
-    <pre>
-    a
-    a
-    a
-    a
-    a
-    </pre>
+
+        a
+        a
+        a
+        a
+        a
 
 - markdown: |
     Pomocí cyklu `for` napiš program, který vypíše:
-    <pre>
-    a
-    b
-    b
-    b
-    b
-    </pre>
+
+        a
+        b
+        b
+        b
+        b
 
 - markdown: |
     Pomocí cyklu `for` napiš program, který vypíše:
-    <pre>
-    0 na druhou je 0
-    1 na druhou je 1
-    2 na druhou je 4
-    3 na druhou je 9
-    4 na druhou je 16
-    5 na druhou je 25
-    6 na druhou je 36
-    </pre>
 
-- markdown: |
-    Pomocí cyklů `for+ a parametru \verb+end+ pro \verb+print` napiš program, který vypíše:
-    <pre>
-    X X X X X
-    X X X X X
-    X X X X X
-    X X X X X
-    X X X X X
-    </pre>
+        0 na druhou je 0
+        1 na druhou je 1
+        2 na druhou je 4
+        3 na druhou je 9
+        4 na druhou je 16
+        5 na druhou je 25
+        6 na druhou je 36
 
 - markdown: |
     Pomocí cyklů `for` a parametru `end` pro `print` napiš program, který vypíše:
-    <pre>
-    X X X X X
-    X X X X
-    X X X
-    X X
-    X
-    <pre>
+
+        X X X X X
+        X X X X X
+        X X X X X
+        X X X X X
+        X X X X X
 
 - markdown: |
     Pomocí cyklů `for` a parametru `end` pro `print` napiš program, který vypíše:
-    <pre>
-    0 0 0 0 0
-    0 1 2 3 4
-    0 2 4 6 8
-    0 3 6 9 12
-    0 4 8 12 16
-    <pre>
+
+        X X X X X
+        X X X X
+        X X X
+        X X
+        X
+
+- markdown: |
+    Pomocí cyklů `for` a parametru `end` pro `print` napiš program, který vypíše:
+
+        0 0 0 0 0
+        0 1 2 3 4
+        0 2 4 6 8
+        0 3 6 9 12
+        0 4 8 12 16
 
 - markdown: |
     Programy s cyklem `for` uprav tak, aby počet řádků
@@ -117,6 +113,7 @@ homeworks:
 
 - markdown: |
     Nakresli domeček!
+
     ```
     from math import sqrt
     from texturtle import ctx, forward, left, right
@@ -130,10 +127,12 @@ homeworks:
             left(90)
         right(45)
     ```
-    _Jak pravil Pythagoras, délka šikmé čáry v domečku je $\sqrt2$krát délka stěny. O funkci na odmocninu jsme mluvili na srazu._
+
+    _Jak pravil Pythagoras, délka šikmé čáry v domečku je √2-krát délka stěny. O funkci na odmocninu jsme mluvili na srazu._
 
 - markdown: |
     Nakresli vesnici!
+
     ```
     from math import sqrt
     from texturtle import ctx, forward, left, right
@@ -200,7 +199,7 @@ homeworks:
             forward(i * 4)
             left(90)
     ```
-    _\small Nevíš-li si rady, vezmi pravítko a změř délky jednotlivých čar._
+    _Nevíš-li si rady, vezmi pravítko a změř délky jednotlivých čar._
 
 - markdown: |
     Nakresli takovýto ornament:
@@ -245,12 +244,14 @@ homeworks:
 
 - markdown: |
     Napiš program, který vypíše čísla od jedné do 100, ale:
+
     - Pokud je číslo dělitelné třemi, napíše místo něj „bum”.
     - Pokud je číslo dělitelné pěti, napíše místo něj „bác”.
     - Pokud je číslo dělitelné pěti i třemi zároveň, napíše místo toho „bum-bác”.
 
 - markdown: |
-    Máš-li ráda matematiku a nebojíš-li se výzvy, načti od uživatele číslo $n$ a:
+    Máš-li ráda matematiku a nebojíš-li se výzvy, načti od uživatele číslo `n` a:
+
     - Vypočti faktoriál `n!` (součin všech celých čísel od 1 do `n`).
     - Zjisti, jestli je $n$ prvočíslo.
     - Vypiš prvních $n$ členů Fibonacciho posloupnosti (`1, 1, 2, 3, 5, 8, 13, 21, ... `).
@@ -268,7 +269,7 @@ homeworks:
     Vezmi program z minulé úlohy a dokresli stonek a listy.
     Je jenom na tobě, jaký budou mít tvar.
     Piš komentáře a snaž se opakovat pomocí `for`,
-        ne pomocí Ctrl+C Ctrl+V.
+    ne pomocí Ctrl+C Ctrl+V.
 
 - markdown: |
     Napiš obrázek! Třeba les ze stromů, město z domů, nebe z hvězd,
@@ -277,20 +278,18 @@ homeworks:
 
 - markdown: |
     Co dělá tenhle kód?
-    <pre>
-    for c in 'Ahoj světe!':
-        print(c)
-    <pre>
+
+        for c in 'Ahoj světe!':
+            print(c)
 
 - markdown: |
     Vymyslíš lepší jméno pro proměnnou `c` z minulé úlohy?
 
 - markdown: |
     Co dělá tenhle kód?
-    <pre>
+
     for c in 38:
         print(c)
-    <pre>
 
 - markdown: |
     Napiš program, který se pětkrát zeptá na číslo a nejmenší zadané číslo vypíše.
@@ -330,4 +329,3 @@ homeworks:
                 left(40)
             forward(20 + cislo_listu)
     ```
-

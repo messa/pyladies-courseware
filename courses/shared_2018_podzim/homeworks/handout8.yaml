@@ -2,7 +2,7 @@ homeworks:
 
 - section:
     markdown: |
-        Těchto pár úkolů slouží k procvičení práce se slovníky, které se následně pokusíš využít při programování známé skautské hry.
+      Těchto pár úkolů slouží k procvičení práce se slovníky, které se následně pokusíš využít při programování známé skautské hry.
 
 - markdown: |
     Napiš funkci, která pro argumentem zadané číslo `n` vytvoří a vrátí slovník,
@@ -29,7 +29,7 @@ homeworks:
 
 - section:
     markdown: |
-        A teď už ke slíbené hře.
+      A teď už ke slíbené hře.
 
 - markdown: |
     Úkolem je vytvořit známou skautskou hru „Kdo? S kým? Co dělali?“. Hra se
@@ -40,4 +40,3 @@ homeworks:
     a z takto vybraných odpovědí složí větu, kterou vypíše uživateli.
     Seznam otázek by mělo být možné změnit na jednom místě bez zásahu
     do logiky programu.
-

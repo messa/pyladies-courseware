@@ -2,9 +2,9 @@ homeworks:
 
 - section:
     markdown: |
-        Na začátek trocha práce se seznamy. Některé z projektů – a zvlášť ten poslední – potřebují trochu přemýšlení;
-        nebudeš-li vědět jak dál, zeptej se na internetu nebo na sraze ostatních
-        a řešte společně!
+      Na začátek trocha práce se seznamy. Některé z projektů – a zvlášť ten poslední – potřebují trochu přemýšlení;
+      nebudeš-li vědět jak dál, zeptej se na internetu nebo na sraze ostatních
+      a řešte společně!
 
 - markdown: |
     Udělej si seznam domácích zvířat. Budeš ho potřebovat v dalších úlohách.
@@ -36,7 +36,7 @@ homeworks:
 - markdown: |
     Had byl pyšný na to, že je v abecedě první.
     Dokud nepřiletěla `"andulka"`.
-    
+
     Abys hada uklidnila, vytvoř funkci, která zvířata seřadí podle abecedy,
     ale bude ignorovat první písmeno t.j. vrátí:
     <pre>
@@ -120,7 +120,7 @@ homeworks:
     . . . . . . . . . .
     . . . . . . . . X .
     </pre>
-    
+
     _Jak na to?_
     - Udělej tabulku (seznam seznamů) se samými tečkami, něco jako: \\
         `[['.', '.', '.'], ['.', '.', '.'], ['.', '.', '.']]`.
@@ -186,4 +186,3 @@ homeworks:
 - markdown: |
     Může seznam obsahovat sám sebe? Zkus co nejjednodušeji udělat takový seznam, aby platilo:
     `seznam[5][5][5][5][5][5][5][5][5][5][5][5][5][5][5][5][5][5][0] == 5`.
-

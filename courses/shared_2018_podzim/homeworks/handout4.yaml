@@ -2,11 +2,11 @@ homeworks:
 
 - section:
     markdown: |
-        Nezapomeň: Když něco funguje, přidej to do Gitu!
-        Pokud materiály procházíš v jiném pořadí než my na srazech a Git ještě neznáš, můžeš všechny poznámky o Gitu ignorovat.
-        Jinak si na tuto sadu projektů udělej zvláštní repozitář.
-        
-        Trocha experimentování. Zkus se zamyslet, jestli jsi „dobře” pochopila otázku.
+      Nezapomeň: Když něco funguje, přidej to do Gitu!
+      Pokud materiály procházíš v jiném pořadí než my na srazech a Git ještě neznáš, můžeš všechny poznámky o Gitu ignorovat.
+      Jinak si na tuto sadu projektů udělej zvláštní repozitář.
+
+      Trocha experimentování. Zkus se zamyslet, jestli jsi „dobře” pochopila otázku.
 
 - markdown: |
     Co se stane, když tělo nějaké funkce necháš prázdné?
@@ -15,16 +15,16 @@ homeworks:
 
 - section:
     markdown: |
-        Procvičení funkcí. Jestli jsi pythonní funkce nepsala už před kurzem, tak první z těchto projektů určitě udělej. Druhý jen pokud máš ráda geometrii :)
+      Procvičení funkcí. Jestli jsi pythonní funkce nepsala už před kurzem, tak první z těchto projektů určitě udělej. Druhý jen pokud máš ráda geometrii :)
 
 - markdown: |
     Napiš funkci, která vykreslí domeček dané velikosti.
     _(t.j. velikost se zadá argumentem)_
-    
+
     ```python
     from math import sqrt
     from texturtle import ctx, forward, left, right
-    
+
     def domecek(velikost):
         for i in range(4):
             forward(velikost)
@@ -45,10 +45,10 @@ homeworks:
 
 - markdown: |
     Máš-li ráda geometrii*, můžeš zkusit dávat domečkové funkci dva argumenty:
-        šířku a výšku.
-        Je potřeba si vzpomenout na Pythagorovu větu a funkci tangens.
-        Pozor, funkce `tan` vrací výsletek v radiánech;
-        je potřeba ho převést na stupně (`from math import degrees`).
+    šířku a výšku.
+    Je potřeba si vzpomenout na Pythagorovu větu a funkci tangens.
+    Pozor, funkce `tan` vrací výsletek v radiánech;
+    je potřeba ho převést na stupně (`from math import degrees`).
 
     ```python
     from math import sqrt, degrees, atan
@@ -154,7 +154,7 @@ homeworks:
     Napiš funkci `tah`, která dostane řetězec s herním polem,
     číslo políčka (0-19), a symbol (`x` nebo `o`)
     a vrátí herní pole _(t.j. řetězec)_ s daným symbolem umístěným na danou pozici.
-    
+
     Hlavička funkce by tedy měla vypadat nějak takhle:
     ```
     def tah(pole, cislo_policka, symbol):
@@ -180,7 +180,7 @@ homeworks:
     1. Vyber číslo od 0 do 19.
     2. Pokud je dané políčko volné, hrej na něj.
     3. Pokud ne, opakuj od bodu 1.
-    
+
     Hlavička funkce by tedy měla vypadat nějak takhle:
     ```
     def tah_pocitace(pole):
@@ -198,23 +198,22 @@ homeworks:
 
 - section:
     markdown: |
-        Poslední projekt je nepovinný, ale, jak to u podobných projektů bývá, můžeš na něj dostat zpětnou vazbu. Doporučuju toho využít!
+      Poslední projekt je nepovinný, ale, jak to u podobných projektů bývá, můžeš na něj dostat zpětnou vazbu. Doporučuju toho využít!
 
 - markdown: |
     Zvládneš pro počítač naprogramovat lepší strategii?
     Třeba aby se snažil hrát vedle svých existujících symbolů
     nebo aby bránil protihráčovi?
-    
+
     Stačí jen docela malé vylepšení!
-    
+
     _A i docela malé vylepšení patří do Gitu!_
 
 - section:
     markdown: |
-        Podle toho, jak jste se na sraze domluvili, pošli řešení e-mailem
-        (např. organizátorům, koučovi, nebo vůbec).
-        Posílej ho jako přílohu, nekopíruj ho do textu e-mailu.
-        
-        Jestli procházíš kurz sama a můžeš programování konzultovat s někým
-        zkušenějším, je tento úkol na takovou konzultaci ideální téma.
+      Podle toho, jak jste se na sraze domluvili, pošli řešení e-mailem
+      (např. organizátorům, koučovi, nebo vůbec).
+      Posílej ho jako přílohu, nekopíruj ho do textu e-mailu.
 
+      Jestli procházíš kurz sama a můžeš programování konzultovat s někým
+      zkušenějším, je tento úkol na takovou konzultaci ideální téma.
