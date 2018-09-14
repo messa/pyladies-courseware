@@ -1,0 +1,22 @@
+- name: setup mongo tools
+  hosts: all
+  tasks:
+
+  - name: apt key
+    apt_key:
+      url: https://www.mongodb.org/static/pgp/server-4.0.asc
+      id: 9DA31620334BD75D9DCB49F368818C72E52529D4
+      state: present
+
+  - name: mongo repository
+    apt_repository:
+      repo: "deb http://repo.mongodb.org/apt/debian {{ ansible_distribution_release  }}/mongodb-org/4.0 main"
+      state: present
+      filename: mongodb-org-4.0
+      update_cache: yes
+
+  - name: install mongodb-org-shell
+    apt: { name: mongodb-org-shell, state: present }
+
+  - name: install mongodb-org-tools
+    apt: { name: mongodb-org-tools, state: present }

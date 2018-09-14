@@ -1,4 +1,4 @@
-- name: run MongoDB (mongod)
+- name: run MongoDB (mongod) in Docker
   hosts: all
   vars_files:
   - ../secrets.yml

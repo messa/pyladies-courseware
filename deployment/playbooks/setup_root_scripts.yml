@@ -1,0 +1,35 @@
+- name: setup /root/scripts
+  hosts: all
+  vars_files:
+  - ../secrets.yml
+  tasks:
+
+  - name: create /root/scripts
+    file:
+      path: /root/scripts
+      state: directory
+      mode: '0700'
+
+  - name: create /root/scripts/mongo_root_shell
+    copy:
+      dest: /root/scripts/mongo_root_shell
+      mode: '0700'
+      content: |
+        #!/bin/bash
+        set -ex
+        exec mongo \
+          --username root --password {{ mongo_root_password }} \
+          --authenticationDatabase admin
+
+  - name: create /root/scripts/mongo_backup
+    copy:
+      dest: /root/scripts/mongo_backup
+      mode: '0700'
+      content: |
+        #!/bin/bash
+        set -ex
+        exec mongodump \
+          --username backup --password {{ mongo_backup_password }} \
+          --authenticationDatabase admin \
+          --gzip --numParallelCollections 1 \
+          -o mongodump.cw.$(date --utc +%Y%m%dT%H%M%SZ)
