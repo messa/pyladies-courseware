@@ -5,6 +5,8 @@ Nástroj pro odevzdávání a review domácích úkolů z programování.
 
 [CircleCI](https://circleci.com/gh/messa/pyladies-courseware)
 
+[Now team](https://zeit.co/teams/pyladies-courseware)
+
 
 Todo
 ----
