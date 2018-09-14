@@ -1,0 +1,11 @@
+- name: setup CircleCI stuff
+  hosts: all
+  tasks:
+
+  - name: create /etc/sudoers.d/circleci-deploy-scripts
+    copy:
+      dest: /etc/sudoers.d/circleci-deploy-scripts
+      mode: '0440'
+      content: |
+        circleci ALL=(ALL) NOPASSWD: /root/pyladies-courseware/deployment/ci_deploy.sh
+        circleci ALL=(ALL) NOPASSWD: /root/pyladies-courseware/deployment/ci_deploy_demo.sh

@@ -9,10 +9,13 @@
   - template: { src: ../templates/nginx.conf, dest: /etc/nginx/nginx.conf }
     notify: [ reload nginx ]
 
-  - template: { src: ../templates/nginx-ukoly.pyladies.cz.j2, dest: /etc/nginx/sites-enabled/ukoly.pyladies.cz }
+  - template: { src: ../templates/nginx_ukoly.pyladies.cz.j2, dest: /etc/nginx/sites-enabled/ukoly.pyladies.cz }
     notify: [ reload nginx ]
 
-  - template: { src: ../templates/nginx-projekty.pyladies.cz.j2, dest: /etc/nginx/sites-enabled/projekty.pyladies.cz }
+  - template: { src: ../templates/nginx_projekty.pyladies.cz.j2, dest: /etc/nginx/sites-enabled/projekty.pyladies.cz }
+    notify: [ reload nginx ]
+
+  - template: { src: ../templates/nginx_projekty-demo.messa.cz.j2, dest: /etc/nginx/sites-enabled/projekty-demo.messa.cz }
     notify: [ reload nginx ]
 
   handlers:

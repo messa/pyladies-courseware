@@ -78,6 +78,38 @@ jobs:
           command: |
             ssh circleci@207.154.235.213 sudo /root/pyladies-courseware/deployment/ci_deploy.sh
 
+  build_and_deploy_demo:
+    docker:
+      - image: docker:stable
+    working_directory: /src
+    steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - restore_cache:
+          keys:
+          - v2-demo
+      - run: gunzip /docker_image_cw_demo.tar.gz || true
+      - run: docker load -i /docker_image_cw_demo.tar || true
+      - run: docker images
+      - run: docker images -a
+      - run: docker build -t cw_demo --pull --cache-from cw_demo .
+      - run: docker save -o /docker_image_cw_demo.tar cw_demo
+      - run: gzip -k3 /docker_image_cw_demo.tar
+      - save_cache:
+          key: v2-demo-{{ .Branch }}-{{ epoch }}
+          paths:
+          - /docker_image_cw_demo.tar.gz
+      - run: docker images
+      - run: docker images -a
+      - run:
+          name: setup SSH server key fingerprint
+          command: |
+            echo '207.154.235.213 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMd2qF3m1mtvgxq45xX8F+po9GLeGFgqXp051IsZZKKi' >> ~/.ssh/known_hosts
+      - run: apk add openssh rsync
+      - run: 'rsync -vz --progress /docker_image_cw_demo.tar circleci@207.154.235.213:'
+      - run: ssh circleci@207.154.235.213 sudo /root/pyladies-courseware/deployment/ci_deploy_demo.sh
+
 workflows:
   version: 2
   build_and_test:
@@ -88,6 +120,10 @@ workflows:
           requires:
             - build_docker_image_frontend
             - build_docker_image_backend
+          filters:
+            branches:
+              only: master
+      - build_and_deploy_demo:
           filters:
             branches:
               only: master

@@ -1,0 +1,21 @@
+- name: build images
+  hosts: all
+  tasks:
+
+  - name: Load demo image
+    docker_image:
+      name: cw_demo
+      state: present
+      load_path: /home/circleci/docker_image_cw_demo.tar
+      force: true
+
+  - name: Run demo container
+    docker_container:
+      name: cw_demo
+      image: cw_demo
+      state: started
+      restart_policy: unless-stopped
+      published_ports:
+      - 8100:8000
+      env:
+        NODE_ENV: production

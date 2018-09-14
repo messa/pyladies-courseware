@@ -17,7 +17,7 @@ COPY backend /backend/
 RUN /venv/bin/pip install /backend
 
 FROM debian:stretch
-ENV DEBIAN_FRONTEND=noninteractive
+ENV DEBIAN_FRONTEND=noninteractive ALLOW_DEV_LOGIN=1
 RUN apt-get update
 RUN apt-get install -y nginx-light
 COPY --from=mongo:3.6-jessie /usr/bin/mongod /usr/bin/
