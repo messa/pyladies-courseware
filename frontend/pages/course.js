@@ -19,7 +19,7 @@ export default class extends React.Component {
   render() {
     const { course } = this.props
     return (
-      <Layout user={this.props.user}>
+      <Layout user={this.props.user} width={1000}>
 
         <div className='overview'>
 

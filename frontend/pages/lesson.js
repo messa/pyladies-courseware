@@ -99,7 +99,7 @@ export default class extends React.Component {
     const lessonSlug = lesson.slug
     const tasks = lesson['homework_items'].filter(x => x.homework_item_type === 'task')
     return (
-      <Layout user={user}>
+      <Layout user={user} width={1200}>
         <Grid relaxed padded>
           <Grid.Row>
             <Grid.Column width={4} only='computer'>

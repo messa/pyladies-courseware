@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Header from './Header'
 import Footer from './Footer'
 
-export default ({ children, user }) => (
+export default ({ children, user, width }) => (
   <div className='Layout'>
     <Head>
       <title>Pyladies Courseware</title>
@@ -18,7 +18,7 @@ export default ({ children, user }) => (
 
     <Header user={user} />
 
-    <div className='pageContent'>
+    <div className='pageContent' style={{ maxWidth: width }}>
       {children}
     </div>
 
@@ -32,7 +32,10 @@ export default ({ children, user }) => (
         min-height: 100vh;
       }
       .pageContent {
-        padding-top: 2rem;
+        padding-left: 1em;
+        padding-right: 1em;
+        max-width: 800px;
+        margin: 2rem auto;
       }
     `}</style>
 
