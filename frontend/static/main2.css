@@ -32,6 +32,20 @@ h2 {
   color: #024;
 }
 
+table.ui.table.admin thead th {
+  font-size: 80%;
+  text-transform: uppercase;
+  border-bottom: 1px solid #900;
+  color: #900;
+  padding-bottom: 4px;
+}
+
+table.admin pre,
+table.admin code {
+  font-family: consolas, hack, terminus, monospace;
+  font-size: 12px;
+}
+
 pre.debug {
   font-size: 10px;
   line-height: 13px;

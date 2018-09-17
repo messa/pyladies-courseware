@@ -224,6 +224,7 @@ class UserView:
         self.attended_course_ids = doc.get('attended_course_ids') or []
         self.coached_course_ids = doc.get('coached_course_ids') or []
         self.is_admin = doc.get('is_admin', False)
+        self.dev_login = doc.get('dev_login', False)
 
     def get_name_sort_key(self):
         name_parts = self.name.split()
@@ -239,4 +240,5 @@ class UserView:
             'attended_course_ids': self.attended_course_ids,
             'coached_course_ids': self.coached_course_ids,
             'is_admin': self.is_admin,
+            'dev_login': self.dev_login,
         }

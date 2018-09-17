@@ -14,7 +14,7 @@ export default class extends React.Component {
   render() {
     const { userDetail } = this.props
     return (
-      <AdminLayout user={this.props.user} width={1200}>
+      <AdminLayout user={this.props.user} width={1000}>
 
         <h1>Přehled uživatelů</h1>
 
