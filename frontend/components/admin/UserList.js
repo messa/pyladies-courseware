@@ -5,10 +5,9 @@ import ALink from '../ALink'
 export default class extends React.Component {
 
   state = {
-    paging: null,
-    items: null,
-    error: null,
     loading: true,
+    error: null,
+    items: null,
   }
 
   componentDidMount() {
@@ -23,10 +22,10 @@ export default class extends React.Component {
         },
         credentials: 'same-origin',
       })
-      const { items, paging } = await r.json()
+      const { items } = await r.json()
       this.setState({
         loading: false,
-        items, paging,
+        items,
       })
     } catch (err) {
       this.setState({
@@ -40,14 +39,14 @@ export default class extends React.Component {
     const { items } = this.state
     return (
       <div>
-        {items && <UserTable items={items} />}
+        {items && <UserListView items={items} />}
       </div>
     )
   }
 
 }
 
-const UserTable = ({ items }) => (
+const UserListView = ({ items }) => (
   <Table size='small' basic='very' unstackable className='admin'>
     <Table.Header>
       <Table.Row>
