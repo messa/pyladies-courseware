@@ -22,7 +22,7 @@ async def list_users(req):
         raise web.HTTPForbidden()
     users = await model.users.list_all()
     return web.json_response({
-        'items': [u.export() for u in users],
+        'items': [u.export(details=True) for u in users],
     })
 
 
@@ -37,5 +37,5 @@ async def get_user_detail(req):
         raise web.HTTPForbidden()
     u = await model.users.get_by_id(req.match_info['user_id'])
     return web.json_response({
-        'user': u.export(),
+        'user': u.export(details=True),
     })

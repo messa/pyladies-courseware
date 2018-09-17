@@ -40,18 +40,28 @@ async def page_data(req):
     return web.json_response(results)
 
 
-resolvers = {
-    'login_methods': lambda req, params: get_login_methods(conf=req.app['conf']),
-    'list_courses': lambda req, params:
-        {
-            'active': [c.export() for c in req.app['courses'].get().list_active()],
-        },
-}
+resolvers = {}
 
 
 def resolver(f):
+    '''
+    Decorator that adds given function to resolvers
+    '''
     resolvers[f.__name__] = f
     return f
+
+
+@resolver
+def login_methods(req, params):
+    return get_login_methods(conf=req.app['conf'])
+
+
+@resolver
+def list_courses(req, params):
+    active_courses = req.app['courses'].get().list_active()
+    return {
+        'active': [c.export() for c in active_courses],
+    }
 
 
 @resolver
@@ -61,7 +71,7 @@ async def user(req, params):
         return None
     model = req.app['model']
     user = await model.users.get_by_id(session['user']['id'])
-    return user.export()
+    return user.export(details=True)
 
 
 @resolver
@@ -84,3 +94,18 @@ def lesson_detail(req, params):
         **lesson.export(homeworks=True),
         'course': course.export(),
     }
+
+
+@resolver
+async def review_user(req, params):
+    if not params.get('user_id'):
+        return None
+    session = await get_session(req)
+    model = req.app['model']
+    if not session.get('user'):
+        raise web.HTTPForbidden()
+    user = await model.users.get_by_id(session['user']['id'])
+    if not user.is_admin and not user.coached_course_ids:
+        raise web.HTTPForbidden()
+    u = await model.users.get_by_id(params['user_id'])
+    return u.export()

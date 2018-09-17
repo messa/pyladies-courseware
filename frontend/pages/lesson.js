@@ -9,8 +9,9 @@ import formatDate from '../util/formatDate'
 import HomeworkSubmission from '../components/HomeworkSubmission'
 import TaskReviewLessonSummary from '../components/TaskReviewLessonSummary'
 import CourseOverview from '../components/lesson/CourseOverview'
+import TaskReview from '../components/lesson/TaskReview'
 
-const HomeworkTask = ({ hwItem, userCanSubmitHomework, courseId, lessonSlug }) => (
+const HomeworkTask = ({ hwItem, userCanSubmitHomework, courseId, lessonSlug, reviewUserId }) => (
   <div className='homework-task'>
     <div className='number'>{hwItem['number']}.</div>
     <div className='homework-body'>
@@ -19,7 +20,15 @@ const HomeworkTask = ({ hwItem, userCanSubmitHomework, courseId, lessonSlug }) =
       )}
       <span dangerouslySetInnerHTML={{__html: hwItem['text_html'] }} />
     </div>
-    {userCanSubmitHomework && hwItem.submit && (
+    {reviewUserId && (
+      <TaskReview
+        courseId={courseId}
+        lessonSlug={lessonSlug}
+        taskId={hwItem.id}
+        reviewUserId={reviewUserId}
+      />
+    )}
+    {!reviewUserId && userCanSubmitHomework && hwItem.submit && (
       <HomeworkSubmission
         courseId={courseId}
         lessonSlug={lessonSlug}
@@ -80,20 +89,22 @@ function arrayContains(array, item) {
   return array && array.indexOf(item) !== -1
 }
 
-export default class extends React.Component {
+export default class LessonPage extends React.Component {
 
   static async getInitialProps({ req, query }) {
     const courseId = query.course
     const lessonSlug = query.lesson
+    const { reviewUserId } = query
     const data = await fetchPageData(req, {
       course: { 'course_detail': { 'course_id': courseId } },
       lesson: { 'lesson_detail': { 'course_id': courseId, 'lesson_slug': lessonSlug } },
+      reviewUser: { 'review_user': { 'user_id': reviewUserId } },
     })
     return { courseId, ...data }
   }
 
   render() {
-    const { user, courseId, lesson, course } = this.props
+    const { user, courseId, lesson, course, reviewUser } = this.props
     const userCanSubmitHomeworks = user && (user['is_admin'] || arrayContains(user['attended_course_ids'], courseId))
     const userCanReviewHomeworks = user && (user['is_admin'] || arrayContains(user['coached_course_ids'], courseId))
     const lessonSlug = lesson.slug
@@ -123,16 +134,27 @@ export default class extends React.Component {
 
               {userCanReviewHomeworks && (
                 <>
-                  <h2>Odevzdané úkoly</h2>
+                  <h2>Odevzdané projekty</h2>
                   <TaskReviewLessonSummary
                     courseId={courseId}
                     lessonSlug={lessonSlug}
                     tasks={tasks}
+                    reviewUserId={reviewUser ? reviewUser.id : null}
                   />
                 </>
               )}
 
-              <h2>Domácí projekty</h2>
+              <h2 id='tasks'>
+                Domácí projekty
+                {reviewUser && (
+                  <>
+                    {' – '}
+                    <span>
+                      {reviewUser.name}
+                    </span>
+                  </>
+                )}
+              </h2>
 
               {lesson['homework_items'].map((hwItem, i) => {
                 switch (hwItem.homework_item_type) {
@@ -143,6 +165,7 @@ export default class extends React.Component {
                       userCanSubmitHomework={userCanSubmitHomeworks}
                       courseId={courseId}
                       lessonSlug={lessonSlug}
+                      reviewUserId={reviewUser ? reviewUser.id : null}
                     />
                   )
                   case 'section': return (

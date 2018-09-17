@@ -46,7 +46,7 @@ export default class TaskReviewLessonSummary extends React.Component {
 
   render() {
     const { loading, loadError, students, taskSolutionsByUserAndTaskId } = this.state
-    const { courseId, lessonSlug, tasks } = this.props
+    const { courseId, lessonSlug, tasks, reviewUserId } = this.props
     return (
       <div>
         {loading && (<p><em>Loading</em></p>)}
@@ -66,6 +66,7 @@ export default class TaskReviewLessonSummary extends React.Component {
               students={students}
               tasks={tasks}
               taskSolutionsByUserAndTaskId={taskSolutionsByUserAndTaskId}
+              reviewUserId={reviewUserId}
             />
           </div>
         )}
@@ -77,7 +78,7 @@ export default class TaskReviewLessonSummary extends React.Component {
   }
 }
 
-const TaskReviewLessonSummaryTable = ({ courseId, lessonSlug, students, tasks, taskSolutionsByUserAndTaskId }) => (
+const TaskReviewLessonSummaryTable = ({ courseId, lessonSlug, students, tasks, taskSolutionsByUserAndTaskId, reviewUserId }) => (
   <Table basic celled size='small' compact>
     <Table.Header>
       <Table.Row>
@@ -91,7 +92,17 @@ const TaskReviewLessonSummaryTable = ({ courseId, lessonSlug, students, tasks, t
     <Table.Body>
       {students.map(student => (
         <Table.Row key={student.id}>
-          <Table.Cell>{student.name}</Table.Cell>
+          <Table.Cell>
+            {reviewUserId === student.id ? (
+              <strong>
+                {student.name}
+              </strong>
+            ) : (
+              <>
+                {student.name}
+              </>
+            )}
+          </Table.Cell>
           {tasks.map((task, i) => (
             <Table.Cell key={i}>
               <TaskStatus
@@ -122,7 +133,12 @@ const TaskStatus = ({ courseId, lessonSlug, taskSolution }) => {
       course: courseId,
       lesson: lessonSlug,
       reviewUserId: taskSolution.user_id,
-    }
+    },
+    hash: 'tasks'
   }
-  return (<Link href={href}><a>{content}</a></Link>)
+  return (
+    <Link href={href}><a>
+      {content}
+    </a></Link>
+  )
 }

@@ -230,15 +230,19 @@ class UserView:
         name_parts = self.name.split()
         return (name_parts[-1], *name_parts[:-1])
 
-    def export(self):
-        return {
+    def export(self, details=False):
+        data = {
             'id': self.id,
             'name': self.name,
-            'email': self.email,
-            'fb_id': self.fb_id,
-            'google_id': self.google_id,
-            'attended_course_ids': self.attended_course_ids,
-            'coached_course_ids': self.coached_course_ids,
-            'is_admin': self.is_admin,
-            'dev_login': self.dev_login,
         }
+        if details:
+            data.update({
+                'email': self.email,
+                'fb_id': self.fb_id,
+                'google_id': self.google_id,
+                'attended_course_ids': self.attended_course_ids,
+                'coached_course_ids': self.coached_course_ids,
+                'is_admin': self.is_admin,
+                'dev_login': self.dev_login,
+            })
+        return data
