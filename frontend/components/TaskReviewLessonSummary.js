@@ -79,7 +79,7 @@ export default class TaskReviewLessonSummary extends React.Component {
 }
 
 const TaskReviewLessonSummaryTable = ({ courseId, lessonSlug, students, tasks, taskSolutionsByUserAndTaskId, reviewUserId }) => (
-  <Table basic celled size='small' compact>
+  <Table basic celled size='small' compact unstackable>
     <Table.Header>
       <Table.Row>
         <Table.HeaderCell>Jméno</Table.HeaderCell>

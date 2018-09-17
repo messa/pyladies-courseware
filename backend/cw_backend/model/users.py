@@ -230,6 +230,9 @@ class UserView:
         name_parts = self.name.split()
         return (name_parts[-1], *name_parts[:-1])
 
+    def can_review_course(self, course_id):
+        return self.is_admin or course_id in self.coached_course_ids
+
     def export(self, details=False):
         data = {
             'id': self.id,

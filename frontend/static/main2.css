@@ -32,6 +32,11 @@ h2 {
   color: #024;
 }
 
+h4 {
+  margin-top: 1rem;
+  margin-bottom: 0.8rem;
+}
+
 table.ui.table.admin thead th {
   font-size: 80%;
   text-transform: uppercase;

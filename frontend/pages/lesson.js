@@ -182,7 +182,6 @@ export default class LessonPage extends React.Component {
                 }
               })}
 
-
             </Grid.Column>
           </Grid.Row>
         </Grid>

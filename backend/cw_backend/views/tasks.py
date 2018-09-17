@@ -33,15 +33,19 @@ async def submit_task_solution(req):
 
 
 @routes.get('/api/tasks/user-solution')
+@routes.get('/api/tasks/solution')
 async def get_task_user_solution(req):
     session = await get_session(req)
     model = req.app['model']
     if not session.get('user'):
         raise web.HTTPForbidden()
     user = await model.users.get_by_id(session['user']['id'])
-    # TODO: kontrola opravneni
+    show_user_id = req.query.get('user_id') or user.id
+    if show_user_id != user.id:
+        if not user.can_review_course(course_id=req.query['course_id']):
+            raise web.HTTPForbidden()
     ts = await model.task_solutions.get_by_task_and_user_id(
-        user=user,
+        user_id=show_user_id,
         course_id=req.rel_url.query['course_id'],
         task_id=req.rel_url.query['task_id'])
     return web.json_response({

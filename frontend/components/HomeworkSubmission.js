@@ -31,7 +31,7 @@ export default class HomeworkSubmission extends React.Component {
   async loadData() {
     try {
       const { courseId, lessonSlug, taskId } = this.props
-      const url = '/api/tasks/user-solution' +
+      const url = '/api/tasks/solution' +
         `?course_id=${encodeURIComponent(courseId)}` +
         `&lesson_slug=${encodeURIComponent(lessonSlug)}` +
         `&task_id=${encodeURIComponent(taskId)}`

@@ -15,8 +15,13 @@ class TaskSolutions:
         self._c_versions = self._c_solutions['versions']
 
     async def create_indexes(self):
-        await self._c_solutions.create_index(
-            [('course_id', ASC), ('task_id', ASC), ('user_id', ASC)], unique=True)
+        await self._c_solutions.create_index([
+            ('course_id', ASC),
+            ('task_id', ASC),
+            ('user_id', ASC)
+        ], unique=True)
+        await self._c_versions.create_index('task_solution_id')
+
 
     async def create_revision(self, user, course_id, task_id, code):
         '''
@@ -51,19 +56,22 @@ class TaskSolutions:
             }, return_document=ReturnDocument.AFTER)
         return self._build_solution(solution_doc)
 
-    async def get_by_task_and_user_id(self, user, course_id, task_id):
+    async def get_by_task_and_user_id(self, user_id, course_id, task_id):
         '''
         Returns TaskSolution.
         '''
         doc = await self._c_solutions.find_one({
             'course_id': course_id,
             'task_id': task_id,
-            'user_id': user.id,
+            'user_id': user_id,
         })
         return self._build_solution(doc) if doc else None
 
     async def find_by_course_and_task_ids(self, course_id, task_ids):
-        q = {'course_id': course_id, 'task_id': {'$in': list(task_ids)}}
+        q = {
+            'course_id': course_id,
+            'task_id': {'$in': list(task_ids)}
+        }
         docs = await self._c_solutions.find(q).to_list(None)
         return [self._build_solution(doc) for doc in docs]
 
