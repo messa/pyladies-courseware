@@ -2,7 +2,7 @@ import React from 'react'
 import { Button } from 'semantic-ui-react'
 import { Comment, Form, Header, Icon, TextArea, Message } from 'semantic-ui-react'
 import HomeworkSolutionForm from './HomeworkSolutionForm'
-import HomeworkComments from './HomeworkComments'
+import TaskComments from './lesson/TaskComments'
 
 const HomeworkSolution = ({ code }) => (
   <div className='HomeworkSolution'>
@@ -17,7 +17,7 @@ export default class HomeworkSubmission extends React.Component {
     open: false,
     loading: true,
     loadError: null,
-    solution: null,
+    taskSolution: null,
     comments: null,
     editSolution: false,
     submitInProgress: false,
@@ -45,7 +45,7 @@ export default class HomeworkSubmission extends React.Component {
       this.setState({
         loading: false,
         loadError: null,
-        solution: task_solution,
+        taskSolution: task_solution,
         comments: comments,
       })
     } catch (err) {
@@ -85,7 +85,7 @@ export default class HomeworkSubmission extends React.Component {
       this.setState({
         submitInProgress: false,
         submitError: null,
-        solution: task_solution,
+        taskSolution: task_solution,
         editSolution: false,
       })
     } catch (err) {
@@ -102,8 +102,33 @@ export default class HomeworkSubmission extends React.Component {
     })
   }
 
+  handleAddCommentSubmit = async ({ replyToCommentId, body }) => {
+    // Tady se nemanaguje saving/saveError state ani nezachytávají výjimky,
+    // to se řeší přímo v TaskCommentForm, který volá tento handler.
+    // (TODO: řešit takto i marked as solved a další věci?)
+    const { taskSolution } = this.state
+    const payload = {
+      task_solution_id: taskSolution.id,
+      reply_to_comment_id: replyToCommentId,
+      body: body,
+    }
+    const r = await fetch('/api/tasks/add-solution-comment', {
+      credentials: 'same-origin',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+      body: JSON.stringify(payload),
+    })
+    const { comments } = await r.json()
+    this.setState({
+      comments,
+    })
+  }
+
   render() {
-    const { open, solution, editSolution, submitInProgress, submitError } = this.state
+    const { open, taskSolution, editSolution, submitInProgress, submitError } = this.state
     const { loading, loadError, comments } = this.state
     let content = null
     if (this.state.loadError) {
@@ -114,7 +139,7 @@ export default class HomeworkSubmission extends React.Component {
           content={loadError}
         />
       )
-    } else if (editSolution || (open && !solution)) {
+    } else if (editSolution || (open && !taskSolution)) {
         content = (
           <>
             <h4>Odevzdat řešení</h4>
@@ -126,15 +151,15 @@ export default class HomeworkSubmission extends React.Component {
             )}
             <HomeworkSolutionForm
               onSubmit={this.handleSubmitSolution}
-              code={solution ? solution.current_version.code : null}
+              code={taskSolution ? taskSolution.current_version.code : null}
               loading={submitInProgress}
             />
           </>
         )
-    } else if (solution) {
+    } else if (taskSolution) {
       content = (
         <>
-          <HomeworkSolution code={solution.current_version.code} />
+          <HomeworkSolution code={taskSolution.current_version.code} />
           <Button
             basic
             size='tiny'
@@ -161,7 +186,10 @@ export default class HomeworkSubmission extends React.Component {
       <div className='HomeworkSubmission'>
         {loading && (<p><em>Loading</em></p>)}
         {content}
-        {comments && (<HomeworkComments comments={comments} />)}
+        <TaskComments
+          comments={comments}
+          onAddCommentSubmit={this.handleAddCommentSubmit}
+        />
         <style jsx>{`
           .HomeworkSubmission {
             margin-top: 1rem;

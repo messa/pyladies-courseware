@@ -101,6 +101,14 @@ export default class TaskComments extends React.Component {
 
         </Comment.Group>
 
+        <style jsx global>{`
+          .TaskComments .comment .content .text {
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            white-space: pre-wrap;
+          }
+        `}</style>
+
       </div>
     )
   }

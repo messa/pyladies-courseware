@@ -109,7 +109,7 @@ async def add_solution_comment(req):
         raise web.HTTPForbidden()
     user = await model.users.get_by_id(session['user']['id'])
     solution = await model.task_solutions.get_by_id(data['task_solution_id'])
-    if not user.can_review_course(course_id=solution.course_id):
+    if not (user.id == solution.user_id or user.can_review_course(course_id=solution.course_id)):
         raise web.HTTPForbidden()
     new_comment = await model.task_solution_comments.create(
         task_solution=solution,
