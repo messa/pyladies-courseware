@@ -104,9 +104,9 @@ homeworks:
 - markdown: |
     Zkombinuj program z předchozího projektu s programem kámen-nůžky-papír a nastav `tah_pocitace` na:
 
-    a. 'kámen', pokud je cislo 0,
-    b. 'nůžky', pokud je cislo 1,
-    c. jinak na 'papír'.
+    - `'kámen'`, pokud je cislo 0,
+    - `'nůžky'`, pokud je cislo 1,
+    - jinak na `'papír'`.
 
 - section:
     markdown: |
@@ -157,13 +157,6 @@ homeworks:
     teploty vody nebo třeba vzdálenosti od rovníku.
 
 - markdown: |
-    Podle toho, jak jste se na sraze domluvili, pošli řešení e-mailem (např. organizátorům, koučovi, nebo
-    vůbec). Posílej ho jako přílohu, nekopíruj ho do textu e-mailu.
-
-    Jestli procházíš kurz sama a můžeš programování konzultovat s někým zkušenějším, je tento úkol na
-    takovou konzultaci ideální téma.
-
-- markdown: |
     Napiš program, který po zadání správného hesla vypíše nějakou tajnou informaci.
 
     _Vhodné tajemství je třeba: V pátek jsem viděla černého havrana._
@@ -177,6 +170,8 @@ homeworks:
 
     http://naucse.python.cz/lessons/beginners/and-or/
 
+  submit: false
+
 - markdown: |
     Doplň tuhle tabulku:
 
@@ -188,7 +183,7 @@ homeworks:
     | `False` | `False` |           |          |         |
 
     Tohle je takzvaná _pravdivostní_ tabulka:
-    _Obsahuje jeden řádek pro každou kombinaci booleovských hodnot, které a a b můžou mít. Když se stane, že se v složitějších and a or ztratíš, doporučuji napsat si podobnou tabulku a na každý řádek se podívat zvlášť._
+    _Obsahuje jeden řádek pro každou kombinaci booleovských hodnot, které `a` a `b` můžou mít. Když se stane, že se v složitějších `and` a `or` ztratíš, doporučuji napsat si podobnou tabulku a na každý řádek se podívat zvlášť._
 
 - markdown: |
     Zkus přepsat Kámen, Nůžky, Papír pomocí `and` a `or`.
