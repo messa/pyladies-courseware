@@ -136,6 +136,7 @@ export default class LessonPage extends React.Component {
                 <>
                   <h2>Odevzdané projekty</h2>
                   <TaskReviewLessonSummary
+                    key={`${courseId} ${lessonSlug}`}
                     courseId={courseId}
                     lessonSlug={lessonSlug}
                     tasks={tasks}
