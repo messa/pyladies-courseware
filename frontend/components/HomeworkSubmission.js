@@ -26,6 +26,16 @@ export default class HomeworkSubmission extends React.Component {
 
   componentDidMount() {
     this.loadData()
+    if (!this.loadIntervalId) {
+      this.loadIntervalId = setInterval(() => this.loadData(), 30 * 1000)
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.loadIntervalId) {
+      clearInterval(this.loadIntervalId)
+      this.loadIntervalId = null
+    }
   }
 
   async loadData() {
@@ -160,14 +170,25 @@ export default class HomeworkSubmission extends React.Component {
       content = (
         <>
           <HomeworkSolution code={taskSolution.current_version.code} />
-          <Button
-            basic
-            size='tiny'
-            color='blue'
-            content='Upravit'
-            icon='edit'
-            onClick={this.handleEditButton}
-          />
+          {taskSolution.is_solved ? (
+            <div>
+              <Icon
+                name='check'
+                color='green'
+                size='large'
+              />
+              <span className='markedSolvedLabel'>Vyřešené</span>
+            </div>
+          ) : (
+            <Button
+              basic
+              size='tiny'
+              color='blue'
+              content='Upravit'
+              icon='edit'
+              onClick={this.handleEditButton}
+            />
+          )}
         </>
       )
     } else if (!open && !loading) {
@@ -190,9 +211,13 @@ export default class HomeworkSubmission extends React.Component {
           comments={comments}
           onAddCommentSubmit={this.handleAddCommentSubmit}
         />
-        <style jsx>{`
+        <style jsx global>{`
           .HomeworkSubmission {
             margin-top: 1rem;
+          }
+          .HomeworkSubmission .markedSolvedLabel {
+            font-weight: 600;
+            color: #0c0;
           }
         `}</style>
       </div>

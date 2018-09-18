@@ -13,6 +13,16 @@ export default class TaskReviewLessonSummary extends React.Component {
 
   componentDidMount() {
     this.loadData()
+    if (!this.loadIntervalId) {
+      this.loadIntervalId = setInterval(() => this.loadData(), 20 * 1000)
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.loadIntervalId) {
+      clearInterval(this.loadIntervalId)
+      this.loadIntervalId = null
+    }
   }
 
   async loadData() {
@@ -124,8 +134,8 @@ const TaskStatus = ({ courseId, lessonSlug, taskSolution }) => {
     return '·'
   }
   let content = '◯'
-  if (taskSolution.conclusion) {
-    content = `${taskSolution.conclusion}`
+  if (taskSolution.is_solved) {
+    content = '✓'
   }
   const href = {
     pathname: '/lesson',
