@@ -7,7 +7,7 @@ import ALink from './ALink'
 export default class Header extends React.Component {
 
   render() {
-    const { user } = this.props
+    const { user, activeItem } = this.props
     return (
       <div className='Header'>
         <Menu secondary>
@@ -30,6 +30,16 @@ export default class Header extends React.Component {
               href='https://pyladies.cz/'
               icon='external'
             />
+
+            {user && user.is_admin && (
+              <Menu.Item
+                as={ALink}
+                content='Administrace'
+                href='/admin'
+                icon='setting'
+                active={activeItem === 'admin'}
+              />
+            )}
 
             {/*
             <Menu.Item>
@@ -56,7 +66,6 @@ export default class Header extends React.Component {
                 href='/login'
                 icon='sign in'
               />
-
             ) : (
               <Menu.Item
                 link
@@ -65,6 +74,7 @@ export default class Header extends React.Component {
                 icon='sign out'
               />
             )}
+
           </Menu.Menu>
         </Menu>
         <style jsx global>{`

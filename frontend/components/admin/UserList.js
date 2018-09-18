@@ -1,13 +1,13 @@
 import React from 'react'
-import { Table } from 'semantic-ui-react'
+import { Button, Table } from 'semantic-ui-react'
+import ALink from '../ALink'
 
 export default class extends React.Component {
 
   state = {
-    paging: null,
-    items: null,
-    error: null,
     loading: true,
+    error: null,
+    items: null,
   }
 
   componentDidMount() {
@@ -22,10 +22,10 @@ export default class extends React.Component {
         },
         credentials: 'same-origin',
       })
-      const { items, paging } = await r.json()
+      const { items } = await r.json()
       this.setState({
         loading: false,
-        items, paging,
+        items,
       })
     } catch (err) {
       this.setState({
@@ -39,28 +39,44 @@ export default class extends React.Component {
     const { items } = this.state
     return (
       <div>
-        {items && <UserTable items={items} />}
+        {items && <UserListView items={items} />}
       </div>
     )
   }
 
 }
 
-const UserTable = ({ items }) => (
-  <Table celled>
+const UserListView = ({ items }) => (
+  <Table size='small' basic='very' unstackable className='admin'>
     <Table.Header>
       <Table.Row>
         <Table.HeaderCell>Id</Table.HeaderCell>
         <Table.HeaderCell>Name</Table.HeaderCell>
         <Table.HeaderCell>Roles</Table.HeaderCell>
+        <Table.HeaderCell>Date created &amp; last active</Table.HeaderCell>
+        <Table.HeaderCell></Table.HeaderCell>
       </Table.Row>
     </Table.Header>
     <Table.Body>
       {items.map(user => (
         <Table.Row key={user.id}>
-          <Table.Cell><code>{user.id}</code></Table.Cell>
-          <Table.Cell>{user.name}</Table.Cell>
+          <Table.Cell><code><small>{user.id}</small></code></Table.Cell>
+          <Table.Cell>
+            <strong>{user.name}</strong><br />
+            {user.email}
+            {user.dev_login && (
+              <div>Dev login</div>
+            )}
+            {user.fb_id && (
+              <div>FB: <small>{user.fb_id}</small></div>
+            )}
+            {user.google_id && (
+              <div>Google: <a href={`https://plus.google.com/${user.google_id}`}><small>{user.google_id}</small></a></div>
+            )}
+          </Table.Cell>
           <Table.Cell><UserRoles user={user} /></Table.Cell>
+          <Table.Cell><UserDate user={user} /></Table.Cell>
+          <Table.Cell><UserActions user={user} /></Table.Cell>
         </Table.Row>
       ))}
     </Table.Body>
@@ -70,13 +86,33 @@ const UserTable = ({ items }) => (
 const UserRoles = ({ user }) => (
   <>
     {user.is_admin && (
-      <div>Admin</div>
+      <div><strong>Admin</strong></div>
     )}
     {user.coached_course_ids && user.coached_course_ids.map(courseId => (
-      <div key={courseId}>Coached: <code>{courseId}</code></div>
+      <div key={courseId}><strong>Coach:</strong> <code>{courseId}</code></div>
     ))}
     {user.attended_course_ids && user.attended_course_ids.map(courseId => (
-      <div key={courseId}>Attended: <code>{courseId}</code></div>
+      <div key={courseId}>Student: <code>{courseId}</code></div>
     ))}
+  </>
+)
+
+const UserDate = ({ user }) => (
+  <>
+
+  </>
+)
+const UserActions = ({ user }) => (
+  <>
+    <Button
+      basic
+      icon='magnify'
+      size='small'
+      as={ALink}
+      href={{
+        pathname: '/admin/users/detail',
+        query: { userId: user.id }
+      }}
+    />
   </>
 )

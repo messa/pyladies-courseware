@@ -1,8 +1,7 @@
 from aiohttp import web
 from aiohttp_session import setup as session_setup
-from aiohttp_session.cookie_storage import EncryptedCookieStorage
+from aiohttp_session_mongo import MongoStorage
 import argparse
-from hashlib import sha256
 import logging
 from motor.motor_asyncio import AsyncIOMotorClient
 
@@ -31,11 +30,14 @@ async def get_app(conf):
     mongo_db = mongo_client[conf.mongodb.db_name]
     model = Model(mongo_db, conf)
     await model.create_indexes()
-    # We use hash function because EncryptedCookieStorage needs
-    # a byte string of specific size.
-    session_secret_hash = sha256(conf.session_secret.encode()).digest()
     app = web.Application()
-    session_setup(app, EncryptedCookieStorage(session_secret_hash))
+
+    async def close_mongo(app):
+        mongo_client.close()
+
+    app.on_cleanup.append(close_mongo)
+
+    session_setup(app, MongoStorage(mongo_db['sessions'], max_age=3600*24*90))
     app['conf'] = conf
     app['courses'] = load_courses(conf.data_dir)
     app['model'] = model

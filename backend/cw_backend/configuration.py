@@ -25,7 +25,6 @@ class Configuration:
         self.data_dir = Path(os.environ.get('DATA_DIR') or cfg.get('data_dir') or here.parent.parent)
         self.fb_oauth2 = OAuth2('fb', cfg)
         self.google_oauth2 = OAuth2('google', cfg)
-        self.session_secret = os.environ.get('SESSION_SECRET') or cfg.get('session_secret') or token_hex()
         self.allow_dev_login = bool(os.environ.get('ALLOW_DEV_LOGIN'))
         self.mongodb = MongoDB(cfg)
 

@@ -18,10 +18,24 @@ async def list_users(req):
     if not session.get('user'):
         raise web.HTTPForbidden()
     user = await model.users.get_by_id(session['user']['id'])
-    if user.is_admin != True:
+    if not user or not user.is_admin:
         raise web.HTTPForbidden()
     users = await model.users.list_all()
     return web.json_response({
-        'paging': None,
-        'items': [u.export() for u in users],
+        'items': [u.export(details=True) for u in users],
+    })
+
+
+@routes.get('/api/admin/user/{user_id}')
+async def get_user_detail(req):
+    session = await get_session(req)
+    model = req.app['model']
+    if not session.get('user'):
+        raise web.HTTPForbidden()
+    user = await model.users.get_by_id(session['user']['id'])
+    if not user or not user.is_admin:
+        raise web.HTTPForbidden()
+    u = await model.users.get_by_id(req.match_info['user_id'])
+    return web.json_response({
+        'user': u.export(details=True),
     })

@@ -15,9 +15,9 @@
     "codemirror": "^5.40.0",
     "isomorphic-unfetch": "^2.1.1",
     "next": "^6.1.2",
-    "react": "^16.5.0",
+    "react": "^16.5.1",
     "react-codemirror2": "^5.1.0",
-    "react-dom": "^16.5.0",
-    "semantic-ui-react": "^0.82.3"
+    "react-dom": "^16.5.1",
+    "semantic-ui-react": "^0.82.5"
   }
 }

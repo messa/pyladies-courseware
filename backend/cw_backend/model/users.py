@@ -224,19 +224,28 @@ class UserView:
         self.attended_course_ids = doc.get('attended_course_ids') or []
         self.coached_course_ids = doc.get('coached_course_ids') or []
         self.is_admin = doc.get('is_admin', False)
+        self.dev_login = doc.get('dev_login', False)
 
     def get_name_sort_key(self):
         name_parts = self.name.split()
         return (name_parts[-1], *name_parts[:-1])
 
-    def export(self):
-        return {
+    def can_review_course(self, course_id):
+        return self.is_admin or course_id in self.coached_course_ids
+
+    def export(self, details=False):
+        data = {
             'id': self.id,
             'name': self.name,
-            'email': self.email,
-            'fb_id': self.fb_id,
-            'google_id': self.google_id,
-            'attended_course_ids': self.attended_course_ids,
-            'coached_course_ids': self.coached_course_ids,
-            'is_admin': self.is_admin,
         }
+        if details:
+            data.update({
+                'email': self.email,
+                'fb_id': self.fb_id,
+                'google_id': self.google_id,
+                'attended_course_ids': self.attended_course_ids,
+                'coached_course_ids': self.coached_course_ids,
+                'is_admin': self.is_admin,
+                'dev_login': self.dev_login,
+            })
+        return data

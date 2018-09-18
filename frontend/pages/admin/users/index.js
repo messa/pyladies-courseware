@@ -1,9 +1,9 @@
 import React from 'react'
 import Link from 'next/link'
 import { Button } from 'semantic-ui-react'
-import Layout from '../../components/Layout'
-import fetchPageData from '../../util/fetchPageData'
-import UserList from '../../components/admin/UserList'
+import AdminLayout from '../../../components/admin/AdminLayout'
+import UserList from '../../../components/admin/UserList'
+import fetchPageData from '../../../util/fetchPageData'
 
 export default class extends React.Component {
 
@@ -14,13 +14,13 @@ export default class extends React.Component {
   render() {
     const { userDetail } = this.props
     return (
-      <Layout user={this.props.user}>
+      <AdminLayout user={this.props.user} width={1000}>
 
-        <h1>Administrace &ndash; Přehled uživatelů</h1>
+        <h1>Přehled uživatelů</h1>
 
         <UserList />
 
-      </Layout>
+      </AdminLayout>
     )
   }
 }

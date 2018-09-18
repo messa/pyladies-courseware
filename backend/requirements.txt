@@ -1,11 +1,12 @@
 aiodns
 aiohttp
-aiohttp_session[secure]
+aiohttp_session
+https://github.com/messa/aiohttp-session-mongo/archive/master.zip#egg=aiohttp-session-mongo==0.0.1
 bcrypt
 cchardet
 markdown
 motor
-pyyaml
+PyYAML==3.13
 requests
 requests_oauthlib
 simplejson
