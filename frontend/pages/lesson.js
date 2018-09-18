@@ -161,7 +161,7 @@ export default class LessonPage extends React.Component {
                 switch (hwItem.homework_item_type) {
                   case 'task': return (
                     <HomeworkTask
-                      key={i}
+                      key={`${courseId} ${lessonSlug} ${i}`}
                       hwItem={hwItem}
                       userCanSubmitHomework={userCanSubmitHomeworks}
                       courseId={courseId}
@@ -171,12 +171,12 @@ export default class LessonPage extends React.Component {
                   )
                   case 'section': return (
                     <HomeworkSection
-                      key={i}
+                      key={`${courseId} ${lessonSlug} ${i}`}
                       hwItem={hwItem}
                     />
                   )
                   default: return (
-                    <pre key={i} className='debug'>
+                    <pre key={`${courseId} ${lessonSlug} ${i}`} className='debug'>
                       {JSON.stringify({ hwItem }, null, 2)}
                     </pre>
                   )
