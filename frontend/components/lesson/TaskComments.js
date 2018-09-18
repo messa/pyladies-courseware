@@ -20,7 +20,15 @@ export default class TaskComments extends React.Component {
     this.setState({
       replyToCommentId: null,
     })
-    if (this.props.onCancelAddComment) this.props.onCancelAddComment()
+    if (this.props.onAddCommentCancel) this.props.onAddCommentCancel()
+  }
+
+  handleCommentFormSubmit = async (data) => {
+    const { replyToCommentId } = this.state
+    await this.props.onAddCommentSubmit({ replyToCommentId, ...data })
+    this.setState({
+      replyToCommentId: null,
+    })
   }
 
   render() {
@@ -54,6 +62,7 @@ export default class TaskComments extends React.Component {
           {showCommentForm && (
             <TaskCommentForm
               onCancel={this.handleCommentFormCancel}
+              onSubmit={this.handleCommentFormSubmit}
             />
           )}
 

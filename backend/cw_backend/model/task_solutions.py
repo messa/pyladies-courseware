@@ -1,4 +1,5 @@
 from bson import ObjectId
+from datetime import datetime
 import logging
 from operator import itemgetter
 from pymongo import ASCENDING as ASC
@@ -37,7 +38,7 @@ class TaskSolutions:
             }, {
                 '$setOnInsert': {
                     'current_version_id': None,
-                    'conclusion': None,
+                    'marked_as_solved': None,
                 },
             }, upsert=True, return_document=ReturnDocument.AFTER)
         logger.debug('Task solution id: %s', solution_doc['_id'])
@@ -55,6 +56,10 @@ class TaskSolutions:
                 },
             }, return_document=ReturnDocument.AFTER)
         return self._build_solution(solution_doc)
+
+    async def get_by_id(self, task_solution_id):
+        doc = await self._c_solutions.find_one({'_id': ObjectId(task_solution_id)})
+        return self._build_solution(doc)
 
     async def get_by_task_and_user_id(self, user_id, course_id, task_id):
         '''
@@ -79,21 +84,52 @@ class TaskSolutions:
         '''
         Helper for building the TaskSolution object from taskSolutions document.
         '''
-        return TaskSolution(c_versions=self._c_versions, doc=doc)
+        return TaskSolution(doc=doc, c_solutions=self._c_solutions, c_versions=self._c_versions)
         # TODO: abstrahovat pristup do DB do nejakeho store objektu?
 
 
 class TaskSolution:
 
-    def __init__(self, c_versions, doc):
+    def __init__(self, doc, c_solutions, c_versions):
+        self._c_solutions = c_solutions
         self._c_versions = c_versions
         self._doc = doc
         self.id = str(doc['_id'])
         self.date = doc['_id'].generation_time
+        self._load_doc(doc)
+
+    def _load_doc(self, doc):
+        # TODO: předělat na view objekt
+        assert doc['_id'] == ObjectId(self.id)
+        self._doc = doc
         self.course_id = doc['course_id']
         self.task_id = doc['task_id']
         self.user_id = doc['user_id']
-        self.conclusion = doc['conclusion']
+        self.is_solved = None
+        if doc.get('marked_as_solved'):
+            self.is_solved = doc['marked_as_solved']['solved']
+
+    async def set_marked_as_solved(self, solved, author_user):
+        assert solved in [True, False]
+        doc = await self._c_solutions.find_one_and_update(
+            {
+                '_id': ObjectId(self.id),
+            }, {
+                '$set': {
+                    'marked_as_solved': {
+                        'solved': solved,
+                        'date': datetime.utcnow(),
+                        'by_user': {
+                            'id': author_user.id,
+                            'name': author_user.name,
+                        },
+                    },
+                }
+            }, return_document=ReturnDocument.AFTER)
+        logger.info(
+            'Task solution %s marked_as_solved: %r -> %r',
+            self.id, self._doc.get('marked_as_solved'), doc['marked_as_solved'])
+        self._load_doc(doc)
 
     async def get_current_version(self):
         if not self._doc['current_version_id']:
@@ -108,7 +144,7 @@ class TaskSolution:
             'course_id': self.course_id,
             'task_id': self.task_id,
             'user_id': self.user_id,
-            'conclusion': self.conclusion,
+            'is_solved': self.is_solved,
         }
         if with_code:
             cv = await self.get_current_version()

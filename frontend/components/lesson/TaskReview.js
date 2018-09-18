@@ -2,6 +2,7 @@ import React from 'react'
 import { Icon, Button } from 'semantic-ui-react'
 import LoadingMessage from '../LoadingMessage'
 import LoadErrorMessage from '../LoadErrorMessage'
+import ErrorMessage from '../ErrorMessage'
 import TaskSolution from './TaskSolution'
 import TaskComments from './TaskComments'
 
@@ -12,13 +13,27 @@ export default class TaskReview extends React.Component {
     loadError: null,
     reviewUserId: null,
     taskSolution: null,
+
     comments: null,
     showAddComment: false,
-    markedAsSolved: true,
+    // saving a saveError state si udržuje přímo TaskCommentForm
+
+    savingMarkedAsSolved: false,
+    saveMarkedAsSolvedError: null,
   }
 
   componentDidMount() {
     this.loadData()
+    if (!this.loadIntervalId) {
+      this.loadIntervalId = setInterval(() => this.loadData(), 30 * 1000)
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.loadIntervalId) {
+      clearInterval(this.loadIntervalId)
+      this.loadIntervalId = null
+    }
   }
 
   componentDidUpdate(prevProps) {
@@ -64,10 +79,48 @@ export default class TaskReview extends React.Component {
     }
   }
 
-  handleMarkAsSolvedButtonClick = () => {
+  handleMarkAsSolvedButtonClick = async () => {
+    await this.saveMarkedAsSolved(true)
   }
 
-  handleUnmarkAsSolvedButtonClick = () => {
+  handleUnmarkAsSolvedButtonClick = async () => {
+    await this.saveMarkedAsSolved(false)
+  }
+
+  async saveMarkedAsSolved(solved) {
+    this.setState({
+      savingMarkedAsSolved: true,
+    })
+    try {
+      const { taskSolution } = this.state
+      const payload = {
+        task_solution_id: taskSolution.id,
+        solved,
+      }
+      const r = await fetch('/api/tasks/mark-solution-solved', {
+        credentials: 'same-origin',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        method: 'POST',
+        body: JSON.stringify(payload),
+      })
+      const { task_solution } = await r.json()
+      this.setState({
+        savingMarkedAsSolved: false,
+        saveMarkedAsSolvedError: null,
+      })
+      if (task_solution.user_id !== this.props.reviewUserId) { return }
+      this.setState({
+        taskSolution: task_solution
+      })
+    } catch (err) {
+      this.setState({
+        savingMarkedAsSolved: false,
+        saveMarkedAsSolvedError: err.toString(),
+      })
+    }
   }
 
   handleAddCommentButtonClick = () => {
@@ -76,14 +129,43 @@ export default class TaskReview extends React.Component {
     })
   }
 
-  handleCancelAddComment = () => {
+  handleAddCommentCancel = () => {
     this.setState({
       showAddComment: false,
     })
   }
 
+  handleAddCommentSubmit = async ({ replyToCommentId, body }) => {
+    // Tady se nemanaguje saving/saveError state ani nezachytávají výjimky,
+    // to se řeší přímo v TaskCommentForm, který volá tento handler.
+    // (TODO: řešit takto i marked as solved a další věci?)
+    const { taskSolution } = this.state
+    const payload = {
+      task_solution_id: taskSolution.id,
+      reply_to_comment_id: replyToCommentId,
+      body: body,
+    }
+    const r = await fetch('/api/tasks/add-solution-comment', {
+      credentials: 'same-origin',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+      body: JSON.stringify(payload),
+    })
+    const { comments } = await r.json()
+    this.setState({
+      showAddComment: false,
+    })
+    if (this.props.reviewUserId === taskSolution.user_id) { return }
+    this.setState({
+      comments,
+    })
+  }
+
   render() {
-    const { loading, loadError, taskSolution, markedAsSolved, showAddComment } = this.state
+    const { loading, loadError, taskSolution, savingMarkedAsSolved, showAddComment } = this.state
     return (
       <div className='TaskReview'>
         <h4>Odevzdané řešení</h4>
@@ -96,13 +178,15 @@ export default class TaskReview extends React.Component {
             <>
               <TaskSolution taskSolution={taskSolution} />
               <div>
-                {!markedAsSolved ? (
+                {!taskSolution.is_solved ? (
                   <Button
                     color='green'
                     content='Označit za vyřešené'
                     size='small'
                     icon='check'
                     onClick={this.handleMarkAsSolvedButtonClick}
+                    loading={!!savingMarkedAsSolved}
+                    disabled={!!savingMarkedAsSolved}
                   />
                 ) : (
                   <>
@@ -118,6 +202,8 @@ export default class TaskReview extends React.Component {
                       size='small'
                       icon='cancel'
                       onClick={this.handleUnmarkAsSolvedButtonClick}
+                      loading={!!savingMarkedAsSolved}
+                      disabled={!!savingMarkedAsSolved}
                     />
                   </>
                 )}
@@ -131,7 +217,8 @@ export default class TaskReview extends React.Component {
               </div>
               <TaskComments
                 addComment={showAddComment}
-                onCancelAddComment={this.handleCancelAddComment}
+                onAddCommentCancel={this.handleAddCommentCancel}
+                onAddCommentSubmit={this.handleAddCommentSubmit}
               />
             </>
           )

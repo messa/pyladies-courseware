@@ -1,10 +1,13 @@
 import React from 'react'
 import { Button, Comment, Form, Header } from 'semantic-ui-react'
+import ErrorMessage from '../ErrorMessage'
 
 export default class TaskCommentForm extends React.Component {
 
   state = {
-    body: ''
+    body: '',
+    beingSubmitted: false,
+    submitError: null,
   }
 
   componentDidMount() {
@@ -24,9 +27,31 @@ export default class TaskCommentForm extends React.Component {
     if (this.props.onCancel) this.props.onCancel()
   }
 
+  handleSubmit = async () => {
+    const { body } = this.state
+    this.setState({
+      beingSubmitted: true,
+    })
+    try {
+      await this.props.onSubmit({ body })
+    } catch (err) {
+      this.setState({
+        beingSubmitted: false,
+        submitError: err.toString(),
+      })
+    }
+  }
+
   render() {
+    const { submitError } = this.state
     return (
-      <Form reply>
+      <Form reply onSubmit={this.handleSubmit}>
+
+        <ErrorMessage
+          active={submitError !== null}
+          title='Submit failed'
+          message={submitError}
+        />
 
         <Form.TextArea
           autoFocus
