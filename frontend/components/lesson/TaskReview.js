@@ -1,7 +1,9 @@
 import React from 'react'
+import { Icon, Button } from 'semantic-ui-react'
 import LoadingMessage from '../LoadingMessage'
 import LoadErrorMessage from '../LoadErrorMessage'
 import TaskSolution from './TaskSolution'
+import TaskComments from './TaskComments'
 
 export default class TaskReview extends React.Component {
 
@@ -9,6 +11,10 @@ export default class TaskReview extends React.Component {
     loading: true,
     loadError: null,
     reviewUserId: null,
+    taskSolution: null,
+    comments: null,
+    showAddComment: false,
+    markedAsSolved: true,
   }
 
   componentDidMount() {
@@ -58,8 +64,26 @@ export default class TaskReview extends React.Component {
     }
   }
 
+  handleMarkAsSolvedButtonClick = () => {
+  }
+
+  handleUnmarkAsSolvedButtonClick = () => {
+  }
+
+  handleAddCommentButtonClick = () => {
+    this.setState({
+      showAddComment: true,
+    })
+  }
+
+  handleCancelAddComment = () => {
+    this.setState({
+      showAddComment: false,
+    })
+  }
+
   render() {
-    const { loading, loadError, taskSolution } = this.state
+    const { loading, loadError, taskSolution, markedAsSolved, showAddComment } = this.state
     return (
       <div className='TaskReview'>
         <h4>Odevzdané řešení</h4>
@@ -71,12 +95,53 @@ export default class TaskReview extends React.Component {
           ) : (
             <>
               <TaskSolution taskSolution={taskSolution} />
+              <div>
+                {!markedAsSolved ? (
+                  <Button
+                    color='green'
+                    content='Označit za vyřešené'
+                    size='small'
+                    icon='check'
+                    onClick={this.handleMarkAsSolvedButtonClick}
+                  />
+                ) : (
+                  <>
+                    <Icon
+                      name='check'
+                      color='green'
+                      size='large'
+                    />
+                    <span className='markedSolvedLabel'>Označeno za vyřešené</span>
+                    <Button
+                      color='red'
+                      content='Zrušit označení za vyřešené'
+                      size='small'
+                      icon='cancel'
+                      onClick={this.handleUnmarkAsSolvedButtonClick}
+                    />
+                  </>
+                )}
+                <Button
+                  color='teal'
+                  content='Přidat komentář'
+                  size='small'
+                  icon='comment alternate'
+                  onClick={this.handleAddCommentButtonClick}
+                />
+              </div>
+              <TaskComments
+                addComment={showAddComment}
+                onCancelAddComment={this.handleCancelAddComment}
+              />
             </>
           )
         )}
         <style jsx>{`
           .TaskReview {
             margin-top: 1rem;
+          }
+          .markedSolvedLabel {
+            margin-right: 1em;
           }
         `}</style>
       </div>

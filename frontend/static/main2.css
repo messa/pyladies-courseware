@@ -32,9 +32,13 @@ h2 {
   color: #024;
 }
 
-h4 {
+h4, h4:first-child {
   margin-top: 1rem;
   margin-bottom: 0.8rem;
+}
+
+.ui.button {
+  margin-right: 0.8em;
 }
 
 table.ui.table.admin thead th {
