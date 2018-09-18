@@ -23,7 +23,6 @@ class TaskSolutions:
         ], unique=True)
         await self._c_versions.create_index('task_solution_id')
 
-
     async def create_revision(self, user, course_id, task_id, code):
         '''
         Create task solution, if does not exist yet, and insert new version.
@@ -106,6 +105,7 @@ class TaskSolution:
         self.task_id = doc['task_id']
         self.user_id = doc['user_id']
         self.is_solved = None
+        self.current_version_id = str(doc['current_version_id']) if doc.get('current_version_id') else None
         if doc.get('marked_as_solved'):
             self.is_solved = doc['marked_as_solved']['solved']
 

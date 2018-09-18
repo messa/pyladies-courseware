@@ -32,32 +32,65 @@ export default class TaskComments extends React.Component {
   }
 
   render() {
+    const comments = this.props.comments || []
     const { replyToCommentId } = this.state
     const showCommentForm = this.props.addComment || replyToCommentId
+    if (!showCommentForm && comments.length === 0) {
+      return null
+    }
     return (
       <div className='TaskComments'>
         <h4>Komentáře</h4>
 
         <Comment.Group>
 
-          <Comment>
-            {/*<Comment.Avatar src='/images/avatar/small/matt.jpg' />*/}
-            <Comment.Content>
-              <Comment.Author as='span'>Matt</Comment.Author>
-              <Comment.Metadata>
-                <div>Today at 5:42PM</div>
-              </Comment.Metadata>
-              <Comment.Text>How artistic!</Comment.Text>
-              <Comment.Actions>
-                <Comment.Action
-                  content='Odpovědět'
-                  active={replyToCommentId == 1234}
-                  data-commentid={1234}
-                  onClick={this.handleReplyClick}
-                />
-              </Comment.Actions>
-            </Comment.Content>
-          </Comment>
+          {comments.map(comment => (
+
+            <Comment key={comment.id}>
+              {/*<Comment.Avatar src='/images/avatar/small/matt.jpg' />*/}
+              <Comment.Content>
+                <Comment.Author as='span'>{comment.author.name}</Comment.Author>
+                <Comment.Metadata>
+                  <div>{comment.date.toString()}</div>
+                </Comment.Metadata>
+                <Comment.Text>{comment.body}</Comment.Text>
+                <Comment.Actions>
+                  <Comment.Action
+                    content='Odpovědět'
+                    active={replyToCommentId == comment.id}
+                    data-commentid={comment.id}
+                    onClick={this.handleReplyClick}
+                  />
+                </Comment.Actions>
+              </Comment.Content>
+
+              {comment.replies && comment.replies.length > 0 && (
+                <Comment.Group>
+                  {comment.replies.map(reply => (
+                    <Comment key={reply.id}>
+                      {/*<Comment.Avatar src='/images/avatar/small/jenny.jpg' />*/}
+                      <Comment.Content>
+                        <Comment.Author as='span'>{reply.author.name}</Comment.Author>
+                        <Comment.Metadata>
+                          <div>{reply.date.toString()}</div>
+                        </Comment.Metadata>
+                        <Comment.Text>{reply.body}</Comment.Text>
+                        <Comment.Actions>
+                          <Comment.Action
+                            content='Odpovědět'
+                            active={replyToCommentId == reply.id}
+                            data-commentid={reply.id}
+                            onClick={this.handleReplyClick}
+                          />
+                        </Comment.Actions>
+                      </Comment.Content>
+                    </Comment>
+                  ))}
+                </Comment.Group>
+              )}
+
+            </Comment>
+          ))}
 
           {showCommentForm && (
             <TaskCommentForm

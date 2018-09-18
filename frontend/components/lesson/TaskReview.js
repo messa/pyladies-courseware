@@ -158,14 +158,14 @@ export default class TaskReview extends React.Component {
     this.setState({
       showAddComment: false,
     })
-    if (this.props.reviewUserId === taskSolution.user_id) { return }
+    if (this.props.reviewUserId !== taskSolution.user_id) { return }
     this.setState({
       comments,
     })
   }
 
   render() {
-    const { loading, loadError, taskSolution, savingMarkedAsSolved, showAddComment } = this.state
+    const { loading, loadError, taskSolution, savingMarkedAsSolved, comments, showAddComment } = this.state
     return (
       <div className='TaskReview'>
         <h4>Odevzdané řešení</h4>
@@ -216,6 +216,7 @@ export default class TaskReview extends React.Component {
                 />
               </div>
               <TaskComments
+                comments={comments}
                 addComment={showAddComment}
                 onAddCommentCancel={this.handleAddCommentCancel}
                 onAddCommentSubmit={this.handleAddCommentSubmit}
