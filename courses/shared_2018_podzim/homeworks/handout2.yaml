@@ -78,10 +78,14 @@ homeworks:
 
     _Řešení, pro kontrolu: S = 48803424 cm², V = 23197894208 cm³_
 
+  mandatory: true
+
 - markdown: |
     Změň program tak, aby stranu/poloměr mohl uživatel zadat.
 
     _Tady už se na materiály ze srazu klidně podívej._
+
+  mandatory: true
 
 - section:
     markdown: |
@@ -100,6 +104,8 @@ homeworks:
     _Jak to funguje, to se dozvíme příště; zatím to ber jako kouzelné zaříkadlo._
 
     _Aby všechno fungovalo správně, nesmíš mít v aktuálním adresáři soubor jménem `random.py`._
+
+  mandatory: true
 
 - markdown: |
     Zkombinuj program z předchozího projektu s programem kámen-nůžky-papír a nastav `tah_pocitace` na:
