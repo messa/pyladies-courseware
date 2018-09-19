@@ -81,7 +81,7 @@ async def course_detail(req, params):
     course = req.app['courses'].get().get_by_id(params['course_id'])
     if session.get('user'):
         user = await model.users.get_by_id(session['user']['id'])
-        if datetime.utcnow().strftime('%Y-%m-%d') <= '2018-09-18':
+        if datetime.utcnow().strftime('%Y-%m-%d') <= '2018-09-30':
             await user.add_attended_courses([course.id], author_user_id=None)
     return course.export(lessons=True)
 
