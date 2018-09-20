@@ -221,8 +221,8 @@ class UserView:
         self.email = doc.get('email')
         self.fb_id = doc.get('fb_id')
         self.google_id = doc.get('google_id')
-        self.attended_course_ids = doc.get('attended_course_ids') or []
-        self.coached_course_ids = doc.get('coached_course_ids') or []
+        self.attended_course_ids = sorted(doc.get('attended_course_ids') or [])
+        self.coached_course_ids = sorted(doc.get('coached_course_ids') or [])
         self.is_admin = doc.get('is_admin', False)
         self.dev_login = doc.get('dev_login', False)
 
