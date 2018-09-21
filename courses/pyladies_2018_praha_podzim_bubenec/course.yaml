@@ -65,7 +65,7 @@ lessons:
   - cheatsheet: Tahák s užitečnými funkcemi
     url: https://pyvec.github.io/cheatsheets/basic-functions/basic-functions-cs.pdf
   homeworks:
-  - file: ../shared_2018_podzim/homeworks/handout3.yaml
+  - file: ../shared_2018_podzim/homeworks/handout3a.yaml
 
 - title: Lekce 4 – Funkce & Řetězce
   date: 4. 10. 2018

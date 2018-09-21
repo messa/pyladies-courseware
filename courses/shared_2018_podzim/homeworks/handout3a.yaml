@@ -1,0 +1,121 @@
+homeworks:
+
+- section:
+    markdown: |
+      V těchto projektech je určitě něco nového.
+      Nezadávají postup, jak na odpověď přijít, ale to určitě zvládneš!
+
+- markdown: |
+    Co vrací funkce `range`?
+
+- markdown: |
+    Co se stane, když pro příkaz `for`
+    zavoláš funkci `range` se dvěma parametry?
+
+- markdown: |
+    Se třemi?
+
+- section:
+    markdown: |
+      Želví kreslení! Tahle sekce tě naučí myslet jako programátorka počítačové grafiky.
+      Je dobré jednotlivé projekty dělat postupně, a když něco začne fungovat, znovu si
+      řešení projít a zamyslet se nad ním.
+
+- markdown: |
+    Nakresli trojúhelník.
+
+    <img src="/static/tasks/handout3a_images/03_trojuhelnik.png" alt="trojúhelník" style="max-width: 100%; max-height: 60px">
+
+    __Poznámka:__ Rovnostranný trojúhelník má vnitřní úhly 60°. Želva se ale otáčí o vedlejší úhel 180 - 60 = 120°.
+
+    <img src="/static/tasks/handout3a_images/03_diagram.png" alt="diagram" style="max-width: 100%; max-height: 80px">
+
+- markdown: |
+    Nakresli domeček!
+
+    <img src="/static/tasks/handout3a_images/04_domecek.png" alt="domeček" style="max-width: 100%; max-height: 60px">
+
+    _Jak pravil Pythagoras, délka šikmé čáry v domečku je √2-krát délka stěny. O funkci na odmocninu jsme mluvili na srazu._
+
+- markdown: |
+    Nakresli vesnici!
+
+    <img src="/static/tasks/handout3a_images/05_vesnice.png" alt="vesnice" style="max-width: 100%; max-height: 60px">
+
+- markdown: |
+    Nakresli pětiúhelník, šestiúhelník, sedmiúhelník, osmiúhelník.
+
+    <img src="/static/tasks/handout3a_images/06_uhelniky.png" alt="mnohoúhelníky" style="max-width: 100%; max-height: 60px">
+
+- markdown: |
+    Nakresli pětiúhelník, šestiúhelník, sedmiúhelník, osmiúhelník.
+
+    _Vnitřní úhel pravidelného `n`-úhelníka má `180 × (1-2/n)` stupňů._
+
+    _Aby byly tvary zhruba stejně veliké, použij pro `n`-úhelník délku strany např. `200/n`_
+
+- markdown: |
+    Nakresli `n`-úhelník, kde `n` zadá uživatel.
+
+- markdown: |
+    Želva umí jen rovné čáry. Jde pomocí rovných čar nakreslit kolečko?
+
+    _Nevíš-li, přeskoč na další projekt a pak se sem vrať._
+
+- markdown: |
+    Nakresli pětadevadesátiúhelník.
+
+- markdown: |
+    Nakresli takovýto ornament:
+
+    <img src="/static/tasks/handout3a_images/10_ornament.png" alt="ornament" style="max-width: 100%; max-height: 80px">
+
+    _Nevíš-li si rady, vezmi pravítko a změř délky jednotlivých čar. Doporučuju začít od středu._
+
+- markdown: |
+    Nakresli takovýto ornament:
+
+    <img src="/static/tasks/handout3a_images/11_ornament.png" alt="ornament" style="max-width: 100%; max-height: 90px">
+
+- markdown: |
+    Nakresli spirálu.
+
+    <img src="/static/tasks/handout3a_images/12_spirala.png" alt="spirála" style="max-width: 100%; max-height: 140px">
+
+    _Od ornamentů ke spirále se dostaneš stejným způsobem jako od `n`-úhelníků ke kolečku._
+
+- markdown: |
+    Napiš obrázek! Třeba les ze stromů, město z domů, nebe z hvězd,
+    dav ze smajlíků, hradbu z věží, zikkurat ze schodů, ...
+
+    Můžeš použít i nějakou z funkcí modulu `random`.
+
+- markdown: |
+    Na sraze jsme nakreslili tři čtverce, každý otočený o 20°.
+    Nakresli 18 takových čtverců.
+
+- markdown: |
+    Vezmi program z minulé úlohy a dokresli stonek a listy.
+    Je jenom na tobě, jaký budou mít tvar.
+    Piš komentáře a snaž se opakovat pomocí `for`,
+    ne pomocí Ctrl+C Ctrl+V.
+
+    <img src="/static/tasks/handout3a_images/15_kvetina.png" alt="květina" style="max-width: 100%; max-height: 300px">
+
+- markdown: |
+    Napiš program, který postupně načte od uživatele dvě čísla a jednoznakový
+    řetězec – buď `'+'`, `'-'`, `'*'` nebo `'/'`. Program provede na číslech příslušnou operaci.
+
+    Příklad použití programu:
+
+    ```
+    První číslo: 123
+    Druhé číslo: 456
+    Operace: +
+    123 + 456 = 579
+    ```
+
+- markdown: |
+    Napiš program, který se pětkrát zeptá na číslo a nejmenší zadané číslo vypíše.
+
+    _Nevíš-li si rady, podívej se do materiálů na sekci Přepisování proměnných. Místo sečítání budeš vybírat správnou hodnotu._
