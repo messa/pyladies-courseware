@@ -8,6 +8,11 @@ const HomeworkSolution = ({ code }) => (
   <div className='HomeworkSolution'>
     <h4>Odevzdané řešení</h4>
     <pre>{code}</pre>
+    <style jsx>{`
+      .HomeworkSolution pre {
+        overflow-x: auto;
+      }
+    `}</style>
   </div>
 )
 
