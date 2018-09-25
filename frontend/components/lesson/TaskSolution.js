@@ -7,6 +7,11 @@ export default ({ taskSolution }) => {
   return (
     <div className='TaskSolution'>
       <pre>{currentVersion.code}</pre>
+      <style jsx>{`
+        .TaskSolution pre {
+          overflow-x: auto;
+        }
+      `}</style>
     </div>
   )
 }
