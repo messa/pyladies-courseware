@@ -102,6 +102,8 @@ homeworks:
 
     <img src="/static/tasks/handout3a_images/15_kvetina.png" alt="květina" style="max-width: 100%; max-height: 300px">
 
+  mandatory: true
+
 - markdown: |
     Napiš program, který postupně načte od uživatele dvě čísla a jednoznakový
     řetězec – buď `'+'`, `'-'`, `'*'` nebo `'/'`. Program provede na číslech příslušnou operaci.
@@ -114,6 +116,8 @@ homeworks:
     Operace: +
     123 + 456 = 579
     ```
+
+  mandatory: true
 
 - markdown: |
     Napiš program, který se pětkrát zeptá na číslo a nejmenší zadané číslo vypíše.
