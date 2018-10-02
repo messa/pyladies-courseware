@@ -107,6 +107,7 @@ homeworks:
       </blockquote>
 
 - id: mgbgypp7hcfh
+  mandatory: true
   markdown: |
     Napiš funkci `vyhodnot`, která dostane řetězec
     s herním polem 1-D piškvorek
@@ -118,6 +119,7 @@ homeworks:
     - `"-"` – Ani jedna ze situací výše (t.j. hra ještě neskončila)
 
 - id: hk28awcuewlo
+  mandatory: true
   markdown: |
     Napiš funkci `tah`, která dostane řetězec s herním polem,
     číslo políčka (0-19), a symbol (`x` nebo `o`)
