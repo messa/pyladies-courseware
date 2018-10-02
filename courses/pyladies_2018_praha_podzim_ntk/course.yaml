@@ -65,6 +65,7 @@ lessons:
 
 - title: Lekce 4 – Funkce & Řetězce
   date: 3. 10. 2018
+  slug: 4-funkce-a-retezce
   items:
   - lesson: Vlastní funkce
     url: https://naucse.python.cz/2018/pyladies-praha-podzim-ntk/beginners/def/
@@ -77,6 +78,7 @@ lessons:
 
 - title: Lekce 5 – Procvičování a soubory
   date: 10. 10. 2018
+  slug: 5-soubory
   items:
   - text: Procvičíme si vše, co jsme se naučily
   - lesson: Soubory
@@ -84,6 +86,7 @@ lessons:
 
 - title: Lekce 6 – Spolupráce a Open-Source - Git
   date: 17. 10. 2018
+  slug: 6-opensource-a-git
   items:
   - lesson: Spolupráce a Git
     url: https://naucse.python.cz/2018/pyladies-praha-podzim-ntk/git/git-collaboration-2in1/
@@ -96,6 +99,7 @@ lessons:
 
 - title: Lekce 7 – Seznamy
   date: 24. 10. 2018
+  slug: 7-seznamy
   items:
   - lesson: Seznamy
     url: https://naucse.python.cz/2018/pyladies-praha-podzim-ntk/beginners/list/
@@ -108,6 +112,7 @@ lessons:
 
 - title: Lekce 8 – Slovníky
   date: 31. 10. 2018
+  slug: 8-slovniky
   items:
   - lesson: Slovníky
     url: https://naucse.python.cz/2018/pyladies-praha-podzim-ntk/beginners/dict/
@@ -122,6 +127,7 @@ lessons:
 
 - title: Lekce 9 – Testování
   date: 7. 11. 2018
+  slug: 9-testovani
   items:
   - lesson: Výjimky
     url: https://naucse.python.cz/2018/pyladies-praha-podzim-ntk/beginners/exceptions/
@@ -138,6 +144,7 @@ lessons:
 
 - title: Lekce 10 – Grafika
   date: 14. 11. 2018
+  slug: 10-grafika
   items:
   - lesson: Grafika
     url: https://naucse.python.cz/2018/pyladies-praha-podzim-ntk/intro/pyglet/
@@ -152,6 +159,7 @@ lessons:
 
 - title: Lekce 11 – Třídy
   date: 21. 11. 2018
+  slug: 11-tridy
   items:
   - lesson: Třídy
     url: https://naucse.python.cz/2018/pyladies-praha-podzim-ntk/beginners/class/
@@ -162,6 +170,7 @@ lessons:
 
 - title: Lekce 12 – Závěrečný projekt
   date: 28. 11. 2018
+  slug: 12-zaverecny-projekt
   items:
   - text: Turnaj v piškvorkách
   - lesson: Asteroids

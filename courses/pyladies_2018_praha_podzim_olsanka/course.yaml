@@ -69,6 +69,7 @@ lessons:
 
 - title: Lekce 4 – Funkce & Řetězce
   date: 2. 10. 2018
+  slug: 4-funkce-a-retezce
   items:
   - lesson: Vlastní funkce
     url: https://naucse.python.cz/2018/pyladies-praha-podzim-cznic/beginners/def/
@@ -81,6 +82,7 @@ lessons:
 
 - title: Lekce 5 – Procvičování a soubory
   date: 9. 10. 2018
+  slug: 5-soubory
   items:
   - text: Procvičíme si vše, co jsme se naučily
   - lesson: Soubory
@@ -88,6 +90,7 @@ lessons:
 
 - title: Lekce 6 – Spolupráce a Open-Source - Git
   date: 16. 10. 2018
+  slug: 6-opensource-a-git
   items:
   - lesson: Spolupráce a Git
     url: https://naucse.python.cz/2018/pyladies-praha-podzim-cznic/git/git-collaboration-2in1/
@@ -100,6 +103,7 @@ lessons:
 
 - title: Lekce 7 – Seznamy
   date: 23. 10. 2018
+  slug: 7-seznamy
   items:
   - lesson: Seznamy
     url: https://naucse.python.cz/2018/pyladies-praha-podzim-cznic/beginners/list/
@@ -112,6 +116,7 @@ lessons:
 
 - title: Lekce 8 – Slovníky
   date: 30. 10. 2018
+  slug: 8-slovniky
   items:
   - lesson: Slovníky
     url: https://naucse.python.cz/2018/pyladies-praha-podzim-cznic/beginners/dict/
@@ -126,6 +131,7 @@ lessons:
 
 - title: Lekce 9 – Testování
   date: 6. 11. 2018
+  slug: 9-testovani
   items:
   - lesson: Výjimky
     url: https://naucse.python.cz/2018/pyladies-praha-podzim-cznic/beginners/exceptions/
@@ -142,6 +148,7 @@ lessons:
 
 - title: Lekce 10 – Grafika
   date: 13. 11. 2018
+  slug: 10-grafika
   items:
   - lesson: Grafika
     url: https://naucse.python.cz/2018/pyladies-praha-podzim-cznic/intro/pyglet/
@@ -156,6 +163,7 @@ lessons:
 
 - title: Lekce 11 – Třídy
   date: 20. 11. 2018
+  slug: 11-tridy
   items:
   - lesson: Třídy
     url: https://naucse.python.cz/2018/pyladies-praha-podzim-cznic/beginners/class/
@@ -166,6 +174,7 @@ lessons:
 
 - title: Lekce 12 – Závěrečný projekt
   date: 27. 11. 2018
+  slug: 12-zaverecny-projekt
   items:
   - text: Turnaj v piškvorkách
   - lesson: Asteroids
@@ -177,3 +186,4 @@ lessons:
 
 - title: Lekce 13 – Závěrečná procvičovací hodina
   date: 4. 12. 2018
+  slug: 13-zaverecne-procvicovani
