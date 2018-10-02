@@ -4,7 +4,8 @@ homeworks:
     markdown: |
         Dnešní projekty jsou součástí projektu 1D Piškvorky. Dělej je jeden po druhém.
 
-- markdown: |
+- id: vuokptodpdfj
+  markdown: |
     Rozděl 1D Piškvorky na čtyři moduly:
 
     - `ai.py`, kde bude funkce `tah_pocitace`,
@@ -14,28 +15,33 @@ homeworks:
 
     _Připomínám: Až to bude fungovat, dej to do Gitu! A kdybys něco nedopatřením rozbila, `git diff HEAD` ukáže změny od poslední revize._
 
-- markdown: |
+- id: uwzaessybzrs
+  markdown: |
     Napiš _aspoň_ dva testy na každou funkci z Piškvorek, ke které testy napsat umíš.
     _Testy pravděpodobně neumíš napsat na funkci `input` a všechny funkce, které ji (byť nepřímo) volají.
     A taky asi neumíš otestovat účinek funkce `print`._
 
-- markdown: |
+- id: vjbyxfk4nn8d
+  markdown: |
     Zkus program přepsat tak, aby část, která není pokrytá automatickými testy, byla co nejmenší.
     _Místo volání `print` můžeš často vrátit řetězec
     a `print` zavolat až na návratovou hodnotu.
     Podobně `input` můžeš zavolat před zavoláním funkce,
     která pak může příkaz od uživatele brát jako argument._
 
-- markdown: |
+- id: lihlb6v6ix7w
+  markdown: |
     Doplň funkci `tah_pocitace` tak, aby brala jako argument symbol, za který má počítač hrát – buď `'x'`, nebo `'o'`.
     Dopiš testy.
     _Nezapomínáš na Git?_
 
-- markdown: |
+- id: rac0ngd1kvwu
+  markdown: |
     Ověř, že se funkce `tah_pocitace` se umí vyrovnat s jinou délkou hracího pole než 20.
     _„Ověření” znamená napsání příslušného testu._
 
-- markdown: |
+- id: iirifogtfs4f
+  markdown: |
     Ověř si, že se `tah_pocitace` chová rozumně když dostane plné hrací pole, nebo pole s délkou 0.
     _Rozumné chování v tomto případě znamená vyvolání rozumné výjimky._
 
@@ -56,8 +62,8 @@ homeworks:
     markdown: |
         Máš-li Piškvorky hotové, můžeš si naprogramovat ještě jednu hru! Jestli na to tedy máš čas a chuť.
 
-
-- markdown: |
+- id: bywlyjfimadk
+  markdown: |
     Vytvoř hru `sibenice` podle následujícího popisu.
     Snaž se projekt rozdělit do funkcí a modulů s hezkými jmény,
     piš testy a dokumentační řetězce, funkční kousky dávej postupně do Gitu.
@@ -96,10 +102,10 @@ homeworks:
     ~~~~~~~
 
     p_t__n
-
     </pre>
 
-- markdown: |
+- id: fnjvblaars4c
+  markdown: |
     Funguje-li ti předchozí hra, můžeš ji vylepšit.
 
     - Zařiď, aby fungovala slova s více stejnými písmeny.

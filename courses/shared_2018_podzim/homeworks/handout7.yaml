@@ -6,7 +6,8 @@ homeworks:
       Až to budeš mít hotové, můžeš zkusit udělat pár věcí navíc do Klondike:
 
 
-- markdown: |
+- id: xep6x2o7bl1h
+  markdown: |
     Pokud se odkryje (v balíčku nebo na konci sloupečku) karta, která jde dát
     na cílovou hromádku, tak se tam dá automaticky.
     (A tím se múže odkrýt další taková karta, která se taky automaticky
@@ -17,7 +18,8 @@ homeworks:
         udelej_tah(automaticky_tah(hra))
     ```
 
-- markdown: |
+- id: him5lvrtapjx
+  markdown: |
     Na přesouvání několika karet najednou by nemuselo být potřeba zadávat
     počet karet. Pokud sloupec A obsahuje 8, 7, 6, 5, 4 (správných barev)
     a sloupec B končí sedmičkou, aktuálně musíš zadat tah `A3B`.
@@ -30,13 +32,15 @@ homeworks:
 
     A taky, jestli tohle uděláš, nezapomeň upravit nápovědu!
 
-- markdown: |
+- id: gzzshmcgbd9b
+  markdown: |
     A kdyby ses hodně nudila, napiš funkci, která dostane jako argument hru
     a vrátí tah k zahrání (tj. to co by vrátila funkce `nacti_tah`).
     Pak můžeš nechat počítač hrát automaticky, nebo umožnit hráči,
     aby nechal některé tahy na počítači.
 
-- markdown: |
+- id: seccrqjgvzt1
+  markdown: |
     Může _n_-tice obsahovat sama sebe? Zkus co nejjednodušeji udělat takovou _n_-tici, aby platilo:
 
     `ntice[5][5][5][5][5][5][5][5][5][5][5][5][5][5][5][5][5][5][0] == 5`.

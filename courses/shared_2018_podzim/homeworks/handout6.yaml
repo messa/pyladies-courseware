@@ -6,34 +6,41 @@ homeworks:
       nebudeš-li vědět jak dál, zeptej se na internetu nebo na sraze ostatních
       a řešte společně!
 
-- markdown: |
+- id: zewbth1wxdgo
+  markdown: |
     Udělej si seznam domácích zvířat. Budeš ho potřebovat v dalších úlohách.
     Domácí zvířata známe tato: `"pes", "kočka", "králík", "had"`.
 
 
-- markdown: |
+- id: uxuwmtsjoaua
+  markdown: |
     Napiš funkci, která vrací jména domácích zvířat (zadaných argumentem), která jsou kratší než 5 písmen.
 
-- markdown: |
+- id: exsfha4wxqru
+  markdown: |
     Napiš funkci, která vrací jména domácích zvířat (zadaných argumentem), která začínají na k.
 
-- markdown: |
+- id: zxyp5loilgs8
+  markdown: |
     Napiš funkci, která dostane slovo a zjistí,
     jestli je v seznamu domácích zvířat.
 
     _„Zjistí“ znamená, že funkce vrátí `True` nebo `False`._
 
-- markdown: |
+- id: ptusasnuqwpq
+  markdown: |
     Napiš funkci, která dostane dva seznamy jmen zvířat a vrátí tři seznamy:
     - zvířata, která jsou v obou seznamech,
     - zvířata, která jsou v jen prvním seznamu,
     - zvířata, která jsou v jen druhém seznamu.
     Napiš (a pusť) k této funkci testy, aby sis ověřila, že funguje správně.
 
-- markdown: |
+- id: yauhaqs2ou0t
+  markdown: |
     Napiš program, který seřadí seznam domácích zvířat podle abecedy.
 
-- markdown: |
+- id: q9ig5yer5ooa
+  markdown: |
     Had byl pyšný na to, že je v abecedě první.
     Dokud nepřiletěla `"andulka"`.
 
@@ -59,8 +66,8 @@ homeworks:
     markdown: |
         Cvičení na analýzu reálných dat
 
-
-- markdown: |
+- id: sxx3q2al9r8t
+  markdown: |
     Napiš tyto funkce.
     Každá z nich dostane jako argument řetězec s~rodným číslem a nějak ho
     zanalyzuje:
@@ -78,7 +85,8 @@ homeworks:
     Pro účely úkolu stačí, když bude program umět zpracovat čísla
     vydávaná od roku 1985. Reálná rodná čísla můžou být složitější :)
 
-- markdown: |
+- id: rrush0ly1lhf
+  markdown: |
     Napiš program který se uživatele zeptá na rodné číslo a vypíše výsledky.
 
 
@@ -88,7 +96,8 @@ homeworks:
         tvé logické myšlení. Je nepovinná, nemáš-li na ni aspoň pár hodin,
         tak ji přeskoč.
 
-- markdown: |
+- id: d0ssraewhrp2
+  markdown: |
     Napiš funkci, která převede římské číslice na číslo (`int`).
     _Tip: Nejdřív napiš k této funkci testy, aby sis
     ověřila, že (a co) (ne)funguje správně._
@@ -100,8 +109,8 @@ homeworks:
         Tahle sekce není jednoduchá (a poslední dva projekty jsou obzvláště náročné).
         Můžeš zkusit spojit síly s ostatními účastnicemi kurzu!}
 
-
-- markdown: |
+- id: fkyduvjrgkex
+  markdown: |
     Napiš funkci, která dostane seznam souřadnic (párů čísel menších než 10,
     která určují sloupec a řádek)
     a vypíše je jako mapu: mřížku 10×10, kde na políčka která jsou v seznamu
@@ -127,7 +136,8 @@ homeworks:
     - Na příslušných místech nahraď tečky X-ky.
     - Tabulku vypiš pomocí dvou cyklů `for` zanořených do sebe.
 
-- markdown: |
+- id: zrr3ee7vfxyw
+  markdown: |
     Napiš funkci `pohyb`, která dostane seznam souřadnic a světovou stranu
     (`"s"`, `"j"`, `"v"` nebo `"z"`)
     a přidá k seznamu poslední bod „posunutý“ v daném směru. Např.:
@@ -145,25 +155,29 @@ homeworks:
     Funkce by neměla nic vracet. Jen mění už existující seznam.
     Nezapomeň na testy.
 
-- markdown: |
+- id: efbgpgg0eqy5
+  markdown: |
     Napiš cyklus, který se bude ptát uživatele na světovou stranu,
     podle ní zavolá `pohyb`, a následně vykreslí seznam jako mapu.
     Pak se opět se zeptá na stranu atd.
     Začínej se seznamem `[(0, 0), (1, 0), (2, 0)]`.
 
-- markdown: |
+- id: oaqnyr1qzdat
+  markdown: |
     Doplň funkci `pohyb` tak, aby při pohybu umazala první bod ze seznamu
     souřadnic. Výsledný seznam tak bude mít stejnou délku, jako před voláním.
     Uprav testy.
 
-- markdown: |
+- id: d5ewcyfhnqh9
+  markdown: |
     Doplň funkci `pohyb` tak, aby zamezila:
     - pohybu ven z mapy,
     - pohybu na políčko, které už v seznamu je.
     Vhodná výjimka pro tyto situace je `ValueError('Game over')`.
     Doplň i testy.
 
-- markdown: |
+- id: krmsq1fxge3j
+  markdown: |
     Přidej do hry hadí potravu. Tady jsou pravidla pro vegetariánského hada,
     ale můžeš si je změnit podle chuti:
     Seznam ovoce obsahuje na začátku jedno ovoce na políčku, na kterém není had
@@ -174,7 +188,8 @@ homeworks:
     Každých 30 tahů vyroste nové ovoce samo od sebe.
     Na mapě se toto tajemné ovoce zobrazuje jako otazník (`?`).
 
-- markdown: |
+- id: qhnylnqo8iem
+  markdown: |
     Hadí hřiště může mít libovolné rozměry větší než 4×1.
     Třeba 20×20 nebo 10×30.
 
@@ -182,7 +197,7 @@ homeworks:
     markdown: |
         A nakonec projekt na přemýšlení.
 
-
-- markdown: |
+- id: wgn6houidium
+  markdown: |
     Může seznam obsahovat sám sebe? Zkus co nejjednodušeji udělat takový seznam, aby platilo:
     `seznam[5][5][5][5][5][5][5][5][5][5][5][5][5][5][5][5][5][5][0] == 5`.

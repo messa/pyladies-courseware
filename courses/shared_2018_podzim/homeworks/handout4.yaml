@@ -8,17 +8,20 @@ homeworks:
 
       Trocha experimentování. Zkus se zamyslet, jestli jsi „dobře” pochopila otázku.
 
-- markdown: |
+- id: dla9isb5umsn
+  markdown: |
     Co se stane, když tělo nějaké funkce necháš prázdné?
 
-- markdown: |
+- id: qbeyineivepe
+  markdown: |
     Co se stane, když necháš prázdné tělo cyklu?
 
 - section:
     markdown: |
       Procvičení funkcí. Jestli jsi pythonní funkce nepsala už před kurzem, tak první z těchto projektů určitě udělej. Druhý jen pokud máš ráda geometrii :)
 
-- markdown: |
+- id: hlyvhtcr1cn8
+  markdown: |
     Napiš funkci, která vykreslí domeček dané velikosti.
     _(t.j. velikost se zadá argumentem)_
 
@@ -44,7 +47,8 @@ homeworks:
     ```
     _Funguje? Do Gitu s tím!_
 
-- markdown: |
+- id: hwa8m4fzynzv
+  markdown: |
     Máš-li ráda geometrii*, můžeš zkusit dávat domečkové funkci dva argumenty:
     šířku a výšku.
     Je potřeba si vzpomenout na Pythagorovu větu a funkci tangens.
@@ -87,11 +91,13 @@ homeworks:
         Často je jednoduché něco napsat, ale dotažení do konce může být časově náročné.
         _Nemáš-li čas, zkus se aspoň zamyslet, jak bys projekt vyřešila._
 
-- markdown: |
+- id: njnxoiomixg5
+  markdown: |
     Změň program Kámen, Nůžky, Papír tak, aby opakoval hru dokud
     uživatel nezadá `konec`.
 
-- markdown: |
+- id: zm3gwjtwxpff
+  markdown: |
     Změň funkci `ano_nebo_ne` tak,
     aby se místo `ano` se dalo použít i `a`,
     místo `ne` i `n`
@@ -102,17 +108,20 @@ homeworks:
     markdown: |
         Sada zajímavých (snad) prográmků, které bys teď měla být schopná napsat. Nemáš-li čas, zatím je přeskoč.
 
-- markdown: |
+- id: ixf1tkbvcotf
+  markdown: |
     Napiš program, který se zeptá na příjmení uživatelky/uživatele
     a zkusí podle něj uhodnout její/jeho pohlaví.
     _Připomínám: Až to bude fungovat, dej to do Gitu!_
 
-- markdown: |
+- id: vio5xjw91uud
+  markdown: |
     Najdi na internetu text své oblíbené písně, zkopíruj si ho do řetězce
     a zjisti, kolikrát je v něm použito písmeno K.
     _Připomínám: Až to bude fungovat, dej to do Gitu!_
 
-- markdown: |
+- id: mtzwbnugdwri
+  markdown: |
     Napiš program, který simuluje tuto hru:
     První hráč hází kostkou
     _(t.j. vybírají se náhodná čísla od 1 do 6)_,
@@ -128,7 +137,8 @@ homeworks:
     markdown: |
         Nakonec trošku delší projekt. Budeme na něm stavět dál; nedokončíš-li ho teď, budeš ho muset dodělat před příští sadou projektů.
 
-- markdown: |
+- id: ip44if98qwbw
+  markdown: |
     1-D piškvorky se hrají na řádku s dvaceti políčky.
         Hráči střídavě přidávají kolečka (`o`) a křížky (`x`),
             třeba:
@@ -141,7 +151,8 @@ homeworks:
     </pre>
     Hráč, která dá tři své symboly vedle sebe, vyhrál.
 
-- markdown: |
+- id: mgbgypp7hcfh
+  markdown: |
     Napiš funkci `vyhodnot`, která dostane řetězec
     s herním polem 1-D piškvorek
     a vrátí jednoznakový řetězec podle stavu hry:
@@ -151,7 +162,8 @@ homeworks:
         - `-` – Ani jedna ze situací výše (t.j. hra ještě neskončila)
     _Připomínám: Až to bude fungovat, dej to do Gitu!_
 
-- markdown: |
+- id: hk28awcuewlo
+  markdown: |
     Napiš funkci `tah`, která dostane řetězec s herním polem,
     číslo políčka (0-19), a symbol (`x` nebo `o`)
     a vrátí herní pole _(t.j. řetězec)_ s daným symbolem umístěným na danou pozici.
@@ -164,7 +176,8 @@ homeworks:
     ```
         _Můžeš využít nějakou funkci, kterou jsme napsaly už na sraze?_
 
-- markdown: |
+- id: awlph68yujyd
+  markdown: |
     Napiš funkci `tah_hrace`, která dostane řetězec s herním polem,
     zeptá se hráče, na kterou pozici chce hrát, a vrátí herní pole
     se zaznamenaným tahem hráče.
@@ -173,7 +186,8 @@ homeworks:
     Pokud uživatel zadá špatný vstup, funkce mu vynadá a zeptá se znova.
     _Funguje? Do Gitu s tím!_
 
-- markdown: |
+- id: qlahxeucwc69
+  markdown: |
     Napiš funkci `tah_pocitace`, která dostane řetězec s herním polem,
     vybere pozici, na kterou hrát, a vrátí herní pole
     se zaznamenaným tahem počítače.
@@ -189,19 +203,20 @@ homeworks:
         ...
     ```
 
-- markdown: |
+- id: fc0f4tr7zvqp
+  markdown: |
     Napiš funkci `piskvorky1d`, která vytvoří řetězec s herním polem
     a střídavě volá funkce `tah_hrace` a `tah_pocitace`,
     dokud někdo nevyhraje nebo nedojde k remíze.
     Nezapomeň kontrolovat stav hry po každém tahu.
     _Funguje? Do Gitu s tím!_
 
-
 - section:
     markdown: |
       Poslední projekt je nepovinný, ale, jak to u podobných projektů bývá, můžeš na něj dostat zpětnou vazbu. Doporučuju toho využít!
 
-- markdown: |
+- id: jfkcmqd_sm2o
+  markdown: |
     Zvládneš pro počítač naprogramovat lepší strategii?
     Třeba aby se snažil hrát vedle svých existujících symbolů
     nebo aby bránil protihráčovi?

@@ -4,22 +4,26 @@ homeworks:
     markdown: |
       Těchto pár úkolů slouží k procvičení práce se slovníky, které se následně pokusíš využít při programování známé skautské hry.
 
-- markdown: |
+- id: zuwotopvi1jr
+  markdown: |
     Napiš funkci, která pro argumentem zadané číslo `n` vytvoří a vrátí slovník,
     kde jako klíče budou čísla od jedné do `n` a jako hodnoty k nim
     jejich druhé mocniny.
 
-- markdown: |
+- id: vzcjbyalzkok
+  markdown: |
     Napiš funkci, která sečte a vrátí sumu všech klíčů a sumu všech hodnot
     ve slovníku, který dostane jako argument. K vyzkoušení můžeš použít
     slovník z minulé úlohy.
 
-- markdown: |
+- id: tvxvmyqmiveq
+  markdown: |
     Napiš funkci, která jako argument dostane řetězec a vrátí slovník,
     ve kterém budou jako klíče jednotlivé znaky ze zadaného řetězce a jako
     hodnoty počty výskytů těchto znaků v řetězci.
 
-- markdown: |
+- id: knorjrqgw664
+  markdown: |
     Napiš funkci, která vypíše obsah slovníku (klíče a k nim náležící
     hodnoty) na jednotlivé řádky.
 
@@ -31,7 +35,8 @@ homeworks:
     markdown: |
       A teď už ke slíbené hře.
 
-- markdown: |
+- id: nvbbb58xoze9
+  markdown: |
     Úkolem je vytvořit známou skautskou hru „Kdo? S kým? Co dělali?“. Hra se
     hráče zeptá postupně na různé otázky, například „Kdo?“, „S kým?“,
     „Co dělali?“, „Kde?“, „Kdy?“, a nakonec „Proč?“, s tím, že mu umožní
