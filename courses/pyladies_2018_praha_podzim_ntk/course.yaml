@@ -108,7 +108,7 @@ lessons:
   - cheatsheet: Tahák na seznamy
     url: https://pyvec.github.io/cheatsheets/lists/lists-cs.pdf
   homeworks:
-  - file: ../shared_2018_podzim/homeworks/handout7.yaml
+  - file: ../shared_2018_podzim/homeworks/handout6.yaml
 
 - title: Lekce 8 – Slovníky
   date: 31. 10. 2018
