@@ -99,7 +99,7 @@ lessons:
   - cheatsheet: Gitový tahák
     url: https://pyvec.github.io/cheatsheets/basic-git/basic-git-cs.pdf
   homeworks:
-  - file: ../shared_2018_podzim/homeworks/handout6.yaml
+  - file: ../shared_2018_podzim/homeworks/handout3b.yaml
 
 - title: Lekce 7 – Seznamy
   date: 25. 10. 2018
