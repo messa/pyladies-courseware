@@ -30,9 +30,9 @@ homeworks:
   markdown: |
     Napiš funkci, která dostane dva seznamy jmen zvířat a vrátí tři seznamy:
 
-    - zvířata, která jsou v obou seznamech,
-    - zvířata, která jsou v jen prvním seznamu,
-    - zvířata, která jsou v jen druhém seznamu.
+    - zvířata, která jsou v obou seznamech (sjednocení množin: první ∪ druhá),
+    - zvířata, která jsou jen v prvním seznamu (rozdíl množin: první - druhá),
+    - zvířata, která jsou jen ve druhém seznamu (rozdíl množin: druhá - první).
 
     Napiš (a pusť) k této funkci testy, aby sis ověřila, že funguje správně.
 
