@@ -34,8 +34,6 @@ homeworks:
     - zvířata, která jsou jen v prvním seznamu (rozdíl množin: první - druhá),
     - zvířata, která jsou jen ve druhém seznamu (rozdíl množin: druhá - první).
 
-    Napiš (a pusť) k této funkci testy, aby sis ověřila, že funguje správně.
-
 - id: yauhaqs2ou0t
   markdown: |
     Napiš program, který seřadí seznam domácích zvířat podle abecedy.
@@ -85,14 +83,12 @@ homeworks:
     - Jaké pohlaví je v čísle zakódováno?
       (vrací `'muž'` nebo `'žena'`)
 
-    Napiš i testy, abys ověřila, že funkce fungují správně.
-
     Pro účely úkolu stačí, když bude program umět zpracovat čísla
     vydávaná od roku 1985. Reálná rodná čísla můžou být složitější :)
 
 - id: rrush0ly1lhf
   markdown: |
-    Napiš program který se uživatele zeptá na rodné číslo a vypíše výsledky.
+    Napiš program, který se uživatele zeptá na rodné číslo a vypíše výsledky.
 
 - section:
     markdown: |
@@ -103,8 +99,6 @@ homeworks:
 - id: d0ssraewhrp2
   markdown: |
     Napiš funkci, která převede římské číslice na číslo (`int`).
-
-    _Tip: Nejdřív napiš k této funkci testy, aby sis ověřila, že (a co) (ne)funguje správně._
 
 - section:
     markdown: |
@@ -158,8 +152,6 @@ homeworks:
 
     Funkce by neměla nic vracet. Jen mění už existující seznam.
 
-    Nezapomeň na testy.
-
 - id: efbgpgg0eqy5
   markdown: |
     Napiš cyklus, který se bude ptát uživatele na světovou stranu,
@@ -173,18 +165,12 @@ homeworks:
     Doplň funkci `pohyb` tak, aby při pohybu umazala první bod ze seznamu
     souřadnic. Výsledný seznam tak bude mít stejnou délku, jako před voláním.
 
-    Uprav testy.
-
 - id: d5ewcyfhnqh9
   markdown: |
     Doplň funkci `pohyb` tak, aby zamezila:
 
     - pohybu ven z mapy,
     - pohybu na políčko, které už v seznamu je.
-
-    Vhodná výjimka pro tyto situace je `ValueError('Game over')`.
-
-    Doplň i testy.
 
 - id: krmsq1fxge3j
   markdown: |
