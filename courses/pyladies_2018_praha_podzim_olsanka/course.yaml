@@ -186,6 +186,10 @@ lessons:
   date: 4. 12. 2018
   slug: 13-zaverecny-projekt
   items:
+  - lesson: Snake
+    # url: https://naucse.python.cz/2018/pyladies-praha-podzim-cznic/projects/asteroids/
+    # Dokud se nepovede nasadit ^^^ na naucse, tak pouzijeme materialy z Ostravy:
+    url: https://naucse.python.cz/2018/pyladies-ostrava-podzim/projects/snake/
   - lesson: Asteroids
     url: https://naucse.python.cz/2018/pyladies-praha-podzim-cznic/projects/asteroids/
   - cheatsheet: Množinový tahák
