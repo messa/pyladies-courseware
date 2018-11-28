@@ -172,17 +172,27 @@ lessons:
   homeworks:
   - file: ../shared_2018_podzim/homeworks/handout11.yaml
 
-- title: Lekce 12 – Závěrečný projekt
+- title: Lekce 12 – Data
   date: 29. 11. 2018
   slug: 12-zaverecny-projekt
   items:
-  - text: Turnaj v piškvorkách
+  - lesson: Notebook
+    url: https://naucse.python.cz/2018/pyladies-praha-podzim-cznic/intro/notebook/
+    # Dokud se nepovede nasadit aktualizaci na naucse, tak pouzijeme materialy z Olsanky
+  - lesson: Pandas
+    url: https://naucse.python.cz/2018/pyladies-praha-podzim-cznic/intro/pandas/
+    # Dokud se nepovede nasadit aktualizaci na naucse, tak pouzijeme materialy z Olsanky
+
+- title: Lekce 13 – Závěrečný projekt
+  date: 6. 12. 2018
+  items:
+  - lesson: Snake
+    # url: https://naucse.python.cz/2018/pyladies-praha-podzim-cznic/projects/asteroids/
+    # Dokud se nepovede nasadit ^^^ na naucse, tak pouzijeme materialy z Ostravy:
+    url: https://naucse.python.cz/2018/pyladies-ostrava-podzim/projects/snake/
   - lesson: Asteroids
     url: https://naucse.python.cz/2018/pyladies-praha-podzim-bubenec/projects/asteroids/
   - cheatsheet: Množinový tahák
     url: https://pyvec.github.io/cheatsheets/sets/sets-cs.pdf
   - cheatsheet: Tahák na geometrii a fyziku 2D her
     url: https://pyvec.github.io/cheatsheets/game-physics/game-physics-cs.pdf
-
-- title: Lekce 13 – Závěrečná procvičovací hodina
-  date: 6. 12. 2018
