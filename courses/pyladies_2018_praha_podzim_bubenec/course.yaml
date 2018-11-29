@@ -177,19 +177,15 @@ lessons:
   slug: 12-zaverecny-projekt
   items:
   - lesson: Notebook
-    url: https://naucse.python.cz/2018/pyladies-praha-podzim-cznic/intro/notebook/
-    # Dokud se nepovede nasadit aktualizaci na naucse, tak pouzijeme materialy z Olsanky
+    url: https://naucse.python.cz/2018/pyladies-praha-podzim-bubenec/intro/notebook/
   - lesson: Pandas
-    url: https://naucse.python.cz/2018/pyladies-praha-podzim-cznic/intro/pandas/
-    # Dokud se nepovede nasadit aktualizaci na naucse, tak pouzijeme materialy z Olsanky
+    url: https://naucse.python.cz/2018/pyladies-praha-podzim-bubenec/intro/pandas/
 
 - title: Lekce 13 – Závěrečný projekt
   date: 6. 12. 2018
   items:
   - lesson: Snake
-    # url: https://naucse.python.cz/2018/pyladies-praha-podzim-cznic/projects/asteroids/
-    # Dokud se nepovede nasadit ^^^ na naucse, tak pouzijeme materialy z Ostravy:
-    url: https://naucse.python.cz/2018/pyladies-ostrava-podzim/projects/snake/
+    url: https://naucse.python.cz/2018/pyladies-praha-podzim-bubenec/projects/snake/
   - lesson: Asteroids
     url: https://naucse.python.cz/2018/pyladies-praha-podzim-bubenec/projects/asteroids/
   - cheatsheet: Množinový tahák
