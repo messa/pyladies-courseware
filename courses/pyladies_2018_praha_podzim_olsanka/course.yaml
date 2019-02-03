@@ -11,7 +11,7 @@ description:
     Jednotlivé lekce jsou určeny naprostým začátečnicím.
     Instrukce jsou uvedeny pro operační systémy Linux, Windows i macOS.
 
-lessons:
+sessions:
 
 - title: Lekce 1 – Instalace
   date: 11. 9. 2018

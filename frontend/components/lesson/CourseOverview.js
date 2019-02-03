@@ -15,14 +15,14 @@ export default ({ course }) => (
     </div>
 
     <ul className='lessons'>
-      {course['lessons'].map(lesson => (
-        <li key={lesson.slug} className='lesson'>
+      {course['sessions'].map(session => (
+        <li key={session.slug} className='lesson'>
           <div className='lesson-title'>
-            <Link href={{ pathname: '/lesson', query: { course: course.id, lesson: lesson.slug } }}><a>
-              <span dangerouslySetInnerHTML={{__html: lesson['title_html']}} />
+            <Link href={{ pathname: '/session', query: { course: course.id, session: session.slug } }}><a>
+              <span dangerouslySetInnerHTML={{__html: session['title_html']}} />
             </a></Link>
           </div>
-          <div className='lessonDate'>{formatDate(lesson['date'])}</div>
+          <div className='lessonDate'>{formatDate(session['date'])}</div>
         </li>
       ))}
     </ul>

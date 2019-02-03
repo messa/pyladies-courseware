@@ -37,25 +37,25 @@ export default class extends React.Component {
 
         </div>
 
-        <div className='lessons'>
+        <div className='sessions'>
 
-          {course['lessons'].map(lesson => (
-            <div key={lesson['slug']} className='lesson'>
+          {course['sessions'].map(session => (
+            <div key={session['slug']} className='session'>
 
-              <h2 className='lesson-title'>
-                <span dangerouslySetInnerHTML={{__html: lesson['title_html']}} />
+              <h2 className='session-title'>
+                <span dangerouslySetInnerHTML={{__html: session['title_html']}} />
               </h2>
-              <div className='lessonDate'>{formatDate(lesson['date'])}</div>
+              <div className='sessionDate'>{formatDate(session['date'])}</div>
 
-              <LessonItems lessonItems={lesson['lesson_items']} />
+              <LessonItems lessonItems={session['lesson_items']} />
 
-              {lesson['has_tasks'] && (
+              {session['has_tasks'] && (
                 <div>
                   <Button
                     as={ALink}
                     href={{
-                      pathname: '/lesson',
-                      query: { course: course.id, lesson: lesson['slug'] }
+                      pathname: '/session',
+                      query: { course: course.id, session: session['slug'] }
                     }}
                     basic
                     color='blue'
@@ -99,27 +99,27 @@ export default class extends React.Component {
             max-width: 550px;
             margin: 0 auto;
           }
-          .lessons {
+          .sessions {
             max-width: 1100px;
             margin: 2rem auto;
             padding: 0 16px;
           }
           @media (min-width: 700px) {
-            .lessons {
+            .sessions {
               columns: 2;
             }
           }
-          .lesson {
+          .session {
             margin-bottom: 3rem;
             break-inside: avoid-column;
           }
           @media (min-width: 600px) {
-            .lesson :global(li) {
+            .session :global(li) {
               font-size: 16px;
               line-height: 23px;
             }
           }
-          .lesson .lesson-title {
+          .session .session-title {
             margin-bottom: 5px;
             xcolor: #503;
             color: #789;
@@ -127,11 +127,11 @@ export default class extends React.Component {
             font-size: 24px;
           }
           @media (max-width: 600px) {
-            .lesson .lesson-title {
+            .session .session-title {
               font-size: 21px;
             }
           }
-          .lesson .lessonDate {
+          .session .sessionDate {
             white-space: nowrap;
             font-size: 14px;
             font-weight: 400;

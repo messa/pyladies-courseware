@@ -15,7 +15,7 @@ def test_parse_date():
 
 def test_load_sample_course(data_dir):
     course = load_course(data_dir / 'sample_course/course.yaml')
-    out = yaml_dump({'course_detail': course.export(lessons=True, tasks=True)})
+    out = yaml_dump({'course_detail': course.export(sessions=True, tasks=True)})
     out_path = data_dir / 'sample_course/expected_export_detail.yaml'
     assert out == out_path.read_text()
 

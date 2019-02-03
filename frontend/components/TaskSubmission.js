@@ -48,7 +48,7 @@ export default class TaskSubmission extends React.Component {
       const { courseId, lessonSlug, taskId } = this.props
       const url = '/api/tasks/solution' +
         `?course_id=${encodeURIComponent(courseId)}` +
-        `&lesson_slug=${encodeURIComponent(lessonSlug)}` +
+        `&session_slug=${encodeURIComponent(lessonSlug)}` +
         `&task_id=${encodeURIComponent(taskId)}`
       const r = await fetch(url, {
         credentials: 'same-origin',
@@ -80,10 +80,10 @@ export default class TaskSubmission extends React.Component {
       submitInProgress: true,
     })
     try {
-      const { courseId, lessonSlug, taskId } = this.props
+      const { courseId, sessionSlug, taskId } = this.props
       const payload = {
         'course_id': courseId,
-        'lesson_slug': lessonSlug,
+        'session_slug': sessionSlug,
         'task_id': taskId,
         'code': code,
       }

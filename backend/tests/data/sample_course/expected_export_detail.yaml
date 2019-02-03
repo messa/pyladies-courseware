@@ -4,7 +4,7 @@ course_detail:
     <p>Tady najdeš všechny materiály k brněnské verzi začátečnického kurzu PyLadies.</p>
   end_date: '2018-03-07'
   id: sample-course
-  lessons:
+  sessions:
   - date: '2018-03-07'
     has_tasks: true
     lesson_items:

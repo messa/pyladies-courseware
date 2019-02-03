@@ -146,16 +146,16 @@ class Course:
             'end_date': parse_date(raw.get('end_date')),
 
         }
-        self.lessons = [Lesson(x, dir_path=course_dir, file_loader=file_loader) for x in raw['lessons']]
-        # fix lessons where no slug was specified in course.yaml
-        for n, lesson in enumerate(self.lessons, start=1):
-            if not lesson.slug:
-                lesson.slug = str(n)
-        # get course start/end date from lessons if not specified in course data
+        self.sessions = [Session(x, dir_path=course_dir, file_loader=file_loader) for x in raw['sessions']]
+        # fix sessions where no slug was specified in course.yaml
+        for n, sessions in enumerate(self.sessions, start=1):
+            if not sessions.slug:
+                sessions.slug = str(n)
+        # get course start/end date from sessions if not specified in course data
         if not self.data['start_date']:
-            self.data['start_date'] = min(lesson.date for lesson in self.lessons)
+            self.data['start_date'] = min(sessions.date for sessions in self.sessions)
         if not self.data['end_date']:
-            self.data['end_date'] = min(lesson.date for lesson in self.lessons)
+            self.data['end_date'] = min(sessions.date for sessions in self.sessions)
 
     id = DataProperty('id')
     start_date = DataProperty('start_date')
@@ -164,25 +164,25 @@ class Course:
     def __repr__(self):
         return f'<{self.__class__.__name__} id={self.id!r}>'
 
-    def get_lesson_by_slug(self, slug):
+    def get_session_by_slug(self, slug):
         assert isinstance(slug, str)
-        for lesson in self.lessons:
-            if lesson.slug == slug:
-                return lesson
-        raise Exception(f'Lesson with slug {slug!r} not found in {self}')
+        for session in self.sessions:
+            if session.slug == slug:
+                return session
+        raise Exception(f'Session with slug {slug!r} not found in {self}')
 
-    def export(self, lessons=False, tasks=False):
+    def export(self, sessions=False, tasks=False):
         d = {
             **self.data,
             'start_date': self.data['start_date'].isoformat(),
             'end_date': self.data['end_date'].isoformat(),
         }
-        if lessons:
-            d['lessons'] = [lesson.export(tasks=tasks) for lesson in self.lessons]
+        if sessions:
+            d['sessions'] = [lesson.export(tasks=tasks) for lesson in self.sessions]
         return d
 
 
-class Lesson:
+class Session:
 
     def __init__(self, raw, dir_path, file_loader):
         self.data = {
@@ -196,7 +196,7 @@ class Lesson:
             if raw_hw.get('file'):
                 self.task_items.extend(load_tasks_file(
                     dir_path / raw_hw['file'],
-                    lesson_slug=self.data['slug'],
+                    session_slug=self.data['slug'],
                     file_loader=file_loader))
 
     slug = DataProperty('slug')
@@ -214,7 +214,7 @@ class Lesson:
         return d
 
 
-def load_tasks_file(file_path, lesson_slug, file_loader):
+def load_tasks_file(file_path, session_slug, file_loader):
     try:
         raw = yaml_load(file_loader.read_text(file_path))
     except Exception as e:
@@ -225,7 +225,7 @@ def load_tasks_file(file_path, lesson_slug, file_loader):
         if raw_item.get('section'):
             task_items.append(TaskSection(raw_item['section']))
         elif raw_item.get('markdown'):
-            task_items.append(Task(raw_item, lesson_slug, next(counter)))
+            task_items.append(Task(raw_item, session_slug, next(counter)))
         else:
             raise Exception(f'Unknown item in tasks file {file_path}: {smart_repr(raw_item)}')
     return task_items
@@ -279,10 +279,10 @@ class TaskSection:
 
 class Task:
 
-    def __init__(self, raw, lesson_slug, default_number):
+    def __init__(self, raw, session_slug, default_number):
         self.data = {
             'task_item_type': 'task',
-            'id': str(raw.get('id') or f'{lesson_slug}-{default_number}'),
+            'id': str(raw.get('id') or f'{session_slug}-{default_number}'),
             'number': default_number,
             'text_html': to_html(raw),
             'mandatory': bool(raw.get('mandatory', False)),

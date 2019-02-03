@@ -11,7 +11,7 @@ import TaskReviewLessonSummary from '../components/TaskReviewLessonSummary'
 import CourseOverview from '../components/lesson/CourseOverview'
 import TaskReview from '../components/lesson/TaskReview'
 
-const HomeworkTask = ({ taskItem, userCanSubmitTask, courseId, lessonSlug, reviewUserId }) => (
+const HomeworkTask = ({ taskItem, userCanSubmitTask, courseId, sessionSlug, reviewUserId }) => (
   <div className='homework-task'>
     <div className='number'>{taskItem['number']}.</div>
     <div className='homework-body'>
@@ -23,7 +23,7 @@ const HomeworkTask = ({ taskItem, userCanSubmitTask, courseId, lessonSlug, revie
     {reviewUserId && (
       <TaskReview
         courseId={courseId}
-        lessonSlug={lessonSlug}
+        sessionSlug={sessionSlug}
         taskId={taskItem.id}
         reviewUserId={reviewUserId}
       />
@@ -31,7 +31,7 @@ const HomeworkTask = ({ taskItem, userCanSubmitTask, courseId, lessonSlug, revie
     {!reviewUserId && userCanSubmitTask && taskItem.submit && (
       <TaskSubmission
         courseId={courseId}
-        lessonSlug={lessonSlug}
+        sessionSlug={sessionSlug}
         taskId={taskItem.id}
       />
     )}
@@ -93,11 +93,11 @@ export default class LessonPage extends React.Component {
 
   static async getInitialProps({ req, query }) {
     const courseId = query.course
-    const lessonSlug = query.lesson
+    const sessionSlug = query.session
     const { reviewUserId } = query
     const data = await fetchPageData(req, {
       course: { 'course_detail': { 'course_id': courseId } },
-      lesson: { 'lesson_detail': { 'course_id': courseId, 'lesson_slug': lessonSlug } },
+      lesson: { 'session_detail': { 'course_id': courseId, 'session_slug': sessionSlug } },
       reviewUser: { 'review_user': { 'user_id': reviewUserId } },
     })
     return { courseId, ...data }

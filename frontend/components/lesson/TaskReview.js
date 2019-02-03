@@ -51,7 +51,7 @@ export default class TaskReview extends React.Component {
     try {
       const url = '/api/tasks/solution' +
         `?course_id=${encodeURIComponent(courseId)}` +
-        `&lesson_slug=${encodeURIComponent(lessonSlug)}` +
+        `&session_slug=${encodeURIComponent(lessonSlug)}` +
         `&task_id=${encodeURIComponent(taskId)}` +
         `&user_id=${encodeURIComponent(reviewUserId)}`
       const r = await fetch(url, {

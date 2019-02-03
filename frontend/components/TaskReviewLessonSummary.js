@@ -138,7 +138,7 @@ const TaskStatus = ({ courseId, lessonSlug, taskSolution }) => {
     content = '✓'
   }
   const href = {
-    pathname: '/lesson',
+    pathname: '/session',
     query: {
       course: courseId,
       lesson: lessonSlug,
