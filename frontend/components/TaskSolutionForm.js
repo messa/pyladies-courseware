@@ -4,7 +4,7 @@ import CodeEditor from './CodeEditor'
 
 const defaultCode = ''
 
-export default class HomeworkSubmission extends React.Component {
+export default class TaskSubmission extends React.Component {
 
   constructor(props) {
     super(props)
@@ -28,7 +28,7 @@ export default class HomeworkSubmission extends React.Component {
     const { loading } = this.props
     const { code } = this.state
     return (
-      <div className='HomeworkSubmitForm'>
+      <div className='TaskSubmitForm'>
         <CodeEditor
           value={code}
           onValueChange={this.handleCodeChange}

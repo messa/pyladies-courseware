@@ -49,7 +49,7 @@ export default class extends React.Component {
 
               <LessonItems lessonItems={lesson['lesson_items']} />
 
-              {lesson['has_homeworks'] && (
+              {lesson['has_tasks'] && (
                 <div>
                   <Button
                     as={ALink}

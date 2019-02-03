@@ -1,22 +1,22 @@
 import React from 'react'
 import { Button } from 'semantic-ui-react'
 import { Comment, Form, Header, Icon, TextArea, Message } from 'semantic-ui-react'
-import HomeworkSolutionForm from './HomeworkSolutionForm'
+import TaskSolutionForm from './TaskSolutionForm'
 import TaskComments from './lesson/TaskComments'
 
-const HomeworkSolution = ({ code }) => (
-  <div className='HomeworkSolution'>
+const TaskSolution = ({ code }) => (
+  <div className='TaskSolution'>
     <h4>Odevzdané řešení</h4>
     <pre>{code}</pre>
     <style jsx>{`
-      .HomeworkSolution pre {
+      .TaskSolution pre {
         overflow-x: auto;
       }
     `}</style>
   </div>
 )
 
-export default class HomeworkSubmission extends React.Component {
+export default class TaskSubmission extends React.Component {
 
   state = {
     open: false,
@@ -164,7 +164,7 @@ export default class HomeworkSubmission extends React.Component {
                 content={submitError}
               />
             )}
-            <HomeworkSolutionForm
+            <TaskSolutionForm
               onSubmit={this.handleSubmitSolution}
               code={taskSolution ? taskSolution.current_version.code : null}
               loading={submitInProgress}
@@ -174,7 +174,7 @@ export default class HomeworkSubmission extends React.Component {
     } else if (taskSolution) {
       content = (
         <>
-          <HomeworkSolution code={taskSolution.current_version.code} />
+          <TaskSolution code={taskSolution.current_version.code} />
           {taskSolution.is_solved ? (
             <div>
               <Icon
@@ -209,7 +209,7 @@ export default class HomeworkSubmission extends React.Component {
       )
     }
     return (
-      <div className='HomeworkSubmission'>
+      <div className='TaskSubmission'>
         {loading && (<p><em>Loading</em></p>)}
         {content}
         <TaskComments
@@ -217,10 +217,10 @@ export default class HomeworkSubmission extends React.Component {
           onAddCommentSubmit={this.handleAddCommentSubmit}
         />
         <style jsx global>{`
-          .HomeworkSubmission {
+          .TaskSubmission {
             margin-top: 1rem;
           }
-          .HomeworkSubmission .markedSolvedLabel {
+          .TaskSubmission .markedSolvedLabel {
             font-weight: 600;
             color: #0c0;
           }

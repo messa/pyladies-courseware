@@ -6,33 +6,33 @@ import fetchPageData from '../util/fetchPageData'
 import ALink from '../components/ALink'
 import LessonItems from '../components/LessonItems'
 import formatDate from '../util/formatDate'
-import HomeworkSubmission from '../components/HomeworkSubmission'
+import TaskSubmission from '../components/TaskSubmission'
 import TaskReviewLessonSummary from '../components/TaskReviewLessonSummary'
 import CourseOverview from '../components/lesson/CourseOverview'
 import TaskReview from '../components/lesson/TaskReview'
 
-const HomeworkTask = ({ hwItem, userCanSubmitHomework, courseId, lessonSlug, reviewUserId }) => (
+const HomeworkTask = ({ taskItem, userCanSubmitTask, courseId, lessonSlug, reviewUserId }) => (
   <div className='homework-task'>
-    <div className='number'>{hwItem['number']}.</div>
+    <div className='number'>{taskItem['number']}.</div>
     <div className='homework-body'>
-      {hwItem.mandatory && (
+      {taskItem.mandatory && (
         <div className='mandatory-sign'>☜</div>
       )}
-      <span dangerouslySetInnerHTML={{__html: hwItem['text_html'] }} />
+      <span dangerouslySetInnerHTML={{__html: taskItem['text_html'] }} />
     </div>
     {reviewUserId && (
       <TaskReview
         courseId={courseId}
         lessonSlug={lessonSlug}
-        taskId={hwItem.id}
+        taskId={taskItem.id}
         reviewUserId={reviewUserId}
       />
     )}
-    {!reviewUserId && userCanSubmitHomework && hwItem.submit && (
-      <HomeworkSubmission
+    {!reviewUserId && userCanSubmitTask && taskItem.submit && (
+      <TaskSubmission
         courseId={courseId}
         lessonSlug={lessonSlug}
-        taskId={hwItem.id}
+        taskId={taskItem.id}
       />
     )}
     <style jsx>{`
@@ -73,11 +73,11 @@ const HomeworkTask = ({ hwItem, userCanSubmitHomework, courseId, lessonSlug, rev
   </div>
 )
 
-const HomeworkSection = ({ hwItem }) => (
-  <div className='homework-section'>
-    <div dangerouslySetInnerHTML={{__html: hwItem['text_html'] }} />
+const TaskSection = ({ taskItem }) => (
+  <div className='task-section'>
+    <div dangerouslySetInnerHTML={{__html: taskItem['text_html'] }} />
     <style jsx>{`
-      .homework-section {
+      .task-section {
         margin: 2rem 0;
         color: #038;
         font-weight: 600;
@@ -105,10 +105,10 @@ export default class LessonPage extends React.Component {
 
   render() {
     const { user, courseId, lesson, course, reviewUser } = this.props
-    const userCanSubmitHomeworks = user && (user['is_admin'] || arrayContains(user['attended_course_ids'], courseId))
-    const userCanReviewHomeworks = user && (user['is_admin'] || arrayContains(user['coached_course_ids'], courseId))
+    const userCanSubmitTasks = user && (user['is_admin'] || arrayContains(user['attended_course_ids'], courseId))
+    const userCanReviewTasks = user && (user['is_admin'] || arrayContains(user['coached_course_ids'], courseId))
     const lessonSlug = lesson.slug
-    const tasks = lesson['homework_items'].filter(x => x.homework_item_type === 'task')
+    const tasks = lesson['task_items'].filter(x => x.task_item_type === 'task')
     return (
       <Layout user={user} width={1200}>
         <Grid relaxed padded>
@@ -132,7 +132,7 @@ export default class LessonPage extends React.Component {
 
               <LessonItems lessonItems={lesson['lesson_items']} />
 
-              {userCanReviewHomeworks && (
+              {userCanReviewTasks && (
                 <>
                   <h2>Odevzdané projekty</h2>
                   <TaskReviewLessonSummary
@@ -157,27 +157,27 @@ export default class LessonPage extends React.Component {
                 )}
               </h2>
 
-              {lesson['homework_items'].map((hwItem, i) => {
-                switch (hwItem.homework_item_type) {
+              {lesson['task_items'].map((taskItem, i) => {
+                switch (taskItem.task_item_type) {
                   case 'task': return (
                     <HomeworkTask
                       key={`${courseId} ${lessonSlug} ${i}`}
-                      hwItem={hwItem}
-                      userCanSubmitHomework={userCanSubmitHomeworks}
+                      taskItem={taskItem}
+                      userCanSubmitTask={userCanSubmitTasks}
                       courseId={courseId}
                       lessonSlug={lessonSlug}
                       reviewUserId={reviewUser ? reviewUser.id : null}
                     />
                   )
                   case 'section': return (
-                    <HomeworkSection
+                    <TaskSection
                       key={`${courseId} ${lessonSlug} ${i}`}
-                      hwItem={hwItem}
+                      taskItem={taskItem}
                     />
                   )
                   default: return (
                     <pre key={`${courseId} ${lessonSlug} ${i}`} className='debug'>
-                      {JSON.stringify({ hwItem }, null, 2)}
+                      {JSON.stringify({ taskItem }, null, 2)}
                     </pre>
                   )
                 }
