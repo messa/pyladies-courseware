@@ -47,11 +47,11 @@ export default class TaskReview extends React.Component {
   }
 
   async loadData() {
-    const { courseId, lessonSlug, taskId, reviewUserId } = this.props
+    const { courseId, sessionSlug, taskId, reviewUserId } = this.props
     try {
       const url = '/api/tasks/solution' +
         `?course_id=${encodeURIComponent(courseId)}` +
-        `&session_slug=${encodeURIComponent(lessonSlug)}` +
+        `&session_slug=${encodeURIComponent(sessionSlug)}` +
         `&task_id=${encodeURIComponent(taskId)}` +
         `&user_id=${encodeURIComponent(reviewUserId)}`
       const r = await fetch(url, {

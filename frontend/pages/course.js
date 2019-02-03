@@ -4,7 +4,7 @@ import { Button } from 'semantic-ui-react'
 import Layout from '../components/Layout'
 import fetchPageData from '../util/fetchPageData'
 import ALink from '../components/ALink'
-import LessonItems from '../components/LessonItems'
+import MaterialItems from '../components/MaterialItems'
 import formatDate from '../util/formatDate'
 
 export default class extends React.Component {
@@ -47,7 +47,7 @@ export default class extends React.Component {
               </h2>
               <div className='sessionDate'>{formatDate(session['date'])}</div>
 
-              <LessonItems lessonItems={session['lesson_items']} />
+              <MaterialItems materialItems={session['material_items']} />
 
               {session['has_tasks'] && (
                 <div>

@@ -190,7 +190,7 @@ class Session:
             'date': parse_date(raw['date']),
             'title_html': to_html(raw['title']),
         }
-        self.lesson_items = [LessonItem(x) for x in raw.get('items', [])]
+        self.material_items = [LessonItem(x) for x in raw.get('items', [])]
         self.task_items = []
         for raw_hw in raw.get('tasks', []):
             if raw_hw.get('file'):
@@ -206,7 +206,7 @@ class Session:
         d = {
             **self.data,
             'date': self.data['date'].isoformat(),
-            'lesson_items': [li.export() for li in self.lesson_items],
+            'material_items': [li.export() for li in self.material_items],
             'has_tasks': bool(self.task_items),
         }
         if tasks:
@@ -236,25 +236,25 @@ class LessonItem:
     def __init__(self, raw):
         if raw.get('lesson'):
             self.data = {
-                'lesson_item_type': 'lesson',
+                'material_item_type': 'lesson',
                 'title_html': to_html(raw['lesson']),
                 'url': raw['url'],
             }
         elif raw.get('cheatsheet'):
             self.data = {
-                'lesson_item_type': 'cheatsheet',
+                'material_item_type': 'cheatsheet',
                 'title_html': to_html(raw['cheatsheet']),
                 'url': raw['url'],
             }
         elif raw.get('attachment'):
             self.data = {
-                'lesson_item_type': 'attachment',
+                'material_item_type': 'attachment',
                 'title_html': to_html(raw['attachment']),
                 'url': raw['url'],
             }
         elif raw.get('text'):
             self.data = {
-                'lesson_item_type': 'text',
+                'material_item_type': 'text',
                 'text_html': to_html(raw['text']),
             }
         else:

@@ -56,7 +56,7 @@ export default class TaskReviewLessonSummary extends React.Component {
 
   render() {
     const { loading, loadError, students, taskSolutionsByUserAndTaskId } = this.state
-    const { courseId, lessonSlug, tasks, reviewUserId } = this.props
+    const { courseId, sessionSlug, tasks, reviewUserId } = this.props
     return (
       <div>
         {loading && (<p><em>Loading</em></p>)}
@@ -72,7 +72,7 @@ export default class TaskReviewLessonSummary extends React.Component {
           <div style={{ overflowX: 'auto' }}>
             <TaskReviewLessonSummaryTable
               courseId={courseId}
-              lessonSlug={lessonSlug}
+              sessionSlug={sessionSlug}
               students={students}
               tasks={tasks}
               taskSolutionsByUserAndTaskId={taskSolutionsByUserAndTaskId}
@@ -88,7 +88,7 @@ export default class TaskReviewLessonSummary extends React.Component {
   }
 }
 
-const TaskReviewLessonSummaryTable = ({ courseId, lessonSlug, students, tasks, taskSolutionsByUserAndTaskId, reviewUserId }) => (
+const TaskReviewLessonSummaryTable = ({ courseId, sessionSlug, students, tasks, taskSolutionsByUserAndTaskId, reviewUserId }) => (
   <Table basic celled size='small' compact unstackable>
     <Table.Header>
       <Table.Row>
@@ -117,7 +117,7 @@ const TaskReviewLessonSummaryTable = ({ courseId, lessonSlug, students, tasks, t
             <Table.Cell key={i}>
               <TaskStatus
                 courseId={courseId}
-                lessonSlug={lessonSlug}
+                sessionSlug={sessionSlug}
                 taskSolution={taskSolutionsByUserAndTaskId.get(`${student.id}|${task.id}`)}
               />
             </Table.Cell>
@@ -129,7 +129,7 @@ const TaskReviewLessonSummaryTable = ({ courseId, lessonSlug, students, tasks, t
 )
 
 
-const TaskStatus = ({ courseId, lessonSlug, taskSolution }) => {
+const TaskStatus = ({ courseId, sessionSlug, taskSolution }) => {
   if (!taskSolution) {
     return '·'
   }
@@ -141,7 +141,7 @@ const TaskStatus = ({ courseId, lessonSlug, taskSolution }) => {
     pathname: '/session',
     query: {
       course: courseId,
-      lesson: lessonSlug,
+      session: sessionSlug,
       reviewUserId: taskSolution.user_id,
     },
     hash: 'tasks'

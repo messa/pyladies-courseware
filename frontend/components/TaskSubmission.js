@@ -45,10 +45,10 @@ export default class TaskSubmission extends React.Component {
 
   async loadData() {
     try {
-      const { courseId, lessonSlug, taskId } = this.props
+      const { courseId, sessionSlug, taskId } = this.props
       const url = '/api/tasks/solution' +
         `?course_id=${encodeURIComponent(courseId)}` +
-        `&session_slug=${encodeURIComponent(lessonSlug)}` +
+        `&session_slug=${encodeURIComponent(sessionSlug)}` +
         `&task_id=${encodeURIComponent(taskId)}`
       const r = await fetch(url, {
         credentials: 'same-origin',

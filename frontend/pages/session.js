@@ -4,7 +4,7 @@ import { Button, Grid } from 'semantic-ui-react'
 import Layout from '../components/Layout'
 import fetchPageData from '../util/fetchPageData'
 import ALink from '../components/ALink'
-import LessonItems from '../components/LessonItems'
+import MaterialItems from '../components/MaterialItems'
 import formatDate from '../util/formatDate'
 import TaskSubmission from '../components/TaskSubmission'
 import TaskReviewLessonSummary from '../components/TaskReviewLessonSummary'
@@ -89,7 +89,7 @@ function arrayContains(array, item) {
   return array && array.indexOf(item) !== -1
 }
 
-export default class LessonPage extends React.Component {
+export default class SessionPage extends React.Component {
 
   static async getInitialProps({ req, query }) {
     const courseId = query.course
@@ -97,18 +97,18 @@ export default class LessonPage extends React.Component {
     const { reviewUserId } = query
     const data = await fetchPageData(req, {
       course: { 'course_detail': { 'course_id': courseId } },
-      lesson: { 'session_detail': { 'course_id': courseId, 'session_slug': sessionSlug } },
+      session: { 'session_detail': { 'course_id': courseId, 'session_slug': sessionSlug } },
       reviewUser: { 'review_user': { 'user_id': reviewUserId } },
     })
     return { courseId, ...data }
   }
 
   render() {
-    const { user, courseId, lesson, course, reviewUser } = this.props
+    const { user, courseId, session, course, reviewUser } = this.props
     const userCanSubmitTasks = user && (user['is_admin'] || arrayContains(user['attended_course_ids'], courseId))
     const userCanReviewTasks = user && (user['is_admin'] || arrayContains(user['coached_course_ids'], courseId))
-    const lessonSlug = lesson.slug
-    const tasks = lesson['task_items'].filter(x => x.task_item_type === 'task')
+    const sessionSlug = session.slug
+    const tasks = session['task_items'].filter(x => x.task_item_type === 'task')
     return (
       <Layout user={user} width={1200}>
         <Grid relaxed padded>
@@ -121,24 +121,24 @@ export default class LessonPage extends React.Component {
             <Grid.Column width={16} computer={12}>
 
               <h1 style={{ marginTop: '1rem' }}>
-                <span dangerouslySetInnerHTML={{__html: lesson['title_html']}} />
+                <span dangerouslySetInnerHTML={{__html: session['title_html']}} />
                 {' '}&nbsp;
                 <small style={{ fontWeight: 300, color: '#c39', whiteSpace: 'nowrap' }}>
-                  {formatDate(lesson['date'])}
+                  {formatDate(session['date'])}
                 </small>
               </h1>
 
               <h2>Materiály</h2>
 
-              <LessonItems lessonItems={lesson['lesson_items']} />
+              <MaterialItems materialItems={session['material_items']} />
 
               {userCanReviewTasks && (
                 <>
                   <h2>Odevzdané projekty</h2>
                   <TaskReviewLessonSummary
-                    key={`${courseId} ${lessonSlug}`}
+                    key={`${courseId} ${sessionSlug}`}
                     courseId={courseId}
-                    lessonSlug={lessonSlug}
+                    sessionSlug={sessionSlug}
                     tasks={tasks}
                     reviewUserId={reviewUser ? reviewUser.id : null}
                   />
@@ -157,26 +157,26 @@ export default class LessonPage extends React.Component {
                 )}
               </h2>
 
-              {lesson['task_items'].map((taskItem, i) => {
+              {session['task_items'].map((taskItem, i) => {
                 switch (taskItem.task_item_type) {
                   case 'task': return (
                     <HomeworkTask
-                      key={`${courseId} ${lessonSlug} ${i}`}
+                      key={`${courseId} ${sessionSlug} ${i}`}
                       taskItem={taskItem}
                       userCanSubmitTask={userCanSubmitTasks}
                       courseId={courseId}
-                      lessonSlug={lessonSlug}
+                      sessionSlug={sessionSlug}
                       reviewUserId={reviewUser ? reviewUser.id : null}
                     />
                   )
                   case 'section': return (
                     <TaskSection
-                      key={`${courseId} ${lessonSlug} ${i}`}
+                      key={`${courseId} ${sessionSlug} ${i}`}
                       taskItem={taskItem}
                     />
                   )
                   default: return (
-                    <pre key={`${courseId} ${lessonSlug} ${i}`} className='debug'>
+                    <pre key={`${courseId} ${sessionSlug} ${i}`} className='debug'>
                       {JSON.stringify({ taskItem }, null, 2)}
                     </pre>
                   )
