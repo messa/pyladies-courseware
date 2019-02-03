@@ -6,22 +6,7 @@ course_detail:
   id: sample-course
   lessons:
   - date: '2018-03-07'
-    has_homeworks: true
-    homework_items:
-    - homework_item_type: task
-      id: n9mnfIjOerVh
-      mandatory: true
-      number: 0
-      submit: true
-      text_html: <p>Dělení? Znak ÷ se taky na klávesnici těžko píše (zvlášť na české). Jak se asi bude dělit?</p>
-    - homework_item_type: task
-      id: 1-instalace-1
-      mandatory: false
-      number: 1
-      submit: true
-      text_html: |-
-        <p>Závorky v Pythonu fungují jako v matematice. Zkus pomocí Pythonu vypočítat: 3+(4+6)×8÷2−1 =</p>
-        <p>Jak se to zapíše v Pythonu?</p>
+    has_tasks: true
     lesson_items:
     - lesson_item_type: attachment
       title_html: Úvodní prezentace
@@ -39,15 +24,30 @@ course_detail:
       title_html: Tahák na klávesnici (PDF)
       url: https://pyvec.github.io/cheatsheets/keyboard/keyboard-cs.pdf
     slug: 1-instalace
+    task_items:
+    - id: n9mnfIjOerVh
+      mandatory: true
+      number: 0
+      submit: true
+      task_item_type: task
+      text_html: <p>Dělení? Znak ÷ se taky na klávesnici těžko píše (zvlášť na české). Jak se asi bude dělit?</p>
+    - id: 1-instalace-1
+      mandatory: false
+      number: 1
+      submit: true
+      task_item_type: task
+      text_html: |-
+        <p>Závorky v Pythonu fungují jako v matematice. Zkus pomocí Pythonu vypočítat: 3+(4+6)×8÷2−1 =</p>
+        <p>Jak se to zapíše v Pythonu?</p>
     title_html: Lekce 1 – Instalace
   - date: '2018-03-14'
-    has_homeworks: false
-    homework_items: []
+    has_tasks: false
     lesson_items:
     - lesson_item_type: lesson
       title_html: První program
       url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/hello-world/
     slug: 2-prvni-program
+    task_items: []
     title_html: Lekce 2 – První program
   start_date: '2018-03-07'
   subtitle_html: Praha (NTK) - jaro 2018

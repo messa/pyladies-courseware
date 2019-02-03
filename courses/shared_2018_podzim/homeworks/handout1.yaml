@@ -1,6 +1,6 @@
 # https://github.com/PyLadiesCZ/pyladies.cz/raw/master/original/v1/s001-install/handout/handout.pdf
 
-homeworks:
+tasks:
 
 - markdown: |
     Doma (nebo pár dní po instalaci, pokud nejsi na srazu) si znovu spusť Python a zkus, jestli stále funguje.

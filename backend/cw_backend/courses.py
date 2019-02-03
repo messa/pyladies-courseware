@@ -171,14 +171,14 @@ class Course:
                 return lesson
         raise Exception(f'Lesson with slug {slug!r} not found in {self}')
 
-    def export(self, lessons=False, homeworks=False):
+    def export(self, lessons=False, tasks=False):
         d = {
             **self.data,
             'start_date': self.data['start_date'].isoformat(),
             'end_date': self.data['end_date'].isoformat(),
         }
         if lessons:
-            d['lessons'] = [lesson.export(homeworks=homeworks) for lesson in self.lessons]
+            d['lessons'] = [lesson.export(tasks=tasks) for lesson in self.lessons]
         return d
 
 
@@ -191,10 +191,10 @@ class Lesson:
             'title_html': to_html(raw['title']),
         }
         self.lesson_items = [LessonItem(x) for x in raw.get('items', [])]
-        self.homework_items = []
-        for raw_hw in raw.get('homeworks', []):
+        self.task_items = []
+        for raw_hw in raw.get('tasks', []):
             if raw_hw.get('file'):
-                self.homework_items.extend(load_homeworks_file(
+                self.task_items.extend(load_tasks_file(
                     dir_path / raw_hw['file'],
                     lesson_slug=self.data['slug'],
                     file_loader=file_loader))
@@ -202,33 +202,33 @@ class Lesson:
     slug = DataProperty('slug')
     date = DataProperty('date')
 
-    def export(self, homeworks=False):
+    def export(self, tasks=False):
         d = {
             **self.data,
             'date': self.data['date'].isoformat(),
             'lesson_items': [li.export() for li in self.lesson_items],
-            'has_homeworks': bool(self.homework_items),
+            'has_tasks': bool(self.task_items),
         }
-        if homeworks:
-            d['homework_items'] = [hi.export() for hi in self.homework_items]
+        if tasks:
+            d['task_items'] = [hi.export() for hi in self.task_items]
         return d
 
 
-def load_homeworks_file(file_path, lesson_slug, file_loader):
+def load_tasks_file(file_path, lesson_slug, file_loader):
     try:
         raw = yaml_load(file_loader.read_text(file_path))
     except Exception as e:
-        raise Exception(f'Failed to load homeworks file {file_path}: {e}')
-    homework_items = []
+        raise Exception(f'Failed to load tasks file {file_path}: {e}')
+    task_items = []
     counter = count()
-    for raw_item in raw['homeworks']:
+    for raw_item in raw['tasks']:
         if raw_item.get('section'):
-            homework_items.append(HomeworkSection(raw_item['section']))
+            task_items.append(TaskSection(raw_item['section']))
         elif raw_item.get('markdown'):
-            homework_items.append(HomeworkTask(raw_item, lesson_slug, next(counter)))
+            task_items.append(Task(raw_item, lesson_slug, next(counter)))
         else:
-            raise Exception(f'Unknown item in homeworks file {file_path}: {smart_repr(raw_item)}')
-    return homework_items
+            raise Exception(f'Unknown item in tasks file {file_path}: {smart_repr(raw_item)}')
+    return task_items
 
 
 class LessonItem:
@@ -265,11 +265,11 @@ class LessonItem:
 
 
 
-class HomeworkSection:
+class TaskSection:
 
     def __init__(self, raw_section):
         self.data = {
-            'homework_item_type': 'section',
+            'task_item_type': 'section',
             'text_html': to_html(raw_section),
         }
 
@@ -277,11 +277,11 @@ class HomeworkSection:
         return self.data
 
 
-class HomeworkTask:
+class Task:
 
     def __init__(self, raw, lesson_slug, default_number):
         self.data = {
-            'homework_item_type': 'task',
+            'task_item_type': 'task',
             'id': str(raw.get('id') or f'{lesson_slug}-{default_number}'),
             'number': default_number,
             'text_html': to_html(raw),

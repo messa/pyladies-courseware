@@ -91,7 +91,7 @@ def lesson_detail(req, params):
     course = req.app['courses'].get().get_by_id(params['course_id'])
     lesson = course.get_lesson_by_slug(params['lesson_slug'])
     return {
-        **lesson.export(homeworks=True),
+        **lesson.export(tasks=True),
         'course': course.export(),
     }
 

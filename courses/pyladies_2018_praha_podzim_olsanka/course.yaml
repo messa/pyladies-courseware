@@ -31,7 +31,7 @@ lessons:
     url: https://naucse.python.cz/2018/pyladies-praha-podzim-cznic/git/install/
   - cheatsheet: Tahák na klávesnici (PDF)
     url: https://pyvec.github.io/cheatsheets/keyboard/keyboard-cs.pdf
-  homeworks:
+  tasks:
   - file: ../shared_2018_podzim/homeworks/handout1.yaml
 
 - title: Lekce 2 – První program
@@ -50,7 +50,7 @@ lessons:
     url: https://naucse.python.cz/2018/pyladies-praha-podzim-cznic/beginners/and-or/
   - cheatsheet: Tahák na příkazovou řádku a první kroky v Pythonu (PDF)
     url: https://s3-eu-west-1.amazonaws.com/messa-shared-files/2017/09/pyladies_2_lekce_tahak.pdf
-  homeworks:
+  tasks:
   - file: ../shared_2018_podzim/homeworks/handout2.yaml
 
 - title: Lekce 3 – Cykly
@@ -64,7 +64,7 @@ lessons:
     url: https://naucse.python.cz/2018/pyladies-praha-podzim-cznic/beginners/while/
   - cheatsheet: Tahák s užitečnými funkcemi
     url: https://pyvec.github.io/cheatsheets/basic-functions/basic-functions-cs.pdf
-  homeworks:
+  tasks:
   - file: ../shared_2018_podzim/homeworks/handout3a.yaml
 
 - title: Lekce 4 – Funkce & Řetězce
@@ -77,7 +77,7 @@ lessons:
     url: https://naucse.python.cz/2018/pyladies-praha-podzim-cznic/beginners/str/
   - cheatsheet: Řetězcový tahák
     url: https://pyvec.github.io/cheatsheets/strings/strings-cs.pdf
-  homeworks:
+  tasks:
   - file: ../shared_2018_podzim/homeworks/handout4.yaml
 
 - title: Lekce 5 – Procvičování a soubory
@@ -98,7 +98,7 @@ lessons:
     url: https://naucse.python.cz/2018/pyladies-praha-podzim-cznic/git/branching/
   - cheatsheet: Gitový tahák
     url: https://pyvec.github.io/cheatsheets/basic-git/basic-git-cs.pdf
-  homeworks:
+  tasks:
   - file: ../shared_2018_podzim/homeworks/handout3b.yaml
 
 - title: Lekce 7 – Seznamy
@@ -111,7 +111,7 @@ lessons:
     url: https://naucse.python.cz/2018/pyladies-praha-podzim-cznic/beginners/tuple/
   - cheatsheet: Tahák na seznamy
     url: https://pyvec.github.io/cheatsheets/lists/lists-cs.pdf
-  homeworks:
+  tasks:
   - file: ../shared_2018_podzim/homeworks/handout6.yaml
 
 - title: Lekce 8 – Slovníky
@@ -126,7 +126,7 @@ lessons:
     url: https://naucse.python.cz/2018/pyladies-praha-podzim-cznic/projects/github-api/
   - cheatsheet: Slovníkový tahák
     url: https://pyvec.github.io/cheatsheets/dicts/dicts-cs.pdf
-  homeworks:
+  tasks:
   - file: ../shared_2018_podzim/homeworks/handout8.yaml
 
 - title: Lekce 9 – Testování
@@ -143,7 +143,7 @@ lessons:
     url: https://naucse.python.cz/2018/pyladies-praha-podzim-cznic/beginners/circular-imports/
   - cheatsheet: Výjimkový tahák
     url: https://pyvec.github.io/cheatsheets/exceptions/exceptions-cs.pdf
-  homeworks:
+  tasks:
   - file: ../shared_2018_podzim/homeworks/handout9.yaml
 
 - title: Lekce 10 – Grafika
@@ -158,7 +158,7 @@ lessons:
     url: http://pyladies.cz/v1/s012-pyglet/pong.py
   - cheatsheet: Tahák na Pyglet
     url: https://pyvec.github.io/cheatsheets/pyglet/pyglet-basics-cs.pdf
-  homeworks:
+  tasks:
   - file: ../shared_2018_podzim/homeworks/handout10.yaml
 
 - title: Lekce 11 – Třídy
@@ -170,7 +170,7 @@ lessons:
     url: https://naucse.python.cz/2018/pyladies-praha-podzim-cznic/beginners/class/
   - lesson: Dědičnost
     url: https://naucse.python.cz/2018/pyladies-praha-podzim-cznic/beginners/inheritance/
-  homeworks:
+  tasks:
   - file: ../shared_2018_podzim/homeworks/handout11.yaml
 
 - title: Lekce 12 - Data

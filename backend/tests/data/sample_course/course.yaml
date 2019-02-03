@@ -22,7 +22,7 @@ lessons:
     url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/git/install/
   - cheatsheet: Tahák na klávesnici (PDF)
     url: https://pyvec.github.io/cheatsheets/keyboard/keyboard-cs.pdf
-  homeworks:
+  tasks:
   - file: homeworks1.yaml
 
 - title: Lekce 2 – První program
