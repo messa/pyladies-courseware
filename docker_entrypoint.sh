@@ -4,7 +4,7 @@ set -ex
 
 mkdir -p /mongo-data
 
-export DATA_DIR=/data
+export COURSES_FILE=/data/courses.yaml
 
 /usr/bin/mongod --dbpath /mongo-data &
 ( cd /frontend && npm run start & )

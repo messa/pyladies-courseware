@@ -27,7 +27,7 @@ COPY --from=build_frontend /frontend /frontend
 COPY --from=build_backend /usr/local /usr/local
 COPY --from=build_backend /usr/lib /usr/lib
 COPY --from=build_backend /venv /venv
-COPY courses /data/courses
+COPY data /data
 RUN ldconfig
 COPY nginx.conf docker_entrypoint.sh /
 EXPOSE 8000

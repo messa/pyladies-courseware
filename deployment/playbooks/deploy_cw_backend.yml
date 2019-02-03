@@ -47,7 +47,7 @@
       network_mode: host
       volumes:
       - /srv/cw-backend/conf:/conf
-      - /srv/cw-backend/data:/data
+      - /srv/cw-backend/data/data:/data
       env:
         CW_CONF: /conf/backend.yaml
-        DATA_DIR: /data
+        COURSES_FILE: /data/courses.yaml
