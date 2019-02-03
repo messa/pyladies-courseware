@@ -25,12 +25,12 @@ def load_course(course_file):
     return Course(course_file, file_loader=FileLoader())
 
 
-def load_courses(data_dir):
+def load_courses(courses_file):
     '''
     Load all files courses/*/course.yaml from a given directory.
     Returns Courses wrapped inside ReloadingContainer.
     '''
-    return ReloadingContainer(factory=partial(Courses, data_dir=data_dir))
+    return ReloadingContainer(factory=partial(Courses, courses_file=courses_file))
 
 
 class FileLoader:
@@ -79,9 +79,13 @@ class ReloadingContainer:
 
 class Courses:
 
-    def __init__(self, data_dir, file_loader):
-        assert isinstance(data_dir, Path)
-        self.courses = [Course(p, file_loader=file_loader) for p in data_dir.glob('courses/*/course.yaml')]
+    def __init__(self, courses_file, file_loader):
+        assert isinstance(courses_file, Path)
+        self.courses = []
+        raw = yaml_load(file_loader.read_text(courses_file))
+        for c in raw['courses']:
+            p = courses_file.parent / c['file']
+            self.courses.append(Course(p, file_loader=file_loader))
         self.courses.sort(key=lambda c: c.start_date) # newest first
         self.courses.sort(key=lambda c: c.start_date.year, reverse=True)
 

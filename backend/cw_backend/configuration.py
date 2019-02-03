@@ -16,13 +16,19 @@ class Configuration:
     def __init__(self):
         if os.environ.get('CW_CONF'):
             cfg_path = Path(os.environ['CW_CONF']).resolve()
+            cfg_dir = cfg_path.parent
             try:
                 cfg = yaml_load(cfg_path.read_text())
             except Exception as e:
                 raise Exception(f'Failed to read configuration file {cfg_path}: {e!r}') from None
         else:
             cfg = {}
-        self.data_dir = Path(os.environ.get('DATA_DIR') or cfg.get('data_dir') or here.parent.parent)
+        if os.environ.get('COURSES_FILE'):
+            self.courses_file = Path(os.environ['COURSES_FILE'])
+        elif cfg.get('courses_file'):
+            self.courses_file = cfg_dir / cfg['courses_file']
+        else:
+            self.courses_file = here.parent.parent / 'courses/courses.yaml'
         self.fb_oauth2 = OAuth2('fb', cfg)
         self.google_oauth2 = OAuth2('google', cfg)
         self.allow_dev_login = bool(os.environ.get('ALLOW_DEV_LOGIN'))

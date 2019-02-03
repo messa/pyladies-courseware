@@ -21,7 +21,7 @@ def test_load_sample_course(data_dir):
 
 
 def test_all_courses_can_be_loaded_and_exported(top_dir):
-    courses = load_courses(top_dir).get()
+    courses = load_courses(top_dir / 'courses/courses.yaml').get()
     assert len(courses) >= 1
     # check that course.export() works
     for course in courses:

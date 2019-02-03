@@ -39,7 +39,7 @@ async def get_app(conf):
 
     session_setup(app, MongoStorage(mongo_db['sessions'], max_age=3600*24*90))
     app['conf'] = conf
-    app['courses'] = load_courses(conf.data_dir)
+    app['courses'] = load_courses(conf.courses_file)
     app['model'] = model
     app.add_routes(all_routes)
     return app
