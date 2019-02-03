@@ -7,7 +7,6 @@ except ImportError as e:
     from yaml import Loader, Dumper
 
 
-
 def yaml_dump(obj, Dumper=None, Loader=None, indent=None, width=250):
     '''
     :return: YAML string
