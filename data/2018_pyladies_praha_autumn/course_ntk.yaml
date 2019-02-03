@@ -1,3 +1,4 @@
+id: pyladies-2018-praha-podzim-ntk
 title: Začátečnický kurz PyLadies
 subtitle: Praha (NTK) – podzim 2018
 description:
@@ -28,7 +29,7 @@ sessions:
   - cheatsheet: Tahák na klávesnici (PDF)
     url: https://pyvec.github.io/cheatsheets/keyboard/keyboard-cs.pdf
   tasks:
-  - file: ../shared_2018_podzim/homeworks/handout1.yaml
+  - file: homeworks/handout1.yaml
 
 - title: Lekce 2 – První program
   date: 19. 9. 2018
@@ -47,7 +48,7 @@ sessions:
   - cheatsheet: Tahák na příkazovou řádku a první kroky v Pythonu (PDF)
     url: https://s3-eu-west-1.amazonaws.com/messa-shared-files/2017/09/pyladies_2_lekce_tahak.pdf
   tasks:
-  - file: ../shared_2018_podzim/homeworks/handout2.yaml
+  - file: homeworks/handout2.yaml
 
 - title: Lekce 3 – Cykly
   date: 26. 9. 2018
@@ -61,7 +62,7 @@ sessions:
   - cheatsheet: Tahák s užitečnými funkcemi
     url: https://pyvec.github.io/cheatsheets/basic-functions/basic-functions-cs.pdf
   tasks:
-  - file: ../shared_2018_podzim/homeworks/handout3a.yaml
+  - file: homeworks/handout3a.yaml
 
 - title: Lekce 4 – Funkce & Řetězce
   date: 3. 10. 2018
@@ -74,7 +75,7 @@ sessions:
   - cheatsheet: Řetězcový tahák
     url: https://pyvec.github.io/cheatsheets/strings/strings-cs.pdf
   tasks:
-  - file: ../shared_2018_podzim/homeworks/handout4.yaml
+  - file: homeworks/handout4.yaml
 
 - title: Lekce 5 – Procvičování a soubory
   date: 10. 10. 2018
@@ -95,7 +96,7 @@ sessions:
   - cheatsheet: Gitový tahák
     url: https://pyvec.github.io/cheatsheets/basic-git/basic-git-cs.pdf
   tasks:
-  - file: ../shared_2018_podzim/homeworks/handout3b.yaml
+  - file: homeworks/handout3b.yaml
 
 - title: Lekce 7 – Seznamy
   date: 24. 10. 2018
@@ -108,7 +109,7 @@ sessions:
   - cheatsheet: Tahák na seznamy
     url: https://pyvec.github.io/cheatsheets/lists/lists-cs.pdf
   tasks:
-  - file: ../shared_2018_podzim/homeworks/handout6.yaml
+  - file: homeworks/handout6.yaml
 
 - title: Lekce 8 – Slovníky
   date: 31. 10. 2018
@@ -123,7 +124,7 @@ sessions:
   - cheatsheet: Slovníkový tahák
     url: https://pyvec.github.io/cheatsheets/dicts/dicts-cs.pdf
   tasks:
-  - file: ../shared_2018_podzim/homeworks/handout8.yaml
+  - file: homeworks/handout8.yaml
 
 - title: Lekce 9 – Testování
   date: 7. 11. 2018
@@ -140,7 +141,7 @@ sessions:
   - cheatsheet: Výjimkový tahák
     url: https://pyvec.github.io/cheatsheets/exceptions/exceptions-cs.pdf
   tasks:
-  - file: ../shared_2018_podzim/homeworks/handout9.yaml
+  - file: homeworks/handout9.yaml
 
 - title: Lekce 10 – Grafika
   date: 14. 11. 2018
@@ -155,7 +156,7 @@ sessions:
   - cheatsheet: Tahák na Pyglet
     url: https://pyvec.github.io/cheatsheets/pyglet/pyglet-basics-cs.pdf
   tasks:
-  - file: ../shared_2018_podzim/homeworks/handout10.yaml
+  - file: homeworks/handout10.yaml
 
 - title: Lekce 11 – Třídy
   date: 21. 11. 2018
@@ -166,7 +167,7 @@ sessions:
   - lesson: Dědičnost
     url: https://naucse.python.cz/2018/pyladies-praha-podzim-ntk/beginners/inheritance/
   tasks:
-  - file: ../shared_2018_podzim/homeworks/handout11.yaml
+  - file: homeworks/handout11.yaml
 
 - title: Lekce 12 – Závěrečný projekt
   date: 28. 11. 2018

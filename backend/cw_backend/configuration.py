@@ -28,7 +28,7 @@ class Configuration:
         elif cfg.get('courses_file'):
             self.courses_file = cfg_dir / cfg['courses_file']
         else:
-            self.courses_file = here.parent.parent / 'courses/courses.yaml'
+            self.courses_file = here.parent.parent / 'data/courses.yaml'
         self.fb_oauth2 = OAuth2('fb', cfg)
         self.google_oauth2 = OAuth2('google', cfg)
         self.allow_dev_login = bool(os.environ.get('ALLOW_DEV_LOGIN'))

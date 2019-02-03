@@ -142,7 +142,7 @@ class Course:
             raise Exception(f'Failed to load course file {course_file}: {e}')
         course_dir = course_file.parent
         self.data = {
-            'id': course_file.parent.name.replace('_', '-'),
+            'id': raw['id'],
             'title_html': to_html(raw['title']),
             'subtitle_html': to_html(raw['subtitle']),
             'description_html': to_html(raw['description']),
