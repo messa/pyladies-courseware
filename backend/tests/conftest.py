@@ -54,7 +54,6 @@ async def db():
     await client.drop_database(db.name)
 
 
-
 @fixture
 def conf():
     class Configuration:
