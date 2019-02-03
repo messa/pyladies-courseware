@@ -194,7 +194,7 @@ class Session:
             'date': parse_date(raw['date']),
             'title_html': to_html(raw['title']),
         }
-        self.material_items = [LessonItem(x) for x in raw.get('items', [])]
+        self.material_items = [LessonItem(x) for x in raw.get('materials', [])]
         self.task_items = []
         for raw_hw in raw.get('tasks', []):
             if raw_hw.get('file'):

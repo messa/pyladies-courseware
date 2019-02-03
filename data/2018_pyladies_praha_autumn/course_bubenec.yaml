@@ -17,7 +17,7 @@ sessions:
 - title: Lekce 1 – Instalace
   date: 13. 9. 2018
   slug: 1-instalace
-  items:
+  materials:
   - attachment: Úvodní prezentace
     url: http://pyladies.cz/v1/s001-install/uvod-praha.html
   - lesson: Úvod do příkazové řádky
@@ -38,7 +38,7 @@ sessions:
 - title: Lekce 2 – První program
   date: 20. 9. 2018
   slug: 2-prvni-program
-  items:
+  materials:
   - lesson: První program
     url: https://naucse.python.cz/2018/pyladies-praha-podzim-bubenec/beginners/hello-world/
   - lesson: Print a chybové hlášky
@@ -56,7 +56,7 @@ sessions:
 
 - title: Lekce 3 – Cykly
   date: 27. 9. 2018
-  items:
+  materials:
   - lesson: Funkce
     url: https://naucse.python.cz/2018/pyladies-praha-podzim-bubenec/beginners/functions/
   - lesson: Želva a cykly
@@ -71,7 +71,7 @@ sessions:
 - title: Lekce 4 – Funkce & Řetězce
   date: 4. 10. 2018
   slug: 4-funkce-a-retezce
-  items:
+  materials:
   - lesson: Vlastní funkce
     url: https://naucse.python.cz/2018/pyladies-praha-podzim-bubenec/beginners/def/
   - lesson: Řetězce
@@ -84,7 +84,7 @@ sessions:
 - title: Lekce 5 – Procvičování a soubory
   date: 11. 10. 2018
   slug: 5-soubory
-  items:
+  materials:
   - text: Procvičíme si vše, co jsme se naučily
   - lesson: Soubory
     url: https://naucse.python.cz/2018/pyladies-praha-podzim-bubenec/beginners/files/
@@ -92,7 +92,7 @@ sessions:
 - title: Lekce 6 – Spolupráce a Open-Source - Git
   date: 18. 10. 2018
   slug: 6-opensource-a-git
-  items:
+  materials:
   - lesson: Spolupráce a Git
     url: https://naucse.python.cz/2018/pyladies-praha-podzim-bubenec/git/git-collaboration-2in1/
   - lesson: Větvení v Gitu (Bonus)
@@ -105,7 +105,7 @@ sessions:
 - title: Lekce 7 – Seznamy
   date: 25. 10. 2018
   slug: 7-seznamy
-  items:
+  materials:
   - lesson: Seznamy
     url: https://naucse.python.cz/2018/pyladies-praha-podzim-bubenec/beginners/list/
   - lesson: N-tice
@@ -118,7 +118,7 @@ sessions:
 - title: Lekce 8 – Slovníky
   date: 1. 11. 2018
   slug: 8-slovniky
-  items:
+  materials:
   - lesson: Slovníky
     url: https://naucse.python.cz/2018/pyladies-praha-podzim-bubenec/beginners/dict/
   - lesson: JSON
@@ -133,7 +133,7 @@ sessions:
 - title: Lekce 9 – Testování
   date: 8. 11. 2018
   slug: 9-testovani
-  items:
+  materials:
   - lesson: Výjimky
     url: https://naucse.python.cz/2018/pyladies-praha-podzim-bubenec/beginners/exceptions/
   - lesson: Moduly
@@ -150,7 +150,7 @@ sessions:
 - title: Lekce 10 – Grafika
   date: 15. 11. 2018
   slug: 10-grafika
-  items:
+  materials:
   - lesson: Grafika
     url: https://naucse.python.cz/2018/pyladies-praha-podzim-bubenec/intro/pyglet/
   - lesson: 'Praktické cvičení: Pong'
@@ -165,7 +165,7 @@ sessions:
 - title: Lekce 11 – Třídy
   date: 22. 11. 2018
   slug: 11-tridy
-  items:
+  materials:
   - lesson: Třídy
     url: https://naucse.python.cz/2018/pyladies-praha-podzim-bubenec/beginners/class/
   - lesson: Dědičnost
@@ -176,7 +176,7 @@ sessions:
 - title: Lekce 12 – Data
   date: 29. 11. 2018
   slug: 12-zaverecny-projekt
-  items:
+  materials:
   - lesson: Notebook
     url: https://naucse.python.cz/2018/pyladies-praha-podzim-bubenec/intro/notebook/
   - lesson: Pandas
@@ -184,7 +184,7 @@ sessions:
 
 - title: Lekce 13 – Závěrečný projekt
   date: 6. 12. 2018
-  items:
+  materials:
   - lesson: Snake
     url: https://naucse.python.cz/2018/pyladies-praha-podzim-bubenec/projects/snake/
   - lesson: Asteroids

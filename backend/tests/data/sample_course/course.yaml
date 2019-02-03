@@ -12,7 +12,7 @@ sessions:
 - title: Lekce 1 – Instalace
   date: 7. 3. 2018
   slug: 1-instalace
-  items:
+  materials:
   - attachment: Úvodní prezentace
     url: http://pyladies.cz/v1/s001-install/uvod-praha.html
   - lesson: Úvod do příkazové řádky
@@ -29,6 +29,6 @@ sessions:
 - title: Lekce 2 – První program
   date: 14. 3. 2018
   slug: 2-prvni-program
-  items:
+  materials:
   - lesson: První program
     url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/hello-world/
