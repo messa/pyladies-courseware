@@ -1,13 +1,10 @@
 import React from 'react'
+import { graphql } from 'react-relay'
 import Link from 'next/link'
 import Layout from '../components/Layout'
-import fetchPageData from '../util/fetchPageData'
+import withData from '../util/withData'
 
-export default class extends React.Component {
-
-  static async getInitialProps({ req }) {
-    return await fetchPageData(req, { courses: 'list_courses' })
-  }
+class IndexPage extends React.Component {
 
   render() {
     const { user, courses } = this.props
@@ -53,3 +50,20 @@ export default class extends React.Component {
     )
   }
 }
+
+export default withData(IndexPage, {
+  query: graphql`
+    query pages_indexQuery {
+      courses {
+        edges {
+          node {
+            id
+          }
+        }
+      }
+      user {
+        id
+      }
+    }
+  `
+})
