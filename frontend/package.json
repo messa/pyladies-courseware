@@ -19,6 +19,6 @@
     "react-codemirror2": "^5.1.0",
     "react-dom": "^16.7.0",
     "semantic-ui-react": "^0.82.5",
-    "terser": "^3.14.1"
+    "terser": "3.14.1"
   }
 }
