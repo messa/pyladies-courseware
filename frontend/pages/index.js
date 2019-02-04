@@ -26,10 +26,18 @@ export default class extends React.Component {
           </p>
         ))}
 
-        {/*
         <h2>Proběhlé kurzy</h2>
-        <p>TBD&hellip;</p>
-        */}
+
+        {courses.past.map(course => (
+          <p key={course.id} className='course'>
+            <Link href={{ pathname: '/course', query: { course: course.id }}} prefetch><a>
+              <strong dangerouslySetInnerHTML={{__html: course.title_html}} />
+              {' – '}
+              <span dangerouslySetInnerHTML={{__html: course.subtitle_html}} />
+            </a></Link>
+          </p>
+        ))}
+
 
         <style jsx>{`
           p.course {

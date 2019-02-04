@@ -2,7 +2,7 @@ course_detail:
   description_html: |-
     <p>Národní technická knihovna, Technická 2710/6, Praha 6, 18:00–20:00</p>
     <p>Tady najdeš všechny materiály k brněnské verzi začátečnického kurzu PyLadies.</p>
-  end_date: '2018-03-07'
+  end_date: '2018-03-14'
   id: sample-course
   sessions:
   - date: '2018-03-07'

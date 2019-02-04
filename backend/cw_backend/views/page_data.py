@@ -58,9 +58,10 @@ def login_methods(req, params):
 
 @resolver
 def list_courses(req, params):
-    active_courses = req.app['courses'].get().list_active()
+    courses = req.app['courses'].get()
     return {
-        'active': [c.export() for c in active_courses],
+        'active': [c.export() for c in courses.list_active()],
+        'past': [c.export() for c in courses.list_past()],
     }
 
 

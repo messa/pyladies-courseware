@@ -52,6 +52,7 @@ sessions:
 
 - title: Lekce 3 – Cykly
   date: 26. 9. 2018
+  slug: '3'
   materials:
   - lesson: Funkce
     url: https://naucse.python.cz/2018/pyladies-praha-podzim-ntk/beginners/functions/
@@ -184,3 +185,4 @@ sessions:
 
 - title: Lekce 13 – Závěrečná procvičovací hodina
   date: 5. 12. 2018
+  slug: '13'

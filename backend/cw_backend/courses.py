@@ -1,5 +1,7 @@
 '''
 This module implements reading course data YAML files.
+
+This is not async. Use thread executor for running with async code.
 '''
 
 from datetime import date
@@ -8,6 +10,7 @@ from itertools import count
 import logging
 from pathlib import Path
 import re
+import requests
 from reprlib import repr as smart_repr
 from time import monotonic
 
@@ -22,7 +25,7 @@ def load_course(course_file):
     Load one course.yaml files.
     Returns Course object. Used in tests.
     '''
-    return Course(course_file, file_loader=FileLoader())
+    return Course(course_file, loader=Loader())
 
 
 def load_courses(courses_file):
@@ -61,31 +64,63 @@ class FileLoader:
                 logger.debug('Checking course data files took %.3f s', d)
 
 
+class APILoader:
+
+    def __init__(self):
+        self._rs = requests.session()
+
+    def dirty(self):
+        # TODO: perform HEAD requests and check Etag (or something similar)
+        return False
+
+    def get_json(self, url):
+        logger.debug('get_json %s', url)
+        r = self._rs.get(url)
+        r.raise_for_status()
+        return r.json()
+
+
+class Loader:
+
+    def __init__(self):
+        self._file_loader = FileLoader()
+        self._api_loader = APILoader()
+
+    def dirty(self):
+        return self._file_loader.dirty() or self._api_loader.dirty()
+
+    def read_text(self, path):
+        return self._file_loader.read_text(path)
+
+    def get_json(self, url):
+        return self._api_loader.get_json(url)
+
+
 class ReloadingContainer:
 
     def __init__(self, factory):
         self._factory = factory
-        self._file_loader = FileLoader()
         self._load()
 
     def _load(self):
-        self._obj = self._factory(file_loader=self._file_loader)
+        self._loader = Loader()
+        self._obj = self._factory(loader=self._loader)
 
     def get(self):
-        if self._file_loader.dirty():
+        if self._loader.dirty():
             self._load()
         return self._obj
 
 
 class Courses:
 
-    def __init__(self, courses_file, file_loader):
+    def __init__(self, courses_file, loader):
         assert isinstance(courses_file, Path)
         self.courses = []
-        raw = yaml_load(file_loader.read_text(courses_file))
+        raw = yaml_load(loader.read_text(courses_file))
         for c in raw['courses']:
             p = courses_file.parent / c['file']
-            self.courses.append(Course(p, file_loader=file_loader))
+            self.courses.append(Course(p, loader=loader))
         self.courses.sort(key=lambda c: c.start_date) # newest first
         self.courses.sort(key=lambda c: c.start_date.year, reverse=True)
 
@@ -96,8 +131,10 @@ class Courses:
         return len(self.courses)
 
     def list_active(self):
-        # TODO: add list of inactive?
-        return list(self.courses)
+        return [c for c in self.courses if c.is_active()]
+
+    def list_past(self):
+        return [c for c in self.courses if c.is_past()]
 
     def get_by_id(self, course_id):
         assert isinstance(course_id, str)
@@ -133,33 +170,47 @@ class DataProperty:
 
 class Course:
 
-    def __init__(self, course_file, file_loader):
+    def __init__(self, course_file, loader):
         assert isinstance(course_file, Path)
         logger.debug('Loading course from %s', course_file)
+
         try:
-            raw = yaml_load(file_loader.read_text(course_file))
+            raw = yaml_load(loader.read_text(course_file))
         except Exception as e:
             raise Exception(f'Failed to load course file {course_file}: {e}')
+
+        if raw.get('naucse_api_url'):
+            nc = loader.get_json(raw['naucse_api_url'])['course']
+        else:
+            nc = {}
+
         course_dir = course_file.parent
         self.data = {
             'id': raw['id'],
-            'title_html': to_html(raw['title']),
-            'subtitle_html': to_html(raw['subtitle']),
-            'description_html': to_html(raw['description']),
-            'start_date': parse_date(raw.get('start_date')),
-            'end_date': parse_date(raw.get('end_date')),
-
+            'title_html': to_html(raw.get('title') or nc.get('title')),
+            'subtitle_html': to_html(raw.get('subtitle') or nc.get('subtitle')),
+            'description_html': to_html(raw.get('description') or nc.get('description')),
+            'start_date': parse_date(raw.get('start_date') or nc.get('start_date')),
+            'end_date': parse_date(raw.get('end_date') or nc.get('end_date')),
         }
-        self.sessions = [Session(x, dir_path=course_dir, file_loader=file_loader) for x in raw['sessions']]
-        # fix sessions where no slug was specified in course.yaml
-        for n, sessions in enumerate(self.sessions, start=1):
-            if not sessions.slug:
-                sessions.slug = str(n)
+
+        local_sessions = {str(s['slug']): s for s in raw.get('sessions', [])}
+        naucse_sessions = {str(s['slug']): s for s in nc.get('sessions', [])}
+        self.sessions = []
+        for slug in local_sessions.keys() | naucse_sessions.keys():
+            self.sessions.append(Session(
+                slug=slug,
+                local_data=local_sessions.get(slug),
+                naucse_data=naucse_sessions.get(slug),
+                course_dir=course_dir,
+                loader=loader))
+
+        self.sessions.sort(key=lambda s: s.date)
         # get course start/end date from sessions if not specified in course data
-        if not self.data['start_date']:
-            self.data['start_date'] = min(sessions.date for sessions in self.sessions)
-        if not self.data['end_date']:
-            self.data['end_date'] = min(sessions.date for sessions in self.sessions)
+        if not self.data['start_date'] and self.sessions:
+            self.data['start_date'] = self.sessions[0].date
+        if not self.data['end_date'] and self.sessions:
+            self.data['end_date'] = self.sessions[-1].date
 
     id = DataProperty('id')
     start_date = DataProperty('start_date')
@@ -167,6 +218,12 @@ class Course:
 
     def __repr__(self):
         return f'<{self.__class__.__name__} id={self.id!r}>'
+
+    def is_active(self):
+        return not self.is_past()
+
+    def is_past(self):
+        return self.data['end_date'] < date.today()
 
     def get_session_by_slug(self, slug):
         assert isinstance(slug, str)
@@ -188,20 +245,40 @@ class Course:
 
 class Session:
 
-    def __init__(self, raw, dir_path, file_loader):
+    def __init__(self, slug, local_data, naucse_data, course_dir, loader):
+
+        def get(key, default=None):
+            for src in local_data, naucse_data:
+                if src and key in src:
+                    return src[key]
+            return default
+
         self.data = {
-            'slug': str(raw['slug']) if raw.get('slug') else None,
-            'date': parse_date(raw['date']),
-            'title_html': to_html(raw['title']),
+            'slug': slug,
+            'date': parse_date(get('date')),
+            'title_html': to_html(get('title')),
         }
-        self.material_items = [LessonItem(x) for x in raw.get('materials', [])]
+
+        self.material_items = []
+
+        if local_data and 'materials' in local_data:
+            for m in local_data['materials']:
+                self.material_items.append(MaterialItem(m))
+
+        elif naucse_data:
+            for m in naucse_data['materials']:
+                if m['type'] == 'homework':
+                    continue
+                self.material_items.append(NaucseMaterialItem(m))
+
         self.task_items = []
-        for raw_hw in raw.get('tasks', []):
-            if raw_hw.get('file'):
-                self.task_items.extend(load_tasks_file(
-                    dir_path / raw_hw['file'],
-                    session_slug=self.data['slug'],
-                    file_loader=file_loader))
+        if local_data and local_data.get('tasks', []):
+            for task_data in local_data['tasks']:
+                if task_data.get('file'):
+                    self.task_items.extend(load_tasks_file(
+                        course_dir / task_data['file'],
+                        session_slug=self.data['slug'],
+                        loader=loader))
 
     slug = DataProperty('slug')
     date = DataProperty('date')
@@ -218,9 +295,9 @@ class Session:
         return d
 
 
-def load_tasks_file(file_path, session_slug, file_loader):
+def load_tasks_file(file_path, session_slug, loader):
     try:
-        raw = yaml_load(file_loader.read_text(file_path))
+        raw = yaml_load(loader.read_text(file_path))
     except Exception as e:
         raise Exception(f'Failed to load tasks file {file_path}: {e}')
     task_items = []
@@ -235,7 +312,7 @@ def load_tasks_file(file_path, session_slug, file_loader):
     return task_items
 
 
-class LessonItem:
+class MaterialItem:
 
     def __init__(self, raw):
         if raw.get('lesson'):
@@ -262,11 +339,50 @@ class LessonItem:
                 'text_html': to_html(raw['text']),
             }
         else:
-            raise Exception(f'Unknown LessonItem data: {smart_repr(raw)}')
+            raise Exception(f'Unknown MaterialItem data: {smart_repr(raw)}')
 
     def export(self):
         return self.data
 
+
+class NaucseMaterialItem:
+
+    def __init__(self, naucse_data):
+        try:
+            if naucse_data['type'] == 'special':
+                if naucse_data.get('url'):
+                    item_type = 'attachment'
+                else:
+                    item_type = 'text'
+            elif naucse_data['type'] in ['link', 'none-link']:
+                item_type = 'attachment'
+                assert naucse_data['url']
+            elif naucse_data['type'] in ['lesson', 'cheatsheet']:
+                if naucse_data.get('url'):
+                    item_type = naucse_data['type']
+                else:
+                    item_type = 'text'
+            else:
+                raise Exception(f"Unknown naucse material type {naucse_data['type']!r}")
+            self.data = {
+                'material_item_type': item_type,
+                'title_html': to_html(naucse_data['title']),
+                'url': hotfix_naucse_url(naucse_data.get('url')),
+            }
+        except Exception as e:
+            raise Exception(f'Failed to process naucse material {naucse_data!r}: {e!r}')
+
+    def export(self):
+        return self.data
+
+
+def hotfix_naucse_url(url):
+    if not url:
+        return None
+    if url.startswith('/'):
+        return 'https://naucse.python.cz' + url
+    assert url.startswith('https://') or url.startswith('http://')
+    return url
 
 
 class TaskSection:
