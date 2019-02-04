@@ -4,15 +4,16 @@
   "description": "Pyladies Courseware - frontend",
   "main": "index.js",
   "scripts": {
-    "dev": "next",
+    "dev": "node server",
     "build": "next build",
-    "start": "next start",
+    "start": "NODE_ENV=production node server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Petr Messner",
   "license": "MIT",
   "dependencies": {
     "codemirror": "^5.40.0",
+    "express": "^4.16.4",
     "isomorphic-unfetch": "^3.0.0",
     "next": "^7.0.2",
     "react": "^16.7.0",
@@ -20,5 +21,8 @@
     "react-dom": "^16.7.0",
     "semantic-ui-react": "^0.82.5",
     "terser": "^3.14.1"
+  },
+  "devDependencies": {
+    "http-proxy-middleware": "^0.19.1"
   }
 }

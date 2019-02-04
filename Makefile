@@ -1,14 +1,9 @@
-nginx=nginx
-
 run-frontend:
 	cd frontend && npm install
 	cd frontend && npm run dev
 
 run-backend:
 	cd backend && make run
-
-run-nginx:
-	PATH=$(PATH):/usr/sbin $(nginx) -c $(PWD)/nginx.conf
 
 run-mongod:
 	mkdir -p mongo_data
