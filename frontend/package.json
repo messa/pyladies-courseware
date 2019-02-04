@@ -4,9 +4,11 @@
   "description": "Pyladies Courseware - frontend",
   "main": "index.js",
   "scripts": {
+    "predev": "npm run relay",
     "dev": "node server",
     "build": "next build",
     "start": "NODE_ENV=production node server",
+    "relay": "relay-compiler --src ./ --exclude '**/.next/**' '**/node_modules/**' '**/test/**'  '**/__generated__/**' --exclude '**/schema/**' --schema ../backend/schema.graphql",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Petr Messner",
@@ -14,15 +16,20 @@
   "dependencies": {
     "codemirror": "^5.40.0",
     "express": "^4.16.4",
+    "graphql": "^14.1.1",
     "isomorphic-unfetch": "^3.0.0",
     "next": "^7.0.2",
     "react": "^16.7.0",
     "react-codemirror2": "^5.1.0",
     "react-dom": "^16.7.0",
+    "react-relay": "^2.0.0",
     "semantic-ui-react": "^0.82.5",
+    "subscriptions-transport-ws": "^0.9.15",
     "terser": "3.14.1"
   },
   "devDependencies": {
-    "http-proxy-middleware": "^0.19.1"
+    "babel-plugin-relay": "^2.0.0",
+    "http-proxy-middleware": "^0.19.1",
+    "relay-compiler": "^2.0.0"
   }
 }
