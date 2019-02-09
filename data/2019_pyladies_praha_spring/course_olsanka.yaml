@@ -1,2 +1,72 @@
 id: pyladies-2019-praha-jaro-olsanka
 naucse_api_url: https://naucse.python.cz/v0/2019/pyladies-praha-jaro-cznic.json
+tasks_by_lesson_slug:
+
+  # session: "install"
+
+  "beginners/cmdline": []
+  "beginners/install": []
+  "beginners/venv-setup": []
+  "beginners/first-steps": []
+  "beginners/install-editor": []
+
+  # session: "hello"
+
+  "beginners/hello-world": []
+  "beginners/print": []
+  "beginners/variables": []
+  "beginners/comparisons": []
+  "beginners/and-or": []
+
+  # session: "loops"
+
+  "beginners/functions": []
+  "intro/turtle": []
+  "beginners/while": []
+
+  # session: "while-functions"
+
+  "beginners/while": []
+  "beginners/def": []
+
+  # session: "strings"
+
+  "beginners/str": []
+
+  # session: "practice"
+
+  "beginners/files": []
+
+  # session: "list"
+
+  "beginners/list": []
+  "beginners/tuple": []
+
+  # session: "dict"
+
+  "beginners/dict": []
+
+  # session: "tests"
+
+  "beginners/exceptions": []
+  "beginners/modules": []
+  "beginners/testing": []
+  "beginners/circular-imports": []
+
+  # session: "class"
+
+  "beginners/class": []
+
+  # session: "inheritance"
+
+  "beginners/inheritance": []
+
+  # session: "pyglet"
+
+  "intro/pyglet": []
+  "projects/pong": []
+
+  # session: "data"
+
+  "intro/notebook": []
+  "intro/pandas": []
