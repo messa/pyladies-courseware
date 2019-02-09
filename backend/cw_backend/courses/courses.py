@@ -101,6 +101,7 @@ class Course:
             self.sessions = []
             for slug in local_sessions.keys() | naucse_sessions.keys():
                 self.sessions.append(Session(
+                    course_id=self.id,
                     slug=slug,
                     local_data=local_sessions.get(slug),
                     naucse_data=naucse_sessions.get(slug),

@@ -1,13 +1,17 @@
 from itertools import count
+import logging
 
 from ..util import yaml_load
 
 from .helpers import DataProperty, parse_date, to_html
 
 
+logger = logging.getLogger(__name__)
+
+
 class Session:
 
-    def __init__(self, slug, local_data, naucse_data, course_dir, tasks_by_lesson_slug, loader):
+    def __init__(self, course_id, slug, local_data, naucse_data, course_dir, tasks_by_lesson_slug, loader):
         self._course_dir = course_dir
         self._loader = loader
         self.slug = slug
@@ -44,11 +48,16 @@ class Session:
         if naucse_data and tasks_by_lesson_slug:
             for m in naucse_data.get('materials', []):
                 if m.get('lesson_slug'):
-                    lesson_tasks = tasks_by_lesson_slug.get(m['lesson_slug'], [])
-                    if not isinstance(lesson_tasks, list):
-                        raise Exception(f'Must be a list: {lesson_tasks!r}')
-                    for t in lesson_tasks:
-                        self._load_tasks(t)
+                    if m['lesson_slug'] not in tasks_by_lesson_slug:
+                        logger.info(
+                            'Course %s: lesson slug %r not present in tasks_by_lesson_slug',
+                            course_id, m['lesson_slug'])
+                    else:
+                        lesson_tasks = tasks_by_lesson_slug[m['lesson_slug']]
+                        if not isinstance(lesson_tasks, list):
+                            raise Exception(f'Must be a list: {lesson_tasks!r}')
+                        for t in lesson_tasks:
+                            self._load_tasks(t)
 
     def _load_tasks(self, task_data):
         if not isinstance(task_data, dict):
