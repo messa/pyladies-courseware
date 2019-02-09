@@ -80,38 +80,41 @@ class Course:
         except Exception as e:
             raise Exception(f'Failed to load course file {course_file}: {e}')
 
-        if raw.get('naucse_api_url'):
-            nc = loader.get_json(raw['naucse_api_url'])['course']
-        else:
-            nc = {}
+        try:
+            if raw.get('naucse_api_url'):
+                nc = loader.get_json(raw['naucse_api_url'])['course']
+            else:
+                nc = {}
 
-        course_dir = course_file.parent
-        self.data = {
-            'id': raw['id'],
-            'title_html': to_html(raw.get('title') or nc.get('title')),
-            'subtitle_html': to_html(raw.get('subtitle') or nc.get('subtitle')),
-            'description_html': to_html(raw.get('description') or nc.get('description')),
-            'start_date': parse_date(raw.get('start_date') or nc.get('start_date')),
-            'end_date': parse_date(raw.get('end_date') or nc.get('end_date')),
-        }
+            course_dir = course_file.parent
+            self.data = {
+                'id': raw['id'],
+                'title_html': to_html(raw.get('title') or nc.get('title')),
+                'subtitle_html': to_html(raw.get('subtitle') or nc.get('subtitle')),
+                'description_html': to_html(raw.get('description') or nc.get('description')),
+                'start_date': parse_date(raw.get('start_date') or nc.get('start_date')),
+                'end_date': parse_date(raw.get('end_date') or nc.get('end_date')),
+            }
 
-        local_sessions = {str(s['slug']): s for s in raw.get('sessions', [])}
-        naucse_sessions = {str(s['slug']): s for s in nc.get('sessions', [])}
-        self.sessions = []
-        for slug in local_sessions.keys() | naucse_sessions.keys():
-            self.sessions.append(Session(
-                slug=slug,
-                local_data=local_sessions.get(slug),
-                naucse_data=naucse_sessions.get(slug),
-                course_dir=course_dir,
-                loader=loader))
+            local_sessions = {str(s['slug']): s for s in raw.get('sessions', [])}
+            naucse_sessions = {str(s['slug']): s for s in nc.get('sessions', [])}
+            self.sessions = []
+            for slug in local_sessions.keys() | naucse_sessions.keys():
+                self.sessions.append(Session(
+                    slug=slug,
+                    local_data=local_sessions.get(slug),
+                    naucse_data=naucse_sessions.get(slug),
+                    course_dir=course_dir,
+                    loader=loader))
 
-        self.sessions.sort(key=lambda s: s.date)
-        # get course start/end date from sessions if not specified in course data
-        if not self.data['start_date'] and self.sessions:
-            self.data['start_date'] = self.sessions[0].date
-        if not self.data['end_date'] and self.sessions:
-            self.data['end_date'] = self.sessions[-1].date
+            self.sessions.sort(key=lambda s: s.date)
+            # get course start/end date from sessions if not specified in course data
+            if not self.data['start_date'] and self.sessions:
+                self.data['start_date'] = self.sessions[0].date
+            if not self.data['end_date'] and self.sessions:
+                self.data['end_date'] = self.sessions[-1].date
+        except Exception as e:
+            raise Exception(f'Failed to load course from {course_file}: {e}') from e
 
     id = DataProperty('id')
     start_date = DataProperty('start_date')
