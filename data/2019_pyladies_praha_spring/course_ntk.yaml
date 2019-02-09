@@ -1,2 +1,5 @@
 id: pyladies-2019-praha-jaro-ntk
 naucse_api_url: https://naucse.python.cz/v0/2019/pyladies-praha-jaro-ntk.json
+tasks_by_lesson_slug:
+  "beginners/first-steps":
+  - file: tasks/first_steps.yaml

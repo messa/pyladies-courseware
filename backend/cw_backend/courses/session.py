@@ -7,7 +7,10 @@ from .helpers import DataProperty, parse_date, to_html
 
 class Session:
 
-    def __init__(self, slug, local_data, naucse_data, course_dir, loader):
+    def __init__(self, slug, local_data, naucse_data, course_dir, tasks_by_lesson_slug, loader):
+        self._course_dir = course_dir
+        self._loader = loader
+        self.slug = slug
 
         def get(key, default=None):
             for src in local_data, naucse_data:
@@ -15,11 +18,8 @@ class Session:
                     return src[key]
             return default
 
-        self.data = {
-            'slug': slug,
-            'date': parse_date(get('date')),
-            'title_html': to_html(get('title')),
-        }
+        self.date = parse_date(get('date'))
+        self.title_html = to_html(get('title'))
 
         self.material_items = []
 
@@ -34,35 +34,50 @@ class Session:
                 self.material_items.append(NaucseMaterialItem(m))
 
         self.task_items = []
-        if local_data and local_data.get('tasks', []):
-            for task_data in local_data['tasks']:
-                if task_data.get('file'):
-                    self.task_items.extend(load_tasks_file(
-                        course_dir / task_data['file'],
-                        session_slug=self.data['slug'],
-                        loader=loader))
 
-    slug = DataProperty('slug')
-    date = DataProperty('date')
+        if local_data and local_data.get('tasks'):
+            if not isinstance(local_data['tasks'], list):
+                raise Exception(f"Must be a list: {local_data['tasks']!r}")
+            for t in local_data['tasks']:
+                self._load_tasks(t)
+
+        if naucse_data and tasks_by_lesson_slug:
+            for m in naucse_data.get('materials', []):
+                if m.get('lesson_slug'):
+                    lesson_tasks = tasks_by_lesson_slug.get(m['lesson_slug'], [])
+                    if not isinstance(lesson_tasks, list):
+                        raise Exception(f'Must be a list: {lesson_tasks!r}')
+                    for t in lesson_tasks:
+                        self._load_tasks(t)
+
+    def _load_tasks(self, task_data):
+        if not isinstance(task_data, dict):
+            raise Exception(f'Must be a dict: {task_data!r}')
+        if task_data.get('file'):
+            load_tasks_file(
+                self.task_items,
+                self._course_dir / task_data['file'],
+                session_slug=self.slug,
+                loader=self._loader)
 
     def export(self, tasks=False):
         d = {
-            **self.data,
-            'date': self.data['date'].isoformat(),
-            'material_items': [li.export() for li in self.material_items],
+            'slug': self.slug,
+            'date': self.date.isoformat(),
+            'title_html': self.title_html,
+            'material_items': [mi.export() for mi in self.material_items],
             'has_tasks': bool(self.task_items),
         }
         if tasks:
-            d['task_items'] = [hi.export() for hi in self.task_items]
+            d['task_items'] = [ti.export() for ti in self.task_items]
         return d
 
 
-def load_tasks_file(file_path, session_slug, loader):
+def load_tasks_file(task_items, file_path, session_slug, loader):
     try:
         raw = yaml_load(loader.read_text(file_path))
     except Exception as e:
         raise Exception(f'Failed to load tasks file {file_path}: {e}')
-    task_items = []
     counter = count()
     for raw_item in raw['tasks']:
         if raw_item.get('section'):
@@ -71,7 +86,6 @@ def load_tasks_file(file_path, session_slug, loader):
             task_items.append(Task(raw_item, session_slug, next(counter)))
         else:
             raise Exception(f'Unknown item in tasks file {file_path}: {smart_repr(raw_item)}')
-    return task_items
 
 
 class MaterialItem:

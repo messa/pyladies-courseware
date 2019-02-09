@@ -105,9 +105,11 @@ class Course:
                     local_data=local_sessions.get(slug),
                     naucse_data=naucse_sessions.get(slug),
                     course_dir=course_dir,
+                    tasks_by_lesson_slug=raw.get('tasks_by_lesson_slug') or {},
                     loader=loader))
 
             self.sessions.sort(key=lambda s: s.date)
+
             # get course start/end date from sessions if not specified in course data
             if not self.data['start_date'] and self.sessions:
                 self.data['start_date'] = self.sessions[0].date
