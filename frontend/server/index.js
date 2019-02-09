@@ -11,7 +11,7 @@ app.prepare().then(() => {
 
   if (dev || process.env.BACKEND_PROXY) {
     const proxyMiddleware = require('http-proxy-middleware')
-    const backendUrl = process.env.BACKEND_URL || 'http://127.0.0.1:8080'
+    const backendUrl = process.env.BACKEND_URL || 'http://127.0.0.1:5000'
     server.use(proxyMiddleware('/api/', { target: backendUrl }))
     server.use(proxyMiddleware('/auth/', { target: backendUrl }))
   }
