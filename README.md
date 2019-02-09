@@ -3,8 +3,7 @@ Pyladies Courseware
 
 Nástroj pro odevzdávání a review domácích úkolů z programování.
 
-[CircleCI](https://circleci.com/gh/messa/pyladies-courseware)
-
+[![CircleCI](https://circleci.com/gh/messa/pyladies-courseware.svg?style=svg&circle-token=d5dc8be048ef0289f18f729db33f21118c0a5656)](https://circleci.com/gh/messa/pyladies-courseware)
 
 Todo
 ----
