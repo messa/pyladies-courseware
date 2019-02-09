@@ -5,6 +5,7 @@ Nástroj pro odevzdávání a review domácích úkolů z programování.
 
 [![CircleCI](https://circleci.com/gh/messa/pyladies-courseware.svg?style=svg&circle-token=d5dc8be048ef0289f18f729db33f21118c0a5656)](https://circleci.com/gh/messa/pyladies-courseware)
 
+
 Todo
 ----
 
@@ -81,32 +82,26 @@ Requirements
 - Python >= 3.6
   - Ubuntu: install also `python3-venv`
 - MongoDB
-- nginx
 
 
 Local Development
 -----------------
 
-Ve 4 samostatných konzolích spusť:
+Ve 3 samostatných konzolích spusť:
 
 ```shell
 $ make run-frontend
 $ make run-backend
 $ make run-mongod
-$ make run-nginx
 ```
 
-Otevři http://localhost:8000/
+Otevři http://localhost:3000/
 
 | Port  | Služba
 |-------|-------
 | 3000  | Node.js frontend
 | 5000  | aiohttp backend
-| 8000  | nginx reverse proxy
 | 27017 | MongoDB
-
-Nginx se spouští kvůli tomu, aby routoval požadavky na frontend a backend – viz diagram výše v sekci Architecture.
-Je to proto, aby celá aplikace moha fungovat na jednom _originu_ (host:port) a AJAX dotazy z frontendu na backend nemusely probíhat v režimu [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS).
 
 Při změně kódu Python backendu je potřeba restartovat proces (tj. znovu spustit `make run-backend`).
 Pro automatizaci tohoto lze použít nějaký watchdog, např. [watch_files.py](https://github.com/messa/tools/blob/master/watch_files.py).
@@ -126,6 +121,7 @@ Usage:
 $ export ALLOW_DEV_LOGIN=1
 $ make run-backend
 ```
+
 
 Project structure
 -----------------
@@ -155,7 +151,7 @@ pyladies-courseware
 │       │   ├── test_users.py
 │       │   └── ...
 │       ├── ...
-├── courses
+├── data - course, session and task data
 ├── frontend
 │   ├── components
 │   │   ├── ALink.js
@@ -177,7 +173,6 @@ pyladies-courseware
 │   │   └── profile.js
 │   ├── static
 │   └── util
-├── nginx.conf - develoment-only nginx configuration
 └── resources - images for README etc.
     └── local_dev_login.png
 ```

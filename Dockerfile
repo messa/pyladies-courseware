@@ -29,6 +29,6 @@ COPY --from=build_backend /usr/lib /usr/lib
 COPY --from=build_backend /venv /venv
 COPY data /data
 RUN ldconfig
-COPY nginx.conf docker_entrypoint.sh /
+COPY docker_entrypoint.sh /
 EXPOSE 8000
 CMD ["/docker_entrypoint.sh"]
