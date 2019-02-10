@@ -2,10 +2,40 @@ schema {
   query: Query
 }
 
+type Course implements Node {
+  id: ID!
+  course_id: String!
+  titleHTML: String
+  subtitleHTML: String
+  descriptionHTML: String
+  startDate: String
+  endDate: String
+}
+
+type CourseConnection {
+  pageInfo: PageInfo!
+  edges: [CourseEdge]
+}
+
+type CourseEdge {
+  cursor: String!
+  node: Course
+}
+
 interface Node {
   id: ID!
 }
 
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
 type Query {
   node(id: ID!): Node
+  allCourses(before: String, after: String, first: Int, last: Int): CourseConnection
+  activeCourses(before: String, after: String, first: Int, last: Int): CourseConnection
+  pastCourses(before: String, after: String, first: Int, last: Int): CourseConnection
 }
