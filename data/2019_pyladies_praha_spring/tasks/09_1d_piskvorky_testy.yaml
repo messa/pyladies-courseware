@@ -15,13 +15,17 @@ tasks:
 
     Jak se do importů nezamotat? Podívej se do materiálů na sekci [cyklické importy](https://naucse.python.cz/course/pyladies/beginners/circular-imports/).
 
-    _Připomínám: Až to bude fungovat, dej to do Gitu! A kdybys něco nedopatřením rozbila, `git diff HEAD` ukáže změny od poslední revize._
+    _Pokud jsi byla na workshopu Gitu, dej to do Gitu! A kdybys něco nedopatřením rozbila, `git diff HEAD` ukáže změny od poslední revize._
 
+  mandatory: true
+  
 - id: handout9_01
   markdown: |
     Napiš _aspoň_ dva testy na každou funkci z Piškvorek, ke které testy napsat umíš.
     _Testy pravděpodobně neumíš napsat na funkci `input` a všechny funkce, které ji (byť nepřímo) volají.
     A taky asi neumíš otestovat účinek funkce `print`._
+    
+  mandatory: true
 
 - id: handout9_02
   markdown: |
@@ -35,7 +39,7 @@ tasks:
   markdown: |
     Doplň funkci `tah_pocitace` tak, aby brala jako argument symbol, za který má počítač hrát – buď `'x'`, nebo `'o'`.
     Dopiš testy.
-    _Nezapomínáš na Git?_
+    _Nezapomínáš na Git (pokud jsi byla na workshopu Gitu)?_
 
 - id: handout9_04
   markdown: |
@@ -51,7 +55,7 @@ tasks:
     soubor `ai.py` (s funkcí `tah_pocitace`)
     e-mailem (např. organizátorům, koučovi, nebo vůbec).
     Posílej ho jako přílohu, nekopíruj ho do textu e-mailu.
-    Jestli procházíš-li kurz sama a můžeš programování konzultovat s někým
+    Jestli procházíš kurz sama a můžeš programování konzultovat s někým
     zkušenějším, je tento úkol na takovou konzultaci ideální téma.
 
     Dozvíš se, jak si tvá strategie stojí proti ostatním – a proti testům, které napíše organizátor. :)
