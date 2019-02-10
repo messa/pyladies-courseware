@@ -15,7 +15,7 @@ export default (ComposedComponent, options = {}) => {
 
       let queryProps = {}
       let queryRecords = {}
-      const environment = initRelayEnvironment()
+      const environment = initRelayEnvironment({ req: ctx.req })
 
       if (options.query) {
         let queryVariables = {}

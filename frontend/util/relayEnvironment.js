@@ -14,23 +14,32 @@ function getWsUrl() {
 
 // Define a function that fetches the results of an operation (query/mutation/etc)
 // and returns its results as a Promise:
-async function fetchQuery(operation, variables, cacheConfig, uploadables) {
-  const r = await fetch(relayEndpoint, {
-    method: 'POST',
-    headers: {
+function getFetchQuery(req) {
+  return async function fetchQuery(operation, variables, cacheConfig, uploadables) {
+    const headers = {
       Accept: 'application/json',
-      'Content-Type': 'application/json'
-    }, // Add authentication and other headers here
-    body: JSON.stringify({
-      query: operation.text, // GraphQL text from input
-      variables
+      'Content-Type': 'application/json',
+    }
+    if (req && req.headers) {
+      if (process.browser) {
+        throw new Error('req is supposed to be only on server, from getInitialProps')
+      }
+      headers['Cookie'] = req.headers['cookie']
+    }
+    const r = await fetch(relayEndpoint, {
+      method: 'POST',
+      headers, // Add authentication and other headers here
+      body: JSON.stringify({
+        query: operation.text, // GraphQL text from input
+        variables
+      })
     })
-  })
-  if (r.status != 200) {
-    throw new Error(`POST ${relayEndpoint} failed with status ${r.status}`)
+    if (r.status != 200) {
+      throw new Error(`POST ${relayEndpoint} failed with status ${r.status}`)
+    }
+    const data = await r.json()
+    return data
   }
-  const data = await r.json()
-  return data
 }
 
 let subscriptionClient = null
@@ -84,12 +93,12 @@ export function getRelayEnvironment() {
   return relayEnvironment
 }
 
-export function initRelayEnvironment ({ records = {} } = {}) {
+export function initRelayEnvironment ({ req, records = {} } = {}) {
   // Make sure to create a new Relay environment for every server-side request so that data
   // isn't shared between connections (which would be bad)
   if (!process.browser) {
     return new Environment({
-      network: Network.create(fetchQuery),
+      network: Network.create(getFetchQuery(req)),
       store: new Store(new RecordSource(records))
     })
   }
@@ -97,7 +106,7 @@ export function initRelayEnvironment ({ records = {} } = {}) {
   // reuse Relay environment on client-side
   if (!relayEnvironment) {
     relayEnvironment = new Environment({
-      network: Network.create(fetchQuery, setupSubscription),
+      network: Network.create(getFetchQuery(req), setupSubscription),
       store: new Store(new RecordSource(records))
     })
   }
