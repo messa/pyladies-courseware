@@ -11,7 +11,7 @@ tasks:
     kde jako klíče budou čísla od jedné do `n` a jako hodnoty k nim
     jejich druhé mocniny.
     
-mandatory: true
+  mandatory: true
 
 - id: handout8_01
   markdown: |
@@ -34,7 +34,7 @@ mandatory: true
     pojmenovat speciálně, zde třeba `vypis_slovnik`, aby bylo jasné,
     že jen vypisuje a nic nevrací.
     
-mandatory: true
+  mandatory: true
 
 - section:
     markdown: |
