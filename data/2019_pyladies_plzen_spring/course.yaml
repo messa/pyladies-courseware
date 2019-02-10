@@ -7,29 +7,45 @@ tasks_by_lesson_slug:
   "beginners/cmdline": []
   "beginners/install": []
   "beginners/install-editor": []
-  "beginners/hello-world": []
+  "beginners/hello-world":
+  - file: ../2019_pyladies_praha_spring/tasks/01_first_steps.yaml
+  - file: ../2019_pyladies_praha_spring/tasks/02_prvni_program.yaml
 
   # session 2: "hello"
 
-  "beginners/print": []
-  "beginners/variables": []
-  "beginners/comparisons": []
-  "beginners/and-or": []
+  "beginners/print":
+  - file: ../2019_pyladies_praha_spring/tasks/02_chybove_hlasky.yaml
+  "beginners/variables":
+  - file: ../2019_pyladies_praha_spring/tasks/02_promenne.yaml
+  "beginners/comparisons":
+  - file: ../2019_pyladies_praha_spring/tasks/02_porovnavani.yaml
+  "beginners/and-or":
+  - file: ../2019_pyladies_praha_spring/tasks/02_nebo_anebo_a.yaml
 
   # session 3: "loops"
 
   "beginners/functions": []
-  "intro/turtle": []
+  "intro/turtle":
+  - file: ../2019_pyladies_praha_spring/tasks/03_cykly.yaml
+  - file: ../2019_pyladies_praha_spring/tasks/03_cykly_zelva.yaml
+  - file: ../2019_pyladies_praha_spring/tasks/03_cykly_konzole.yaml
   "beginners/while": []
 
   # session 4: "def-str"
 
-  "beginners/def": []
-  "beginners/str": []
+  "beginners/def":
+  - file: ../2019_pyladies_praha_spring/tasks/04_vlastni_funkce.yaml
+  "beginners/str":
+  - file: ../2019_pyladies_praha_spring/tasks/05_retezce.yaml
+  - file: ../2019_pyladies_praha_spring/tasks/05_1d_piskvorky.yaml
 
   # session 5: "exrcs_fio"
 
-  "beginners/files": []
+  "beginners/files":
+  # Tohle ve skutečnosti nejsou úlohy k souborům, ale k procvičování.
+  - file: ../2019_pyladies_praha_spring/tasks/06_procvicovani_print.yaml
+  - file: ../2019_pyladies_praha_spring/tasks/06_procvicovani_for.yaml
+  - file: ../2019_pyladies_praha_spring/tasks/06_procvicovani_orisky.yaml
 
   # session 6: "git"
 
@@ -39,25 +55,30 @@ tasks_by_lesson_slug:
 
   # session 7: "dict"
 
-  "beginners/dict": []
+  "beginners/dict":
+  - file: ../2019_pyladies_praha_spring/tasks/08_slovniky.yaml
   "intro/json": []
   "projects/github-api": []
 
   # session 8: "list"
 
-  "beginners/list": []
+  "beginners/list":
+  - file: ../2019_pyladies_praha_spring/tasks/07_seznamy.yaml
   "beginners/tuple": []
 
   # session 9: "tests"
 
   "beginners/exceptions": []
   "beginners/modules": []
-  "beginners/testing": []
+  "beginners/testing":
+  - file: ../2019_pyladies_praha_spring/tasks/09_1d_piskvorky_testy.yaml
+  - file: ../2019_pyladies_praha_spring/tasks/09_hangman.yaml
   "beginners/circular-imports": []
 
   # session 10: "class"
 
-  "beginners/class": []
+  "beginners/class":
+  - file: ../2019_pyladies_praha_spring/tasks/10_tridy.yaml
   "beginners/inheritance": []
 
   # session 11: "foss"
