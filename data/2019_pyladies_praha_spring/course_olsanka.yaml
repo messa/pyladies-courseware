@@ -37,6 +37,7 @@ tasks_by_lesson_slug:
   "beginners/while": []
   "beginners/def":
   - file: tasks/04_vlastni_funkce.yaml
+  - file: tasks/04_procvicovani_for.yaml
 
   # session 5: "strings"
 
@@ -49,7 +50,6 @@ tasks_by_lesson_slug:
   "beginners/files":
   # Tohle ve skutečnosti nejsou úlohy k souborům, ale k procvičování.
   - file: tasks/06_procvicovani_print.yaml
-  - file: tasks/04_procvicovani_for.yaml
   - file: tasks/06_procvicovani_orisky.yaml
 
   # session 7: "list"
