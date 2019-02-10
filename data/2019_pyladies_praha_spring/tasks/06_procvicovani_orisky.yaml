@@ -16,7 +16,7 @@ tasks:
 
     _Sudá čísla jsou beze zbytku dělitelná dvěma._
     
-- mandatory: true
+  mandatory: true
 
 - id: handout3b_21
   markdown: |
