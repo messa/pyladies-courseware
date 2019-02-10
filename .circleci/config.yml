@@ -4,14 +4,15 @@ jobs:
   test_backend:
     docker:
       - image: circleci/python:3.7
+    working_directory: ~/src
     steps:
       - checkout
       - run: python3 -m venv ~/venv
       - run: ~/venv/bin/pip install -U pip wheel
-      - run: ~/venv/bin/pip install -r requirements.txt
-      - run: ~/venv/bin/pip install -r requirements-tests.txt
-      - run: ~/venv/bin/pip install -e .
-      - run: ~/venv/bin/py.test -v --tb=native tests
+      - run: ~/venv/bin/pip install -r backend/requirements.txt
+      - run: ~/venv/bin/pip install -r backend/requirements-tests.txt
+      - run: ~/venv/bin/pip install -e backend
+      - run: ~/venv/bin/py.test -v --tb=native backend/tests
 
   build_docker_image_frontend:
     docker:
