@@ -19,7 +19,7 @@ RUN /venv/bin/pip install /backend
 FROM debian:stretch
 ENV DEBIAN_FRONTEND=noninteractive ALLOW_DEV_LOGIN=1
 RUN apt-get update
-RUN apt-get install -y nginx-light
+RUN apt-get install -y libexpat1
 COPY --from=mongo:3.6-jessie /usr/bin/mongod /usr/bin/
 COPY --from=mongo:3.6-jessie /usr/lib /usr/lib
 COPY --from=build_frontend /usr/local /usr/local
