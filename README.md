@@ -90,17 +90,17 @@ Local Development
 Ve 3 samostatných konzolích spusť:
 
 ```shell
-$ make run-frontend
-$ make run-backend
 $ make run-mongod
+$ make run-backend
+$ make run-frontend
 ```
 
 Otevři http://localhost:3000/
 
 | Port  | Služba
 |-------|-------
-| 3000  | Node.js frontend
-| 5000  | aiohttp backend
+| 3000  | Node.js – frontend
+| 5000  | aiohttp – backend
 | 27017 | MongoDB
 
 Při změně kódu Python backendu je potřeba restartovat proces (tj. znovu spustit `make run-backend`).
