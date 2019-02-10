@@ -13,7 +13,7 @@ tasks:
   markdown: |
     Co _vrací_ funkce `print`?
     
-- mandatory: true
+  mandatory: true
 
 - id: handout3b_02
   markdown: |
@@ -32,4 +32,4 @@ tasks:
     - `int('8.9')`
     - `int(8.9)`
 
-- mandatory: true
+  mandatory: true
