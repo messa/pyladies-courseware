@@ -1,30 +1,36 @@
 tasks:
 
-- section:
-    markdown: |
-      Na začátek trocha práce se seznamy.
-      Některé z projektů – a zvlášť ten poslední – potřebují trochu přemýšlení;
-      nebudeš-li vědět jak dál, zeptej se na internetu nebo na sraze ostatních
-      a řešte společně!
-
 - id: handout6_00
   markdown: |
-    Udělej si seznam domácích zvířat. Budeš ho potřebovat v dalších úlohách.
+    Zpět k seznamu domácích zvířat.
     Domácí zvířata známe tato: `"pes", "kočka", "králík", "had"`.
 
 - id: handout6_01
   markdown: |
     Napiš funkci, která vrací jména domácích zvířat (zadaných argumentem), která jsou kratší než 5 písmen.
+   
 
 - id: handout6_02
   markdown: |
     Napiš funkci, která vrací jména domácích zvířat (zadaných argumentem), která začínají na `k`.
 
+- section:
+    markdown: |
+      Čeká tě procvičování práce se seznamy.
+      Některé z projektů – a zvlášť ten poslední – potřebují trochu přemýšlení;
+      nebudeš-li vědět jak dál, zeptej se na internetu nebo na sraze ostatních
+      a řešte společně!
+
 - id: handout6_03
   markdown: |
-    Napiš funkci, která dostane slovo a zjistí, jestli je v seznamu domácích zvířat.
+    Udělej si seznam domácích zvířat. Budeš ho potřebovat v dalších úlohách.
+    Domácí zvířata známe tato: `"pes", "kočka", "králík", "had"`.
+    
+    Napiš funkci, která přebere seznam a slovo a zjistí, jestli je to slovo v seznamu domácích zvířat.
 
     _„Zjistí“ znamená, že funkce vrátí `True` nebo `False`._
+    
+ mandatory: true
 
 - id: handout6_04
   markdown: |
@@ -34,7 +40,8 @@ tasks:
     - zvířata, která jsou jen v prvním seznamu (rozdíl množin: první - druhá),
     - zvířata, která jsou jen ve druhém seznamu (rozdíl množin: druhá - první).
 
-    Napiš (a pusť) k této funkci testy, aby sis ověřila, že funguje správně.
+
+mandatory: true
 
 - id: handout6_05
   markdown: |
@@ -67,32 +74,6 @@ tasks:
 
     Proč má zrovna had takovéhle výsadní postavení, zjistíš později.
 
-- section:
-    markdown: |
-      Cvičení na analýzu reálných dat
-
-- id: handout6_07
-  markdown: |
-    Napiš tyto funkce.
-    Každá z nich dostane jako argument řetězec s~rodným číslem a nějak ho zanalyzuje:
-
-    - Je ve správném formátu: 6 číslice, lomítko, 4 číslice?
-      (vrací `True` nebo `False`)
-    - Je dělitelné jedenácti?
-      (vrací `True` nebo `False`)
-    - Jaké datum narození je v čísle zakódováno?
-      (vrací trojici čísel – den, měsíc, rok)
-    - Jaké pohlaví je v čísle zakódováno?
-      (vrací `'muž'` nebo `'žena'`)
-
-    Napiš i testy, abys ověřila, že funkce fungují správně.
-
-    Pro účely úkolu stačí, když bude program umět zpracovat čísla
-    vydávaná od roku 1985. Reálná rodná čísla můžou být složitější :)
-
-- id: handout6_08
-  markdown: |
-    Napiš program který se uživatele zeptá na rodné číslo a vypíše výsledky.
 
 - section:
     markdown: |
@@ -104,107 +85,6 @@ tasks:
   markdown: |
     Napiš funkci, která převede římské číslice na číslo (`int`).
 
-    _Tip: Nejdřív napiš k této funkci testy, aby sis ověřila, že (a co) (ne)funguje správně._
-
-- section:
-    markdown: |
-      Projekty závisí jeden na druhém, řeš je postupně.
-      Až to uděláš, můžeš si zahrát hru!
-      Tahle sekce není jednoduchá (a poslední dva projekty jsou obzvláště náročné).
-      Můžeš zkusit spojit síly s ostatními účastnicemi kurzu!}
-
-- id: handout6_10
-  markdown: |
-    Napiš funkci, která dostane seznam souřadnic (párů čísel menších než 10,
-    která určují sloupec a řádek)
-    a vypíše je jako mapu: mřížku 10×10, kde na políčka která jsou v seznamu
-    napíše `X`, jinde tečku.
-    Například:
-
-        nakresli_mapu([(0, 0), (1, 0), (2, 2), (4, 3), (8, 9), (8, 9)])
-        X X . . . . . . . .
-        . . . . . . . . . .
-        . . X . . . . . . .
-        . . . . X . . . . .
-        . . . . . . . . . .
-        . . . . . . . . . .
-        . . . . . . . . . .
-        . . . . . . . . . .
-        . . . . . . . . . .
-        . . . . . . . . X .
-
-    _Jak na to?_
-
-    - Udělej tabulku (seznam seznamů) se samými tečkami, něco jako:<br>
-      `[['.', '.', '.'], ['.', '.', '.'], ['.', '.', '.']]`.
-    - Na příslušných místech nahraď tečky X-ky.
-    - Tabulku vypiš pomocí dvou cyklů `for` zanořených do sebe.
-
-- id: handout6_11
-  markdown: |
-    Napiš funkci `pohyb`, která dostane seznam souřadnic a světovou stranu
-    (`"s"`, `"j"`, `"v"` nebo `"z"`)
-    a přidá k seznamu poslední bod „posunutý“ v daném směru. Např.:
-
-        souradnice = [(0, 0)]
-        pohyb(souradnice, 'v')
-        print(souradnice)         # → [(0, 0), (1, 0)]
-        pohyb(souradnice, 'v')
-        print(souradnice)         # → [(0, 0), (1, 0), (2, 0)]
-        pohyb(souradnice, 'j')
-        print(souradnice)         # → [(0, 0), (1, 0), (2, 0), (2, 1)]
-        pohyb(souradnice, 's')
-        print(souradnice)         # → [(0, 0), (1, 0), (2, 0), (2, 1), (2, 0)]
-
-    Funkce by neměla nic vracet. Jen mění už existující seznam.
-
-    Nezapomeň na testy.
-
-- id: handout6_12
-  markdown: |
-    Napiš cyklus, který se bude ptát uživatele na světovou stranu,
-    podle ní zavolá `pohyb`, a následně vykreslí seznam jako mapu.
-    Pak se opět se zeptá na stranu atd.
-
-    Začínej se seznamem `[(0, 0), (1, 0), (2, 0)]`.
-
-- id: handout6_13
-  markdown: |
-    Doplň funkci `pohyb` tak, aby při pohybu umazala první bod ze seznamu
-    souřadnic. Výsledný seznam tak bude mít stejnou délku, jako před voláním.
-
-    Uprav testy.
-
-- id: handout6_14
-  markdown: |
-    Doplň funkci `pohyb` tak, aby zamezila:
-
-    - pohybu ven z mapy,
-    - pohybu na políčko, které už v seznamu je.
-
-    Vhodná výjimka pro tyto situace je `ValueError('Game over')`.
-
-    Doplň i testy.
-
-- id: handout6_15
-  markdown: |
-    Přidej do hry hadí potravu. Tady jsou pravidla pro vegetariánského hada,
-    ale můžeš si je změnit podle chuti:
-
-    Seznam ovoce obsahuje na začátku jedno ovoce na políčku, na kterém není had
-    (například: `[(2, 3)]` znamená jedno ovoce na pozici (2, 3)).
-    Když had sežere ovoce, vyroste („nesmaže“ se mu ocas, tedy neprovede se to,
-    cos přidala v projektu 13),
-    a pokud na mapě zrovna není další ovoce, na náhodném místě (kde není had) vyroste ovoce nové.
-
-    Každých 30 tahů vyroste nové ovoce samo od sebe.
-
-    Na mapě se toto tajemné ovoce zobrazuje jako otazník (`?`).
-
-- id: handout6_16
-  markdown: |
-    Hadí hřiště může mít libovolné rozměry větší než 4×1.
-    Třeba 20×20 nebo 10×30.
 
 - section:
     markdown: |
