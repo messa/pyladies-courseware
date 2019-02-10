@@ -38,4 +38,10 @@ type Query {
   allCourses(before: String, after: String, first: Int, last: Int): CourseConnection
   activeCourses(before: String, after: String, first: Int, last: Int): CourseConnection
   pastCourses(before: String, after: String, first: Int, last: Int): CourseConnection
+  currentUser: User
+}
+
+type User implements Node {
+  id: ID!
+  isAdmin: Boolean
 }
