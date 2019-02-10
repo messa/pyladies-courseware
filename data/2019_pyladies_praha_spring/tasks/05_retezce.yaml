@@ -5,11 +5,11 @@ tasks:
     Napiš program, který se zeptá na příjmení uživatelky/uživatele
     a zkusí podle něj uhodnout její/jeho pohlaví.
     
-- mandatory: true
+  mandatory: true
 
 - id: handout4_07
   markdown: |
     Najdi na internetu text své oblíbené písně, zkopíruj si ho do řetězce
     a zjisti, kolikrát je v něm použito písmeno K.
 
-- mandatory: true
+  mandatory: true

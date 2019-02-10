@@ -12,6 +12,8 @@ tasks:
 - id: handout3b_01
   markdown: |
     Co _vrací_ funkce `print`?
+    
+  mandatory: true
 
 - id: handout3b_02
   markdown: |
@@ -29,3 +31,5 @@ tasks:
     - `float('blabla')`
     - `int('8.9')`
     - `int(8.9)`
+
+  mandatory: true

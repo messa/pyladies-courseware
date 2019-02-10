@@ -9,7 +9,7 @@ tasks:
   markdown: |
     Popiš slovně, co vrací funkce `range`? 
 
- mandatory: true
+  mandatory: true
 
 - id: handout3a_01
   markdown: |
