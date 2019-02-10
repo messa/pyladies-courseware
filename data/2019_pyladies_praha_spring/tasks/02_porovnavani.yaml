@@ -2,11 +2,6 @@
 
 tasks:
 
-- section:
-    markdown: |
-      Další dva projekty doplňují program ze srazu.
-      Všechno bude vysvětleno později, takže jestli nemáš čas, přeskoč je.
-
 - id: handout2_08
   markdown: |
     Ulož si následující program jako `pokus.py` a spusť ho několikrát za sebou. Co dělá?
@@ -17,7 +12,7 @@ tasks:
     print(cislo)
     ```
 
-    _Jak to funguje, to se dozvíme příště; zatím to ber jako kouzelné zaříkadlo._
+    _Jak to funguje, to si vysvětlíme příště; zatím to ber jako kouzelné zaříkadlo._
 
     _Aby všechno fungovalo správně, nesmíš mít v aktuálním adresáři soubor jménem `random.py`._
 
@@ -25,7 +20,7 @@ tasks:
 
 - id: handout2_09
   markdown: |
-    Zkombinuj program z předchozího projektu s programem kámen-nůžky-papír a nastav `tah_pocitace` na:
+    Tento projekt doplňuje program ze srazu. Zkombinuj program z předchozího projektu s programem kámen-nůžky-papír a nastav `tah_pocitace` na:
 
     - `'kámen'`, pokud je cislo 0,
     - `'nůžky'`, pokud je cislo 1,
@@ -74,17 +69,19 @@ tasks:
 
 - section:
     markdown: |
-      Další dva projekty ti umožní kreativně využít, co ses naučila.
-
+      Následuje prostor pro tvoji kreativitu.
+      
 - id: handout2_13
   markdown: |
     Na srazu jsme měli program, který píše různé nesmysly podle uživatelem zadaného věku.
 
     Zkus napsat program, který píše hlášky podle zadané rychlosti chůze, váhy ulovené ryby, počtu tykadel,
-    teploty vody nebo třeba vzdálenosti od rovníku.
-
+    teploty vody nebo třeba vzdálenosti od rovníku. 
+        
 - id: handout2_14
   markdown: |
-    Napiš program, který po zadání správného hesla vypíše nějakou tajnou informaci.
+    A teď trochu kreativity. Napiš program, který po zadání správného hesla vypíše nějakou tajnou informaci.
 
     _Vhodné tajemství je třeba: V pátek jsem viděla černého havrana._
+
+  mandatory: true    
