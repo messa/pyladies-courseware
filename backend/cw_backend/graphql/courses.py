@@ -36,7 +36,7 @@ Course = GraphQLObjectType(
         'id': GraphQLField(
             type=GraphQLNonNull(GraphQLID),
             resolver=lambda c, _: f'Course:{c.id}'),
-        'course_id': GraphQLField(
+        'courseId': GraphQLField(
             type=GraphQLNonNull(GraphQLString),
             resolver=lambda c, _: c.id),
         'titleHTML': GraphQLField(

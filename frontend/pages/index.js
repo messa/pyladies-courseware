@@ -10,32 +10,30 @@ class IndexPage extends React.Component {
     const { user, activeCourses, pastCourses } = this.props
     return (
       <Layout user={user} width={600}>
-        {/*
 
         <h2>Aktuálně běžící kurzy</h2>
 
-        {courses.active.map(course => (
-          <p key={course.id} className='course'>
-            <Link href={{ pathname: '/course', query: { course: course.id }}} prefetch><a>
-              <strong dangerouslySetInnerHTML={{__html: course.title_html}} />
+        {activeCourses.edges.map(edge => edge.node).map(course => (
+          <p key={course.courseId} className='course'>
+            <Link href={{ pathname: '/course', query: { course: course.courseId }}} prefetch><a>
+              <strong dangerouslySetInnerHTML={{ __html: course.titleHTML }} />
               {' – '}
-              <span dangerouslySetInnerHTML={{__html: course.subtitle_html}} />
+              <span dangerouslySetInnerHTML={{__html: course.subtitleHTML }} />
             </a></Link>
           </p>
         ))}
 
         <h2>Proběhlé kurzy</h2>
 
-        {courses.past.map(course => (
-          <p key={course.id} className='course'>
-            <Link href={{ pathname: '/course', query: { course: course.id }}} prefetch><a>
-              <strong dangerouslySetInnerHTML={{__html: course.title_html}} />
+        {pastCourses.edges.map(edge => edge.node).map(course => (
+          <p key={course.courseId} className='course'>
+            <Link href={{ pathname: '/course', query: { course: course.courseId }}} prefetch><a>
+              <strong dangerouslySetInnerHTML={{ __html: course.titleHTML }} />
               {' – '}
-              <span dangerouslySetInnerHTML={{__html: course.subtitle_html}} />
+              <span dangerouslySetInnerHTML={{ __html: course.subtitleHTML }} />
             </a></Link>
           </p>
         ))}
-        */}
 
 
         <style jsx>{`
@@ -60,6 +58,9 @@ export default withData(IndexPage, {
         edges {
           node {
             id
+            courseId
+            titleHTML
+            subtitleHTML
           }
         }
       }
@@ -67,6 +68,9 @@ export default withData(IndexPage, {
         edges {
           node {
             id
+            courseId
+            titleHTML
+            subtitleHTML
           }
         }
       }

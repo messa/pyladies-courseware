@@ -4,7 +4,7 @@ schema {
 
 type Course implements Node {
   id: ID!
-  course_id: String!
+  courseId: String!
   titleHTML: String
   subtitleHTML: String
   descriptionHTML: String
