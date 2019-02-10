@@ -23,7 +23,6 @@ tasks_by_lesson_slug:
 
   "beginners/functions": []
   "intro/turtle": []
-  "beginners/while": []
 
   # session: "while-functions"
 
