@@ -59,6 +59,7 @@ class Session:
                             raise Exception(f'Must be a list: {lesson_tasks!r}')
                         for t in lesson_tasks:
                             self._load_tasks(t)
+        self.task_items.sort(key=lambda item: not item.first)
 
     def _load_tasks(self, task_data):
         if not isinstance(task_data, dict):
@@ -182,6 +183,10 @@ class TaskSection:
     def export(self):
         return self.data
 
+    @property
+    def first(self):
+      return False
+
 
 class Task:
 
@@ -197,3 +202,7 @@ class Task:
 
     def export(self):
         return self.data
+
+    @property
+    def first(self):
+      return self.data['mandatory']
