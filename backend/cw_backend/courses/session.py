@@ -15,6 +15,7 @@ class Session:
         self._course_dir = course_dir
         self._loader = loader
         self.slug = slug
+        self.counter = count()
 
         def get(key, default=None):
             for src in local_data, naucse_data:
@@ -67,7 +68,8 @@ class Session:
                 self.task_items,
                 self._course_dir / task_data['file'],
                 session_slug=self.slug,
-                loader=self._loader)
+                loader=self._loader,
+                counter=self.counter)
 
     def export(self, tasks=False):
         d = {
@@ -82,12 +84,11 @@ class Session:
         return d
 
 
-def load_tasks_file(task_items, file_path, session_slug, loader):
+def load_tasks_file(task_items, file_path, session_slug, loader, counter):
     try:
         raw = yaml_load(loader.read_text(file_path))
     except Exception as e:
         raise Exception(f'Failed to load tasks file {file_path}: {e}')
-    counter = count()
     for raw_item in raw['tasks']:
         if raw_item.get('section'):
             task_items.append(TaskSection(raw_item['section']))
