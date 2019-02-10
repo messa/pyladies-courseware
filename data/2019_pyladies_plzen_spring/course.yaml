@@ -44,7 +44,7 @@ tasks_by_lesson_slug:
   "beginners/files":
   # Tohle ve skutečnosti nejsou úlohy k souborům, ale k procvičování.
   - file: ../2019_pyladies_praha_spring/tasks/06_procvicovani_print.yaml
-  - file: ../2019_pyladies_praha_spring/tasks/06_procvicovani_for.yaml
+  - file: ../2019_pyladies_praha_spring/tasks/04_procvicovani_for.yaml
   - file: ../2019_pyladies_praha_spring/tasks/06_procvicovani_orisky.yaml
 
   # session 6: "git"
