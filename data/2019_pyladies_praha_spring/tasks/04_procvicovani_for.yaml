@@ -59,13 +59,15 @@ tasks:
 
 - id: handout3b_10
   markdown: |
-    Napiš program, který vypíše „tabulku“ s násobilkou:
+    Napiš program, který vypíše „tabulku“ s násobilkou. (K řešení tohoto povinného projektu se můžeš dopracovat postupně přes ty nepovinné)
 
         0 0 0 0 0
         0 1 2 3 4
         0 2 4 6 8
         0 3 6 9 12
         0 4 8 12 16
+        
+  mandatory: true
 
 
 - id: handout3b_11
