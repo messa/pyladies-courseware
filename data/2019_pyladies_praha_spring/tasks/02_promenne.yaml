@@ -34,7 +34,6 @@ tasks:
 - section:
     markdown: |
       Následující projekty jsou na procvičení toho, co jsme dělaly na srazu.
-      Nemáš-li čas, zatím je přeskoč.
 
 - id: handout2_06
   markdown: |

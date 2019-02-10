@@ -7,23 +7,25 @@ tasks:
 
 - id: handout4_00
   markdown: |
-    Co se stane, když tělo nějaké funkce necháš prázdné?
+    Co se stane, když tělo nějaké funkce necháš prázdné? Zkus vysvětlit proč. (Tělo funkce je odsazený blok za dvojtečkou)
 
 - id: handout4_01
   markdown: |
-    Co se stane, když necháš prázdné tělo cyklu?
-
-- section:
-    markdown: |
-      Procvičení funkcí. Jestli jsi pythonní funkce nepsala už před kurzem, tak první z těchto projektů určitě udělej. Druhý jen pokud máš ráda geometrii :)
+    Co se stane, když necháš prázdné tělo cyklu? Zkus vysvětlit proč.
 
 - id: handout4_02
   markdown: |
-    Napiš funkci, která vykreslí domeček dané velikosti.
+    Procvičení funkcí. Napiš funkci, která vykreslí domeček dané velikosti.
     _(t.j. velikost se zadá argumentem)_
 
     <img src="/static/tasks/handout4_images/02_domecky.png" alt="domečky" style="max-width: 100%; max-height: 80px">
 
+- mandatory: true
+
+- section:
+    markdown: |
+      Tento projekt si udělej, pokud máš ráda geometrii :)
+      
 - id: handout4_03
   markdown: |
     Máš-li ráda geometrii*, můžeš zkusit dávat domečkové funkci dva argumenty:
@@ -46,6 +48,8 @@ tasks:
   markdown: |
     Změň program Kámen, Nůžky, Papír tak, aby opakoval hru dokud
     uživatel nezadá `konec`.
+    
+- mandatory: true
 
 - id: handout4_05
   markdown: |
@@ -72,3 +76,7 @@ tasks:
     (V případě shody vyhraje ten, kdo házel dřív.)
 
     Program by měl vypisovat všechny hody a nakonec napsat, kdo vyhrál.
+    
+    Nápověda: průběžně stačí ukládat jen údaj, kdo vede.
+    
+- mandatory: true
