@@ -88,18 +88,18 @@ jobs:
           docker_layer_caching: true
       - restore_cache:
           keys:
-          - v2-demo
-      - run: gunzip /docker_image_cw_demo.tar.gz || true
-      - run: docker load -i /docker_image_cw_demo.tar || true
+          - v3-demo
+      - run: gunzip /docker_image_cw.tar.gz || true
+      - run: docker load -i /docker_image_cw.tar || true
       - run: docker images
       - run: docker images -a
-      - run: docker build -t cw_demo --pull --cache-from cw_demo .
-      - run: docker save -o /docker_image_cw_demo.tar cw_demo
-      - run: gzip -k3 /docker_image_cw_demo.tar
+      - run: docker build -t cw --pull --cache-from cw .
+      - run: docker save -o /docker_image_cw.tar cw
+      - run: gzip -k3 /docker_image_cw.tar
       - save_cache:
-          key: v2-demo-{{ .Branch }}-{{ epoch }}
+          key: v3-demo-{{ .Branch }}-{{ epoch }}
           paths:
-          - /docker_image_cw_demo.tar.gz
+          - /docker_image_cw.tar.gz
       - run: docker images
       - run: docker images -a
       - run:
@@ -107,7 +107,7 @@ jobs:
           command: |
             echo '207.154.235.213 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMd2qF3m1mtvgxq45xX8F+po9GLeGFgqXp051IsZZKKi' >> ~/.ssh/known_hosts
       - run: apk add openssh rsync
-      - run: 'rsync -vz --progress /docker_image_cw_demo.tar circleci@207.154.235.213:'
+      - run: 'rsync -vz --progress /docker_image_cw.tar circleci@207.154.235.213:'
       - run: ssh circleci@207.154.235.213 sudo /root/pyladies-courseware/deployment/ci_deploy_demo.sh
 
 workflows:

@@ -17,9 +17,9 @@ COPY backend /backend/
 RUN /venv/bin/pip install /backend
 
 FROM debian:stretch
-ENV DEBIAN_FRONTEND=noninteractive ALLOW_DEV_LOGIN=1
+ENV DEBIAN_FRONTEND=noninteractive ALLOW_DEV_LOGIN=1 BACKEND_PROXY=1
 RUN apt-get update
-RUN apt-get install -y nginx-light
+RUN apt-get install -y libexpat1
 COPY --from=mongo:3.6-jessie /usr/bin/mongod /usr/bin/
 COPY --from=mongo:3.6-jessie /usr/lib /usr/lib
 COPY --from=build_frontend /usr/local /usr/local
@@ -30,5 +30,5 @@ COPY --from=build_backend /venv /venv
 COPY data /data
 RUN ldconfig
 COPY docker_entrypoint.sh /
-EXPOSE 8000
+EXPOSE 3000
 CMD ["/docker_entrypoint.sh"]
