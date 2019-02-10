@@ -2,8 +2,15 @@ import { Environment, Network, RecordSource, Store } from 'relay-runtime'
 import fetch from 'isomorphic-unfetch'
 import { SubscriptionClient } from 'subscriptions-transport-ws'
 
-const relayEndpoint = process.browser ? '/api/graphql' : (process.env.RELAY_ENDPOINT || 'http://127.0.0.1:8080/api/graphql')
-const wsUrl = 'ws://localhost:8080/api/subscriptions'
+const relayEndpoint = process.browser ? '/api/graphql' : (process.env.RELAY_ENDPOINT || 'http://127.0.0.1:5000/api/graphql')
+
+function getWsUrl() {
+  if (!process.browser) {
+    throw new Error('Websockets are supposed to be used only in browser')
+  }
+  const wsProtocol = (window.location.protocol === 'http:') ? 'ws:' : 'wss://'
+  return `${wsProtocol}://{window.location.host}/api/subscriptions`
+}
 
 // Define a function that fetches the results of an operation (query/mutation/etc)
 // and returns its results as a Promise:
@@ -27,6 +34,7 @@ async function fetchQuery(operation, variables, cacheConfig, uploadables) {
 }
 
 let subscriptionClient = null
+let wsUrl = null
 
 function setupSubscription(config, variables, cacheConfig, observer) {
   // https://github.com/facebook/relay/issues/1655#issuecomment-349957415
@@ -44,6 +52,7 @@ function setupSubscription(config, variables, cacheConfig, observer) {
   }
   const query = config.text
   if (!subscriptionClient) {
+    wsUrl = getWsUrl()
     console.debug(`Connecting to ${wsUrl}`)
     subscriptionClient = new SubscriptionClient(wsUrl, { reconnect: true })
   } else {

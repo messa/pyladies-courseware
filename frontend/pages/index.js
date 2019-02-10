@@ -7,9 +7,10 @@ import withData from '../util/withData'
 class IndexPage extends React.Component {
 
   render() {
-    const { user, courses } = this.props
+    const { user, activeCourses, pastCourses } = this.props
     return (
       <Layout user={user} width={600}>
+        {/*
 
         <h2>Aktuálně běžící kurzy</h2>
 
@@ -34,6 +35,7 @@ class IndexPage extends React.Component {
             </a></Link>
           </p>
         ))}
+        */}
 
 
         <style jsx>{`
@@ -54,15 +56,19 @@ class IndexPage extends React.Component {
 export default withData(IndexPage, {
   query: graphql`
     query pages_indexQuery {
-      courses {
+      activeCourses {
         edges {
           node {
             id
           }
         }
       }
-      user {
-        id
+      pastCourses {
+        edges {
+          node {
+            id
+          }
+        }
       }
     }
   `
