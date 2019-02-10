@@ -4,6 +4,7 @@ jobs:
   test_backend:
     docker:
       - image: circleci/python:3.7
+      - image: circleci/mongo:4.0-ram
     working_directory: ~/src
     steps:
       - checkout
