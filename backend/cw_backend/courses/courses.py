@@ -32,12 +32,17 @@ def load_course(course_file):
 def load_courses(courses_file):
     '''
     Load all files courses/*/course.yaml from a given directory.
-    Returns Courses wrapped inside ReloadingContainer.
+
+    Returns Courses wrapped inside ReloadingContainer, so the actual
+    courses can be retrieved like this: load_courses(courses_file).get()
     '''
     return ReloadingContainer(factory=partial(Courses, courses_file=courses_file))
 
 
 class Courses:
+    '''
+    Top-level object for access to course data.
+    '''
 
     def __init__(self, courses_file, loader):
         assert isinstance(courses_file, Path)
@@ -55,6 +60,9 @@ class Courses:
     def __len__(self):
         return len(self.courses)
 
+    def list_courses(self):
+        return list(self.courses)
+
     def list_active(self):
         return [c for c in self.courses if c.is_active()]
 
@@ -62,6 +70,9 @@ class Courses:
         return [c for c in self.courses if c.is_past()]
 
     def get_by_id(self, course_id):
+        raise Exception('Removed - use get_by_course_id()')
+
+    def get_by_course_id(self, course_id):
         assert isinstance(course_id, str)
         for c in self.courses:
             if c.id == course_id:
@@ -122,6 +133,9 @@ class Course:
     id = DataProperty('id')
     start_date = DataProperty('start_date')
     end_date = DataProperty('end_date')
+    title_html = DataProperty('title_html')
+    subtitle_html = DataProperty('subtitle_html')
+    description_html = DataProperty('description_html')
 
     def __repr__(self):
         return f'<{self.__class__.__name__} id={self.id!r}>'

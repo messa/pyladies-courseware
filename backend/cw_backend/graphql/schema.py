@@ -23,6 +23,16 @@ from .relay_helpers import (
     mutation,
 )
 
+from .courses import (
+    Course,
+    CourseConnection,
+    all_courses_resolver,
+    active_courses_resolver,
+    past_courses_resolver,
+)
+
+from .node_interface import NodeInterface, node_resolver
+
 
 logger = logging.getLogger(__name__)
 
@@ -33,26 +43,6 @@ logger = logging.getLogger(__name__)
 def get_model(info):
     return info.context['request'].app['model']
 
-
-def resolve_node_type(obj, info):
-    # See also: https://stackoverflow.com/q/34726666/196206
-    # if obj.node_type == 'Post':
-    #     return Post
-    # if obj.node_type == 'Category':
-    #     return Category
-    # if obj.node_type == 'Topic':
-    #     return Topic
-    # if obj.node_type == 'Conversation':
-    #     return Conversation
-    raise Exception(f'Unknown node type: {obj!r}')
-
-
-NodeInterface = GraphQLInterfaceType(
-    name='Node',
-    fields={
-        'id': GraphQLField(type=GraphQLNonNull(GraphQLID)),
-    },
-    resolve_type=resolve_node_type)
 
 
 # ReplyPost = GraphQLObjectType(
@@ -167,14 +157,6 @@ NodeInterface = GraphQLInterfaceType(
 # CategoryConnection = relay_connection_type(Category)
 
 
-async def node_resolver(root, info, id):
-    model = get_model(info)
-    raise Exception('NIY')
-    #obj = await model.get_by_id(id)
-    #logger.debug('node_resolver %r -> %r', id, obj)
-    #return obj
-
-
 # @with_model
 # async def categories_resolver(root, info, model, **kwargs):
 #     return connection_from_list(await model.list_categories(), **kwargs)
@@ -244,10 +226,18 @@ Schema = GraphQLSchema(
                     'id': GraphQLArgument(GraphQLNonNull(GraphQLID)),
                 },
                 resolver=node_resolver),
-            # 'courses': GraphQLField(
-            #     type=CourseConnection,
-            #     args=connection_args,
-            #     resolver=courses_resolver),
+            'allCourses': GraphQLField(
+                type=CourseConnection,
+                args=connection_args,
+                resolver=all_courses_resolver),
+            'activeCourses': GraphQLField(
+                type=CourseConnection,
+                args=connection_args,
+                resolver=active_courses_resolver),
+            'pastCourses': GraphQLField(
+                type=CourseConnection,
+                args=connection_args,
+                resolver=past_courses_resolver),
         }
     ),
     # mutation=GraphQLObjectType(
