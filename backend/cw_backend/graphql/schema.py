@@ -1,3 +1,4 @@
+from collections import namedtuple
 import logging
 
 from graphql import (
@@ -220,8 +221,15 @@ User = GraphQLObjectType(
     name='User',
     interfaces=[NodeInterface],
     fields=lambda: {
-        'id': GraphQLField(type=GraphQLNonNull(GraphQLID)),
-        'isAdmin': GraphQLField(type=GraphQLBoolean),
+        'id': GraphQLField(
+            type=GraphQLNonNull(GraphQLID),
+            resolver=lambda user, info: f'User:{user.id}'),
+        'userId': GraphQLField(
+            type=GraphQLNonNull(GraphQLString),
+            resolver=lambda user, info: user.id),
+        'isAdmin': GraphQLField(
+            type=GraphQLBoolean,
+            resolver=lambda user, info: user.is_admin),
     })
 
 
@@ -230,11 +238,58 @@ async def current_user_resolver(root, info):
     session = await get_session(info.context['request'])
     if not session.get('user'):
         return None
-    model = req.app['model']
+    model = get_model(info)
     user = await model.users.get_by_id(session['user']['id'])
-    return user.export(details=True)
+    logger.info('current_user_resolver: %r', user)
+    return user
 
 
+LoginMethods = GraphQLObjectType(
+    name='LoginMethods',
+    interfaces=[NodeInterface],
+    fields=lambda: {
+        'id': GraphQLField(
+            type=GraphQLNonNull(GraphQLID),
+            resolver=lambda _, info: 'LoginMethods'),
+        'facebook': GraphQLField(
+            type=GraphQLObjectType(
+                name='FacebookLoginMethod',
+                fields={
+                    'loginUrl': GraphQLField(
+                        type=GraphQLNonNull(GraphQLString),
+                        resolver=lambda fb, info: fb['url']),
+                }),
+            resolver=lambda lm, info: lm['facebook']),
+        'google': GraphQLField(
+            type=GraphQLObjectType(
+                name='GoogleLoginMethod',
+                fields={
+                    'loginUrl': GraphQLField(
+                        type=GraphQLNonNull(GraphQLString),
+                        resolver=lambda g, info: g['url']),
+                }),
+            resolver=lambda lm, info: lm['google']),
+        'dev': GraphQLField(
+            type=GraphQLObjectType(
+                name='DevLoginMethod',
+                fields={
+                    'studentLoginUrl': GraphQLField(
+                        type=GraphQLNonNull(GraphQLString),
+                        resolver=lambda dev, info: dev['student_url']),
+                    'coachLoginUrl': GraphQLField(
+                        type=GraphQLNonNull(GraphQLString),
+                        resolver=lambda dev, info: dev['coach_url']),
+                    'adminLoginUrl': GraphQLField(
+                        type=GraphQLNonNull(GraphQLString),
+                        resolver=lambda dev, info: dev['admin_url']),
+                }),
+            resolver=lambda lm, info: lm['dev']),
+    })
+
+
+async def login_methods_resolver(root, info):
+    from ..views.auth import get_login_methods
+    return get_login_methods(conf=info.context['request'].app['conf'])
 
 
 Schema = GraphQLSchema(
@@ -262,6 +317,9 @@ Schema = GraphQLSchema(
             'currentUser': GraphQLField(
                 type=User,
                 resolver=current_user_resolver),
+            'loginMethods': GraphQLField(
+                type=LoginMethods,
+                resolver=login_methods_resolver),
         }
     ),
     # mutation=GraphQLObjectType(

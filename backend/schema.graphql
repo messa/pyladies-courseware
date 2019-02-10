@@ -22,6 +22,27 @@ type CourseEdge {
   node: Course
 }
 
+type DevLoginMethod {
+  studentLoginUrl: String!
+  coachLoginUrl: String!
+  adminLoginUrl: String!
+}
+
+type FacebookLoginMethod {
+  loginUrl: String!
+}
+
+type GoogleLoginMethod {
+  loginUrl: String!
+}
+
+type LoginMethods implements Node {
+  id: ID!
+  facebook: FacebookLoginMethod
+  google: GoogleLoginMethod
+  dev: DevLoginMethod
+}
+
 interface Node {
   id: ID!
 }
@@ -39,9 +60,11 @@ type Query {
   activeCourses(before: String, after: String, first: Int, last: Int): CourseConnection
   pastCourses(before: String, after: String, first: Int, last: Int): CourseConnection
   currentUser: User
+  loginMethods: LoginMethods
 }
 
 type User implements Node {
   id: ID!
+  userId: String!
   isAdmin: Boolean
 }
