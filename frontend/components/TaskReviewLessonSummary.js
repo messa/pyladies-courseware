@@ -134,6 +134,16 @@ const TaskStatus = ({ courseId, sessionSlug, taskSolution }) => {
     return '·'
   }
   let content = '◯'
+  if (taskSolution.last_action) {
+    if (taskSolution.last_action == 'coach') {
+      // last action coach => waiting for student
+      content = '◯'
+    }
+    if (taskSolution.last_action == 'student') {
+      // last action student => waiting for coach
+      content = '⬤'
+    }
+  }
   if (taskSolution.is_solved) {
     content = '✓'
   }

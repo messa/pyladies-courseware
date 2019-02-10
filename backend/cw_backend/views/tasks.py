@@ -27,6 +27,7 @@ async def submit_task_solution(req):
         course_id=data['course_id'],
         task_id=data['task_id'],
         code=data['code'])
+    await ts.set_last_action('student', user)
     return web.json_response({
         'task_solution': await ts.export(with_code=True),
     })
@@ -94,6 +95,7 @@ async def mark_solution_solved(req):
     if not user.can_review_course(course_id=solution.course_id):
         raise web.HTTPForbidden()
     await solution.set_marked_as_solved(data['solved'], user)
+    await solution.set_last_action('coach', user)
     return web.json_response({
         'task_solution': await solution.export(with_code=True),
     })
@@ -116,6 +118,10 @@ async def add_solution_comment(req):
         reply_to_comment_id=data['reply_to_comment_id'],
         author_user=user,
         body=data['body'])
+    if user.id == solution.user_id:
+        await solution.set_last_action('student', user)
+    elif user.can_review_course(course_id=solution.course_id):
+        await solution.set_last_action('coach', user)
     task_comments = await model.task_solution_comments.find_by_task_solution_id(solution.id)
     return web.json_response({
         'task_solution': await solution.export(with_code=True),
