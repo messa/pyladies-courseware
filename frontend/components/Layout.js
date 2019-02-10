@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { createFragmentContainer, graphql } from 'react-relay'
 import Header from './Header'
 import Footer from './Footer'
 
