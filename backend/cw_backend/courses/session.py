@@ -92,7 +92,7 @@ def load_tasks_file(task_items, file_path, session_slug, loader, counter):
         raise Exception(f'Failed to load tasks file {file_path}: {e}')
     for raw_item in raw['tasks']:
         if raw_item.get('section'):
-            task_items.append(TaskSection(raw_item['section']))
+            task_items.append(TaskSection(raw_item))
         elif raw_item.get('markdown'):
             task_items.append(Task(raw_item, session_slug, next(counter)))
         else:
@@ -174,10 +174,11 @@ def hotfix_naucse_url(url):
 
 class TaskSection:
 
-    def __init__(self, raw_section):
+    def __init__(self, raw_item):
         self.data = {
             'task_item_type': 'section',
-            'text_html': to_html(raw_section),
+            'text_html': to_html(raw_item['section']),
+            'mandatory': bool(raw_item.get('mandatory', False)),
         }
 
     def export(self):
@@ -185,7 +186,7 @@ class TaskSection:
 
     @property
     def first(self):
-      return False
+      return self.data['mandatory']
 
 
 class Task:
