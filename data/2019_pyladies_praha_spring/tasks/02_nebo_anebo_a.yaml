@@ -8,7 +8,7 @@ tasks:
 
 - id: handout2_15
   markdown: |
-    Projdi si v materiálech bonusovou sekci _„Nebo anebo a”_:
+    Projdi si v materiálech sekci _„Nebo anebo a”_:
 
     [naucse.python.cz/lessons/beginners/and-or/](https://naucse.python.cz/lessons/beginners/and-or/)
 
@@ -39,4 +39,4 @@ tasks:
 
 - id: handout2_18
   markdown: |
-    Zkus program „šťastná/bohatá“ přepsat pomocí zanořených `if`ů. Která verze ti připadá čitelnější?
+    Zkus program „šťastná/bohatá“, který je uvedený v materiálech, přepsat pomocí zanořených `if`ů. Která verze ti připadá čitelnější?
