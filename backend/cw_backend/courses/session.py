@@ -1,7 +1,7 @@
 from itertools import count
 import logging
 
-from ..util import yaml_load
+from ..util import smart_repr, yaml_load
 
 from .helpers import DataProperty, parse_date, to_html
 
