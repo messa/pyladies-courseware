@@ -15,7 +15,6 @@ class Session:
         self._course_dir = course_dir
         self._loader = loader
         self.slug = slug
-        self.counter = count()
 
         def get(key, default=None):
             for src in local_data, naucse_data:
@@ -60,6 +59,9 @@ class Session:
                         for t in lesson_tasks:
                             self._load_tasks(t)
         self.task_items.sort(key=lambda item: not item.first)
+        counter = count()
+        for task in self.task_items:
+            task.set_number(counter)
 
     def _load_tasks(self, task_data):
         if not isinstance(task_data, dict):
@@ -69,8 +71,7 @@ class Session:
                 self.task_items,
                 self._course_dir / task_data['file'],
                 session_slug=self.slug,
-                loader=self._loader,
-                counter=self.counter)
+                loader=self._loader)
 
     def export(self, tasks=False):
         d = {
@@ -85,7 +86,7 @@ class Session:
         return d
 
 
-def load_tasks_file(task_items, file_path, session_slug, loader, counter):
+def load_tasks_file(task_items, file_path, session_slug, loader):
     try:
         raw = yaml_load(loader.read_text(file_path))
     except Exception as e:
@@ -94,7 +95,7 @@ def load_tasks_file(task_items, file_path, session_slug, loader, counter):
         if raw_item.get('section'):
             task_items.append(TaskSection(raw_item['section']))
         elif raw_item.get('markdown'):
-            task_items.append(Task(raw_item, session_slug, next(counter)))
+            task_items.append(Task(raw_item, session_slug))
         else:
             raise Exception(f'Unknown item in tasks file {file_path}: {smart_repr(raw_item)}')
 
@@ -187,14 +188,19 @@ class TaskSection:
     def first(self):
       return False
 
+    def set_number(self, counter):
+      pass
+
 
 class Task:
 
-    def __init__(self, raw, session_slug, default_number):
+    def __init__(self, raw, session_slug):
+        self.id = raw.get('id')
+        self.session_slug = session_slug
         self.data = {
             'task_item_type': 'task',
-            'id': str(raw.get('id') or f'{session_slug}-{default_number}'),
-            'number': default_number,
+            'id': None,
+            'number': 0,
             'text_html': to_html(raw),
             'mandatory': bool(raw.get('mandatory', False)),
             'submit': bool(raw.get('submit', True)),
@@ -206,3 +212,8 @@ class Task:
     @property
     def first(self):
       return self.data['mandatory']
+
+    def set_number(self, counter):
+      number = next(counter)
+      self.data['number'] = number
+      self.data['id'] = str(self.id or f'{self.session_slug}-{number}')
