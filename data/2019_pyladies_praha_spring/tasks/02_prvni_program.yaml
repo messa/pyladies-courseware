@@ -1,0 +1,7 @@
+# https://github.com/PyLadiesCZ/pyladies.cz/raw/master/original/v1/s002-hello-world/handout/handout2.pdf
+
+tasks:
+
+- id: handout2_00
+  markdown: |
+    Jakou používáš verzi Pythonu?

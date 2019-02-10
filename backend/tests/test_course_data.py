@@ -1,7 +1,8 @@
 from datetime import date
 
 from cw_backend.util import yaml_dump, yaml_load
-from cw_backend.courses import load_course, load_courses, parse_date
+from cw_backend.courses import load_course, load_courses
+from cw_backend.courses.helpers import parse_date
 
 
 def test_parse_yaml():

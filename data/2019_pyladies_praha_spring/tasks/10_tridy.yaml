@@ -1,0 +1,15 @@
+tasks:
+
+- id: handout11_00
+  markdown: |
+    Vytvoř si vlastní třídu pro celá čísla tak, aby tato nová třída měla
+    všechny vlastnosti a schopnosti běžných celých čísel v Pythonu (objekty
+    bude možné sčítat, odečítat, porovnávat atp.) a navíc měla metodu
+    pro rozpoznání, zda je číslo v objektu sudé nebo liché jménem `je_sude()`,
+    která bude vracet `True` nebo `False`.
+
+- id: handout11_01
+  markdown: |
+    Jako bonus je možné vlastní třídě z předchozího příkladu přepsat metodu
+    `__repr__()` tak, aby bylo v interaktivním režimu poznat, které číslo je
+    standardní `int` a které je z tebou vytvořené třídy.
