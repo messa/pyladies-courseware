@@ -216,6 +216,27 @@ def get_model(info):
 #         raise e
 
 
+User = GraphQLObjectType(
+    name='User',
+    interfaces=[NodeInterface],
+    fields=lambda: {
+        'id': GraphQLField(type=GraphQLNonNull(GraphQLID)),
+        'isAdmin': GraphQLField(type=GraphQLBoolean),
+    })
+
+
+async def current_user_resolver(root, info):
+    from aiohttp_session import get_session
+    session = await get_session(info.context['request'])
+    if not session.get('user'):
+        return None
+    model = req.app['model']
+    user = await model.users.get_by_id(session['user']['id'])
+    return user.export(details=True)
+
+
+
+
 Schema = GraphQLSchema(
     query=GraphQLObjectType(
         name='Query',
@@ -238,6 +259,9 @@ Schema = GraphQLSchema(
                 type=CourseConnection,
                 args=connection_args,
                 resolver=past_courses_resolver),
+            'currentUser': GraphQLField(
+                type=User,
+                resolver=current_user_resolver),
         }
     ),
     # mutation=GraphQLObjectType(
