@@ -30,6 +30,7 @@ from .courses import (
     all_courses_resolver,
     active_courses_resolver,
     past_courses_resolver,
+    course_resolver,
 )
 
 from .node_interface import NodeInterface, node_resolver
@@ -314,6 +315,12 @@ Schema = GraphQLSchema(
                 type=CourseConnection,
                 args=connection_args,
                 resolver=past_courses_resolver),
+            'course': GraphQLField(
+                type=Course,
+                args={
+                    'courseId': GraphQLArgument(GraphQLString),
+                },
+                resolver=course_resolver),
             'currentUser': GraphQLField(
                 type=User,
                 resolver=current_user_resolver),

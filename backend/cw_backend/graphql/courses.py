@@ -25,6 +25,8 @@ from .relay_helpers import (
 
 from .node_interface import NodeInterface
 
+from .sessions import Session
+
 
 logger = logging.getLogger(__name__)
 
@@ -54,6 +56,8 @@ Course = GraphQLObjectType(
         'endDate': GraphQLField(
             type=GraphQLString,
             resolver=lambda c, _: c.end_date.isoformat()),
+        'sessions': GraphQLField(
+            type=GraphQLList(Session)),
         #'topics': GraphQLField(
         #    type=TopicConnection,
         #    resolver=category_topics_resolver),
@@ -80,3 +84,8 @@ async def active_courses_resolver(root, info, **kwargs):
 async def past_courses_resolver(root, info, **kwargs):
     courses = get_courses(info)
     return connection_from_list(courses.list_past(), **kwargs)
+
+
+async def course_resolver(root, info, courseId):
+    courses = get_courses(info)
+    return courses.get_by_course_id(courseId)

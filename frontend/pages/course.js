@@ -2,44 +2,46 @@ import React from 'react'
 import Link from 'next/link'
 import { Button } from 'semantic-ui-react'
 import Layout from '../components/Layout'
-import fetchPageData from '../util/fetchPageData'
 import ALink from '../components/ALink'
 import MaterialItems from '../components/MaterialItems'
 import formatDate from '../util/formatDate'
+import withData from '../util/withData'
 
-export default class extends React.Component {
+class CoursePage extends React.Component {
 
+  /*
   static async getInitialProps({ req, query }) {
     const courseId = query.course
     return await fetchPageData(req, {
       course: { 'course_detail': { 'course_id': courseId } },
     })
   }
+  */
 
   render() {
-    const { course } = this.props
+    const { currentUser, course } = this.props
     return (
-      <Layout user={this.props.user} width={1000}>
+      <Layout currentUser={currentUser} width={1000}>
 
         <div className='overview'>
 
           <h1 className='course-title'>
-            <strong dangerouslySetInnerHTML={{__html: course['title_html']}} />
-            {course['subtitle_html'] && (
-              <div dangerouslySetInnerHTML={{__html: course['subtitle_html']}} />
+            <strong dangerouslySetInnerHTML={{__html: course.titleHTML }} />
+            {course.subtitleHTML && (
+              <div dangerouslySetInnerHTML={{__html: course.subtitleHTML }} />
             )}
           </h1>
 
           <div
             className='course-description'
-            dangerouslySetInnerHTML={{__html: course['description_html']}}
+            dangerouslySetInnerHTML={{__html: course.descriptionHTML }}
           />
 
         </div>
 
         <div className='sessions'>
 
-          {course['sessions'].map(session => (
+          {/*course['sessions'].map(session => (
             <div key={session['slug']} className='session'>
 
               <h2 className='session-title'>
@@ -67,7 +69,7 @@ export default class extends React.Component {
               )}
 
             </div>
-          ))}
+          ))*/}
 
         </div>
 
@@ -143,3 +145,20 @@ export default class extends React.Component {
     )
   }
 }
+
+export default withData(CoursePage, {
+  variables: ({ query }) => ({ courseId: query.course }),
+  query: graphql`
+    query courseQuery($courseId: String!) {
+      currentUser {
+        ...Layout_currentUser
+      }
+      course(courseId: $courseId) {
+        id
+        titleHTML
+        subtitleHTML
+        descriptionHTML
+      }
+    }
+  `
+})

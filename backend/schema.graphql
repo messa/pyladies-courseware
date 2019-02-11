@@ -59,6 +59,7 @@ type Query {
   allCourses(before: String, after: String, first: Int, last: Int): CourseConnection
   activeCourses(before: String, after: String, first: Int, last: Int): CourseConnection
   pastCourses(before: String, after: String, first: Int, last: Int): CourseConnection
+  course(courseId: String): Course
   currentUser: User
   loginMethods: LoginMethods
 }

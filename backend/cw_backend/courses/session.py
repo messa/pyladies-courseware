@@ -14,6 +14,7 @@ class Session:
     def __init__(self, course_id, slug, local_data, naucse_data, course_dir, tasks_by_lesson_slug, loader):
         self._course_dir = course_dir
         self._loader = loader
+        self.course_id = course_id
         self.slug = slug
 
         def get(key, default=None):
@@ -129,6 +130,11 @@ class MaterialItem:
         else:
             raise Exception(f'Unknown MaterialItem data: {smart_repr(raw)}')
 
+    material_item_type = DataProperty('material_item_type')
+    title_html = DataProperty('title_html')
+    text_html = DataProperty('text_html')
+    url = DataProperty('url')
+
     def export(self):
         return self.data
 
@@ -160,6 +166,11 @@ class NaucseMaterialItem:
         except Exception as e:
             raise Exception(f'Failed to process naucse material {naucse_data!r}: {e!r}')
 
+    material_item_type = DataProperty('material_item_type')
+    title_html = DataProperty('title_html')
+    text_html = DataProperty('text_html')
+    url = DataProperty('url')
+
     def export(self):
         return self.data
 
@@ -181,6 +192,11 @@ class TaskSection:
             'text_html': to_html(raw_item['section']),
             'mandatory': bool(raw_item.get('mandatory', False)),
         }
+
+    task_item_type = DataProperty('task_item_type')
+    text_html = DataProperty('text_html')
+    id = None
+    submit = None
 
     def export(self):
         return self.data
@@ -206,6 +222,11 @@ class Task:
             'mandatory': bool(raw.get('mandatory', False)),
             'submit': bool(raw.get('submit', True)),
         }
+
+    task_item_type = DataProperty('task_item_type')
+    text_html = DataProperty('text_html')
+    mandatory = DataProperty('mandatory')
+    submit = DataProperty('submit')
 
     def export(self):
         return self.data

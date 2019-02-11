@@ -20,7 +20,7 @@ class DataProperty:
         self.key = key
 
     def __get__(self, instance, owner):
-        return instance.data[self.key]
+        return instance.data.get(self.key)
 
     def __set__(self, instance, value):
         instance.data[self.key] = value
