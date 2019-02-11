@@ -1,23 +1,73 @@
 import React from 'react'
 import Link from 'next/link'
-import { Button } from 'semantic-ui-react'
+import { Button, Message } from 'semantic-ui-react'
 import Layout from '../components/Layout'
 import fetchPageData from '../util/fetchPageData'
 import ALink from '../components/ALink'
 import MaterialItems from '../components/MaterialItems'
 import formatDate from '../util/formatDate'
 
+function arrayContains(array, item) {
+  return array && array.indexOf(item) !== -1
+}
+
 export default class extends React.Component {
+
+  state = {
+    attendInProgress: false,
+    attendError: null,
+  }
 
   static async getInitialProps({ req, query }) {
     const courseId = query.course
-    return await fetchPageData(req, {
+    const data = await fetchPageData(req, {
       course: { 'course_detail': { 'course_id': courseId } },
     })
+    return { courseId, ...data }
+  }
+
+  handleClick = async () => {
+    this.setState({
+      attendInProgress: true,
+    })
+    try {
+      const { user, courseId } = this.props
+      const payload = {
+        'course_id': courseId,
+      }
+      const r = await fetch('/api/users/attend-course', {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      })
+      const { attended_course_ids } = await r.json()
+      this.setState({
+        attendInProgress: false,
+      })
+      window.location.reload()
+    } catch (err) {
+      this.setState({
+        attendInProgress: false,
+        attendError: err.toString(),
+      })
+    }
   }
 
   render() {
-    const { course } = this.props
+    const { user, courseId, course } = this.props
+    const { attendInProgress, attendError } = this.state
+    const belongToCourse = user && (
+      user['is_admin'] ||
+      arrayContains(user['attended_course_ids'], courseId) ||
+      arrayContains(user['coached_course_ids'], courseId)
+    )
+    const now = new Date()
+    const courseEnd = new Date(course['end_date'])
+    const activeCourse = (courseEnd >= now)
     return (
       <Layout user={this.props.user} width={1000}>
 
@@ -34,6 +84,27 @@ export default class extends React.Component {
             className='course-description'
             dangerouslySetInnerHTML={{__html: course['description_html']}}
           />
+          {activeCourse && (
+            <div className='course-attend'>
+              {attendError && (
+                <div>
+                  <Message
+                    negative compact
+                    content={attendError}
+                  />
+                </div>
+              )}
+              <Button.Group>
+                <Button
+                  primary
+                  onClick={this.handleClick}
+                  disabled={belongToCourse || attendInProgress}
+                  loading={attendInProgress}
+                  content={belongToCourse ? 'Jste součástí kurzu' : 'Přihlásit se do kurzu'}
+                />
+              </Button.Group>
+            </div>
+          )}
 
         </div>
 
@@ -96,6 +167,11 @@ export default class extends React.Component {
             padding: 0 16px;
           }
           .overview .course-description {
+            max-width: 550px;
+            margin: 0 auto;
+          }
+          .overview .course-attend {
+            text-align: center;
             max-width: 550px;
             margin: 0 auto;
           }
