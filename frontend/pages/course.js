@@ -26,7 +26,7 @@ export default class extends React.Component {
     return { courseId, ...data }
   }
 
-  handleClick = async () => {
+  handleEnrollClick = async () => {
     this.setState({
       attendInProgress: true,
     })
@@ -44,7 +44,11 @@ export default class extends React.Component {
         },
         body: JSON.stringify(payload),
       })
-      const { attended_course_ids } = await r.json()
+      const { not_logged_in, attended_course_ids } = await r.json()
+      if (not_logged_in) {
+        window.location = '/login'
+        return
+      }
       this.setState({
         attendInProgress: false,
       })
@@ -97,7 +101,7 @@ export default class extends React.Component {
               <Button.Group>
                 <Button
                   primary
-                  onClick={this.handleClick}
+                  onClick={this.handleEnrollClick}
                   disabled={belongToCourse || attendInProgress}
                   loading={attendInProgress}
                   content={belongToCourse ? 'Jste součástí kurzu' : 'Přihlásit se do kurzu'}

@@ -16,7 +16,9 @@ routes = web.RouteTableDef()
 async def assign_student_to_course(req):
     session = await get_session(req)
     if not session.get('user'):
-        raise web.HTTPForbidden()
+        return web.json_response({
+            'not_logged_in': True,
+        }, status=403)
     model = req.app['model']
     user = await model.users.get_by_id(session['user']['id'])
     courses = req.app['courses']
