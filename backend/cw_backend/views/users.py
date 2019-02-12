@@ -11,8 +11,9 @@ logger = logging.getLogger(__name__)
 
 routes = web.RouteTableDef()
 
+
 @routes.post('/api/users/attend-course')
-async def submit_task_solution(req):
+async def assign_student_to_course(req):
     session = await get_session(req)
     if not session.get('user'):
         raise web.HTTPForbidden()
