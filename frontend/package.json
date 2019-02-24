@@ -15,12 +15,11 @@
     "codemirror": "^5.40.0",
     "express": "^4.16.4",
     "isomorphic-unfetch": "^3.0.0",
-    "next": "^7.0.2",
-    "react": "^16.7.0",
+    "next": "^8.0.3",
+    "react": "^16.8.3",
     "react-codemirror2": "^5.1.0",
-    "react-dom": "^16.7.0",
-    "semantic-ui-react": "^0.82.5",
-    "terser": "3.14.1"
+    "react-dom": "^16.8.3",
+    "semantic-ui-react": "^0.82.5"
   },
   "devDependencies": {
     "http-proxy-middleware": "^0.19.1"
