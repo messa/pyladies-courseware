@@ -26,10 +26,12 @@ tasks_by_lesson_slug:
 
   "beginners/functions": []
   "intro/turtle":
-  - file: ../2019_pyladies_praha_spring/tasks/03_cykly.yaml
-  - file: ../2019_pyladies_praha_spring/tasks/03_cykly_zelva.yaml
-  - file: ../2019_pyladies_praha_spring/tasks/03_cykly_konzole.yaml
+  - file: ..tasks/03_cykly.yaml
+  - file: ..tasks/03_cykly_zelva.yaml
+  - file: ..tasks/03_cykly_konzole.yaml
+  - file: ..tasks/04_procvicovani_for.yaml
   "beginners/while": []
+
 
   # session 4: "def-str"
 
@@ -44,7 +46,6 @@ tasks_by_lesson_slug:
   "beginners/files":
   # Tohle ve skutečnosti nejsou úlohy k souborům, ale k procvičování.
   - file: ../2019_pyladies_praha_spring/tasks/06_procvicovani_print.yaml
-  - file: ../2019_pyladies_praha_spring/tasks/04_procvicovani_for.yaml
   - file: ../2019_pyladies_praha_spring/tasks/06_procvicovani_orisky.yaml
 
   # session 6: "git"
