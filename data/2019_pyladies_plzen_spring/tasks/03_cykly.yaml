@@ -1,0 +1,21 @@
+tasks:
+
+- section:
+    markdown: |
+      V těchto projektech je určitě něco nového.
+      Nezadávají postup, jak na odpověď přijít, ale to určitě zvládneš!
+
+- id: handout3a_00
+  markdown: |
+    Popiš slovně, co vrací funkce `range`? 
+
+  mandatory: true
+
+- id: handout3a_01
+  markdown: |
+    Co se stane, když pro příkaz `for`
+    zavoláš funkci `range` se dvěma parametry?
+
+- id: handout3a_02
+  markdown: |
+    Se třemi?
