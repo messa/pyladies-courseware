@@ -6,7 +6,9 @@ tasks:
     markdown: |
       Domácí projekty k první lekci slouží k procvičení práce s interaktivní Python konzolí, aby sis to pořádně zažila, zkoušej si zadávat různé příkazy.
       Opakuj si použití příkazové řádky pro pohyb mezi adresáři a pro aktivaci/deaktivaci venv.
-
+  
+  mandatory: true
+  
 - id: handout1_00
   markdown: |
     Doma (nebo pár dní po instalaci, pokud nejsi na srazu) si znovu spusť Python a zkus, jestli stále funguje.
