@@ -2,8 +2,40 @@ tasks:
 
 - section:
     markdown: |
+      Tolik nových slovíček!
+      Aby ses v nich neztratila, zkus pár vlastními slovy popsat, co to je …
+
+- id: term_function
+  markdown: |
+      … *funkce*
+
+- id: term_argument
+  markdown: |
+      … *argument*
+
+- id: term_procedure
+  markdown: |
+      … *procedura*
+
+- id: term_return_value
+  markdown: |
+      … *návratová hodnota*
+
+- id: term_expression
+  markdown: |
+      … *výraz*
+
+- id: term_cycle
+  markdown: |
+      … *cyklus*
+
+- section:
+    markdown: |
       Želví kreslení! Tahle sekce tě naučí myslet jako programátorka počítačové grafiky.
-      Je dobré jednotlivé projekty dělat postupně, a když něco začne fungovat, znovu si
+      Je dobré jednotlivé projekty dělat postupně.
+      Kdyby sis potřebovala od želvy oddechnout, skoč až na další sekci.
+
+      Když něco začne fungovat, doporučuji, znovu si
       řešení projít a zamyslet se nad ním.
 
 - id: handout3a_03
