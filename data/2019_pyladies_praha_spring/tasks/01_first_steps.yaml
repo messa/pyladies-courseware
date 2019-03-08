@@ -68,18 +68,8 @@ tasks:
 - id: hadnout1_07
   markdown: |
     Python umí i jiné věci než čísla. Třeba takové _řetězce_ – slova, věty nebo jiný text.
-    Řetězce se zadávají v uvozovkách – jednoduchých `'` nebo dvojitých `"`:
-
-    ```
-    >>> 'Ahoj!'
-    'Ahoj!'
-    ```
-
-  submit: false
-
-- id: handout1_08
-  markdown: |
-    Řetězce jdou spojovat sčítáním. Vyzkoušej si to:
+    Řetězce se zadávají v uvozovkách – jednoduchých `'` nebo dvojitých `"` a jdou spojovat sčítáním.
+    Vyzkoušej si to:
 
     ```
     >>> 'A' + "B"
