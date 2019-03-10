@@ -9,7 +9,12 @@ tasks:
   markdown: |
     Napiš funkci, která pro argumentem zadané číslo `n` vytvoří a vrátí slovník,
     kde jako klíče budou čísla od jedné do `n` a jako hodnoty k nim
-    jejich druhé mocniny.
+    jejich druhé mocniny. Například:
+
+    ```python
+    >>> mocniny(4)
+    {1: 1, 2: 4, 3: 9, 4: 16}
+    ```
     
   mandatory: true
 
@@ -17,13 +22,23 @@ tasks:
   markdown: |
     Napiš funkci, která sečte a vrátí sumu všech klíčů a sumu všech hodnot
     ve slovníku, který dostane jako argument. K vyzkoušení můžeš použít
-    slovník z minulé úlohy.
+    slovník z minulé úlohy. Například:
+
+    ```python
+    >>> soucet_klicu_a_hodnot(mocniny(4))
+    (10, 30)
+    ```
 
 - id: handout8_02
   markdown: |
     Napiš funkci, která jako argument dostane řetězec a vrátí slovník,
     ve kterém budou jako klíče jednotlivé znaky ze zadaného řetězce a jako
-    hodnoty počty výskytů těchto znaků v řetězci.
+    hodnoty počty výskytů těchto znaků v řetězci. Například:
+
+    ```python
+    >>> pocet_znaku("hello world")
+    {'h': 1, 'e': 1, 'l': 3, 'o': 2, ' ': 1, 'w': 1, 'r': 1, 'd': 1}
+    ```
 
 - id: handout8_03
   markdown: |
@@ -32,7 +47,15 @@ tasks:
 
     Funkci, která něco vypisuje, je vhodné
     pojmenovat speciálně, zde třeba `vypis_slovnik`, aby bylo jasné,
-    že jen vypisuje a nic nevrací.
+    že jen vypisuje a nic nevrací. Například:
+
+    ```python
+    >>> vypis_slovnik(mocniny(4))
+    Klíč 1, hodnota 1
+    Klíč 2, hodnota 4
+    Klíč 3, hodnota 9
+    Klíč 4, hodnota 16
+    ```
     
   mandatory: true
 
