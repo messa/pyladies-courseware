@@ -20,7 +20,7 @@ tasks:
 
 - id: handout2_09
   markdown: |
-    Tento projekt doplňuje program ze srazu. Zkombinuj program z předchozího projektu s programem kámen-nůžky-papír a nastav `tah_pocitace` na:
+    Tento projekt doplňuje program ze srazu. Zkombinuj program z projektu č. 2 s programem kámen-nůžky-papír a nastav `tah_pocitace` na:
 
     - `'kámen'`, pokud je cislo 0,
     - `'nůžky'`, pokud je cislo 1,
@@ -28,7 +28,7 @@ tasks:
 
 - section:
     markdown: |
-      Tyhle projekty kombinují opakování a nové informace. Doporučuji si je projít.
+      Tyhle projekty kombinují opakování a nové informace. Doporučujeme si je projít.
 
 - id: handout2_10
   markdown: |
