@@ -8,3 +8,5 @@ tasks_by_lesson_slug:
   - file: tasks/01_expressions.yaml
   "beginners/while":
   - file: tasks/02_cycles.yaml
+  "beginners/def":
+  - file: tasks/03_def.yaml
