@@ -4,7 +4,7 @@ tasks:
 
 - section:
     markdown: |
-      Následující projekty procvičí orientaci v chybových hláškách. Doporučuji je udělat.
+      Následující projekty procvičí orientaci v chybových hláškách. Doporučujeme je udělat.
 
 - id: handout2_01
   markdown: |
@@ -29,7 +29,7 @@ tasks:
 
 - id: handout2_03
   markdown: |
-    _Podívej se na odpovědi na otázku 1, ale Python použij jen na ověření._
+    _Opět se podívej na druhy chyb, ale Python použij jen na ověření._
 
     Jaká chyba nastane, když zkusíš podělit řetězec řetězcem?
 
