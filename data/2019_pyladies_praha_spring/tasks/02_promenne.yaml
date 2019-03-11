@@ -33,7 +33,9 @@ tasks:
     
 - section:
     markdown: |
-      Následující projekty jsou na procvičení toho, co jsme dělaly na srazu.
+      První dva projekty jsou na procvičení toho, co jsme dělaly na srazu.
+      
+  mandatory: true
 
 - id: handout2_06
   markdown: |
