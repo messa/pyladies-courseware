@@ -4,7 +4,9 @@ tasks:
 
 - section:
     markdown: |
-      Následují "nepovinné" projekty. Vřele doporučujeme si jich co nejvíce projít a odevzdat řešení. Na úvod zahřívací otázka:
+      Následují "nepovinné" projekty.
+      Vřele doporučujeme si jich co nejvíce projít a odevzdat řešení.
+      Na úvod zahřívací otázka:
       
 - id: handout2_00
   markdown: |
