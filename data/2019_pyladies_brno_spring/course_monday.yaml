@@ -10,3 +10,5 @@ tasks_by_lesson_slug:
   - file: tasks/02_cycles.yaml
   "beginners/def":
   - file: tasks/03_def.yaml
+  "beginners/exceptions":
+  - file: tasks/04_exceptions.yaml
