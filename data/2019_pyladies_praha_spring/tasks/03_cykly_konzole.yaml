@@ -3,7 +3,8 @@ tasks:
 - id: handout3a_17
   markdown: |
     Napiš program, který postupně načte od uživatele dvě čísla a jednoznakový
-    řetězec – buď `'+'`, `'-'`, `'*'` nebo `'/'`. Program provede na číslech příslušnou operaci.
+    řetězec – buď `'+'`, `'-'`, `'*'` nebo `'/'`. 
+    Program provede na číslech příslušnou operaci.
 
     Příklad použití programu:
 
@@ -20,4 +21,4 @@ tasks:
   markdown: |
     Napiš program, který se pětkrát zeptá na číslo a nejmenší zadané číslo vypíše.
 
-    _Nevíš-li si rady, podívej se do materiálů na sekci Přepisování proměnných. Místo sečítání budeš vybírat správnou hodnotu._
+    _Nevíš-li si rady, podívej se do materiálů na sekci Přepisování proměnných. Místo sčítání budeš vybírat správnou hodnotu._
