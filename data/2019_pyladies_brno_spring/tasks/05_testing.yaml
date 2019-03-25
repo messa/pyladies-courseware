@@ -39,7 +39,7 @@ tasks:
         * Když nějaký test neprochází, sprav ho.
         * Když všechno zezelená, postup na další level.
 
-- id: handout4_09
+- id: handout4_09_test
   markdown: |
     V modulu `piskvorky` (tj. v souboru `piskvorky.py`)
     napiš funkci `vyhodnot`, která dostane řetězec
@@ -67,7 +67,7 @@ tasks:
 
     Odevzdej celý soubor `piskvorky.py`.
 
-- id: pisq1d_error_handling
+- id: pisq1d_error_handling_test
   markdown: |
     V modulu `util` (tj. v souboru `util.py`)
     napiš funkci `tah`, která dostane řetězec s herním polem,
@@ -115,7 +115,7 @@ tasks:
 
     Odevzdej celý soubor `util.py`.
 
-- id: handout4_11
+- id: handout4_11_test
   markdown: |
     V modulu `piskvorky` (tj. v souboru `piskvorky.py`)
     napiš funkci `tah_hrace(pole, symbol)`, která dostane řetězec
@@ -167,7 +167,7 @@ tasks:
 
     Odevzdej celý soubor `piskvorky.py` (i s funkcí `vyhodnot`).
 
-- id: handout4_12
+- id: handout4_12_test
   markdown: |
     V modulu `ai` (tj. v souboru `ai.py`)
     napiš funkci `tah_pocitace(pole, symbol)`, která dostane řetězec s herním
@@ -200,7 +200,7 @@ tasks:
 
     Odevzdej celý soubor `ai.py`.
 
-- id: handout4_13
+- id: handout4_13_test
   markdown: |
     V modulu `piskvorky` (tj. v souboru `piskvorky.py`)
     napiš funkci `piskvorky1d`, která:
@@ -228,7 +228,7 @@ tasks:
 
     Tady odevzdej soubor `hra.py`.
 
-- id: pisq1d_endgame
+- id: pisq1d_endgame_test
   markdown: |
     Pošéfuj konec hry.
     Když někdo vyhraje nebo dojde k remíze, cyklus se ukončí a vypíše
