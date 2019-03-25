@@ -2,34 +2,47 @@ tasks:
 
 - section:
     markdown: |
-      Dnešním úkolem je naprogramovat hru *1D Piškvorky*.
-      Nakonec bude fungovat následovně:
+        Dnešní úkoly budou asi povědomé. Vytvoříme totiž ... hru 1D piškvorky!
+        Tentokrát ale s moduly a předpřipravenými testy.
 
-      <blockquote>
-      1-D piškvorky se hrají na řádku s dvaceti políčky.
-      Hráči střídavě přidávají kolečka (`o`) a křížky (`x`),
-      třeba:
-      <pre>
-      1. kolo: -------<span style='color: red'>x</span>------------
-      2. kolo: -------x--<span style='color: red'>o</span>---------
-      3. kolo: -------x<span style='color: red'>x</span>-o---------
-      4. kolo: -------xx<span style='color: red'>o</span>o---------
-      5. kolo: ------<span style='color: red'>x</span>xxoo---------
-      </pre>
-      Hráč, která dá tři své symboly vedle sebe, vyhrál.
-      </blockquote>
+        Máš-li Piškvorky už hotové, doporučuji je udělat znovu.
+        Ty původní můžeš mít vedle jako nápovědu.
 
-      Hru budeš skládat postupně z malých částí.
-      Napřed tedy musíš malé části vytvořit.
+        Stáhni si soubor s testy, [`test_piskvorky.py`](/static/tasks/
+        handout_files/test_piskvorky.py), a dej ho do adresáře, kde budeš tvořit
+        Piškvorky.
 
-      Úkoly dělej postupně.
+        Na ulehčení testování si nainstaluj modul `pytest-level`.
+        Ten umožňuje pouštět jen určité testy – podle toho, jak jsi daleko.
 
-      Odevzdávej prosím *celé programy* se všemy potřebnými importy
-      a pomocnými funkcemi.
+                python -m pip install pytest-level
+
+        Zkus pustit všechny testy. Asi ti neprojdou:
+
+                python -m pytest -v
+
+        Pak zkus pustit testy pro úroveň 0:
+
+                python -m pytest -v --level 0
+
+        Teď se nepustí žádné testy – všechny se přeskočí.
+        Výpis by měl končit nějak takto:
+
+                collected N items / N deselected
+                === N deselected in 0.01 seconds ===
+
+        Zadáš-li v posledním příkazu `--level 1`, aktivuje se první z testů.
+        Pravděpodobně neprojde – v dalším úkolu ho spravíš!
+
+        Tvůj postup vždycky bude:
+
+        * Když nějaký test neprochází, sprav ho.
+        * Když všechno zezelená, postup na další level.
 
 - id: handout4_09
   markdown: |
-    Napiš funkci `vyhodnot`, která dostane řetězec
+    V modulu `piskvorky` (tj. v souboru `piskvorky.py`)
+    napiš funkci `vyhodnot`, která dostane řetězec
     s herním polem 1-D piškvorek
     a vrátí jednoznakový řetězec podle stavu hry:
 
@@ -44,9 +57,20 @@ tasks:
        *  `vyhodnot('--o--xxx---o--o-----')` vrátí `'x'`
        *  `vyhodnot('xoxoxoxoxoxoxoxoxoxo')` vrátí `'!'`
 
-- id: handout4_10
+    Zatímco budeš psát tento úkol, průběžně ho kontroluj automatickými testy.
+    Pusť příkaz `python -m pytest -v --level N` podle toho, jak jsi daleko:
+
+    * `--level 1`: V modulu `piskvorky` je nějaká funkce `vyhodnot`.
+    * `--level 2`: V případě výhry dává funkce správný výsledek, `'x'` nebo `'o'`
+    * `--level 3`: V případě remízy dává funkce správný výsledek, `'!'`
+    * `--level 4`: Když hra neskončila, funkce dává správný výsledek, `'-'`
+
+    Odevzdej celý soubor `piskvorky.py`.
+
+- id: pisq1d_error_handling
   markdown: |
-    Napiš funkci `tah`, která dostane řetězec s herním polem,
+    V modulu `util` (tj. v souboru `util.py`)
+    napiš funkci `tah`, která dostane řetězec s herním polem,
     číslo políčka (0-19), a symbol (`x` nebo `o`)
     a vrátí herní pole _(t.j. řetězec)_ s daným symbolem umístěným na danou pozici.
 
@@ -73,24 +97,28 @@ tasks:
 
     _Můžeš využít nějakou funkci, kterou jsme napsaly už na sraze?_
 
-- id: pisq1d_error_handling
-  markdown: |
-    Přepiš funkci `tah`, aby skončila s chybou `ValueError` v těchto případech:
+    Zatímco funkci budeš psát, průběžně ji kontroluj automatickými testy.
+    Pusť příkaz `python -m pytest -v --level N` podle toho, jak jsi daleko:
 
-    * Hra na pozici, která není v poli, např.
+    * `--level 10`: V modulu `util` je nějaká funkce `tah`.
+
+    * `--level 11`: Funkce dává na prázdné pole `x` nebo `o` na dané místo
+
+    * `--level 20`: Hra na pozici, která není v poli, např.
       `tah('--------------------', -1, 'x')`
 
-    * Hra na obsazené políčko, např.
+    * `--level 22`: Hra na obsazené políčko, např.
       `tah('x-------------------', 0, 'o')`
 
-    * Hra jiným symbolem než `'x'` nebo `'o'`, např.
+    * `--level 24`: Hra jiným symbolem než `'x'` nebo `'o'`, např.
       `tah('--------------------', 0, 'řeřicha')`
 
-    *Původní řešení předchozího úkolu můžeš nechat tak, jak je.*
+    Odevzdej celý soubor `util.py`.
 
 - id: handout4_11
   markdown: |
-    Napiš funkci `tah_hrace(pole, symbol)`, která dostane řetězec
+    V modulu `piskvorky` (tj. v souboru `piskvorky.py`)
+    napiš funkci `tah_hrace(pole, symbol)`, která dostane řetězec
     s herním polem a symbol (`x` nebo `o`) a:
 
     * dostane řetězec s herním polem,
@@ -131,9 +159,18 @@ tasks:
     o-x-----------------
     ```
 
+    Nezapomeň, že ve vedlejším modulu máš funkci `tah`, kterou si můžeš
+    naimportovat.
+
+    Funkci piš podle automatických testů -- tentokrát nastavuj
+    level na 30 až 34.
+
+    Odevzdej celý soubor `piskvorky.py` (i s funkcí `vyhodnot`).
+
 - id: handout4_12
   markdown: |
-    Napiš funkci `tah_pocitace(pole, symbol)`, která dostane řetězec s herním
+    V modulu `ai` (tj. v souboru `ai.py`)
+    napiš funkci `tah_pocitace(pole, symbol)`, která dostane řetězec s herním
     polem a symbol, vybere pozici, na kterou hrát, a vrátí herní pole
     se zaznamenaným tahem počítače.
 
@@ -159,9 +196,14 @@ tasks:
     Zavolání `print(tah_pocitace('o-------------------', 'x'))` by
     mohlo vypsat třeba `o---------x---------`.
 
+    Testy jsou v levelech 40 až 44.
+
+    Odevzdej celý soubor `ai.py`.
+
 - id: handout4_13
   markdown: |
-    Napiš funkci `piskvorky1d`, která:
+    V modulu `piskvorky` (tj. v souboru `piskvorky.py`)
+    napiš funkci `piskvorky1d`, která:
 
     * Vytvoří řetězec s herním polem
     * Stále dokola:
@@ -172,9 +214,23 @@ tasks:
 
     Zatím neřeš konec hry.
 
+    V modulu `hra` (tj. v souboru `hra.py`) přidej import a volání funkce
+    `piskvorky1d`.
+
+    Původní testy by měly stále procházet.
+    Automatické testy na celou hru ale nejsou – otestuj to ručně
+    pomocí `python hra.py`!
+
+    Tady odevzdej pouze modul `piskvorky.py`.
+
+- id: pisq1d_game_module
+  markdown: |
+
+    Tady odevzdej soubor `hra.py`.
+
 - id: pisq1d_endgame
   markdown: |
-    Teď pošéfuj konec hry.
+    Pošéfuj konec hry.
     Když někdo vyhraje nebo dojde k remíze, cyklus se ukončí a vypíše
     se výsledek – třeba s gratulací nebo povzbuzující zpráva.
 
@@ -182,38 +238,18 @@ tasks:
 
     Nezapomeň, že máš k dispozici funkci `vyhodnot`!
 
-- section:
-    markdown: |
-      Obrázek na konec.
+    Automatické testy na celou hru nejsou – otestuj to ručně!
+    Nezapomeň zkontrolovat remízu.
 
-- id: recursive_tree
+    Odevzdej celý soubor `piskvorky.py`.
+
+- id: handout4_14
   markdown: |
+    Zvládneš pro počítač naprogramovat lepší strategii?
+    Třeba aby se snažil hrát vedle svých existujících symbolů
+    nebo aby bránil protihráčovi?
+    Stačí jen docela malé vylepšení!
 
-    Tento úkol je nepovinný.
+    Testy by stále měly procházet.
 
-    Řekni želvě, aby nakreslila tento stromeček.
-    (Instrukce můžeš řádek po řádku přeložit do Pythonu.)
-
-    <img src="/static/tasks/handout_images/recursive-tree.png" alt="Rekurzivní želví stromek" style="max-width: 100%; max-height: 200px">
-
-    * Stromeček dané **délky** a **úhlu** se kreslí takto:
-        * *(Malý stromeček je jen jedna větvička.)* Je-li **délka** menší než 20:
-            * Pohni se dopředu o danou **délku**.
-            * Otoč se zpátky, o 180°
-            * Pohni se dopředu o **délku** *(aby želva byla na stejném místě jako na začátku)*
-            * Otoč se zpátky, o 180° *(aby se želva dívala stejným směrem jako na začátku)*
-        * Jinak *(je stromeček rozvětvený)*:
-            * Pohni se dopředu o polovinu **délky** *(nakreslíš tak kmen)*
-            * Otoč se doprava o **úhel**
-            * Nakresli stromeček s poloviční **délkou** (`delka/2`) a dvoutřetinovým **úhlem** (`uhel*2/3`)
-            * Otoč se doleva o **úhel**
-            * Nakresli stromeček s poloviční **délkou** a dvoutřetinovým **úhlem**
-            * Otoč se doleva o **úhel**
-            * Nakresli stromeček s poloviční **délkou** a dvoutřetinovým **úhlem**
-            * Otoč se doprava o **úhel**
-            * Otoč se zpátky, o 180°
-            * Pohni se dopředu o polovinu **délky** *(aby želva byla na stejném místě jako na začátku)*
-            * Otoč se zpátky, o 180° *(aby se želva dívala stejným směrem jako na začátku)*
-
-    * Řekni želvě, ať se otočí o 90° doleva *(aby se dívala nahoru)*
-    * Nakresli stromeček o **délce** 200 a **úhlu** 60.
+    Odevzdej celý soubor `ai.py`.
