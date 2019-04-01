@@ -14,3 +14,5 @@ tasks_by_lesson_slug:
   - file: tasks/04_exceptions.yaml
   "beginners/testing":
   - file: tasks/05_testing.yaml
+  "beginners/list":
+  - file: tasks/06_list.yaml
