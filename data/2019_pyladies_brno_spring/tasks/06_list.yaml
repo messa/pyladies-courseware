@@ -94,7 +94,7 @@ tasks:
     >>> zvirata
     ['pes', 'kočka', 'králík', 'had']
     >>> zrus_prvni(zvirata)
-    ['kočka', 'králík', 'pes']
+    ['kočka', 'králík', 'had']
     ```
 
     Ale pozor! Funkce by neměla změnit původní seznam:
