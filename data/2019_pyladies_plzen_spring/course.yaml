@@ -64,7 +64,7 @@ tasks_by_lesson_slug:
   # session 8: "list"
 
   "beginners/list":
-  - file: ../2019_pyladies_praha_spring/tasks/07_seznamy.yaml
+  - file: tasks/07_seznamy.yaml
   - file: ../2019_pyladies_praha_spring/tasks/08_snake.yaml  
   "beginners/tuple": []
 
