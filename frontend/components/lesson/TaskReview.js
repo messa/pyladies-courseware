@@ -168,7 +168,7 @@ export default class TaskReview extends React.Component {
     const { loading, loadError, taskSolution, savingMarkedAsSolved, comments, showAddComment } = this.state
     return (
       <div className='TaskReview'>
-        <h4>Odevzdané řešení</h4>
+        <h4>Odevzdané řešení <TaskStatus taskSolution={taskSolution} /></h4>
         <LoadingMessage active={loading} />
         <LoadErrorMessage active={loadError} message={loadError} />
         {(this.state.reviewUserId === this.props.reviewUserId) && (
@@ -236,4 +236,31 @@ export default class TaskReview extends React.Component {
     )
   }
 
+}
+
+const TaskStatus = ({ taskSolution }) => {
+  if (!taskSolution) {
+    return ''
+  }
+  // old solutions where last_action is not set
+  let content = '?'
+  if (taskSolution.last_action) {
+    if (taskSolution.last_action == 'coach') {
+      // last action coach => waiting for student
+      content = '◯'
+    }
+    if (taskSolution.last_action == 'student') {
+      // last action student => waiting for coach
+      // coach oriented component => full circle
+      content = '⬤'
+    }
+  }
+  if (taskSolution.is_solved) {
+    content = '✓'
+  }
+  return (
+    <span>
+      (stav: <span className='status-indicator'>{content}</span>)
+    </span>
+  )
 }

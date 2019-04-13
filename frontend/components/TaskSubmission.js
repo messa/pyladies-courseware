@@ -4,9 +4,9 @@ import { Comment, Form, Header, Icon, TextArea, Message } from 'semantic-ui-reac
 import TaskSolutionForm from './TaskSolutionForm'
 import TaskComments from './lesson/TaskComments'
 
-const TaskSolution = ({ code }) => (
+const TaskSolution = ({ code, taskSolution }) => (
   <div className='TaskSolution'>
-    <h4>Odevzdané řešení</h4>
+    <h4>Odevzdané řešení <TaskStatus taskSolution={taskSolution} /></h4>
     <pre>{code}</pre>
     <style jsx>{`
       .TaskSolution pre {
@@ -228,4 +228,35 @@ export default class TaskSubmission extends React.Component {
       </div>
     )
   }
+}
+
+const TaskStatus = ({ taskSolution }) => {
+  if (!taskSolution) {
+    return ''
+  }
+  // old solutions where last_action is not set
+  let content = '?'
+  let text = ''
+  if (taskSolution.last_action) {
+    if (taskSolution.last_action == 'coach') {
+      // last action coach => waiting for student
+      // student oriented component => full circle
+      content = '⬤'
+      text = '- přečti si, co napsal kouč'
+    }
+    if (taskSolution.last_action == 'student') {
+      // last action student => waiting for coach
+      content = '◯'
+      text = '- počkej na reakci kouče'
+    }
+  }
+  if (taskSolution.is_solved) {
+    content = '✓'
+    text = ''
+  }
+  return (
+    <span>
+      (stav: <span className='status-indicator'>{content}</span> {text})
+    </span>
+  )
 }

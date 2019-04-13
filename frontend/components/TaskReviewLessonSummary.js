@@ -133,7 +133,8 @@ const TaskStatus = ({ courseId, sessionSlug, taskSolution }) => {
   if (!taskSolution) {
     return '·'
   }
-  let content = '◯'
+  // old solutions where last_action is not set
+  let content = '?'
   if (taskSolution.last_action) {
     if (taskSolution.last_action == 'coach') {
       // last action coach => waiting for student
@@ -141,6 +142,7 @@ const TaskStatus = ({ courseId, sessionSlug, taskSolution }) => {
     }
     if (taskSolution.last_action == 'student') {
       // last action student => waiting for coach
+      // coach oriented component => full circle
       content = '⬤'
     }
   }
