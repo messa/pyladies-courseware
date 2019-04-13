@@ -119,6 +119,7 @@ const TaskReviewLessonSummaryTable = ({ courseId, sessionSlug, students, tasks, 
                 courseId={courseId}
                 sessionSlug={sessionSlug}
                 taskSolution={taskSolutionsByUserAndTaskId.get(`${student.id}|${task.id}`)}
+                taskNumber={task.number}
               />
             </Table.Cell>
           ))}
@@ -129,7 +130,7 @@ const TaskReviewLessonSummaryTable = ({ courseId, sessionSlug, students, tasks, 
 )
 
 
-const TaskStatus = ({ courseId, sessionSlug, taskSolution }) => {
+const TaskStatus = ({ courseId, sessionSlug, taskSolution, taskNumber }) => {
   if (!taskSolution) {
     return '·'
   }
@@ -156,7 +157,7 @@ const TaskStatus = ({ courseId, sessionSlug, taskSolution }) => {
       session: sessionSlug,
       reviewUserId: taskSolution.user_id,
     },
-    hash: 'tasks'
+    hash: 'task-' + taskNumber
   }
   return (
     <Link href={href}><a>
