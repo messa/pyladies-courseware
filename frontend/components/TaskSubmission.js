@@ -174,7 +174,7 @@ export default class TaskSubmission extends React.Component {
     } else if (taskSolution) {
       content = (
         <>
-          <TaskSolution code={taskSolution.current_version.code} />
+          <TaskSolution code={taskSolution.current_version.code} taskSolution={taskSolution} />
           {taskSolution.is_solved ? (
             <div>
               <Icon
