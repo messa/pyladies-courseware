@@ -74,7 +74,7 @@ export default class TaskReviewLessonSummary extends React.Component {
               courseId={courseId}
               sessionSlug={sessionSlug}
               students={students}
-              tasks={tasks}
+              tasks={tasks.filter(t => t.submit)}
               taskSolutionsByUserAndTaskId={taskSolutionsByUserAndTaskId}
               reviewUserId={reviewUserId}
             />

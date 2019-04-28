@@ -25,6 +25,7 @@ const HomeworkTask = ({ taskItem, userCanSubmitTask, courseId, sessionSlug, revi
         courseId={courseId}
         sessionSlug={sessionSlug}
         taskId={taskItem.id}
+        taskSubmit={taskItem.submit}
         reviewUserId={reviewUserId}
       />
     )}

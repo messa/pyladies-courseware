@@ -170,63 +170,70 @@ export default class TaskReview extends React.Component {
 
   render() {
     const { loading, loadError, taskSolution, savingMarkedAsSolved, comments, showAddComment } = this.state
+    const { taskSubmit } = this.props
     return (
       <div className='TaskReview'>
-        <h4>Odevzdané řešení <TaskStatus taskSolution={taskSolution} /></h4>
-        <LoadingMessage active={loading} />
-        <LoadErrorMessage active={loadError} message={loadError} />
-        {(this.state.reviewUserId === this.props.reviewUserId) && (
-          !taskSolution ? (
-            <p>–</p>
-          ) : (
-            <>
-              <TaskSolution taskSolution={taskSolution} />
-              <div>
-                {!taskSolution.is_solved ? (
-                  <Button
-                    color='green'
-                    content='Označit za vyřešené'
-                    size='small'
-                    icon='check'
-                    onClick={this.handleMarkAsSolvedButtonClick}
-                    loading={!!savingMarkedAsSolved}
-                    disabled={!!savingMarkedAsSolved}
-                  />
-                ) : (
-                  <>
-                    <Icon
-                      name='check'
-                      color='green'
-                      size='large'
-                    />
-                    <span className='markedSolvedLabel'>Označeno za vyřešené</span>
+        {taskSubmit ? (
+          <>
+            <h4>Odevzdané řešení <TaskStatus taskSolution={taskSolution} /></h4>
+            <LoadingMessage active={loading} />
+            <LoadErrorMessage active={loadError} message={loadError} />
+            {(this.state.reviewUserId === this.props.reviewUserId) && (
+              !taskSolution ? (
+                <p>–</p>
+              ) : (
+                <>
+                  <TaskSolution taskSolution={taskSolution} />
+                  <div>
+                    {!taskSolution.is_solved ? (
+                      <Button
+                        color='green'
+                        content='Označit za vyřešené'
+                        size='small'
+                        icon='check'
+                        onClick={this.handleMarkAsSolvedButtonClick}
+                        loading={!!savingMarkedAsSolved}
+                        disabled={!!savingMarkedAsSolved}
+                      />
+                    ) : (
+                      <>
+                        <Icon
+                          name='check'
+                          color='green'
+                          size='large'
+                        />
+                        <span className='markedSolvedLabel'>Označeno za vyřešené</span>
+                        <Button
+                          color='red'
+                          content='Zrušit označení za vyřešené'
+                          size='small'
+                          icon='cancel'
+                          onClick={this.handleUnmarkAsSolvedButtonClick}
+                          loading={!!savingMarkedAsSolved}
+                          disabled={!!savingMarkedAsSolved}
+                        />
+                      </>
+                    )}
                     <Button
-                      color='red'
-                      content='Zrušit označení za vyřešené'
+                      color='teal'
+                      content='Přidat komentář'
                       size='small'
-                      icon='cancel'
-                      onClick={this.handleUnmarkAsSolvedButtonClick}
-                      loading={!!savingMarkedAsSolved}
-                      disabled={!!savingMarkedAsSolved}
+                      icon='comment alternate'
+                      onClick={this.handleAddCommentButtonClick}
                     />
-                  </>
-                )}
-                <Button
-                  color='teal'
-                  content='Přidat komentář'
-                  size='small'
-                  icon='comment alternate'
-                  onClick={this.handleAddCommentButtonClick}
-                />
-              </div>
-              <TaskComments
-                comments={comments}
-                addComment={showAddComment}
-                onAddCommentCancel={this.handleAddCommentCancel}
-                onAddCommentSubmit={this.handleAddCommentSubmit}
-              />
-            </>
-          )
+                  </div>
+                  <TaskComments
+                    comments={comments}
+                    addComment={showAddComment}
+                    onAddCommentCancel={this.handleAddCommentCancel}
+                    onAddCommentSubmit={this.handleAddCommentSubmit}
+                  />
+                </>
+              )
+            )}
+          </>
+        ) : (
+          <h4>Úloha se neodevzdává</h4>
         )}
         <style jsx>{`
           .TaskReview {
