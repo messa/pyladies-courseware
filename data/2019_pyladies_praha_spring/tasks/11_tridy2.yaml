@@ -29,7 +29,7 @@ tasks:
 
 - id: handout12_02
   markdown: |
-    Uprav program tak, aby vozy ve vozovém parku měly různou kapacitu. Kód v bodě 1.
+    Uprav program tak, aby vozy ve vozovém parku měly různou kapacitu. Kód v úkolu 0.
     je jen ukázka, můžeš to udělat klidně i úplně jinak :)
 
 
