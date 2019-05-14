@@ -1,0 +1,80 @@
+tasks:
+
+- id: handout12_00
+  markdown: |
+    Vytvoř si (prozatím) jednoduchý program, který reprezentuje vozový park
+    fiktivního dopravního podniku - mohl by vypadat nějak takto:
+
+    ```
+    class Vuz:
+        def __init__(self):
+            self.kapacita = 10
+
+    vozovy_park = [
+    	Vuz(),
+        Vuz(),
+        Vuz(),
+    ]
+    ``` 
+
+- id: handout12_01
+  markdown: |
+    Vytvoř funkci, která spočítá celkovou kapacitu všech vozů ve vozovém parku
+    - mohla by vypadat např. takto:
+
+    ```
+    def secti_celkovou_kapacitu(seznam_vozu):
+        ...
+    ```
+
+- id: handout12_02
+  markdown: |
+    Uprav program tak, aby vozy ve vozovém parku měly různou kapacitu. Kód v bodě 1.
+    je jen ukázka, můžeš to udělat klidně i úplně jinak :)
+
+
+- id: handout12_03
+  markdown: |
+    To byla jen rozcvička, teď už bez napovídání :) Vytvoř (další)
+    funkci, které lze zadat seznam vozů a požadovanou minimální
+    kapacitu, a ta funkce najde vůz, který má tuto nebo vyšší
+    kapacitu. Například: školní výlet si potřebuje objednat autobus
+    pro 20 lidí a my chceme nějaký takový ve vozovém parku
+    najít. Zavolej tuto funkci a vypiš její výsledek (návratovou
+    hodnotu).
+
+- id: handout12_04
+  markdown: |
+    Zřejmě by bylo fajn vozy nějak jednoznačně identifikovat - přidej jim
+    atribut spz. Uprav program z předchozího bodu, aby vypisoval SPZ nalezeného vozu.
+
+- id: handout12_05
+  markdown: |
+    Každý vůz má jiné náklady za kilometr. Zkus toto v programu nějak zohlednit
+    - ideálně aby funkce, která hledá autobus pro ten školní výlet, našla co
+    nejekonomičtější variantu. 
+    (Pro jednoduchost budeme počítat s tím, že i kdyby autobus musel tankovat
+    po cestě, tak cena dotyčného druhu paliva bude vždy a všude stejná.)
+
+- id: handout12_06
+  markdown: |
+    Ve vozovém parku jsou různé druhy vozů - na naftu a elektřinu. Autobus na
+    elektřinu bude zřejmě nejlevnější varianta, ale asi jím nechceme poslat
+    školu na školní výlet, pokud by vzdálenost byla delší, než dojezd autobusu,
+    protože autobus by se musel po cestě na několik hodin zastavit kvůli
+    nabití. Naopak zastavit s autobusem na naftu kvůli tankování nafty není
+    problém. Zkus to zohlednit v té funkci, která hledá optimální autobus pro
+    školní výlet. (Zřejmě bude potřeba přidat argument, jak dlouhý ten výlet
+    bude.) 
+
+- id: handout12_07
+  markdown: |
+    Ve vozovém parku jsou i hybridní vozy. To znamená, že určitou vzdálenost
+    jedou levně, dokud se nevybijí baterky, a pak jedou dál na naftu, ale o
+    něco dráž. Zkus to nějak zohlednit při výběru optimálního autobusu pro
+    školní výlet :)
+
+- id: handout12_08
+  markdown: |
+    Zkus program upravit tak, aby v něm cena paliva (nafty, elektřiny...)
+    nebyla pevně zabudovaná, ale aby šla zadat při běhu programu.
