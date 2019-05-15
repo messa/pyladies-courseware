@@ -82,7 +82,8 @@ tasks_by_lesson_slug:
 
   # session 11: "inheritance"
 
-  "beginners/inheritance": []
+  "beginners/inheritance":
+  - file: tasks/11_vozovy_park.yaml
 
   # session 12: "pyglet"
 
