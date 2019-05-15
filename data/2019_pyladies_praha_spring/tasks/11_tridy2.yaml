@@ -11,11 +11,11 @@ tasks:
             self.kapacita = 10
 
     vozovy_park = [
-    	Vuz(),
+        Vuz(),
         Vuz(),
         Vuz(),
     ]
-    ``` 
+    ```
 
 - id: handout12_01
   markdown: |
@@ -46,13 +46,14 @@ tasks:
 - id: handout12_04
   markdown: |
     Zřejmě by bylo fajn vozy nějak jednoznačně identifikovat - přidej jim
-    atribut spz. Uprav program z předchozího bodu, aby vypisoval SPZ nalezeného vozu.
+    atribut `spz`. Uprav program z předchozího bodu, aby vypisoval SPZ nalezeného vozu.
 
 - id: handout12_05
   markdown: |
     Každý vůz má jiné náklady za kilometr. Zkus toto v programu nějak zohlednit
     - ideálně aby funkce, která hledá autobus pro ten školní výlet, našla co
-    nejekonomičtější variantu. 
+    nejekonomičtější variantu.
+
     (Pro jednoduchost budeme počítat s tím, že i kdyby autobus musel tankovat
     po cestě, tak cena dotyčného druhu paliva bude vždy a všude stejná.)
 
@@ -65,7 +66,7 @@ tasks:
     nabití. Naopak zastavit s autobusem na naftu kvůli tankování nafty není
     problém. Zkus to zohlednit v té funkci, která hledá optimální autobus pro
     školní výlet. (Zřejmě bude potřeba přidat argument, jak dlouhý ten výlet
-    bude.) 
+    bude.)
 
 - id: handout12_07
   markdown: |
