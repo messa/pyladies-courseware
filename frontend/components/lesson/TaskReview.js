@@ -244,23 +244,27 @@ const TaskStatus = ({ taskSolution }) => {
   }
   // old solutions where last_action is not set
   let content = '?'
+  let text = '- neznámý stav'
   if (taskSolution.last_action) {
     if (taskSolution.last_action == 'coach') {
       // last action coach => waiting for student
       content = '◯'
+      text = '- počkej na reakci účastníka'
     }
     if (taskSolution.last_action == 'student') {
       // last action student => waiting for coach
       // coach oriented component => full circle
       content = '⬤'
+      text = '- čeká na opravení'
     }
   }
   if (taskSolution.is_solved) {
     content = '✓'
+    text = '- označeno za vyřešené'
   }
   return (
     <span>
-      (stav: <span className='status-indicator'>{content}</span>)
+      (stav: <span className='status-indicator'>{content}</span> {text})
     </span>
   )
 }

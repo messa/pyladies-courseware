@@ -236,7 +236,7 @@ const TaskStatus = ({ taskSolution }) => {
   }
   // old solutions where last_action is not set
   let content = '?'
-  let text = ''
+  let text = '- neznámý stav'
   if (taskSolution.last_action) {
     if (taskSolution.last_action == 'coach') {
       // last action coach => waiting for student
@@ -252,7 +252,7 @@ const TaskStatus = ({ taskSolution }) => {
   }
   if (taskSolution.is_solved) {
     content = '✓'
-    text = ''
+    text = '- vyřešené'
   }
   return (
     <span>
