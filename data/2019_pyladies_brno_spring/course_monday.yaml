@@ -18,3 +18,5 @@ tasks_by_lesson_slug:
   - file: tasks/06_list.yaml
   "beginners/dict":
   - file: tasks/08_dict.yaml
+  "beginners/files":
+  - file: tasks/12_files.yaml
