@@ -75,7 +75,7 @@ tasks:
     * Pěšec, který dorazí na konec šachovnice, se povýší na dámu.
       (Šachy umožňují i povýšení na koně, podle výběru hráče – ale to zatím neřeš).
 
-    Odevzdej novou třídu.
+    Odevzdej změněnou třídu.
 
 - id: chess-castling
   markdown: |

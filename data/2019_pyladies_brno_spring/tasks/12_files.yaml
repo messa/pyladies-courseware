@@ -86,7 +86,7 @@ tasks:
 
 - id: directory-dot
   markdown: |
-    Co znamená cesta `.`?
+    Co znamená cesta: `.`?
 
 - id: directory-dotdot
   markdown: |
