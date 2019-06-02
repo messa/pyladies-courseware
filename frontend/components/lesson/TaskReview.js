@@ -5,6 +5,7 @@ import LoadErrorMessage from '../LoadErrorMessage'
 import ErrorMessage from '../ErrorMessage'
 import TaskSolution from './TaskSolution'
 import TaskComments from './TaskComments'
+import holdAnchor from '../Helpers'
 
 export default class TaskReview extends React.Component {
 
@@ -23,7 +24,7 @@ export default class TaskReview extends React.Component {
   }
 
   componentDidMount() {
-    this.loadData()
+    this.loadData(true)
     if (!this.loadIntervalId) {
       this.loadIntervalId = setInterval(() => this.loadData(), 30 * 1000)
     }
@@ -42,11 +43,11 @@ export default class TaskReview extends React.Component {
         loading: true,
         loadError: null,
       })
-      this.loadData()
+      this.loadData(true)
     }
   }
 
-  async loadData() {
+  async loadData(anchorCheck = false) {
     const { courseId, sessionSlug, taskId, reviewUserId } = this.props
     try {
       const url = '/api/tasks/solution' +
@@ -71,6 +72,9 @@ export default class TaskReview extends React.Component {
         taskSolution: task_solution,
         comments: comments,
       })
+      if (anchorCheck) {
+        holdAnchor()
+      }
     } catch (err) {
       this.setState({
         loading: false,
