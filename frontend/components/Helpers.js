@@ -6,7 +6,6 @@ const holdAnchor = _.debounce(function () {
     location.hash = '';
     location.hash = requested_hash;
   }
-  console.log(location.hash)
 }, 250, { trailing: true})
 
 export default holdAnchor
