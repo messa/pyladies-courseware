@@ -1,20 +1,43 @@
 import React from 'react'
-import { Button } from 'semantic-ui-react'
+import { Button, Label, Tab } from 'semantic-ui-react'
 import { Comment, Form, Header, Icon, TextArea, Message } from 'semantic-ui-react'
 import TaskSolutionForm from './TaskSolutionForm'
 import TaskComments from './lesson/TaskComments'
 
-const TaskSolution = ({ code, taskSolution }) => (
-  <div className='TaskSolution'>
-    <h4>Odevzdané řešení <TaskStatus taskSolution={taskSolution} /></h4>
-    <pre>{code}</pre>
-    <style jsx>{`
-      .TaskSolution pre {
-        overflow-x: auto;
+const TaskSolution = ({ taskSolution }) => {
+  if (!taskSolution) return null
+  const currentVersion = taskSolution.current_version
+  if (!currentVersion) return null
+  const allVersions = taskSolution.all_versions
+  if (!allVersions) return null
+  const sortedVersions = allVersions.slice().sort(function (a, b) { return b.date.localeCompare(a.date) })
+  var cntr = sortedVersions.length
+  const panes = sortedVersions.slice(0, 8).map(
+    function (v) {
+      name = 'Verze ' + cntr
+      cntr -= 1
+      return {
+        menuItem: name,
+        render: () => <Tab.Pane>
+          <div className='TaskSolution'>
+            <Label attached='bottom right'>{v.date}</Label>
+            <pre>{v.code}</pre>
+            <style jsx>{`
+              .TaskSolution pre {
+                overflow-x: auto;
+              }
+            `}</style>
+          </div>
+        </Tab.Pane>
       }
-    `}</style>
-  </div>
-)
+    })
+  return (
+    <div>
+      <h4>Odevzdané řešení <TaskStatus taskSolution={taskSolution} /></h4>
+      <Tab panes={panes}/>
+    </div>
+  )
+}
 
 export default class TaskSubmission extends React.Component {
 
@@ -174,7 +197,7 @@ export default class TaskSubmission extends React.Component {
     } else if (taskSolution) {
       content = (
         <>
-          <TaskSolution code={taskSolution.current_version.code} taskSolution={taskSolution} />
+          <TaskSolution taskSolution={taskSolution} />
           {taskSolution.is_solved ? (
             <div>
               <Icon
