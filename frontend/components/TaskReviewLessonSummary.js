@@ -95,7 +95,7 @@ const TaskReviewLessonSummaryTable = ({ courseId, sessionSlug, students, tasks, 
         <Table.HeaderCell>Jméno</Table.HeaderCell>
         {tasks.map((task, i) => {
             const href = {
-                pathname: '/task_list',
+                pathname: '/task',
                 query: {
                     course: courseId,
                     session: sessionSlug,

@@ -71,9 +71,13 @@ async def list_lesson_solutions(req):
     user = await model.users.get_by_id(session['user']['id'])
     if not user.can_review_course(course_id=req.query['course_id']):
         raise web.HTTPForbidden()
-    solutions = await model.task_solutions.find_by_course_and_task_ids(
-        course_id=req.rel_url.query['course_id'],
-        task_ids=json.loads(req.rel_url.query['task_ids']))
+    if 'task_ids' in req.rel_url.query:
+        solutions = await model.task_solutions.find_by_course_and_task_ids(
+            course_id=req.rel_url.query['course_id'],
+            task_ids=json.loads(req.rel_url.query['task_ids']))
+    else:
+        solutions = await model.task_solutions.find_by_course_id(
+            course_id=req.rel_url.query['course_id'])
     students = await model.users.find_by_attended_course_id(
         course_id=req.rel_url.query['course_id'])
     return web.json_response({
