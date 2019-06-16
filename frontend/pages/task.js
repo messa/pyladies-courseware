@@ -67,18 +67,6 @@ const HomeworkTask = ({ taskItem, userCanSubmitTask, courseId, sessionSlug, revi
   </div>
 )
 
-const TaskSection = ({ taskItem }) => (
-  <div className='task-section'>
-    <div dangerouslySetInnerHTML={{__html: taskItem['text_html'] }} />
-    <style jsx>{`
-      .task-section {
-        margin: 2rem 0;
-        color: #038;
-        font-weight: 600;
-      }
-    `}</style>
-  </div>)
-
 function arrayContains(array, item) {
   return array && array.indexOf(item) !== -1
 }
