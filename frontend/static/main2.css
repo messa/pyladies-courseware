@@ -63,3 +63,8 @@ pre.debug {
   margin-bottom: 2rem;
   white-space: pre-wrap;
 }
+
+span.status-indicator {
+  xcolor: #c03;
+  color: #C51162;
+}

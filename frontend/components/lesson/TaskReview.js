@@ -5,6 +5,7 @@ import LoadErrorMessage from '../LoadErrorMessage'
 import ErrorMessage from '../ErrorMessage'
 import TaskSolution from './TaskSolution'
 import TaskComments from './TaskComments'
+import holdAnchor from '../Helpers'
 
 export default class TaskReview extends React.Component {
 
@@ -23,7 +24,7 @@ export default class TaskReview extends React.Component {
   }
 
   componentDidMount() {
-    this.loadData()
+    this.loadData(true)
     if (!this.loadIntervalId) {
       this.loadIntervalId = setInterval(() => this.loadData(), 30 * 1000)
     }
@@ -42,11 +43,11 @@ export default class TaskReview extends React.Component {
         loading: true,
         loadError: null,
       })
-      this.loadData()
+      this.loadData(true)
     }
   }
 
-  async loadData() {
+  async loadData(anchorCheck = false) {
     const { courseId, sessionSlug, taskId, reviewUserId } = this.props
     try {
       const url = '/api/tasks/solution' +
@@ -71,6 +72,9 @@ export default class TaskReview extends React.Component {
         taskSolution: task_solution,
         comments: comments,
       })
+      if (anchorCheck) {
+        holdAnchor()
+      }
     } catch (err) {
       this.setState({
         loading: false,
@@ -168,7 +172,7 @@ export default class TaskReview extends React.Component {
     const { loading, loadError, taskSolution, savingMarkedAsSolved, comments, showAddComment } = this.state
     return (
       <div className='TaskReview'>
-        <h4>Odevzdané řešení</h4>
+        <h4>Odevzdané řešení <TaskStatus taskSolution={taskSolution} /></h4>
         <LoadingMessage active={loading} />
         <LoadErrorMessage active={loadError} message={loadError} />
         {(this.state.reviewUserId === this.props.reviewUserId) && (
@@ -236,4 +240,35 @@ export default class TaskReview extends React.Component {
     )
   }
 
+}
+
+const TaskStatus = ({ taskSolution }) => {
+  if (!taskSolution) {
+    return ''
+  }
+  // old solutions where last_action is not set
+  let content = '?'
+  let text = '- neznámý stav'
+  if (taskSolution.last_action) {
+    if (taskSolution.last_action == 'coach') {
+      // last action coach => waiting for student
+      content = '◯'
+      text = '- počkej na reakci účastníka'
+    }
+    if (taskSolution.last_action == 'student') {
+      // last action student => waiting for coach
+      // coach oriented component => full circle
+      content = '⬤'
+      text = '- čeká na opravení'
+    }
+  }
+  if (taskSolution.is_solved) {
+    content = '✓'
+    text = '- označeno za vyřešené'
+  }
+  return (
+    <span>
+      (stav: <span className='status-indicator'>{content}</span> {text})
+    </span>
+  )
 }
