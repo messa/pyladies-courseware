@@ -12,7 +12,7 @@ import CourseOverview from '../components/lesson/CourseOverview'
 import TaskReview from '../components/lesson/TaskReview'
 
 const HomeworkTask = ({ taskItem, userCanSubmitTask, courseId, sessionSlug, reviewUserId }) => (
-  <div className='homework-task' id={'task-' + taskItem['number']}>
+  <div className='homework-task' id={'task-' + taskItem['id']}>
     <div className='number'>{taskItem['number']}.</div>
     <div className='homework-body'>
       {taskItem.mandatory && (
