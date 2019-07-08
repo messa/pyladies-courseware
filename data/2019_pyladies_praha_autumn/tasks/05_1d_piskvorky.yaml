@@ -31,6 +31,19 @@ tasks:
     - `"!"` – Remíza (pole neobsahuje `"-"`, a nikdo nevyhrál)
     - `"-"` – Ani jedna ze situací výše (t.j. hra ještě neskončila)
 
+  tests: |
+    def test_vyhodnot():
+        assert vyhodnot("ooxxxoxo") == "x"
+        assert vyhodnot("---xxx--") == "x"
+        assert vyhodnot("xoooxoxo") == "o"
+        assert vyhodnot("-ooo---") == "o"
+        assert vyhodnot("oxoxoxoxxoo") == "!"
+        assert vyhodnot("----") == "-"
+        assert vyhodnot("-xx-oo--") == "-"
+
+    def test_dalsi():
+        pass
+
 - id: handout4_10
   mandatory: true
   markdown: |
