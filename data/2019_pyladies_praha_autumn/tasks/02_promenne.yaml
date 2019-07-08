@@ -1,0 +1,58 @@
+# https://github.com/PyLadiesCZ/pyladies.cz/raw/master/original/v1/s002-hello-world/handout/handout2.pdf
+
+tasks:
+
+- section:
+    markdown: |
+      Tenhle projekt by měl přivést k tomu, jak zjišťovat, co v Pythonu jde a co ne.
+      Druhá část je trochu na zamyšlení.
+
+- id: handout2_05
+  markdown: |
+    Ne všechno se dá použít jako jméno proměnné.
+    Fungují pro proměnné následující jména? Pokud ne, proč asi?
+
+    <div style='column-count: 4'>
+      <code>x</code><br>
+      <code>tlacitko4</code><br>
+      <code>34</code><br>
+      <code>3e4</code><br>
+      <code>krůta</code><br>
+      <code>$i</code><br>
+      <code>druha-odmocnina</code><br>
+      <code>readme.txt</code><br>
+      <code>kratsiStrana</code><br>
+      <code>POCET_BODU</code><br>
+      <code>_ (podtržítko)</code><br>
+      <code>π (pí)</code><br>
+      <code>True</code><br>
+      <code>_cache</code><br>
+      <code>__name__</code><br>
+      <code>while</code><br>
+    </div>
+    
+- section:
+    markdown: |
+      První dva projekty jsou na procvičení toho, co jsme dělaly na srazu.
+      
+  mandatory: true
+
+- id: handout2_06
+  markdown: |
+    _Zkus se nedívat na programy ze srazu._
+
+    Napiš program, který spočítá povrch a objem krychle o straně 2852 cm.
+
+    Abys nemusela tolik hledat v učebnici (vlastně Wikipedii): povrch S = 6a², objem V = a³
+
+    _Řešení, pro kontrolu: S = 48803424 cm², V = 23197894208 cm³_
+
+  mandatory: true
+
+- id: handout2_07
+  markdown: |
+    Změň program tak, aby stranu/poloměr mohl uživatel zadat.
+
+    _Tady už se na materiály ze srazu klidně podívej._
+
+  mandatory: true

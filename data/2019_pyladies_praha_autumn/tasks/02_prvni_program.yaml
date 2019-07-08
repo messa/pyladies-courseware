@@ -1,0 +1,13 @@
+# https://github.com/PyLadiesCZ/pyladies.cz/raw/master/original/v1/s002-hello-world/handout/handout2.pdf
+
+tasks:
+
+- section:
+    markdown: |
+      Následují "nepovinné" projekty.
+      Vřele doporučujeme si jich co nejvíce projít a odevzdat řešení.
+      Na úvod zahřívací otázka:
+      
+- id: handout2_00
+  markdown: |
+    Jakou používáš verzi Pythonu? (Ke správné odpovědi patří i způsob, jak jsi na odpověď přišla)
