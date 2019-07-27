@@ -151,7 +151,6 @@ export default class SessionPage extends React.Component {
                       courseId={courseId}
                       sessionSlug={sessionSlug}
                       tasks={tasks}
-                      user={user}
                     />
                   )}
                 </>

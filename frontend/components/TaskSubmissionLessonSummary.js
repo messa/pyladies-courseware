@@ -55,7 +55,7 @@ export default class TaskSubmissionLessonSummary extends React.Component {
 
   render() {
     const { loading, loadError, taskSolutionsByTaskId } = this.state
-    const { courseId, sessionSlug, tasks, user } = this.props
+    const { courseId, sessionSlug, tasks } = this.props
     return (
       <div>
         {loading && (<p><em>Loading</em></p>)}
@@ -74,7 +74,6 @@ export default class TaskSubmissionLessonSummary extends React.Component {
               sessionSlug={sessionSlug}
               tasks={tasks.filter(t => t.submit)}
               taskSolutionsByTaskId={taskSolutionsByTaskId}
-              user={user}
             />
           </div>
         )}
@@ -86,7 +85,7 @@ export default class TaskSubmissionLessonSummary extends React.Component {
   }
 }
 
-const TaskSubmissionLessonSummaryTable = ({ courseId, sessionSlug, tasks, taskSolutionsByTaskId, user }) => (
+const TaskSubmissionLessonSummaryTable = ({ courseId, sessionSlug, tasks, taskSolutionsByTaskId }) => (
   <Table basic celled size='small' compact unstackable>
     <Table.Header>
       <Table.Row>
@@ -143,7 +142,6 @@ const TaskStatus = ({ courseId, sessionSlug, taskSolution, taskId }) => {
     query: {
       course: courseId,
       session: sessionSlug,
-    //   reviewUserId: taskSolution.user_id,
     },
     hash: 'task-' + taskId
   }
