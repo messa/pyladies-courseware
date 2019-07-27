@@ -98,6 +98,10 @@ export default class TaskSubmission extends React.Component {
     this.setState({ open: true })
   }
 
+  handleCancelSolutionForm = () => {
+    this.setState({ open: false, editSolution: false })
+  }
+
   handleSubmitSolution = async ({ code }) => {
     this.setState({
       submitInProgress: true,
@@ -189,6 +193,7 @@ export default class TaskSubmission extends React.Component {
             )}
             <TaskSolutionForm
               onSubmit={this.handleSubmitSolution}
+              onCancel={this.handleCancelSolutionForm}
               code={taskSolution ? taskSolution.current_version.code : null}
               loading={submitInProgress}
             />
