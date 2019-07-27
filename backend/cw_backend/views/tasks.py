@@ -82,6 +82,22 @@ async def list_lesson_solutions(req):
     })
 
 
+@routes.get('/api/tasks/my-lesson-solutions')
+async def list_my_lesson_solutions(req):
+    model = req.app['model']
+    session = await get_session(req)
+    if not session.get('user'):
+        raise web.HTTPForbidden()
+    user = await model.users.get_by_id(session['user']['id'])
+    solutions = await model.task_solutions.find_by_user_and_course_and_task_ids(
+        user=user,
+        course_id=req.rel_url.query['course_id'],
+        task_ids=json.loads(req.rel_url.query['task_ids']))
+    return web.json_response({
+        'task_solutions': [await ts.export() for ts in solutions],
+    })
+
+
 @routes.post('/api/tasks/mark-solution-solved')
 async def mark_solution_solved(req):
     data = await req.json()

@@ -8,6 +8,7 @@ import MaterialItems from '../components/MaterialItems'
 import formatDate from '../util/formatDate'
 import TaskSubmission from '../components/TaskSubmission'
 import TaskReviewLessonSummary from '../components/TaskReviewLessonSummary'
+import TaskSubmissionLessonSummary from '../components/TaskSubmissionLessonSummary'
 import CourseOverview from '../components/lesson/CourseOverview'
 import TaskReview from '../components/lesson/TaskReview'
 
@@ -133,16 +134,26 @@ export default class SessionPage extends React.Component {
 
               <MaterialItems materialItems={session['material_items']} />
 
-              {userCanReviewTasks && (
+              {user && (
                 <>
                   <h2>Odevzdané projekty</h2>
-                  <TaskReviewLessonSummary
-                    key={`${courseId} ${sessionSlug}`}
-                    courseId={courseId}
-                    sessionSlug={sessionSlug}
-                    tasks={tasks}
-                    reviewUserId={reviewUser ? reviewUser.id : null}
-                  />
+                  {userCanReviewTasks ? (
+                    <TaskReviewLessonSummary
+                      key={`${courseId} ${sessionSlug}`}
+                      courseId={courseId}
+                      sessionSlug={sessionSlug}
+                      tasks={tasks}
+                      reviewUserId={reviewUser ? reviewUser.id : null}
+                    />
+                  ) : (
+                    <TaskSubmissionLessonSummary
+                      key={`${courseId} ${sessionSlug}`}
+                      courseId={courseId}
+                      sessionSlug={sessionSlug}
+                      tasks={tasks}
+                      user={user}
+                    />
+                  )}
                 </>
               )}
 

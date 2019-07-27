@@ -3,6 +3,7 @@ import { Button, Label, Tab } from 'semantic-ui-react'
 import { Comment, Form, Header, Icon, TextArea, Message } from 'semantic-ui-react'
 import TaskSolutionForm from './TaskSolutionForm'
 import TaskComments from './lesson/TaskComments'
+import holdAnchor from './Helpers'
 
 const TaskSolution = ({ taskSolution }) => {
   if (!taskSolution) return null
@@ -53,7 +54,7 @@ export default class TaskSubmission extends React.Component {
   }
 
   componentDidMount() {
-    this.loadData()
+    this.loadData(true)
     if (!this.loadIntervalId) {
       this.loadIntervalId = setInterval(() => this.loadData(), 30 * 1000)
     }
@@ -66,7 +67,7 @@ export default class TaskSubmission extends React.Component {
     }
   }
 
-  async loadData() {
+  async loadData(anchorCheck = false) {
     try {
       const { courseId, sessionSlug, taskId } = this.props
       const url = '/api/tasks/solution' +
@@ -86,6 +87,9 @@ export default class TaskSubmission extends React.Component {
         taskSolution: task_solution,
         comments: comments,
       })
+      if (anchorCheck) {
+        holdAnchor()
+      }
     } catch (err) {
       this.setState({
         loading: false,
