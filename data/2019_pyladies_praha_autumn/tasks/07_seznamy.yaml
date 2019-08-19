@@ -25,16 +25,20 @@ tasks:
   
   tests: |
     def test_zadany_seznam_true():
-        assert je_v_seznamu(["pes", "kočka", "králík", "had"], "králík") == True, "Zdá se, že slovo v seznamu je, ale tvůj program tvrdí, že ne. Zkus to znovu."
+        assert je_v_seznamu(["pes", "kočka", "králík", "had"], "králík") == True, \
+            "Zdá se, že slovo v seznamu je, ale tvůj program tvrdí, že ne. Zkus to znovu."
 
     def test_zadany_seznam_false():
-        assert je_v_seznamu(["pes", "kočka", "králík", "had"], "hroch") == False, "Zdá se, že slovo v seznamu není, ale tvůj program tvrdí, že je. Zkus to znovu."
+        assert je_v_seznamu(["pes", "kočka", "králík", "had"], "hroch") == False, \
+            'Zdá se, že slovo v seznamu není, ale tvůj program tvrdí, že je. Zkus to znovu.'
 
     def test_jiny_seznam_true():
-        assert je_v_seznamu(["užovka", "koroptev", "mravenec", "vlk", "plch"], "užovka") == True, "Při zadání jiného seznamu než [\"pes\", \"kočka\", \"králík\", \"had\"] nastal problém. Zkus zařídit, aby funkce dokázala pracovat i s jinými seznamy."
+        assert je_v_seznamu(["užovka", "koroptev", "mravenec", "vlk", "plch"], "užovka") == True, \
+            'Při zadání jiného seznamu než ["pes", "kočka\", "králík", "had"] nastal problém. Zkus zařídit, aby funkce dokázala pracovat i s jinými seznamy.'
 
     def test_jiny_seznam_false():
-        assert je_v_seznamu(["užovka", "koroptev", "mravenec", "vlk", "plch"], "hroch") == False, "Při zadání jiného seznamu než [\"pes\", \"kočka\", \"králík\", \"had\"] nastal problém.Zkus zařídit, aby funkce dokázala pracovat i s jinými seznamy."
+        assert je_v_seznamu(["užovka", "koroptev", "mravenec", "vlk", "plch"], "hroch") == False, \
+            'Při zadání jiného seznamu než ["pes\", "kočka\", "králík\", "had"] nastal problém.Zkus zařídit, aby funkce dokázala pracovat i s jinými seznamy.'
 
 
 - id: handout6_04
@@ -45,54 +49,79 @@ tasks:
     - zvířata, která jsou jen v prvním seznamu (rozdíl množin: první - druhá),
     - zvířata, která jsou jen ve druhém seznamu (rozdíl množin: druhá - první).
     
-    _Aby ti fungovaly testy, pojmenuj prosím funkci tri_seznamy a seznamy vracej ve výše uvedeném pořadí._
+    _Aby ti fungovaly testy, pojmenuj prosím funkci `tri_seznamy` a seznamy vracej ve výše uvedeném pořadí._
 
   mandatory: true
   
   tests: |
-    def test_zadany_seznam_tri():
-        assert tri_seznamy(["pes", "kočka", "králík", "had"],["kočka","lev", "králík", "vorvaň"]) == (["kočka", "králík"],["pes","had"],["lev","vorvaň"]), "Zkontroluj jestli funkce dělá, co má, a formát, ve kterém vrací výsledek - měla by to být n-tice sestávající ze tří seznamů, dál viz zadání."
+    def test_zadany_seznam():
+        assert tri_seznamy(
+            ["pes", "kočka", "králík", "had"],
+            ["kočka","lev", "králík", "vorvaň"]
+        ) == (
+            ["kočka", "králík"],
+            ["pes", "had"],
+            ["lev", "vorvaň"]
+        ), \
+        "Zkontroluj jestli funkce dělá, co má, a formát, ve kterém vrací výsledek - měla by to " \
+        "být n-tice sestávající ze tří seznamů, dál viz zadání."
     
-    def test_jiny_seznam_tri():
-        assert tri_seznamy(["užovka", "koroptev", "mravenec", "vlk", "plch"],["kočka","lev", "koroptev", "mravenec", "vlk", "králík", "vorvaň"]) == (['koroptev', 'mravenec', 'vlk'], ['užovka', 'plch'], ['kočka', 'lev', 'králík', 'vorvaň']), "Pokud ti předchozí test prošel, a tento ne, zkus upravit svou funkci tak, aby fungovala i pro jiné seznamy, než seznam z úkolu 0."
+    def test_jiny_seznam():
+        assert tri_seznamy(
+            ["užovka", "koroptev", "mravenec", "vlk", "plch"], 
+            ["kočka", "lev", "koroptev", "mravenec", "vlk", "králík", "vorvaň"]
+        ) == (
+            ['koroptev', 'mravenec', 'vlk'], 
+            ['užovka', 'plch'], 
+            ['kočka', 'lev', 'králík', 'vorvaň']
+        ), \
+        "Pokud ti předchozí test prošel, a tento ne, zkus upravit svou funkci tak, aby fungovala " \
+        "i pro jiné seznamy, než seznam z úkolu 0."
 
 
 - id: handout6_01
   markdown: |
     Napiš funkci, která vrací jména domácích zvířat (ze seznamu zadaného argumentem), která jsou kratší než 5 písmen.
-    _Aby ti fungovaly připravené testy, pojmenuj funkci kratka._
+    _Aby ti fungovaly připravené testy, pojmenuj funkci `kratka`._
     
   tests: |
-    def test_zadany_seznam_kratka():
-        assert kratka(["pes", "kočka", "králík", "had"]) == ["pes", "had"], "Zkontroluj jestli funkce dělá, co má, a formát, ve kterém vrací výsledek - test počítá s tím, že tvoje funkce vrací seznam."
+    def test_zadany_seznam():
+        assert kratka(["pes", "kočka", "králík", "had"]) == ["pes", "had"], \
+            "Zkontroluj jestli funkce dělá, co má, a formát, ve kterém vrací výsledek - test počítá s tím, že tvoje funkce vrací seznam."
 
-    def test_jiny_seznam_kratka():
-        assert kratka(["užovka", "koroptev", "mravenec", "vlk", "plch", "bů"]) == ["vlk", "plch", "bů"], "Pokud ti předchozí test prošel, a tento ne, zkus upravit svou funkci tak, aby fungovala i pro jiné seznamy, než seznam z úkolu 0."
+    def test_jiny_seznam():
+        assert kratka(["užovka", "koroptev", "mravenec", "vlk", "plch", "bů"]) == ["vlk", "plch", "bů"], \
+            "Pokud ti předchozí test prošel, a tento ne, zkus upravit svou funkci tak, aby fungovala i pro jiné seznamy, než seznam z úkolu 0."
 
 
 - id: handout6_02
   markdown: |
     Napiš funkci, která vrací jména domácích zvířat (ze seznamu zadaného argumentem), která začínají na `k`.
-    _Aby ti fungovaly připravené testy, pojmenuj funkci zacina_k._
+    _Aby ti fungovaly připravené testy, pojmenuj funkci `zacina_k`._
     
   tests: |
-    def test_zadany_seznam_k():
-        assert  zacina_k(["pes", "kočka", "králík", "had"]) == ["kočka", "králík"], "Zkontroluj jestli funkce dělá, co má, a formát, ve kterém vrací výsledek - test počítá s tím, že tvoje funkce vrací seznam."
+    def test_zadany_seznam():
+        assert zacina_k(["pes", "kočka", "králík", "had"]) == ["kočka", "králík"], \
+            "Zkontroluj jestli funkce dělá, co má, a formát, ve kterém vrací výsledek - test počítá s tím, že tvoje funkce vrací seznam."
    
-    def test_jiny_seznam_k():
-        assert  zacina_k(["užovka", "koroptev", "mravenec", "vlk", "plch"]) == ["koroptev"], "Pokud ti předchozí test prošel, a tento ne, zkus upravit svou funkci tak, aby fungovala i pro jiné seznamy, než seznam z úkolu 0."
+    def test_jiny_seznam():
+        assert zacina_k(["užovka", "koroptev", "mravenec", "vlk", "plch"]) == ["koroptev"], \
+            "Pokud ti předchozí test prošel, a tento ne, zkus upravit svou funkci tak, aby fungovala i pro jiné seznamy, než seznam z úkolu 0."
 
 - id: handout6_05
   markdown: |
     Napiš program, který seřadí seznam domácích zvířat podle abecedy.
-    _Aby ti fungovaly připravené testy, pojmenuj funkci abecedne._
+    _Aby ti fungovaly připravené testy, pojmenuj funkci `abecedne`._
     
   tests: |
-    def test_zadany_seznam_abecedne():
-        assert abecedne(["pes", "kočka", "králík", "had"]) == ["had", "kočka", "králík", "pes"], "Zkontroluj jestli funkce dělá, co má, a formát, ve kterém vrací výsledek - test počítá s tím, že tvoje funkce vrací seznam."
+    def test_zadany_seznam():
+        assert abecedne(["pes", "kočka", "králík", "had"]) == ["had", "kočka", "králík", "pes"], \
+            "Zkontroluj jestli funkce dělá, co má, a formát, ve kterém vrací výsledek - test počítá s tím, že tvoje funkce vrací seznam."
     
-    def test_jiny_seznam_abecedne():
-        assert abecedne(["užovka", "koroptev", "mravenec", "vlk", "plch"]) == ["koroptev", "mravenec", "plch", "užovka", "vlk"], "Pokud ti předchozí test prošel, a tento ne, zkus upravit svou funkci tak, aby fungovala i pro jiné seznamy, než seznam z úkolu 0."
+    def test_jiny_seznam():
+        assert abecedne(["užovka", "koroptev", "mravenec", "vlk", "plch"]) \
+            == ["koroptev", "mravenec", "plch", "užovka", "vlk"], \
+            "Pokud ti předchozí test prošel, a tento ne, zkus upravit svou funkci tak, aby fungovala i pro jiné seznamy, než seznam z úkolu 0."
 
 
 - id: handout6_06
@@ -121,14 +150,17 @@ tasks:
     - Nakonec vytvoř ze seznamu dvojic opět jen seznam hodnot.
 
     Proč má zrovna had takovéhle výsadní postavení, zjistíš později.
-    _Aby ti fungovaly připravené testy, pojmenuj funkci abecedne_2 a zařiď, aby vracela seznam._
+    _Aby ti fungovaly připravené testy, pojmenuj funkci `abecedne_2` a zařiď, aby vracela seznam._
     
  tests: |
-    def test_zadany_seznam_abecedne_2():
-        assert abecedne_2(["pes", "kočka", "králík", "had", "andulka"]) == ["had", "pes", "andulka", "kočka", "králík"], "Zkontroluj jestli funkce dělá, co má, a formát, ve kterém vrací výsledek - test počítá s tím, že tvoje funkce vrací seznam."
+    def test_zadany_seznam():
+        assert abecedne_2(["pes", "kočka", "králík", "had", "andulka"]) \
+            == ["had", "pes", "andulka", "kočka", "králík"], \
+            "Zkontroluj jestli funkce dělá, co má, a formát, ve kterém vrací výsledek - test počítá s tím, že tvoje funkce vrací seznam."
    
-   def test_jiny_seznam_abecedne_2():
-        assert abecedne_2(["aba", "la", "ad", "ea"]) == ["ea", "la", "aba", "ad"], "Pokud ti předchozí test prošel, a tento ne, zkus upravit svou funkci tak, aby fungovala i pro jiné seznamy, než seznam z úkolu 0."
+   def test_jiny_seznam():
+        assert abecedne_2(["aba", "la", "ad"]) == ["la", "aba", "ad"], \
+            "Pokud ti předchozí test prošel, a tento ne, zkus upravit svou funkci tak, aby fungovala i pro jiné seznamy, než seznam z úkolu 0."
 
 - section:
     markdown: |
@@ -139,20 +171,31 @@ tasks:
 - id: handout6_09
   markdown: |
     Napiš funkci, která převede římské číslice na číslo (`int`).
-    _Aby ti fungovaly připravené testy, pojmenuj funkci rimska_na_int._
+    _Aby ti fungovaly připravené testy, pojmenuj funkci `rimska_na_int`._
     
   tests: |
-    def test_rimska_na_int():
+    def test_jednotlivych_cislic():
+        assert rimska_na_int("I") == 1
         assert rimska_na_int("V") == 5
+        assert rimska_na_int("X") == 10
+        assert rimska_na_int("L") == 50
+        assert rimska_na_int("C") == 100
+        assert rimska_na_int("D") == 500
+        assert rimska_na_int("M") == 1000
+        
+    def test_scitacich_kombinaci():
+        assert rimska_na_int("II") == 2
+        assert rimska_na_int("III") == 3
+        assert rimska_na_int("XX") == 20
+        
+    def test_ruznych_kombinaci():
+        assert rimska_na_int("IV") == 4
         assert rimska_na_int("IX") == 9
         assert rimska_na_int("XIV") == 14
-        #assert rimska_na_int("IIII") == 4           # mám jí tam nechat? Jsou o ní trochu spory, jestli je to přijatelný zápis.
-        assert rimska_na_int("IV") == 4
         assert rimska_na_int("CMXCIX") == 999
         assert rimska_na_int("CDXLIV") == 444
         assert rimska_na_int("MDCLXVI") == 1666
         assert rimska_na_int("MCDLXXVI") == 1476
-
 
 - section:
     markdown: |
