@@ -15,7 +15,7 @@ tasks:
     b) Napiš funkci, která přebere seznam zvířat a slovo a zjistí, jestli je toto slovo v seznamu.
 
     _„Zjistí“ znamená, že funkce vrátí `True` nebo `False`._
-    _Aby ti fungovaly testy, pojmenuj prosím funkci je_v_seznamu._
+    _Aby ti fungovaly testy, pojmenuj prosím funkci `je_v_seznamu`._
     
   mandatory: true
   
