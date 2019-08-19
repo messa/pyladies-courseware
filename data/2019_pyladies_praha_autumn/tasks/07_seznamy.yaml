@@ -7,12 +7,16 @@ tasks:
       nebudeš-li vědět jak dál, zeptej se na internetu nebo na sraze ostatních
       a řešte společně!
 
-- id: handout6_03
+- id: handout6_03_udelat_seznam
   markdown: |
-    a) Udělej si seznam domácích zvířat. Budeš ho potřebovat v dalších úlohách.
+    Udělej si seznam domácích zvířat. Budeš ho potřebovat v dalších úlohách.
     Domácí zvířata známe tato: `"pes", "kočka", "králík", "had"`.
-    
-    b) Napiš funkci, která přebere seznam zvířat a slovo a zjistí, jestli je toto slovo v seznamu.
+
+  mandatory: true
+
+- id: handout6_03_je_v_seznamu
+  markdown: |
+    Napiš funkci, která přebere seznam zvířat a slovo a zjistí, jestli je toto slovo v seznamu.
 
     _„Zjistí“ znamená, že funkce vrátí `True` nebo `False`._
     _Aby ti fungovaly testy, pojmenuj prosím funkci `je_v_seznamu`._
