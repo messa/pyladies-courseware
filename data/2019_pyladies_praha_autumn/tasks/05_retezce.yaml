@@ -4,12 +4,64 @@ tasks:
   markdown: |
     Napiš program, který se zeptá na příjmení uživatelky/uživatele
     a zkusí podle něj uhodnout její/jeho pohlaví.
+    _Pokud chceš, aby ti fungovaly připravené testy, pojmenuj prosím funkci `prijmeni_pohlavi`._
     
   mandatory: true
+  
+  tests: |
+    def test_zena_s_diakritikou():
+        assert prijmeni_pohlavi("Houbová") == "žena", \
+            'Příjmení končící na "ová" program nevyhodnoti jako ženské.'
+
+    def test_zena_bez_diakritiky():
+        assert prijmeni_pohlavi("Novakova") == "žena", \
+            'Příjmení končící na "ova" program nevyhodnoti jako ženské.'
+
+    def test_muz_s_diakritikou():
+        assert prijmeni_pohlavi("Hříbek") == "muž", \
+            'Uznávám, i žena se může jmenovat Hříbek, ale zkus prosím zvýšit pravděpodobnost, že se trefíš,\
+             a příjmení bez ženské koncovky přiřadit mužům.'
+
+    def test_muz_na_a():
+        assert prijmeni_pohlavi("Hrouda") == "muž", \
+            'Při zadání jména končícího na "a", program usoudí, že se nejedná o muže. Je to pro tebe ok? \
+            Záleží na tom, který typ chyby je pro tebe v této úloze přijatelnější.'
+
+    def test_muz_s_ova():
+        assert prijmeni_pohlavi("Kovařík") == "muž", \
+            'Při zadání jména obsahujícího "ova" i jinde než na konci (Kovařík), program vyhodnotí, \
+            že se nejedná o muže.'
+
+    def test_muz_s_ova_diakrit():
+        assert prijmeni_pohlavi("Novák") == "muž", \
+            'Při zadání jména obsahujícího "ová" i jinde než na konci (Novák), program vyhodnotí, že se nejedná o muže.'
+
 
 - id: handout4_07
   markdown: |
     Najdi na internetu text své oblíbené písně, zkopíruj si ho do řetězce
-    a zjisti, kolikrát je v něm použito písmeno K.
+    a zjisti, kolikrát je v něm použito písmeno k.
+    _Aby ti fungovaly testy, pojmenuj prosím funkci `kolik_k`._
 
   mandatory: true
+  
+  tests: |
+    def test_k():
+        assert kolik_k("kokokoko dák.") == 5, \
+            'V textu "kokokoko dák" nenašel program všechna písmena "k". Nevíš, čím by to mohlo být?'
+
+    def test_K():
+        assert kolik_k("KOKOKOKO DÁK.") == 5, \
+            'V textu "KOKOKOKO DÁK" nenašel program všechna písmena "K". Nevíš, čím by to mohlo být?'
+
+    def test_kK():
+        assert kolik_k("Kokokoko dák. Kvák.") == 7, \
+            'V textu "Kokokoko dák. Kvák." nenašel program všechna písmena "K" a "k". Nevíš, čím by to mohlo být?'
+
+    def test_bez_k():
+        assert kolik_k("Hej hou, hej hou, qwertzuiopasdfghj.lyxcvbnm, QWERTZUIOPASDFGHJ_LYXCVBNM") == 0, \
+            'Když program dostane řetězec, v kterém se nevyskytuje k/K, nevrátí 0. Nevíš, čím by to mohlo být?'
+
+    def test_prazdny_retezec():
+        assert kolik_k("") == 0, "Když program dostane prázdný řetězec, nevrátí 0. Nevíš, čím by to mohlo být?"
+
