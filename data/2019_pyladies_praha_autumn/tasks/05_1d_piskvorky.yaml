@@ -73,19 +73,19 @@ tasks:
 
     _Můžeš využít nějakou funkci, kterou jsme napsaly už na sraze?_
   tests: |  
-    def test_tah_delka():
+    def test_delka():
         assert len(tah("--------------------", 2, "x")) == 20, \
         "Funkce tah() změnila délku řetězce, který představuje herní pole, to nemá dělat. Zkus to opravit."
         assert len(tah("ox-oxxooxoxoxxooxoxo", 2, "x")) == 20, \
         "Funkce tah() změnila délku řetězce, který představuje herní pole, to nemá dělat. Zkus to opravit."
 
-    def test_tah_0():
+    def test_0():
         assert tah("--------------------", 0, "o") == "o-------------------", \
         "Porovnej očekávaný řetězec s řetězcem, který vrátila funkce tah(). Zkus svou funkci tah() opravit."
         assert tah("-ox-oxxooxoxoxxooxox", 0, "o") == "oox-oxxooxoxoxxooxox", \
         "Porovnej očekávaný řetězec s řetězcem, který vrátila funkce tah(). Zkus svou funkci tah() opravit."
 
-    def test_tah_19():
+    def test_19():
         assert tah("--------------------", 19, "x") == "-------------------x", \
         "Porovnej očekávaný řetězec s řetězcem, který vrátila funkce tah(). Zkus svou funkci tah() opravit."
         assert tah("-ox-oxxooxoxoxxooxo-", 19, "x") == "-ox-oxxooxoxoxxooxox", \
@@ -101,7 +101,7 @@ tasks:
     Pokud uživatel zadá špatný vstup, funkce mu vynadá a zeptá se znova.
     
   tests: |
-    def test_hrac_17():     #V minulém běhu, některé účastnice vynalozily úsilí, aby když hráč zadá "1" objevil se symbol na políčku 0. Co s tím?
+    def test_17():     #V minulém běhu, některé účastnice vynalozily úsilí, aby když hráč zadá "1" objevil se symbol na políčku 0. Co s tím?
         with mock.patch("builtins.input", return_value = 17):
             assert tah_hrace("--------------------") == "-----------------x--" or \
                    tah_hrace("--------------------") == "-----------------o--"
@@ -109,14 +109,14 @@ tasks:
                    tah_hrace("-oxoxoxo-oxxooxox--x") == "-oxoxoxo-oxxooxoxo-x"
 
 
-    def test_hrac_19():
+    def test_19():
         with mock.patch("builtins.input", return_value = 19):
             assert tah_hrace("--------------------") == "-------------------x" or \
                    tah_hrace("--------------------") == "-------------------o"
             assert tah_hrace("-oxoxoxo-oxxooxox---") == "-oxoxoxo-oxxooxox--x" or \
                    tah_hrace("-oxoxoxo-oxxooxox---") == "-oxoxoxo-oxxooxox--o"
 
-    def test_hrac_0():
+    def test_0():
         with mock.patch("builtins.input", return_value = 0):
             assert tah_hrace("--------------------") == "x-------------------" or \
                    tah_hrace("--------------------") == "o-------------------"
