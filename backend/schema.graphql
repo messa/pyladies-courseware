@@ -10,6 +10,7 @@ type Course implements Node {
   descriptionHTML: String
   startDate: String
   endDate: String
+  sessions: [Session]
 }
 
 type CourseConnection {
@@ -43,6 +44,13 @@ type LoginMethods implements Node {
   dev: DevLoginMethod
 }
 
+type MaterialItem {
+  materialItemType: String
+  titleHTML: String
+  textHTML: String
+  url: String
+}
+
 interface Node {
   id: ID!
 }
@@ -62,6 +70,25 @@ type Query {
   course(courseId: String): Course
   currentUser: User
   loginMethods: LoginMethods
+}
+
+type Session implements Node {
+  id: ID!
+  slug: String
+  date: String
+  titleHTML: String
+  hasTasks: Boolean
+  materialItems: [MaterialItem]
+  taskItems: [TaskItem]
+}
+
+type TaskItem {
+  taskItemType: String
+  taskId: String
+  textHTML: String
+  number: Int
+  mandatory: Boolean
+  submit: Boolean
 }
 
 type User implements Node {

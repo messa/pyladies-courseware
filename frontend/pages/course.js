@@ -57,10 +57,10 @@ class CoursePage extends React.Component {
     const { currentUser, course } = this.props
     const courseId = course.courseId
     const { attendInProgress, attendError } = this.state
-    const belongToCourse = user && (
-      user['is_admin'] ||
-      arrayContains(user['attended_course_ids'], courseId) ||
-      arrayContains(user['coached_course_ids'], courseId)
+    const belongToCourse = currentUser && (
+      currentUser['is_admin'] ||
+      arrayContains(currentUser['attended_course_ids'], courseId) ||
+      arrayContains(currentUser['coached_course_ids'], courseId)
     )
     const now = new Date()
     const courseEnd = new Date(course['end_date'])
@@ -108,23 +108,23 @@ class CoursePage extends React.Component {
 
         <div className='sessions'>
 
-          {/*course['sessions'].map(session => (
+          {course.sessions && course.sessions.map(session => (
             <div key={session['slug']} className='session'>
 
               <h2 className='session-title'>
-                <span dangerouslySetInnerHTML={{__html: session['title_html']}} />
+                <span dangerouslySetInnerHTML={{__html: session.titleHTML}} />
               </h2>
-              <div className='sessionDate'>{formatDate(session['date'])}</div>
+              <div className='sessionDate'>{formatDate(session.date)}</div>
 
-              <MaterialItems materialItems={session['material_items']} />
+              <MaterialItems materialItems={session.materialItems} />
 
-              {session['has_tasks'] && (
+              {session.hasTasks && (
                 <div>
                   <Button
                     as={ALink}
                     href={{
                       pathname: '/session',
-                      query: { course: course.id, session: session['slug'] }
+                      query: { course: course.id, session: session.slug }
                     }}
                     basic
                     color='blue'
@@ -136,7 +136,7 @@ class CoursePage extends React.Component {
               )}
 
             </div>
-          ))*/}
+          ))}
 
         </div>
 
@@ -230,6 +230,19 @@ export default withData(CoursePage, {
         titleHTML
         subtitleHTML
         descriptionHTML
+        sessions {
+          id
+          slug
+          titleHTML
+          date
+          hasTasks
+          materialItems {
+            materialItemType
+            titleHTML
+            textHTML
+            url
+          }
+        }
       }
     }
   `

@@ -30,19 +30,18 @@ def cw_backend_main():
 
 
 async def get_app(conf):
-    mongo_client = AsyncIOMotorClient(conf.mongodb.connection_uri)
-    mongo_db = mongo_client[conf.mongodb.db_name]
-    model = Model(mongo_db, conf)
+    db = await get_db(conf)
+    model = Model(db, conf)
     await model.create_indexes()
 
     app = web.Application()
 
     async def close_mongo(app):
-        mongo_client.close()
+        db.client.close()
 
     app.on_cleanup.append(close_mongo)
 
-    session_setup(app, MongoStorage(mongo_db['sessions'], max_age=3600*24*90))
+    session_setup(app, MongoStorage(db['sessions'], max_age=3600*24*90))
 
     app['conf'] = conf
     app['courses'] = load_courses(conf.courses_file)
@@ -61,6 +60,13 @@ async def get_app(conf):
     app.router.add_get('/api/subscriptions', subscriptions)
 
     return app
+
+
+async def get_db(conf):
+    client = AsyncIOMotorClient(conf.mongodb.connection_uri)
+    db = client[conf.mongodb.db_name]
+    assert db.client is client
+    return db
 
 
 async def subscriptions(request):
