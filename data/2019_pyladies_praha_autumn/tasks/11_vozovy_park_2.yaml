@@ -1,8 +1,12 @@
 tasks:
 
+- section:
+    markdown: |
+      Navážeme na úkoly z minulé lekce a trochu vylepšíme náš vozový park.
+
 - id: vozovy_park_06
   markdown: |
-    Navážeme na úkoly z minulé lekce a trochu vylepšíme náš vozový park. Každý vůz má jiné **náklady za kilometr**. Zkus toto v programu nějak zohlednit
+    Každý vůz má jiné **náklady za kilometr**. Zkus toto v programu nějak zohlednit
     – ideálně aby funkce, která hledá autobus pro ten školní výlet, našla co
     nejekonomičtější variantu.
 
