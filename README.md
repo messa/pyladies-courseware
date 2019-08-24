@@ -113,7 +113,7 @@ Developer login
 
 Pro usnadnění vývoje na localhostu, je možné (v defaultu automaticky) zapnout tlačítka přihlášení různých rolí.
 
-![local dev login](resources/local_dev_login.png "Tlačítka rychlého přihlášení")
+![local dev login](docs/images/local_dev_login.png "Tlačítka rychlého přihlášení")
 
 Usage:
 
