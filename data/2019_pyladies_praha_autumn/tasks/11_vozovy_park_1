@@ -2,6 +2,10 @@
 
 tasks:
 
+- section:
+    markdown: |
+      Cvičení na třídy
+
 - id: vozovy_park_01
   markdown: |
     Vytvoř si (prozatím) jednoduchý program, který reprezentuje vozový park
