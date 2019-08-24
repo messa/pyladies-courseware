@@ -18,7 +18,7 @@ tasks:
       </pre>
       Hráč, která dá tři své symboly vedle sebe, vyhrál.
       </blockquote>
-
+      
 - id: handout4_09
   mandatory: true
   markdown: |
@@ -31,18 +31,30 @@ tasks:
     - `"!"` – Remíza (pole neobsahuje `"-"`, a nikdo nevyhrál)
     - `"-"` – Ani jedna ze situací výše (t.j. hra ještě neskončila)
 
-  tests: |
-    def test_vyhodnot():
-        assert vyhodnot("ooxxxoxo") == "x"
-        assert vyhodnot("---xxx--") == "x"
-        assert vyhodnot("xoooxoxo") == "o"
-        assert vyhodnot("-ooo---") == "o"
-        assert vyhodnot("oxoxoxoxxoo") == "!"
-        assert vyhodnot("----") == "-"
-        assert vyhodnot("-xx-oo--") == "-"
+  tests: 
+    def test_x():
+        assert vyhodnot("ooxxxoxooxxoxoxoxoox") == "x"
+        assert vyhodnot("xxx---o----o-----o--") == "x"
+        assert vyhodnot("------oxxx-o-----o--") == "x"
+        assert vyhodnot("o-----o----o-----xxx") == "x"
 
-    def test_dalsi():
-        pass
+    def test_o():
+        assert vyhodnot("xxoxooxxoxxoxooxxooo") == "o"
+        assert vyhodnot("ooo--x--------xx----") == "o"
+        assert vyhodnot("-----xooo-----xx----") == "o"
+        assert vyhodnot("-----x-----xx----ooo") == "o"
+
+    def test_remiza():
+        assert vyhodnot("oxoxoxoxxooxoxxooxox") == "!"
+        assert vyhodnot("xxoxoxoxxooxoxxooxox") == "!"
+
+    def test_zatim():
+        assert vyhodnot("--------------------") == "-"
+        assert vyhodnot("-----xx---oo--------") == "-"
+        assert vyhodnot("--ox---o--x---o-----") == "-"
+        assert vyhodnot("x--x--xox---oo----x-") == "-"
+
+
 
 - id: handout4_10
   mandatory: true
@@ -60,7 +72,25 @@ tasks:
     ```
 
     _Můžeš využít nějakou funkci, kterou jsme napsaly už na sraze?_
+  tests: |  
+    def test_delka():
+        assert len(tah("--------------------", 2, "x")) == 20, \
+        "Funkce tah() změnila délku řetězce, který představuje herní pole, to nemá dělat. Zkus to opravit."
+        assert len(tah("ox-oxxooxoxoxxooxoxo", 2, "x")) == 20, \
+        "Funkce tah() změnila délku řetězce, který představuje herní pole, to nemá dělat. Zkus to opravit."
 
+    def test_0():
+        assert tah("--------------------", 0, "o") == "o-------------------", \
+        "Porovnej očekávaný řetězec s řetězcem, který vrátila funkce tah(). Zkus svou funkci tah() opravit."
+        assert tah("-ox-oxxooxoxoxxooxox", 0, "o") == "oox-oxxooxoxoxxooxox", \
+        "Porovnej očekávaný řetězec s řetězcem, který vrátila funkce tah(). Zkus svou funkci tah() opravit."
+
+    def test_19():
+        assert tah("--------------------", 19, "x") == "-------------------x", \
+        "Porovnej očekávaný řetězec s řetězcem, který vrátila funkce tah(). Zkus svou funkci tah() opravit."
+        assert tah("-ox-oxxooxoxoxxooxo-", 19, "x") == "-ox-oxxooxoxoxxooxox", \
+        "Porovnej očekávaný řetězec s řetězcem, který vrátila funkce tah(). Zkus svou funkci tah() opravit."
+    
 - id: handout4_11
   markdown: |
     Napiš funkci `tah_hrace`, která dostane řetězec s herním polem,
@@ -69,6 +99,31 @@ tasks:
     Funkce by měla odmítnout záporná nebo příliš velká čísla
     a tahy na obsazená políčka.
     Pokud uživatel zadá špatný vstup, funkce mu vynadá a zeptá se znova.
+    
+  tests: |
+    def test_17():     #V minulém běhu, některé účastnice vynalozily úsilí, aby když hráč zadá "1" objevil se symbol na políčku 0. Co s tím?
+        with mock.patch("builtins.input", return_value = 17):
+            assert tah_hrace("--------------------") == "-----------------x--" or \
+                   tah_hrace("--------------------") == "-----------------o--"
+            assert tah_hrace("-oxoxoxo-oxxooxox--x") == "-oxoxoxo-oxxooxoxx-x" or \
+                   tah_hrace("-oxoxoxo-oxxooxox--x") == "-oxoxoxo-oxxooxoxo-x"
+
+
+    def test_19():
+        with mock.patch("builtins.input", return_value = 19):
+            assert tah_hrace("--------------------") == "-------------------x" or \
+                   tah_hrace("--------------------") == "-------------------o"
+            assert tah_hrace("-oxoxoxo-oxxooxox---") == "-oxoxoxo-oxxooxox--x" or \
+                   tah_hrace("-oxoxoxo-oxxooxox---") == "-oxoxoxo-oxxooxox--o"
+
+    def test_0():
+        with mock.patch("builtins.input", return_value = 0):
+            assert tah_hrace("--------------------") == "x-------------------" or \
+                   tah_hrace("--------------------") == "o-------------------"
+            assert tah_hrace("-xxoxoxo-oxxooxox--x") == "xxxoxoxo-oxxooxox--x" or \
+                   tah_hrace("-ooxxoxo-oxxooxox--x") == "oooxxoxo-oxxooxox--x"
+                   
+     # Chybí testy toho, že funkce odmítá nevhodné vstupy a pak se ptá znova.
 
 - id: handout4_12
   markdown: |
