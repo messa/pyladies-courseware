@@ -76,14 +76,14 @@ tasks_by_lesson_slug:
   # session 10: "class"
 
   "beginners/class":
-  - file: tasks/10_tridy.yaml
+#   - file: tasks/10_tridy.yaml
   - file: tasks/10_procvicovani_seznamy.yaml
-
+  - file: tasks/11_vozovy_park_1.yaml
 
   # session 11: "inheritance"
 
   "beginners/inheritance":
-  - file: tasks/11_vozovy_park.yaml
+  - file: tasks/11_vozovy_park_2.yaml
 
   # session 12: "pyglet"
 

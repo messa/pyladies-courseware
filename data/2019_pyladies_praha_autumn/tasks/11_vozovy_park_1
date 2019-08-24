@@ -1,0 +1,66 @@
+# https://github.com/messa/pyladies-materials/tree/62f6575cb0b049797197a981b9693a390bdd259d/201805_tridy_vozovy_park
+
+tasks:
+
+- section:
+    markdown: |
+      Cvičení na třídy
+
+- id: vozovy_park_01
+  markdown: |
+    Vytvoř si (prozatím) jednoduchý program, který reprezentuje vozový park
+    fiktivního dopravního podniku - mohl by vypadat nějak takto:
+
+    ```
+    class Vuz:
+        def __init__(self):
+            self.kapacita = 10
+
+    vozovy_park = [
+        Vuz(),
+        Vuz(),
+        Vuz(),
+    ]
+    ```
+
+- id: vozovy_park_02
+  markdown: |
+    Vytvoř funkci, která spočítá celkovou kapacitu všech vozů ve vozovém parku
+    – mohla by vypadat např. takto:
+
+    ```
+    def secti_celkovou_kapacitu(seznam_vozu):
+        ...
+    ```
+
+    <small>Autorské řešení: [1_2.py](https://github.com/messa/pyladies-materials/blob/master/201805_tridy_vozovy_park/1_2.py)</small>
+
+- id: vozovy_park_03
+  markdown: |
+    Uprav program tak, aby vozy ve vozovém parku měly různou kapacitu. Kód v úkolu 0.
+    je jen ukázka, můžeš to udělat klidně i úplně jinak :)
+
+
+    <small>Autorské řešení: [3.py](https://github.com/messa/pyladies-materials/blob/master/201805_tridy_vozovy_park/3.py)</small>
+
+- id: vozovy_park_04
+  markdown: |
+    To byla jen rozcvička, teď už bez napovídání :) Vytvoř (další)
+    funkci, které lze zadat seznam vozů a požadovanou minimální
+    kapacitu, a ta funkce najde vůz, který má tuto nebo vyšší
+    kapacitu.
+
+    Například: školní výlet si potřebuje objednat autobus
+    pro 20 lidí a my chceme nějaký takový ve vozovém parku
+    najít. Zavolej tuto funkci a vypiš její výsledek (návratovou
+    hodnotu).
+
+    <small>Autorské řešení: [4.py](https://github.com/messa/pyladies-materials/blob/master/201805_tridy_vozovy_park/4.py)</small>
+
+- id: vozovy_park_05
+  markdown: |
+    Zřejmě by bylo fajn vozy nějak jednoznačně **identifikovat** – přidej jim
+    atribut `spz`. Uprav program z předchozího bodu, aby vypisoval SPZ nalezeného vozu.
+
+    <small>Autorské řešení: [5.py](https://github.com/messa/pyladies-materials/blob/master/201805_tridy_vozovy_park/5.py)
+    nebo [5_jinak.py](https://github.com/messa/pyladies-materials/blob/master/201805_tridy_vozovy_park/5_jinak.py)</small>
