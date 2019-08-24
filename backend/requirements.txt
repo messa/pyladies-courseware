@@ -1,14 +1,14 @@
 aiodns
 aiohttp
 aiohttp_session
-https://github.com/messa/aiohttp-session-mongo/archive/master.zip#egg=aiohttp-session-mongo==0.0.1
+aiohttp-session-mongo
 aiohttp-graphql
-graphql-ws
+#graphql-ws
 bcrypt
 cchardet
 markdown
 motor
-PyYAML==4.2b4
+PyYAML
 requests
 requests_oauthlib
 simplejson
