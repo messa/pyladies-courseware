@@ -24,6 +24,10 @@ export default class TaskSubmission extends React.Component {
     this.props.onSubmit({ code })
   }
 
+  handleCancelClick = () => {
+    this.props.onCancel()
+  }
+
   render() {
     const { loading } = this.props
     const { code } = this.state
@@ -41,6 +45,15 @@ export default class TaskSubmission extends React.Component {
             icon='send'
             content='Odeslat'
             onClick={this.handleSubmitClick}
+            loading={loading}
+            disabled={loading}
+          />
+          <Button
+            size='small'
+            color='red'
+            icon='cancel'
+            content='Zrušit'
+            onClick={this.handleCancelClick}
             loading={loading}
             disabled={loading}
           />
