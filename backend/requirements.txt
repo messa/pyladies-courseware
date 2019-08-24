@@ -1,9 +1,10 @@
-aiodns
 aiohttp
+graphql-core<3
+graphql-ws
+aiohttp-graphql
+aiodns
 aiohttp_session
 aiohttp-session-mongo
-aiohttp-graphql
-#graphql-ws
 bcrypt
 cchardet
 markdown
