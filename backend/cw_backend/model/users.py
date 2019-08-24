@@ -190,6 +190,8 @@ class User:
     async def set_admin(self, is_admin, author_user_id):
         await self._update({'is_admin': bool(is_admin)}, author_user_id)
 
+    async def update_user(self, data, author_user_id):
+        await self._update(data, author_user_id)
 
 class UserView:
 
@@ -203,6 +205,7 @@ class UserView:
         self.coached_course_ids = sorted(doc.get('coached_course_ids') or [])
         self.is_admin = doc.get('is_admin', False)
         self.dev_login = doc.get('dev_login', False)
+        self.login = doc.get('login')
 
     def get_name_sort_key(self):
         name_parts = self.name.split()
@@ -225,5 +228,6 @@ class UserView:
                 'coached_course_ids': self.coached_course_ids,
                 'is_admin': self.is_admin,
                 'dev_login': self.dev_login,
+                'login': self.login,
             })
         return data
