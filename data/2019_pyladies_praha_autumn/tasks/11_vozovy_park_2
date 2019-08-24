@@ -1,3 +1,5 @@
+tasks:
+
 - id: vozovy_park_06
   markdown: |
     Navážeme na úkoly z minulé lekce a trochu vylepšíme náš vozový park. Každý vůz má jiné **náklady za kilometr**. Zkus toto v programu nějak zohlednit
