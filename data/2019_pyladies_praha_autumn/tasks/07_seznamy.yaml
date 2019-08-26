@@ -11,13 +11,12 @@ tasks:
   markdown: |
     Udělej si seznam domácích zvířat. Budeš ho potřebovat v dalších úlohách.
     Domácí zvířata známe tato: `"pes", "kočka", "králík", "had"`.
-    
+
     Napiš funkci, která přebere seznam zvířat a slovo a zjistí, jestli je toto slovo v seznamu.
 
     _„Zjistí“ znamená, že funkce vrátí `True` nebo `False`._
-    
-  mandatory: true
 
+  mandatory: true
 
 - id: handout6_04
   markdown: |
@@ -28,7 +27,6 @@ tasks:
     - zvířata, která jsou jen ve druhém seznamu (rozdíl množin: druhá - první).
 
   mandatory: true
-
 
 - id: handout6_01
   markdown: |
@@ -80,10 +78,9 @@ tasks:
   markdown: |
     Napiš funkci, která převede římské číslice na číslo (`int`).
 
-
 - section:
     markdown: |
-        A nakonec projekt na přemýšlení.
+      A nakonec projekt na přemýšlení.
 
 - id: handout6_17
   markdown: |

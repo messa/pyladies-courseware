@@ -7,7 +7,7 @@ tasks:
 - id: handout6_07
   markdown: |
     Napiš tyto funkce.
-    Každá z nich dostane jako argument řetězec s~rodným číslem a nějak ho zanalyzuje:
+    Každá z nich dostane jako argument řetězec s rodným číslem a nějak ho zanalyzuje:
 
     - Je ve správném formátu: 6 číslice, lomítko, 4 číslice?
       (vrací `True` nebo `False`)
@@ -24,4 +24,4 @@ tasks:
 
 - id: handout6_08
   markdown: |
-    Napiš program který se uživatele zeptá na rodné číslo a vypíše výsledky.
+    Napiš program, který se uživatele zeptá na rodné číslo a vypíše výsledky.
