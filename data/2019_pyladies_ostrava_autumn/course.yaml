@@ -1,0 +1,28 @@
+id: pyladies-2019-ostrava-podzim
+naucse_api_url: https://naucse.python.cz/v0/2019/pyladies-ostrava-podzim.json
+tasks_by_lesson_slug:
+
+  "beginners/first-steps":
+  - file: tasks/1_expressions.yaml
+  "beginners/hello-world":
+  - file: tasks/2_first_app.yaml
+  "beginners/functions":
+  - file: tasks/3_loops.yaml
+  "beginners/while":
+  - file: tasks/4_while.yaml
+  "beginners/def":
+  - file: tasks/5_def.yaml
+  "beginners/exceptions":
+  - file: tasks/6_exceptions.yaml
+  "beginners/list":
+  - file: tasks/7_list.yaml
+  "beginners/dict":
+  - file: tasks/8_dict.yaml
+  "beginners/testing":
+  - file: tasks/9_testing.yaml
+  "intro/pyglet":
+  - file: tasks/10_pyglet.yaml
+  "beginners/class":
+  - file: tasks/11_class.yaml
+  "beginners/inheritance":
+  - file: tasks/12_inheritance.yaml
