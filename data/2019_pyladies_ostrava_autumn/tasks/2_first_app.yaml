@@ -1,7 +1,7 @@
 tasks:
 
 - id: handout2_1
-  markdown:  |
+  markdown: |
     Jakou používáš verzi Pythonu?
 
 - section:
@@ -9,7 +9,7 @@ tasks:
       Následující projekty procvičí orientaci v chybových hláškách. Doporučuji je udělat.
 
 - id: handout2_2
-  markdown:  |
+  markdown: |
     Jak se jmenuje druh chyby, která nastane, když…
 
     - Dáš uvozovky jen na jednu stranu řetězce? — SyntaxError
@@ -24,19 +24,19 @@ tasks:
     - Napíšeš v příkazu `print(1, 2, 3)` čárku navíc? —
 
 - id: handout2_3
-  markdown:  |
+  markdown: |
     _Podívej se na odpovědi na předchozí otázku, ale Python zkus použít jen na ověření._
 
     Jaká chyba nastane, když zkusíš použít proměnnou předtím, než do ní něco přiřadíš?
 
 - id: handout2_4
-  markdown:  |
+  markdown: |
     _Podívej se na odpovědi na otázku 1, ale Python použij jen na ověření._
 
     Jaká chyba nastane, když zkusíš podělit řetězec řetězcem?
 
 - id: handout2_5
-  markdown:  |
+  markdown: |
     Lomítko (`/`) je operátor, ale nedá se použít na řetězce. Vykřičník (`!`) v Pythonu není operátor.
     Jak se liší „jejich“ chyby?
 
@@ -46,7 +46,7 @@ tasks:
       Druhá část je trochu na zamyšlení.
 
 - id: handout2_6
-  markdown:  |
+  markdown: |
     Ne všechno se dá použít jako jméno proměnné.
     Fungují pro proměnné následující jména? Pokud ne, proč asi?
 
@@ -74,7 +74,7 @@ tasks:
       Následující projekty jsou na procvičení toho, co jsme dělaly na srazu. Nemáš-li čas, zatím je přeskoč.
 
 - id: handout2_7
-  markdown:  |
+  markdown: |
     _Zkus se nedívat na programy ze srazu._
 
     Napiš program, který spočítá povrch a objem krychle o straně 2852 cm.
@@ -86,7 +86,7 @@ tasks:
   mandatory: true
 
 - id: handout2_8
-  markdown:  |
+  markdown: |
     Změň program tak, aby stranu/poloměr mohl uživatel zadat.
 
     _Tady už se na materiály ze srazu klidně podívej._
@@ -99,7 +99,7 @@ tasks:
       Všechno bude vysvětleno později, takže jestli nemáš čas, přeskoč je.
 
 - id: handout2_9
-  markdown:  |
+  markdown: |
     Ulož si následující program jako `pokus.py` a spusť ho několikrát za sebou. Co dělá?
 
     ```
@@ -115,7 +115,7 @@ tasks:
   mandatory: true
 
 - id: handout2_10
-  markdown:  |
+  markdown: |
     Zkombinuj program z předchozího projektu s programem kámen-nůžky-papír a nastav `tah_pocitace` na:
 
     - `'kámen'`, pokud je cislo 0,
@@ -127,11 +127,11 @@ tasks:
       Tyhle projekty kombinují opakování a nové informace. Doporučuji si je projít.
 
 - id: handout2_11
-  markdown:  |
+  markdown: |
     Které pythonní _operátory_ dokážeš z hlavy vyjmenovat?
 
 - id: handout2_12
-  markdown:  |
+  markdown: |
     Zkusila jsi porovnávat řetězce?
     Doplň tuhle tabulku tužkou; pak ověř odpovědi pomocí Pythonu:
 
@@ -148,7 +148,7 @@ tasks:
     | `'abc'` |      | ``10``    |
 
 - id: handout2_13
-  markdown:  |
+  markdown: |
     Jaká je hodnota proměnné po provedení příkazů:
 
     * <code>promenna = 1 < 2</code> ?
@@ -166,14 +166,14 @@ tasks:
       Další dva projekty ti umožní kreativně využít, co ses naučila.
 
 - id: handout2_14
-  markdown:  |
+  markdown: |
     Na srazu jsme měli program, který píše různé nesmysly podle uživatelem zadaného věku.
 
     Zkus napsat program, který píše hlášky podle zadané rychlosti chůze, váhy ulovené ryby, počtu tykadel,
     teploty vody nebo třeba vzdálenosti od rovníku.
 
 - id: handout2_15
-  markdown:  |
+  markdown: |
     Napiš program, který po zadání správného hesla vypíše nějakou tajnou informaci.
 
     _Vhodné tajemství je třeba: V pátek jsem viděla černého havrana._
@@ -183,7 +183,7 @@ tasks:
       Poslední projekty jsou pokročilejší. Jestli nemáš čas, radši udělej pořádně ty ostatní.
 
 - id: handout2_16
-  markdown:  |
+  markdown: |
     Projdi si v materiálech bonusovou sekci _„Nebo anebo a”_:
 
     [naucse.python.cz/lessons/beginners/and-or/](https://naucse.python.cz/lessons/beginners/and-or/)
@@ -191,7 +191,7 @@ tasks:
   submit: false
 
 - id: handout2_17
-  markdown:  |
+  markdown: |
     Doplň tuhle tabulku:
 
     | `a`     | `b`     | `a and b` | `a or b` | `not a` |
@@ -205,7 +205,7 @@ tasks:
     _Obsahuje jeden řádek pro každou kombinaci booleovských hodnot, které `a` a `b` můžou mít. Když se stane, že se v složitějších `and` a `or` ztratíš, doporučuji napsat si podobnou tabulku a na každý řádek se podívat zvlášť._
 
 - id: handout2_18
-  markdown:  |
+  markdown: |
     Zkus přepsat Kámen, Nůžky, Papír pomocí `and` a `or`.
 
     Dokážeš docílit toho, aby se každý z řetězců `'Plichta.'`, `'Počítač vyhrál.'` a `'Vyhrála jsi!'` objevil
@@ -214,5 +214,5 @@ tasks:
     Pokud ano, gratuluji!
 
 - id: handout2_19
-  markdown:  |
+  markdown: |
     Zkus program „šťastná/bohatá“ přepsat pomocí zanořených `if`ů. Která verze ti připadá čitelnější?

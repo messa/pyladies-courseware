@@ -8,7 +8,7 @@ tasks:
       Nejdříve rozdělíme hotové 1D piškvorky do samostatných modulů a vylepšíme je.
 
 - id: handout9_1
-  markdown:  |
+  markdown: |
     Rozděl 1D Piškvorky na tři moduly:
 
     * _ai.py_, kde bude funkce *tah_pocitace*,
@@ -16,7 +16,7 @@ tasks:
     * _hra.py_, kde bude import a volání hlavní funkce z _piskvorky.py_ (a nic jiného).
 
 - id: handout9_2
-  markdown:  |
+  markdown: |
     Doplň funkci *tah_pocitace* tak, aby brala jako argument symbol, za který
     má počítač hrát – buď 'x',nebo 'o'. Ověř, že se funkce *tah_pocitace* umí
     vyrovnat s jinou délkou hracího pole než 20. Ověř si,že se *tah_pocitace*
@@ -29,22 +29,22 @@ tasks:
       Teď přijde řada na testování.
 
 - id: handout9_3
-  markdown:  |
+  markdown: |
     Z bonusového domácího projektu po páté lekci si stáhni modul *test_piskvorky.py*
     a uprav své piškvorky tak, aby všechny testy procházely.
 
 - id: handout9_4
-  markdown:  |
+  markdown: |
     Dopiš do každé z testovacích funkcí alespoň dva testy.
 
 - id: handout9_5
-  markdown:  |
+  markdown: |
     Ověř, že se funkce *tah_pocitace* umí vyrovnat s jinou délkou hracího pole než 20.
     
     _„Ověření” znamená napsání příslušného testu._
 
 - id: handout9_6
-  markdown:  |
+  markdown: |
     Ověř si, že se *tah_pocitace* chová rozumně když dostane plné hrací pole, nebo pole s délkou 0.
     
     _Rozumné chování v tomto případě znamená vyvolání rozumné výjimky._

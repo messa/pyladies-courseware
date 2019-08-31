@@ -7,11 +7,11 @@ tasks:
       Trocha experimentování. Zkus se zamyslet, jestli jsi „dobře” pochopila otázku.
 
 - id: handout5_1
-  markdown:  |
+  markdown: |
     Co se stane, když tělo nějaké funkce necháš prázdné?
 
 - id: handout5_2
-  markdown:  |
+  markdown: |
     Co se stane, když necháš prázdné tělo cyklu?
 
 - section:
@@ -19,14 +19,14 @@ tasks:
       Procvičení funkcí. Jestli jsi pythonní funkce nepsala už před kurzem, tak první z těchto projektů určitě udělej. Druhý jen pokud máš ráda geometrii :)
 
 - id: handout5_3
-  markdown:  |
+  markdown: |
     Napiš funkci, která vykreslí domeček dané velikosti.
     _(t.j. velikost se zadá argumentem)_
 
     <img src="/static/tasks/handout4_images/02_domecky.png" alt="domečky" style="max-width: 100%; max-height: 60px">
 
 - id: handout5_4
-  markdown:  |
+  markdown: |
     Máš-li ráda geometrii*, můžeš zkusit dávat domečkové funkci dva argumenty:
     šířku a výšku.
     Je potřeba si vzpomenout na Pythagorovu větu a funkci tangens.
@@ -44,12 +44,12 @@ tasks:
       _Nemáš-li čas, zkus se aspoň zamyslet, jak bys projekt vyřešila._
 
 - id: handout5_5
-  markdown:  |
+  markdown: |
     Změň program Kámen, Nůžky, Papír tak, aby opakoval hru dokud
     uživatel nezadá `konec`.
 
 - id: handout5_6
-  markdown:  |
+  markdown: |
     Změň funkci `ano_nebo_ne` tak,
     aby se místo `ano` se dalo použít i `a`,
     místo `ne` i `n`
@@ -62,17 +62,17 @@ tasks:
       Sada zajímavých (snad) prográmků, které bys teď měla být schopná napsat. Nemáš-li čas, zatím je přeskoč.
 
 - id: handout5_7
-  markdown:  |
+  markdown: |
     Napiš program, který se zeptá na příjmení uživatelky/uživatele
     a zkusí podle něj uhodnout její/jeho pohlaví.
 
 - id: handout5_8
-  markdown:  |
+  markdown: |
     Najdi na internetu text své oblíbené písně, zkopíruj si ho do řetězce
     a zjisti, kolikrát je v něm použito písmeno K.
 
 - id: handout5_9
-  markdown:  |
+  markdown: |
     Napiš program, který simuluje tuto hru:
 
     První hráč hází kostkou
@@ -132,7 +132,7 @@ tasks:
     _Můžeš využít nějakou funkci, kterou jsme napsaly už na sraze?_
 
 - id: handout5_10
-  markdown:  |
+  markdown: |
     Napiš funkci `tah_hrace`, která dostane řetězec s herním polem,
     zeptá se hráče, na kterou pozici chce hrát, a vrátí herní pole
     se zaznamenaným tahem hráče.
@@ -141,7 +141,7 @@ tasks:
     Pokud uživatel zadá špatný vstup, funkce mu vynadá a zeptá se znova.
 
 - id: handout5_11
-  markdown:  |
+  markdown: |
     Napiš funkci `tah_pocitace`, která dostane řetězec s herním polem,
     vybere pozici, na kterou hrát, a vrátí herní pole
     se zaznamenaným tahem počítače.
@@ -161,7 +161,7 @@ tasks:
     ```
 
 - id: handout5_12
-  markdown:  |
+  markdown: |
     Napiš funkci `piskvorky1d`, která vytvoří řetězec s herním polem
     a střídavě volá funkce `tah_hrace` a `tah_pocitace`,
     dokud někdo nevyhraje nebo nedojde k remíze.
@@ -174,7 +174,7 @@ tasks:
       Doporučuju toho využít!
 
 - id: handout5_13
-  markdown:  |
+  markdown: |
     Zvládneš pro počítač naprogramovat lepší strategii?
     Třeba aby se snažil hrát vedle svých existujících symbolů
     nebo aby bránil protihráčovi?

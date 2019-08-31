@@ -8,7 +8,7 @@ tasks:
       pokusíš využít při programování známé skautské hry.
 
 - id: handout8_1
-  markdown:  |
+  markdown: |
     Napiš funkci, která pro argumentem zadané číslo `n` vytvoří a vrátí slovník,
     kde jako klíče budou čísla od jedné do `n` a jako hodnoty k nim
     jejich druhé mocniny. Například:
@@ -21,7 +21,7 @@ tasks:
   mandatory: true
 
 - id: handout8_2
-  markdown:  |
+  markdown: |
     Napiš funkci, která sečte a vrátí sumu všech klíčů a sumu všech hodnot
     ve slovníku, který dostane jako argument. K vyzkoušení můžeš použít
     slovník z minulé úlohy. Například:
@@ -32,7 +32,7 @@ tasks:
     ```
 
 - id: handout8_3
-  markdown:  |
+  markdown: |
     Napiš funkci, která jako argument dostane řetězec a vrátí slovník,
     ve kterém budou jako klíče jednotlivé znaky ze zadaného řetězce a jako
     hodnoty počty výskytů těchto znaků v řetězci. Například:
@@ -43,7 +43,7 @@ tasks:
     ```
 
 - id: handout8_4
-  markdown:  |
+  markdown: |
     Napiš funkci, která vypíše obsah slovníku (klíče a k nim náležící
     hodnoty) na jednotlivé řádky.
 
@@ -66,7 +66,7 @@ tasks:
       A teď už ke slíbené hře.
 
 - id: handout8_5
-  markdown:  |
+  markdown: |
     Úkolem je vytvořit známou skautskou hru „Kdo? S kým? Co dělali?“. Hra se
     hráče zeptá postupně na různé otázky, například „Kdo?“, „S kým?“,
     „Co dělali?“, „Kde?“, „Kdy?“, a nakonec „Proč?“, s tím, že mu umožní

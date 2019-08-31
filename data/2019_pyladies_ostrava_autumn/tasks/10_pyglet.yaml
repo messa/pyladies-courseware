@@ -7,7 +7,7 @@ tasks:
       V rámci domácích projektů vylepšíme projekt z hodiny.
 
 - id: handout10_1
-  markdown:  |
+  markdown: |
     Uprav projekt z hodiny tak, aby obrázek létal po okně a nikdy jej
     neopustil tzn. aby nikdy neuletěl zcela mimo viditelnou plochu.
     Obrázek může opisovat nějaký tvar (kružnici, čtverec atp.), odrážet se
