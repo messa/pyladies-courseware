@@ -1,0 +1,99 @@
+tasks:
+
+- section:
+    markdown: |
+      Nakonec trošku delší projekt.
+      Budeme na něm stavět dál; nedokončíš-li ho teď, budeš ho muset dodělat před příští sadou projektů.
+
+      <blockquote>
+      1-D piškvorky se hrají na řádku s dvaceti políčky.
+      Hráči střídavě přidávají kolečka (`o`) a křížky (`x`),
+      třeba:
+      <pre>
+      1. kolo: -------<span style='color: red'>x</span>------------
+      2. kolo: -------x--<span style='color: red'>o</span>---------
+      3. kolo: -------x<span style='color: red'>x</span>-o---------
+      4. kolo: -------xx<span style='color: red'>o</span>o---------
+      5. kolo: ------<span style='color: red'>x</span>xxoo---------
+      </pre>
+      Hráč, která dá tři své symboly vedle sebe, vyhrál.
+      </blockquote>
+
+- id: handout4_09
+  mandatory: true
+  markdown: |
+    Napiš funkci `vyhodnot`, která dostane řetězec
+    s herním polem 1-D piškvorek
+    a vrátí jednoznakový řetězec podle stavu hry:
+
+    - `"x"` – Vyhrál hráč s křížky (pole obsahuje `"xxx"`)
+    - `"o"` – Vyhrál hráč s kolečky (pole obsahuje `"ooo"`)
+    - `"!"` – Remíza (pole neobsahuje `"-"`, a nikdo nevyhrál)
+    - `"-"` – Ani jedna ze situací výše (t.j. hra ještě neskončila)
+
+- id: handout4_10
+  mandatory: true
+  markdown: |
+    Napiš funkci `tah`, která dostane řetězec s herním polem,
+    číslo políčka (0-19), a symbol (`x` nebo `o`)
+    a vrátí herní pole _(t.j. řetězec)_ s daným symbolem umístěným na danou pozici.
+
+    Hlavička funkce by tedy měla vypadat nějak takhle:
+
+    ```
+    def tah(pole, cislo_policka, symbol):
+        "Vrátí herní pole s daným symbolem umístěným na danou pozici"
+        ...
+    ```
+
+    _Můžeš využít nějakou funkci, kterou jsme napsaly už na sraze?_
+
+- id: handout4_11
+  markdown: |
+    Napiš funkci `tah_hrace`, která dostane řetězec s herním polem,
+    zeptá se hráče, na kterou pozici chce hrát, a vrátí herní pole
+    se zaznamenaným tahem hráče.
+    Funkce by měla odmítnout záporná nebo příliš velká čísla
+    a tahy na obsazená políčka.
+    Pokud uživatel zadá špatný vstup, funkce mu vynadá a zeptá se znova.
+
+- id: handout4_12
+  markdown: |
+    Napiš funkci `tah_pocitace`, která dostane řetězec s herním polem,
+    vybere pozici, na kterou hrát, a vrátí herní pole
+    se zaznamenaným tahem počítače.
+
+    Použij jednoduchou náhodnou „strategii”:
+
+    1. Vyber číslo od 0 do 19.
+    2. Pokud je dané políčko volné, hrej na něj.
+    3. Pokud ne, opakuj od bodu 1.
+
+    Hlavička funkce by tedy měla vypadat nějak takhle:
+
+    ```
+    def tah_pocitace(pole):
+        "Vrátí herní pole se zaznamenaným tahem počítače"
+        ...
+    ```
+
+- id: handout4_13
+  markdown: |
+    Napiš funkci `piskvorky1d`, která vytvoří řetězec s herním polem
+    a střídavě volá funkce `tah_hrace` a `tah_pocitace`,
+    dokud někdo nevyhraje nebo nedojde k remíze.
+
+    Nezapomeň kontrolovat stav hry po každém tahu.
+
+- section:
+    markdown: |
+      Poslední projekt je nepovinný, ale, jak to u podobných projektů bývá, můžeš na něj dostat zpětnou vazbu.
+      Doporučuju toho využít!
+
+- id: handout4_14
+  markdown: |
+    Zvládneš pro počítač naprogramovat lepší strategii?
+    Třeba aby se snažil hrát vedle svých existujících symbolů
+    nebo aby bránil protihráčovi?
+
+    Stačí jen docela malé vylepšení!
