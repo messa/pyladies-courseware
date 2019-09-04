@@ -23,28 +23,18 @@ tasks:
     ```
     >>> 4 - 2
     ```
-
-    Pokud vše funguje do výsledku řešení zapište: OK
   
   mandatory: true
   
 - id: handout1_01
   markdown: |
-    A co násobení? Programátoři nenásobí pomocí · ani ×, použijí jiný _operátor_: hvězdičku. Vyzkoušej si to, třeba na
-
-    42 × 3077
-
-    a odevzdej správné řešení (kód).
-
+    A co násobení? Programátoři nenásobí pomocí · ani ×, použijí jiný _operátor_: hvězdičku. Vyzkoušej si to a odevzdej správné řešení.
+ 
   mandatory: true
 
 - id: handout1_02
   markdown: |
     Dělení? Znak ÷ se taky na klávesnici těžko píše (zvlášť na české). Jak se asi bude dělit?
-
-    4567 ÷ 33
-
-    Opět odevzdej kód.
    
   mandatory: true
   
@@ -60,16 +50,12 @@ tasks:
   markdown: |
     Jsou i jiné operátory než `+`, `-` a ty pro násobení a dělení.
     Co dělá s čísly operátor `%` (procento)? (Odpověz slovně)
-
-    Nápověda: `%` je binární operátor, vyzkoušej ho na dvojicích čísel stejně jako třeba `+`.
     
   mandatory: true
 
 - id: handout1_05
   markdown: |
     A co dělá operátor `**` (dvě hvězdičky)? (Odpověz slovně)
-
-    Nápověda: `**` je binární operátor, vyzkoušej ho na dvojicích čísel stejně jako třeba `+`.
     
   mandatory: true
 
@@ -99,14 +85,12 @@ tasks:
     ```
     >>> 'Ahoj' + 'PyLadies!'
     ```
-
-    Jakým příkazem dosáhnu odpovědi: "Ahoj PyLadies!"?
   
   mandatory: true
   
 - id: handout1_10
   markdown: |
-    Řetězce se dají sčítat. Dají se mezi sebou i násobit a dělit? Odečítat? (Odpověz slovně, neboj se to vyzkoušet)
+    Řetězce se dají sčítat. Dají se i násobit? Dělit? Odečítat? (Odpověz slovně)
     
   mandatory: true
 
