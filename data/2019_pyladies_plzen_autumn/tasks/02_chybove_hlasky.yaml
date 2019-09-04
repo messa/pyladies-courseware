@@ -8,7 +8,7 @@ tasks:
 
 - id: handout2_01
   markdown: |
-    Jak se jmenuje druh chyby, která nastane, když…
+    Jak se jmenuje chyba, která nastane, když…
 
     - Dáš uvozovky jen na jednu stranu řetězce? — SyntaxError
     - Zkusíš odečíst číslo od řetězce? —
