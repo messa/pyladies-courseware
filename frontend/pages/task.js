@@ -124,28 +124,18 @@ export default class SessionPage extends React.Component {
               <h2 id='tasks'>
                 Domácí projekty
               </h2>
-
-                    <HomeworkTask
-                      key={`${courseId} ${sessionSlug} ${reviewTaskId}`}
-                      taskItem={reviewTask}
-                      userCanSubmitTask={userCanSubmitTasks}
-                      courseId={courseId}
-                      sessionSlug={sessionSlug}
-                    />
-                    <LoadingMessage active={loading} />
-                    <LoadErrorMessage active={loadError} message={loadError} />
-                    {students && students.map(student => (
-                            <TaskReview
-                                key={`${reviewTask.id} ${student.id}`}
-                                courseId={courseId}
-                                sessionSlug={sessionSlug}
-                                taskId={reviewTask.id}
-                                taskSubmit={reviewTask.submit}
-                                reviewUserId={student.id}
-                                title={student.name}
-                            />
-                    ))}
-
+              <LoadingMessage active={loading} />
+              <LoadErrorMessage active={loadError} message={loadError} />
+              {students && (
+                <HomeworkTask
+                  key={`${courseId} ${sessionSlug} ${reviewTaskId}`}
+                  taskItem={reviewTask}
+                  userCanSubmitTask={userCanSubmitTasks}
+                  courseId={courseId}
+                  sessionSlug={sessionSlug}
+                  students={students}
+                />
+              )}
             </Grid.Column>
           </Grid.Row>
         </Grid>
