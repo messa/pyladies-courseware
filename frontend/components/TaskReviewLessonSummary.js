@@ -56,7 +56,7 @@ export default class TaskReviewLessonSummary extends React.Component {
 
   render() {
     const { loading, loadError, students, taskSolutionsByUserAndTaskId } = this.state
-    const { courseId, sessionSlug, tasks, reviewUserId } = this.props
+    const { courseId, sessionSlug, tasks, reviewUserId, reviewTaskId } = this.props
     return (
       <div>
         {loading && (<p><em>Loading</em></p>)}
@@ -77,6 +77,7 @@ export default class TaskReviewLessonSummary extends React.Component {
               tasks={tasks.filter(t => t.submit)}
               taskSolutionsByUserAndTaskId={taskSolutionsByUserAndTaskId}
               reviewUserId={reviewUserId}
+              reviewTaskId={reviewTaskId}
             />
           </div>
         )}
@@ -88,7 +89,7 @@ export default class TaskReviewLessonSummary extends React.Component {
   }
 }
 
-const TaskReviewLessonSummaryTable = ({ courseId, sessionSlug, students, tasks, taskSolutionsByUserAndTaskId, reviewUserId }) => (
+const TaskReviewLessonSummaryTable = ({ courseId, sessionSlug, students, tasks, taskSolutionsByUserAndTaskId, reviewUserId, reviewTaskId }) => (
   <Table basic celled size='small' compact unstackable>
     <Table.Header>
       <Table.Row>
@@ -114,7 +115,7 @@ const TaskReviewLessonSummaryTable = ({ courseId, sessionSlug, students, tasks, 
 
     <Table.Body>
       {students.map(student => (
-        <Table.Row key={student.id}>
+        <Table.Row key={student.id} active={reviewUserId === student.id}>
           <Table.Cell>
             {reviewUserId === student.id ? (
               <strong>
@@ -127,7 +128,7 @@ const TaskReviewLessonSummaryTable = ({ courseId, sessionSlug, students, tasks, 
             )}
           </Table.Cell>
           {tasks.map((task, i) => (
-            <Table.Cell key={i}>
+            <Table.Cell key={i} active={reviewTaskId === task.id}>
               <TaskStatus
                 courseId={courseId}
                 sessionSlug={sessionSlug}
