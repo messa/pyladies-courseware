@@ -44,6 +44,8 @@ tasks:
 
 - id: handout3b_09
   markdown: |
+
+
     Pomocí cyklů `for` a parametru `end` pro `print` napiš program, který postupně z jednotlivých `'X'` vypíše:
 
         X X X X X
@@ -52,11 +54,11 @@ tasks:
         X X X X X
         X X X X X
 
-    „Z jednotlivých `'X'`“ znamená, že nepoužiješ např. `print('X X X X X')`.
+    „Z jednotlivých `'X'`“ znamená, že se ve volání funkceprint smí objevit jen jedno 'X' anebo mezera, že nepoužiješ např. `print('X X X X X')`.
     (K řešení tohoto povinného projektu se můžeš dopracovat postupně přes ty nepovinné týkající se cyklu for.)
 
     _Jak pojmenuješ proměnnou cyklu? A tu druhou?_
-    
+
     mandatory: true
 
 - id: handout3b_10
@@ -101,6 +103,8 @@ tasks:
         X         X
         X         X
         X X X X X X
+
+    "z jednotlivých `'X'` a mezer" znamená, že se ve volání funkceprint smí objevit jen jedno 'X' anebo mezera, že nepoužiješ např. `print('X X X X X')`.
 
 - id: handout3b_14
   markdown: |
