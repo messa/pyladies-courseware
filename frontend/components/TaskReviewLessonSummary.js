@@ -168,6 +168,10 @@ const TaskStatus = ({ courseId, sessionSlug, taskSolution, taskId }) => {
   if (taskSolution.is_solved) {
     content = '✓'
   }
+
+  let stats = `(${taskSolution.all_versions.length}/${taskSolution.n_comments})`
+  let stats_title = `${taskSolution.all_versions.length} odevzdaných řešení a ${taskSolution.n_comments} komentářů`
+
   const href = {
     pathname: '/session',
     query: {
@@ -178,8 +182,8 @@ const TaskStatus = ({ courseId, sessionSlug, taskSolution, taskId }) => {
     hash: 'task-' + taskId
   }
   return (
-    <Link href={href}><a>
-      {content}
+    <Link href={href}><a title={stats_title}>
+      {content} {stats}
     </a></Link>
   )
 }
