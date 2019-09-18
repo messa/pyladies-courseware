@@ -1,0 +1,98 @@
+id: pyladies-2019-plzen-podzim
+naucse_api_url: https://naucse.python.cz/v0/2019/plzen-podzim-2019.json
+tasks_by_lesson_slug:
+
+  # session 1: "install"
+
+  "beginners/cmdline": []
+  "beginners/install": []
+  "beginners/install-editor": []
+  "beginners/hello-world":
+  - file: tasks/01_first_steps.yaml
+  - file: tasks/02_prvni_program.yaml
+
+  # session 2: "hello"
+
+  "beginners/print":
+  - file: tasks/02_chybove_hlasky.yaml
+  "beginners/variables":
+  - file: tasks/02_promenne.yaml
+  "beginners/comparisons":
+  - file: tasks/02_porovnavani.yaml
+  "beginners/and-or":
+  - file: tasks/02_nebo_anebo_a.yaml
+
+  # session 3: "loops"
+
+  "beginners/functions": []
+  "intro/turtle":
+  - file: tasks/03_cykly.yaml
+  - file: tasks/03_cykly_zelva.yaml
+  - file: tasks/03_cykly_konzole.yaml
+  - file: tasks/04_procvicovani_for.yaml
+  "beginners/while": []
+
+
+  # session 4: "def-str"
+
+  "beginners/def":
+  - file: tasks/04_vlastni_funkce.yaml
+  "beginners/str":
+  - file: tasks/05_retezce.yaml
+  - file: tasks/05_1d_piskvorky.yaml
+
+  # session 5: "exrcs_fio"
+
+  "beginners/files":
+  # Tohle ve skutečnosti nejsou úlohy k souborům, ale k procvičování.
+  - file: tasks/06_procvicovani_print.yaml
+  - file: tasks/06_procvicovani_orisky.yaml
+
+  # session 6: "git"
+
+  "git/install": []
+  "git/basics": []
+  "git/ignoring": []
+
+  # session 7: "dict"
+
+  "beginners/dict":
+  - file: tasks/08_slovniky.yaml
+  "intro/json": []
+  "projects/github-api": []
+
+  # session 8: "list"
+
+  "beginners/list":
+  - file: tasks/07_seznamy.yaml
+  - file: tasks/08_snake.yaml
+  "beginners/tuple": []
+
+  # session 9: "tests"
+
+  "beginners/exceptions": []
+  "beginners/modules": []
+  "beginners/testing":
+  - file: tasks/09_1d_piskvorky_testy.yaml
+  - file: tasks/09_hangman.yaml
+  "beginners/circular-imports": []
+
+  # session 10: "class"
+
+  "beginners/class":
+  - file: tasks/10_tridy.yaml
+  "beginners/inheritance": []
+
+  # session 11: "foss"
+
+  "git/collaboration": []
+
+  # session 12: "proj1"
+
+  "intro/notebook": []
+  "intro/numpy": []
+  "intro/pandas": []
+
+  # session 13: "proj2"
+
+  "intro/pyqt": []

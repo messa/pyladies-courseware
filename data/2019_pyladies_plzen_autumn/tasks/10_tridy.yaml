@@ -1,0 +1,42 @@
+tasks:
+
+- section:
+    markdown: |
+      Základní cvičení na vytváření objektů a tříd.
+
+- id: pilsen_custom_12_oop_0
+  markdown:
+    Na srazu jsme vytvářeli cvičné třídy pro [koťátka/čtverce] vytvoř
+    seznam alespoň pěti _ruzných_ [koťátek/čtverců].
+
+
+    _Dokážeš to udělat v cyklu? Jak ověříš, že jde skutečně o různé objekty?_
+
+
+- id: pilsen_custom_12_oop_1
+  markdown:
+      Vytvoř třidu Ctverec s jedním atributem `strana` a metodami `obvod()`, `obsah()` a
+      `rozdil_obsahu(jiny_ctverec Ctverec)`, která vrátí rozdíl obsahů dvou čtverců - zadaného a toho
+      jehož metodu voláme.
+
+
+
+- section:
+      markdown: |
+        Následující projekty jsou na procvičení dědičnosti, pokud jsme ji na kurzech ještě nestihli probrat,
+        můžeš je zatím vynechat.
+
+
+- id: handout11_00
+  markdown: |
+    Vytvoř si vlastní třídu pro celá čísla tak, aby tato nová třída měla
+    všechny vlastnosti a schopnosti běžných celých čísel v Pythonu (objekty
+    bude možné sčítat, odečítat, porovnávat atp.) a navíc měla metodu
+    pro rozpoznání, zda je číslo v objektu sudé nebo liché jménem `je_sude()`,
+    která bude vracet `True` nebo `False`.
+
+- id: handout11_01
+  markdown: |
+    Jako bonus je možné vlastní třídě z předchozího příkladu přepsat metodu
+    `__repr__()` tak, aby bylo v interaktivním režimu poznat, které číslo je
+    standardní `int` a které je z tebou vytvořené třídy.
