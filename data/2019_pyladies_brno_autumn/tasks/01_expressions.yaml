@@ -1,0 +1,238 @@
+tasks:
+
+- section:
+    markdown: |
+      První domácí projekty k první lekci slouží k procvičení práce s interaktivní Python konzolí.
+      Aby sis to pořádně zažila, zkoušej si zadávat různé příkazy.
+
+- id: reactivate_venv
+  markdown: |
+    Doma si znovu aktivuj virtuální prostředí, spusť Python
+    a zkus, jestli stále funguje jako kalkulačka.
+
+    ```
+    >>> 1 + 1
+    2
+    ```
+
+  submit: false
+
+- id: handout2_00
+  markdown: |
+    Jakou používáš verzi Pythonu?
+    *(Ke správné odpovědi patří i způsob, jak jsi na odpověď přišla.)*
+
+- id: compute_expression
+  mandatory: true
+  markdown: |
+    Kolik je 395868 + 4483924 × 893?
+
+- id: modulo
+  mandatory: true
+  markdown: |
+    Jaký je zbytek po dělení 458593873 sedmi?
+
+- id: handout1_05
+  markdown: |
+    Přijdeš na to, co dělá operátor `**` (dvě hvězdičky)?
+    *(Odpověz slovně. Odpověď není povinná.)*
+
+- id: handout1_06
+  markdown: |
+    Až budeš příště sahat po kalkulačce, použij místo ní Python.
+
+  submit: false
+
+- section:
+    markdown: |
+      V další sekci se naučíš něco o textu – o řetězcích, které jsme na srazu
+      jen naťukli.
+
+- id: hadnout1_07
+  markdown: |
+    Python umí zpracovávat i jiné hodnoty než čísla.
+    Třeba takové **řetězce** – slova, věty nebo jiný text.
+    Řetězce se zadávají v uvozovkách – jednoduchých `'` nebo dvojitých `"`:
+
+    ```
+    >>> 'Ahoj!'
+    'Ahoj!'
+    >>> "Ahoj!"
+    "Ahoj!"
+    ```
+
+  submit: false
+
+- id: handout1_08
+  markdown: |
+    Řetězce jdou spojovat sčítáním. Vyzkoušej si to:
+
+    ```
+    >>> 'A' + "B"
+    'AB'
+    ```
+  
+  submit: false
+
+- id: handout01_09
+  mandatory: true
+  markdown: |
+    Co je tady špatně? Jak to spravit?
+
+    ```
+    >>> 'Ahoj' + 'PyLadies!'
+    ```
+
+- id: handout1_10
+  markdown: |
+    Řetězce se dají sčítat. Dají se i násobit? Dělit? Odečítat?
+    *(Odpověz slovně.)*
+
+- id: handout1_11
+  markdown: |
+    Co se stane, když se pokusím sečíst číslo a řetězec?
+    *(Můžeš vložit výsledek z konzole, ale odpověz i slovně)*
+
+- id: handout1_12
+  markdown: |
+    A vynásobit?
+    *(Můžeš vložit výsledek z konzole, ale odpověz i slovně)*
+
+- section:
+    markdown: |
+      Vzpomínáš si na chybové hlášky a na proměnné?
+
+- id: handout2_03
+  mandatory: true
+  markdown: |
+
+    Jaká chyba nastane, když zkusíš podělit řetězec řetězcem?
+
+- id: handout2_02
+  mandatory: true
+  markdown: |
+
+    Jaká chyba nastane, když zkusíš použít proměnnou předtím, než do ní něco přiřadíš?
+
+- id: handout2_05
+  markdown: |
+    Ne všechno se dá použít jako jméno proměnné.
+    Fungují pro proměnné následující jména? Pokud ne, proč asi?
+
+    <div style='column-count: 4'>
+      <code>x</code><br>
+      <code>tlacitko4</code><br>
+      <code>34</code><br>
+      <code>3e4</code><br>
+      <code>krůta</code><br>
+      <code>$i</code><br>
+      <code>druha-odmocnina</code><br>
+      <code>readme.txt</code><br>
+      <code>kratsiStrana</code><br>
+      <code>POCET_BODU</code><br>
+      <code>_</code> (podtržítko)<br>
+      <code>π</code> (pí)<br>
+      <code>True</code><br>
+      <code>_cache</code><br>
+      <code>__name__</code><br>
+      <code>while</code><br>
+    </div>
+
+- section:
+    markdown: |
+      Následující projekty jsou na procvičení toho, co jsme dělaly na srazu.
+
+- id: handout2_06
+  markdown: |
+    Napiš program, který spočítá povrch a objem krychle o straně 2852 cm.
+
+    Abys nemusela tolik hledat v učebnici (vlastně Wikipedii): povrch S = 6a², objem V = a³
+
+    _Řešení, pro kontrolu: S = 48803424 cm², V = 23197894208 cm³_
+
+- id: handout2_07
+  markdown: |
+    Změň program tak, aby stranu/poloměr mohl uživatel zadat.
+
+- section:
+    markdown: |
+      Následuje prostor pro tvoji kreativitu. Tyto projekty jsou nepovinné.
+
+- id: handout2_14
+  markdown: |
+    Napiš program, který po zadání správného hesla vypíše nějakou tajnou informaci.
+
+    _Vhodné tajemství je třeba: V pátek jsem viděla černého havrana._
+
+- id: handout2_13
+  markdown: |
+    Na srazu jsme měli program, který píše různé nesmysly podle uživatelem zadaného věku.
+
+    Zkus napsat program, který píše hlášky podle zadané rychlosti chůze, váhy ulovené ryby, počtu tykadel,
+    teploty vody nebo třeba vzdálenosti od rovníku. 
+
+- section:
+    markdown: |
+      A nakonec pár úkolů, které tvoří větší projekt. Dělej je postupně.
+
+- id: handout2_08
+  markdown: |
+    Ulož si následující program jako `pokus.py` a spusť ho několikrát za sebou.
+    Co dělá?
+
+    ```
+    from random import randrange
+    cislo = randrange(3)
+    print(cislo)
+    ```
+
+    _Jak to funguje, to si vysvětlíme příště; zatím to ber jako kouzelné zaříkadlo._
+
+    _Aby všechno fungovalo správně, nesmíš mít v aktuálním adresáři soubor jménem `random.py`._
+
+- id: choose_word
+  markdown: |
+    Vytvoř program, který dělá následující:
+
+    * Vybere náhodné číslo ze tří možností (0, 1, nebo 2).
+      *(Koukni na předchozí úkol!)*
+    * Je-li číslo 0:
+        * do proměnné `tvar` uloží slovo `'trojúhelník'`;
+    * jinak, je-li číslo 1:
+        * do proměnné `tvar` uloží slovo `'čtverec'`;
+    * jinak:
+        * do proměnné `tvar` uloží slovo `'kolečko'`.
+    * Vypíše `tvar`.
+
+- id: rock_paper_scissors
+  mandatory: true
+  markdown: |
+    Vytvoř hru *Kámen nůžky papír*, která funguje následovně:
+
+    * Do proměnné `tah_pocitace` dá náhodně slovo `'kámen'`, `'nůžky'`
+      nebo `'papír'`.
+      *(Koukni na předchozí úkol!)*
+    * Zeptá se uživatele na tah; výsledek uloží do proměnné `tah_hrace`
+    * Je-li tah hráče `'kámen'`:
+        * je-li tah počítače `'kámen'`:
+            * vypíše `'Remíza!'`;
+        * jinak, je-li tah počítače `'nůžky'`:
+            * vypíše `'Vyhrála jsi!'`;
+        * jinak, je-li tah počítače `'papír'`:
+            * vypíše `'Prohrála jsi!'`.
+    * Jinak, je-li tah hráče `'nůžky'`:
+        * je-li tah počítače `'kámen'`:
+            * vypíše `'Prohrála jsi!'`;
+        * jinak, je-li tah počítače `'nůžky'`:
+            * vypíše `'Remíza!'`;
+        * jinak, je-li tah počítače `'papír'`:
+            * vypíše `'Vyhrála jsi!'`.
+    * Jinak, je-li tah hráče `'papír'`:
+        * je-li tah počítače `'kámen'`:
+            * vypíše `'Vyhrála jsi!'`;
+        * jinak, je-li tah počítače `'nůžky'`:
+            * vypíše `'Prohrála jsi!'`;
+        * jinak, je-li tah počítače `'papír'`:
+            * vypíše `'Remíza!'`.
+    * Jinak,
+        * Omluví se *(vypíše hlášku)*, že zná jen tři slova: kámen, nůžky a papír.
