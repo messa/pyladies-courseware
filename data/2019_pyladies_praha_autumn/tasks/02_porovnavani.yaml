@@ -20,7 +20,9 @@ tasks:
 
 - id: handout2_09
   markdown: |
-    Tento projekt doplňuje program ze srazu. Zkombinuj program z projektu č. 2 s programem kámen-nůžky-papír a nastav `tah_pocitace` na:
+    Na hodině jsme si ukázali jednoduchý program kámen - nůžky - papír. Pokud jsme to nestihli, řešení najdeš [tady](https://naucse.python.cz/2019/pyladies-praha-jaro-ntk/beginners/comparisons/).
+    
+    Zkus program upravit tak, že nastavíš `tah_pocitace` na:
 
     - `'kámen'`, pokud je cislo 0,
     - `'nůžky'`, pokud je cislo 1,
