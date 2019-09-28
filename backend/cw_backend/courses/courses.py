@@ -4,8 +4,10 @@ This module implements reading course data YAML files.
 This is not async. Use thread executor for running with async code.
 '''
 
+import base64
 from datetime import date
 from functools import partial
+import hashlib
 import logging
 from pathlib import Path
 import requests
@@ -94,6 +96,7 @@ class Course:
                 'description_html': to_html(raw.get('description') or nc.get('description')),
                 'start_date': parse_date(raw.get('start_date') or nc.get('start_date')),
                 'end_date': parse_date(raw.get('end_date') or nc.get('end_date')),
+                'secret': raw.get('secret') or '',
             }
 
             local_sessions = {str(s['slug']): s for s in raw.get('sessions', [])}
@@ -125,6 +128,7 @@ class Course:
     id = DataProperty('id')
     start_date = DataProperty('start_date')
     end_date = DataProperty('end_date')
+    secret = DataProperty('secret')
 
     def __repr__(self):
         return f'<{self.__class__.__name__} id={self.id!r}>'
@@ -142,12 +146,30 @@ class Course:
                 return session
         raise Exception(f'Session with slug {slug!r} not found in {self}')
 
-    def export(self, sessions=False, tasks=False):
+    def export(self, sessions=False, tasks=False, secret=None, coach_secret=False):
         d = {
             **self.data,
             'start_date': self.data['start_date'].isoformat(),
             'end_date': self.data['end_date'].isoformat(),
         }
+        del d['secret']
         if sessions:
             d['sessions'] = [lesson.export(tasks=tasks) for lesson in self.sessions]
+        if secret is not None:
+            d['student_secret'] = self.get_student_secret(secret)
+            if coach_secret:
+                d['coach_secret'] = self.get_coach_secret(secret)
         return d
+
+    @staticmethod
+    def get_secret(secret, salt):
+        secret = secret.encode('utf8')
+        salt = salt.encode('utf8')
+        key = hashlib.pbkdf2_hmac('sha256', secret, salt, 10**5)
+        return base64.urlsafe_b64encode(key).decode('utf8')
+
+    def get_student_secret(self, secret):
+        return Course.get_secret(secret, 'student' + self.id + self.secret)
+
+    def get_coach_secret(self, secret):
+        return Course.get_secret(secret, 'coach' + self.id + self.secret)

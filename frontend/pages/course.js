@@ -1,11 +1,12 @@
 import React from 'react'
 import Link from 'next/link'
-import { Button, Message } from 'semantic-ui-react'
+import { Button, Message, Label, Input, Divider } from 'semantic-ui-react'
 import Layout from '../components/Layout'
 import fetchPageData from '../util/fetchPageData'
 import ALink from '../components/ALink'
 import MaterialItems from '../components/MaterialItems'
 import formatDate from '../util/formatDate'
+import { request } from 'https'
 
 function arrayContains(array, item) {
   return array && array.indexOf(item) !== -1
@@ -14,8 +15,7 @@ function arrayContains(array, item) {
 export default class extends React.Component {
 
   state = {
-    attendInProgress: false,
-    attendError: null,
+    origin: '',
   }
 
   static async getInitialProps({ req, query }) {
@@ -26,44 +26,18 @@ export default class extends React.Component {
     return { courseId, ...data }
   }
 
-  handleEnrollClick = async () => {
-    this.setState({
-      attendInProgress: true,
-    })
-    try {
-      const { user, courseId } = this.props
-      const payload = {
-        'course_id': courseId,
-      }
-      const r = await fetch('/api/users/attend-course', {
-        method: 'POST',
-        credentials: 'same-origin',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload),
-      })
-      const { not_logged_in, attended_course_ids } = await r.json()
-      if (not_logged_in) {
-        window.location = '/login'
-        return
-      }
-      this.setState({
-        attendInProgress: false,
-      })
-      window.location.reload()
-    } catch (err) {
-      this.setState({
-        attendInProgress: false,
-        attendError: err.toString(),
-      })
-    }
+  copyToClipboard = (e) => {
+    e.currentTarget.previousSibling.select()
+    document.execCommand('copy')
+  }
+
+  componentDidMount() {
+    this.setState({ origin: window.location.origin })
   }
 
   render() {
     const { user, courseId, course } = this.props
-    const { attendInProgress, attendError } = this.state
+    const { origin } = this.state
     const belongToCourse = user && (
       user['is_admin'] ||
       arrayContains(user['attended_course_ids'], courseId) ||
@@ -72,6 +46,8 @@ export default class extends React.Component {
     const now = new Date()
     const courseEnd = new Date(course['end_date'])
     const activeCourse = (courseEnd >= now)
+    const studentUrl = '/join-course/' + course.id + '/student'
+    const coachUrl = '/join-course/' + course.id + '/coach'
     return (
       <Layout user={this.props.user} width={1000}>
 
@@ -89,25 +65,53 @@ export default class extends React.Component {
             dangerouslySetInnerHTML={{__html: course['description_html']}}
           />
           {activeCourse && (
-            <div className='course-attend'>
-              {attendError && (
-                <div>
-                  <Message
-                    negative compact
-                    content={attendError}
-                  />
-                </div>
-              )}
-              <Button.Group>
-                <Button
-                  primary
-                  onClick={this.handleEnrollClick}
-                  disabled={belongToCourse || attendInProgress}
-                  loading={attendInProgress}
-                  content={belongToCourse ? 'Jste součástí kurzu' : 'Přihlásit se do kurzu'}
-                />
-              </Button.Group>
-            </div>
+            <>
+              <Divider horizontal />
+              <div className='course-attend'>
+                {user && user['is_admin'] && (
+                  <>
+                    <p>
+                      <Input
+                        action={{
+                          icon: 'copy',
+                          onClick: this.copyToClipboard,
+                        }}
+                        label='Zápis student:'
+                        readOnly
+                        fluid
+                        value={origin + studentUrl + '?secret=' + course.student_secret}
+                      />
+                    </p>
+                    <p>
+                      <Input
+                        action={{
+                          icon: 'copy',
+                          onClick: this.copyToClipboard,
+                        }}
+                        label='Zápis kouč:'
+                        readOnly
+                        fluid
+                        value={origin + coachUrl + '?secret=' + course.coach_secret}
+                      />
+                    </p>
+                  </>
+                )}
+                <p>
+                  <Button.Group>
+                    <Button
+                      as={ALink}
+                      href={{
+                        pathname: studentUrl,
+                        query: { secret: course.student_secret }
+                      }}
+                      primary
+                      disabled={belongToCourse}
+                      content={belongToCourse ? 'Jste součástí kurzu' : 'Přihlásit se do kurzu'}
+                    />
+                  </Button.Group>
+                </p>
+              </div>
+            </>
           )}
 
         </div>
@@ -176,8 +180,6 @@ export default class extends React.Component {
           }
           .overview .course-attend {
             text-align: center;
-            max-width: 550px;
-            margin: 0 auto;
           }
           .sessions {
             max-width: 1100px;

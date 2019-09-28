@@ -14,6 +14,7 @@ app.prepare().then(() => {
     const backendUrl = process.env.BACKEND_URL || 'http://127.0.0.1:5000'
     server.use(proxyMiddleware('/api/', { target: backendUrl }))
     server.use(proxyMiddleware('/auth/', { target: backendUrl }))
+    server.use(proxyMiddleware('/join-course/', { target: backendUrl }))
   }
 
   server.get('*', (req, res) => handle(req, res))
