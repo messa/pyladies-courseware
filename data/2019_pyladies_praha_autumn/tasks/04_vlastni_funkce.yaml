@@ -57,8 +57,9 @@ tasks:
     aby se místo `ano` se dalo použít i `a`,
     místo `ne` i `n`
     a aby se nebral ohled na velikost písmen a mezery před/za odpovědí.
-
-    _Textům jako `možná` nebo `no tak určitě` by počítač dál neměl rozumět._
+    
+    _Kód k funkci `ano_nebo_ne` najdeš v materiálech ze srazu [tady](https://naucse.python.cz/2019/pyladies-praha-podzim-ntk/beginners/def/)_
+    _Textům jako `možná` nebo `no tak určitě` by počítač dál neměl rozumět._ 
 
 - id: handout4_08
   # Tento projekt byl na konci handout4. Úplně nevím, kam ho zařadit, do
