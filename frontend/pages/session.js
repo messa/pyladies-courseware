@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { Button, Grid, Message} from 'semantic-ui-react'
+import { Button, Grid, Message } from 'semantic-ui-react'
 import Layout from '../components/Layout'
 import fetchPageData from '../util/fetchPageData'
 import ALink from '../components/ALink'
@@ -82,7 +82,7 @@ export default class SessionPage extends React.Component {
                       tasks={tasks}
                       reviewUserId={reviewUser ? reviewUser.id : null}
                     />
-                  ) : ( userCanSubmitTasks && (
+                  ) : (userCanSubmitTasks && (
                     <TaskSubmissionLessonSummary
                       key={`${courseId} ${sessionSlug}`}
                       courseId={courseId}
