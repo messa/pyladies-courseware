@@ -21,4 +21,4 @@ tasks:
   markdown: |
     Napiš program, který se pětkrát zeptá na číslo a nejmenší zadané číslo vypíše.
 
-    _Nevíš-li si rady, podívej se do materiálů na sekci Přepisování proměnných. Místo sčítání budeš vybírat správnou hodnotu._
+    _Nevíš-li si rady, podívej se do materiálů na sekci [Přepisování proměnných](https://naucse.python.cz/2019/pyladies-praha-podzim-ntk/intro/turtle/). Místo sčítání budeš vybírat správnou hodnotu._
