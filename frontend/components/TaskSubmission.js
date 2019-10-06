@@ -216,6 +216,7 @@ export default class TaskSubmission extends React.Component {
         <TaskComments
           comments={comments}
           onAddCommentSubmit={this.handleAddCommentSubmit}
+          taskSolution={taskSolution}
         />
         <style jsx global>{`
           .TaskSubmission {
