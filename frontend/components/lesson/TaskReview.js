@@ -230,6 +230,7 @@ export default class TaskReview extends React.Component {
                     addComment={showAddComment}
                     onAddCommentCancel={this.handleAddCommentCancel}
                     onAddCommentSubmit={this.handleAddCommentSubmit}
+                    taskSolution={taskSolution}
                   />
                 </>
               )
