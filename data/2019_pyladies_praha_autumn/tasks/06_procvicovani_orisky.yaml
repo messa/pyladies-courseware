@@ -1,14 +1,11 @@
 tasks:
 
-- section:
-    markdown: |
-      Teď několik programovacích oříšků pro dlouhé chvíle. Nemáš-li čas, přeskoč je.
-
 - id: handout3b_19
   markdown: |
     Napiš program, který se zeptá na 3 čísla a zjistí, jestli je jejich součet větší než 10.
     Dokážeš to napsat tak, aby funkce input byla v kódu zapsaná jen jednou? ;)
-    
+
+  mandatory: true
 
 - id: handout3b_20
   markdown: |
@@ -25,6 +22,8 @@ tasks:
     - Pokud je číslo dělitelné třemi, napíše místo něj „bum”.
     - Pokud je číslo dělitelné pěti, napíše místo něj „bác”.
     - Pokud je číslo dělitelné pěti i třemi zároveň, napíše místo toho „bum-bác”.
+    
+  mandatory: true
 
 - id: handout3b_22
   markdown: |
