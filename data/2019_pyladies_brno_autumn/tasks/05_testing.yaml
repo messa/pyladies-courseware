@@ -9,7 +9,7 @@ tasks:
         Ty původní můžeš mít vedle jako nápovědu.
 
         Stáhni si soubor s testy, [`test_piskvorky.py`](/static/tasks/
-        handout_files/test_piskvorky.py), a dej ho do adresáře, kde budeš tvořit
+        handout_files/2019-autumn/test_piskvorky.py), a dej ho do adresáře, kde budeš tvořit
         Piškvorky.
 
         Na ulehčení testování si nainstaluj modul `pytest-level`.
@@ -39,7 +39,7 @@ tasks:
         * Když nějaký test neprochází, sprav ho.
         * Když všechno zezelená, postup na další level.
 
-- id: handout4_09_test
+- id: handout4_09
   markdown: |
     V modulu `piskvorky` (tj. v souboru `piskvorky.py`)
     napiš funkci `vyhodnot`, která dostane řetězec
@@ -67,7 +67,7 @@ tasks:
 
     Odevzdej celý soubor `piskvorky.py`.
 
-- id: pisq1d_error_handling_test
+- id: pisq1d_error_handling
   markdown: |
     V modulu `util` (tj. v souboru `util.py`)
     napiš funkci `tah`, která dostane řetězec s herním polem,
@@ -115,7 +115,7 @@ tasks:
 
     Odevzdej celý soubor `util.py`.
 
-- id: handout4_11_test
+- id: handout4_11
   markdown: |
     V modulu `piskvorky` (tj. v souboru `piskvorky.py`)
     napiš funkci `tah_hrace(pole, symbol)`, která dostane řetězec
@@ -162,17 +162,21 @@ tasks:
     Nezapomeň, že ve vedlejším modulu máš funkci `tah`, kterou si můžeš
     naimportovat.
 
-    Funkci piš podle automatických testů -- tentokrát nastavuj
-    level na 30 až 34.
+    Funguje-li tahle funkce s příkladem výše, otestuj ji opět pomocí
+    automatických testů. Tentokrát nastavuj level na 30 až 34.
+    (Testuje se funkce, která volá `input`. Jak takový test napsat je nad rámec
+    tohoto kurzu.)
 
     Odevzdej celý soubor `piskvorky.py` (i s funkcí `vyhodnot`).
 
-- id: handout4_12_test
+- id: handout4_12
   markdown: |
     V modulu `ai` (tj. v souboru `ai.py`)
     napiš funkci `tah_pocitace(pole, symbol)`, která dostane řetězec s herním
     polem a symbol, vybere pozici, na kterou hrát, a vrátí herní pole
     se zaznamenaným tahem počítače.
+
+    Nejde-li na dané pole hrát, funkce musí skončit s chybou `ValueError`.
 
     Použij jednoduchou náhodnou „strategii”:
 
@@ -200,7 +204,7 @@ tasks:
 
     Odevzdej celý soubor `ai.py`.
 
-- id: handout4_13_test
+- id: handout4_13
   markdown: |
     V modulu `piskvorky` (tj. v souboru `piskvorky.py`)
     napiš funkci `piskvorky1d`, která:
@@ -228,7 +232,7 @@ tasks:
 
     Tady odevzdej soubor `hra.py`.
 
-- id: pisq1d_endgame_test
+- id: pisq1d_endgame
   markdown: |
     Pošéfuj konec hry.
     Když někdo vyhraje nebo dojde k remíze, cyklus se ukončí a vypíše
