@@ -25,7 +25,8 @@ tasks:
 
 - id: handout6_00
   markdown: |
-    Napiš funkci `vytvor_seznam_zvirat()`, která vrátí seznam domácích zvířat.
+    Napiš funkci `vytvor_seznam_zvirat()`, která vrátí nově vytvořený seznam
+    domácích zvířat.
     Domácí zvířata známe tato: `"pes", "kočka", "králík", "had"`.
 
     *Tuto funkci použiješ pro otestování dalších úloh.
@@ -36,6 +37,19 @@ tasks:
     ```python
     >>> vytvor_seznam_zvirat()
     ['pes', 'kočka', 'králík', 'had']
+    ```
+
+    Každé zavolání funkce by mělo vytvořit nový, nezávislý seznam.
+    Vyzkoušej si to následujícím „dialogem“:
+
+    ```python
+    >>> zvirata = vytvor_seznam_zvirat()
+    >>> zvirata.pop()
+    'had'
+    >>> vytvor_seznam_zvirat()
+    ['pes', 'kočka', 'králík', 'had']
+    >>> zvirata
+    ['pes', 'kočka', 'králík']
     ```
 
 - id: handout6_01
@@ -54,6 +68,17 @@ tasks:
     Vzpomeň si, jak se vytváří seznam: začni s prázdným seznamem a postupně
     přidávej prvek po prvku.
 
+    Funkce by měla opět vracet nový seznam a svůj argument nechat nezměněný.
+    Vyzkoušej si to následujícím „dialogem“:
+
+    ```python
+    >>> zvirata = vytvor_seznam_zvirat()
+    >>> filtruj_kratka_jmena(zvirata)
+    ['pes', 'had']
+    >>> zvirata
+    ['pes', 'kočka', 'králík', 'had']
+    ```
+
 
 - id: handout6_02
   markdown: |
@@ -67,6 +92,8 @@ tasks:
     >>> filtruj_k(zvirata)
     ['kočka', 'králík']
     ```
+
+    Funkce by měla opět vracet nový seznam a svůj argument nechat nezměněný.
 
 - id: handout6_03
   markdown: |
@@ -97,7 +124,7 @@ tasks:
     ['kočka', 'králík', 'had']
     ```
 
-    Ale pozor! Funkce by neměla změnit původní seznam:
+    Funkce by opět neměla změnit původní seznam:
 
     ```python
     >>> zvirata
@@ -113,6 +140,8 @@ tasks:
 
 - id: handout6_06
   markdown: |
+    Složitější, nepovinný úkol!
+
     Had byl pyšný na to, že je v abecedě první.
     Dokud nepřiletěla `"andulka"`.
 
@@ -140,5 +169,24 @@ tasks:
         prvního prvku, pak druhého atd.
     - Nakonec vytvoř ze seznamu dvojic výsledný seznam hodnot.
 
-    *Vytvoření* seznamu se dělá tak, že začneš s prázdným seznamem
+    Vytvoření seznamu se dělá tak, že začneš s prázdným seznamem
     a postupně do něj přidáváš hodnoty jednu po druhé.
+
+
+- id: cards_deck
+  markdown: |
+    Napiš funkci `vytvor_balicek`, která vrátí nový zamíchaný seznam hracích
+    karet pro hru Prší.
+    Každá položka seznamu bude dvojice *hodnota-barva*.
+
+    Hodnoty karet jsou 2-10, `'J'`, `'Q'`, `'K'`, `'A'`.
+    Barvy jsou `'♥'` `'♦'` `'♠'` `'♣'`.
+    (Symboly si můžeš zkopírovat jako text. Nezobrazují-li se ti správně,
+    použij `S`, `K`, `P`, `+`.)
+
+    Například:
+
+    ```python
+    >>> vytvor_balicek()
+    [(2, '♥'), (10, '♠'), ('A', '♣'), ...
+    ```
