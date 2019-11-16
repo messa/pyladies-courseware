@@ -82,7 +82,7 @@ Why MongoDB:
 Requirements
 ------------
 
-- Node.js >= 8.0
+- Node.js >= 10.0
 - Python >= 3.6
   - Ubuntu: install also `python3-venv`
 - MongoDB
