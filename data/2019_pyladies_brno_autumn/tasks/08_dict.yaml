@@ -67,9 +67,8 @@ tasks:
 
 - section:
     markdown: |
-      A je tu i místo k odevzdání logiky pro Klondike Solitaire.
+      Budeme rádi za tipy na témata na příště.
 
-- id: klondike_logic
+- id: review-topic
   markdown: |
-    Odevzdej funkce `hrac_vyhral` a `udelej_tah`.
-    Zadání najdeš v materiálech.
+    Co by bylo dobré probrat na opakovací hodině?
