@@ -1,0 +1,82 @@
+tasks:
+
+- section:
+    markdown: |
+      Trocha experimentování.
+      Zkus se zamyslet, jestli jsi „dobře” pochopila otázku.
+
+- id: handout4_00
+  markdown: |
+    Co se stane, když tělo nějaké funkce necháš prázdné? Zkus vysvětlit proč. (Tělo funkce je odsazený blok za dvojtečkou)
+
+- id: handout4_01
+  markdown: |
+    Co se stane, když necháš prázdné tělo cyklu? Zkus vysvětlit proč.
+
+- id: handout4_02
+  markdown: |
+    Procvičení funkcí. Napiš funkci, která vykreslí domeček dané velikosti.
+    _(t.j. velikost se zadá argumentem)_
+
+    <img src="/static/tasks/handout4_images/02_domecky.png" alt="domečky" style="max-width: 100%; max-height: 80px">
+
+  mandatory: true
+
+- section:
+    markdown: |
+      Tento projekt si udělej, pokud máš ráda geometrii* :)
+      
+- id: handout4_03
+  markdown: |
+    Máš-li ráda geometrii, můžeš zkusit dávat domečkové funkci dva argumenty:
+    šířku a výšku.
+    Je potřeba si vzpomenout na Pythagorovu větu a funkci arcustangens, v pythonu se jmenuje `atan`.
+    Pozor, funkce `atan` vrací výsletek v radiánech;
+    je potřeba ho převést na stupně (`from math import degrees`).
+
+    <img src="/static/tasks/handout4_images/03_domecky.png" alt="domečky" style="max-width: 100%; max-height: 80px">
+
+    \* t.j. jestli nemáš ráda geometrii, tak tenhle projekt přeskoč
+
+- section:
+    markdown: |
+      Procvičení programování.
+      Často je jednoduché něco napsat, ale dotažení do konce může být časově náročné.
+      _Nemáš-li čas, zkus se aspoň zamyslet, jak bys projekt vyřešila._
+
+- id: handout4_04
+  markdown: |
+    Změň program Kámen, Nůžky, Papír tak, aby opakoval hru dokud
+    uživatel nezadá `konec`.
+    
+  mandatory: true
+
+- id: handout4_05
+  markdown: |
+    Změň funkci `ano_nebo_ne` tak,
+    aby se místo `ano` se dalo použít i `a`,
+    místo `ne` i `n`
+    a aby se nebral ohled na velikost písmen a mezery před/za odpovědí.
+
+    _Textům jako `možná` nebo `no tak určitě` by počítač dál neměl rozumět._
+
+- id: handout4_08
+  # Tento projekt byl na konci handout4. Úplně nevím, kam ho zařadit, do
+  # řetězců (které byly na konci handout4) se nehodí. Spíš sem k funkcím.
+  #   -- Petr Messner
+  markdown: |
+    Napiš program, který simuluje tuto hru:
+
+    První hráč hází kostkou
+    _(t.j. vybírají se náhodná čísla od 1 do 6)_,
+    dokud nepadne šestka.
+    Potom hází další hráč, dokud nepadne šestka i jemu.
+    Potom hází hráč třetí a nakonec čtvrtý.
+    Vyhrává ten, kdo na hození šestky potřeboval nejvíc hodů.
+    (V případě shody vyhraje ten, kdo házel dřív.)
+
+    Program by měl vypisovat všechny hody a nakonec napsat, kdo vyhrál.
+    
+    Nápověda: průběžně stačí ukládat jen údaj, kdo vede.
+    
+  mandatory: true
