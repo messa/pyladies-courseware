@@ -33,27 +33,22 @@ tasks_by_lesson_slug:
   "beginners/while": []
 
 
-  # session 4: "def-str"
+  # session 4: "def"
 
   "beginners/def":
   - file: tasks/04_vlastni_funkce.yaml
+
+
+  # session 5: "exrcs_fio"
+
+  "beginners/files": []
   "beginners/str":
   - file: tasks/05_retezce.yaml
   - file: tasks/05_1d_piskvorky.yaml
 
-  # session 5: "exrcs_fio"
-
-  "beginners/files":
-  # Tohle ve skutečnosti nejsou úlohy k souborům, ale k procvičování.
+  "beginners/venv-setup":
   - file: tasks/06_procvicovani_print.yaml
   - file: tasks/06_procvicovani_orisky.yaml
-
-  # session 6: "git"
-
-  "git/install": []
-  "git/basics": []
-  "git/ignoring": []
-
   # session 7: "dict"
 
   "beginners/dict":
