@@ -2,7 +2,8 @@ tasks:
 
 - section:
     markdown: |
-      Řešení odevzdej nahráním samostatného Jupyter notebooku (souboru .ipynb ) ke každému úkolu. Nezapomeň mít u každého notebooku i buňku s importy! 
+      Řešení odevzdej nahráním samostatného Jupyter notebooku (souboru .ipynb ) ke každému úkolu. 
+      Nezapomeň mít u každého notebooku i buňku s importy! 
 
 - id: eda_1_01
   markdown: |

@@ -2,5 +2,5 @@ id: pydata-2020-praha-jaro
 naucse_api_url: https://naucse.python.cz/v0/2020/pydata-praha-jaro.json
 tasks_by_lesson_slug: 
 
-   "pydata/notebook":
+   "pydata/eda1":
   - file: tasks/eda_1.yaml
