@@ -124,7 +124,7 @@ class CoursePage extends React.Component {
                     as={ALink}
                     href={{
                       pathname: '/session',
-                      query: { course: course.id, session: session.slug }
+                      query: { course: course.courseId, session: session.slug }
                     }}
                     basic
                     color='blue'
@@ -227,6 +227,7 @@ export default withData(CoursePage, {
       }
       course(courseId: $courseId) {
         id
+        courseId
         titleHTML
         subtitleHTML
         descriptionHTML
