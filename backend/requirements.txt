@@ -1,5 +1,7 @@
+graphql-core==2.2.1
+graphql-server-core==1.1.1
 aiohttp
-graphql-core<3
+#graphql-core<3
 graphql-ws
 aiohttp-graphql
 aiodns
