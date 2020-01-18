@@ -32,6 +32,9 @@ class Configuration:
         self.fb_oauth2 = OAuth2('fb', cfg)
         self.google_oauth2 = OAuth2('google', cfg)
         self.allow_dev_login = bool(os.environ.get('ALLOW_DEV_LOGIN'))
+        self.slack_user_auth = cfg.get('slack_user_token')
+        self.slack_bot_auth = cfg.get('slack_bot_token')
+        self.slack_web_url = cfg.get('slack_web_url')
         self.mongodb = MongoDB(cfg)
 
 
