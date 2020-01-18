@@ -25,6 +25,7 @@ Next steps:
   - e-mail
   - debouncing (neposílat každou zvlášť, ale agregovat)
 - dodělat admin uživatelů, ať se dají přiřazovat studenti a koučové do jednotlivých kurzů
+- support Jupyter notebooks
 
 Dlouhodoběji:
 
