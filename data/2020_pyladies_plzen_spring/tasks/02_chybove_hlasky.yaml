@@ -25,7 +25,8 @@ tasks:
   markdown: |
     _Podívej se na odpovědi na předchozí otázku, ale Python zkus použít jen na ověření._
 
-    Jaká chyba nastane, když zkusíš použít proměnnou předtím, než do ní něco přiřadíš?
+    Jaká chyba nastane, když zkusíš použít proměnnou předtím, než do ní něco přiřadíš
+    (tedy pokud zapomeneš výraz pro přiřazení např.: `a = 10`)?
 
 - id: handout2_03
   markdown: |

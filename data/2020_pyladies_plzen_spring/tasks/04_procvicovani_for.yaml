@@ -25,7 +25,8 @@ tasks:
 
 - id: handout3b_07
   markdown: |
-    Jak jsi pojmenovala proměnnou, kterou jsi v příkladu, co vypisuje "Řádek 0, Řádek 1, Řádek 2..." použila?
+    Jak jsi pojmenovala proměnnou, kterou jsi použila v příkladu, co vypisuje
+    "Řádek 0, Řádek 1, Řádek 2..."?
     Vymysli pro ni název, který nejlépe vystihuje, co proměnná obsahuje.
 
     _Je důležité proměnnou pojmenovat výstižně, jinak se v dalších projektech můžeš ztratit._

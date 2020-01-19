@@ -106,7 +106,8 @@ tasks:
   
 - id: handout1_10
   markdown: |
-    Řetězce se dají sčítat. Dají se mezi sebou i násobit a dělit? Odečítat? (Odpověz slovně, neboj se to vyzkoušet)
+    Řetězce se dají sčítat. Dají se dva řětězce mezi sebou i násobit a dělit? Odečítat?
+    (Odpověz slovně, neboj se to vyzkoušet)
     
   mandatory: true
 
