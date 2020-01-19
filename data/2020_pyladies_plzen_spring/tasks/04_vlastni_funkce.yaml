@@ -13,6 +13,28 @@ tasks:
   markdown: |
     Co se stane, když necháš prázdné tělo cyklu? Zkus vysvětlit proč.
 
+- id: cunstom4_01
+  markdown: |
+    Zkus se nedívat na kódy ze srazu.
+    Napiš funkci, která vrátí obvod čtverce, kdy délka strany čtverce je zadána parametrem
+    funkce. Výsledek funkce vypiš v těle hlavního programu pomocí print. (Tzn. tělo
+    funkce nebude obsahovat `print`)
+
+  mandatory: true
+
+- id: custom4_02
+  markdown: |
+    Napiš funkci, která vypíše do jednoho řádku prvních 11 násobků zvoleného
+    čísla (argument funkce). Např.: pro vstup 2 vypíše funkce
+    `0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20`
+
+  mandatory: true
+
+- id: custom4_03
+  markdown: |
+    Změn funkci z předchozího úkolu tak, aby funkce měla tři argumenty – číslo,
+    počet vypisovaných násobků, znak pro oddělení vypsaných násobků
+
 - id: handout4_02
   markdown: |
     Procvičení funkcí. Napiš funkci, která vykreslí domeček dané velikosti.

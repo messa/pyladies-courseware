@@ -1,5 +1,11 @@
 tasks:
 
+
+- section:
+    markdown: |
+      Práce s řetězci.
+
+
 - id: handout4_06
   markdown: |
     Napiš program, který se zeptá na příjmení uživatelky/uživatele
@@ -13,3 +19,16 @@ tasks:
     a zjisti, kolikrát je v něm použito písmeno K.
 
   mandatory: true
+
+- id: custom41_1
+  markdown: |
+    Napiš funkci, která vrátí počet znaků (bez mezer) v řetězci, který je
+    zadaný jako argument funkce. Výsledek funkce vypiš v těle hlavního programu
+    pomocí `print`.
+
+  mandatory: true
+
+- id: custom41_1
+  markdown: |
+    Napiš funkci, která v zadaném řetězci zamění první písmeno za velké.
+    Obdobně můžeš zkusit jiné záměny, např. poslední písmeno, třetí písmeno, atd.
