@@ -68,7 +68,7 @@ tasks:
 - id: hadnout1_07
   markdown: |
     Python umí i jiné věci než čísla. Třeba takové _řetězce_ – slova, věty nebo jiný text.
-    Řetězce se zadávají v uvozovkách – jednoduchých `'` nebo dvojitých `"` a jdou spojovat sčítáním.
+    Řetězce se zadávají v apostrofech `'` nebo uvozovkách `"` a jdou spojovat sčítáním.
     Vyzkoušej si to:
 
     ```

@@ -32,7 +32,7 @@ tasks:
 
 - id: handout2_10
   markdown: |
-    Které pythonní _operátory_ dokážeš z hlavy vyjmenovat?
+    Které pythoní _operátory_ dokážeš z hlavy vyjmenovat?
 
 - id: handout2_11
   markdown: |
