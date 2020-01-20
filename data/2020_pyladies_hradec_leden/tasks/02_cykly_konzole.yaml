@@ -1,0 +1,24 @@
+tasks:
+
+- id: handout3a_17
+  markdown: |
+    Napiš program, který postupně načte od uživatele dvě čísla a jednoznakový
+    řetězec – buď `'+'`, `'-'`, `'*'` nebo `'/'`. 
+    Program provede na číslech příslušnou operaci.
+
+    Příklad použití programu:
+
+    ```
+    První číslo: 123
+    Druhé číslo: 456
+    Operace: +
+    123 + 456 = 579
+    ```
+
+  mandatory: true
+
+- id: handout3a_18
+  markdown: |
+    Napiš program, který se pětkrát zeptá na číslo a nejmenší zadané číslo vypíše.
+
+    _Nevíš-li si rady, podívej se do materiálů na sekci Přepisování proměnných. Místo sčítání budeš vybírat správnou hodnotu._

@@ -1,0 +1,65 @@
+id: pyladies-2020-hradec-leden
+naucse_api_url: https://naucse.python.cz/v0/2020/pyladies-hradec-leden.json
+tasks_by_lesson_slug:
+
+  # session 1: "install"
+
+  "beginners/cmdline": []
+  "beginners/venv-setup": []
+  "beginners/first-steps":
+  - file: tasks/01_first_steps.yaml
+  "beginners/hello-world":
+  - file: tasks/01_prvni_program.yaml
+  "beginners/print":
+  - file: tasks/01_chybove_hlasky.yaml
+  "beginners/variables":
+  - file: tasks/01_promenne.yaml
+  "beginners/comparisons":
+  - file: tasks/01_porovnavani.yaml
+  "beginners/and-or":
+  - file: tasks/01_nebo_anebo_a.yaml
+
+  # session 2: "loops"
+
+  "beginners/functions": []
+  "intro/turtle":
+  - file: tasks/02_cykly.yaml
+  - file: tasks/02_cykly_zelva.yaml
+  - file: tasks/02_cykly_konzole.yaml
+  "beginners/while":
+  - file: tasks/02_procvicovani_for.yaml
+
+  # session 3: "functions-strings"
+
+  "beginners/def":
+  - file: tasks/03_vlastni_funkce.yaml
+  "beginners/str":
+  - file: tasks/03_retezce.yaml
+  - file: tasks/03_1d_piskvorky.yaml
+
+  # session 4: "practice"
+
+  "beginners/files":
+  # Tohle ve skutečnosti nejsou úlohy k souborům, ale k procvičování.
+  - file: tasks/04_procvicovani_print.yaml
+  - file: tasks/04_procvicovani_orisky.yaml
+
+  # session 5: "list"
+
+  "beginners/list":
+  - file: tasks/05_seznamy.yaml
+  "beginners/tuple": []
+
+  # session 6: "dict"
+
+  "beginners/dict":
+  - file: tasks/06_slovniky.yaml
+  - file: tasks/06_snake.yaml
+
+  # session 7: "vyjimky-moduly-importy"
+
+  "beginners/exceptions": []
+  "beginners/modules": []
+  "beginners/circular-imports": []
+
+   # session 8: "opakovani"
