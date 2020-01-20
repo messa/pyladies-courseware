@@ -24,6 +24,7 @@ class Session:
 
         self.date = parse_date(get('date'))
         self.title_html = to_html(get('title'))
+        self.serial = naucse_data.get('serial') if naucse_data else None
 
         self.material_items = []
 
@@ -63,8 +64,8 @@ class Session:
         for task in self.task_items:
             task.set_number(counter)
 
-    def autonumber_title(self, index):
-        self.title_html = f"Lekce {index} - {self.title_html}"
+    def add_title_prefix(self, prefix):
+        self.title_html = f"{prefix}{self.title_html}"
 
     def _load_tasks(self, task_data):
         if not isinstance(task_data, dict):
