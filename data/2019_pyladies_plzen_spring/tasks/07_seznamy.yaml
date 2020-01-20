@@ -1,5 +1,15 @@
 tasks:
 
+- id: handout6_01
+  markdown: |
+    Napiš funkci, která vrací jména domácích zvířat (zadaných argumentem), která jsou kratší než 5 písmen.
+   
+
+- id: handout6_02
+  markdown: |
+    Napiš funkci, která vrací jména domácích zvířat (zadaných argumentem), která začínají na `k`.
+
+
 - section:
     markdown: |
       Čeká tě procvičování práce se seznamy.
@@ -12,31 +22,21 @@ tasks:
     Udělej si seznam domácích zvířat. Budeš ho potřebovat v dalších úlohách.
     Domácí zvířata známe tato: `"pes", "kočka", "králík", "had"`.
     
-    Napiš funkci, která přebere seznam zvířat a slovo a zjistí, jestli je toto slovo v seznamu.
+    Napiš funkci, která přebere seznam a slovo a zjistí, jestli je to slovo v seznamu domácích zvířat.
 
     _„Zjistí“ znamená, že funkce vrátí `True` nebo `False`._
     
   mandatory: true
 
-
 - id: handout6_04
   markdown: |
     Napiš funkci, která dostane dva seznamy jmen zvířat a vrátí tři seznamy:
 
-    - zvířata, která jsou v obou seznamech současně (průnik množin: první ∩ druhá),
+    - zvířata, která jsou v obou seznamech (sjednocení množin: první ∪ druhá),
     - zvířata, která jsou jen v prvním seznamu (rozdíl množin: první - druhá),
     - zvířata, která jsou jen ve druhém seznamu (rozdíl množin: druhá - první).
 
   mandatory: true
-
-
-- id: handout6_01
-  markdown: |
-    Napiš funkci, která vrací jména domácích zvířat (ze seznamu zadaného argumentem), která jsou kratší než 5 písmen.
-
-- id: handout6_02
-  markdown: |
-    Napiš funkci, která vrací jména domácích zvířat (ze seznamu zadaného argumentem), která začínají na `k`.
 
 - id: handout6_05
   markdown: |
@@ -68,6 +68,18 @@ tasks:
     - Nakonec vytvoř ze seznamu dvojic opět jen seznam hodnot.
 
     Proč má zrovna had takovéhle výsadní postavení, zjistíš později.
+
+- id: handout6_07
+  markdown: |
+    Napiš tyto funkce. Každá z nich dostane jako argument řetězec s rodným číslem, které
+    určitým způsobem zanalyzuje.
+    - Je ve správném formátu: 6 číslice, lomítko, 4 číslice? (vrací True nebo False)
+    - Je dělitelné jedenácti? (vrací True nebo False)
+    - Jaké datum narození je v čísle zakódováno? (vrací trojici čísel – den, měsíc, rok)
+    - Jaké pohlaví je v čísle zakódováno? (vrací 'muž' nebo 'žena')
+
+    Pro účely lekce by to bylo dostačující. Pokud máš chuť, podívej se, jaká pravidla platila
+    pro rodná čísla před rokem 1985. A co rodná čísla pro cizince?
 
 
 - section:
