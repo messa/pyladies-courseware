@@ -12,3 +12,5 @@ courses:
 - file: 2019_pyladies_ostrava_autumn/course.yaml
 - file: 2019_pyladies_plzen_autumn/course.yaml
 - file: 2019_pyladies_brno_autumn/course_monday.yaml
+- file: 2020_pyladies_olomouc_spring/course.yaml
+- file: 2020_pydata_praha_spring/course.yaml
