@@ -108,7 +108,10 @@ class Course:
             }
 
             local_sessions = {str(s['slug']): s for s in raw.get('sessions', [])}
-            naucse_sessions = {str(s['slug']): s for s in nc.get('sessions', [])}
+            naucse_sessions = {
+                # Only include sessions with a date
+                str(s['slug']): s for s in nc.get('sessions', []) if 'date' in s
+            }
             self.sessions = []
             for slug in local_sessions.keys() | naucse_sessions.keys():
                 self.sessions.append(Session(
