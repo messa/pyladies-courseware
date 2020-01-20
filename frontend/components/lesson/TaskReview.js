@@ -176,7 +176,7 @@ export default class TaskReview extends React.Component {
         {taskSubmit ? (
           <>
             <h4>
-                {title ? title : 'Odevzdané řešení'}
+                {title ? title + ' ' : 'Odevzdané řešení'}
                 <TaskStatus taskSolution={taskSolution} />
             </h4>
             <LoadingMessage active={loading} />

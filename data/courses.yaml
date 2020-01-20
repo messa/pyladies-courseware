@@ -8,3 +8,4 @@ courses:
 - file: 2019_pyladies_brno_spring/course_monday.yaml
 - file: 2019_pyladies_praha_autumn/course_ntk.yaml
 - file: 2019_pyladies_praha_autumn/course_olsanka.yaml
+- file: 2019_pyladies_ostrava_autumn/course.yaml
