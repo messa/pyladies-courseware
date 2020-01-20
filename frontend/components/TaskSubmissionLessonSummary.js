@@ -2,13 +2,12 @@ import React from 'react'
 import Link from 'next/link'
 import { Table, Message } from 'semantic-ui-react'
 
-export default class TaskReviewLessonSummary extends React.Component {
+export default class TaskSubmissionLessonSummary extends React.Component {
 
   state = {
     loading: true,
     loadError: null,
-    students: null,
-    taskSolutionsByUserAndTaskId: null,
+    taskSolutionsByTaskId: null,
   }
 
   componentDidMount() {
@@ -27,9 +26,10 @@ export default class TaskReviewLessonSummary extends React.Component {
 
   async loadData() {
     const { courseId, tasks } = this.props
+
     const taskIds = tasks.map(t => t.id)
     try {
-      const url = '/api/tasks/lesson-solutions' +
+      const url = '/api/tasks/my-lesson-solutions' +
         `?course_id=${encodeURIComponent(courseId)}` +
         `&task_ids=${encodeURIComponent(JSON.stringify(taskIds))}`
       const r = await fetch(url, {
@@ -38,13 +38,12 @@ export default class TaskReviewLessonSummary extends React.Component {
           'Accept': 'application/json',
         }
       })
-      const { task_solutions, students } = await r.json()
+      const { task_solutions } = await r.json()
       this.setState({
         loading: false,
         loadError: null,
-        students,
-        taskSolutionsByUserAndTaskId: new Map(
-          task_solutions.map(ts => ([`${ts.user_id}|${ts.task_id}`, ts]))),
+        taskSolutionsByTaskId: new Map(
+          task_solutions.map(ts => ([`${ts.task_id}`, ts]))),
       })
     } catch (err) {
       this.setState({
@@ -55,8 +54,8 @@ export default class TaskReviewLessonSummary extends React.Component {
   }
 
   render() {
-    const { loading, loadError, students, taskSolutionsByUserAndTaskId } = this.state
-    const { courseId, sessionSlug, tasks, reviewUserId } = this.props
+    const { loading, loadError, taskSolutionsByTaskId } = this.state
+    const { courseId, sessionSlug, tasks } = this.props
     return (
       <div>
         {loading && (<p><em>Loading</em></p>)}
@@ -68,76 +67,51 @@ export default class TaskReviewLessonSummary extends React.Component {
           />
         )}
 
-        {students && (
+        {taskSolutionsByTaskId && (
           <div style={{ overflowX: 'auto' }}>
-            <TaskReviewLessonSummaryTable
+            <TaskSubmissionLessonSummaryTable
               courseId={courseId}
               sessionSlug={sessionSlug}
-              students={students}
               tasks={tasks.filter(t => t.submit)}
-              taskSolutionsByUserAndTaskId={taskSolutionsByUserAndTaskId}
-              reviewUserId={reviewUserId}
+              taskSolutionsByTaskId={taskSolutionsByTaskId}
             />
           </div>
         )}
         <pre className='debug' style={{ display: 'none' }}>
-          TaskReviewLessonSummary {JSON.stringify({ props: this.props, state: this.state }, null, 2)}
+          TaskSubmissionLessonSummary {JSON.stringify({ props: this.props, state: this.state }, null, 2)}
         </pre>
       </div>
     )
   }
 }
 
-const TaskReviewLessonSummaryTable = ({ courseId, sessionSlug, students, tasks, taskSolutionsByUserAndTaskId, reviewUserId }) => (
+const TaskSubmissionLessonSummaryTable = ({ courseId, sessionSlug, tasks, taskSolutionsByTaskId }) => (
   <Table basic celled size='small' compact unstackable>
     <Table.Header>
       <Table.Row>
-        <Table.HeaderCell>Jméno</Table.HeaderCell>
-        {tasks.map((task, i) => {
-            const href = {
-                pathname: '/task',
-                query: {
-                    course: courseId,
-                    session: sessionSlug,
-                    reviewTaskId: task.number,
-                },
-                hash: 'tasks'
-            };
-          return (
-            <Table.HeaderCell key={i}>
-                <Link href={href}><a>{task.number}</a></Link>
-            </Table.HeaderCell>
-          );
-        })}
+        <Table.HeaderCell>Úloha</Table.HeaderCell>
+        {tasks.map((task, i) => (
+          <Table.HeaderCell key={i}>{task.number}</Table.HeaderCell>
+        ))}
       </Table.Row>
     </Table.Header>
 
     <Table.Body>
-      {students.map(student => (
-        <Table.Row key={student.id}>
-          <Table.Cell>
-            {reviewUserId === student.id ? (
-              <strong>
-                {student.name}
-              </strong>
-            ) : (
-              <>
-                {student.name}
-              </>
-            )}
+      <Table.Row>
+        <Table.Cell>
+          Stav
+        </Table.Cell>
+        {tasks.map((task, i) => (
+          <Table.Cell key={i}>
+            <TaskStatus
+              courseId={courseId}
+              sessionSlug={sessionSlug}
+              taskSolution={taskSolutionsByTaskId.get(`${task.id}`)}
+              taskId={task.id}
+            />
           </Table.Cell>
-          {tasks.map((task, i) => (
-            <Table.Cell key={i}>
-              <TaskStatus
-                courseId={courseId}
-                sessionSlug={sessionSlug}
-                taskSolution={taskSolutionsByUserAndTaskId.get(`${student.id}|${task.id}`)}
-                taskId={task.id}
-              />
-            </Table.Cell>
-          ))}
-        </Table.Row>
-      ))}
+        ))}
+      </Table.Row>
     </Table.Body>
   </Table>
 )
@@ -152,12 +126,12 @@ const TaskStatus = ({ courseId, sessionSlug, taskSolution, taskId }) => {
   if (taskSolution.last_action) {
     if (taskSolution.last_action == 'coach') {
       // last action coach => waiting for student
-      content = '◯'
+      // student oriented component => full circle
+      content = '⬤'
     }
     if (taskSolution.last_action == 'student') {
       // last action student => waiting for coach
-      // coach oriented component => full circle
-      content = '⬤'
+      content = '◯'
     }
   }
   if (taskSolution.is_solved) {
@@ -168,7 +142,6 @@ const TaskStatus = ({ courseId, sessionSlug, taskSolution, taskId }) => {
     query: {
       course: courseId,
       session: sessionSlug,
-      reviewUserId: taskSolution.user_id,
     },
     hash: 'task-' + taskId
   }

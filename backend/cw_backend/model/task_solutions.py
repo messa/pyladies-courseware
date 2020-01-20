@@ -79,6 +79,22 @@ class TaskSolutions:
         docs = await self._c_solutions.find(q).to_list(None)
         return [self._build_solution(doc) for doc in docs]
 
+    async def find_by_user_and_course_and_task_ids(self, user, course_id, task_ids):
+        q = {
+            'user_id': user.id,
+            'course_id': course_id,
+            'task_id': {'$in': list(task_ids)}
+        }
+        docs = await self._c_solutions.find(q).to_list(None)
+        return [self._build_solution(doc) for doc in docs]
+
+    async def find_by_course_id(self, course_id):
+        q = {
+            'course_id': course_id,
+        }
+        docs = await self._c_solutions.find(q).to_list(None)
+        return [self._build_solution(doc) for doc in docs]
+
     def _build_solution(self, doc):
         '''
         Helper for building the TaskSolution object from taskSolutions document.

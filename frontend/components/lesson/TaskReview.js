@@ -170,12 +170,15 @@ export default class TaskReview extends React.Component {
 
   render() {
     const { loading, loadError, taskSolution, savingMarkedAsSolved, comments, showAddComment } = this.state
-    const { taskSubmit } = this.props
+    const { taskSubmit, title } = this.props
     return (
       <div className='TaskReview'>
         {taskSubmit ? (
           <>
-            <h4>Odevzdané řešení <TaskStatus taskSolution={taskSolution} /></h4>
+            <h4>
+                {title ? title : 'Odevzdané řešení'}
+                <TaskStatus taskSolution={taskSolution} />
+            </h4>
             <LoadingMessage active={loading} />
             <LoadErrorMessage active={loadError} message={loadError} />
             {(this.state.reviewUserId === this.props.reviewUserId) && (

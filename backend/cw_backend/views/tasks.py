@@ -71,14 +71,34 @@ async def list_lesson_solutions(req):
     user = await model.users.get_by_id(session['user']['id'])
     if not user.can_review_course(course_id=req.query['course_id']):
         raise web.HTTPForbidden()
-    solutions = await model.task_solutions.find_by_course_and_task_ids(
-        course_id=req.rel_url.query['course_id'],
-        task_ids=json.loads(req.rel_url.query['task_ids']))
+    if 'task_ids' in req.rel_url.query:
+        solutions = await model.task_solutions.find_by_course_and_task_ids(
+            course_id=req.rel_url.query['course_id'],
+            task_ids=json.loads(req.rel_url.query['task_ids']))
+    else:
+        solutions = await model.task_solutions.find_by_course_id(
+            course_id=req.rel_url.query['course_id'])
     students = await model.users.find_by_attended_course_id(
         course_id=req.rel_url.query['course_id'])
     return web.json_response({
         'task_solutions': [await ts.export() for ts in solutions],
         'students': [u.export() for u in students]
+    })
+
+
+@routes.get('/api/tasks/my-lesson-solutions')
+async def list_my_lesson_solutions(req):
+    model = req.app['model']
+    session = await get_session(req)
+    if not session.get('user'):
+        raise web.HTTPForbidden()
+    user = await model.users.get_by_id(session['user']['id'])
+    solutions = await model.task_solutions.find_by_user_and_course_and_task_ids(
+        user=user,
+        course_id=req.rel_url.query['course_id'],
+        task_ids=json.loads(req.rel_url.query['task_ids']))
+    return web.json_response({
+        'task_solutions': [await ts.export() for ts in solutions],
     })
 
 
