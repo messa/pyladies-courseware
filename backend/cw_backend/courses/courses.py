@@ -113,6 +113,9 @@ class Course:
                     loader=loader))
 
             self.sessions.sort(key=lambda s: s.date)
+            if raw.get('autonumber_sessions', False):
+                for index, session in enumerate(self.sessions):
+                    session.autonumber_title(index + 1)
 
             # get course start/end date from sessions if not specified in course data
             if not self.data['start_date'] and self.sessions:

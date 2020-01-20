@@ -63,6 +63,9 @@ class Session:
         for task in self.task_items:
             task.set_number(counter)
 
+    def autonumber_title(self, index):
+        self.title_html = f"Lekce {index} - {self.title_html}"
+
     def _load_tasks(self, task_data):
         if not isinstance(task_data, dict):
             raise Exception(f'Must be a dict: {task_data!r}')
