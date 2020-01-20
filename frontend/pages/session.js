@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { Button, Grid } from 'semantic-ui-react'
+import { graphql } from 'react-relay'
 import Layout from '../components/Layout'
 import fetchPageData from '../util/fetchPageData'
 import ALink from '../components/ALink'
@@ -10,6 +11,7 @@ import TaskSubmission from '../components/TaskSubmission'
 import TaskReviewLessonSummary from '../components/TaskReviewLessonSummary'
 import CourseOverview from '../components/lesson/CourseOverview'
 import TaskReview from '../components/lesson/TaskReview'
+import withData from '../util/withData'
 
 const HomeworkTask = ({ taskItem, userCanSubmitTask, courseId, sessionSlug, reviewUserId }) => (
   <div className='homework-task'>
@@ -89,28 +91,19 @@ function arrayContains(array, item) {
   return array && array.indexOf(item) !== -1
 }
 
-export default class SessionPage extends React.Component {
-
-  static async getInitialProps({ req, query }) {
-    const courseId = query.course
-    const sessionSlug = query.session
-    const { reviewUserId } = query
-    const data = await fetchPageData(req, {
-      course: { 'course_detail': { 'course_id': courseId } },
-      session: { 'session_detail': { 'course_id': courseId, 'session_slug': sessionSlug } },
-      reviewUser: { 'review_user': { 'user_id': reviewUserId } },
-    })
-    return { courseId, ...data }
-  }
+class SessionPage extends React.Component {
 
   render() {
-    const { user, courseId, session, course, reviewUser } = this.props
-    const userCanSubmitTasks = user && (user['is_admin'] || arrayContains(user['attended_course_ids'], courseId))
-    const userCanReviewTasks = user && (user['is_admin'] || arrayContains(user['coached_course_ids'], courseId))
+    console.debug('SessionPage props:')
+    const { currentUser, course } = this.props
+    console.debug(`course: ${JSON.stringify(course, null, 2)}`)
+    const { courseId, session } = course
+    const userCanSubmitTasks = currentUser && (currentUser['isAdmin'] || arrayContains(currentUser['attended_course_ids'], courseId))
+    const userCanReviewTasks = currentUser && (currentUser['isAdmin'] || arrayContains(currentUser['coached_course_ids'], courseId))
     const sessionSlug = session.slug
-    const tasks = session['task_items'].filter(x => x.task_item_type === 'task')
+    const tasks = session['taskItems'].filter(x => x.task_item_type === 'task')
     return (
-      <Layout user={user} width={1200}>
+      <Layout user={currentUser} width={1200}>
         <Grid relaxed padded>
           <Grid.Row>
             <Grid.Column width={4} only='computer'>
@@ -130,7 +123,7 @@ export default class SessionPage extends React.Component {
 
               <h2>Materiály</h2>
 
-              <MaterialItems materialItems={session['material_items']} />
+              <MaterialItems materialItems={session['materialItems']} />
 
               {userCanReviewTasks && (
                 <>
@@ -190,3 +183,48 @@ export default class SessionPage extends React.Component {
     )
   }
 }
+
+export default withData(SessionPage, {
+  variables: ({ query }) => ({
+    courseId: query.course,
+    sessionSlug: query.session,
+    reviewUserId: query.reviewUserId,
+  }),
+  query: graphql`
+    query sessionQuery($courseId: String!, $sessionSlug: String!) {
+      currentUser {
+        isAdmin
+        ...Layout_currentUser
+      }
+      reviewUser: user(userId: $reviewUserId) {
+      }
+      course(courseId: $courseId) {
+        id
+        courseId
+        titleHTML
+        subtitleHTML
+        session(slug: $sessionSlug) {
+          id
+          slug
+          titleHTML
+          date
+          hasTasks
+          materialItems {
+            materialItemType
+            titleHTML
+            textHTML
+            url
+          }
+          taskItems {
+            taskItemType
+            taskId
+            textHTML
+            number
+            mandatory
+            submit
+          }
+        }
+      }
+    }
+  `
+})

@@ -31,6 +31,11 @@ from .sessions import Session
 logger = logging.getLogger(__name__)
 
 
+async def session_resolver(course, info, slug):
+    session, = [s for s in course.sessions if s.slug == slug]
+    return session
+
+
 Course = GraphQLObjectType(
     name='Course',
     interfaces=[NodeInterface],
@@ -58,10 +63,18 @@ Course = GraphQLObjectType(
             resolver=lambda c, _: c.end_date.isoformat()),
         'sessions': GraphQLField(
             type=GraphQLList(Session)),
+        'session': GraphQLField(
+            type=Session,
+            args={
+                'slug': GraphQLArgument(GraphQLString),
+            },
+            resolver=session_resolver),
+
         #'topics': GraphQLField(
         #    type=TopicConnection,
         #    resolver=category_topics_resolver),
     })
+
 
 
 CourseConnection = relay_connection_type(Course)

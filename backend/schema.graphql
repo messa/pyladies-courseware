@@ -11,6 +11,7 @@ type Course implements Node {
   startDate: String
   endDate: String
   sessions: [Session]
+  session(slug: String): Session
 }
 
 type CourseConnection {
