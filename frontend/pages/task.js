@@ -6,78 +6,12 @@ import fetchPageData from '../util/fetchPageData'
 import ALink from '../components/ALink'
 import MaterialItems from '../components/MaterialItems'
 import formatDate from '../util/formatDate'
-import TaskSubmission from '../components/TaskSubmission'
+import HomeworkTask from '../components/lesson/HomeworkTask'
 import TaskReviewLessonSummary from '../components/TaskReviewLessonSummary'
 import CourseOverview from '../components/lesson/CourseOverview'
 import TaskReview from '../components/lesson/TaskReview'
 import LoadingMessage from '../components/LoadingMessage'
 import LoadErrorMessage from '../components/LoadErrorMessage'
-
-const HomeworkTask = ({ taskItem, userCanSubmitTask, courseId, sessionSlug, reviewTaskId }) => (
-  <div className='homework-task'>
-    <div className='number'>{taskItem['number']}.</div>
-    <div className='homework-body'>
-      {taskItem.mandatory && (
-        <div className='mandatory-sign'>☜</div>
-      )}
-      <span dangerouslySetInnerHTML={{__html: taskItem['text_html'] }} />
-    </div>
-    {!reviewTaskId && userCanSubmitTask && taskItem.submit && (
-      <TaskSubmission
-        courseId={courseId}
-        sessionSlug={sessionSlug}
-        taskId={taskItem.id}
-      />
-    )}
-    <style jsx>{`
-      .homework-task {
-        margin: 2rem 0;
-        padding-left: 1.8rem;
-        position: relative;
-      }
-      .homework-task .number {
-        position: absolute;
-        left: 0;
-        font-weight: 600;
-      }
-      .homework-task .mandatory-sign {
-        position: absolute;
-        right: 0;
-        margin-top: 4px;
-        font-weight: 600;
-        font-size: 36px;
-      }
-      .homework-body :global(pre),
-      .homework-body :global(code) {
-        font-family: monospace;
-        font-size: 14px;
-        color: #360;
-      }
-      .homework-body :global(table) {
-        border-collapse: collapse;
-        margin: 1rem 0;
-      }
-      .homework-body :global(th),
-      .homework-body :global(td) {
-        border: 1px solid #ccc;
-        padding: 1px .5em;
-        text-align: center;
-      }
-    `}</style>
-  </div>
-)
-
-const TaskSection = ({ taskItem }) => (
-  <div className='task-section'>
-    <div dangerouslySetInnerHTML={{__html: taskItem['text_html'] }} />
-    <style jsx>{`
-      .task-section {
-        margin: 2rem 0;
-        color: #038;
-        font-weight: 600;
-      }
-    `}</style>
-  </div>)
 
 function arrayContains(array, item) {
   return array && array.indexOf(item) !== -1
@@ -201,7 +135,6 @@ export default class SessionPage extends React.Component {
                     <LoadingMessage active={loading} />
                     <LoadErrorMessage active={loadError} message={loadError} />
                     {students && students.map(student => (
-                        <>
                             <TaskReview
                                 key={`${reviewTask.id} ${student.id}`}
                                 courseId={courseId}
@@ -211,7 +144,6 @@ export default class SessionPage extends React.Component {
                                 reviewUserId={student.id}
                                 title={student.name}
                             />
-                        </>
                     ))}
 
             </Grid.Column>
