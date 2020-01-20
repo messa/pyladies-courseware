@@ -163,6 +163,12 @@ class TaskSolution:
         version_doc = await self._c_versions.find_one({'_id': self._doc['current_version_id']})
         return TaskSolutionVersion(version_doc)
 
+    async def get_all_versions(self):
+        if not self._doc['current_version_id']:
+            return []
+        version_docs = await self._c_versions.find({'task_solution_id': self._doc['_id']}).to_list(None)
+        return [TaskSolutionVersion(doc) for doc in version_docs]
+
     async def export(self, with_code=True):
         d = {
             'id': self.id,
@@ -175,7 +181,9 @@ class TaskSolution:
         }
         if with_code:
             cv = await self.get_current_version()
+            avs = await self.get_all_versions()
             d['current_version'] = cv.export() if cv else None
+            d['all_versions'] = [v.export() for v in avs]
         return d
 
 

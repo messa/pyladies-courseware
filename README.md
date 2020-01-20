@@ -82,6 +82,7 @@ Requirements
 - Python >= 3.6
   - Ubuntu: install also `python3-venv`
 - MongoDB
+  - via Docker: `docker run --rm -it -p 27017:27017 mongo:4`
 
 
 Local Development

@@ -1,0 +1,103 @@
+tasks:
+
+- section:
+    markdown: |
+      Želví kreslení! Tahle sekce tě naučí myslet jako programátorka počítačové grafiky.
+      Je dobré jednotlivé projekty dělat postupně, a když něco začne fungovat, znovu si
+      řešení projít a zamyslet se nad ním.
+      Určitě platí čím více těchto domácích projektů projdeš, tím líp.
+
+- id: handout3a_03
+  markdown: |
+    Nakresli trojúhelník.
+
+    <img src="/static/tasks/handout3a_images/03_trojuhelnik.png" alt="trojúhelník" style="max-width: 100%; max-height: 60px">
+
+    __Poznámka:__ Rovnostranný trojúhelník má vnitřní úhly 60°. Želva se ale otáčí o vedlejší úhel 180 - 60 = 120°.
+
+    <img src="/static/tasks/handout3a_images/03_diagram.png" alt="diagram" style="max-width: 100%; max-height: 80px">
+
+- id: handout3a_04
+  markdown: |
+    Nakresli domeček!
+
+    <img src="/static/tasks/handout3a_images/04_domecek.png" alt="domeček" style="max-width: 100%; max-height: 60px">
+
+    _Jak pravil Pythagoras, délka šikmé čáry v domečku je √2-krát délka stěny. O funkci na odmocninu jsme mluvili na srazu._
+
+- id: handout3a_05
+  markdown: |
+    Nakresli vesnici!
+
+    <img src="/static/tasks/handout3a_images/05_vesnice.png" alt="vesnice" style="max-width: 100%; max-height: 60px">
+
+- id: handout3a_06
+  markdown: |
+    Nakresli pětiúhelník, šestiúhelník, sedmiúhelník, osmiúhelník.
+
+    <img src="/static/tasks/handout3a_images/06_uhelniky.png" alt="mnohoúhelníky" style="max-width: 100%; max-height: 60px">
+
+      _Vnitřní úhel pravidelného `n`-úhelníka má `180 × (1-2/n)` stupňů._
+
+    _Aby byly tvary zhruba stejně veliké, použij pro `n`-úhelník délku strany např. `200/n`_
+  
+  mandatory: true
+  
+- id: handout3a_08
+  markdown: |
+    Nakresli `n`-úhelník, kde `n` zadá uživatel.
+    
+  mandatory: true
+
+- id: handout3a_09
+  markdown: |
+    Želva umí jen rovné čáry. Jde pomocí rovných čar nakreslit kolečko?
+
+    _Nevíš-li, přeskoč na další projekt a pak se sem vrať._
+
+- id: handout3a_10
+  markdown: |
+    Nakresli pětadevadesátiúhelník.
+
+- id: handout3a_11
+  markdown: |
+    Nakresli takovýto ornament:
+
+    <img src="/static/tasks/handout3a_images/10_ornament.png" alt="ornament" style="max-width: 100%; max-height: 80px">
+
+    _Nevíš-li si rady, vezmi pravítko a změř délky jednotlivých čar. Doporučuju začít od středu._
+
+- id: handout3a_12
+  markdown: |
+    Nakresli takovýto ornament:
+
+    <img src="/static/tasks/handout3a_images/11_ornament.png" alt="ornament" style="max-width: 100%; max-height: 90px">
+
+- id: handout3a_13
+  markdown: |
+    Nakresli spirálu.
+
+    <img src="/static/tasks/handout3a_images/12_spirala.png" alt="spirála" style="max-width: 100%; max-height: 140px">
+
+    _Od ornamentů ke spirále se dostaneš stejným způsobem jako od `n`-úhelníků ke kolečku._
+
+- id: handout3a_14
+  markdown: |
+    Napiš obrázek! Třeba les ze stromů, město z domů, nebe z hvězd,
+    dav ze smajlíků, hradbu z věží, zikkurat ze schodů, ...
+
+    Můžeš použít i nějakou z funkcí modulu `random`.
+
+- id: handout3a_15
+  markdown: |
+    Na sraze jsme nakreslili tři čtverce, každý otočený o 20°.
+    Nakresli 18 takových čtverců.
+
+- id: handout3a_16
+  markdown: |
+    Vezmi program z minulé úlohy a dokresli stonek a listy.
+    Je jenom na tobě, jaký budou mít tvar.
+    Piš komentáře a snaž se opakovat pomocí `for`,
+    ne pomocí Ctrl+C Ctrl+V.
+
+    <img src="/static/tasks/handout3a_images/15_kvetina.png" alt="květina" style="max-width: 100%; max-height: 300px">

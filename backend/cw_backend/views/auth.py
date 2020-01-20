@@ -196,7 +196,8 @@ async def fb_callback(req):
 def get_google_oauth2_session(conf):
     scope = [
         "https://www.googleapis.com/auth/userinfo.email",
-        "https://www.googleapis.com/auth/userinfo.profile"
+        "https://www.googleapis.com/auth/userinfo.profile",
+        "openid"
     ]
     return OAuth2Session(conf.client_id, scope=scope, redirect_uri=conf.callback_url)
 

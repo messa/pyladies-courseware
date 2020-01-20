@@ -74,7 +74,7 @@ export default class TaskReviewLessonSummary extends React.Component {
               courseId={courseId}
               sessionSlug={sessionSlug}
               students={students}
-              tasks={tasks}
+              tasks={tasks.filter(t => t.submit)}
               taskSolutionsByUserAndTaskId={taskSolutionsByUserAndTaskId}
               reviewUserId={reviewUserId}
             />
@@ -119,6 +119,7 @@ const TaskReviewLessonSummaryTable = ({ courseId, sessionSlug, students, tasks, 
                 courseId={courseId}
                 sessionSlug={sessionSlug}
                 taskSolution={taskSolutionsByUserAndTaskId.get(`${student.id}|${task.id}`)}
+                taskId={task.id}
               />
             </Table.Cell>
           ))}
@@ -129,11 +130,12 @@ const TaskReviewLessonSummaryTable = ({ courseId, sessionSlug, students, tasks, 
 )
 
 
-const TaskStatus = ({ courseId, sessionSlug, taskSolution }) => {
+const TaskStatus = ({ courseId, sessionSlug, taskSolution, taskId }) => {
   if (!taskSolution) {
     return '·'
   }
-  let content = '◯'
+  // old solutions where last_action is not set
+  let content = '?'
   if (taskSolution.last_action) {
     if (taskSolution.last_action == 'coach') {
       // last action coach => waiting for student
@@ -141,6 +143,7 @@ const TaskStatus = ({ courseId, sessionSlug, taskSolution }) => {
     }
     if (taskSolution.last_action == 'student') {
       // last action student => waiting for coach
+      // coach oriented component => full circle
       content = '⬤'
     }
   }
@@ -154,7 +157,7 @@ const TaskStatus = ({ courseId, sessionSlug, taskSolution }) => {
       session: sessionSlug,
       reviewUserId: taskSolution.user_id,
     },
-    hash: 'tasks'
+    hash: 'task-' + taskId
   }
   return (
     <Link href={href}><a>

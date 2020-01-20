@@ -14,7 +14,7 @@ import TaskReview from '../components/lesson/TaskReview'
 import withData from '../util/withData'
 
 const HomeworkTask = ({ taskItem, userCanSubmitTask, courseId, sessionSlug, reviewUserId }) => (
-  <div className='homework-task'>
+  <div className='homework-task' id={'task-' + taskItem['id']}>
     <div className='number'>{taskItem['number']}.</div>
     <div className='homework-body'>
       {taskItem.mandatory && (
@@ -27,6 +27,7 @@ const HomeworkTask = ({ taskItem, userCanSubmitTask, courseId, sessionSlug, revi
         courseId={courseId}
         sessionSlug={sessionSlug}
         taskId={taskItem.id}
+        taskSubmit={taskItem.submit}
         reviewUserId={reviewUserId}
       />
     )}
