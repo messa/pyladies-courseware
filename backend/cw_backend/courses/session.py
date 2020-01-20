@@ -190,7 +190,7 @@ class TaskSection:
         self.data = {
             'task_item_type': 'section',
             'text_html': to_html(raw_item['section']),
-            'mandatory': bool(raw_item.get('mandatory', False)),
+            'top': bool(raw_item.get('top', False)),
         }
 
     task_item_type = DataProperty('task_item_type')
@@ -203,10 +203,10 @@ class TaskSection:
 
     @property
     def first(self):
-      return self.data['mandatory']
+        return self.data['top']
 
     def set_number(self, counter):
-      pass
+        pass
 
 
 class Task:
@@ -221,6 +221,7 @@ class Task:
             'text_html': to_html(raw),
             'mandatory': bool(raw.get('mandatory', False)),
             'submit': bool(raw.get('submit', True)),
+            'top': bool(raw.get('top', False))
         }
 
     task_item_type = DataProperty('task_item_type')
@@ -233,9 +234,9 @@ class Task:
 
     @property
     def first(self):
-      return self.data['mandatory']
+        return self.data['top']
 
     def set_number(self, counter):
-      number = next(counter)
-      self.data['number'] = number
-      self.data['id'] = str(self.id or f'{self.session_slug}-{number}')
+        number = next(counter)
+        self.data['number'] = number
+        self.data['id'] = str(self.id or f'{self.session_slug}-{number}')

@@ -1,5 +1,5 @@
-id: pyladies-2019-praha-jaro-olsanka
-naucse_api_url: https://naucse.python.cz/v0/2019/pyladies-praha-jaro-cznic.json
+id: pyladies-2019-praha-podzim-olsanka
+naucse_api_url: https://naucse.python.cz/v0/2019/pyladies-praha-podzim-cznic.json
 tasks_by_lesson_slug:
 
   # session 1: "install"
