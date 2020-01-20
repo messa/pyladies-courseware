@@ -26,7 +26,7 @@ tasks_by_lesson_slug:
   - file: tasks/02_cykly.yaml
   - file: tasks/02_cykly_zelva.yaml
   - file: tasks/02_cykly_konzole.yaml
-  "beginners/while": []
+  "beginners/while":
   - file: tasks/02_procvicovani_for.yaml
 
   # session 3: "functions-strings"
@@ -36,7 +36,7 @@ tasks_by_lesson_slug:
   "beginners/str":
   - file: tasks/03_retezce.yaml
   - file: tasks/03_1d_piskvorky.yaml
-  
+
   # session 4: "practice"
 
   "beginners/files":
