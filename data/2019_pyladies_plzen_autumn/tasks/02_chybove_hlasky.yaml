@@ -1,0 +1,39 @@
+# https://github.com/PyLadiesCZ/pyladies.cz/raw/master/original/v1/s002-hello-world/handout/handout2.pdf
+
+tasks:
+
+- section:
+    markdown: |
+      Následující projekty procvičí orientaci v chybových hláškách. Doporučujeme je udělat.
+
+- id: handout2_01
+  markdown: |
+    Jak se jmenuje chyba, která nastane, když…
+
+    - Dáš uvozovky jen na jednu stranu řetězce? — SyntaxError
+    - Zkusíš odečíst číslo od řetězce? —
+    - Dělíš nulou? —
+    - Použiješ proměnnou, která neexistuje? —
+    - Stiskneš Ctrl+C, když se program ptá na vstup (pomocí input)? —
+    - Odsadíš příkaz bez předchozího if:? —
+    - Po `if:` odsadíš jeden příkaz o čtyři mezery a druhý jen o dvě? —
+    - Neuzavřeš závorku? –
+    - Zkusíš použít vykřičník (`!`) jako operátor? —
+    - Napíšeš v příkazu `print(1, 2, 3)` čárku navíc? —
+
+- id: handout2_02
+  markdown: |
+    _Podívej se na odpovědi na předchozí otázku, ale Python zkus použít jen na ověření._
+
+    Jaká chyba nastane, když zkusíš použít proměnnou předtím, než do ní něco přiřadíš?
+
+- id: handout2_03
+  markdown: |
+    _Opět se podívej na druhy chyb, ale Python použij jen na ověření._
+
+    Jaká chyba nastane, když zkusíš podělit řetězec řetězcem?
+
+- id: handout2_04
+  markdown: |
+    Lomítko (`/`) je operátor, ale nedá se použít na řetězce. Vykřičník (`!`) v Pythonu není operátor.
+    Jak se liší „jejich“ chyby?

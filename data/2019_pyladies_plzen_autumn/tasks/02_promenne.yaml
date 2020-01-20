@@ -33,7 +33,7 @@ tasks:
     
 - section:
     markdown: |
-      Tyto projekty jsou na procvičení toho, co jsme dělaly na srazu.
+      První dva projekty jsou na procvičení toho, co jsme dělaly na srazu.
       
   mandatory: true
 

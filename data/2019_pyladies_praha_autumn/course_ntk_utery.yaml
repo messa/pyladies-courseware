@@ -1,0 +1,97 @@
+id: pyladies-2019-praha-podzim-ntk-utery
+naucse_api_url: https://naucse.python.cz/v0/2019/praha-utery-ntk.json
+tasks_by_lesson_slug:
+
+  # session 1: "install"
+
+  "beginners/cmdline": []
+  "beginners/install": []
+  "beginners/venv-setup": []
+  "beginners/first-steps":
+  - file: tasks/01_first_steps.yaml
+  "beginners/install-editor": []
+
+  # session 2: "hello"
+
+  "beginners/hello-world":
+  - file: tasks/02_prvni_program.yaml
+  "beginners/print":
+  - file: tasks/02_chybove_hlasky.yaml
+  "beginners/variables":
+  - file: tasks/02_promenne.yaml
+  "beginners/comparisons":
+  - file: tasks/02_porovnavani.yaml
+  "beginners/and-or":
+  - file: tasks/02_nebo_anebo_a.yaml
+
+  # session 3: "loops"
+
+  "beginners/functions": []
+  "intro/turtle":
+  - file: tasks/03_cykly.yaml
+  - file: tasks/03_cykly_zelva.yaml
+  - file: tasks/03_cykly_konzole.yaml
+
+  # session 4: "while-functions"
+
+  "beginners/while": []
+  "beginners/def":
+  - file: tasks/04_vlastni_funkce.yaml
+  - file: tasks/04_procvicovani_for.yaml
+
+  # session 5: "strings"
+
+  "beginners/str":
+  - file: tasks/05_retezce.yaml
+  - file: tasks/05_1d_piskvorky.yaml
+
+  # session 6: "practice"
+
+  "beginners/files":
+  # Tohle ve skutečnosti nejsou úlohy k souborům, ale k procvičování.
+  - file: tasks/06_procvicovani_print.yaml
+  - file: tasks/06_procvicovani_orisky.yaml
+
+  # session 7: "list"
+
+  "beginners/list":
+  - file: tasks/07_seznamy.yaml
+  "beginners/tuple": []
+
+  # session 8: "dict"
+
+  "beginners/dict":
+  - file: tasks/08_slovniky.yaml
+  - file: tasks/08_snake.yaml
+
+  # session 9: "tests"
+
+  "beginners/exceptions": []
+  "beginners/modules": []
+  "beginners/testing":
+  - file: tasks/09_1d_piskvorky_testy.yaml
+  - file: tasks/09_hangman.yaml
+  "beginners/circular-imports": []
+
+  # session 10: "class"
+
+  "beginners/class":
+#   - file: tasks/10_tridy.yaml
+  - file: tasks/10_procvicovani_seznamy.yaml
+  - file: tasks/11_vozovy_park_1.yaml
+
+  # session 11: "inheritance"
+
+  "beginners/inheritance":
+  - file: tasks/11_vozovy_park_2.yaml
+
+  # session 12: "pyglet"
+
+  "intro/pyglet":
+  - file: tasks/12_grafika.yaml
+  "projects/pong": []
+
+  # session 13: "data"
+
+  "intro/notebook": []
+  "intro/pandas": []

@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { Button, Grid } from 'semantic-ui-react'
+import { Button, Grid, Message } from 'semantic-ui-react'
 import { graphql } from 'react-relay'
 import Layout from '../components/Layout'
 import fetchPageData from '../util/fetchPageData'
@@ -75,15 +76,34 @@ class SessionPage extends React.Component {
                       tasks={tasks}
                       reviewUserId={reviewUser ? reviewUser.id : null}
                     />
-                  ) : (
+                  ) : (userCanSubmitTasks && (
                     <TaskSubmissionLessonSummary
                       key={`${courseId} ${sessionSlug}`}
                       courseId={courseId}
                       sessionSlug={sessionSlug}
                       tasks={tasks}
                     />
-                  )}
+                  ))}
                 </>
+              )}
+
+              {!userCanSubmitTasks && !userCanReviewTasks && (
+                <Message>
+                  <Message.Header>Nejste účastníkem kurzu</Message.Header>
+                  {user ? (
+                    <>
+                      Pro zápis do kurzu použijte tlačítko v
+                      <Link href={{ pathname: '/course', query: { course: courseId } }}> přehledu kurzu</Link>.
+                    </>
+                  ) : (
+                    <>
+                      Pro zápis do kurzu se nejprve
+                      <Link href={{ pathname: '/login' }}> přihlašte </Link>
+                      a následně použijte tlačítko v
+                      <Link href={{ pathname: '/course', query: { course: courseId } }}> přehledu kurzu</Link>.
+                    </>
+                  )}
+                </Message>
               )}
 
               <h2 id='tasks'>

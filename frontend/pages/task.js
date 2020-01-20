@@ -65,7 +65,7 @@ export default class SessionPage extends React.Component {
       this.setState({
         loading: false,
         loadError: null,
-        students,
+        students: students.sort((a, b) => a.name.localeCompare(b.name)),
         taskSolutionsByUserAndTaskId: new Map(
           task_solutions.map(ts => ([`${ts.user_id}|${ts.task_id}`, ts]))),
       })
