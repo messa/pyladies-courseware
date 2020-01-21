@@ -6,7 +6,7 @@ export default ({ course }) => (
   <div className='CourseOverview'>
 
     <div className='course-title'>
-      <Link href={{ pathname: '/course', query: { course: course.id } }} prefetch><a>
+      <Link href={{ pathname: '/course', query: { course: course.id } }}><a>
         <strong dangerouslySetInnerHTML={{__html: course['title_html']}} />
         {course['subtitle_html'] && (
           <div dangerouslySetInnerHTML={{__html: course['subtitle_html']}} />

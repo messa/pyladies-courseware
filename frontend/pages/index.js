@@ -23,7 +23,7 @@ export default class extends React.Component {
 
             {courses.active.filter(c => my_active_courses_ids.has(c.id)).map(course => (
               <p key={course.id} className='course'>
-                <Link href={{ pathname: '/course', query: { course: course.id }}} prefetch><a>
+                <Link href={{ pathname: '/course', query: { course: course.id }}}><a>
                   <strong dangerouslySetInnerHTML={{__html: course.title_html}} />
                   {' – '}
                   <span dangerouslySetInnerHTML={{__html: course.subtitle_html}} />
@@ -36,7 +36,7 @@ export default class extends React.Component {
 
         {courses.active.map(course => (
           <p key={course.id} className='course'>
-            <Link href={{ pathname: '/course', query: { course: course.id }}} prefetch><a>
+            <Link href={{ pathname: '/course', query: { course: course.id }}}><a>
               <strong dangerouslySetInnerHTML={{__html: course.title_html}} />
               {' – '}
               <span dangerouslySetInnerHTML={{__html: course.subtitle_html}} />
@@ -48,7 +48,7 @@ export default class extends React.Component {
 
         {courses.past.map(course => (
           <p key={course.id} className='course'>
-            <Link href={{ pathname: '/course', query: { course: course.id }}} prefetch><a>
+            <Link href={{ pathname: '/course', query: { course: course.id }}}><a>
               <strong dangerouslySetInnerHTML={{__html: course.title_html}} />
               {' – '}
               <span dangerouslySetInnerHTML={{__html: course.subtitle_html}} />

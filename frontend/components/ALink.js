@@ -3,9 +3,9 @@ import Link from 'next/link'
 
 export default class extends React.Component {
   render() {
-    const { href, prefetch, children, ...rest } = this.props
+    const { href, children, ...rest } = this.props
     return (
-      <Link href={href} prefetch={true}><a {...rest}>{children}</a></Link>
+      <Link href={href}><a {...rest}>{children}</a></Link>
     )
   }
 }
