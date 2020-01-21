@@ -30,6 +30,6 @@
   "devDependencies": {
     "babel-plugin-relay": "^2.0.0",
     "http-proxy-middleware": "^0.19.1",
-    "relay-compiler": "^2.0.0"
+    "relay-compiler": "^8.0.0"
   }
 }

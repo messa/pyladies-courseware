@@ -70,6 +70,7 @@ type Query {
   pastCourses(before: String, after: String, first: Int, last: Int): CourseConnection
   course(courseId: String): Course
   currentUser: User
+  user(userId: String): User
   loginMethods: LoginMethods
 }
 
@@ -96,4 +97,5 @@ type User implements Node {
   id: ID!
   userId: String!
   isAdmin: Boolean
+  name: String
 }

@@ -1,6 +1,5 @@
 import React from 'react'
 import Link from 'next/link'
-import { Button, Grid } from 'semantic-ui-react'
 import { Button, Grid, Message } from 'semantic-ui-react'
 import { graphql } from 'react-relay'
 import Layout from '../components/Layout'
@@ -159,12 +158,17 @@ export default withData(SessionPage, {
     reviewUserId: query.reviewUserId,
   }),
   query: graphql`
-    query sessionQuery($courseId: String!, $sessionSlug: String!) {
+    query sessionQuery($courseId: String!, $sessionSlug: String!, $reviewUserId: String) {
       currentUser {
+        id
+        userId
         isAdmin
         ...Layout_currentUser
       }
       reviewUser: user(userId: $reviewUserId) {
+        id
+        userId
+        name
       }
       course(courseId: $courseId) {
         id

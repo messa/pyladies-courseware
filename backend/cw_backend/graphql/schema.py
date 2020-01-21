@@ -231,6 +231,8 @@ User = GraphQLObjectType(
         'isAdmin': GraphQLField(
             type=GraphQLBoolean,
             resolver=lambda user, info: user.is_admin),
+        'name': GraphQLField(
+            type=GraphQLString),
     })
 
 
@@ -242,6 +244,20 @@ async def current_user_resolver(root, info):
     model = get_model(info)
     user = await model.users.get_by_id(session['user']['id'])
     logger.info('current_user_resolver: %r', user)
+    return user
+
+
+async def user_resolver(root, info, userId):
+    # TODO: check access permission
+    if not userId:
+        return None
+    from aiohttp_session import get_session
+    session = await get_session(info.context['request'])
+    if not session.get('user'):
+        return None
+    model = get_model(info)
+    user = await model.users.get_by_id(userId)
+    logger.info('user_resolver: %r', user)
     return user
 
 
@@ -324,6 +340,12 @@ Schema = GraphQLSchema(
             'currentUser': GraphQLField(
                 type=User,
                 resolver=current_user_resolver),
+            'user': GraphQLField(
+                type=User,
+                args={
+                    'userId': GraphQLArgument(GraphQLString),
+                },
+                resolver=user_resolver),
             'loginMethods': GraphQLField(
                 type=LoginMethods,
                 resolver=login_methods_resolver),
