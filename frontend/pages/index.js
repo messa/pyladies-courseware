@@ -20,7 +20,7 @@ class IndexPage extends React.Component {
 
             {activeCourses.edges.map(e => e.node).filter(c => my_active_courses_ids.has(c.id)).map(course => (
               <p key={course.id} className='course'>
-                <Link href={{ pathname: '/course', query: { course: course.id }}} prefetch><a>
+                <Link href={{ pathname: '/course', query: { course: course.id }}}><a>
                   <strong dangerouslySetInnerHTML={{__html: course.title_html}} />
                   {' – '}
                   <span dangerouslySetInnerHTML={{__html: course.subtitle_html}} />
@@ -33,7 +33,7 @@ class IndexPage extends React.Component {
 
         {activeCourses.edges.map(edge => edge.node).map(course => (
           <p key={course.courseId} className='course'>
-            <Link href={{ pathname: '/course', query: { course: course.courseId }}} prefetch><a>
+            <Link href={{ pathname: '/course', query: { course: course.courseId }}}><a>
               <strong dangerouslySetInnerHTML={{ __html: course.titleHTML }} />
               {' – '}
               <span dangerouslySetInnerHTML={{__html: course.subtitleHTML }} />
@@ -45,7 +45,7 @@ class IndexPage extends React.Component {
 
         {pastCourses.edges.map(edge => edge.node).map(course => (
           <p key={course.courseId} className='course'>
-            <Link href={{ pathname: '/course', query: { course: course.courseId }}} prefetch><a>
+            <Link href={{ pathname: '/course', query: { course: course.courseId }}}><a>
               <strong dangerouslySetInnerHTML={{ __html: course.titleHTML }} />
               {' – '}
               <span dangerouslySetInnerHTML={{ __html: course.subtitleHTML }} />
