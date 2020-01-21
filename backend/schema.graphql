@@ -98,4 +98,6 @@ type User implements Node {
   userId: String!
   isAdmin: Boolean
   name: String
+  attendedCourseIds: [String]
+  coachedCourseIds: [String]
 }

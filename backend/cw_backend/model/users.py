@@ -193,6 +193,7 @@ class User:
     async def update_user(self, data, author_user_id):
         await self._update(data, author_user_id)
 
+
 class UserView:
 
     def __init__(self, doc):

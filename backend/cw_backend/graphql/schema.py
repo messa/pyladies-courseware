@@ -233,6 +233,12 @@ User = GraphQLObjectType(
             resolver=lambda user, info: user.is_admin),
         'name': GraphQLField(
             type=GraphQLString),
+        'attendedCourseIds': GraphQLField(
+            type=GraphQLList(GraphQLString),
+            resolver=lambda user, info: user.attended_course_ids),
+        'coachedCourseIds': GraphQLField(
+            type=GraphQLList(GraphQLString),
+            resolver=lambda user, info: user.coached_course_ids),
     })
 
 
