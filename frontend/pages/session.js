@@ -42,7 +42,7 @@ class SessionPage extends React.Component {
     const sessionSlug = session.slug
     const tasks = session['taskItems'].filter(x => x.task_item_type === 'task')
     return (
-      <Layout user={currentUser} width={1200}>
+      <Layout currentUser={currentUser} width={1200}>
         <Grid relaxed padded>
           <Grid.Row>
             <Grid.Column width={4} only='computer'>
