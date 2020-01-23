@@ -253,7 +253,7 @@ async def current_user_resolver(root, info):
     return user
 
 
-async def user_resolver(root, info, userId):
+async def user_resolver(root, info, userId=None):
     # TODO: check access permission
     if not userId:
         return None
