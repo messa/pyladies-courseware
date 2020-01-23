@@ -53,7 +53,7 @@ class SessionPage extends React.Component {
             <Grid.Column width={16} computer={12}>
 
               <h1 style={{ marginTop: '1rem' }}>
-                <span dangerouslySetInnerHTML={{__html: session['title_html']}} />
+                <span dangerouslySetInnerHTML={{__html: session['titleHTML']}} />
                 {' '}&nbsp;
                 <small style={{ fontWeight: 300, color: '#c39', whiteSpace: 'nowrap' }}>
                   {formatDate(session['date'])}
