@@ -34,11 +34,11 @@ class SessionPage extends React.Component {
 
   render() {
     console.debug('SessionPage props:')
-    const { currentUser, course } = this.props
+    const { currentUser, reviewUser, course } = this.props
     console.debug(`course: ${JSON.stringify(course, null, 2)}`)
     const { courseId, session } = course
-    const userCanSubmitTasks = currentUser && (currentUser['isAdmin'] || arrayContains(currentUser['attended_course_ids'], courseId))
-    const userCanReviewTasks = currentUser && (currentUser['isAdmin'] || arrayContains(currentUser['coached_course_ids'], courseId))
+    const userCanSubmitTasks = currentUser && (currentUser['isAdmin'] || arrayContains(currentUser['attendedCourseIds'], courseId))
+    const userCanReviewTasks = currentUser && (currentUser['isAdmin'] || arrayContains(currentUser['coachedCourseIds'], courseId))
     const sessionSlug = session.slug
     const tasks = session['taskItems'].filter(x => x.task_item_type === 'task')
     return (
@@ -62,9 +62,9 @@ class SessionPage extends React.Component {
 
               <h2>Materiály</h2>
 
-              <MaterialItems materialItems={session['materialItems']} />
+              <MaterialItems materialItems={session.materialItems} />
 
-              {user && (
+              {currentUser && (
                 <>
                   <h2>Odevzdané projekty</h2>
                   {userCanReviewTasks ? (
@@ -89,7 +89,7 @@ class SessionPage extends React.Component {
               {!userCanSubmitTasks && !userCanReviewTasks && (
                 <Message>
                   <Message.Header>Nejste účastníkem kurzu</Message.Header>
-                  {user ? (
+                  {currentUser ? (
                     <>
                       Pro zápis do kurzu použijte tlačítko v
                       <Link href={{ pathname: '/course', query: { course: courseId } }}> přehledu kurzu</Link>.
@@ -117,8 +117,8 @@ class SessionPage extends React.Component {
                 )}
               </h2>
 
-              {session['task_items'].map((taskItem, i) => {
-                switch (taskItem.task_item_type) {
+              {session['taskItems'].map((taskItem, i) => {
+                switch (taskItem.taskItemType) {
                   case 'task': return (
                     <HomeworkTask
                       key={`${courseId} ${sessionSlug} ${i}`}
@@ -175,6 +175,13 @@ export default withData(SessionPage, {
         courseId
         titleHTML
         subtitleHTML
+        sessions {
+          id
+          slug
+          titleHTML
+          date
+          hasTasks
+        }
         session(slug: $sessionSlug) {
           id
           slug
