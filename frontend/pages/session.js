@@ -163,6 +163,8 @@ export default withData(SessionPage, {
         id
         userId
         isAdmin
+        attendedCourseIds
+        coachedCourseIds
         ...Layout_currentUser
       }
       reviewUser: user(userId: $reviewUserId) {
