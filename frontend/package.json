@@ -23,7 +23,7 @@
     "react-codemirror2": "^5.1.0",
     "react-dom": "^16.12.0",
     "react-relay": "^2.0.0",
-    "semantic-ui-react": "^0.82.5",
+    "semantic-ui-react": "^0.88.2",
     "subscriptions-transport-ws": "^0.9.16",
     "terser": "3.14.1"
   },

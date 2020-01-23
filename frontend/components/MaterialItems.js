@@ -1,5 +1,6 @@
+import React from 'react'
 
-export default ({ materialItems }) => {
+function MaterialItems({ materialItems }) {
   if (!materialItems) return null
   return (
     <ul style={{ listStyle: 'none', paddingLeft: 0 }}>
@@ -12,7 +13,7 @@ export default ({ materialItems }) => {
   )
 }
 
-const LessonItem = ({ materialItem }) => {
+function LessonItem({ materialItem }) {
   if (materialItem.materialItemType === 'attachment') {
     return (
       <a href={materialItem.url}>
@@ -41,3 +42,5 @@ const LessonItem = ({ materialItem }) => {
   }
   return <code>{JSON.stringify(materialItem)}</code>
 }
+
+export default MaterialItems

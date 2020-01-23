@@ -4,7 +4,6 @@ import { Button, Menu, Input } from 'semantic-ui-react'
 import { createFragmentContainer, graphql } from 'react-relay'
 import ALink from './ALink'
 
-
 class Header extends React.Component {
 
   render() {

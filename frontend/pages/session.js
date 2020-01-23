@@ -92,14 +92,14 @@ class SessionPage extends React.Component {
                   {currentUser ? (
                     <>
                       Pro zápis do kurzu použijte tlačítko v
-                      <Link href={{ pathname: '/course', query: { course: courseId } }}> přehledu kurzu</Link>.
+                      <Link href={{ pathname: '/course', query: { course: courseId } }}><a> přehledu kurzu</a></Link>.
                     </>
                   ) : (
                     <>
                       Pro zápis do kurzu se nejprve
-                      <Link href={{ pathname: '/login' }}> přihlašte </Link>
+                      <Link href={{ pathname: '/login' }}><a> přihlašte </a></Link>
                       a následně použijte tlačítko v
-                      <Link href={{ pathname: '/course', query: { course: courseId } }}> přehledu kurzu</Link>.
+                      <Link href={{ pathname: '/course', query: { course: courseId } }}><a> přehledu kurzu</a></Link>.
                     </>
                   )}
                 </Message>

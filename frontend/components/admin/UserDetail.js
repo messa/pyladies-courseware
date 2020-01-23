@@ -3,7 +3,7 @@ import { Button, Table, Dropdown, Form, Message } from 'semantic-ui-react'
 import ALink from '../ALink'
 import fetchPageData from '../../util/fetchPageData'
 
-export default class extends React.Component {
+export default class UserDetail extends React.Component {
 
   state = {
     loading: true,
@@ -226,6 +226,8 @@ export default class extends React.Component {
 
 }
 
-const UserDetailView = ({ detailUser }) => (
-  <pre>{JSON.stringify(detailUser, null, 2)}</pre>
-)
+function UserDetailView ({ detailUser }) {
+  return (
+    <pre>{JSON.stringify(detailUser, null, 2)}</pre>
+  )
+}
