@@ -24,7 +24,7 @@ class CoursePage extends React.Component {
       attendInProgress: true,
     })
     try {
-      const { user, courseId } = this.props
+      const { courseId } = this.props.course
       const payload = {
         'course_id': courseId,
       }
@@ -58,13 +58,13 @@ class CoursePage extends React.Component {
     const { currentUser, course } = this.props
     const courseId = course.courseId
     const { attendInProgress, attendError } = this.state
-    const belongToCourse = currentUser && (
-      currentUser['is_admin'] ||
-      arrayContains(currentUser['attended_course_ids'], courseId) ||
-      arrayContains(currentUser['coached_course_ids'], courseId)
+    const belongsToCourse = currentUser && (
+      currentUser['isAdmin'] ||
+      arrayContains(currentUser['attendedCourseIds'], courseId) ||
+      arrayContains(currentUser['coachedCourseIds'], courseId)
     )
     const now = new Date()
-    const courseEnd = new Date(course['end_date'])
+    const courseEnd = new Date(course['endDate'])
     const activeCourse = (courseEnd >= now)
     return (
       <Layout currentUser={currentUser} width={1000}>
@@ -97,9 +97,9 @@ class CoursePage extends React.Component {
                 <Button
                   primary
                   onClick={this.handleEnrollClick}
-                  disabled={belongToCourse || attendInProgress}
+                  disabled={belongsToCourse || attendInProgress}
                   loading={attendInProgress}
-                  content={belongToCourse ? 'Jste součástí kurzu' : 'Přihlásit se do kurzu'}
+                  content={belongsToCourse ? 'Jste součástí kurzu' : 'Přihlásit se do kurzu'}
                 />
               </Button.Group>
             </div>
@@ -224,6 +224,9 @@ export default withData(CoursePage, {
   query: graphql`
     query courseQuery($courseId: String!) {
       currentUser {
+        isAdmin
+        coachedCourseIds
+        attendedCourseIds
         ...Layout_currentUser
       }
       course(courseId: $courseId) {
@@ -232,6 +235,7 @@ export default withData(CoursePage, {
         titleHTML
         subtitleHTML
         descriptionHTML
+        endDate
         sessions {
           id
           slug
