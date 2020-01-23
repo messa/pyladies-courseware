@@ -1,2 +1,4 @@
 mongo_data
 .DS_Store
+.*.swp
+.vscode
