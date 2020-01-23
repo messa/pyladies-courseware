@@ -155,7 +155,7 @@ export default withData(SessionPage, {
   variables: ({ query }) => ({
     courseId: query.course,
     sessionSlug: query.session,
-    reviewUserId: query.reviewUserId,
+    reviewUserId: query.reviewUserId || null,
   }),
   query: graphql`
     query sessionQuery($courseId: String!, $sessionSlug: String!, $reviewUserId: String) {

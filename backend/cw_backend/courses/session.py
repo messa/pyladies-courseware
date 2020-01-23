@@ -228,6 +228,7 @@ class Task:
     text_html = DataProperty('text_html')
     mandatory = DataProperty('mandatory')
     submit = DataProperty('submit')
+    number = DataProperty('number')
 
     def export(self):
         return self.data
