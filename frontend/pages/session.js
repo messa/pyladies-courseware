@@ -40,7 +40,7 @@ class SessionPage extends React.Component {
     const userCanSubmitTasks = currentUser && (currentUser['isAdmin'] || arrayContains(currentUser['attendedCourseIds'], courseId))
     const userCanReviewTasks = currentUser && (currentUser['isAdmin'] || arrayContains(currentUser['coachedCourseIds'], courseId))
     const sessionSlug = session.slug
-    const tasks = session['taskItems'].filter(x => x.task_item_type === 'task')
+    const tasks = session['taskItems'].filter(x => x.taskItemType === 'task')
     return (
       <Layout currentUser={currentUser} width={1200}>
         <Grid relaxed padded>

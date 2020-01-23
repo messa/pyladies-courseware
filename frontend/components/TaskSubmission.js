@@ -6,7 +6,7 @@ import TaskSolution from './lesson/TaskSolution'
 import TaskComments from './lesson/TaskComments'
 import holdAnchor from './Helpers'
 
-export default class TaskSubmission extends React.Component {
+class TaskSubmission extends React.Component {
 
   state = {
     open: false,
@@ -51,7 +51,7 @@ export default class TaskSubmission extends React.Component {
         loading: false,
         loadError: null,
         taskSolution: task_solution,
-        comments: comments,
+        comments,
       })
       if (anchorCheck) {
         holdAnchor()
@@ -262,3 +262,5 @@ const TaskStatus = ({ taskSolution }) => {
     </span>
   )
 }
+
+export default TaskSubmission

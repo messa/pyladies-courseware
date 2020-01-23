@@ -51,7 +51,7 @@ TaskItem = GraphQLObjectType(
         'taskItemType': GraphQLField(
             type=GraphQLString,
             resolver=lambda ti, _: ti.task_item_type),
-        'taskId': GraphQLField(
+        'taskItemId': GraphQLField(
             type=GraphQLString,
             resolver=lambda ti, _: ti.id),
         'textHTML': GraphQLField(

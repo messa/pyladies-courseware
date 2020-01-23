@@ -69,8 +69,8 @@ export default class TaskReview extends React.Component {
         loading: false,
         loadError: null,
         reviewUserId,
-        taskSolution: task_solution,
-        comments: comments,
+        taskSolution,
+        comments,
       })
       if (anchorCheck) {
         holdAnchor()
