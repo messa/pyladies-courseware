@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { Button, Menu, Input } from 'semantic-ui-react'
 import ALink from './ALink'
 
-
 export default class Header extends React.Component {
 
   render() {

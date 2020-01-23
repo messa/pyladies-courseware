@@ -56,7 +56,6 @@ export default class extends React.Component {
           </p>
         ))}
 
-
         <style jsx>{`
           p.course {
             margin: 1.5rem 0;

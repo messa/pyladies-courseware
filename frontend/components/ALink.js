@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 
-export default class extends React.Component {
+class ALink extends React.Component {
   render() {
     const { href, children, ...rest } = this.props
     return (
@@ -9,3 +9,5 @@ export default class extends React.Component {
     )
   }
 }
+
+export default ALink

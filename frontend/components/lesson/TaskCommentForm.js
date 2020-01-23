@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Comment, Form, Header } from 'semantic-ui-react'
 import ErrorMessage from '../ErrorMessage'
 
-export default class TaskCommentForm extends React.Component {
+class TaskCommentForm extends React.Component {
 
   state = {
     body: '',
@@ -80,3 +80,5 @@ export default class TaskCommentForm extends React.Component {
   }
 
 }
+
+export default TaskCommentForm
