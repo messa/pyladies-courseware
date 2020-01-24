@@ -1,0 +1,7 @@
+tasks:
+
+- id: handout11_1
+  markdown: |
+    Vytvoř třidu `Ctverec` s jedním atributem `strana` a metodami `obvod()`, `obsah()`
+    a *`rozdil_obsahu(jiny_ctverec)`*, která vrátí rozdíl obsahů dvou
+    čtverců – zadaného a toho jehož metodu voláme.
