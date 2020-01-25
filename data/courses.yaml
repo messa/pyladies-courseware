@@ -15,3 +15,4 @@ courses:
 - file: 2020_pyladies_olomouc_spring/course.yaml
 - file: 2020_pydata_praha_spring/course.yaml
 - file: 2020_pyladies_hradec_leden/course_hradec.yaml
+- file: 2020_pyladies_ostrava_spring/course.yaml
