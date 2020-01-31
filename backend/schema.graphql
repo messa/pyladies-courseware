@@ -86,7 +86,7 @@ type Session implements Node {
 
 type TaskItem {
   taskItemType: String
-  taskId: String
+  taskItemId: String
   textHTML: String
   number: Int
   mandatory: Boolean

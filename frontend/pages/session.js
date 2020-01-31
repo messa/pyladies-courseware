@@ -33,9 +33,7 @@ function arrayContains(array, item) {
 class SessionPage extends React.Component {
 
   render() {
-    console.debug('SessionPage props:')
     const { currentUser, reviewUser, course } = this.props
-    console.debug(`course: ${JSON.stringify(course, null, 2)}`)
     const { courseId, session } = course
     const userCanSubmitTasks = currentUser && (currentUser['isAdmin'] || arrayContains(currentUser['attendedCourseIds'], courseId))
     const userCanReviewTasks = currentUser && (currentUser['isAdmin'] || arrayContains(currentUser['coachedCourseIds'], courseId))
@@ -198,7 +196,7 @@ export default withData(SessionPage, {
           }
           taskItems {
             taskItemType
-            taskId
+            taskItemId
             textHTML
             number
             mandatory

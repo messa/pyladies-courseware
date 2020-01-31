@@ -35,7 +35,9 @@ function getFetchQuery(req) {
       })
     })
     if (r.status != 200) {
-      throw new Error(`POST ${relayEndpoint} failed with status ${r.status}`)
+      const rawText = await r.text()
+      const text = JSON.stringify(rawText).slice(0, 1000)
+      throw new Error(`POST ${relayEndpoint} failed with status ${r.status}: ${text}`)
     }
     const data = await r.json()
     return data
