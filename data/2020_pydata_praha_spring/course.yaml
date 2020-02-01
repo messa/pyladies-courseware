@@ -4,3 +4,7 @@ tasks_by_lesson_slug:
 
   "pydata/notebook":
   - file: tasks/eda_1.yaml
+
+
+  "pydata/pandas_types":
+  - file: tasks/eda_2.yaml
