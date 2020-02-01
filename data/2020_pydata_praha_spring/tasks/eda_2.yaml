@@ -31,3 +31,4 @@ tasks:
 - id: eda2_06
   markdown: |
     Najdi si nějaká data, udělej z nich vizualizaci a postni ji na Slack do kanálu #projekty s informací, odkud jsi data bral/a a čeho se týkají. Pokud nevíš, zajímavá data najdeš například [zde](https://veekaybee.github.io/2018/07/23/small-datasets/).
+
