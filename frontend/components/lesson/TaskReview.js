@@ -48,12 +48,12 @@ export default class TaskReview extends React.Component {
   }
 
   async loadData(anchorCheck = false) {
-    const { courseId, sessionSlug, taskId, reviewUserId } = this.props
+    const { courseId, sessionSlug, taskItemId, reviewUserId } = this.props
     try {
       const url = '/api/tasks/solution' +
         `?course_id=${encodeURIComponent(courseId)}` +
         `&session_slug=${encodeURIComponent(sessionSlug)}` +
-        `&task_id=${encodeURIComponent(taskId)}` +
+        `&task_id=${encodeURIComponent(taskItemId)}` +
         `&user_id=${encodeURIComponent(reviewUserId)}`
       const r = await fetch(url, {
         credentials: 'same-origin',

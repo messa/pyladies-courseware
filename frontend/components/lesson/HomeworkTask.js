@@ -16,7 +16,7 @@ function HomeworkTask({ taskItem, userCanSubmitTask, courseId, sessionSlug, revi
         <TaskReview
           courseId={courseId}
           sessionSlug={sessionSlug}
-          taskId={taskItem.id}
+          taskItemId={taskItem.taskItemId}
           taskSubmit={taskItem.submit}
           reviewUserId={reviewUserId}
         />
