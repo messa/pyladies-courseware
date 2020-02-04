@@ -48,7 +48,7 @@ class SessionPage extends React.Component {
               <CourseOverview course={course} />
 
             </Grid.Column>
-            <Grid.Column width={16} computer={12}>
+            <Grid.Column mobile={16} computer={12}>
 
               <h1 style={{ marginTop: '1rem' }}>
                 <span dangerouslySetInnerHTML={{__html: session['titleHTML']}} />
