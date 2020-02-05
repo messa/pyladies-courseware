@@ -6,8 +6,8 @@ tasks:
 
 - id: pilsen_custom_12_oop_0
   markdown:
-    Na srazu jsme vytvářeli cvičné třídy pro [koťátka/čtverce] vytvoř
-    seznam alespoň pěti _ruzných_ [koťátek/čtverců].
+    Na srazu jsme vytvářeli cvičné třídy pro koťátka/čtverce vytvoř
+    seznam alespoň pěti _ruzných_ koťátek/čtverců.
 
 
     _Dokážeš to udělat v cyklu? Jak ověříš, že jde skutečně o různé objekty?_

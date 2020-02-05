@@ -26,39 +26,15 @@ tasks:
   markdown: |
     Napiš funkci, která vypíše do jednoho řádku prvních 11 násobků zvoleného
     čísla (argument funkce). Např.: pro vstup 2 vypíše funkce
-    `0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20`
+    `0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20`.
 
   mandatory: true
 
 - id: custom4_03
   markdown: |
     Změn funkci z předchozího úkolu tak, aby funkce měla tři argumenty – číslo,
-    počet vypisovaných násobků, znak pro oddělení vypsaných násobků
+    počet vypisovaných násobků, znak pro oddělení vypsaných násobků.
 
-- id: handout4_02
-  markdown: |
-    Procvičení funkcí. Napiš funkci, která vykreslí domeček dané velikosti.
-    _(t.j. velikost se zadá argumentem)_
-
-    <img src="/static/tasks/handout4_images/02_domecky.png" alt="domečky" style="max-width: 100%; max-height: 80px">
-
-  mandatory: true
-
-- section:
-    markdown: |
-      Tento projekt si udělej, pokud máš ráda geometrii* :)
-      
-- id: handout4_03
-  markdown: |
-    Máš-li ráda geometrii, můžeš zkusit dávat domečkové funkci dva argumenty:
-    šířku a výšku.
-    Je potřeba si vzpomenout na Pythagorovu větu a funkci arcustangens, v pythonu se jmenuje `atan`.
-    Pozor, funkce `atan` vrací výsletek v radiánech;
-    je potřeba ho převést na stupně (`from math import degrees`).
-
-    <img src="/static/tasks/handout4_images/03_domecky.png" alt="domečky" style="max-width: 100%; max-height: 80px">
-
-    \* t.j. jestli nemáš ráda geometrii, tak tenhle projekt přeskoč
 
 - section:
     markdown: |

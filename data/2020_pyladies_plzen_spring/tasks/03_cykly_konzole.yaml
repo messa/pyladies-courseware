@@ -1,5 +1,9 @@
 tasks:
 
+- section:
+    markdown: |
+       Následující povinné úkoly vyžadují zapojení uživatele.
+
 - id: handout3a_17
   markdown: |
     Napiš program, který postupně načte od uživatele dvě čísla a jednoznakový
@@ -20,6 +24,7 @@ tasks:
   markdown: |
     Napiš program, který se pětkrát zeptá na číslo a nejmenší zadané číslo vypíše.
 
-    _Nevíš-li si rady, podívej se do materiálů na sekci Přepisování proměnných. Místo sečítání budeš vybírat správnou hodnotu._
+    _Nevíš-li si rady, podívej se do materiálů na sekci Přepisování proměnných.
+    Místo sečítání budeš vybírat správnou hodnotu._
   
   mandatory: true

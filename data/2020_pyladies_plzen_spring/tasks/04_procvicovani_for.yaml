@@ -135,6 +135,13 @@ tasks:
         for c in 38:
             print(c)
 
+- id: handout3b_17
+  markdown: |
+    A co tenhle?
+
+        for c in ["had", "králík", "pes", "vlaštovka"]:
+            print(c)
+
 - id: handout3b_18
   markdown: |
     Už víš, co dělá `for` s `range()`, výčtem hodnot a řetězcem.
