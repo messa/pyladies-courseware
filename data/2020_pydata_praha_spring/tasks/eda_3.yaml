@@ -22,15 +22,18 @@ tasks:
 
 - section:
     markdown: |
-      Načti soubor `název` z [této adresy](URL). V tomto souboru jsou chybějící data označena jako `CHYBA MĚŘENÍ`.
+      V následujícím úkolu si zopakujeme práci s chybějícími hodnotami:
 
 - id: eda3_05
   markdown: |
-    Odstraňte pouze řádky, kde je špatné datum (tip: použij `dropna(subset=)`). Pomocí fillna pak nahraď chybějící měření poslední předchozí hodnotou.
+    Načti data z https://data4pydata.s3-eu-west-1.amazonaws.com/pyladies/P1PRUZ01schibami.xls, kde jsou chybějící data označena jako `#CHYBA MĚŘENÍ`.
+    
+    - Pomocí volby `na_values` při načítání dat z Excel souboru správně označ chyby měření jako chybějící data.
+    - Odstraň pouze řádky, kde je špatné datum (tip: použij `dropna(subset=)`). Pomocí `fillna` pak nahraď chybějící měření poslední předchozí hodnotou.
 
 - section:
     markdown: |
-      Poslední dva úkoly prověří pravdivost známých pranostik.
+      Poslední dva úkoly prověří pravdivost známých pranostik:
 
 - id: eda3_06
   markdown: |
@@ -39,6 +42,4 @@ tasks:
 - id: eda3_07
   markdown: |
     Který z ledových mužů je nejmrazivější? Pankrác (12. 5.), Servác (13. 5.) nebo Bonifác (14. 5.)? Zjisti to porovnáním procent těchto dní s minimální teplotou < 0. Pokud budou procenta vyrovnaná, vyhraje den s nižší průměrnou teplotou.
-
-
 
