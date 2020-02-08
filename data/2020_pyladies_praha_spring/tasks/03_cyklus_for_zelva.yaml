@@ -19,7 +19,6 @@ tasks:
   markdown: |
     Vypiš lichá čísla od jedné do jedenácti pomocí příkazu `for` a funkce `range`.
 
-
 - id: handout03_02
   markdown: |
     Pomocí cyklu `for` napiš program, který vypíše:
