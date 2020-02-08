@@ -1,0 +1,48 @@
+tasks:
+
+- id: handout1_0
+  markdown: |
+    Na hodině jsme se naučili pracovat s interaktivní Python konzolí. Zkus pomocí Pythonu vypočítat:
+    3+(4+6)×8÷2−1 =
+
+    (Závorky v Pythonu fungují jako v matematice) 
+
+- id: handout1_1
+  markdown: |
+    Jsou i jiné operátory než `+`, `-` a ty pro násobení a dělení.
+    Co dělá s čísly operátor `%` (procento)?
+
+- id: handout1_2
+  markdown: |
+    A co dělá operátor `**` (dvě hvězdičky)?
+
+- id: handout1_3
+  markdown: |
+    Jaký je v Pythonu rozdíl mezi dělením pomocí `/` a `//`? (Zkus si v Pythonu a odpověz slovně)
+
+- id: handout1_4
+  markdown: |
+    Řetězce jdou spojovat sčítáním. Například:
+
+    ```python
+    >>> 'A' + "B"
+    'AB'
+    ```
+
+    Poznáš, co je tady špatně? Jak bys to spravila?
+
+    ```python
+    >>> 'Ahoj' + 'PyLadies!'
+    ```
+
+- id: handout1_5
+  markdown: |
+    Řetězce se dají sčítat. Dají se i násobit? Dělit? Odečítat? (Odpověz slovně)
+
+- id: handout1_6
+  markdown: |
+    Co se stane, když se pokusím sečíst číslo a řetězec? (Můžeš vložit výsledek z konzole, ale odpověz i slovně)
+
+- id: handout1_7
+  markdown: |
+    A vynásobit? (Můžeš vložit výsledek z konzole, ale odpověz i slovně)
