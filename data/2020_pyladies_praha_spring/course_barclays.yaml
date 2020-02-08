@@ -4,3 +4,5 @@ tasks_by_lesson_slug:
 
   "beginners/first-steps":
   - file: tasks/01_expressions.yaml
+  "beginners/variables":
+  - file: tasks/02_promenne_podminky.yaml
