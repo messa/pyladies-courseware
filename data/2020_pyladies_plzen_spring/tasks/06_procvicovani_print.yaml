@@ -34,6 +34,11 @@ tasks:
 
   mandatory: true
 
+- section:
+    markdown: |
+      A teď možná trochu záludný ale zajímavý příklad na procvičení práce se
+      soubory.
+
 - id: handout7_01
   markdown: |
     Můj bratr, který píše japonské texty, mě požádal o program, který počítá znaky.
