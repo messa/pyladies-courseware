@@ -1,0 +1,21 @@
+tasks:
+
+- section:
+    markdown: |
+      Práce se soubory. Připrav si 2 krátké textové soubory s několika řádky
+      (např. `prvni.txt` a `druhy.txt`)
+
+- id: custom5s_1
+  markdown: |
+    Napiš program, který vypíše obsah souboru `prvni.txt` na obrazovku.
+
+  mandatory: true
+
+- id: custom5s_2
+  markdown: |
+    Napiš program, který ze souboru `prvni.txt` určí: počet řádků v souboru, počet
+    znaků v souboru. Tyto hodnoty zapiš do nového souboru.
+
+- id: custom5s_3
+  markdown: |
+    Nakonec souboru `prvni.txt` přidej obsah souboru `druhy.txt`.
