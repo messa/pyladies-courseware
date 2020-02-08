@@ -5,7 +5,7 @@ tasks:
     Na hodině jsme se naučili pracovat s interaktivní Python konzolí. Zkus pomocí Pythonu vypočítat:
     3+(4+6)×8÷2−1 =
 
-    (Závorky v Pythonu fungují jako v matematice) 
+    (Závorky v Pythonu fungují jako v matematice)
 
 - id: handout1_1
   markdown: |
@@ -53,12 +53,12 @@ tasks:
 
 - id: handout1_8
   markdown: |
-    V adresáři 01 ve složce pro kurz si vytvoř soubor `funguju.py` . Do souboru ulož:  
+    V adresáři 01 ve složce pro kurz si vytvoř soubor `funguju.py` . Do souboru ulož:
 
     ```
     print("Hurá, funguju!")
     ```
-    
+
     Pak se v příkazové řádce přepni do adresáře, kde jsi vytvořila soubor, aktivuj virtuální prostředí a do příkazové řádky napiš:
 
     ```
@@ -73,9 +73,11 @@ tasks:
     markdown: |
       **Co po této lekci umím:**
 
-- markdown: |
+- numbered: false
+  submit: false
+  markdown: |
     - Spustit příkazovou řádku a ukončit práci v ní
-    - Základní příkazy v příkazové řádce: 
+    - Základní příkazy v příkazové řádce:
       - zeptat se na adresář, ve kterém jsem
       - zjistit, co v adresáři je
       - přesunout se do daného adresáře
@@ -88,6 +90,3 @@ tasks:
     - Mám nainstalovaný textový editor a umím si v něm vytvořit a uložit soubory
 
     **Pokud ti něco z výše uvedeného nefunguje, prosím, kontaktuj organizátorky, rády ti pomohou.**
-    
-
-
