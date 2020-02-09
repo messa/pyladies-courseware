@@ -10,4 +10,4 @@ PyYAML>=5.3
 requests
 requests_oauthlib
 simplejson
-https://github.com/daGrevis/mdx_linkify/archive/master.zip#egg=mdx_linkify==1.4
+https://github.com/daGrevis/mdx_linkify/archive/9fa1c59327f2500eacb4f0a55eacb5d640ab4e51.zip#egg=mdx_linkify==1.4
