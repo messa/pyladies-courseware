@@ -5,6 +5,10 @@ Nástroj pro odevzdávání a review domácích úkolů z programování.
 
 [![CircleCI](https://circleci.com/gh/messa/pyladies-courseware.svg?style=svg&circle-token=d5dc8be048ef0289f18f729db33f21118c0a5656)](https://circleci.com/gh/messa/pyladies-courseware)
 
+Production deployment: https://projekty.pyladies.cz/
+
+Demo (reseted on every deploy): https://projekty-demo.messa.cz/
+
 
 Todo
 ----
@@ -78,10 +82,11 @@ Why MongoDB:
 Requirements
 ------------
 
-- Node.js >= 8.0
+- Node.js >= 10.0
 - Python >= 3.6
   - Ubuntu: install also `python3-venv`
 - MongoDB
+  - via Docker: `docker run --rm -it -p 27017:27017 mongo:4`
 
 
 Local Development
@@ -112,7 +117,7 @@ Developer login
 
 Pro usnadnění vývoje na localhostu, je možné (v defaultu automaticky) zapnout tlačítka přihlášení různých rolí.
 
-![local dev login](resources/local_dev_login.png "Tlačítka rychlého přihlášení")
+![local dev login](docs/images/local_dev_login.png "Tlačítka rychlého přihlášení")
 
 Usage:
 

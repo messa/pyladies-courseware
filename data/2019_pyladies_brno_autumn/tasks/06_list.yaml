@@ -1,0 +1,192 @@
+tasks:
+
+- section:
+    markdown: |
+        Poslední úkol 1D piškvorek zůstává na další týden.
+
+- id: handout4_14
+  markdown: |
+    Zvládneš pro počítač naprogramovat lepší strategii?
+    Třeba aby se snažil hrát vedle svých existujících symbolů
+    nebo aby bránil protihráčovi?
+    Stačí jen docela malé vylepšení!
+
+    Testy by stále měly procházet.
+
+    Odevzdej celý soubor `ai.py`.
+
+- section:
+    markdown: |
+        Pojďme si procvičit práci se seznamem.
+
+        Některé z projektů – a zvlášť ten poslední – potřebují trochu přemýšlení;
+        nebudeš-li vědět jak dál, zeptej se na internetu ostatních
+        a řešte společně!
+
+- id: handout6_00
+  markdown: |
+    Napiš funkci `vytvor_seznam_zvirat()`, která vrátí nově vytvořený seznam
+    domácích zvířat.
+    Domácí zvířata známe tato: `"pes", "kočka", "králík", "had"`.
+
+    *Tuto funkci použiješ pro otestování dalších úloh.
+    Nehledej v ní nic složitého.*
+
+    Příklad:
+
+    ```python
+    >>> vytvor_seznam_zvirat()
+    ['pes', 'kočka', 'králík', 'had']
+    ```
+
+    Každé zavolání funkce by mělo vytvořit nový, nezávislý seznam.
+    Vyzkoušej si to následujícím „dialogem“:
+
+    ```python
+    >>> zvirata = vytvor_seznam_zvirat()
+    >>> zvirata.pop()
+    'had'
+    >>> vytvor_seznam_zvirat()
+    ['pes', 'kočka', 'králík', 'had']
+    >>> zvirata
+    ['pes', 'kočka', 'králík']
+    ```
+
+- id: handout6_01
+  markdown: |
+    Napiš funkci `filtruj_kratka_jmena`, která dostane seznam řetězců a vrátí
+    seznam těch, která jsou kratší než 5 písmen.
+
+    Například:
+
+    ```python
+    >>> zvirata = vytvor_seznam_zvirat()
+    >>> filtruj_kratka_jmena(zvirata)
+    ['pes', 'had']
+    ```
+
+    Vzpomeň si, jak se vytváří seznam: začni s prázdným seznamem a postupně
+    přidávej prvek po prvku.
+
+    Funkce by měla opět vracet nový seznam a svůj argument nechat nezměněný.
+    Vyzkoušej si to následujícím „dialogem“:
+
+    ```python
+    >>> zvirata = vytvor_seznam_zvirat()
+    >>> filtruj_kratka_jmena(zvirata)
+    ['pes', 'had']
+    >>> zvirata
+    ['pes', 'kočka', 'králík', 'had']
+    ```
+
+
+- id: handout6_02
+  markdown: |
+    Napiš funkci `filtruj_k`, která dostane seznam řetězců a vrátí seznam těch,
+    která začínají na `k`.
+
+    Například:
+
+    ```python
+    >>> zvirata = vytvor_seznam_zvirat()
+    >>> filtruj_k(zvirata)
+    ['kočka', 'králík']
+    ```
+
+    Funkce by měla opět vracet nový seznam a svůj argument nechat nezměněný.
+
+- id: handout6_03
+  markdown: |
+    Napiš funkci `obsahuje`, která dostane seznam a slovo a zjistí, jestli je
+    to slovo v daném seznamu.
+    Podle toho vrátí `True` nebo `False`.
+
+    Například:
+
+    ```python
+    >>> zvirata = vytvor_seznam_zvirat()
+    >>> obsahuje(zvirata, 'pes')
+    True
+    >>> obsahuje(zvirata, 'vodováha')
+    False
+    ```
+
+- id: handout6_05
+  markdown: |
+    Napiš funkci `zrus_prvni`, která dostane seznam jmen a vrátí seznam
+    se všemi jeho prvky kromě prvního.
+
+    ```python
+    >>> zvirata = vytvor_seznam_zvirat()
+    >>> zvirata
+    ['pes', 'kočka', 'králík', 'had']
+    >>> zrus_prvni(zvirata)
+    ['kočka', 'králík', 'had']
+    ```
+
+    Funkce by opět neměla změnit původní seznam:
+
+    ```python
+    >>> zvirata
+    ['pes', 'kočka', 'králík', 'had']
+    ```
+
+    A měla by fungovat i pro prázdný seznam:
+
+    ```python
+    >>> zrus_prvni([])
+    []
+    ```
+
+- id: handout6_06
+  markdown: |
+    Složitější, nepovinný úkol!
+
+    Had byl pyšný na to, že je v abecedě první.
+    Dokud nepřiletěla `"andulka"`.
+
+    Abys hada uklidnila, vytvoř funkci `serad_od_druheho`,
+    která zvířata seřadí podle abecedy,
+    ale bude ignorovat první písmeno. Například:
+
+    <pre>
+    >>> zvirata = vytvor_seznam_zvirat()
+    >>> serad_od_druheho(zvirata)
+    ["h<span style='color: pink'>ad</span>", "p<span style='color: pink'>es</span>", "a<span style='color: pink'>ndulka</span>", "k<span style='color: pink'>očka</span>", "k<span style='color: pink'>rálík</span>"]
+    >>> # (barvy jsou tu jen pro přehlednost, tvůj program vypisuje bez barev)
+    </pre>
+
+    ---
+
+    Máš tady seznam _hodnot_, které chceš seřadit podle nějakého
+    _klíče_. Klíč se dá z každé hodnoty vypočítat – v našem případě je
+    to hodnota kromě prvního písmenka (tedy od druhého písmenka dál).
+
+    Postup:
+
+    - Vytvoř seznam dvojic `(klíč, hodnota)`.
+    - Seřaď tento seznam dvojic – dvojice se řadí nejdřív podle
+        prvního prvku, pak druhého atd.
+    - Nakonec vytvoř ze seznamu dvojic výsledný seznam hodnot.
+
+    Vytvoření seznamu se dělá tak, že začneš s prázdným seznamem
+    a postupně do něj přidáváš hodnoty jednu po druhé.
+
+
+- id: cards_deck
+  markdown: |
+    Napiš funkci `vytvor_balicek`, která vrátí nový zamíchaný seznam hracích
+    karet pro hru Prší.
+    Každá položka seznamu bude dvojice *hodnota-barva*.
+
+    Hodnoty karet jsou 2-10, `'J'`, `'Q'`, `'K'`, `'A'`.
+    Barvy jsou `'♥'` `'♦'` `'♠'` `'♣'`.
+    (Symboly si můžeš zkopírovat jako text. Nezobrazují-li se ti správně,
+    použij `S`, `K`, `P`, `+`.)
+
+    Například:
+
+    ```python
+    >>> vytvor_balicek()
+    [(2, '♥'), (10, '♠'), ('A', '♣'), ...
+    ```

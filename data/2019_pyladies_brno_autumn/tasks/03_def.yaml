@@ -1,0 +1,292 @@
+tasks:
+
+- section:
+    markdown: |
+      Na začátek trocha teoretického opakování.
+
+- id: handout3b_00
+  markdown: |
+    Co dělá funkce `print`?
+
+- id: handout3b_01
+  markdown: |
+    Co _vrací_ funkce `print`?
+
+- section:
+    markdown: |
+      Trocha experimentování.
+      Zkus se zamyslet, jestli jsi „dobře” pochopila otázku.
+
+- id: handout4_00
+  markdown: |
+    Co se stane, když tělo nějaké funkce necháš úplně prázdné? Zkus vysvětlit proč. (Tělo funkce je odsazený blok za dvojtečkou)
+
+- id: handout4_01
+  markdown: |
+    Co se stane, když necháš úplně prázdné tělo cyklu? Zkus vysvětlit proč.
+
+
+- section:
+    markdown: |
+      Umíš napsat funkci (nebo proceduru)?
+
+- id: handout4_02
+  mandatory: true
+  markdown: |
+    Napiš proceduru, která vykreslí domeček dané velikosti.
+    _(t.j. velikost se zadá argumentem)_
+
+    <img src="/static/tasks/handout4_images/02_domecky.png" alt="domečky" style="max-width: 100%; max-height: 80px">
+
+- id: handout4_03
+  markdown: |
+    Máš-li ráda geometrii*, můžeš zkusit dávat domečkové proceduře dva argumenty:
+    šířku a výšku.
+    Je potřeba si vzpomenout na Pythagorovu větu a funkci tangens.
+    Pozor, funkce `tan` vrací výsletek v radiánech;
+    je potřeba ho převést na stupně (`from math import degrees`).
+
+    <img src="/static/tasks/handout4_images/03_domecky.png" alt="domečky" style="max-width: 100%; max-height: 80px">
+
+    \* t.j. jestli nemáš ráda geometrii, tak tenhle projekt přeskoč
+
+- section:
+    markdown: |
+      Procvičení řetězců.
+
+- id: handout4_06
+  markdown: |
+    Napiš funkci, která jako argument bere příjmení uživatelky/uživatele
+    a *zkusí* podle něj uhodnout její/jeho pohlaví.
+    To vrátí jako řetězec.
+
+    Funkci několikrát zavolej (s různými příjmeními) a výsledky vypiš.
+
+    (Pohlaví není možné určit přesně – stačí zvládnout ta nejčastější
+    česká příjmení.)
+
+- id: handout4_07
+  markdown: |
+    Najdi na internetu text své oblíbené písně, zkopíruj si ho do řetězce
+    a zjisti, kolikrát je v něm použito písmeno K.
+
+- section:
+    markdown: |
+      Následující sada projektů procvičuje různá použití cyklu `for`.
+
+- id: handout3b_05
+  markdown: |
+    Pomocí cyklu `for` a funkce `range()` napiš program, který vypíše:
+
+        a
+        a
+        a
+        a
+
+- id: handout3b_06
+  markdown: |
+    Pomocí cyklu `for` napiš program, který vypíše:
+
+        Řádek 0
+        Řádek 1
+        Řádek 2
+        Řádek 3
+        Řádek 4
+
+- id: handout3b_07
+  markdown: |
+    Jak jsi pojmenovala proměnnou, kterou jsi v minulém příkladu použila?
+    Vymysli pro ni název, který nejlépe vystihuje, co proměnná obsahuje.
+
+    _Je důležité proměnnou pojmenovat výstižně, jinak se v dalších projektech můžeš ztratit. Možné řešení je uvedeno na konci zadání._
+
+- id: handout3b_08
+  markdown: |
+    Pomocí cyklu `for` napiš program, který vypíše:
+
+        0 na druhou je 0
+        1 na druhou je 1
+        2 na druhou je 4
+        3 na druhou je 9
+        4 na druhou je 16
+
+    _Jak pojmenuješ proměnnou cyklu?_
+
+- id: handout3b_09
+  markdown: |
+    Pomocí cyklů `for` a parametru `end` pro `print` napiš program, který postupně z jednotlivých `'X'` vypíše:
+
+        X X X X X
+        X X X X X
+        X X X X X
+        X X X X X
+        X X X X X
+
+    „Z jednotlivých `'X'`“ znamená, že každý `print` vypíše jen jedno `X`.
+    Nepoužiješ tedy např. `print('X X X X X')` ani `print('X ' * 5)`.
+
+    _Jak pojmenuješ proměnnou cyklu? A tu druhou?_
+
+
+- id: handout3b_10
+  markdown: |
+    Napiš program, který vypíše „tabulku“ s násobilkou.
+
+        0 0 0 0 0
+        0 1 2 3 4
+        0 2 4 6 8
+        0 3 6 9 12
+        0 4 8 12 16
+
+
+- id: handout3b_11
+  markdown: |
+    Napiš program, který postupně z jednotlivých `'X'` vypíše:
+
+        X
+        X X
+        X X X
+        X X X X
+
+- id: handout3b_12
+  markdown: |
+    Pomocí cyklu `for` a příkazu `if` napiš program, který vypíše následující řádky.
+    Funkci `print` volej pouze uvnitř v cyklu:
+
+        první řádek
+        není první
+        není první
+        není první
+
+- id: handout3b_13
+  mandatory: true
+  markdown: |
+    Pomocí cyklů `for` a příkazu `if` napiš program, který z jednotlivých `'X'` a mezer vypíše:
+
+        X X X X X X
+        X         X
+        X         X
+        X         X
+        X         X
+        X X X X X X
+
+- id: handout3b_14
+  markdown: |
+    Předchozí programy z této sekce uprav tak, aby počet řádků (či
+    velikost čtverce/trojúhelníku/tabulky) mohl zadat uživatel.
+
+- section:
+    markdown: |
+      Následující sada projektů ti ukáže zajímavou vlastnost řetězců.
+      Zpomal a zamysli se.
+
+- id: handout3b_15
+  markdown: |
+    Co dělá tenhle kód?
+
+        for c in 'Ahoj světe!':
+            print(c)
+
+- id: handout3b_16
+  mandatory: true
+  markdown: |
+    Vymyslíš lepší jméno pro proměnnou `c` z minulé úlohy?
+
+- id: handout3b_17
+  markdown: |
+    Co dělá tenhle kód?
+
+        for c in 38:
+            print(c)
+
+- section:
+    markdown: |
+      Máme tu i tradiční hru!
+
+- id: handout9_06
+  markdown: |
+    Vytvoř hru `sibenice` podle následujícího popisu.
+    Snaž se projekt rozdělit do funkcí a modulů s hezkými jmény,
+    piš testy a dokumentační řetězce, funkční kousky dávej postupně do Gitu.
+
+    * Počítač náhodně zvolí *slovo* (zatím třeba ze tří možností).
+        Pro jednoduchost používej malá písmena a nepoužívej slova,
+        ve kterých se stejné písmeno opakuje dvakrát
+        (třeba č<span style='color: red'>o</span>k<span style='color: red'>o</span>láda).
+
+        Zkus třeba slova: `trávník`, `stromek`, `stavení`.
+
+    * Výchozí *stav* je řetězec s tolika podtržítky, kolik je
+        ve vybraném slově písmen.
+
+    * Výchozí počet *neúspěšných pokusů* je nula.
+
+    * Stále dokola:
+        * Zeptej se hráče na písmeno.
+        * Pokud je to písmeno ve vybraném *slově*, zaměň ve *stavu* příslušná
+            podtržítka za ono písmeno.
+            (Bude se hodit řetězcová metoda `index` a funkce `zamen` ze srazu.)
+        * Pokud dané písmeno _není_ ve vybraném slově,
+            započítej *neúspěšný pokus*.
+        * Vypiš *stav* (slovo s případnými podtržítky).
+        * Pokud už ve slově nejsou podtržítka, pogratuluj hráči
+            a ukonči hru.
+        * Vypiš počet *neúspěšných pokusů* a odpovídající obrázek.
+          Funkci, která ti vrátí obrázek podle počtu pokusů, si můžeš
+          zkopírovat [z Gistu](https://gist.github.com/encukou/77376e445356a9843e278ba387b168f0).
+        * Pokud je počet *neúspěšných pokusů* 9 (nebo víc), hráč prohrál.
+            Dej mu to najevo a ukonči program.
+
+- section:
+    markdown: |
+      Procvičení programování.
+      Často je jednoduché něco napsat, ale dotažení do konce může být časově náročné.
+      Tyto úkoly jsou *nepovinné*.
+      Nemáš-li čas, zkus se ale aspoň zamyslet, jak bys projekt vyřešila.
+
+- id: handout4_04
+  markdown: |
+    Změň program Kámen, Nůžky, Papír tak, aby opakoval hru dokud
+    uživatel nezadá slovo `konec`.
+
+- id: handout4_05
+  markdown: |
+    Změň funkci `ano_nebo_ne` tak,
+    aby se místo `ano` se dalo použít i `a`,
+    místo `ne` i `n`
+    a aby se nebral ohled na velikost písmen a mezery před/za odpovědí.
+
+    Odpovědím jako `možná` nebo `no tak určitě` by počítač dál neměl rozumět.
+
+- section:
+    markdown: |
+      Teď několik programovacích oříšků pro dlouhé chvíle.
+      Jsou *nepovinné*.
+      Nemáš-li čas, přeskoč je.
+
+- id: handout9_07
+  markdown: |
+    Funguje-li ti hra `sibenice`, můžeš ji vylepšit.
+
+    - Zařiď, aby fungovala pro slova s více stejnými písmeny.
+    - Když hráč nezadá písmeno (zadá např. `ABC` nebo `!`), nepovažuj to za tah.
+    - Po skončení dej hráči možnost hru opakovat.
+
+- id: handout4_08
+  # Tento projekt byl na konci handout4. Úplně nevím, kam ho zařadit, do
+  # řetězců (které byly na konci handout4) se nehodí. Spíš sem k funkcím.
+  #   -- Petr Messner
+  markdown: |
+    Napiš program, který simuluje tuto hru:
+
+    První hráč hází kostkou
+    _(t.j. vybírají se náhodná čísla od 1 do 6)_,
+    dokud nepadne šestka.
+    Potom hází další hráč, dokud nepadne šestka i jemu.
+    Potom hází hráč třetí a nakonec čtvrtý.
+    Vyhrává ten, kdo na hození šestky potřeboval nejvíc hodů.
+    (V případě shody vyhraje ten, kdo házel dřív.)
+
+    Program by měl vypisovat všechny hody a nakonec napsat, kdo vyhrál.
+
+    Nápověda: průběžně stačí ukládat jen údaj, kdo vede.

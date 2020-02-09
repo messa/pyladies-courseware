@@ -37,6 +37,7 @@ tasks_by_lesson_slug:
   "beginners/while": []
   "beginners/def":
   - file: tasks/04_vlastni_funkce.yaml
+  - file: tasks/04_procvicovani_for.yaml
 
   # session 5: "strings"
 
@@ -49,7 +50,6 @@ tasks_by_lesson_slug:
   "beginners/files":
   # Tohle ve skutečnosti nejsou úlohy k souborům, ale k procvičování.
   - file: tasks/06_procvicovani_print.yaml
-  - file: tasks/06_procvicovani_for.yaml
   - file: tasks/06_procvicovani_orisky.yaml
 
   # session 7: "list"
@@ -62,6 +62,7 @@ tasks_by_lesson_slug:
 
   "beginners/dict":
   - file: tasks/08_slovniky.yaml
+  - file: tasks/08_snake.yaml
 
   # session 9: "tests"
 
@@ -76,10 +77,13 @@ tasks_by_lesson_slug:
 
   "beginners/class":
   - file: tasks/10_tridy.yaml
+  - file: tasks/10_procvicovani_seznamy.yaml
+
 
   # session 11: "inheritance"
 
-  "beginners/inheritance": []
+  "beginners/inheritance":
+  - file: tasks/11_vozovy_park.yaml
 
   # session 12: "pyglet"
 

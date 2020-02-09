@@ -1,0 +1,140 @@
+tasks:
+
+- section:
+    markdown: |
+      Následující sada projektů není jednoduchá, ale uděláš-li ji, pochopíš různá použití cyklu for.
+
+- id: handout3b_05
+  markdown: |
+    Pomocí cyklu `for` a funkce `range()` napiš program, který vypíše:
+
+        a
+        a
+        a
+        a
+
+- id: handout3b_06
+  markdown: |
+    Pomocí cyklu `for` napiš program, který vypíše:
+
+        Řádek 0
+        Řádek 1
+        Řádek 2
+        Řádek 3
+        Řádek 4
+
+- id: handout3b_07
+  markdown: |
+    Jak jsi pojmenovala proměnnou, kterou jsi v příkladu, co vypisuje "Řádek 0, Řádek 1, Řádek 2..." použila?
+    Vymysli pro ni název, který nejlépe vystihuje, co proměnná obsahuje.
+
+    _Je důležité proměnnou pojmenovat výstižně, jinak se v dalších projektech můžeš ztratit._
+
+- id: handout3b_08
+  markdown: |
+    Pomocí cyklu `for` napiš program, který vypíše:
+
+        0 na druhou je 0
+        1 na druhou je 1
+        2 na druhou je 4
+        3 na druhou je 9
+        4 na druhou je 16
+
+    _Jak pojmenuješ proměnnou cyklu?_
+
+- id: handout3b_09
+  markdown: |
+
+
+    Pomocí cyklů `for` a parametru `end` pro `print` napiš program, který postupně z jednotlivých `'X'` vypíše:
+
+        X X X X X
+        X X X X X
+        X X X X X
+        X X X X X
+        X X X X X
+
+    „Z jednotlivých `'X'`“ znamená, že se ve volání funkceprint smí objevit jen jedno 'X' anebo mezera, že nepoužiješ např. `print('X X X X X')`.
+    (K řešení tohoto povinného projektu se můžeš dopracovat postupně přes ty nepovinné týkající se cyklu for.)
+
+    _Jak pojmenuješ proměnnou cyklu? A tu druhou?_
+
+    mandatory: true
+
+- id: handout3b_10
+  markdown: |
+    Napiš program, který vypíše „tabulku“ s násobilkou. 
+
+        0 0 0 0 0
+        0 1 2 3 4
+        0 2 4 6 8
+        0 3 6 9 12
+        0 4 8 12 16
+        
+
+
+
+- id: handout3b_11
+  markdown: |
+    Napiš program, který postupně z jednotlivých `'X'` vypíše:
+
+        X
+        X X
+        X X X
+        X X X X
+
+- id: handout3b_12
+  markdown: |
+    Pomocí cyklu `for` a příkazu `if` napiš program, který vypíše následující řádky.
+    Funkci `print` volej pouze uvnitř v cyklu:
+
+        první řádek
+        není první
+        není první
+        není první
+
+- id: handout3b_13
+  markdown: |
+    Pomocí cyklů `for` a příkazu `if` napiš program, který z jednotlivých `'X'` a mezer vypíše:
+
+        X X X X X X
+        X         X
+        X         X
+        X         X
+        X         X
+        X X X X X X
+
+    "z jednotlivých `'X'` a mezer" znamená, že se ve volání funkceprint smí objevit jen jedno 'X' anebo mezera, že nepoužiješ např. `print('X X X X X')`.
+
+- id: handout3b_14
+  markdown: |
+    Programy s cyklem `for` uprav tak, aby počet řádků (či velikost čtverce/trojúhelníku/tabulky) mohl zadat uživatel.
+    Stačí, když pošleš jedno pěkné řešení.
+
+- section:
+    markdown: |
+      Následující sada projektů může vyžadovat delší zamyšlení.
+      A to zamyšlení je důležitější než samotná odpověď.
+
+- id: handout3b_15
+  markdown: |
+    Co dělá tenhle kód?
+
+        for c in 'Ahoj světe!':
+            print(c)
+
+- id: handout3b_16
+  markdown: |
+    Vymyslíš lepší jméno pro proměnnou `c` z minulé úlohy (for c in 'Ahoj světe!')?
+
+- id: handout3b_17
+  markdown: |
+    Co dělá tenhle kód?
+
+        for c in 38:
+            print(c)
+
+- id: handout3b_18
+  markdown: |
+    Už víš, co dělá `for` s `range()`, výčtem hodnot a řetězcem.
+    Dokážeš to zobecnit – popsat `for` jednodušeji, než jak je popsán v materiálech?

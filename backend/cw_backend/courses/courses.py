@@ -46,8 +46,7 @@ class Courses:
         for c in raw['courses']:
             p = courses_file.parent / c['file']
             self.courses.append(Course(p, loader=loader))
-        self.courses.sort(key=lambda c: c.start_date) # newest first
-        self.courses.sort(key=lambda c: c.start_date.year, reverse=True)
+        self.courses.sort(key=lambda c: c.start_date, reverse=True)
 
     def __iter__(self):
         return iter(self.courses)
@@ -56,10 +55,14 @@ class Courses:
         return len(self.courses)
 
     def list_active(self):
-        return [c for c in self.courses if c.is_active()]
+        courses = [c for c in self.courses if c.is_active()]
+        courses.sort(key=lambda c: c.start_date)
+        return courses
 
     def list_past(self):
-        return [c for c in self.courses if c.is_past()]
+        courses = [c for c in self.courses if c.is_past()]
+        courses.sort(key=lambda c: (c.end_date or c.start_date), reverse=True)
+        return courses
 
     def get_by_id(self, course_id):
         assert isinstance(course_id, str)
@@ -97,7 +100,10 @@ class Course:
             }
 
             local_sessions = {str(s['slug']): s for s in raw.get('sessions', [])}
-            naucse_sessions = {str(s['slug']): s for s in nc.get('sessions', [])}
+            naucse_sessions = {
+                # Only include sessions with a date
+                str(s['slug']): s for s in nc.get('sessions', []) if 'date' in s
+            }
             self.sessions = []
             for slug in local_sessions.keys() | naucse_sessions.keys():
                 self.sessions.append(Session(

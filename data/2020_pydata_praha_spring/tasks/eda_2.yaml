@@ -1,0 +1,34 @@
+tasks:
+
+- id: eda2_01
+  markdown: |
+    Podle Keplerových zákonů by pro všechny planety měl být konstantní poměr mezi třetí mocninou velké poloosy elipsy oběžné dráhy a druhou mocninou oběžné doby. Dokážeš to ověřit pomocí tabulky `planety`, kterou jsme si v hodině vytvořili?
+
+- id: eda2_02
+  markdown: |
+    Vytvoř vhodný graf, který velkou poloosu elipsy a oběžnou dobu spojuje.
+
+- section:
+    markdown: |
+      Použij tabulku `countries` z hodiny a:
+
+- id: eda2_03
+  markdown: |
+    Přidej do tabulky zemí sloupce `women_overweight`, `men_overweight`, kde nadváhou zástupců příslušného pohlaví myslíme průměrné bmi > 25.
+
+- id: eda2_04
+  markdown: |
+    Zjisti, v jakých zemích, které NEpatří do `low_income` group, mají průměrně méně než 3000 kalorií na den.
+
+- id: eda2_05
+  markdown: |
+    Napiš kód, který vytvoří graf bmi mužů a bmi žen v zemích EU. Zkus si pohrát i s parametry - nastav figsize, barvu...
+
+- section:
+    markdown: |
+      Poslední projekt je volitelný. Nemáš-li čas, klidně ho přeskoč.
+
+- id: eda2_06
+  markdown: |
+    Najdi si nějaká data, udělej z nich vizualizaci a postni ji na Slack do kanálu #projekty s informací, odkud jsi data bral/a a čeho se týkají. Pokud nevíš, zajímavá data najdeš například [zde](https://veekaybee.github.io/2018/07/23/small-datasets/).
+

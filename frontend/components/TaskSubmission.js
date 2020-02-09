@@ -1,20 +1,10 @@
 import React from 'react'
-import { Button } from 'semantic-ui-react'
+import { Button, Label, Tab } from 'semantic-ui-react'
 import { Comment, Form, Header, Icon, TextArea, Message } from 'semantic-ui-react'
 import TaskSolutionForm from './TaskSolutionForm'
+import TaskSolution from './lesson/TaskSolution'
 import TaskComments from './lesson/TaskComments'
-
-const TaskSolution = ({ code }) => (
-  <div className='TaskSolution'>
-    <h4>Odevzdané řešení</h4>
-    <pre>{code}</pre>
-    <style jsx>{`
-      .TaskSolution pre {
-        overflow-x: auto;
-      }
-    `}</style>
-  </div>
-)
+import holdAnchor from './Helpers'
 
 export default class TaskSubmission extends React.Component {
 
@@ -30,7 +20,7 @@ export default class TaskSubmission extends React.Component {
   }
 
   componentDidMount() {
-    this.loadData()
+    this.loadData(true)
     if (!this.loadIntervalId) {
       this.loadIntervalId = setInterval(() => this.loadData(), 30 * 1000)
     }
@@ -43,7 +33,7 @@ export default class TaskSubmission extends React.Component {
     }
   }
 
-  async loadData() {
+  async loadData(anchorCheck = false) {
     try {
       const { courseId, sessionSlug, taskId } = this.props
       const url = '/api/tasks/solution' +
@@ -63,6 +53,9 @@ export default class TaskSubmission extends React.Component {
         taskSolution: task_solution,
         comments: comments,
       })
+      if (anchorCheck) {
+        holdAnchor()
+      }
     } catch (err) {
       this.setState({
         loading: false,
@@ -73,6 +66,10 @@ export default class TaskSubmission extends React.Component {
 
   handleOpenButton = () => {
     this.setState({ open: true })
+  }
+
+  handleCancelSolutionForm = () => {
+    this.setState({ open: false, editSolution: false })
   }
 
   handleSubmitSolution = async ({ code }) => {
@@ -166,6 +163,7 @@ export default class TaskSubmission extends React.Component {
             )}
             <TaskSolutionForm
               onSubmit={this.handleSubmitSolution}
+              onCancel={this.handleCancelSolutionForm}
               code={taskSolution ? taskSolution.current_version.code : null}
               loading={submitInProgress}
             />
@@ -174,7 +172,10 @@ export default class TaskSubmission extends React.Component {
     } else if (taskSolution) {
       content = (
         <>
-          <TaskSolution code={taskSolution.current_version.code} />
+          <div>
+            <h4>Odevzdané řešení <TaskStatus taskSolution={taskSolution} /></h4>
+            <TaskSolution taskSolution={taskSolution} />
+          </div>
           {taskSolution.is_solved ? (
             <div>
               <Icon
@@ -215,6 +216,7 @@ export default class TaskSubmission extends React.Component {
         <TaskComments
           comments={comments}
           onAddCommentSubmit={this.handleAddCommentSubmit}
+          taskSolution={taskSolution}
         />
         <style jsx global>{`
           .TaskSubmission {
@@ -228,4 +230,35 @@ export default class TaskSubmission extends React.Component {
       </div>
     )
   }
+}
+
+const TaskStatus = ({ taskSolution }) => {
+  if (!taskSolution) {
+    return ''
+  }
+  // old solutions where last_action is not set
+  let content = '?'
+  let text = '- neznámý stav'
+  if (taskSolution.last_action) {
+    if (taskSolution.last_action == 'coach') {
+      // last action coach => waiting for student
+      // student oriented component => full circle
+      content = '⬤'
+      text = '- přečti si, co napsal kouč'
+    }
+    if (taskSolution.last_action == 'student') {
+      // last action student => waiting for coach
+      content = '◯'
+      text = '- počkej na reakci kouče'
+    }
+  }
+  if (taskSolution.is_solved) {
+    content = '✓'
+    text = '- vyřešené'
+  }
+  return (
+    <span>
+      (stav: <span className='status-indicator'>{content}</span> {text})
+    </span>
+  )
 }

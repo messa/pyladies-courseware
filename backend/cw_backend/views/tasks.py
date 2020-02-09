@@ -27,6 +27,7 @@ async def submit_task_solution(req):
         course_id=data['course_id'],
         task_id=data['task_id'],
         code=data['code'])
+    await ts.set_last_action('student', user)
     return web.json_response({
         'task_solution': await ts.export(with_code=True),
     })
@@ -70,14 +71,34 @@ async def list_lesson_solutions(req):
     user = await model.users.get_by_id(session['user']['id'])
     if not user.can_review_course(course_id=req.query['course_id']):
         raise web.HTTPForbidden()
-    solutions = await model.task_solutions.find_by_course_and_task_ids(
-        course_id=req.rel_url.query['course_id'],
-        task_ids=json.loads(req.rel_url.query['task_ids']))
+    if 'task_ids' in req.rel_url.query:
+        solutions = await model.task_solutions.find_by_course_and_task_ids(
+            course_id=req.rel_url.query['course_id'],
+            task_ids=json.loads(req.rel_url.query['task_ids']))
+    else:
+        solutions = await model.task_solutions.find_by_course_id(
+            course_id=req.rel_url.query['course_id'])
     students = await model.users.find_by_attended_course_id(
         course_id=req.rel_url.query['course_id'])
     return web.json_response({
         'task_solutions': [await ts.export() for ts in solutions],
         'students': [u.export() for u in students]
+    })
+
+
+@routes.get('/api/tasks/my-lesson-solutions')
+async def list_my_lesson_solutions(req):
+    model = req.app['model']
+    session = await get_session(req)
+    if not session.get('user'):
+        raise web.HTTPForbidden()
+    user = await model.users.get_by_id(session['user']['id'])
+    solutions = await model.task_solutions.find_by_user_and_course_and_task_ids(
+        user=user,
+        course_id=req.rel_url.query['course_id'],
+        task_ids=json.loads(req.rel_url.query['task_ids']))
+    return web.json_response({
+        'task_solutions': [await ts.export() for ts in solutions],
     })
 
 
@@ -94,6 +115,7 @@ async def mark_solution_solved(req):
     if not user.can_review_course(course_id=solution.course_id):
         raise web.HTTPForbidden()
     await solution.set_marked_as_solved(data['solved'], user)
+    await solution.set_last_action('coach', user)
     return web.json_response({
         'task_solution': await solution.export(with_code=True),
     })
@@ -116,6 +138,10 @@ async def add_solution_comment(req):
         reply_to_comment_id=data['reply_to_comment_id'],
         author_user=user,
         body=data['body'])
+    if user.id == solution.user_id:
+        await solution.set_last_action('student', user)
+    elif user.can_review_course(course_id=solution.course_id):
+        await solution.set_last_action('coach', user)
     task_comments = await model.task_solution_comments.find_by_task_solution_id(solution.id)
     return web.json_response({
         'task_solution': await solution.export(with_code=True),

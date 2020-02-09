@@ -37,7 +37,7 @@ async def get_app(conf):
 
     app.on_cleanup.append(close_mongo)
 
-    session_setup(app, MongoStorage(mongo_db['sessions'], max_age=3600*24*90))
+    session_setup(app, MongoStorage(mongo_db['sessions'], max_age=3600*24*365*10))
     app['conf'] = conf
     app['courses'] = load_courses(conf.courses_file)
     app['model'] = model

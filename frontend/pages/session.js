@@ -1,77 +1,16 @@
 import React from 'react'
 import Link from 'next/link'
-import { Button, Grid } from 'semantic-ui-react'
+import { Button, Grid, Message } from 'semantic-ui-react'
 import Layout from '../components/Layout'
 import fetchPageData from '../util/fetchPageData'
 import ALink from '../components/ALink'
 import MaterialItems from '../components/MaterialItems'
 import formatDate from '../util/formatDate'
-import TaskSubmission from '../components/TaskSubmission'
+import HomeworkTask from '../components/lesson/HomeworkTask'
 import TaskReviewLessonSummary from '../components/TaskReviewLessonSummary'
+import TaskSubmissionLessonSummary from '../components/TaskSubmissionLessonSummary'
 import CourseOverview from '../components/lesson/CourseOverview'
 import TaskReview from '../components/lesson/TaskReview'
-
-const HomeworkTask = ({ taskItem, userCanSubmitTask, courseId, sessionSlug, reviewUserId }) => (
-  <div className='homework-task'>
-    <div className='number'>{taskItem['number']}.</div>
-    <div className='homework-body'>
-      {taskItem.mandatory && (
-        <div className='mandatory-sign'>☜</div>
-      )}
-      <span dangerouslySetInnerHTML={{__html: taskItem['text_html'] }} />
-    </div>
-    {reviewUserId && (
-      <TaskReview
-        courseId={courseId}
-        sessionSlug={sessionSlug}
-        taskId={taskItem.id}
-        reviewUserId={reviewUserId}
-      />
-    )}
-    {!reviewUserId && userCanSubmitTask && taskItem.submit && (
-      <TaskSubmission
-        courseId={courseId}
-        sessionSlug={sessionSlug}
-        taskId={taskItem.id}
-      />
-    )}
-    <style jsx>{`
-      .homework-task {
-        margin: 2rem 0;
-        padding-left: 1.8rem;
-        position: relative;
-      }
-      .homework-task .number {
-        position: absolute;
-        left: 0;
-        font-weight: 600;
-      }
-      .homework-task .mandatory-sign {
-        position: absolute;
-        right: 0;
-        margin-top: 4px;
-        font-weight: 600;
-        font-size: 36px;
-      }
-      .homework-body :global(pre),
-      .homework-body :global(code) {
-        font-family: monospace;
-        font-size: 14px;
-        color: #360;
-      }
-      .homework-body :global(table) {
-        border-collapse: collapse;
-        margin: 1rem 0;
-      }
-      .homework-body :global(th),
-      .homework-body :global(td) {
-        border: 1px solid #ccc;
-        padding: 1px .5em;
-        text-align: center;
-      }
-    `}</style>
-  </div>
-)
 
 const TaskSection = ({ taskItem }) => (
   <div className='task-section'>
@@ -132,17 +71,45 @@ export default class SessionPage extends React.Component {
 
               <MaterialItems materialItems={session['material_items']} />
 
-              {userCanReviewTasks && (
+              {user && (
                 <>
                   <h2>Odevzdané projekty</h2>
-                  <TaskReviewLessonSummary
-                    key={`${courseId} ${sessionSlug}`}
-                    courseId={courseId}
-                    sessionSlug={sessionSlug}
-                    tasks={tasks}
-                    reviewUserId={reviewUser ? reviewUser.id : null}
-                  />
+                  {userCanReviewTasks ? (
+                    <TaskReviewLessonSummary
+                      key={`${courseId} ${sessionSlug}`}
+                      courseId={courseId}
+                      sessionSlug={sessionSlug}
+                      tasks={tasks}
+                      reviewUserId={reviewUser ? reviewUser.id : null}
+                    />
+                  ) : (userCanSubmitTasks && (
+                    <TaskSubmissionLessonSummary
+                      key={`${courseId} ${sessionSlug}`}
+                      courseId={courseId}
+                      sessionSlug={sessionSlug}
+                      tasks={tasks}
+                    />
+                  ))}
                 </>
+              )}
+
+              {!userCanSubmitTasks && !userCanReviewTasks && (
+                <Message>
+                  <Message.Header>Nejste účastníkem kurzu</Message.Header>
+                  {user ? (
+                    <>
+                      Pro zápis do kurzu použijte tlačítko v
+                      <Link href={{ pathname: '/course', query: { course: courseId } }}><a> přehledu kurzu</a></Link>.
+                    </>
+                  ) : (
+                    <>
+                      Pro zápis do kurzu se nejprve
+                      <Link href={{ pathname: '/login' }}><a> přihlašte </a></Link>
+                      a následně použijte tlačítko v
+                      <Link href={{ pathname: '/course', query: { course: courseId } }}><a> přehledu kurzu</a></Link>.
+                    </>
+                  )}
+                </Message>
               )}
 
               <h2 id='tasks'>

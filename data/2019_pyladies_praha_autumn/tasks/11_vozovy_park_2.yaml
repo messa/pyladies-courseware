@@ -1,0 +1,45 @@
+tasks:
+
+- section:
+    markdown: |
+      Navážeme na úkoly z minulé lekce a trochu vylepšíme náš vozový park.
+
+- id: vozovy_park_06
+  markdown: |
+    Každý vůz má jiné **náklady za kilometr**. Zkus toto v programu nějak zohlednit
+    – ideálně aby funkce, která hledá autobus pro ten školní výlet, našla co
+    nejekonomičtější variantu.
+
+    (Pro jednoduchost budeme počítat s tím, že i kdyby autobus musel tankovat
+    po cestě, tak cena dotyčného druhu paliva bude vždy a všude stejná.)
+
+    <small>Autorské řešení: [6.py](https://github.com/messa/pyladies-materials/blob/master/201805_tridy_vozovy_park/6.py)</small>
+
+- id: vozovy_park_07
+  markdown: |
+    Ve vozovém parku jsou různé druhy vozů – na naftu a elektřinu. Autobus na
+    **elektřinu** bude zřejmě nejlevnější varianta, ale asi jím nechceme poslat
+    školu na školní výlet, pokud by vzdálenost byla delší, než dojezd autobusu,
+    protože autobus by se musel po cestě na několik hodin zastavit kvůli
+    nabití. Naopak zastavit s autobusem na **naftu** kvůli tankování nafty není
+    problém. Zkus to zohlednit v té funkci, která hledá optimální autobus pro
+    školní výlet. (Zřejmě bude potřeba přidat argument, jak dlouhý ten výlet
+    bude.)
+
+    <small>Autorské řešení: [7.py](https://github.com/messa/pyladies-materials/blob/master/201805_tridy_vozovy_park/7.py)</small>
+
+- id: vozovy_park_08
+  markdown: |
+    Ve vozovém parku jsou i **hybridní vozy**. To znamená, že určitou vzdálenost
+    jedou levně, dokud se nevybijí baterky, a pak jedou dál na naftu, ale o
+    něco dráž. Zkus to nějak zohlednit při výběru optimálního autobusu pro
+    školní výlet :)
+
+    <small>Autorské řešení: [8.py](https://github.com/messa/pyladies-materials/blob/master/201805_tridy_vozovy_park/8.py)</small>
+
+- id: vozovy_park_09
+  markdown: |
+    Zkus program upravit tak, aby v něm cena paliva (nafty, elektřiny...)
+    nebyla pevně zabudovaná, ale aby šla zadat při běhu programu.
+
+    <small>Autorské řešení: [9.py](https://github.com/messa/pyladies-materials/blob/master/201805_tridy_vozovy_park/9.py)</small>

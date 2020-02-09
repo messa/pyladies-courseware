@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Comment, Form, Header } from 'semantic-ui-react'
+import { Button, Comment, Form, Header, Label } from 'semantic-ui-react'
 import TaskCommentForm from './TaskCommentForm'
 
 export default class TaskComments extends React.Component {
@@ -31,6 +31,15 @@ export default class TaskComments extends React.Component {
     })
   }
 
+  getCodeVersion = (time, codeVersions) => {
+    let version = 0
+    codeVersions.forEach(cv => {
+      if (cv < time) {
+        version++
+    }})
+    return version
+  }
+
   render() {
     const comments = this.props.comments || []
     const { replyToCommentId } = this.state
@@ -38,6 +47,7 @@ export default class TaskComments extends React.Component {
     if (!showCommentForm && comments.length === 0) {
       return null
     }
+    const codeVersions = this.props.taskSolution.all_versions.map(v => v.date).sort()
     return (
       <div className='TaskComments'>
         <h4>Komentáře</h4>
@@ -52,6 +62,7 @@ export default class TaskComments extends React.Component {
                 <Comment.Author as='span'>{comment.author.name}</Comment.Author>
                 <Comment.Metadata>
                   <div>{comment.date.toString()}</div>
+                  <Label>Verze {this.getCodeVersion(comment.date, codeVersions)}</Label>
                 </Comment.Metadata>
                 <Comment.Text>{comment.body}</Comment.Text>
                 <Comment.Actions>
@@ -73,6 +84,7 @@ export default class TaskComments extends React.Component {
                         <Comment.Author as='span'>{reply.author.name}</Comment.Author>
                         <Comment.Metadata>
                           <div>{reply.date.toString()}</div>
+                          <Label>Verze {this.getCodeVersion(reply.date, codeVersions)}</Label>
                         </Comment.Metadata>
                         <Comment.Text>{reply.body}</Comment.Text>
                         <Comment.Actions>

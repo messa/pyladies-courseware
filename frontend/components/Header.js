@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { Button, Menu, Input } from 'semantic-ui-react'
 import ALink from './ALink'
 
-
 export default class Header extends React.Component {
 
   render() {
@@ -114,11 +113,11 @@ export default class Header extends React.Component {
 export default ({ user }) => (
   <nav style={{ borderBottom: '1px solid #333' }}>
     <p style={{ float: 'left' }}>
-      <Link href='/' prefetch><a>Pyladies courseware</a></Link>
+      <Link href='/'><a>Pyladies courseware</a></Link>
     </p>
     <p style={{ float: 'right' }}>
       {!user ? (
-        <Link href='/login' prefetch><a>Přihlásit se</a></Link>
+        <Link href='/login'><a>Přihlásit se</a></Link>
       ) : (
         <span className='loggedInUser'>
           <Link href={'/profile'}><a>{user.name}</a></Link>

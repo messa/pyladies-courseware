@@ -28,17 +28,21 @@ course_detail:
     - id: n9mnfIjOerVh
       mandatory: true
       number: 0
+      numbered: true
       submit: true
       task_item_type: task
       text_html: <p>Dělení? Znak ÷ se taky na klávesnici těžko píše (zvlášť na české). Jak se asi bude dělit?</p>
+      top: false
     - id: 1-instalace-1
       mandatory: false
       number: 1
+      numbered: true
       submit: true
       task_item_type: task
       text_html: |-
         <p>Závorky v Pythonu fungují jako v matematice. Zkus pomocí Pythonu vypočítat: 3+(4+6)×8÷2−1 =</p>
         <p>Jak se to zapíše v Pythonu?</p>
+      top: false
     title_html: Lekce 1 – Instalace
   - date: '2018-03-14'
     has_tasks: false
