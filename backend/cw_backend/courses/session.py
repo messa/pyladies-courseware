@@ -217,11 +217,12 @@ class Task:
         self.data = {
             'task_item_type': 'task',
             'id': None,
-            'number': 0,
+            'number': None,
             'text_html': to_html(raw),
             'mandatory': bool(raw.get('mandatory', False)),
             'submit': bool(raw.get('submit', True)),
-            'top': bool(raw.get('top', False))
+            'numbered': bool(raw.get('numbered', True)),
+            'top': bool(raw.get('top', False)),
         }
 
     task_item_type = DataProperty('task_item_type')
@@ -238,6 +239,7 @@ class Task:
         return self.data['top']
 
     def set_number(self, counter):
-        number = next(counter)
-        self.data['number'] = number
-        self.data['id'] = str(self.id or f'{self.session_slug}-{number}')
+        if self.data['numbered']:
+            number = next(counter)
+            self.data['number'] = number
+            self.data['id'] = str(self.id or f'{self.session_slug}-{number}')

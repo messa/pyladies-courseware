@@ -1,0 +1,124 @@
+# https://github.com/PyLadiesCZ/pyladies.cz/raw/master/original/v1/s001-install/handout/handout.pdf
+
+tasks:
+
+- section:
+    markdown: |
+      Domácí projekty k první lekci slouží k procvičení práce s interaktivní Python konzolí, aby sis to pořádně zažila, zkoušej si zadávat různé příkazy.
+      Opakuj si použití příkazové řádky pro pohyb mezi adresáři a pro aktivaci/deaktivaci venv.
+  
+  mandatory: true
+  
+- id: handout1_00
+  markdown: |
+    Doma (nebo pár dní po instalaci, pokud nejsi na srazu) si znovu spusť Python a zkus, jestli stále funguje.
+
+    ```
+    >>> 1 + 1
+    2
+    ```
+
+    Funguje i odčítání?
+
+    ```
+    >>> 4 - 2
+    ```
+
+    Pokud vše funguje do výsledku řešení zapište: OK
+  
+  mandatory: true
+  
+- id: handout1_01
+  markdown: |
+    A co násobení? Programátoři nenásobí pomocí · ani ×, použijí jiný _operátor_: hvězdičku. Vyzkoušej si to, třeba na
+
+    42 × 3077
+
+    a odevzdej správné řešení (kód).
+
+  mandatory: true
+
+- id: handout1_02
+  markdown: |
+    Dělení? Znak ÷ se taky na klávesnici těžko píše (zvlášť na české). Jak se asi bude dělit?
+
+    4567 ÷ 33
+
+    Opět odevzdej kód.
+   
+  mandatory: true
+  
+- id: handout1_03
+  markdown: |
+    Závorky v Pythonu fungují jako v matematice. Zkus pomocí Pythonu vypočítat: 3+(4+6)×8÷2−1 =
+
+    Jak se to zapíše v Pythonu?
+  
+  mandatory: true
+
+- id: handout1_04
+  markdown: |
+    Jsou i jiné operátory než `+`, `-` a ty pro násobení a dělení.
+    Co dělá s čísly operátor `%` (procento)? (Odpověz slovně)
+
+    Nápověda: `%` je binární operátor, vyzkoušej ho na dvojicích čísel stejně jako třeba `+`.
+    
+  mandatory: true
+
+- id: handout1_05
+  markdown: |
+    A co dělá operátor `**` (dvě hvězdičky)? (Odpověz slovně)
+
+    Nápověda: `**` je binární operátor, vyzkoušej ho na dvojicích čísel stejně jako třeba `+`.
+    
+  mandatory: true
+
+- id: handout1_06
+  markdown: |
+    Až budeš příště sahat po kalkulačce, použij místo ní Python.
+    
+  submit: false
+
+- id: hadnout1_07
+  markdown: |
+    Python umí i jiné věci než čísla. Třeba takové _řetězce_ – slova, věty nebo jiný text.
+    Řetězce se zadávají v uvozovkách – jednoduchých `'` nebo dvojitých `"` a jdou spojovat sčítáním.
+    Vyzkoušej si to:
+
+    ```
+    >>> 'A' + "B"
+    'AB'
+    ```
+  
+  submit: false
+
+- id: handout01_09
+  markdown: |
+    Co je tady špatně? Jak to spravit?
+
+    ```
+    >>> 'Ahoj' + 'PyLadies!'
+    ```
+
+    Jakým příkazem dosáhnu odpovědi: "Ahoj PyLadies!"?
+  
+  mandatory: true
+  
+- id: handout1_10
+  markdown: |
+    Řetězce se dají sčítat. Dají se dva řětězce mezi sebou i násobit a dělit? Odečítat?
+    (Odpověz slovně, neboj se to vyzkoušet)
+    
+  mandatory: true
+
+- id: handout1_11
+  markdown: |
+    Co se stane, když se pokusím sečíst číslo a řetězec? (Můžeš vložit výsledek z konzole, ale odpověz i slovně)
+
+  mandatory: true
+
+- id: handout1_12
+  markdown: |
+    A vynásobit? (Můžeš vložit výsledek z konzole, ale odpověz i slovně)
+    
+  mandatory: true

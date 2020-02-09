@@ -58,5 +58,6 @@ def markdown_to_html(src):
         extensions=[
             'markdown.extensions.fenced_code',
             'markdown.extensions.tables',
+            'mdx_linkify',
         ],
         output_format='html5')
