@@ -1,26 +1,26 @@
 tasks:
 
-- id: handout1_0
+- id: handout01_00
   markdown: |
     Na hodině jsme se naučili pracovat s interaktivní Python konzolí. Zkus pomocí Pythonu vypočítat:
     3+(4+6)×8÷2−1 =
 
     (Závorky v Pythonu fungují jako v matematice)
 
-- id: handout1_1
+- id: handout01_01
   markdown: |
     Jsou i jiné operátory než `+`, `-` a ty pro násobení a dělení.
     Co dělá s čísly operátor `%` (procento)?
 
-- id: handout1_2
+- id: handout01_02
   markdown: |
     A co dělá operátor `**` (dvě hvězdičky)?
 
-- id: handout1_3
+- id: handout01_03
   markdown: |
     Jaký je v Pythonu rozdíl mezi dělením pomocí `/` a `//`? (Zkus si v Pythonu a odpověz slovně)
 
-- id: handout1_4
+- id: handout01_04
   markdown: |
     Řetězce jdou spojovat sčítáním. Například:
 
@@ -35,15 +35,15 @@ tasks:
     >>> 'Ahoj' + 'PyLadies!'
     ```
 
-- id: handout1_5
+- id: handout01_05
   markdown: |
     Řetězce se dají sčítat. Dají se i násobit? Dělit? Odečítat? (Odpověz slovně)
 
-- id: handout1_6
+- id: handout01_06
   markdown: |
     Co se stane, když se pokusím sečíst číslo a řetězec? (Můžeš vložit výsledek z konzole, ale odpověz i slovně)
 
-- id: handout1_7
+- id: handout01_07
   markdown: |
     A vynásobit? (Můžeš vložit výsledek z konzole, ale odpověz i slovně)
 
@@ -51,7 +51,7 @@ tasks:
     markdown: |
       Poslední úkol se neodevzdává. Je pro tebe, aby sis před další hodinou ověřila, že vše funguje, jak má:
 
-- id: handout1_8
+- id: handout01_08
   markdown: |
     V adresáři 01 ve složce pro kurz si vytvoř soubor `funguju.py` . Do souboru ulož:
 
@@ -62,7 +62,7 @@ tasks:
     Pak se v příkazové řádce přepni do adresáře, kde jsi vytvořila soubor, aktivuj virtuální prostředí a do příkazové řádky napiš:
 
     ```
-    >>> python funguju.py
+    python funguju.py
     ```
 
     Objevila se oslavná hláška? Gratulujeme, jsi připravena na další hodinu!

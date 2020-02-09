@@ -3,4 +3,8 @@ naucse_api_url: https://naucse.python.cz/v0/2020/pyladies-praha-jaro2020-barclay
 tasks_by_lesson_slug:
 
   "beginners/first-steps":
-  - file: tasks/01_expressions.yaml
+  - file: tasks/01_prvni_program.yaml
+  "beginners/variables":
+  - file: tasks/02_promenne_podminky.yaml
+
+  
