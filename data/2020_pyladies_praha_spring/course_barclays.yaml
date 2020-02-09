@@ -14,5 +14,3 @@ tasks_by_lesson_slug:
   - file: tasks/05_vlastni_funkce.yaml
   "beginners/str":
   - file: tasks/06_retezce.yaml
-
-  
