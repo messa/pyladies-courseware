@@ -6,7 +6,7 @@ bcrypt
 cchardet
 markdown
 motor
-PyYAML==4.2b4
+PyYAML>=5.3
 requests
 requests_oauthlib
 simplejson
