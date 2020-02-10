@@ -14,3 +14,12 @@ tasks_by_lesson_slug:
   - file: tasks/05_vlastni_funkce.yaml
   "beginners/str":
   - file: tasks/06_retezce.yaml
+  "beginners/files":
+  - file: tasks/07_opakovani_soubory.yaml
+  "beginners/list":
+  - file: tasks/08_seznamy.yaml
+  "beginners/dict":
+  - file: tasks/09_slovniky.yaml
+  "beginners/exceptions":
+  - file: tasks/10_vyjimky_moduly.yaml
+
