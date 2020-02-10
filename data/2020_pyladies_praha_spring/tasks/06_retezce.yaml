@@ -1,33 +1,33 @@
 tasks:
 
 - id: handout06_00
-    markdown: |
-     Vytvoř funkci, která dostane jako argument příjmení 
-     a zkusí podle něj uhodnout pohlaví. Funkce bude vracet řetězec `"žena"` nebo `"muž"`.
-     Funkce bude součástí programu, který se na příjmení zeptá a následně vypíše
-     odhad pohlaví uživatele.
+  markdown: |
+    Vytvoř funkci, která dostane jako argument příjmení 
+    a zkusí podle něj uhodnout pohlaví. Funkce bude vracet řetězec `"žena"` nebo `"muž"`.
+    Funkce bude součástí programu, který se na příjmení zeptá a následně vypíše
+    odhad pohlaví uživatele.
 
 - id: handout06_01
-    markdown: |
-      Napiš funkci, do které se vloží identifikační číslo (např. rodné číslo, číslo platební
-      karty, číslo OP) a ona vrátí řetězec, kde jsou všechna čísla mimo posledních čtyř
-      nahrazena symbolem `X`.
+  markdown: |
+    Napiš funkci, do které se vloží identifikační číslo (např. rodné číslo, číslo platební
+    karty, číslo OP) a ona vrátí řetězec, kde jsou všechna čísla mimo posledních čtyř
+    nahrazena symbolem `X`.
 
-      např. pro `1234567` funkce vrátí `XXX4567` 
+    např. pro `1234567` funkce vrátí `XXX4567` 
 
 - id: handout06_02
-    markdown: |
-      Najdi na internetu text své oblíbené písně, zkopíruj si ho do řetězce
-      a zjisti, kolikrát je v něm použito písmeno `K`.
+  markdown: |
+    Najdi na internetu text své oblíbené písně, zkopíruj si ho do řetězce
+    a zjisti, kolikrát je v něm použito písmeno `K`.
       
 - id: handout06_03
-    markdown: |
-      Změň funkci `ano_nebo_ne` z materiálů k lekci [Vlastní funkce](https://naucse.python.cz/2020/pyladies-praha-jaro2020-barclays/beginners/def/)
-      (sekce Vracení) tak, aby se místo `ano` se dalo použít i `a`,
-      místo `ne` i `n`
-      a aby se nebral ohled na velikost písmen a mezery před/za odpovědí.
+  markdown: |
+    Změň funkci `ano_nebo_ne` z materiálů k lekci [Vlastní funkce](https://naucse.python.cz/2020/pyladies-praha-jaro2020-barclays/beginners/def/)
+    (sekce Vracení) tak, aby se místo `ano` se dalo použít i `a`,
+    místo `ne` i `n`
+    a aby se nebral ohled na velikost písmen a mezery před/za odpovědí.
 
-      _Textům jako `možná` nebo `no tak určitě` by počítač dál neměl rozumět._
+    _Textům jako `možná` nebo `no tak určitě` by počítač dál neměl rozumět._
 
 - section:
     markdown: |

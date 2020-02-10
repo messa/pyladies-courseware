@@ -6,5 +6,11 @@ tasks_by_lesson_slug:
   - file: tasks/01_prvni_program.yaml
   "beginners/variables":
   - file: tasks/02_promenne_podminky.yaml
-
-  
+  "intro/turtle":
+  - file: tasks/03_cyklus_for_zelva.yaml
+  "beginners/while":
+  - file: tasks/04_cyklus_while.yaml
+  "beginners/def":
+  - file: tasks/05_vlastni_funkce.yaml
+  "beginners/str":
+  - file: tasks/06_retezce.yaml
