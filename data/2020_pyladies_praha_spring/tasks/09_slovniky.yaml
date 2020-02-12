@@ -47,21 +47,22 @@ tasks:
     která určují sloupec a řádek)
     a vypíše je jako mapu: mřížku 10×10, kde na políčka která jsou v seznamu
     napíše `X`, jinde tečku.
-    
     Například:
-    nakresli_mapu([(0, 0), (1, 0), (2, 2), (4, 3), (8, 9), (8, 9)])
-    X X . . . . . . . .
-    . . . . . . . . . .
-    . . X . . . . . . .
-    . . . . X . . . . .
-    . . . . . . . . . .
-    . . . . . . . . . .
-    . . . . . . . . . .
-    . . . . . . . . . .
-    . . . . . . . . . .
-    . . . . . . . . X .
+
+        nakresli_mapu([(0, 0), (1, 0), (2, 2), (4, 3), (8, 9), (8, 9)])
+        X X . . . . . . . .
+        . . . . . . . . . .
+        . . X . . . . . . .
+        . . . . X . . . . .
+        . . . . . . . . . .
+        . . . . . . . . . .
+        . . . . . . . . . .
+        . . . . . . . . . .
+        . . . . . . . . . .
+        . . . . . . . . X .
 
     _Jak na to?_
+
     - Udělej tabulku (seznam seznamů) se samými tečkami, něco jako:<br>
       `[['.', '.', '.'], ['.', '.', '.'], ['.', '.', '.']]`.
     - Na příslušných místech nahraď tečky X-ky.
