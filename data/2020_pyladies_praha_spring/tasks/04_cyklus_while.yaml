@@ -75,10 +75,10 @@ tasks:
   markdown: |
     Co vypíše tenhle kód?
 
-  ```
-  for c in 'Ahoj světe!':
-      print(c)
-  ```
+    ```
+    for c in 'Ahoj světe!':
+        print(c)
+    ```
 
 - section:
     markdown: |
