@@ -22,4 +22,7 @@ tasks_by_lesson_slug:
   - file: tasks/09_slovniky.yaml
   "beginners/exceptions":
   - file: tasks/10_vyjimky_moduly.yaml
-
+  "beginners/class":
+  - file: tasks/11_clovek.yaml
+  "beginners/inheritance":
+  - file: tasks/12_vozovy_park_v2.yaml
