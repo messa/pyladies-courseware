@@ -73,6 +73,7 @@ tasks:
     Napiš funkci `pohyb`, která dostane seznam souřadnic a světovou stranu
     (`"s"`, `"j"`, `"v"` nebo `"z"`)
     a přidá k seznamu poslední bod „posunutý“ v daném směru. Např.:
+    
         souradnice = [(0, 0)]
         pohyb(souradnice, 'v')
         print(souradnice)         # → [(0, 0), (1, 0)]
