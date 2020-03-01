@@ -17,11 +17,13 @@ tasks:
 
 - id: handout08_01
   markdown: |
-    Napiš funkci, která vrací seznam jmén domácích zvířat (ze seznamu zadaného argumentem), která jsou kratší než 5 písmen.
+    Napiš funkci, která dostane jako argument seznam domácích zvířat
+    a vrátí seznam těch, která jsou kratší než 5 písmen.
 
 - id: handout08_02
   markdown: |
-    Napiš funkci, která vrací jména domácích zvířat (ze seznamu zadaného argumentem), která začínají na `k`.
+    Napiš funkci, která dostane jako argument seznam domácích zvířat
+    a vrátí seznam těch, která začínají na `k`.
 
 - id: handout08_03
   markdown: |
@@ -56,10 +58,11 @@ tasks:
     </pre>
     
     Postup:
-    - Máš seznam _hodnot_, které chceš seřadit podle nějakého _klíče_. Klíč se dá z každé hodnoty vypočítat.
-    - Vytvoř seznam dvojic `(klíč, hodnota)`.
-    - Seřaď tento seznam dvojic – dvojice se řadí nejdřív podle prvního prvku, pak druhého atd.
-    - Nakonec vytvoř ze seznamu dvojic opět jen seznam hodnot.
+
+      - Máš seznam _hodnot_, které chceš seřadit podle nějakého _klíče_. Klíč se dá z každé hodnoty vypočítat.
+      - Vytvoř seznam dvojic `(klíč, hodnota)`.
+      - Seřaď tento seznam dvojic – dvojice se řadí nejdřív podle prvního prvku, pak druhého atd.
+      - Nakonec vytvoř ze seznamu dvojic opět jen seznam hodnot.
 
     Proč má zrovna had takovéhle výsadní postavení, zjistíš později.
 
@@ -71,6 +74,6 @@ tasks:
     markdown: |
       - Vím, co je seznam a jak ho vytvořit.
       - Umím z něho vybrat potřebný prvek.
-      - Měnit seznam, přidávat do něj nové prvky, řait je a mazat.
-      - Používám metody jako ne např. count, index aj.
+      - Měnit seznam, přidávat do něj nové prvky, řadit je a mazat.
+      - Používám metody jako je např. count, index aj.
       - Vím, že seznam může obsahovat další seznam (tzv. vnořené seznamy)
