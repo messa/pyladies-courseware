@@ -25,7 +25,8 @@ tasks:
 
 - section:
     markdown: |
-      A nyní zpět k projektu z minulých domácích projetků. Ve hře had vylepšíš funkci pohyb, trochu hada zkrotíš a za odměnu mu přiděláě potravz,
+      A nyní zpět ke hře had z minulých domácích projektů.
+      Tentokrát vylepšíš funkci pohyb, trochu hada zkrotíš a za odměnu mu přidáš potravu.
 
 - id: handout10_03
   markdown: |
@@ -45,12 +46,15 @@ tasks:
   markdown: |
     Přidej do hry hadí potravu. Tady jsou pravidla pro vegetariánského hada,
     ale můžeš si je změnit podle chuti:
+
     Seznam ovoce obsahuje na začátku jedno ovoce na políčku, na kterém není had
     (například: `[(2, 3)]` znamená jedno ovoce na pozici (2, 3)).
     
-    Když had sežere ovoce, vyroste („nesmaže“ se mu ocas, tedy neprovede se to, cos přidala v projektu 13),
+    Když had sežere ovoce, vyroste („nesmaže“ se mu ocas, tedy neprovede se to, cos přidala v projektu 3),
     a pokud na mapě zrovna není další ovoce, na náhodném místě (kde není had) vyroste ovoce nové.
+
     Každých 30 tahů vyroste nové ovoce samo od sebe.
+
     Na mapě se toto tajemné ovoce zobrazuje jako otazník (`?`).
 
 - section:
@@ -59,5 +63,6 @@ tasks:
 
 - section:
     markdown: |
-      - Pomocí výjimek ošetřit chyby, které mohou v programu nastat.
+      - Pomocí příkazu `try/except` zachytit a ošetřit některé chyby, které mohou při běhu programu nastat.
+      - Při nežádoucích situacích naopak výjimku v programu vyvolat.
       - Strukturovat kód do modulů.

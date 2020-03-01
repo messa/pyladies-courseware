@@ -1,5 +1,10 @@
 tasks:
 
+- section:
+    markdown: |
+      Pokračujeme s piškvorkami, které jsme začaly programovat
+      v domácích projektech k minulé lekci.
+
 - id: handout07_00
   markdown: |
     Napiš funkci `tah_pocitace`, která dostane řetězec s herním polem,
@@ -41,12 +46,13 @@ tasks:
 
 - section:
     markdown: |
-      Teď několik programovacích oříšků pro dlouhé chvíle. Máš-li piškovrky do funkce `piskvorky1d` a k tomu trohu volného času, tak se do nich směle pusť!
+      Teď několik programovacích oříšků pro dlouhé chvíle. Máš-li hotové piškvorky
+      (tj. máš v nich funkci `piskvorky1d`) a k tomu trochu volného času, tak se do nich směle pusť!
 
 - id: handout07_03
   markdown: |
     Napiš program, který se zeptá na 3 čísla a zjistí, jestli je jejich součet větší než 10.
-    Dokážeš to napsat tak, aby funkce input byla v kódu zapsaná jen jednou? ;)
+    Dokážeš jej vymyslet tak, aby funkce input byla v kódu zapsaná jen jednou? ;)
 
 - id: handout07_04
   markdown: |

@@ -28,13 +28,13 @@ tasks:
 
 - id: handout02_02
   markdown: |
-    Změň program tak, aby stranu/poloměr mohl uživatel zadat.
+    Změň program tak, aby délku strany mohl zadat uživatel.
 
     _Tady už se na materiály ze srazu klidně podívej._
 
 - id: handout02_03
   markdown: |
-    
+
     Představ si, že napíšeš následující kód do interaktivního Pythonu:
 
     ```
@@ -68,8 +68,8 @@ tasks:
 
 - id: handout02_07
   markdown: |
-    Zkus napsat hru `kámen, nůžky, papír`. Jak na to:
-    
+    Zkus napsat hru `Kámen, nůžky, papír`. Jak na to:
+
     - Vytvoř si dvě proměnné, `tah_cloveka` a `tah_pocitace`
     - Nastav `tah_pocitace` na "kámen", na `tah_cloveka` se uživatele zeptej
     - Vypiš výsledky hry dle tahu člověka - buď `'Plichta.'`, `'Počítač vyhrál.'` nebo `'Vyhrála jsi!'`.
@@ -78,7 +78,7 @@ tasks:
 
 - id: handout02_08
   markdown: |
-    Zkus přepsat hru `Kámen, Nůžky, Papír` z předchozího úkolu pomocí `and` a `or`.
+    Zkus přepsat hru `Kámen, nůžky, papír` z předchozího úkolu pomocí `and` a `or`.
 
     Dokážeš docílit toho, aby se každý z řetězců `'Plichta.'`, `'Počítač vyhrál.'` a `'Vyhrála jsi!'` objevil
     v programu jen jednou, aniž bys tyhle řetězce musela přiřazovat do proměnných?
@@ -89,14 +89,13 @@ tasks:
     markdown: |
       **Co po této lekci umím:**
 
-- numbered: false
-  submit: false
-  markdown: |
-    - Použít příkaz `print`
-    - Vím, co je proměnná
-    - Napsat komentář do kódu
-    - Umím načíst vstup od uživatele a v případě potřeby ho převést na řetězec, celé číslo, nebo desetiné číslo
-    - Umím použít porovnávací operátory
-    - Znám booleovské hodnoty `True` a `False`
-    - Vím, jak fungují podmínky, a umím použít příkazy `if`, `elif` a `else`
-    - Umím vytvořit složené podmínky pomocí logických operátorů `and`, `or` a `not`
+- section:
+    markdown: |
+      - Použít příkaz `print`
+      - Vím, co je proměnná
+      - Napsat komentář do kódu
+      - Umím načíst vstup od uživatele a v případě potřeby ho převést na celé nebo desetinné číslo 
+      - Umím použít porovnávací operátory
+      - Znám booleovské hodnoty `True` a `False`
+      - Vím, jak fungují podmínky, a umím použít příkazy `if`, `elif` a `else`
+      - Umím vytvořit složené podmínky pomocí logických operátorů `and`, `or` a `not`

@@ -18,7 +18,7 @@ tasks:
     ```pycon
     >>> soucet_klicu_a_hodnot(mocniny(4))
     (10, 30)
-    muj_slovnik = {0: 0, 1: 5, 2: 10}
+    >>> muj_slovnik = {0: 0, 1: 5, 2: 10}
     >>> soucet_klicu_a_hodnot(muj_slovnik)
     (3, 15)
     ```
@@ -36,16 +36,16 @@ tasks:
 
 - section:
     markdown: |
-      Projekty závisí jeden na druhém, řeš je postupně.
-      Až to uděláš, můžeš si zahrát hru!
-      Tahle sekce není jednoduchá (a poslední dva projekty jsou obzvláště náročné).
-      Můžeš zkusit spojit síly s ostatními účastnicemi kurzu!}
+      Následující projekty závisí jeden na druhém, řeš je postupně.
+      Až to uděláš, můžeš si zahrát hru!  
+      Tahle sekce není jednoduchá.
+      Můžeš zkusit spojit síly s ostatními účastnicemi kurzu!
 
 - id: handout09_03
   markdown: |
     Napiš funkci, která dostane seznam souřadnic (párů čísel menších než 10,
     která určují sloupec a řádek)
-    a vypíše je jako mapu: mřížku 10×10, kde na políčka která jsou v seznamu
+    a vypíše je jako mapu: mřížku 10×10, kde na políčka, která jsou v seznamu,
     napíše `X`, jinde tečku.
     Například:
 
@@ -73,7 +73,7 @@ tasks:
     Napiš funkci `pohyb`, která dostane seznam souřadnic a světovou stranu
     (`"s"`, `"j"`, `"v"` nebo `"z"`)
     a přidá k seznamu poslední bod „posunutý“ v daném směru. Např.:
-    
+
         souradnice = [(0, 0)]
         pohyb(souradnice, 'v')
         print(souradnice)         # → [(0, 0), (1, 0)]
@@ -97,9 +97,10 @@ tasks:
 - section:
     markdown: |
       **Co po této lekci umím:**
+
 - section:
     markdown: |
       - Vím, co je slovník, jak ho vytvořit a kdy ho použít.
-      - Umím přistoupi k hodnotě pomocí klíče.
+      - Umím přistoupit k hodnotě pomocí klíče.
       - Umím procházet klíče i hodnoty.
   
