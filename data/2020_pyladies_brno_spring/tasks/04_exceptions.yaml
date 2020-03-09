@@ -181,39 +181,3 @@ tasks:
     Stav hry kontroluj po každém tahu.
 
     Nezapomeň, že máš k dispozici funkci `vyhodnot`!
-
-- section:
-    markdown: |
-      Obrázek na konec.
-
-- id: recursive_tree
-  markdown: |
-
-    Tento úkol je nepovinný.
-
-    Řekni želvě, aby nakreslila tento stromeček.
-    (Instrukce můžeš řádek po řádku přeložit do Pythonu.)
-
-    <img src="/static/tasks/handout_images/recursive-tree.png" alt="Rekurzivní želví stromek" style="max-width: 100%; max-height: 200px">
-
-    * Stromeček dané **délky** a **úhlu** se kreslí takto:
-        * *(Malý stromeček je jen jedna větvička.)* Je-li **délka** menší než 20:
-            * Pohni se dopředu o danou **délku**.
-            * Otoč se zpátky, o 180°
-            * Pohni se dopředu o **délku** *(aby želva byla na stejném místě jako na začátku)*
-            * Otoč se zpátky, o 180° *(aby se želva dívala stejným směrem jako na začátku)*
-        * Jinak *(je stromeček rozvětvený)*:
-            * Pohni se dopředu o polovinu **délky** *(nakreslíš tak kmen)*
-            * Otoč se doprava o **úhel**
-            * Nakresli stromeček s poloviční **délkou** (`delka/2`) a dvoutřetinovým **úhlem** (`uhel*2/3`)
-            * Otoč se doleva o **úhel**
-            * Nakresli stromeček s poloviční **délkou** a dvoutřetinovým **úhlem**
-            * Otoč se doleva o **úhel**
-            * Nakresli stromeček s poloviční **délkou** a dvoutřetinovým **úhlem**
-            * Otoč se doprava o **úhel**
-            * Otoč se zpátky, o 180°
-            * Pohni se dopředu o polovinu **délky** *(aby želva byla na stejném místě jako na začátku)*
-            * Otoč se zpátky, o 180° *(aby se želva dívala stejným směrem jako na začátku)*
-
-    * Řekni želvě, ať se otočí o 90° doleva *(aby se dívala nahoru)*
-    * Nakresli stromeček o **délce** 200 a **úhlu** 60.
