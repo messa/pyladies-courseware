@@ -6,6 +6,8 @@ tasks_by_lesson_slug:
   - file: tasks/01_expressions.yaml
   "beginners/while":
   - file: tasks/02_cycles.yaml
+  "beginners/str":
+  - file: tasks/02_str.yaml
   "beginners/def":
   - file: tasks/03_def.yaml
   "beginners/exceptions":
