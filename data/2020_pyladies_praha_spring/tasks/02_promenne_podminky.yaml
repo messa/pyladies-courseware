@@ -73,6 +73,8 @@ tasks:
     - Vytvoř si dvě proměnné, `tah_cloveka` a `tah_pocitace`
     - Nastav `tah_pocitace` na "kámen", na `tah_cloveka` se uživatele zeptej
     - Vypiš výsledky hry dle tahu člověka - buď `'Plichta.'`, `'Počítač vyhrál.'` nebo `'Vyhrála jsi!'`.
+      Vyhodnocení výsledku hry naprogramuj tak, jako by počítač mohl náhodně losovat ze všech tří
+      variant - naučíš ho to v příští lekci.
 
     Pokud nevíš, odevzdej i nekompletní řešení, koučové tě navedou!
 
@@ -94,7 +96,7 @@ tasks:
       - Použít příkaz `print`
       - Vím, co je proměnná
       - Napsat komentář do kódu
-      - Umím načíst vstup od uživatele a v případě potřeby ho převést na celé nebo desetinné číslo 
+      - Umím načíst vstup od uživatele a v případě potřeby ho převést na celé nebo desetinné číslo
       - Umím použít porovnávací operátory
       - Znám booleovské hodnoty `True` a `False`
       - Vím, jak fungují podmínky, a umím použít příkazy `if`, `elif` a `else`
