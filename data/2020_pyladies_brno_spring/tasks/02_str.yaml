@@ -194,12 +194,12 @@ tasks:
     * Výchozí počet **neúspěšných pokusů** je nula.
 
     * Stále dokola:
-        * Zeptej se hráče na písmeno.
-        * Pokud je to písmeno ve vybraném **slově**:
-            * Zaměň ve **stavu** příslušné podtržítko za ono písmeno.
+        * Zeptej se hráče na **písmeno**.
+        * Pokud je to **písmeno** ve vybraném **slově**:
+            * Zaměň ve **stavu** příslušné podtržítko za ono **písmeno**.
               (Bude se hodit řetězcová metoda `index` a podprogram `zamen`\* ze
               srazu.)
-        * Pokud dané písmeno _není_ ve vybraném slově:
+        * Pokud dané **písmeno** _není_ ve vybraném slově:
             * započítej **neúspěšný pokus**.
         * Vypiš **stav** (slovo s případnými podtržítky).
         * Pokud už ve **stavu** nejsou podtržítka:
