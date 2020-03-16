@@ -197,7 +197,8 @@ tasks:
         * Zeptej se hráče na písmeno.
         * Pokud je to písmeno ve vybraném **slově**:
             * Zaměň ve **stavu** příslušné podtržítko za ono písmeno.
-              (Bude se hodit řetězcová metoda `index` a funkce `zamen` ze srazu.)
+              (Bude se hodit řetězcová metoda `index` a podprogram `zamen`\* ze
+              srazu.)
         * Pokud dané písmeno _není_ ve vybraném slově:
             * započítej **neúspěšný pokus**.
         * Vypiš **stav** (slovo s případnými podtržítky).
@@ -208,3 +209,16 @@ tasks:
         * Pokud je počet **neúspěšných pokusů** 9 (nebo víc):
             * Dej hráči najevo, že prohrál.
             * Ukonči hru.
+
+    ---
+
+    \* Podprogram `zamen` jsme si ukázali na srazu:
+    ```python
+    # Ve slově `slovo` zaměnit znak na pozici `pozice` za `novy_znak`;
+    # výsledek bude v proměnné `nove_slovo`.
+    zacatek = slovo[:pozice]
+    konec = slovo[pozice + 1:]
+    nove_slovo = zacatek + novy_znak + konec
+    ```
+
+    *(upřesnění přidáno 2020-03-16)*
