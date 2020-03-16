@@ -30,7 +30,7 @@ tasks:
     markdown: |
       Umíš napsat funkci (nebo proceduru)?
 
-- id: handout4_06
+- id: handout4_06-func
   markdown: |
     Napiš *funkci*, která jako argument bere příjmení uživatelky/uživatele
     a zkusí podle něj uhodnout její/jeho pohlaví.
