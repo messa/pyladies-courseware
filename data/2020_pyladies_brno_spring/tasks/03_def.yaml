@@ -135,7 +135,7 @@ tasks:
 - id: recursive_tree
   markdown: |
 
-    Tento rekurzivní úkol je nepovinný.
+    Tento úkol je nepovinný. Procvičuje rekurzi.
 
     Řekni želvě, aby nakreslila tento stromeček.
     (Instrukce můžeš řádek po řádku přeložit do Pythonu.)
