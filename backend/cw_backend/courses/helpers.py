@@ -1,5 +1,6 @@
 from datetime import date
 import re
+from reprlib import repr as smart_repr
 
 
 class DataProperty:
@@ -29,7 +30,7 @@ class DataProperty:
 def to_html(raw):
     if isinstance(raw, str):
         return raw
-    elif raw.get('markdown'):
+    elif isinstance(raw, dict) and raw.get('markdown'):
         return markdown_to_html(raw['markdown'])
     else:
         raise Exception(f'Unknown type (to_html): {smart_repr(raw)}')
@@ -38,6 +39,8 @@ def to_html(raw):
 def parse_date(s):
     if not s:
         return None
+    if isinstance(s, date):
+        return s
     if not isinstance(s, str):
         raise TypeError(f'parse_date argument must be str: {smart_repr(s)}')
     m = re.match(r'^([0-9]{1,2})\. *([0-9]{1,2})\. *([0-9]{4})$', s)
