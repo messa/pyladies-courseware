@@ -1,0 +1,116 @@
+tasks:
+
+- id: clovek_01
+  markdown: |
+    Vytvoř třídu `Clovek`. `Clovek` má atributy jméno a příjmení, které se nastavují při vytváření objektu.
+
+    Otestujte (například) pomocí:
+    ```
+    osoba = Clovek('Anna', 'Nová')
+    print(osoba.jmeno, osoba.prijmeni) # Anna Nová
+    ```
+
+- id: clovek_02
+  markdown: |
+    Zařiď, aby se při vytváření objektu zajistilo, že jméno i příjmení budou ve správném formátu,
+    tzn. první písmeno velké, ostatní malá (např. Anna Nováková - správně, aNNa NoVáKoVá - špatně).
+
+    Otestujte (například) pomocí:
+    ```
+    osoba = Clovek('anna', 'nová')
+    print(osoba.jmeno, osoba.prijmeni) # Anna Nová
+    osoba = Clovek('AnnA', 'nOVá')
+    print(osoba.jmeno, osoba.prijmeni) # Anna Nová
+    ```
+
+- id: clovek_03
+  markdown: |
+    Přidej třídě `Clovek` metodu `kdo_jsi`, která danou osobu představí.
+
+    Otestujte (například) pomocí:
+    ```
+    osoba = Clovek('anna', 'nová')
+    print(osoba.kdo_jsi()) # Jmenuji se Anna Nová
+
+    ```
+- id: clovek_04
+  markdown: |
+    Rozšiř třídu `Clovek` tak, aby při vytváření třídy došlo k uložení iniciál do atributu `inicialy`
+    a následně rozšiř metodu `kdo_jsi`, aby uvedla rovněž iniciály.
+
+    Otestujte (například) pomocí:
+    ```
+    osoba = Clovek('anna', 'nová')
+    print(osoba.inicialy) # AN
+    print(osoba.kdo_jsi()) # Jmenuji se Anna Nová a mé iniciály jsou AN
+    ```
+
+- id: clovek_05
+  markdown: |
+    Napiš funkci na zpracování rodného čísla. Funkce vezme řetězec s rodným číslem bez lomítka
+    a vrátí zjištěné hodnoty jako n-tici ve formátu (rok, měsíc, den, pohlaví).  
+    Například pro RČ 9057121234 vrátí hodnotu: `(1990, 7, 12, 'žena')`.
+
+    Rodné číslo není třeba kontrolovat (dělitelnost 11, ...).
+
+    Pozn.: Pokud je část rodného čísla, která odpovídá roku, >= 54, jedná se o osoby narozené před rokem 2000.
+    V opačném případě se osoba narodila v roce 2000 nebo později.
+
+    Otestujte (například) pomocí:
+    ```
+    print(zpracuj_rodne_cislo('9057121234')) # (1990, 7, 12, 'žena')
+    print(zpracuj_rodne_cislo('0007021234')) # (2000, 7, 2, 'muž')
+    ```
+
+- id: clovek_06
+  markdown: |
+    Rozšiř třídu `Clovek` tak, aby při vytváření vedle jména a příjmení zpracovala rodné číslo.
+    Třída si do atributů uloží rok, měsíc a den narození a pohlaví. Následně rozšiř metodu kdo_jsi o nové informace.
+
+    Pozn.: Lze použít funkci na zpracování rodného čísla z předchozí úlohy :)
+
+    Otestujte (například) pomocí:
+    ```
+    osoba = Clovek('anna', 'nová', '9057121234')
+    print(osoba.kdo_jsi()) # Jmenuji se Anna Nová, mé iniciály jsou AN, jsem žena rok narození 1990 a narozeniny mám 12.7.
+    osoba = Clovek('jan', 'malý', '0007021234')
+    print(osoba.kdo_jsi()) # Jmenuji se Jan Malý, mé iniciály jsou JM, jsem muž rok narození 2000 a narozeniny mám 2.7.
+    ```
+
+- id: clovek_07
+  markdown: |
+    **[Bonus]** Rozšiř zpracování rodného čísla o jeho validaci. Pokud rodné číslo není validní, vyhoď výjimku.
+
+    U rodného čísla lze kontrolovat:
+
+    - číslo má 10 znaků
+    - číslo je beze zbytku dělitelné 11
+    - měsíc je v rozsahu 1-12 nebo 51-62
+    - (zjednodušeně) den je v rozsahu 1-31
+    - cokoliv dalšího, co tě napadne
+
+- id: clovek_08
+  markdown: |
+    **[Bonus]** Rozšiř třídu `Clovek` o metodu `__repr__`, která bude vracet stejný řetězec jako metoda `kdo_jsi`. Vyzkoušej funkci `print` na instanci objektu před a po přidání metody `__repr__`, vidíš nějaký rozdíl?
+
+    Otestujte (například) pomocí:
+    ```
+    # před přidáním __repr__
+    osoba = Clovek('anna', 'nová', '9057121234')
+    print(osoba)
+
+    # přidej __repr__ a vyzkoušej znovu
+    osoba = Clovek('anna', 'nová', '9057121234')
+    print(osoba)
+    ```
+
+- section:
+    markdown: |
+      **Co po této lekci umím:**
+
+- section:
+    markdown: |
+      - Vytvářet vlastní třídy.
+      - Pracovat s atributy třídy.
+      - Pracovat s metodami třídy.
+      - Vyrábět rodná čísla na přání.

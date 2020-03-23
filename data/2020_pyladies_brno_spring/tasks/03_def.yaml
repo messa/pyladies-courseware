@@ -1,0 +1,165 @@
+tasks:
+
+- section:
+    markdown: |
+      Na začátek trocha teoretického opakování.
+
+- id: handout3b_00
+  markdown: |
+    Co dělá funkce `print`?
+
+- id: handout3b_01
+  markdown: |
+    Co _vrací_ funkce `print`?
+
+- section:
+    markdown: |
+      Trocha experimentování.
+      Zkus se zamyslet, jestli jsi „dobře” pochopila otázku.
+
+- id: handout4_00
+  markdown: |
+    Co se stane, když tělo nějaké funkce necháš úplně prázdné? Zkus vysvětlit proč. (Tělo funkce je odsazený blok za dvojtečkou)
+
+- id: handout4_01
+  markdown: |
+    Co se stane, když necháš úplně prázdné tělo cyklu? Zkus vysvětlit proč.
+
+
+- section:
+    markdown: |
+      Umíš napsat funkci (nebo proceduru)?
+
+- id: handout4_06-func
+  markdown: |
+    Napiš *funkci*, která jako argument bere příjmení uživatelky/uživatele
+    a zkusí podle něj uhodnout její/jeho pohlaví.
+    To vrátí jako řetězec.
+
+    Funkci v programu několikrát zavolej (s různými příjmeními) a výsledky vypiš.
+
+    (Pohlaví není možné určit přesně – stačí zvládnout ta nejčastější
+    česká příjmení.)
+
+    *Program, který tohle dělá už máš – úkol spočívá v tom, že z něj
+    správný kousek „zabalíš“ do funkce.*
+
+- id: handout4_02
+  mandatory: true
+  markdown: |
+    Napiš proceduru, která vykreslí domeček dané velikosti.
+    Velikost se zadá argumentem.
+
+    Proceduru v programu několikrát zavolej (s různými velikostmi).
+
+    <img src="/static/tasks/handout4_images/02_domecky.png" alt="domečky" style="max-width: 100%; max-height: 80px">
+
+- id: handout4_03
+  markdown: |
+    Máš-li ráda geometrii*, můžeš zkusit dávat domečkové proceduře dva argumenty:
+    šířku a výšku.
+    Je potřeba si vzpomenout na Pythagorovu větu a funkci tangens.
+    Pozor, funkce `tan` vrací výsletek v radiánech;
+    je potřeba ho převést na stupně (`from math import degrees`).
+
+    <img src="/static/tasks/handout4_images/03_domecky.png" alt="domečky" style="max-width: 100%; max-height: 80px">
+
+    \* t.j. jestli nemáš ráda geometrii, tak tenhle projekt přeskoč
+
+- section:
+    markdown: |
+      Procvičení programování.
+      Často je jednoduché něco napsat, ale dotažení do konce může být časově náročné.
+      Tyto úkoly jsou *nepovinné*.
+      Nemáš-li čas, zkus se ale aspoň zamyslet, jak bys projekt vyřešila.
+
+- id: handout4_04
+  markdown: |
+    Změň program Kámen, Nůžky, Papír tak, aby opakoval hru dokud
+    uživatel nezadá slovo `konec`.
+
+- id: handout4_05
+  markdown: |
+    Změň funkci `ano_nebo_ne` tak,
+    aby se místo `ano` se dalo použít i `a`,
+    místo `ne` i `n`
+    a aby se nebral ohled na velikost písmen a mezery před/za odpovědí.
+
+    Odpovědím jako `možná` nebo `no tak určitě` by počítač dál neměl rozumět.
+
+- section:
+    markdown: |
+      Teď několik programovacích oříšků pro dlouhé chvíle.
+      Jsou *nepovinné*.
+      Nemáš-li čas, přeskoč je.
+
+- id: handout9_07
+  markdown: |
+    Funguje-li ti hra `sibenice`, můžeš ji vylepšit.
+
+    - Použij funkci `zamen` (místo toho, aby byl příslušný kód přímo v hlavním
+      programu).
+    - Po vypsání počtu neúspěšných pokusů vypiš obrázek.
+      Funkci, která ti vrátí obrázek podle počtu pokusů, si můžeš
+      zkopírovat [z Gistu](https://gist.github.com/encukou/77376e445356a9843e278ba387b168f0)
+    - Když hráč nezadá písmeno (zadá např. `ABC` nebo `!`), nepovažuj to za tah.
+    - Zařiď, aby hra fungovala pro slova s více stejnými písmeny.
+    - Po skončení dej hráči možnost hru opakovat.
+
+    *Jednotlivá vylepšení dělej jednotlivě a v odpovědi napiš,
+    která jsou hotová a která rozpracovaná. Jakmile nějaké vylepšení
+    začne fungovat, program odevzdej! (Je možné odevzdat několik verzí.)*
+
+- id: handout4_08
+  markdown: |
+    Napiš program, který simuluje tuto „hru“:
+
+    První hráč hází kostkou
+    _(t.j. vybírají se náhodná čísla od 1 do 6)_,
+    dokud nepadne šestka.
+    Potom hází další hráč, dokud nepadne šestka i jemu.
+    Potom hází hráč třetí a nakonec čtvrtý.
+    Vyhrává ten, kdo na hození šestky potřeboval nejvíc hodů.
+    (V případě shody vyhraje ten, kdo házel dřív.)
+
+    Program by měl vypisovat všechny hody a nakonec napsat, kdo vyhrál.
+
+    *Nápověda: průběžně stačí ukládat jen údaj o tom, kdo vede a kolik má bodů.*
+
+    *Tip: Program si napiš napřed v češtině; pak ho přelož do Pythonu.*
+
+- section:
+    markdown: |
+      Obrázek na konec.
+
+- id: recursive_tree
+  markdown: |
+
+    Tento úkol je nepovinný. Procvičuje rekurzi.
+
+    Řekni želvě, aby nakreslila tento stromeček.
+    (Instrukce můžeš řádek po řádku přeložit do Pythonu.)
+
+    <img src="/static/tasks/handout_images/recursive-tree.png" alt="Rekurzivní želví stromek" style="max-width: 100%; max-height: 200px">
+
+    * Stromeček dané **délky** a **úhlu** se kreslí takto:
+        * *(Malý stromeček je jen jedna větvička.)* Je-li **délka** menší než 20:
+            * Pohni se dopředu o danou **délku**.
+            * Otoč se zpátky, o 180°
+            * Pohni se dopředu o **délku** *(aby želva byla na stejném místě jako na začátku)*
+            * Otoč se zpátky, o 180° *(aby se želva dívala stejným směrem jako na začátku)*
+        * Jinak *(je stromeček rozvětvený)*:
+            * Pohni se dopředu o polovinu **délky** *(nakreslíš tak kmen)*
+            * Otoč se doprava o **úhel**
+            * Nakresli stromeček s poloviční **délkou** (`delka/2`) a dvoutřetinovým **úhlem** (`uhel*2/3`)
+            * Otoč se doleva o **úhel**
+            * Nakresli stromeček s poloviční **délkou** a dvoutřetinovým **úhlem**
+            * Otoč se doleva o **úhel**
+            * Nakresli stromeček s poloviční **délkou** a dvoutřetinovým **úhlem**
+            * Otoč se doprava o **úhel**
+            * Otoč se zpátky, o 180°
+            * Pohni se dopředu o polovinu **délky** *(aby želva byla na stejném místě jako na začátku)*
+            * Otoč se zpátky, o 180° *(aby se želva dívala stejným směrem jako na začátku)*
+
+    * Řekni želvě, ať se otočí o 90° doleva *(aby se dívala nahoru)*
+    * Nakresli stromeček o **délce** 200 a **úhlu** 60.

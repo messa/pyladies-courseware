@@ -17,3 +17,6 @@ courses:
 - file: 2020_pyladies_hradec_leden/course_hradec.yaml
 - file: 2020_pyladies_ostrava_spring/course.yaml
 - file: 2020_pyladies_plzen_spring/course.yaml
+- file: 2020_pyladies_praha_spring/course_barclays.yaml
+- file: 2020_pyladies_praha_spring/course_olsanka.yaml
+- file: 2020_pyladies_brno_spring/course_monday.yaml

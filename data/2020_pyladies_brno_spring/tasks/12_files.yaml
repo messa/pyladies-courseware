@@ -1,0 +1,81 @@
+tasks:
+
+- section:
+    markdown: |
+      Čtení souborů
+
+- id: upper-poetry
+  markdown: |
+    Napiš program, který vypíše básničku ze souboru `basnicka.txt`
+    VELKÝMI PÍSMENY.
+
+- id: mirror-text
+  markdown: |
+    Napiš program, který vypíše básničku ze souboru `basnicka.txt`, ale každé
+    písmeno nahradí jiným podle následujícího slovníku:
+
+    ```python
+    {'a': 'ɐ', 'b': 'q', 'c': 'ɔ', 'd': 'p', 'e': 'ǝ', 'f': 'ɟ', 'g': 'ƃ',
+     'h': 'ɥ', 'i': 'ᴉ', 'j': 'ɾ', 'k': 'ʞ', 'l': 'l', 'm': 'ɯ', 'n': 'u',
+     'o': 'o', 'p': 'd', 'q': 'b', 'r': 'ɹ', 's': 's', 't': 'ʇ', 'u': 'n',
+     'v': 'ʌ', 'w': 'ʍ', 'x': 'x', 'y': 'ʎ', 'z': 'z', 'A': '∀', 'B': 'B',
+     'C': 'Ɔ', 'D': 'D', 'E': 'Ǝ', 'F': 'Ⅎ', 'G': 'פ', 'H': 'H', 'I': 'I',
+     'J': 'ſ', 'K': 'ʞ', 'L': '˥', 'M': 'W', 'N': 'N', 'O': 'O', 'P': 'Ԁ',
+     'Q': 'Q', 'R': 'R', 'S': 'S', 'T': '┴', 'U': '∩', 'V': 'Λ', 'W': 'M',
+     'X': 'X', 'Y': '⅄', 'Z': 'Z', '0': '0', '1': 'Ɩ', '2': 'ᄅ', '3': 'Ɛ',
+     '4': 'ㄣ', '5': 'ϛ', '6': '9', '7': 'ㄥ', '8': '8', '9': '6', ',': "'",
+     '.': '˙', '?': '¿', '!': '¡', '"': '„', "'": ',', '`': ',', '(': ')',
+     ')': '(', '[': ']', ']': '[', '{': '}', '}': '{', '<': '>', '>': '<',
+     '&': '⅋', '_': '‾'}
+    ```
+
+    Znaky, které ve slovníku nejsou, program vypíše nezměněné.
+
+    Nepovinný bonus: Každý řádek navíc vypiš pozpátku (od posledního písmena).
+    *(Který typ sekvencí umíš obrátit?)*
+
+- section:
+    markdown: |
+      Využij soubory a formát JSON pro ukládání informací v programech,
+      které už máš hotové.
+
+- id: game-write-state
+  markdown: |
+    Vyber si jednu hru, kterou už máš naprogramovanou.
+    Zhruba podle náročnosti:
+
+    1. Piškvorky
+    2. Šibenice
+    3. Solitaire
+
+    Po každém tahu hru hráče *ulož*: stav převeď na JSON a ulož do souboru
+    `stav.json`.
+
+- id: game-read-state
+  markdown: |
+    Při spuštění programu načti uložený stav se souboru.
+    Tedy:
+
+    * Na začátku hry:
+      * pokud existuje soubor `stav.json`:
+        * přečti ho a nastav podle něj stav hry,
+        * soubor smaž.
+      * Jinak hru začni normálně.
+
+- id: game-unlink-state
+  markdown: |
+    Když hra (nebo kolo) skončí, soubor `stav.json` odstraň, aby příští hra
+    začala zase od začátku.
+
+- id: game-hall-of-fame
+  markdown: |
+    Nepovinný složitý úkol:
+
+    Počítej ve hře skóre (jak, to je na tobě).
+    Udržuj soubor s deseti nejlepšími výsledky:
+
+    * Na začátku hry načti a vypiš tabulku nejlepších výsledků.
+    * Vyhraje-li někdo, a je-li mezi deseti nejlepšími,
+      zeptej se ho na jméno a ulož.
+
+    Tenhle úkol schválně nemá jasné zadání. Detaily doplň dle svého uvážení.

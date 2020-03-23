@@ -1,0 +1,28 @@
+id: pyladies-praha-jaro2020-barclays
+naucse_api_url: https://naucse.python.cz/v0/2020/pyladies-praha-jaro2020-barclays.json
+tasks_by_lesson_slug:
+
+  "beginners/first-steps":
+  - file: tasks/01_prvni_program.yaml
+  "beginners/variables":
+  - file: tasks/02_promenne_podminky.yaml
+  "intro/turtle":
+  - file: tasks/03_cyklus_for_zelva.yaml
+  "beginners/while":
+  - file: tasks/04_cyklus_while.yaml
+  "beginners/def":
+  - file: tasks/05_vlastni_funkce.yaml
+  "beginners/str":
+  - file: tasks/06_retezce.yaml
+  "beginners/files":
+  - file: tasks/07_opakovani_soubory.yaml
+  "beginners/list":
+  - file: tasks/08_seznamy.yaml
+  "beginners/dict":
+  - file: tasks/09_slovniky.yaml
+  "beginners/exceptions":
+  - file: tasks/10_vyjimky_moduly.yaml
+  "beginners/class":
+  - file: tasks/11_clovek.yaml
+  "beginners/inheritance":
+  - file: tasks/12_vozovy_park_v2.yaml

@@ -1,0 +1,30 @@
+tasks:
+
+- section:
+    markdown: |
+      Česká správa sociálního zabezpečení (ČSSZ) nabízí spoustu dat ohledně zaměstnanců, zaměstnavatelů, pojištění, důchodů atd. My se podíváme na data o OSVČ a jejich statistiky napříč Českem. Načti si do DataFramu CSV z [této adresy](https://data.cssz.cz/dump/prehled-o-celkovem-poctu-osvc-podle-okresu.csv). 
+      Budou nás zajímat sloupce `datum`, `okres_kod`, `okres`, `vykonavana_cinnost_hlavni`, zbytek můžeš zahodit. Možná se ti bude hodit, když `datum` budeš brát fakt jako datum.
+
+- id: eda5_01
+  markdown: |
+    Pro každý okres je v tabulce několik desítek pozorování v čase (poznáš podle sloupce `datum`). Pro každé datum zjisti, kolik řádků v DataFramu je - mělo by to odpovídat počtu okresů.
+
+- id: eda5_02
+  markdown: |
+    Pro každé datum zjisti, kolik byl celkový počet lidí s živností jako hlavní činností (`vykonavana_cinnost_hlavni`).
+
+- id: eda5_03
+  markdown: |
+    Z výsledku předchozího úkolu zkus spočítat, kolik byl každý rok průmerný počet OSVČ (hlavních). Tj. pokud ti v březnu 2019 vyšlo 500000, v září 600000 a v prosinci 650000, budeš chtít mít ve výsledku pro řádek s rokem 2019 hodnotu zhruba 583333.
+
+- id: eda5_04
+  markdown: |
+    Zkus spočítat průměrný počet vykonávaných hlavních činností za rok a okres. Výsledek pak otoč (pivotuj), abys měla v řádcích okresy, ve sloupcích jednotlivé roky (hodnota bude vždy onen průměr pro daný okres a rok). Jakmile bude dopivotováno, zkus dataframe opět převést na ten dlouhý (tj. rok bude pouze jeden sloupec, ne co rok, to sloupec).
+
+- id: eda5_05
+  markdown: |
+    Najdi datum nejnovějších pozorování (nejnovější `datum`) a vyfiltruj si náš dataframe do nového, který bude obsahovat jen pozorování z této doby. (Měl by mít 77 řádků, jeden pro každý okres.)
+
+- id: eda5_06
+  markdown: |
+    V tomto malém dataframu z předchozího úkolu si můžeš všimnout, že počet OSVČ se celkem dramaticky liší mezi okresy. Podívej se na rozložení počtu živností, stačí rovnoměrné na 5 intervalů (tj. všechny intervaly jsou stejné dlouhé, ale můžou mít dost rozdílný počet řádků). Některé intervaly mají nula řádků - co se stalo? Proč tomu tak je? Navrhla bys lepší rozdělení dat?

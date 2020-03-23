@@ -1,0 +1,28 @@
+tasks:
+- section:
+    markdown: |
+      Pojďme si procvičit nabyté znalosti analýzou dat o zpoždění vlaků ve Francii. Data najdete [zde](https://github.com/rfordatascience/tidytuesday/blob/master/data/2019/2019-02-26/small_trains.csv), podrobnosti k datasetu najdete na [Githubu](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-02-26).
+
+      Následující úkoly jsou spíše doporučení. Pokud bys k analýze přistupovala jinak, směle do toho! Klidně k řešení napiš poznámku, o co se snažíš a s čím případně potřebuješ pomoci, a kouč ti poradí. Zkus si u jednotlivých úkolů procvičit také grafy :)
+
+- id: extra1_01
+  markdown: |
+    V kterém roce/měsíci bylo nejvíc zrušených vlaků?
+
+- id: extra1_02
+  markdown: |
+    Která stanice je "nejhorší"? Např. dle počtu zrušených vlaků, největšího zpoždění na odjezdu apod.? 
+    _Pozor, pro některé stanice jsou data jen z r. 2018._
+
+- id: extra1_03
+  markdown: |
+    Na které trati je průměrně největší zpoždění? 
+
+- id: extra1_04
+  markdown: |
+    Zkus zjistit, jestli je nějaká závislost na roční době - např. zda je v zimě více zpoždění než v létě, které měsíce jsou nejrizikovější z hlediska zpoždění apod. 
+
+- id: extra1_05
+  markdown: |
+    Cokoli dalšího tě zajímá aneb prostor pro tvé experimenty:
+    Pochlub se funkčním kódem s okomentovaným řešením, případně kouče požádej o radu, pokud něco nefunguje. Pokud ti vyjde nějaký zajímavý graf, pochlub se s ním v kanále #projekty na Slacku!

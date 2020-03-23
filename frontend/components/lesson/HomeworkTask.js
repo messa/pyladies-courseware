@@ -3,9 +3,12 @@ import TaskSubmission from '../TaskSubmission'
 import TaskReview from './TaskReview'
 
 function HomeworkTask({ taskItem, userCanSubmitTask, courseId, sessionSlug, reviewUserId, students }) {
+  const taskId = taskItem.id ? `task-${taskItem.id}` : null
   return (
-    <div className='homework-task' id={'task-' + taskItem['id']}>
-      <div className='number'>{taskItem['number']}.</div>
+    <div className='homework-task' id={taskId}>
+      {(taskItem.number || taskItem.number === 0) && (
+        <div className='number'>{taskItem['number']}.</div>
+      )}
       <div className='homework-body'>
         {taskItem.mandatory && (
           <div className='mandatory-sign'>☜</div>
