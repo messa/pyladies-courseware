@@ -12,7 +12,7 @@ tasks_by_lesson_slug:
   - file: tasks/03_def.yaml
   "beginners/exceptions":
   - file: tasks/04_exceptions.yaml
-  "beginners/circular-imports":
+  "beginners/testing":
   - file: tasks/05_testing.yaml
   "beginners/list":
   - file: tasks/06_list.yaml
