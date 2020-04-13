@@ -73,6 +73,7 @@ tasks_by_lesson_slug:
   "beginners/exceptions": []
   "beginners/modules": []
   "beginners/testing":
+  - file: tasks/09_calc.yaml
   - file: tasks/09_1d_piskvorky_testy.yaml
   - file: tasks/09_hangman.yaml
   "beginners/circular-imports": []
