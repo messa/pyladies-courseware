@@ -6,16 +6,16 @@ tasks:
 
 - id: custom9_00
   markdown: |
-    Protože během tohoto bloku úkolů budeme vylepšovat konzolovou kalkulačku,
+    Během tohoto bloku úkolů budeme vylepšovat konzolovou kalkulačku,
     kterou jsme implementovali již v úkolu číslo 6 v domácích projektech na cykly.
     Program měl za úkol načíst od uživatele od uživatele dvě čísla a
-    jednoznakový řetězec – buď '+', '-', '*' nebo '/'. Pak provést příslušnou operaci.
-    Pojďme si ji připravit pro lepší kompozici do modulů a psaní testů.
+    jednoznakový řetězec – buď `'+'`, `'-'`, `'*'` nebo `'/'`. Pak provést příslušnou operaci.
+    Pojďme si ji připravit pro lepší rozdělení do modulů a psaní testů.
 
     Napiš tedy znovu program, který postupně načte od uživatele dvě čísla a
-    jednoznakový řetězec – buď '+', '-', '*' nebo '/'.
+    jednoznakový řetězec – buď `'+'`, `'-'`, `'*'` nebo `'/'`.
     Program provede na číslech příslušnou operaci.
-    Program bude napsán v jendom modulu `kalkulacka` ve kterém bude budeme mít funkce
+    Program bude napsán v jendom modulu `kalkulacka.py` ve kterém budeme mít funkce
     pro výpočetní operace sčítání, odčítání, násobení a dělení.
     Můžeš vyjít z rámcového kódu, který jsme ukazovali na cvičení.
 
@@ -23,15 +23,15 @@ tasks:
 
 - id: custom9_01
   markdown: |
-    Vytvoř modul `operace` do kterého přesuň funkce na výpočty.
-    Z tohoto modulu je pak naimportuje do modulu `kalkulacka` aby
+    Vytvoř modul `operace.py` do kterého přesuň funkce na výpočty.
+    Z tohoto modulu je pak naimportuj v modulu `kalkulacka.py` aby
     se v něm daly používat.
 
   mandatory: true
   
 - id: custom9_02
   markdown: |
-    Vytvoř testovací modul `test_kalkulacka`. Napiš do něj testy pro
+    Vytvoř testovací modul `test_kalkulacka.py`. Napiš do něj testy pro
     otestování, zda počítají opravdu správně. Nezapomeň otestovat i nestandardní
     vstupy a ověřit, zda dělení nulou opravdy vyhodí chybu.
 
@@ -101,8 +101,8 @@ tasks:
 
 - id: custom9_09
   markdown: |
-    V modulu `kalkulacka` nastav logování. Ty části kódu, ve kterých zachycuješ
-    výjimky doplň o logovací zprávu s důležitostí `error`.
+    V modulu `kalkulacka.py` nastav logování. Ty části kódu, ve kterých zachycuješ
+    výjimky (to jsou ty hned za `except:`) doplň o logovací zprávu s důležitostí `error`.
 
 - id: custom9_10
   markdown: |
