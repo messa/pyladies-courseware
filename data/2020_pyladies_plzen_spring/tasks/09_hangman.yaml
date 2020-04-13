@@ -5,7 +5,7 @@ tasks:
       Máš-li Piškvorky hotové, můžeš si naprogramovat ještě jednu hru!
       Jestli na to tedy máš čas a chuť.
 
-- id: handout9_17
+- id: handout9_06
   markdown: |
     Vytvoř hru `sibenice` podle následujícího popisu.
     Snaž se projekt rozdělit do funkcí a modulů s hezkými jmény,
@@ -47,7 +47,7 @@ tasks:
     p_t__n
     </pre>
 
-- id: handout9_18
+- id: handout9_07
   markdown: |
     Funguje-li ti předchozí hra, můžeš ji vylepšit.
 
