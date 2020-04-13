@@ -4,7 +4,7 @@ tasks:
     markdown: |
       Následující úkoly na sebe navazují. Nejlepší je proto je dělat jeden po druhém.
 
-- id: handout9_00
+- id: custom9_00
   markdown: |
     Protože během tohoto bloku úkolů budeme vylepšovat konzolovou kalkulačku,
     kterou jsme implementovali již v úkolu číslo 6 v domácích projektech na cykly.
@@ -21,7 +21,7 @@ tasks:
 
   mandatory: true
 
-- id: handout9_01
+- id: custom9_01
   markdown: |
     Vytvoř modul `operace` do kterého přesuň funkce na výpočty.
     Z tohoto modulu je pak naimportuje do modulu `kalkulacka` aby
@@ -29,7 +29,7 @@ tasks:
 
   mandatory: true
   
-- id: handout9_02
+- id: custom9_02
   markdown: |
     Vytvoř testovací modul `test_kalkulacka`. Napiš do něj testy pro
     otestování, zda počítají opravdu správně. Nezapomeň otestovat i nestandardní
@@ -38,7 +38,7 @@ tasks:
   mandatory: true
   
 
-- id: handout9_03
+- id: custom9_03
   markdown: |
     V modulu `kalkulacka` vytvoř funkci `proved_vypocet`, která bere tři argumenty.
     První číslo, druhé číslo a znak, který nám definuje operaci.
@@ -47,14 +47,14 @@ tasks:
 
   mandatory: true
   
-- id: handout9_04
+- id: custom9_04
   markdown: |
     Do testovacího modulu doplň test, který otestuje správné chování
     funkce `proved_vypocet` z modulu `kalkulacka`.
 
   mandatory: true
   
-- id: handout9_05
+- id: custom9_05
   markdown: |
     Pomocí `try`, `except` případně `finally` a `else` ošetři program pro následující případ.
     
@@ -65,7 +65,7 @@ tasks:
 
   mandatory: true
   
-- id: handout9_06
+- id: custom9_06
   markdown: |
     Pomocí `try`, `except` případně `finally` a `else` ošetři program pro následující případ.
       
@@ -76,7 +76,7 @@ tasks:
 
   mandatory: true
   
-- id: handout9_07
+- id: custom9_07
   markdown: |
     Pomocí `try`, `except` případně `finally` a `else` ošetři program pro následující případ.
 
@@ -95,16 +95,16 @@ tasks:
       ```
       Modul `logging` musí být samozřejmě naimportován.
 
-- id: handout9_08
+- id: custom9_08
   markdown: |
     Dokážeš popsat, co nám v nastavení logování dělá parametr `level`?
 
-- id: handout9_09
+- id: custom9_09
   markdown: |
     V modulu `kalkulacka` nastav logování. Ty části kódu, ve kterých zachycuješ
     výjimky doplň o logovací zprávu s důležitostí `error`.
 
-- id: handout9_10
+- id: custom9_10
   markdown: |
     Doplň další vhodná místa v kódu o informační a debugovací zprávy.
     Rozhodnutí, co to jsou vhodná místa, je zcela na tobě.

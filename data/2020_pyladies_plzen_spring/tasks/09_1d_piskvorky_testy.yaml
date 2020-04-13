@@ -5,7 +5,7 @@ tasks:
       Následující projekty jsou součástí projektu 1D Piškvorky.
       Pokud na ně máš ještě chuť, doporučuji je dělat jeden po druhém.
 
-- id: handout9_11
+- id: handout9_00
   markdown: |
     Rozděl 1D Piškvorky na čtyři moduly:
 
@@ -17,13 +17,13 @@ tasks:
     Jak se do importů nezamotat? Podívej se do materiálů na sekci [cyklické importy](https://naucse.python.cz/course/pyladies/beginners/circular-imports/).
 
   
-- id: handout9_12
+- id: handout9_01
   markdown: |
     Napiš _aspoň_ dva testy na každou funkci z Piškvorek, ke které testy napsat umíš.
     _Testy pravděpodobně neumíš napsat na funkci `input` a všechny funkce, které ji (byť nepřímo) volají.
     A taky asi neumíš otestovat účinek funkce `print`._
 
-- id: handout9_13
+- id: handout9_02
   markdown: |
     Zkus program přepsat tak, aby část, která není pokrytá automatickými testy, byla co nejmenší.
     _Místo volání `print` můžeš často vrátit řetězec
@@ -31,17 +31,17 @@ tasks:
     Podobně `input` můžeš zavolat před zavoláním funkce,
     která pak může příkaz od uživatele brát jako argument._
 
-- id: handout9_14
+- id: handout9_03
   markdown: |
     Doplň funkci `tah_pocitace` tak, aby brala jako argument symbol, za který má počítač hrát – buď `'x'`, nebo `'o'`.
     Dopiš testy.
 
-- id: handout9_15
+- id: handout9_04
   markdown: |
     Ověř, že se funkce `tah_pocitace` se umí vyrovnat s jinou délkou hracího pole než 20.
     _„Ověření” znamená napsání příslušného testu._
 
-- id: handout9_16
+- id: handout9_05
   markdown: |
     Ověř si, že se `tah_pocitace` chová rozumně když dostane plné hrací pole, nebo pole s délkou 0.
     _Rozumné chování v tomto případě znamená vyvolání rozumné výjimky._
