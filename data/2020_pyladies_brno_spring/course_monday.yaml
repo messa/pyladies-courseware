@@ -16,11 +16,11 @@ tasks_by_lesson_slug:
   - file: tasks/05_testing.yaml
   "beginners/list":
   - file: tasks/06_list.yaml
+  "beginners/files":
+  - file: tasks/12_files.yaml
   "beginners/dict":
   - file: tasks/08_dict.yaml
   "klondike/game":
   - file: tasks/klondike.yaml
-  "beginners/files":
-  - file: tasks/12_files.yaml
   "beginners/class":
   - file: tasks/13_class.yaml

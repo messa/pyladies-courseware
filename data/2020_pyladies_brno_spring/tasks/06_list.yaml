@@ -245,16 +245,17 @@ tasks:
     Například:
 
         nakresli_mapu([(0, 0), (1, 0), (2, 2), (4, 3), (8, 9), (8, 9)])
-        X X . . . . . . . .
-        . . . . . . . . . .
+
+        X . . . . . . . . .
+        X . . . . . . . . .
         . . X . . . . . . .
-        . . . . X . . . . .
+        . . . . . . . . . .
+        . . . X . . . . . .
         . . . . . . . . . .
         . . . . . . . . . .
         . . . . . . . . . .
+        . . . . . . . . . X
         . . . . . . . . . .
-        . . . . . . . . . .
-        . . . . . . . . X .
 
     _Jak na to?_
 
@@ -264,6 +265,9 @@ tasks:
       `souradnice = (cislo_radku, cislo_sloupce)`.
     - Napiš `X`, pokud je dvojice `souradnice` v seznamu. Jinak napiš `.`.
 
+    *Pondělí 2020-04-20: změněno zadání – souřadnice jsou `(číslo řádku, číslo sloupce)`,
+    ne naopak.*
+
 - id: handout7_15
   markdown: |
     Napiš funkci `pohyb`, která dostane seznam souřadnic a světovou stranu
@@ -271,16 +275,19 @@ tasks:
     a přidá k seznamu poslední bod „posunutý“ v daném směru. Např.:
 
         souradnice = [(0, 0)]
-        pohyb(souradnice, 'v')
-        print(souradnice)         # → [(0, 0), (1, 0)]
-        pohyb(souradnice, 'v')
-        print(souradnice)         # → [(0, 0), (1, 0), (2, 0)]
         pohyb(souradnice, 'j')
+        print(souradnice)         # → [(0, 0), (1, 0)]
+        pohyb(souradnice, 'j')
+        print(souradnice)         # → [(0, 0), (1, 0), (2, 0)]
+        pohyb(souradnice, 'v')
         print(souradnice)         # → [(0, 0), (1, 0), (2, 0), (2, 1)]
-        pohyb(souradnice, 's')
+        pohyb(souradnice, 'z')
         print(souradnice)         # → [(0, 0), (1, 0), (2, 0), (2, 1), (2, 0)]
 
     Funkce by neměla nic vracet. Jen mění už existující seznam.
+
+    *Pondělí 2020-04-20: změněno zadání – souřadnice jsou `(číslo řádku, číslo sloupce)`,
+    ne naopak.*
 
 - id: handout7_16
   markdown: |
@@ -288,7 +295,9 @@ tasks:
     podle ní zavolá `pohyb`, a následně vykreslí seznam jako mapu.
     Pak se opět se zeptá na stranu atd.
 
-    Začínej se seznamem `[(0, 0), (1, 0), (2, 0)]`.
+    Začínej se seznamem `[(0, 0), (0, 1), (0, 2)]`.
+
+    *Pondělí 2020-04-20: změněno zadání – začíná se s jiným seznamem.*
 
 - id: handout7_17
   markdown: |
