@@ -14,6 +14,8 @@ tasks_by_lesson_slug:
   - file: tasks/eda_5.yaml
   "pydata/databases":
   - file: tasks/databases.yaml
+  "pydata/intro_regression":
+  - file: tasks/ml_1.yaml
 
 sessions:
 - slug: "pydata_extra1"
