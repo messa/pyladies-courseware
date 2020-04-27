@@ -31,21 +31,18 @@ tasks:
 
 - id: wordlist-to-dict
   markdown: |
-    Stáhni si soubor [index.dic](https://github.com/wooorm/dictionaries/blob/5ede45bb705d3f9f525ea779f7b487f9fc062013/dictionaries/cs/index.dic) se všemi českými slovy.
+    Stáhni si soubor [index.dic](https://raw.githubusercontent.com/wooorm/dictionaries/5ede45bb705d3f9f525ea779f7b487f9fc062013/dictionaries/cs/index.dic) se všemi českými slovy.
 
     > *(Seznam slov vytvořil Petr Kolář a další a [je poskytován pod licencí GNU GPL 2](https://github.com/wooorm/dictionaries/blob/5ede45bb705d3f9f525ea779f7b487f9fc062013/dictionaries/cs/license).)*
 
     Soubor není úplně „čistý“.
     Vytvoř seznam, kde budou opravdu jen slova.
 
-    Slova ze seznamu pak ulož do souboru `slova.txt`,
-    kde bude na každém řádku jedno slovo:
-
     * Vytvoř prázdný seznam
     * Projdi `index.dic` po řádcích a postupně přidávej slova do seznamu
 
     Na začátku souboru (řádek 0) je údaj s počtem řádků,
-    ten neber jako jako slovo. *(Jak při ptrůchodu souborem – sekvencí –
+    ten neber jako slovo. *(Jak při průchodu souborem – sekvencí –
     zjistíš, číslo prvku?)*
 
     Některá slova obsahují další informace za znakem `/`, ty bude potřeba
