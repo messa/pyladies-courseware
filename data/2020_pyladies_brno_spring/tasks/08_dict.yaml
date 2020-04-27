@@ -1,4 +1,19 @@
 tasks:
+- section:
+    markdown: |
+        Poslední šance dodělat strategii do piškvorek!
+
+- id: handout4_14
+  mandatory: true
+  markdown: |
+    Zvládneš pro počítač naprogramovat lepší strategii?
+    Třeba aby se snažil hrát vedle svých existujících symbolů
+    nebo aby bránil protihráčovi?
+    Stačí jen docela malé vylepšení!
+
+    Testy by stále měly procházet.
+
+    Odevzdej celý soubor `ai.py`.
 
 - section:
     markdown: |
@@ -6,48 +21,31 @@ tasks:
 
 - id: handout8_00
   markdown: |
-    Napiš funkci, která pro argumentem zadané číslo `n` vytvoří a vrátí slovník,
+    Napiš funkci `mocniny`, která pro argumentem zadané číslo `n` vytvoří
+    a vrátí slovník,
     kde jako klíče budou čísla od jedné do `n` a jako hodnoty k nim
-    jejich druhé mocniny. Například:
+    jejich druhé mocniny.
 
-    ```pycon
-    >>> mocniny(4)
-    {1: 1, 2: 4, 3: 9, 4: 16}
-    ```
-
-- id: handout8_01
-  markdown: |
-    Napiš funkci, která sečte a vrátí sumu všech klíčů a sumu všech hodnot
-    ve slovníku, který dostane jako argument. K vyzkoušení můžeš použít
-    slovník z minulé úlohy. Například:
-
-    ```pycon
-    >>> soucet_klicu_a_hodnot(mocniny(4))
-    (10, 30)
-    ```
+    Například: `mocniny(4)` vrátí `{1: 1, 2: 4, 3: 9, 4: 16}`
 
 - id: handout8_02
   markdown: |
-    Napiš funkci, která jako argument dostane řetězec a vrátí slovník,
+    Napiš funkci `pocet_znaku`, která jako argument dostane řetězec
+    a vrátí slovník,
     ve kterém budou jako klíče jednotlivé znaky ze zadaného řetězce a jako
     hodnoty počty výskytů těchto znaků v řetězci. Například:
 
-    ```pycon
-    >>> pocet_znaku("hello world")
-    {'h': 1, 'e': 1, 'l': 3, 'o': 2, ' ': 1, 'w': 1, 'r': 1, 'd': 1}
-    ```
+    Například: `pocet_znaku("hello world")`
+    vrátí `{'h': 1, 'e': 1, 'l': 3, 'o': 2, ' ': 1, 'w': 1, 'r': 1, 'd': 1}`
 
 - id: handout8_03
   markdown: |
-    Napiš funkci, která vypíše obsah slovníku (klíče a k nim náležící
+    Napiš proceduru, která vypíše obsah slovníku (klíče a k nim náležící
     hodnoty) na jednotlivé řádky.
 
-    Funkci, která něco vypisuje, je vhodné
-    pojmenovat speciálně, zde třeba `vypis_slovnik`, aby bylo jasné,
-    že jen vypisuje a nic nevrací. Například:
+    Například `vypis_slovnik(mocniny(4))` vypíše
 
-    ```pycon
-    >>> vypis_slovnik(mocniny(4))
+    ```plain
     Klíč 1, hodnota 1
     Klíč 2, hodnota 4
     Klíč 3, hodnota 9
@@ -56,7 +54,7 @@ tasks:
 
 - section:
     markdown: |
-      Dalších pár úkolů kombinuje slovníky se soubory a JSONem.
+      Další úkol kombinuje slovníky se soubory.
 
 - id: mirror-text
   markdown: |
@@ -83,17 +81,6 @@ tasks:
     Nepovinný bonus: Každý řádek navíc vypiš pozpátku (od posledního písmena).
     *(Který typ sekvencí umíš obrátit?)*
 
-- id: handout8_04
-  markdown: |
-    Úkolem je vytvořit známou skautskou hru „Kdo? S kým? Co dělali?“. Hra se
-    hráče zeptá postupně na různé otázky, například „Kdo?“, „S kým?“,
-    „Co dělali?“, „Kde?“, „Kdy?“, a nakonec „Proč?“, s tím, že mu umožní
-    na jednu otázku odpovědět vícekrát a všechny odpovědi si uloží.
-    Na závěr pak hra z každé sady odpovědí vybere náhodně jednu odpověď
-    a z takto vybraných odpovědí složí větu, kterou vypíše uživateli.
-    Seznam otázek by mělo být možné změnit v kódu na jednom místě bez zásahu
-    do logiky programu.
-
 - section:
     markdown: |
       Využij soubory a formát JSON pro ukládání informací v programech,
@@ -101,12 +88,11 @@ tasks:
 
 - id: game-write-state
   markdown: |
-    Vyber si jednu hru, kterou už máš naprogramovanou.
-    Zhruba podle náročnosti:
+    Vyber si jednu hru, kterou už máš naprogramovanou: Piškvorky (jednodušší)
+    nebo Šibenici (složitější).
 
     1. Piškvorky
     2. Šibenice
-    3. Solitaire
 
     Po každém tahu hru hráče *ulož*: stav převeď na JSON a ulož do souboru
     `stav.json`.
@@ -127,15 +113,89 @@ tasks:
     Když hra (nebo kolo) skončí, soubor `stav.json` odstraň, aby příští hra
     začala zase od začátku.
 
-- id: game-hall-of-fame
+- section:
+    markdown: |
+       Typicky „slovníková“ hříčka:
+
+- id: handout8_04
   markdown: |
-    Nepovinný složitý úkol:
+    Úkolem je vytvořit známou skautskou hru „Kdo? S kým? Co dělali?“.
 
-    Počítej ve hře skóre (jak, to je na tobě).
-    Udržuj soubor s deseti nejlepšími výsledky:
+    1. Hra se hráče zeptá postupně na různé otázky, například „Kdo?“, „S kým?“,
+       „Co dělali?“, „Kde?“, „Kdy?“, a nakonec „Proč?“, s tím, že mu umožní
+       na jednu otázku odpovědět vícekrát a všechny odpovědi si uloží do
+       slovníku, podobně jako jsme
+       na lekci měli telefonní čísla přiřazená ke jménům, např:
 
-    * Na začátku hry načti a vypiš tabulku nejlepších výsledků.
-    * Vyhraje-li někdo, a je-li mezi deseti nejlepšími,
-      zeptej se ho na jméno a ulož.
+            {
+                'Kdo': ['Anče', 'Kuba', 'Hajnej'],
+                'S kým': ['Hyacint', 'Rumburak', 'Blekota'],
+                ...
+            }
 
-    Tenhle úkol schválně nemá jasné zadání. Detaily doplň dle svého uvážení.
+        Seznam otázek by mělo být možné změnit v kódu na jednom místě bez zásahu
+        do logiky programu.
+
+    2. Hra vytvoří nový slovník, ve kterém bude ke každé otázce přiřazena
+       právě jedna náhodně vybraná odpověď.
+
+            {
+                'Kdo': 'Anče',
+                'S kým': 'Hyacint',
+                ...
+            }
+
+    3. Na závěr pak hra z takto vybraných odpovědí složí větu, kterou vypíše
+       uživateli.
+
+    Doporučuji hru rozdělit do tří funkcí, aby hru šlo napsat takto:
+
+    ```python
+    vsechny_odpovedi = ziskej_odpovedi()
+    vybrane_odpovedi = vyber_odpovedi(vsechny_odpovedi)
+    vypis_vysledek(vybrane_odpovedi)
+    ```
+
+- section:
+    markdown: |
+       A nakonec rochu netradiční úkol s funkcemi.
+
+- id: calculator-funciondict
+  markdown: |
+    Bonusový nepovinný úkol.
+
+    Napiš program, který postupně načte od uživatele dvě čísla a jednoznakový
+    řetězec – buď `'+'`, `'-'`, `'*'` nebo `'/'`. Program provede na číslech příslušnou operaci.
+
+    Tenhle úkol už jsi jednou dělala. Tentokrát ale pro výběr operace použij 
+    následující slovník funkcí:
+
+    ```
+    def secti(a, b):
+        return a + b
+    def odecti(a, b):
+        return a - b
+    def vynasob(a, b):
+        return a * b
+    def podel(a, b):
+        return a / b
+
+    slovnik_operaci = {
+        '+': secti,
+        '-': odecti,
+        '*': vynasob,
+        '/': podel,
+    }
+    ```
+
+    Hodnoty tohoto slovníku jsou *funkce*, takže výraz jako
+    `slovnik_operaci['+']` teď označuje *funkci*: dosadí se za něj
+    funkce `secti`. Můžeš tedy např. zavolat `slovnik_operaci['+'](3, 4)`.
+
+    Příklad použití programu (čísla za dvojtečkou doplnil uživatel):
+    ```
+    První číslo: 123
+    Druhé číslo: 456
+    Operace: +
+    123 + 456 = 579
+    ```
