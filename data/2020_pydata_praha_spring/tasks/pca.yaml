@@ -1,0 +1,29 @@
+tasks:
+
+- section:
+    markdown: |
+      Vyber si jednu z databází z předchozích hodin, například [Pokémony](https://naucse.python.cz/2020/pydata-praha-jaro/pydata/pandas_core/static/pokemon.csv) nebo [Gapminder](https://raw.githubusercontent.com/janpipek/data-pro-pyladies/master/data/countries.csv) (statistiky o jednotlivých státech) a pokus se aplikovat, co ses v hodině o PCA naučila:
+
+- id: pca_01
+  markdown: |
+    Z numerických veličin nakresli PCA graf.
+
+- id: pca_02
+  markdown: |
+    Spočítej podíl variability vysvětlené prvními dvěma komponentami.
+
+- id: pca_03
+  markdown: |
+    Dají se PCA1 a PCA2 vysvětlit pomocí nějaké kategoriální proměnné?
+
+- id: pca_04
+  markdown: |
+    Zkus PCA graf nakreslit jako interaktivní graf.
+
+- id: pca_05
+  markdown: |
+    Zkus krom PCA grafu nakreslit i heatmapu s hierarchickým clusterováním.
+
+- id: pca_06
+  markdown: |
+    Pokus se navrhnout, jak by šly do PCA zahrnout kategoriální veličiny (za předpokladu, že počet jejich kategorií není příliš velký - např. kontinent pro Gapminder nebo barva u pokémonů).
