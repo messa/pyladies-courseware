@@ -113,6 +113,14 @@ tasks:
     Když hra (nebo kolo) skončí, soubor `stav.json` odstraň, aby příští hra
     začala zase od začátku.
 
+    Na odstranění souboru můžeš použít funkci [`os.remove`](https://docs.python.org/3/library/os.html#os.remove).
+    POZOR: Funkce nepoužívá „odpadkový koš“ – daný soubor jednou provždy smaže:
+
+    ```
+    import os
+    os.remove("stav.json")
+    ```
+
 - section:
     markdown: |
        Typicky „slovníková“ hříčka:
