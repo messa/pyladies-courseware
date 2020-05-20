@@ -1,0 +1,13 @@
+tasks:
+
+- id: extra2_01
+  markdown: |
+    Napiš definici DA projektu ze svého prostředí (práce, kamarád, … ).
+
+- id: extra2_02
+  markdown: |
+    Zkus zhodnotit definici projektu od parťáka. Napiš:
+    
+    - Jméno parťačky jejího DA projektu
+    - Co se ti na jejím projektu líbí?
+    - Co bys zlepšila?

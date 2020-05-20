@@ -27,3 +27,10 @@ sessions:
   date: 2020-03-19
   tasks:
   - file: tasks/extra1.yaml
+
+- slug: "data_projects_definition"
+  title: "Definování projektů v datové analytice"
+  date: 2020-05-21
+  tasks:
+  - file: tasks/extra2.yaml
+
