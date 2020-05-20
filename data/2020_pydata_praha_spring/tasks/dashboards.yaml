@@ -1,0 +1,42 @@
+tasks:
+
+- section:
+    markdown: |
+      Do dashboardu GreatCovidDashboard z [druhé části lekce](https://naucse.python.cz/2020/pydata-praha-jaro/pydata/dashboards-2/) o dashboardech:
+
+- id: dashboards_01
+  markdown: |
+    Přidej widget pro výběr projekce mapy. Projekce se mění pomocí parametru `projection` funkce [choropleth](https://plotly.github.io/plotly.py-docs/generated/plotly.express.choropleth.html).
+
+- id: dashboards_02
+  markdown: |
+    Změň widget na výběr zemí na [MultiChoice](https://panel.holoviz.org/reference/widgets/MultiChoice.html#widgets-gallery-multichoice).
+
+- id: dashboards_03
+  markdown: |
+    Přidej graf vývoje smrtnosti, tj. podílu zemřelých k nakaženým.
+
+- id: dashboards_04
+  markdown: |
+    Spusť aplikaci na Heroku. Nejjednodušší bude nahradit předchozí dashboard, můžeš ale zaregistrovat novou Heroku aplikaci. Funguje to? Pochlub se a přidej odkaz!
+
+- section:
+    markdown: |
+      Rozšiř první graf s Gapminder daty z https://plotly.com/python/plotly-express/, tj. scatter plot `lifeExp` vs `gdpPercap`. (Nedělej v Panel aplikaci, nefungovala by animace):
+
+- id: dashboards_05
+  markdown: |
+    Gapminder data z roku 2007 spoj pomocí `pandas.merge` s Covid daty (na merge můžete použít `iso_alpha sloupec`).
+
+- id: dashboards_06
+  markdown: |
+    Na osu y vynes počet nakažených na 1000 obyvatel.
+
+- id: dashboards_07
+  markdown: |
+    Použij logaritmické měřítko na x i y osu.
+
+- id: dashboards_08
+  markdown: |
+    Přidej časovou animaci pomocí argumentu `animation_frame`. Pozor, animation_frame nespolupracuje dobře s typem pandas.Timestamp. Nejjednodušší je převést Timestamp sloupec na řetězec pomocí `.dt.strftime`.
+
