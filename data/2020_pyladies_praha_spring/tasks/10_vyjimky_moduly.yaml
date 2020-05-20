@@ -23,11 +23,6 @@ tasks:
   markdown: |
     Doplň funkci `tah_pocitace` tak, aby brala jako argument symbol, za který má počítač hrát – buď `'x'`, nebo `'o'`.
 
-- id: handout10_021
-  markdown: |
-    Ověř si, že se `tah_pocitace` chová rozumně když dostane plné hrací pole, nebo pole s délkou 0.
-    _Rozumné chování v tomto případě znamená vyvolání rozumné výjimky._
-
 - section:
     markdown: |
       A nyní zpět ke hře had z minulých domácích projektů.
