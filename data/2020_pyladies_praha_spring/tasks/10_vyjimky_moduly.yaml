@@ -23,12 +23,7 @@ tasks:
   markdown: |
     Doplň funkci `tah_pocitace` tak, aby brala jako argument symbol, za který má počítač hrát – buď `'x'`, nebo `'o'`.
 
-- id: handout10_06
-  markdown: |
-    Ověř, že se funkce `tah_pocitace` se umí vyrovnat s jinou délkou hracího pole než 20.
-    _„Ověření” znamená napsání příslušného testu._
-
-- id: handout10_07
+- id: handout10_021
   markdown: |
     Ověř si, že se `tah_pocitace` chová rozumně když dostane plné hrací pole, nebo pole s délkou 0.
     _Rozumné chování v tomto případě znamená vyvolání rozumné výjimky._
