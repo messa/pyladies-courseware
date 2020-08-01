@@ -66,6 +66,16 @@ type TaskItem {
   number: Int
   mandatory: Boolean
   submit: Boolean
+  mySolution: TaskSolution
+}
+
+type TaskSolution {
+  taskSolutionId: String
+  courseId: String
+  taskId: String
+  userId: String
+  isSolved: Boolean
+  lastAction: String
 }
 
 type User implements Node {

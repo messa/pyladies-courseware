@@ -71,6 +71,7 @@ class Session:
             load_tasks_file(
                 self.task_items,
                 self._course_dir / task_data['file'],
+                course_id=self.course_id,
                 session_slug=self.slug,
                 loader=self._loader)
 
@@ -87,7 +88,7 @@ class Session:
         return d
 
 
-def load_tasks_file(task_items, file_path, session_slug, loader):
+def load_tasks_file(task_items, file_path, course_id, session_slug, loader):
     try:
         raw = yaml_load(loader.read_text(file_path))
     except Exception as e:
@@ -96,7 +97,7 @@ def load_tasks_file(task_items, file_path, session_slug, loader):
         if raw_item.get('section'):
             task_items.append(TaskSection(raw_item))
         elif raw_item.get('markdown'):
-            task_items.append(Task(raw_item, session_slug))
+            task_items.append(Task(raw_item, course_id, session_slug))
         else:
             raise Exception(f'Unknown item in tasks file {file_path}: {smart_repr(raw_item)}')
 
@@ -211,8 +212,9 @@ class TaskSection:
 
 class Task:
 
-    def __init__(self, raw, session_slug):
+    def __init__(self, raw, course_id, session_slug):
         self.id = raw.get('id')
+        self.course_id = course_id
         self.session_slug = session_slug
         self.data = {
             'task_item_type': 'task',

@@ -79,9 +79,9 @@ class SessionPage extends React.Component {
                   ) : (userCanSubmitTasks && (
                     <TaskSubmissionLessonSummary
                       key={`${courseId} ${sessionSlug}`}
+                      session={session}
                       courseId={courseId}
                       sessionSlug={sessionSlug}
-                      tasks={tasks}
                     />
                   ))}
                 </>
@@ -205,6 +205,7 @@ export default withData(SessionPage, {
             mandatory
             submit
           }
+          ...TaskSubmissionLessonSummary_session
         }
       }
     }
