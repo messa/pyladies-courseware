@@ -39,7 +39,7 @@ function HomeworkTask({ taskItem, userCanSubmitTask, courseId, sessionSlug, revi
         <TaskSubmission
           courseId={courseId}
           sessionSlug={sessionSlug}
-          taskId={taskItem.id}
+          taskId={taskItem.taskItemId}
         />
       )}
       <style jsx>{`
