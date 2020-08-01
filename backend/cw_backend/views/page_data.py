@@ -80,11 +80,16 @@ async def course_detail(req, params):
     session = await get_session(req)
     model = req.app['model']
     course = req.app['courses'].get().get_by_id(params['course_id'])
+    courses_secret = req.app['conf'].courses_secret
     if session.get('user'):
         user = await model.users.get_by_id(session['user']['id'])
         if datetime.utcnow().strftime('%Y-%m-%d') <= '2018-10-30':
             await user.add_attended_courses([course.id], author_user_id=None)
-    return course.export(sessions=True)
+        if user.is_admin:
+            return course.export(
+                sessions=True, secret=courses_secret, coach_secret=True
+            )
+    return course.export(sessions=True, secret=courses_secret)
 
 
 @resolver
