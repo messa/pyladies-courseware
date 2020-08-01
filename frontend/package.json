@@ -22,14 +22,14 @@
     "react": "^16.13.1",
     "react-codemirror2": "^5.1.0",
     "react-dom": "^16.13.1",
-    "react-relay": "^9.0.0",
+    "react-relay": "^10.0.1",
     "semantic-ui-react": "^0.88.2",
-    "subscriptions-transport-ws": "^0.9.16",
+    "subscriptions-transport-ws": "^0.9.17",
     "terser": "3.14.1"
   },
   "devDependencies": {
-    "babel-plugin-relay": "^2.0.0",
+    "babel-plugin-relay": "^10.0.1",
     "http-proxy-middleware": "^0.19.1",
-    "relay-compiler": "^8.0.0"
+    "relay-compiler": "^10.0.1"
   }
 }
