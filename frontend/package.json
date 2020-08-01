@@ -7,7 +7,7 @@
     "dev": "npm run relay && node server",
     "build": "npm run relay && next build",
     "start": "NODE_ENV=production node server",
-    "relay": "relay-compiler --src ./ --exclude '**/.next/**' '**/node_modules/**' '**/test/**'  '**/__generated__/**' --exclude '**/schema/**' --schema ../backend/schema.graphql",
+    "relay": "relay-compiler --src ./ --exclude '**/.next/**' '**/node_modules/**' '**/test/**'  '**/__generated__/**' --exclude '**/schema/**' --schema ../backend/schema.graphql --artifactDirectory __generated__",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Petr Messner",
