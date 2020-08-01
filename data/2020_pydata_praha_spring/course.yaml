@@ -14,6 +14,12 @@ tasks_by_lesson_slug:
   - file: tasks/eda_5.yaml
   "pydata/databases":
   - file: tasks/databases.yaml
+  "pydata/intro_regression":
+  - file: tasks/ml_1.yaml
+  "pydata/pca":
+  - file: tasks/pca.yaml
+  "pydata/dashboards":
+  - file: tasks/dashboards.yaml
 
 sessions:
 - slug: "pydata_extra1"
@@ -21,3 +27,10 @@ sessions:
   date: 2020-03-19
   tasks:
   - file: tasks/extra1.yaml
+
+- slug: "data_projects_definition"
+  title: "Definování projektů v datové analytice"
+  date: 2020-05-21
+  tasks:
+  - file: tasks/extra2.yaml
+

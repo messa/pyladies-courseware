@@ -1,0 +1,26 @@
+tasks:
+
+- id: ml1_01
+  markdown: |
+    
+    Prohlédni si obrázek níže a rozmysli si odpovědi na následující otázky. Nic neprogramuj, ale zkus své myšlenky sepsat - na začátku další hodiny se o tom pobavíme a poté vše společně naprogramujeme.
+    
+    <img src="/static/tasks/handout_pydata_prg_images/ryby.png" alt="ryby" style="max-width: 100%; max-height: 639px">
+      
+    Data obsahují údaje o rybách. Druh, váhu, rozměry (délek je více, jsou měřeny různě napříč rybou). Cílem je predikovat váhu ryby. (Váha se rozbila, ale metr a počítač máme.) 
+
+    Rozmysli si:
+
+    - Které sloupečky využijeme? 
+    - Co budou příznaky (vstupní proměnné) a co výstup modelu?
+    - Jsou tam nějaké hodnoty, které budeme chtít použít a nejsou to čísla? Co s nimi uděláme?
+    - Jakou použijeme metriku?
+    - Jak zjistíme, zda nám model rozumně funguje?
+    - Popiš celý proces, který budeš muset udělat (od načtení dat po zhodnocení výsledku). 
+
+- id: ml1_02
+  markdown: |
+    Podívej se na notebook [excercise.ipynb](https://github.com/PyDataCZ/naucse.python.cz/blob/praha-jaro2020/lessons/pydata/regression_exercises/static/excercise.ipynb) a datový soubor [population.csv](https://github.com/PyDataCZ/naucse.python.cz/blob/praha-jaro2020/lessons/pydata/regression_exercises/static/population.csv) (Možná už máš obojí stažené spolu s ostatními materiály z hodiny. Pokud ne, notebook a data ulož do stejného adresáře). V notebooku je vypracovaná úloha predikce počtu obyvatel v závislosti na velikosti oblasti/města. Naučený model (krabička) ale počet obyvatel často podhodnocuje.
+    
+    Prohlédni si řešení v notebooku a zkus přijít na to, co je v na něm špatně. Nehledej chyby v kódu, spíše si prohlédni obrázky, případně data, a podívej se, co se mohlo stát. Své nápady sepiš.
+
