@@ -6,7 +6,7 @@ from graphql import (
     GraphQLInterfaceType,
     GraphQLObjectType,
     GraphQLField,
-    GraphQLInputObjectField,
+    #GraphQLInputObjectField,
     GraphQLArgument,
     GraphQLNonNull,
     GraphQLString,
@@ -33,15 +33,15 @@ MaterialItem = GraphQLObjectType(
     name='MaterialItem',
     fields={
         'materialItemType': GraphQLField(
-            type=GraphQLString,
-            resolver=lambda mi, _: mi.material_item_type),
+            GraphQLString,
+            resolve=lambda mi, _: mi.material_item_type),
         'titleHTML': GraphQLField(
-            type=GraphQLString,
-            resolver=lambda mi, _: mi.title_html),
+            GraphQLString,
+            resolve=lambda mi, _: mi.title_html),
         'textHTML': GraphQLField(
-            type=GraphQLString,
-            resolver=lambda mi, _: mi.text_html),
-        'url': GraphQLField(type=GraphQLString),
+            GraphQLString,
+            resolve=lambda mi, _: mi.text_html),
+        'url': GraphQLField(GraphQLString),
     })
 
 
@@ -49,17 +49,17 @@ TaskItem = GraphQLObjectType(
     name='TaskItem',
     fields={
         'taskItemType': GraphQLField(
-            type=GraphQLString,
-            resolver=lambda ti, _: ti.task_item_type),
+            GraphQLString,
+            resolve=lambda ti, _: ti.task_item_type),
         'taskItemId': GraphQLField(
-            type=GraphQLString,
-            resolver=lambda ti, _: ti.id),
+            GraphQLString,
+            resolve=lambda ti, _: ti.id),
         'textHTML': GraphQLField(
-            type=GraphQLString,
-            resolver=lambda ti, _: ti.text_html),
-        'number': GraphQLField(type=GraphQLInt),
-        'mandatory': GraphQLField(type=GraphQLBoolean),
-        'submit': GraphQLField(type=GraphQLBoolean),
+            GraphQLString,
+            resolve=lambda ti, _: ti.text_html),
+        'number': GraphQLField(GraphQLInt),
+        'mandatory': GraphQLField(GraphQLBoolean),
+        'submit': GraphQLField(GraphQLBoolean),
     })
 
 
@@ -68,23 +68,23 @@ Session = GraphQLObjectType(
     interfaces=[NodeInterface],
     fields={
         'id': GraphQLField(
-            type=GraphQLNonNull(GraphQLID),
-            resolver=lambda s, _: f'Session:{s.course_id}:{s.slug}'),
+            GraphQLNonNull(GraphQLID),
+            resolve=lambda s, _: f'Session:{s.course_id}:{s.slug}'),
         'slug': GraphQLField(
-            type=GraphQLString),
+            GraphQLString),
         'date': GraphQLField(
-            type=GraphQLString),
+            GraphQLString),
         'titleHTML': GraphQLField(
-            type=GraphQLString,
-            resolver=lambda s, _: s.title_html),
+            GraphQLString,
+            resolve=lambda s, _: s.title_html),
         'hasTasks': GraphQLField(
-            type=GraphQLBoolean,
-            resolver=lambda s, _: bool(s.task_items)),
+            GraphQLBoolean,
+            resolve=lambda s, _: bool(s.task_items)),
         'materialItems': GraphQLField(
-            type=GraphQLList(MaterialItem),
-            resolver=lambda s, _: s.material_items),
+            GraphQLList(MaterialItem),
+            resolve=lambda s, _: s.material_items),
         'taskItems': GraphQLField(
-            type=GraphQLList(TaskItem),
-            resolver=lambda s, _: s.task_items),
+            GraphQLList(TaskItem),
+            resolve=lambda s, _: s.task_items),
 
     })

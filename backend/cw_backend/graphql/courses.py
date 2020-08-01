@@ -6,7 +6,7 @@ from graphql import (
     GraphQLInterfaceType,
     GraphQLObjectType,
     GraphQLField,
-    GraphQLInputObjectField,
+    #GraphQLInputObjectField,
     GraphQLArgument,
     GraphQLNonNull,
     GraphQLString,
@@ -41,34 +41,34 @@ Course = GraphQLObjectType(
     interfaces=[NodeInterface],
     fields={
         'id': GraphQLField(
-            type=GraphQLNonNull(GraphQLID),
-            resolver=lambda c, _: f'Course:{c.id}'),
+            GraphQLNonNull(GraphQLID),
+            resolve=lambda c, _: f'Course:{c.id}'),
         'courseId': GraphQLField(
-            type=GraphQLNonNull(GraphQLString),
-            resolver=lambda c, _: c.id),
+            GraphQLNonNull(GraphQLString),
+            resolve=lambda c, _: c.id),
         'titleHTML': GraphQLField(
-            type=GraphQLString,
-            resolver=lambda c, _: c.title_html),
+            GraphQLString,
+            resolve=lambda c, _: c.title_html),
         'subtitleHTML': GraphQLField(
-            type=GraphQLString,
-            resolver=lambda c, _: c.subtitle_html),
+            GraphQLString,
+            resolve=lambda c, _: c.subtitle_html),
         'descriptionHTML': GraphQLField(
-            type=GraphQLString,
-            resolver=lambda c, _: c.description_html),
+            GraphQLString,
+            resolve=lambda c, _: c.description_html),
         'startDate': GraphQLField(
-            type=GraphQLString,
-            resolver=lambda c, _: c.start_date.isoformat()),
+            GraphQLString,
+            resolve=lambda c, _: c.start_date.isoformat()),
         'endDate': GraphQLField(
-            type=GraphQLString,
-            resolver=lambda c, _: c.end_date.isoformat()),
+            GraphQLString,
+            resolve=lambda c, _: c.end_date.isoformat()),
         'sessions': GraphQLField(
-            type=GraphQLList(Session)),
+            GraphQLList(Session)),
         'session': GraphQLField(
-            type=Session,
+            Session,
             args={
                 'slug': GraphQLArgument(GraphQLString),
             },
-            resolver=session_resolver),
+            resolve=session_resolver),
 
         #'topics': GraphQLField(
         #    type=TopicConnection,

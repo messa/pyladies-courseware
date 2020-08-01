@@ -5,7 +5,7 @@ from graphql import (
     GraphQLObjectType,
     GraphQLInputObjectType,
     GraphQLField,
-    GraphQLInputObjectField,
+    #GraphQLInputObjectField,
     GraphQLArgument,
     GraphQLNonNull,
     GraphQLString,
@@ -38,14 +38,14 @@ def relay_connection_type(node_type):
     Edge = GraphQLObjectType(
         name=base_name + 'Edge',
         fields={
-            'cursor': GraphQLField(type=GraphQLNonNull(GraphQLString)),
-            'node': GraphQLField(type=node_type),
+            'cursor': GraphQLField(GraphQLNonNull(GraphQLString)),
+            'node': GraphQLField(node_type),
         })
     Connection = GraphQLObjectType(
         name=base_name + 'Connection',
         fields={
-            'pageInfo': GraphQLField(type=GraphQLNonNull(PageInfoType)),
-            'edges': GraphQLField(type=GraphQLList(Edge)),
+            'pageInfo': GraphQLField(GraphQLNonNull(PageInfoType)),
+            'edges': GraphQLField(GraphQLList(Edge)),
         })
     return Connection
 
@@ -53,10 +53,10 @@ def relay_connection_type(node_type):
 PageInfoType = GraphQLObjectType(
     name='PageInfo',
     fields={
-        'hasNextPage': GraphQLField(type=GraphQLNonNull(GraphQLBoolean)),
-        'hasPreviousPage': GraphQLField(type=GraphQLNonNull(GraphQLBoolean)),
-        'startCursor': GraphQLField(type=GraphQLString),
-        'endCursor': GraphQLField(type=GraphQLString),
+        'hasNextPage': GraphQLField(GraphQLNonNull(GraphQLBoolean)),
+        'hasPreviousPage': GraphQLField(GraphQLNonNull(GraphQLBoolean)),
+        'startCursor': GraphQLField(GraphQLString),
+        'endCursor': GraphQLField(GraphQLString),
     })
 
 

@@ -1,9 +1,12 @@
-graphql-core==2.2.1
-graphql-server-core==1.1.1
+#graphql-core==2.2.1
+#graphql-server-core==1.1.1
+#https://github.com/graphql-python/graphql-server/archive/f5e8302d1320b013b441844df059e90ae83d04a0.zip
+https://github.com/messa/graphql-server/archive//fix20200801.zip
+jinja2
 aiohttp
 #graphql-core<3
-graphql-ws
-aiohttp-graphql
+#graphql-ws
+#aiohttp-graphql==1.1.0
 aiodns
 aiohttp_session
 aiohttp-session-mongo

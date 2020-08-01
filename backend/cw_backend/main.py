@@ -4,9 +4,9 @@ from aiohttp_session_mongo import MongoStorage
 import argparse
 import logging
 from motor.motor_asyncio import AsyncIOMotorClient
-from aiohttp_graphql import GraphQLView
-from graphql.execution.executors.asyncio import AsyncioExecutor as GQLAIOExecutor
-from graphql_ws.aiohttp import AiohttpSubscriptionServer
+from graphql_server.aiohttp import GraphQLView
+#from graphql.execution.executors.asyncio import AsyncioExecutor as GQLAIOExecutor
+#from graphql_ws.aiohttp import AiohttpSubscriptionServer
 
 from .configuration import Configuration
 from .courses import load_courses
@@ -54,8 +54,8 @@ async def get_app(conf):
         route_path='/api/graphql',
         schema=Schema,
         graphiql=True,
-        enable_async=True,
-        executor=GQLAIOExecutor())
+        enable_async=True)
+        #executor=GQLAIOExecutor())
 
     app.router.add_get('/api/subscriptions', subscriptions)
 

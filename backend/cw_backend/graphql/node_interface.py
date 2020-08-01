@@ -42,6 +42,6 @@ def resolve_node_type(obj, info):
 NodeInterface = GraphQLInterfaceType(
     name='Node',
     fields={
-        'id': GraphQLField(type=GraphQLNonNull(GraphQLID)),
+        'id': GraphQLField(GraphQLNonNull(GraphQLID)),
     },
     resolve_type=resolve_node_type)

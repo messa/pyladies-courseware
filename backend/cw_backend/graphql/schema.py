@@ -7,7 +7,7 @@ from graphql import (
     GraphQLInterfaceType,
     GraphQLObjectType,
     GraphQLField,
-    GraphQLInputObjectField,
+    #GraphQLInputObjectField,
     GraphQLArgument,
     GraphQLNonNull,
     GraphQLString,
@@ -223,22 +223,22 @@ User = GraphQLObjectType(
     interfaces=[NodeInterface],
     fields=lambda: {
         'id': GraphQLField(
-            type=GraphQLNonNull(GraphQLID),
-            resolver=lambda user, info: f'User:{user.id}'),
+            GraphQLNonNull(GraphQLID),
+            resolve=lambda user, info: f'User:{user.id}'),
         'userId': GraphQLField(
-            type=GraphQLNonNull(GraphQLString),
-            resolver=lambda user, info: user.id),
+            GraphQLNonNull(GraphQLString),
+            resolve=lambda user, info: user.id),
         'isAdmin': GraphQLField(
-            type=GraphQLBoolean,
-            resolver=lambda user, info: user.is_admin),
+            GraphQLBoolean,
+            resolve=lambda user, info: user.is_admin),
         'name': GraphQLField(
-            type=GraphQLString),
+            GraphQLString),
         'attendedCourseIds': GraphQLField(
-            type=GraphQLList(GraphQLString),
-            resolver=lambda user, info: user.attended_course_ids),
+            GraphQLList(GraphQLString),
+            resolve=lambda user, info: user.attended_course_ids),
         'coachedCourseIds': GraphQLField(
-            type=GraphQLList(GraphQLString),
-            resolver=lambda user, info: user.coached_course_ids),
+            GraphQLList(GraphQLString),
+            resolve=lambda user, info: user.coached_course_ids),
     })
 
 
@@ -272,41 +272,41 @@ LoginMethods = GraphQLObjectType(
     interfaces=[NodeInterface],
     fields=lambda: {
         'id': GraphQLField(
-            type=GraphQLNonNull(GraphQLID),
-            resolver=lambda _, info: 'LoginMethods'),
+            GraphQLNonNull(GraphQLID),
+            resolve=lambda _, info: 'LoginMethods'),
         'facebook': GraphQLField(
-            type=GraphQLObjectType(
+            GraphQLObjectType(
                 name='FacebookLoginMethod',
                 fields={
                     'loginUrl': GraphQLField(
-                        type=GraphQLNonNull(GraphQLString),
-                        resolver=lambda fb, info: fb['url']),
+                        GraphQLNonNull(GraphQLString),
+                        resolve=lambda fb, info: fb['url']),
                 }),
-            resolver=lambda lm, info: lm['facebook']),
+            resolve=lambda lm, info: lm['facebook']),
         'google': GraphQLField(
-            type=GraphQLObjectType(
+            GraphQLObjectType(
                 name='GoogleLoginMethod',
                 fields={
                     'loginUrl': GraphQLField(
-                        type=GraphQLNonNull(GraphQLString),
-                        resolver=lambda g, info: g['url']),
+                        GraphQLNonNull(GraphQLString),
+                        resolve=lambda g, info: g['url']),
                 }),
-            resolver=lambda lm, info: lm['google']),
+            resolve=lambda lm, info: lm['google']),
         'dev': GraphQLField(
-            type=GraphQLObjectType(
+            GraphQLObjectType(
                 name='DevLoginMethod',
                 fields={
                     'studentLoginUrl': GraphQLField(
-                        type=GraphQLNonNull(GraphQLString),
-                        resolver=lambda dev, info: dev['student_url']),
+                        GraphQLNonNull(GraphQLString),
+                        resolve=lambda dev, info: dev['student_url']),
                     'coachLoginUrl': GraphQLField(
-                        type=GraphQLNonNull(GraphQLString),
-                        resolver=lambda dev, info: dev['coach_url']),
+                        GraphQLNonNull(GraphQLString),
+                        resolve=lambda dev, info: dev['coach_url']),
                     'adminLoginUrl': GraphQLField(
-                        type=GraphQLNonNull(GraphQLString),
-                        resolver=lambda dev, info: dev['admin_url']),
+                        GraphQLNonNull(GraphQLString),
+                        resolve=lambda dev, info: dev['admin_url']),
                 }),
-            resolver=lambda lm, info: lm['dev']),
+            resolve=lambda lm, info: lm['dev']),
     })
 
 
@@ -320,41 +320,41 @@ Schema = GraphQLSchema(
         name='Query',
         fields={
             'node': GraphQLField(
-                type=NodeInterface,
+                NodeInterface,
                 args={
                     'id': GraphQLArgument(GraphQLNonNull(GraphQLID)),
                 },
-                resolver=node_resolver),
+                resolve=node_resolver),
             'allCourses': GraphQLField(
-                type=CourseConnection,
+                CourseConnection,
                 args=connection_args,
-                resolver=all_courses_resolver),
+                resolve=all_courses_resolver),
             'activeCourses': GraphQLField(
-                type=CourseConnection,
+                CourseConnection,
                 args=connection_args,
-                resolver=active_courses_resolver),
+                resolve=active_courses_resolver),
             'pastCourses': GraphQLField(
-                type=CourseConnection,
+                CourseConnection,
                 args=connection_args,
-                resolver=past_courses_resolver),
+                resolve=past_courses_resolver),
             'course': GraphQLField(
-                type=Course,
+                Course,
                 args={
                     'courseId': GraphQLArgument(GraphQLString),
                 },
-                resolver=course_resolver),
+                resolve=course_resolver),
             'currentUser': GraphQLField(
-                type=User,
-                resolver=current_user_resolver),
+                User,
+                resolve=current_user_resolver),
             'user': GraphQLField(
-                type=User,
+                User,
                 args={
                     'userId': GraphQLArgument(GraphQLString),
                 },
-                resolver=user_resolver),
+                resolve=user_resolver),
             'loginMethods': GraphQLField(
-                type=LoginMethods,
-                resolver=login_methods_resolver),
+                LoginMethods,
+                resolve=login_methods_resolver),
         }
     ),
     # mutation=GraphQLObjectType(
