@@ -1,3 +1,4 @@
+from aiohttp_session import get_session
 import logging
 
 from graphql import (
@@ -29,6 +30,30 @@ from .node_interface import NodeInterface
 logger = logging.getLogger(__name__)
 
 
+TaskSolution = GraphQLObjectType(
+    name='TaskSolution',
+    fields={
+        'taskSolutionId': GraphQLField(
+            GraphQLString,
+            resolve=lambda ts, _: ts.id),
+        'courseId': GraphQLField(
+            GraphQLString,
+            resolve=lambda ts, _: ts.course_id),
+        'taskId': GraphQLField(
+            GraphQLString,
+            resolve=lambda ts, _: ts.task_id),
+        'userId': GraphQLField(
+            GraphQLString,
+            resolve=lambda ts, _: ts.user_id),
+        'isSolved': GraphQLField(
+            GraphQLBoolean,
+            resolve=lambda ts, _: ts.is_solved),
+        'lastAction': GraphQLField(
+            GraphQLString,
+            resolve=lambda ts, _: ts.last_action),
+    })
+
+
 MaterialItem = GraphQLObjectType(
     name='MaterialItem',
     fields={
@@ -43,6 +68,20 @@ MaterialItem = GraphQLObjectType(
             resolve=lambda mi, _: mi.text_html),
         'url': GraphQLField(GraphQLString),
     })
+
+
+async def get_task_my_solution(task_item, info):
+    if not task_item.submit:
+        return None
+    model = info.context['request'].app['model']
+    session = await get_session(info.context['request'])
+    if not session.get('user'):
+        raise None
+    solution = await model.task_solutions.get_by_task_and_user_id(
+        user_id=session['user']['id'],
+        course_id=task_item.course_id,
+        task_id=task_item.id)
+    return solution
 
 
 TaskItem = GraphQLObjectType(
@@ -60,6 +99,9 @@ TaskItem = GraphQLObjectType(
         'number': GraphQLField(GraphQLInt),
         'mandatory': GraphQLField(GraphQLBoolean),
         'submit': GraphQLField(GraphQLBoolean),
+        'mySolution': GraphQLField(
+            TaskSolution,
+            resolve=get_task_my_solution),
     })
 
 
