@@ -14,17 +14,20 @@ import CourseOverview from '../components/lesson/CourseOverview'
 import TaskReview from '../components/lesson/TaskReview'
 import withData from '../util/withData'
 
-const TaskSection = ({ taskItem }) => (
-  <div className='task-section'>
-    <div dangerouslySetInnerHTML={{__html: taskItem['text_html'] }} />
-    <style jsx>{`
-      .task-section {
-        margin: 2rem 0;
-        color: #038;
-        font-weight: 600;
-      }
-    `}</style>
-  </div>)
+function TaskSection({ taskItem }) {
+  return (
+    <div className='task-section'>
+      <div dangerouslySetInnerHTML={{__html: taskItem['text_html'] }} />
+      <style jsx>{`
+        .task-section {
+          margin: 2rem 0;
+          color: #038;
+          font-weight: 600;
+        }
+      `}</style>
+    </div>
+  )
+}
 
 function arrayContains(array, item) {
   return array && array.indexOf(item) !== -1
@@ -48,7 +51,7 @@ class SessionPage extends React.Component {
               <CourseOverview course={course} />
 
             </Grid.Column>
-            <Grid.Column width={16} computer={12}>
+            <Grid.Column mobile={16} computer={12}>
 
               <h1 style={{ marginTop: '1rem' }}>
                 <span dangerouslySetInnerHTML={{__html: session['titleHTML']}} />
