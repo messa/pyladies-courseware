@@ -15,9 +15,9 @@ export default class extends React.Component {
   render() {
     const { taskSolution } = this.props
     if (!taskSolution) return null
-    const currentVersion = taskSolution.current_version
+    const currentVersion = taskSolution.currentVersion
     if (!currentVersion) return null
-    const allVersions = taskSolution.all_versions
+    const allVersions = taskSolution.allVersions
     if (!allVersions) return null
     const sortedVersions = allVersions.slice().sort(function (a, b) { return b.date.localeCompare(a.date) })
     const copyToClipboard = this.copyToClipboard

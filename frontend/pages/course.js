@@ -1,29 +1,22 @@
 import React from 'react'
 import Link from 'next/link'
 import { Button, Message } from 'semantic-ui-react'
+import { graphql } from 'react-relay'
 import Layout from '../components/Layout'
-import fetchPageData from '../util/fetchPageData'
 import ALink from '../components/ALink'
 import MaterialItems from '../components/MaterialItems'
 import formatDate from '../util/formatDate'
+import withData from '../util/withData'
 
 function arrayContains(array, item) {
   return array && array.indexOf(item) !== -1
 }
 
-export default class extends React.Component {
+class CoursePage extends React.Component {
 
   state = {
     attendInProgress: false,
     attendError: null,
-  }
-
-  static async getInitialProps({ req, query }) {
-    const courseId = query.course
-    const data = await fetchPageData(req, {
-      course: { 'course_detail': { 'course_id': courseId } },
-    })
-    return { courseId, ...data }
   }
 
   handleEnrollClick = async () => {
@@ -31,7 +24,7 @@ export default class extends React.Component {
       attendInProgress: true,
     })
     try {
-      const { user, courseId } = this.props
+      const { courseId } = this.props.course
       const payload = {
         'course_id': courseId,
       }
@@ -62,32 +55,34 @@ export default class extends React.Component {
   }
 
   render() {
-    const { user, courseId, course } = this.props
+    const { currentUser, course } = this.props
+    const courseId = course.courseId
     const { attendInProgress, attendError } = this.state
-    const belongToCourse = user && (
-      user['is_admin'] ||
-      arrayContains(user['attended_course_ids'], courseId) ||
-      arrayContains(user['coached_course_ids'], courseId)
+    const belongsToCourse = currentUser && (
+      currentUser['isAdmin'] ||
+      arrayContains(currentUser['attendedCourseIds'], courseId) ||
+      arrayContains(currentUser['coachedCourseIds'], courseId)
     )
     const now = new Date()
-    const courseEnd = new Date(course['end_date'])
+    const courseEnd = new Date(course['endDate'])
     const activeCourse = (courseEnd >= now)
     return (
-      <Layout user={this.props.user} width={1000}>
+      <Layout currentUser={currentUser} width={1000}>
 
         <div className='overview'>
 
           <h1 className='course-title'>
-            <strong dangerouslySetInnerHTML={{__html: course['title_html']}} />
-            {course['subtitle_html'] && (
-              <div dangerouslySetInnerHTML={{__html: course['subtitle_html']}} />
+            <strong dangerouslySetInnerHTML={{__html: course.titleHTML }} />
+            {course.subtitleHTML && (
+              <div dangerouslySetInnerHTML={{__html: course.subtitleHTML }} />
             )}
           </h1>
 
           <div
             className='course-description'
-            dangerouslySetInnerHTML={{__html: course['description_html']}}
+            dangerouslySetInnerHTML={{__html: course.descriptionHTML }}
           />
+
           {activeCourse && (
             <div className='course-attend'>
               {attendError && (
@@ -102,9 +97,9 @@ export default class extends React.Component {
                 <Button
                   primary
                   onClick={this.handleEnrollClick}
-                  disabled={belongToCourse || attendInProgress}
+                  disabled={belongsToCourse || attendInProgress}
                   loading={attendInProgress}
-                  content={belongToCourse ? 'Jste součástí kurzu' : 'Přihlásit se do kurzu'}
+                  content={belongsToCourse ? 'Jste součástí kurzu' : 'Přihlásit se do kurzu'}
                 />
               </Button.Group>
             </div>
@@ -114,23 +109,23 @@ export default class extends React.Component {
 
         <div className='sessions'>
 
-          {course['sessions'].map(session => (
+          {course.sessions && course.sessions.map(session => (
             <div key={session['slug']} className='session'>
 
               <h2 className='session-title'>
-                <span dangerouslySetInnerHTML={{__html: session['title_html']}} />
+                <span dangerouslySetInnerHTML={{__html: session.titleHTML}} />
               </h2>
-              <div className='sessionDate'>{formatDate(session['date'])}</div>
+              <div className='sessionDate'>{formatDate(session.date)}</div>
 
-              <MaterialItems materialItems={session['material_items']} />
+              <MaterialItems materialItems={session.materialItems} />
 
-              {session['has_tasks'] && (
+              {session.hasTasks && (
                 <div>
                   <Button
                     as={ALink}
                     href={{
                       pathname: '/session',
-                      query: { course: course.id, session: session['slug'] }
+                      query: { course: course.courseId, session: session.slug }
                     }}
                     basic
                     color='blue'
@@ -223,3 +218,38 @@ export default class extends React.Component {
     )
   }
 }
+
+export default withData(CoursePage, {
+  variables: ({ query }) => ({ courseId: query.course }),
+  query: graphql`
+    query courseQuery($courseId: String!) {
+      currentUser {
+        isAdmin
+        coachedCourseIds
+        attendedCourseIds
+        ...Layout_currentUser
+      }
+      course(courseId: $courseId) {
+        id
+        courseId
+        titleHTML
+        subtitleHTML
+        descriptionHTML
+        endDate
+        sessions {
+          id
+          slug
+          titleHTML
+          date
+          hasTasks
+          materialItems {
+            materialItemType
+            titleHTML
+            textHTML
+            url
+          }
+        }
+      }
+    }
+  `
+})

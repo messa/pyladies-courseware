@@ -2,22 +2,14 @@ import React from 'react'
 import Link from 'next/link'
 import { Button, Tab, Message } from 'semantic-ui-react'
 import Layout from '../components/Layout'
-import fetchPageData from '../util/fetchPageData'
 import LoginForm from '../components/forms/LoginForm'
 import RegistrationForm from '../components/forms/RegistrationForm'
+import withData from '../util/withData'
 
-export default class extends React.Component {
-
-  static async getInitialProps({ req, query }) {
-    const data = await fetchPageData(req, { loginMethods: 'login_methods' })
-    return {
-      ...data,
-      registrationSuccessfull: !!query.registrationSuccessfull,
-    }
-  }
+class LoginPage extends React.Component {
 
   render() {
-    const { user, registrationSuccessfull } = this.props
+    const { currentUser, registrationSuccessfull } = this.props
     const { facebook, google, dev } = this.props.loginMethods
     const panes = [
       {
@@ -35,14 +27,14 @@ export default class extends React.Component {
       }
     ]
     return (
-      <Layout user={user}>
+      <Layout currentUser={currentUser}>
         <h1>Přihlášení</h1>
 
         <div className='loginButtons'>
           {facebook && (
             <Button
               as='a'
-              href={facebook.url}
+              href={facebook.loginUrl}
               content='Přihlásit se přes Facebook'
               color='facebook'
               icon='facebook'
@@ -52,7 +44,7 @@ export default class extends React.Component {
           {google && (
             <Button
               as='a'
-              href={google.url}
+              href={google.loginUrl}
               content='Přihlásit se přes Google'
               color='google plus'
               icon='google'
@@ -66,21 +58,21 @@ export default class extends React.Component {
           <div className='loginButtons'>
             <Button
               as='a'
-              href={dev.student_url}
+              href={dev.studentLoginUrl}
               content={<>Přihlásit se jako <b>student</b></>}
               icon='sign in'
               size='small'
             />
             <Button
               as='a'
-              href={dev.coach_url}
+              href={dev.coachLoginUrl}
               content={<>Přihlásit se jako <b>kouč</b></>}
               icon='sign in'
               size='small'
             />
             <Button
               as='a'
-              href={dev.admin_url}
+              href={dev.adminLoginUrl}
               content={<>Přihlásit se jako <b>admin</b></>}
               icon='sign in'
               size='small'
@@ -126,3 +118,26 @@ export default class extends React.Component {
   }
 
 }
+
+export default withData(LoginPage, {
+  query: graphql`
+    query loginQuery {
+      currentUser {
+        ...Layout_currentUser
+      }
+      loginMethods {
+        facebook {
+          loginUrl
+        }
+        google {
+          loginUrl
+        }
+        dev {
+          studentLoginUrl
+          coachLoginUrl
+          adminLoginUrl
+        }
+      }
+    }
+  `
+})

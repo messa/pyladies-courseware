@@ -79,7 +79,7 @@ async def user(req, params):
 async def course_detail(req, params):
     session = await get_session(req)
     model = req.app['model']
-    course = req.app['courses'].get().get_by_id(params['course_id'])
+    course = req.app['courses'].get().get_by_course_id(params['course_id'])
     if session.get('user'):
         user = await model.users.get_by_id(session['user']['id'])
         if datetime.utcnow().strftime('%Y-%m-%d') <= '2018-10-30':
@@ -89,7 +89,7 @@ async def course_detail(req, params):
 
 @resolver
 def session_detail(req, params):
-    course = req.app['courses'].get().get_by_id(params['course_id'])
+    course = req.app['courses'].get().get_by_course_id(params['course_id'])
     session = course.get_session_by_slug(params['session_slug'])
     return {
         **session.export(tasks=True),

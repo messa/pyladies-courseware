@@ -1,7 +1,7 @@
 from bson import ObjectId
 from collections import defaultdict
 from datetime import datetime
-import logging
+from logging import getLogger
 from operator import itemgetter
 from pymongo import ASCENDING as ASC
 from pymongo import ReturnDocument
@@ -9,7 +9,7 @@ from pymongo import ReturnDocument
 from ..util import smart_repr, to_oid, to_str
 
 
-logger = logging.getLogger(__name__)
+logger = getLogger(__name__)
 
 
 class TaskSolutionComments:
