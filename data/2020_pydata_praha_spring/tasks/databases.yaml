@@ -1,0 +1,44 @@
+tasks:
+
+- section:
+    markdown: |
+      Na prvních 6 úkolů použij tabulky `actors`, `movie_to_actor`, `movies` z hodiny a:
+
+- id: eda7_01
+  markdown: |
+    Najdi nejlepší devadesátkové filmy - t.j. filmy, které vyšly v letech 1990-1999 a mají hodnocení minimálně 85. Seřaď sestupně od nejlepšího. (Tip: zkus si dohledat použití operátoru BETWEEN).
+
+- id: eda7_02
+  markdown: |
+    Najdi film, ve kterém účinkuje nejvíce herců.
+
+- id: eda7_03
+  markdown: |
+    Najdi herce, který hraje v nejvíce filmech.
+
+- id: eda7_04
+  markdown: |
+    Zkus zjistit, zda existuje v databázi film, ve kterém nehraje žádný herec.
+
+- id: eda7_05
+  markdown: |
+    Vypiš všechny filmy, kde hraje Tom Hanks.
+
+- id: eda7_06
+  markdown: |
+    Zkus shrnout hereckou kariéru Toma Hankse. Zjisti:
+    
+    - Počet filmů, ve kterých hrál
+    - Rok prvního a posledního filmu, ve kterém hrál
+    - Průměrné hodnocení filmů, ve kterých hrál
+
+- section:
+    markdown: |
+      Následující projekt je volitelný. Nemáš-li čas, klidně ho přeskoč.
+
+- id: eda7_07
+  markdown: |
+    Načti tabulku `countries` z úkolů k EDA2 do lokální sqlite databáze a přepiš do SQL úkol číslo 3, tzn.:
+    
+    - Zjisti, v jakých zemích, které NEpatří do low_income group, mají průměrně méně než 3000 kalorií na den. 
+    - Tip: Lokální databázi vytvoříš pomocí metody `to_sql`, kde si zvolíš libovolné jméno tabulky a cestu k novému souboru pomocí _sqlite:///tvé_jméno_souboru.db_.

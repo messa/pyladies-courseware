@@ -12,3 +12,5 @@ tasks_by_lesson_slug:
   - file: tasks/eda_4.yaml
   "pydata/pandas_groupby":
   - file: tasks/eda_5.yaml
+  "pydata/databases":
+  - file: tasks/databases.yaml

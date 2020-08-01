@@ -73,20 +73,19 @@ tasks:
     markdown: |
       **Co po této lekci umím:**
 
-- numbered: false
-  submit: false
-  markdown: |
-    - Spustit příkazovou řádku a ukončit práci v ní
-    - Základní příkazy v příkazové řádce:
-      - zeptat se na adresář, ve kterém jsem
-      - zjistit, co v adresáři je
-      - přesunout se do daného adresáře
-      - vytvořit či smazat adresář
-    - Mám nainstalovaný a funkční Python 3.6 nebo 3.7 a vytvořené virtuální prostředí
-    - Mám adresář pro kurz PyLadies a v něm složky/adresáře pro jednotlivé hodiny
-    - Umím aktivovat virtuální prostředí (určitě si doma zkus, že funguje)
-    - Umím spustit a ukončit interaktivní Python
-    - Umím použít základní operátory (`+`,`-`,`/`,`//`,`*`,`%`) v Pythonu
-    - Mám nainstalovaný textový editor a umím si v něm vytvořit a uložit soubory
+- section:
+    markdown: |
+      - Spustit příkazovou řádku a ukončit práci v ní
+      - Základní příkazy v příkazové řádce:
+        - zeptat se na adresář, ve kterém jsem
+        - zjistit, co v adresáři je
+        - přesunout se do daného adresáře
+        - vytvořit či smazat adresář
+      - Mám nainstalovaný a funkční Python 3.6 nebo 3.7 a vytvořené virtuální prostředí
+      - Mám adresář pro kurz PyLadies a v něm složky/adresáře pro jednotlivé hodiny
+      - Umím aktivovat virtuální prostředí (určitě si doma zkus, že funguje)
+      - Umím spustit a ukončit interaktivní Python
+      - Umím použít základní operátory (`+`,`-`,`/`,`//`,`*`,`%`) v Pythonu
+      - Mám nainstalovaný textový editor a umím si v něm vytvořit a uložit soubory
 
-    **Pokud ti něco z výše uvedeného nefunguje, prosím, kontaktuj organizátorky, rády ti pomohou.**
+      **Pokud ti něco z výše uvedeného nefunguje, prosím, kontaktuj organizátorky, rády ti pomohou.**

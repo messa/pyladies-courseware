@@ -186,7 +186,7 @@ class CoursePage extends React.Component {
           }
           .session {
             margin-bottom: 3rem;
-            break-inside: avoid-column;
+            break-inside: avoid;
           }
           @media (min-width: 600px) {
             .session :global(li) {

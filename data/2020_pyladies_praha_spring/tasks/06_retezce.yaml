@@ -33,11 +33,11 @@ tasks:
     markdown: |
       Nakonec trošku delší projekt, budeme ho dokončovat v úkolech k další lekci.
       Jedná se o hru piškvorky, následuje popis hry, ke které se postupně
-      dopračuješ:
+      dopracuješ:
 
       <blockquote>
       1-D piškvorky se hrají na řádku s dvaceti políčky.
-      Hráči střídavě přidávají kolečka (`o`) a křížky (`x`),
+      Hráči střídavě přidávají kolečka ('o') a křížky ('x'),
       třeba:
       <pre>
       1. kolo: -------<span style='color: red'>x</span>------------
@@ -46,7 +46,7 @@ tasks:
       4. kolo: -------xx<span style='color: red'>o</span>o---------
       5. kolo: ------<span style='color: red'>x</span>xxoo---------
       </pre>
-      Hráč, která dá tři své symboly vedle sebe, vyhrál.
+      Hráč, který dá tři své symboly vedle sebe, vyhrál.
       </blockquote>
 
 - id: handout06_04

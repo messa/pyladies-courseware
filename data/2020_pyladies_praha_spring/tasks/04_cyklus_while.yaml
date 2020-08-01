@@ -7,12 +7,12 @@ tasks:
     
 - id: handout04_01
   markdown: |
-    Změň  program Kámen, nůžky, papír z úkolu 7 po druhé lekci, tak aby opakoval hru dokud uživatel
+    Změň program `Kámen, nůžky, papír` z úkolu 7 po druhé lekci tak, aby opakoval hru, dokud uživatel
     nezadá `konec`.
 
 - id: handout04_02 
   markdown: |
-    Změň  program Kámen, nůžky, papír, tak aby tah počítače se určoval náhodně.
+    Změň program `Kámen, nůžky, papír` tak, aby se tah počítače určoval náhodně.
 
     Nápověda: můžeš použít funkci `randrange` a nastavit `tah_pocitace` na:
 
@@ -23,7 +23,7 @@ tasks:
 
 - id: handout04_03
   markdown: |
-    Napiš program, který se ptá uživatele na čísla, do té doby, než zadá `0`. Po té vypíše nejmenší ze
+    Napiš program, který se ptá uživatele na čísla do té doby, než zadá `0`. Poté vypíše nejmenší ze
     zadaných čísel. (Pozor: nula se mezi porovnávaná čísla nepočítá.)
 
     Nápověda: průběžně stačí ukládat jen údaj, které číslo je aktuálně to nejmenší.
@@ -42,7 +42,7 @@ tasks:
 
     Program by měl vypisovat všechny hody a nakonec napsat, kdo vyhrál.
 
-    Poznámka: pokud nemáš přechozí úkol, tento také přeskoč.
+    Poznámka: pokud nemáš předchozí úkol, tento také přeskoč.
 
 
 - id: handout04_05
@@ -88,4 +88,4 @@ tasks:
     markdown: |
       - Použít cyklus `while`.
       - Vím, kdy použít příkaz `break` a `continue`.
-      - Víš, kdy je lepší použít cyklus `for` a kdy cyklus `while`.
+      - Vím, kdy je lepší použít cyklus `for` a kdy cyklus `while`.

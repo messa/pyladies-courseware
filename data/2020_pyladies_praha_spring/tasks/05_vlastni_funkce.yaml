@@ -2,7 +2,7 @@ tasks:
 
 - id: handout05_00
   markdown: |
-    Vytvoř funkci počet vteřin, která bude mít dva argumenty: čas v minutách a čas ve vteřinách.
+    Vytvoř funkci `pocet_vterin`, která bude mít dva argumenty: čas v minutách a čas ve vteřinách.
     A bude vracet celkový počet vteřin.
 
 - id: handout05_01
@@ -39,12 +39,12 @@ tasks:
 
 - id: handout05_05
   markdown: |
-    Vrať se k úkolu č. 5 z minulé lekce a zkus zpřehlednit kód použitím funkce. Funkce `hod_kostkou` bude vracet
+    Vrať se k úkolu č. 4 z minulé lekce a zkus zpřehlednit kód použitím funkce. Funkce `hod_kostkou` bude vracet
     počet pokusů než hráči padla šestka. 
 
 - id: handout05_06
   markdown: |
-    Napiš funkci, který ověří, že zadaná teplota je v daném intervalu. Funkce bude mít tři parametry (teplota, dolní mez,
+    Napiš funkci, která ověří, že zadaná teplota je v daném intervalu. Funkce bude mít tři parametry (teplota, dolní mez,
     horní mez) a bude vracet `True`/`False`.
 
 - id: handout05_07
@@ -52,8 +52,9 @@ tasks:
     Napiš funkci, která pro zadanou teplotu doporučí vhodné oblečení. Využij funkci z předchozího úkolu.
 
     Např.
-    >>> doporuc_obleceni(-3)
-    "Vezmi si rukavice a čepici."
+
+        >>> doporuc_obleceni(-3)
+        "Vezmi si rukavice a čepici."
     
 - section:
     markdown: |

@@ -2,12 +2,12 @@ tasks:
 
 - section:
     markdown: |
-      V těchto projektech je určitě něco nového.
+      V těchto projektech je něco nového.  
       Nezadávají postup, jak na odpověď přijít, ale to určitě zvládneš!
 
 - id: handout03_00
   markdown: |
-    Pomocí cyklu `for` napiš program, který vypíše: 
+    Pomocí cyklu `for` napiš program, který vypíše:
 
         Řádek 0
         Řádek 1
@@ -46,7 +46,7 @@ tasks:
 
 - id: handout03_04
   markdown: |
-    Napiš program, který vypíše „tabulku“ s násobilkou. 
+    Napiš program, který vypíše „tabulku“ s násobilkou.
 
         1 2 3 4
         2 4 6 8
@@ -55,7 +55,7 @@ tasks:
 
 - id: handout03_05
   markdown: |
-      Napiš program, který postupně z jednotlivých `'X'` vypíše:
+    Napiš program, který postupně z jednotlivých `'X'` vypíše:
 
         X
         X X
@@ -92,7 +92,7 @@ tasks:
 
 - id: handout03_08
   markdown: |
-    Nakresli `n`-úhelník (např. čtyřúhelník, pětiúhelník), kde `n` zadá uživatel.	
+    Nakresli `n`-úhelník (např. čtyřúhelník, pětiúhelník), kde `n` zadá uživatel.
 
     <img src="/static/tasks/handout3a_images/06_uhelniky.png" alt="mnohoúhelníky" style="max-width: 100%; max-height: 60px">
 
