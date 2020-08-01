@@ -2,7 +2,8 @@ tasks:
 
 - section:
     markdown: |
-      Dnešní projekty jsou součástí projektu 1D Piškvorky. Dělej je jeden po druhém.
+      Následující projekty jsou součástí projektu 1D Piškvorky.
+      Pokud na ně máš ještě chuť, doporučuji je dělat jeden po druhém.
 
 - id: handout9_00
   markdown: |
@@ -15,17 +16,12 @@ tasks:
 
     Jak se do importů nezamotat? Podívej se do materiálů na sekci [cyklické importy](https://naucse.python.cz/course/pyladies/beginners/circular-imports/).
 
-    _Pokud jsi byla na workshopu Gitu, dej to do Gitu! A kdybys něco nedopatřením rozbila, `git diff HEAD` ukáže změny od poslední revize._
-
-  mandatory: true
   
 - id: handout9_01
   markdown: |
     Napiš _aspoň_ dva testy na každou funkci z Piškvorek, ke které testy napsat umíš.
     _Testy pravděpodobně neumíš napsat na funkci `input` a všechny funkce, které ji (byť nepřímo) volají.
     A taky asi neumíš otestovat účinek funkce `print`._
-    
-  mandatory: true
 
 - id: handout9_02
   markdown: |
@@ -39,7 +35,6 @@ tasks:
   markdown: |
     Doplň funkci `tah_pocitace` tak, aby brala jako argument symbol, za který má počítač hrát – buď `'x'`, nebo `'o'`.
     Dopiš testy.
-    _Nezapomínáš na Git (pokud jsi byla na workshopu Gitu)?_
 
 - id: handout9_04
   markdown: |

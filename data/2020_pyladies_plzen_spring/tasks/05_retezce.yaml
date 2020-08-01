@@ -28,7 +28,7 @@ tasks:
 
   mandatory: true
 
-- id: custom41_1
+- id: custom41_2
   markdown: |
     Napiš funkci, která v zadaném řetězci zamění první písmeno za velké.
     Obdobně můžeš zkusit jiné záměny, např. poslední písmeno, třetí písmeno, atd.

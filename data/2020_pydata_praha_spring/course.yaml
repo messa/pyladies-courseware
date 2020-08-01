@@ -14,3 +14,10 @@ tasks_by_lesson_slug:
   - file: tasks/eda_5.yaml
   "pydata/databases":
   - file: tasks/databases.yaml
+
+sessions:
+- slug: "pydata_extra1"
+  title: "Virtuální hodina"
+  date: 2020-03-19
+  tasks:
+  - file: tasks/extra1.yaml
