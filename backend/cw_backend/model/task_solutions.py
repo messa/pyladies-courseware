@@ -4,7 +4,7 @@ import logging
 from operator import itemgetter
 from pymongo import ASCENDING as ASC
 from pymongo import ReturnDocument
-
+import requests
 
 logger = logging.getLogger(__name__)
 
@@ -179,6 +179,30 @@ class TaskSolution:
         version_doc = await self._c_versions.find_one({'_id': self._doc['current_version_id']})
         return TaskSolutionVersion(version_doc)
 
+    async def test_current_version(self, test_filename, test_code):
+        cv = await self.get_current_version()
+        test_result = {}
+        try:
+            response = requests.post(
+                'http://localhost:5001',
+                json={
+                    'code': cv.code,
+                    'code_file_name': test_filename,
+                    'test': test_code
+                }
+            )
+            test_result = response.json()
+        except Exception as e:
+            logger.error(e, exc_info=True)
+        await self._c_versions.find_one_and_update(
+            {
+                '_id': ObjectId(cv.id),
+            }, {
+                '$set': {
+                    'test_result': test_result
+                }
+            }, return_document=ReturnDocument.AFTER)
+
     async def get_all_versions(self):
         if not self._doc['current_version_id']:
             return []
@@ -209,10 +233,12 @@ class TaskSolutionVersion:
         self.id = str(doc['_id'])
         self.date = doc['_id'].generation_time
         self.code = doc['code']
+        self.test_result = doc['test_result'] if 'test_result' in doc else {}
 
     def export(self):
         return {
             'id': self.id,
             'date': self.date.strftime('%Y-%m-%dT%H:%M:%SZ'),
             'code': self.code,
+            'test_result': self.test_result,
         }

@@ -28,6 +28,11 @@ async def submit_task_solution(req):
         task_id=data['task_id'],
         code=data['code'])
     await ts.set_last_action('student', user)
+    course = req.app['courses'].get().get_by_id(data['course_id'])
+    course_session = course.get_session_by_slug(data['session_slug'])
+    task = course_session.get_task_by_id(data['task_id'])
+    if task and 'test' in task.data and task.data['test']:
+        await ts.test_current_version(task.data['test_code_file_name'], task.data['test'])
     return web.json_response({
         'task_solution': await ts.export(with_code=True),
     })
