@@ -1,5 +1,3 @@
-# https://pyladies.cz/v1/s011-dicts/handout/handout9.pdf
-
 tasks:
 
 - section:
@@ -17,7 +15,7 @@ tasks:
     >>> mocniny(4)
     {1: 1, 2: 4, 3: 9, 4: 16}
     ```
-    
+
   mandatory: true
 
 - id: handout8_2
@@ -58,7 +56,7 @@ tasks:
     Klíč 3, hodnota 9
     Klíč 4, hodnota 16
     ```
-    
+
   mandatory: true
 
 - section:
@@ -75,3 +73,52 @@ tasks:
     a z takto vybraných odpovědí složí větu, kterou vypíše uživateli.
     Seznam otázek by mělo být možné změnit v kódu na jednom místě bez zásahu
     do logiky programu.
+
+- section:
+  markdown: |
+    Už máš hotovo a chceš další výzvy? Máme tu pro tebe další nepovinné úkoly.
+
+- id: handout8_6
+  markdown: |
+    V tomto úkolu si budeme hrát s Morseovou abecedou.
+    Na začátku máš k dispozici slovník, který obsahuje znak latinské abecedy (v našem případě bez číslic a speciálních znaků)
+    a k němu příslušný znak v Morseově abecedě jako kombinaci teček a čárek.
+
+    ```python
+    morseova_abeceda = {
+        'A': '.-',     'B': '-...',   'C': '-.-.',
+        'D': '-..',    'E': '.',      'F': '..-.',
+        'G': '--.',    'H': '....',   'I': '..',
+        'J': '.---',   'K': '-.-',    'L': '.-..',
+        'M': '--',     'N': '-.',     'O': '---',
+        'P': '.--.',   'Q': '--.-',   'R': '.-.',
+        'S': '...',    'T': '-',      'U': '..-',
+        'V': '...-',   'W': '.--',    'X': '-..-',
+        'Y': '-.--',   'Z': '--..',
+        }
+    ```
+
+    Tvým úkolem je napsat program, který převede text do Morseovy abecedy. Jako oddělovač jednotlivých morseových znaků
+    použij znak svislé čáry (|), kterou napíšeš pomocí ALT+124.
+
+    Můžeš použít jakýkoliv text. Pro začátek ti doporučuji použít text bez českých háčků a čárek.
+    Např. "Ucim se programovaci jazyk Python."
+
+    Pokud budeš chtít, můžeš rozšířit svůj program tak, aby si poradil i háčky a čárkami.
+
+- id: handout8_7
+  markdown: |
+    Program s Morseovou abecedou uprav tak, aby uměl převést Morseovu abecedu zpět na latinku.
+
+    Můžeš trénovat s touto zprávou:
+
+    ```python
+    zprava = "---|.--.|.-.|.-|...-|-..|..-|-..|---|-...|.-.|.-|.--.|.-.|.-|-.-.|."
+    ```
+
+- id: handout8_8
+  markdown: |
+    Rozšiř svou Skautskou hru o možnost uložit na konci hry slovník obsahující otázky a odpovědi do JSON souboru.
+    Dále uprav program tak, aby naopak na začátku hry bylo možné (volitelně) tyto uložené odpovědi ve hře použít.
+
+    Nezapomeň, že tohle je nepovinný projekt, který ti může zabrat více času a řeš ho jen tehdy, pokud máš čas a chuť. 
