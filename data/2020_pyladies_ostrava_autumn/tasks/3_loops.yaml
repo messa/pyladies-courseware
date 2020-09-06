@@ -7,7 +7,7 @@ tasks:
 
 - id: handout3_1
   markdown: |
-    Co vrací funkce `range`?
+    Na srazu jsme si ukazovali funkci `range`. Zkus se nedívat do materiálů a napsat vlastními slovy, co vrací funkce `range`?
 
 - id: handout3_2
   markdown: |
@@ -20,7 +20,7 @@ tasks:
 
 - section:
     markdown: |
-      Želví kreslení! Tahle sekce tě naučí myslet jako programátorka počítačové grafiky.
+      Želví kreslení! Tahle sekce tě naučí myslet jako programátora/ku počítačové grafiky.
       Je dobré jednotlivé projekty dělat postupně, a když něco začne fungovat, znovu si
       řešení projít a zamyslet se nad ním.
 
@@ -97,13 +97,13 @@ tasks:
 - id: handout3_14
   markdown: |
     Napiš obrázek! Třeba les ze stromů, město z domů, nebe z hvězd,
-    dav ze smajlíků, hradbu z věží, zikkurat ze schodů, ...
+    dav ze smajlíků, hradbu z věží, zikkurat ze schodů ... představivosti se meze nekladou.
 
     Můžeš použít i nějakou z funkcí modulu `random`.
 
 - section:
     markdown: |
-        Další projekty jsou pro opravdové grafické mistryně. Nepouštěj se do nich, dokud nemáš hotové ostatní projekty. Nedostaneš-li se k nim, nevadí
+        Další projekty jsou pro opravdové grafické mistry/ně. Nepouštěj se do nich, dokud nemáš hotové ostatní projekty. Nedostaneš-li se k nim, nevadí
 
 - id: handout3_15
   markdown: |
@@ -144,5 +144,3 @@ tasks:
 - id: handout3_18
   markdown: |
     Napiš program, který se pětkrát zeptá na číslo a nejmenší zadané číslo vypíše.
-
-    _Nevíš-li si rady, podívej se do materiálů na sekci Přepisování proměnných. Místo sečítání budeš vybírat správnou hodnotu._
