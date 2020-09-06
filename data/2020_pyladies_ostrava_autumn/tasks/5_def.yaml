@@ -131,6 +131,8 @@ tasks:
     - `"!"` – Remíza (pole neobsahuje `"-"`, a nikdo nevyhrál)
     - `"-"` – Ani jedna ze situací výše (t.j. hra ještě neskončila)
 
+    _Zkus si zadání výše rozepsat na jednotlivé kroky a ty postupně převeď na kód. Jestli chceš, můžeš si funkci otestovat s různými řetězci a sledovat, zda dělá a vrací to, co očekáváš._
+
 - mandatory: true
   markdown: |
     Napiš funkci `tah`, která dostane řetězec s herním polem,
@@ -141,7 +143,7 @@ tasks:
 
     ```
     def tah(pole, cislo_policka, symbol):
-        "Vrátí herní pole s daným symbolem umístěným na danou pozici"
+        """Vrátí herní pole s daným symbolem umístěným na danou pozici"""
         ...
     ```
 
@@ -155,6 +157,8 @@ tasks:
     Funkce by měla odmítnout záporná nebo příliš velká čísla
     a tahy na obsazená políčka.
     Pokud uživatel zadá špatný vstup, funkce mu vynadá a zeptá se znova.
+    Při psaní funkce postupuj po malých krocích, nesnaž se napsat celou funkci najednou.
+    Nejdříve můžeš napsat funkci, která splní zadání v první větě tohoto úkolu. Když ti bude program fungovat, dále funkci rozšiřuj podle zadání.
 
 - id: handout5_11
   markdown: |
@@ -172,7 +176,7 @@ tasks:
 
     ```
     def tah_pocitace(pole):
-        "Vrátí herní pole se zaznamenaným tahem počítače"
+        """Vrátí herní pole se zaznamenaným tahem počítače"""
         ...
     ```
 
