@@ -4,7 +4,7 @@ tasks:
     markdown: |
       Na začátek trocha práce se seznamy.
       Některé z projektů – a zvlášť ten poslední – potřebují trochu přemýšlení;
-      nebudeš-li vědět jak dál, zeptej se na internetu nebo na sraze ostatních
+      nebudeš-li vědět jak dál, zeptej se na Slacku nebo na sraze ostatních
       a řešte společně!
 
 - id: handout7_1
@@ -15,6 +15,8 @@ tasks:
 - id: handout7_2
   markdown: |
     Napiš funkci, která vrací jména domácích zvířat (zadaných argumentem), která jsou kratší než 5 písmen.
+
+    _Pozor na rozdíl mezi tím, co funkce dělá a co vrací._
 
 - id: handout7_3
   markdown: |
@@ -34,6 +36,8 @@ tasks:
     - zvířata, která jsou jen v prvním seznamu (rozdíl množin: první - druhá),
     - zvířata, která jsou jen ve druhém seznamu (rozdíl množin: druhá - první).
 
+    _Pozor na rozdíl mezi průnikem a sjednocením. Pokud si nejsi jistý/á, koukni třeba na Wikipedii._
+
 - id: handout7_6
   markdown: |
     Napiš program, který seřadí seznam domácích zvířat podle abecedy.
@@ -43,7 +47,7 @@ tasks:
     Had byl pyšný na to, že je v abecedě první.
     Dokud nepřiletěla `"andulka"`.
 
-    Abys hada uklidnila, vytvoř funkci, která zvířata seřadí podle abecedy,
+    Abys hada uklidnil/a, vytvoř funkci, která zvířata seřadí podle abecedy,
     ale bude ignorovat první písmeno t.j. vrátí:
 
     <pre>
@@ -56,12 +60,13 @@ tasks:
 
     Postup:
 
-    - Máš seznam _hodnot_, které chceš seřadit podle nějakého
-        _klíče_. Klíč se dá z každé hodnoty vypočítat.
-    - Vytvoř seznam dvojic `(klíč, hodnota)`.
-    - Seřaď tento seznam dvojic – dvojice se řadí nejdřív podle
-        prvního prvku, pak druhého atd.
-    - Nakonec vytvoř ze seznamu dvojic opět jen seznam hodnot.
+    - Na začátku máš seznam zvířat s andulkou. Tento seznam _hodnot_ chceš seřadit podle
+      nějakého _klíče_. Klíč můžeš z každé hodnoty vypočítat.
+    - Tento seznam budeš postupně procházet a pro každý prvek vypočítáš/vytvoříš seznam dvojic `(klíč, hodnota)`.
+      Dvojice si budeš potřebovat někde ukládat, např. do nového pomocného seznamu.
+    - Nový pomocný seznam již obsahuje dvojice, které můžeš seřadit. Dvojice se totiž řadí nejdříve podle
+      prvního prvku, pak podle druhého atd.
+    - Nyní z tohoto seznamu můžeš vytvořit opět jen seznam hodnot.
 
     Proč má zrovna had takovéhle výsadní postavení, zjistíš později.
 
@@ -83,7 +88,8 @@ tasks:
 - id: handout7_9
   markdown: |
     Vyber si básničku, která má aspoň tři sloky po aspoň třech verších.
-    Ulož ji do souboru _basnicka.txt_.
+    Ulož ji do souboru _basnicka.txt_. Básničku ulož tak, aby mezi každou slokou byl volný řádek.
+    Můžeš použít třeba kousek Máje od K. H. Máchy nebo některou baladu z Kytice od K. J. Erbena.
 
 - id: handout7_10
   markdown: |
@@ -102,7 +108,7 @@ tasks:
 - id: handout7_13
   markdown: |
     Vypiš slova básně v náhodném pořadí.
-    
+
     _Bonusový projekt: Snaž se přitom co nejlépe zachovat strukturu básně (sloky,
     verše, interpunkci, velká písmena, ..._
 
@@ -111,7 +117,7 @@ tasks:
       Projekty závisí jeden na druhém, řeš je postupně.
       Až to uděláš, můžeš si zahrát hru!
       Tahle sekce není jednoduchá (a poslední dva projekty jsou obzvláště náročné).
-      Můžeš zkusit spojit síly s ostatními účastnicemi kurzu!}
+      Můžeš zkusit spojit síly s ostatními účastníky kurzu!}
 
 - id: handout7_14
   markdown: |
@@ -121,7 +127,9 @@ tasks:
     napíše `X`, jinde tečku.
     Například:
 
-        nakresli_mapu([(0, 0), (1, 0), (2, 2), (4, 3), (8, 9), (8, 9)])
+        souradnice = [(0, 0), (1, 0), (2, 2), (4, 3), (8, 9), (8, 9)]
+
+        nakresli_mapu(souradnice)
         X X . . . . . . . .
         . . . . . . . . . .
         . . X . . . . . . .
@@ -133,12 +141,21 @@ tasks:
         . . . . . . . . . .
         . . . . . . . . X .
 
-    _Jak na to?_
+    _Jak na to? Způsobů je jistě více, toto je jeden z nich:_
 
     - Udělej tabulku (seznam seznamů) se samými tečkami, něco jako:<br>
       `[['.', '.', '.'], ['.', '.', '.'], ['.', '.', '.']]`.
     - Na příslušných místech nahraď tečky X-ky.
     - Tabulku vypiš pomocí dvou cyklů `for` zanořených do sebe.
+
+    _Tady je druhý způsob:_
+
+    - Nejdříve nech funkci vykreslit mapu ze samých teček (10x10). Křižky místo některých teček zatím neřeš.
+    - Funguje? Hurá! Teď na správných místech nahraď tečky X-ky. V kódu, kde kresliš tečku, přidej podmínku,
+      která zkontroluje, zda je tečka na souřadnicích, kde má být křížek.
+
+    _Který způsob ti vyhovuje více? Našla/el jsi jiný způsob a funguje ti to? Pak je to OK._
+
 
 - id: handout7_15
   markdown: |
@@ -199,6 +216,7 @@ tasks:
   markdown: |
     Hadí hřiště může mít libovolné rozměry větší než 4×1.
     Třeba 20×20 nebo 10×30.
+    Máš chuť hru dále vylepšovat? My budeme moc rádi! Nezapomeň se nám pochlubit na Slacku.
 
 - section:
     markdown: |
