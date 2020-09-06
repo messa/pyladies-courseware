@@ -24,5 +24,3 @@ tasks_by_lesson_slug:
   - file: tasks/10_pyglet.yaml
   "beginners/class":
   - file: tasks/11_class.yaml
-  "beginners/inheritance":
-  - file: tasks/12_inheritance.yaml
