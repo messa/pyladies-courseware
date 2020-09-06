@@ -1,5 +1,3 @@
-# https://pyladies.cz/v1/s012-pyglet/handout/handout.pdf
-
 tasks:
 
 - section:
@@ -11,4 +9,14 @@ tasks:
     Uprav projekt z hodiny tak, aby obrázek létal po okně a nikdy jej
     neopustil tzn. aby nikdy neuletěl zcela mimo viditelnou plochu.
     Obrázek může opisovat nějaký tvar (kružnici, čtverec atp.), odrážet se
-    od odkrajů nebo se vždy objevit na opačné straně okna. Fantazii se meze nekladou.
+    od okrajů nebo se vždy objevit na opačné straně okna. Fantazii se meze nekladou.
+
+- section:
+    markdown: |
+      Nepovinný úkol jen pro ty, kteří mají chuť a čas. Máš chuť dále tvořit
+      a zkoušet nově nabyté znalosti? Chceš dále upravovat projekt
+      z hodiny nebo vytvořit nový projekt? Jediné omezení je tvoje fantazie!!!
+      Budeme rádi, když se nám svým projektem pochlubíš. Projekt můžeš poslat
+      zabalený v archivu (např. ZIP) se všemi souvisejícími soubory na Slack
+      do hlavního kanálu nebo některému kouči přímou zprávou. Těšíme se na
+      vaši kreativitu.
