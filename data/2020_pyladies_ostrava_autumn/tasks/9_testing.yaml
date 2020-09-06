@@ -1,6 +1,3 @@
-# https://pyladies.cz/v1/s005-modules/handout/handout5b-ostrava.pdf
-# https://pyladies.cz/v1/s005-modules/handout/handout5c-ostrava.pdf
-
 tasks:
 
 - section:
@@ -14,6 +11,8 @@ tasks:
     * _ai.py_, kde bude funkce *tah_pocitace*,
     * _piskvorky.py_, kde budou ostatní funkce,
     * _hra.py_, kde bude import a volání hlavní funkce z _piskvorky.py_ (a nic jiného).
+
+    _Nezapomeň na to, co jsme si říkali na lekci o cyklických importech a uprav si moduly podle toho, co jsme si zde ukazovali._
 
 - id: handout9_2
   markdown: |
@@ -35,16 +34,16 @@ tasks:
 
 - id: handout9_4
   markdown: |
-    Dopiš do každé z testovacích funkcí alespoň dva testy.
+    Zkus dopsat do každé z testovacích funkcí alespoň dva testy.
 
 - id: handout9_5
   markdown: |
     Ověř, že se funkce *tah_pocitace* umí vyrovnat s jinou délkou hracího pole než 20.
-    
+
     _„Ověření” znamená napsání příslušného testu._
 
 - id: handout9_6
   markdown: |
     Ověř si, že se *tah_pocitace* chová rozumně když dostane plné hrací pole, nebo pole s délkou 0.
-    
+
     _Rozumné chování v tomto případě znamená vyvolání rozumné výjimky._
