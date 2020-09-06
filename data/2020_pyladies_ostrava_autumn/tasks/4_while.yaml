@@ -1,5 +1,3 @@
-# https://pyladies.cz/v1/s003-looping/handout/handout3b-ostrava.pdf
-
 tasks:
 
 - section:
@@ -38,7 +36,7 @@ tasks:
 
 - id: handout4_6
   markdown: |
-    Pomocí cyklu `for` a funkce `range()` napiš program, který vypíše:
+    Pomocí cyklu `for` a funkce `range()` napiš program, který na terminál vypíše:
 
         a
         a
@@ -132,7 +130,7 @@ tasks:
 
 - id: handout4_15
   markdown: |
-    Programy s cyklem `for` uprav tak, aby počet řádků (či velikost čtverce/trojúhelníku/tabulky) mohl zadat uživatel.
+    Předchozí 4 programy s cyklem `for` uprav tak, aby počet řádků (či velikost čtverce/trojúhelníku/tabulky) mohl zadat uživatel.
 
 - section:
     markdown: |
