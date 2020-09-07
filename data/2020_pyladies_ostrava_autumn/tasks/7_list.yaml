@@ -1,0 +1,229 @@
+tasks:
+
+- section:
+    markdown: |
+      Na začátek trocha práce se seznamy.
+      Některé z projektů – a zvlášť ten poslední – potřebují trochu přemýšlení;
+      nebudeš-li vědět jak dál, zeptej se na Slacku nebo na sraze ostatních
+      a řešte společně!
+
+- id: handout7_1
+  markdown: |
+    Udělej si seznam domácích zvířat. Budeš ho potřebovat v dalších úlohách.
+    Domácí zvířata známe tato: `"pes", "kočka", "králík", "had"`.
+
+- id: handout7_2
+  markdown: |
+    Napiš funkci, která vrací jména domácích zvířat (zadaných argumentem), která jsou kratší než 5 písmen.
+
+    _Pozor na rozdíl mezi tím, co funkce dělá a co vrací._
+
+- id: handout7_3
+  markdown: |
+    Napiš funkci, která vrací jména domácích zvířat (zadaných argumentem), která začínají na `k`.
+
+- id: handout7_4
+  markdown: |
+    Napiš funkci, která dostane slovo a zjistí, jestli je v seznamu domácích zvířat.
+
+    _„Zjistí“ znamená, že funkce vrátí `True` nebo `False`._
+
+- id: handout7_5
+  markdown: |
+    Napiš funkci, která dostane dva seznamy jmen zvířat a vrátí tři seznamy:
+
+    - zvířata, která jsou v obou seznamech (sjednocení množin: první ∪ druhá),
+    - zvířata, která jsou jen v prvním seznamu (rozdíl množin: první - druhá),
+    - zvířata, která jsou jen ve druhém seznamu (rozdíl množin: druhá - první).
+
+    _Pozor na rozdíl mezi průnikem a sjednocením. Pokud si nejsi jistý/á, koukni třeba na Wikipedii._
+
+- id: handout7_6
+  markdown: |
+    Napiš program, který seřadí seznam domácích zvířat podle abecedy.
+
+- id: handout7_7
+  markdown: |
+    Had byl pyšný na to, že je v abecedě první.
+    Dokud nepřiletěla `"andulka"`.
+
+    Abys hada uklidnil/a, vytvoř funkci, která zvířata seřadí podle abecedy,
+    ale bude ignorovat první písmeno t.j. vrátí:
+
+    <pre>
+    "h<span style='color: pink'>ad</span>",
+    "p<span style='color: pink'>es</span>",
+    "a<span style='color: pink'>ndulka</span>",
+    "k<span style='color: pink'>očka</span>",
+    "k<span style='color: pink'>rálík</span>".
+    </pre>
+
+    Postup:
+
+    - Na začátku máš seznam zvířat s andulkou. Tento seznam _hodnot_ chceš seřadit podle
+      nějakého _klíče_. Klíč můžeš z každé hodnoty vypočítat.
+    - Tento seznam budeš postupně procházet a pro každý prvek vypočítáš/vytvoříš seznam dvojic `(klíč, hodnota)`.
+      Dvojice si budeš potřebovat někde ukládat, např. do nového pomocného seznamu.
+    - Nový pomocný seznam již obsahuje dvojice, které můžeš seřadit. Dvojice se totiž řadí nejdříve podle
+      prvního prvku, pak podle druhého atd.
+    - Nyní z tohoto seznamu můžeš vytvořit opět jen seznam hodnot.
+
+    Proč má zrovna had takovéhle výsadní postavení, zjistíš později.
+
+- section:
+    markdown: |
+      Jedna klasická programovací úloha, která nejspíš pořádně potrápí
+      tvé logické myšlení. Je nepovinná, nemáš-li na ni aspoň pár hodin,
+      tak ji přeskoč.
+
+- id: handout7_8
+  markdown: |
+    Napiš funkci, která převede římské číslice na číslo (`int`).
+
+- section:
+    markdown: |
+      Dadaistický koutek: procvičení práce se seznamy, řetězci a soubory.
+      Opět: nebudeš-li vědět jak dál, zeptej se!
+
+- id: handout7_9
+  markdown: |
+    Vyber si básničku, která má aspoň tři sloky po aspoň třech verších.
+    Ulož ji do souboru _basnicka.txt_. Básničku ulož tak, aby mezi každou slokou byl volný řádek.
+    Můžeš použít třeba kousek Máje od K. H. Máchy nebo některou baladu z Kytice od K. J. Erbena.
+
+- id: handout7_10
+  markdown: |
+    Napiš program, který vypíše básničku ze souboru _basnicka.txt_, ale obrátí
+    pořadí veršů (t.j. jako první vypíše poslední řádek atd.). Nápověda: Každý
+    seznam má metodu `reverse`, která ho „obrátí”.
+
+- id: handout7_11
+  markdown: |
+    Napiš program, který obrátí pořadí slov v jednotlivých verších
+
+- id: handout7_12
+  markdown: |
+    Obrať pořadí slok (ty by měly být oddělené jedním prázdným řádkem).
+
+- id: handout7_13
+  markdown: |
+    Vypiš slova básně v náhodném pořadí.
+
+    _Bonusový projekt: Snaž se přitom co nejlépe zachovat strukturu básně (sloky,
+    verše, interpunkci, velká písmena, ..._
+
+- section:
+    markdown: |
+      Projekty závisí jeden na druhém, řeš je postupně.
+      Až to uděláš, můžeš si zahrát hru!
+      Tahle sekce není jednoduchá (a poslední dva projekty jsou obzvláště náročné).
+      Můžeš zkusit spojit síly s ostatními účastníky kurzu!}
+
+- id: handout7_14
+  markdown: |
+    Napiš funkci, která dostane seznam souřadnic (párů čísel menších než 10,
+    která určují sloupec a řádek)
+    a vypíše je jako mapu: mřížku 10×10, kde na políčka která jsou v seznamu
+    napíše `X`, jinde tečku.
+    Například:
+
+        souradnice = [(0, 0), (1, 0), (2, 2), (4, 3), (8, 9), (8, 9)]
+
+        nakresli_mapu(souradnice)
+        X X . . . . . . . .
+        . . . . . . . . . .
+        . . X . . . . . . .
+        . . . . X . . . . .
+        . . . . . . . . . .
+        . . . . . . . . . .
+        . . . . . . . . . .
+        . . . . . . . . . .
+        . . . . . . . . . .
+        . . . . . . . . X .
+
+    _Jak na to? Způsobů je jistě více, toto je jeden z nich:_
+
+    - Udělej tabulku (seznam seznamů) se samými tečkami, něco jako:<br>
+      `[['.', '.', '.'], ['.', '.', '.'], ['.', '.', '.']]`.
+    - Na příslušných místech nahraď tečky X-ky.
+    - Tabulku vypiš pomocí dvou cyklů `for` zanořených do sebe.
+
+    _Tady je druhý způsob:_
+
+    - Nejdříve nech funkci vykreslit mapu ze samých teček (10x10). Křižky místo některých teček zatím neřeš.
+    - Funguje? Hurá! Teď na správných místech nahraď tečky X-ky. V kódu, kde kresliš tečku, přidej podmínku,
+      která zkontroluje, zda je tečka na souřadnicích, kde má být křížek.
+
+    _Který způsob ti vyhovuje více? Našla/el jsi jiný způsob a funguje ti to? Pak je to OK._
+
+
+- id: handout7_15
+  markdown: |
+    Napiš funkci `pohyb`, která dostane seznam souřadnic a světovou stranu
+    (`"s"`, `"j"`, `"v"` nebo `"z"`)
+    a přidá k seznamu poslední bod „posunutý“ v daném směru. Např.:
+
+        souradnice = [(0, 0)]
+        pohyb(souradnice, 'v')
+        print(souradnice)         # → [(0, 0), (1, 0)]
+        pohyb(souradnice, 'v')
+        print(souradnice)         # → [(0, 0), (1, 0), (2, 0)]
+        pohyb(souradnice, 'j')
+        print(souradnice)         # → [(0, 0), (1, 0), (2, 0), (2, 1)]
+        pohyb(souradnice, 's')
+        print(souradnice)         # → [(0, 0), (1, 0), (2, 0), (2, 1), (2, 0)]
+
+    Funkce by neměla nic vracet. Jen mění už existující seznam.
+
+- id: handout7_16
+  markdown: |
+    Napiš cyklus, který se bude ptát uživatele na světovou stranu,
+    podle ní zavolá `pohyb`, a následně vykreslí seznam jako mapu.
+    Pak se opět se zeptá na stranu atd.
+
+    Začínej se seznamem `[(0, 0), (1, 0), (2, 0)]`.
+
+- id: handout7_17
+  markdown: |
+    Doplň funkci `pohyb` tak, aby při pohybu umazala první bod ze seznamu
+    souřadnic. Výsledný seznam tak bude mít stejnou délku, jako před voláním.
+
+- id: handout7_18
+  markdown: |
+    Doplň funkci `pohyb` tak, aby zamezila:
+
+    - pohybu ven z mapy,
+    - pohybu na políčko, které už v seznamu je.
+
+    Vhodná výjimka pro tyto situace je `ValueError('Game over')`.
+
+- id: handout7_19
+  markdown: |
+    Přidej do hry hadí potravu. Tady jsou pravidla pro vegetariánského hada,
+    ale můžeš si je změnit podle chuti:
+
+    Seznam ovoce obsahuje na začátku jedno ovoce na políčku, na kterém není had
+    (například: `[(2, 3)]` znamená jedno ovoce na pozici (2, 3)).
+    Když had sežere ovoce, vyroste („nesmaže“ se mu ocas, tedy neprovede se to,
+    cos přidala v projektu 13),
+    a pokud na mapě zrovna není další ovoce, na náhodném místě (kde není had) vyroste ovoce nové.
+
+    Každých 30 tahů vyroste nové ovoce samo od sebe.
+
+    Na mapě se toto tajemné ovoce zobrazuje jako otazník (`?`).
+
+- id: handout7_20
+  markdown: |
+    Hadí hřiště může mít libovolné rozměry větší než 4×1.
+    Třeba 20×20 nebo 10×30.
+    Máš chuť hru dále vylepšovat? My budeme moc rádi! Nezapomeň se nám pochlubit na Slacku.
+
+- section:
+    markdown: |
+      A nakonec projekt na přemýšlení.
+
+- id: handout7_21
+  markdown: |
+    Může seznam obsahovat sám sebe? Zkus co nejjednodušeji udělat takový seznam, aby platilo:
+
+        seznam[5][5][5][5][5][5][5][5][5][5][5][5][5][5][5][5][5][5][0] == 5

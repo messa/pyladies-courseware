@@ -1,0 +1,263 @@
+tasks:
+
+- id: handout2_1
+  markdown: |
+    Jakou používáš verzi Pythonu? Napiš také, jak jsi na odpověď přišla/přišel.
+
+- section:
+    markdown: |
+      Následující projekty procvičí orientaci v chybových hláškách. Doporučuji je udělat.
+
+- id: handout2_2
+  markdown: |
+    Jak se jmenuje druh chyby, která nastane, když…
+
+    - Dáš uvozovky jen na jednu stranu řetězce? — SyntaxError
+    - Zkusíš odečíst číslo od řetězce? —
+    - Dělíš nulou? —
+    - Použiješ proměnnou, která neexistuje? —
+    - Stiskneš Ctrl+C, když se program ptá na vstup (pomocí input)? —
+    - Odsadíš příkaz bez předchozího if:? —
+    - Po `if:` odsadíš jeden příkaz o čtyři mezery a druhý jen o dvě? —
+    - Neuzavřeš závorku? –
+    - Zkusíš použít vykřičník (`!`) jako operátor? —
+    - Napíšeš v příkazu `print(1, 2, 3)` čárku navíc? —
+
+- id: handout2_3
+  markdown: |
+    _Podívej se na odpovědi na předchozí otázku, ale Python zkus použít jen na ověření._
+
+    Jaká chyba nastane, když zkusíš použít proměnnou předtím, než do ní něco přiřadíš?
+
+- id: handout2_4
+  markdown: |
+    _Podívej se na odpovědi na otázku 1, ale Python použij jen na ověření._
+
+    Jaká chyba nastane, když zkusíš podělit řetězec řetězcem?
+
+- id: handout2_5
+  markdown: |
+    Lomítko (`/`) je operátor, ale nedá se použít na řetězce. Vykřičník (`!`) v Pythonu není operátor.
+    Jak se liší „jejich“ chyby?
+
+- section:
+    markdown: |
+      Tenhle projekt by měl přivést k tomu, jak zjišťovat, co v Pythonu jde a co ne.
+      Druhá část je trochu na zamyšlení.
+
+- id: handout2_6
+  markdown: |
+    Ne všechno se dá použít jako jméno proměnné.
+    Fungují pro proměnné následující jména? Pokud ne, proč asi? Vyzkoušej si to v interaktivním režimu Pythonu.
+
+    <div style='column-count: 4'>
+      <code>x</code><br>
+      <code>tlacitko4</code><br>
+      <code>34</code><br>
+      <code>3e4</code><br>
+      <code>krůta</code><br>
+      <code>$i</code><br>
+      <code>druha-odmocnina</code><br>
+      <code>readme.txt</code><br>
+      <code>kratsiStrana</code><br>
+      <code>POCET_BODU</code><br>
+      <code>_</code> (podtržítko)<br>
+      <code>π</code> (pí)<br>
+      <code>True</code><br>
+      <code>_cache</code><br>
+      <code>__name__</code><br>
+      <code>while</code><br>
+    </div>
+
+- section:
+    markdown: |
+      Následující 2 úkoly jsou na procvičení toho, co jsme dělali na srazu.
+
+- id: handout2_7
+  markdown: |
+    _Zkus se nedívat na programy ze srazu._
+
+    Napiš program, který spočítá povrch a objem krychle o straně 2852 cm.
+
+    Abys nemusel/a tolik hledat v učebnici (vlastně Wikipedii): povrch S = 6a², objem V = a³
+
+    _Řešení, pro kontrolu: S = 48803424 cm², V = 23197894208 cm³_
+
+  mandatory: true
+
+- id: handout2_8
+  markdown: |
+    Změň program tak, aby stranu/poloměr mohl uživatel zadat.
+
+    _Tady už se na materiály ze srazu klidně podívej._
+
+  mandatory: true
+
+- section:
+    markdown: |
+      Další dva projekty doplňují program ze srazu.
+      Všechno bude vysvětleno později, takže jestli nemáš čas, přeskoč je.
+
+- id: handout2_9
+  markdown: |
+    Ulož si následující program jako `pokus.py` a spusť ho několikrát za sebou. Co dělá?
+
+    ```
+    from random import randrange
+    cislo = randrange(3)
+    print(cislo)
+    ```
+
+    _Jak to funguje, to se dozvíme příště; zatím to ber jako kouzelné zaříkadlo._
+
+    _Aby všechno fungovalo správně, nesmíš mít v aktuálním adresáři soubor jménem `random.py`._
+
+  mandatory: true
+
+- id: choose_word
+  markdown: |
+    Vytvoř program, který dělá následující:
+
+    * Vybere náhodné číslo ze tří možností (0, 1, nebo 2).
+      *(Koukni na předchozí úkol!)*
+    * Je-li číslo 0:
+        * do proměnné `tvar` uloží slovo `'trojúhelník'`;
+    * jinak, je-li číslo 1:
+        * do proměnné `tvar` uloží slovo `'čtverec'`;
+    * jinak:
+        * do proměnné `tvar` uloží slovo `'kolečko'`.
+    * Vypíše `tvar`.
+
+- id: rock_paper_scissors
+  mandatory: true
+  markdown: |
+    Vytvoř hru *Kámen nůžky papír*, která funguje následovně:
+
+    * Do proměnné `tah_pocitace` dá náhodně slovo `'kámen'`, `'nůžky'`
+      nebo `'papír'`.
+      *(Koukni na předchozí úkol!)*
+    * Zeptá se uživatele na tah; výsledek uloží do proměnné `tah_hrace`
+    * Je-li tah hráče `'kámen'`:
+        * je-li tah počítače `'kámen'`:
+            * vypíše `'Remíza!'`;
+        * jinak, je-li tah počítače `'nůžky'`:
+            * vypíše `'Vyhrála jsi!'`;
+        * jinak, je-li tah počítače `'papír'`:
+            * vypíše `'Prohrála jsi!'`.
+    * Jinak, je-li tah hráče `'nůžky'`:
+        * je-li tah počítače `'kámen'`:
+            * vypíše `'Prohrála jsi!'`;
+        * jinak, je-li tah počítače `'nůžky'`:
+            * vypíše `'Remíza!'`;
+        * jinak, je-li tah počítače `'papír'`:
+            * vypíše `'Vyhrála jsi!'`.
+    * Jinak, je-li tah hráče `'papír'`:
+        * je-li tah počítače `'kámen'`:
+            * vypíše `'Vyhrála jsi!'`;
+        * jinak, je-li tah počítače `'nůžky'`:
+            * vypíše `'Prohrála jsi!'`;
+        * jinak, je-li tah počítače `'papír'`:
+            * vypíše `'Remíza!'`.
+    * Jinak,
+        * Omluví se *(vypíše hlášku)*, že zná jen tři slova: kámen, nůžky a papír.
+
+    *Je to celkem dlouhý program, ale můžeš ho psát postupně:
+    každý jednotlivý řádek „přelož“ do Pythonu.
+    Budeš potřebovat `if`, `elif`, a `else`;
+    porovnávání (`==`) a přiřazení (`=`); pro výpis `print` a pro vstup `input`.*
+
+- section:
+    markdown: |
+      Tyhle projekty kombinují opakování a nové informace. Doporučuji si je projít.
+
+- id: handout2_11
+  markdown: |
+    Které pythonní _operátory_ dokážeš z hlavy vyjmenovat?
+
+- id: handout2_12
+  markdown: |
+    Zkusil/a jsi porovnávat řetězce?
+    Zkus si tuto tabulku doplnit na papíře a pak ověř odpovědi pomocí Pythonu
+    Pokud to jde, použij pro porovnání < nebo >.
+
+    | `a`     |      | `b`       |
+    |---------|:----:|-----------|
+    | `2`     |  >   | `1`       |
+    | `1`     |  <   | `2`       |
+    | `'abc'` |  ==  | `'abc'`   |
+    | `'aaa'` |      | `'abc'`   |
+    | `'abc'` |      | `'Abc'`   |
+    | `'abC'` |      | `'abc'`   |
+    | `'abc'` |      | `'abcde'` |
+    | `'abc'` |      | `'ábč'`   |
+    | `'abc'` |      | ``10``    |
+
+- id: handout2_13
+  markdown: |
+    Jaká je hodnota proměnné po provedení příkazů:
+
+    * <code>promenna = 1 < 2</code> ?
+    * <code>promenna = 2 < 2</code> ?
+    * <code>promenna = 1 < 2 < 3</code> ?
+    * <code>promenna = 1 < 3 < 2</code> ?
+    * <code>promenna = 1 < 3 < 3</code> ?
+    * <code>promenna = 'abc' < 'ABC' < 'def' < 'zajíc'</code> ?
+
+    Tam, kde je hodnota proměnné `False`, dají se některé z porovnávaných hodnot mezi sebou vyměnit, aby
+    byla `True`?
+
+- section:
+    markdown: |
+      Další dva projekty ti umožní kreativně využít, co ses naučil/a.
+
+- id: handout2_14
+  markdown: |
+    Na srazu jsme měli program, který píše různé nesmysly podle uživatelem zadaného věku.
+
+    Zkus napsat program, který píše hlášky podle zadané rychlosti chůze, váhy ulovené ryby, počtu tykadel,
+    teploty vody nebo třeba vzdálenosti od rovníku.
+
+- id: handout2_15
+  markdown: |
+    Napiš program, který po zadání správného hesla vypíše nějakou tajnou informaci.
+
+    _Vhodné tajemství je třeba: V pátek jsem viděla černého havrana._
+
+- section:
+    markdown: |
+      Poslední projekty jsou pokročilejší. Jestli nemáš čas, radši udělej pořádně ty ostatní.
+
+- id: handout2_16
+  markdown: |
+    Projdi si v materiálech sekci _„Nebo anebo a”_:
+
+    [naucse.python.cz/lessons/beginners/and-or/](https://naucse.python.cz/lessons/beginners/and-or/)
+
+  submit: false
+
+- id: handout2_17
+  markdown: |
+    Doplň tuhle tabulku:
+
+    | `a`     | `b`     | `a and b` | `a or b` | `not a` |
+    |---------|---------|-----------|----------|---------|
+    | `True`  | `True`  |           |          |         |
+    | `False` | `True`  |           |          |         |
+    | `True`  | `False` |           |          |         |
+    | `False` | `False` |           |          |         |
+
+    Tohle je takzvaná _pravdivostní_ tabulka:
+    _Obsahuje jeden řádek pro každou kombinaci booleovských hodnot, které `a` a `b` můžou mít. Když se stane, že se v složitějších `and` a `or` ztratíš, doporučuji napsat si podobnou tabulku a na každý řádek se podívat zvlášť._
+
+- id: handout2_18
+  markdown: |
+    Zkus přepsat Kámen, Nůžky, Papír pomocí `and` a `or`.
+
+    Dokážeš docílit toho, aby se každý z řetězců `'Plichta.'`, `'Počítač vyhrál.'` a `'Vyhrála jsi!'` objevil
+    v programu jen jednou, aniž bys tyhle řetězce musela přiřazovat do proměnných?
+
+    Pokud ano, gratuluji!
+
+- id: handout2_19
+  markdown: |
+    Zkus program „šťastná/bohatá“ přepsat BEZ zanořených `if`ů. Která verze ti připadá čitelnější?

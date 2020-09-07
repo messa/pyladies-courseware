@@ -1,0 +1,29 @@
+tasks:
+
+- id: handout11_1
+  markdown: |
+    Vytvoř třidu `Ctverec` s jedním atributem `strana` a metodami `obvod()`, `obsah()`
+    a *`rozdil_obsahu(jiny_ctverec)`*, která vrátí rozdíl obsahů dvou
+    čtverců – zadaného a toho jehož metodu voláme.
+
+- section:
+    markdown: |
+      Další úkoly se budou týkat dědičnosti.
+
+- id: handout11_2
+  markdown: |
+    Vytvoř třídu 'Kruh' s atributem 'polomer' a stejnými metodami 'obvod()'
+    a 'obsah()' jako měla minule třída 'Ctverec'.
+
+- id: handout11_3
+  markdown: |
+    Vytvoř třídu 'Obdelnik' s atributy pro délky stran a opět stejnými metodami 'obvod()'
+    a 'obsah()' jako měla minule třída 'Ctverec'.
+
+- id: handout11_4
+  markdown: |
+    Zkus použít dědičnost tak, aby třídy 'Ctverec', 'Kruh' i 'Obdelnik' mohly používat
+    společnou metodu *'rozdil_obsahu(jiny_objekt)'* a aby tato metoda fungovala i mezi
+    objekty různých tříd.
+
+    *Takže bude například možné zjistit rozdíl obsahu čtverce a kruhu*
