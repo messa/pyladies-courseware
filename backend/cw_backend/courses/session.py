@@ -14,6 +14,7 @@ class Session:
     def __init__(self, course_id, slug, local_data, naucse_data, course_dir, tasks_by_lesson_slug, loader):
         self._course_dir = course_dir
         self._loader = loader
+        self.course_id = course_id
         self.slug = slug
 
         def get(key, default=None):
@@ -70,6 +71,7 @@ class Session:
             load_tasks_file(
                 self.task_items,
                 self._course_dir / task_data['file'],
+                course_id=self.course_id,
                 session_slug=self.slug,
                 loader=self._loader)
 
@@ -86,7 +88,7 @@ class Session:
         return d
 
 
-def load_tasks_file(task_items, file_path, session_slug, loader):
+def load_tasks_file(task_items, file_path, course_id, session_slug, loader):
     try:
         raw = yaml_load(loader.read_text(file_path))
     except Exception as e:
@@ -95,7 +97,7 @@ def load_tasks_file(task_items, file_path, session_slug, loader):
         if raw_item.get('section'):
             task_items.append(TaskSection(raw_item))
         elif raw_item.get('markdown'):
-            task_items.append(Task(raw_item, session_slug))
+            task_items.append(Task(raw_item, course_id, session_slug))
         else:
             raise Exception(f'Unknown item in tasks file {file_path}: {smart_repr(raw_item)}')
 
@@ -129,6 +131,11 @@ class MaterialItem:
         else:
             raise Exception(f'Unknown MaterialItem data: {smart_repr(raw)}')
 
+    material_item_type = DataProperty('material_item_type')
+    title_html = DataProperty('title_html')
+    text_html = DataProperty('text_html')
+    url = DataProperty('url')
+
     def export(self):
         return self.data
 
@@ -160,6 +167,11 @@ class NaucseMaterialItem:
         except Exception as e:
             raise Exception(f'Failed to process naucse material {naucse_data!r}: {e!r}')
 
+    material_item_type = DataProperty('material_item_type')
+    title_html = DataProperty('title_html')
+    text_html = DataProperty('text_html')
+    url = DataProperty('url')
+
     def export(self):
         return self.data
 
@@ -182,6 +194,11 @@ class TaskSection:
             'top': bool(raw_item.get('top', False)),
         }
 
+    task_item_type = DataProperty('task_item_type')
+    text_html = DataProperty('text_html')
+    id = None
+    submit = None
+
     def export(self):
         return self.data
 
@@ -195,8 +212,9 @@ class TaskSection:
 
 class Task:
 
-    def __init__(self, raw, session_slug):
+    def __init__(self, raw, course_id, session_slug):
         self.id = raw.get('id')
+        self.course_id = course_id
         self.session_slug = session_slug
         self.data = {
             'task_item_type': 'task',
@@ -208,6 +226,12 @@ class Task:
             'numbered': bool(raw.get('numbered', True)),
             'top': bool(raw.get('top', False)),
         }
+
+    task_item_type = DataProperty('task_item_type')
+    text_html = DataProperty('text_html')
+    mandatory = DataProperty('mandatory')
+    submit = DataProperty('submit')
+    number = DataProperty('number')
 
     def export(self):
         return self.data

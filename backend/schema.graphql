@@ -1,0 +1,109 @@
+type Query {
+  node(id: ID!): Node
+  allCourses(before: String, after: String, first: Int, last: Int): CourseConnection
+  activeCourses(before: String, after: String, first: Int, last: Int): CourseConnection
+  pastCourses(before: String, after: String, first: Int, last: Int): CourseConnection
+  course(courseId: String): Course
+  currentUser: User
+  user(userId: String): User
+  loginMethods: LoginMethods
+}
+
+interface Node {
+  id: ID!
+}
+
+type CourseConnection {
+  pageInfo: PageInfo!
+  edges: [CourseEdge]
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
+type CourseEdge {
+  cursor: String!
+  node: Course
+}
+
+type Course implements Node {
+  id: ID!
+  courseId: String!
+  titleHTML: String
+  subtitleHTML: String
+  descriptionHTML: String
+  startDate: String
+  endDate: String
+  sessions: [Session]
+  session(slug: String): Session
+}
+
+type Session implements Node {
+  id: ID!
+  slug: String
+  date: String
+  titleHTML: String
+  hasTasks: Boolean
+  materialItems: [MaterialItem]
+  taskItems: [TaskItem]
+}
+
+type MaterialItem {
+  materialItemType: String
+  titleHTML: String
+  textHTML: String
+  url: String
+}
+
+type TaskItem {
+  taskItemType: String
+  taskItemId: String
+  textHTML: String
+  number: Int
+  mandatory: Boolean
+  submit: Boolean
+  mySolution: TaskSolution
+}
+
+type TaskSolution {
+  taskSolutionId: String
+  courseId: String
+  taskId: String
+  userId: String
+  isSolved: Boolean
+  lastAction: String
+}
+
+type User implements Node {
+  id: ID!
+  userId: String!
+  isAdmin: Boolean
+  name: String
+  attendedCourseIds: [String]
+  coachedCourseIds: [String]
+}
+
+type LoginMethods implements Node {
+  id: ID!
+  facebook: FacebookLoginMethod
+  google: GoogleLoginMethod
+  dev: DevLoginMethod
+}
+
+type FacebookLoginMethod {
+  loginUrl: String!
+}
+
+type GoogleLoginMethod {
+  loginUrl: String!
+}
+
+type DevLoginMethod {
+  studentLoginUrl: String!
+  coachLoginUrl: String!
+  adminLoginUrl: String!
+}

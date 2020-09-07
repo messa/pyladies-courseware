@@ -1,6 +1,7 @@
 import React from 'react'
 
 function MaterialItems({ materialItems }) {
+  if (!materialItems) return null
   return (
     <ul style={{ listStyle: 'none', paddingLeft: 0 }}>
       {materialItems.map((item, i) => (
@@ -13,30 +14,30 @@ function MaterialItems({ materialItems }) {
 }
 
 function LessonItem({ materialItem }) {
-  if (materialItem['material_item_type'] === 'attachment') {
+  if (materialItem.materialItemType === 'attachment') {
     return (
-      <a href={materialItem['url']}>
-        <span dangerouslySetInnerHTML={{__html: materialItem['title_html']}} />
+      <a href={materialItem.url}>
+        <span dangerouslySetInnerHTML={{__html: materialItem.titleHTML}} />
       </a>
     )
   }
-  if (materialItem['material_item_type'] === 'lesson') {
+  if (materialItem.materialItemType === 'lesson') {
     return (
-      <a href={materialItem['url']}>
-        <span dangerouslySetInnerHTML={{__html: materialItem['title_html']}} />
+      <a href={materialItem.url}>
+        <span dangerouslySetInnerHTML={{__html: materialItem.titleHTML}} />
       </a>
     )
   }
-  if (materialItem['material_item_type'] === 'cheatsheet') {
+  if (materialItem.materialItemType === 'cheatsheet') {
     return (
-      <a href={materialItem['url']}>
-        <span dangerouslySetInnerHTML={{__html: materialItem['title_html']}} />
+      <a href={materialItem.url}>
+        <span dangerouslySetInnerHTML={{__html: materialItem.titleHTML}} />
       </a>
     )
   }
-  if (materialItem['material_item_type'] === 'text') {
+  if (materialItem.materialItemType === 'text') {
     return (
-      <span dangerouslySetInnerHTML={{__html: materialItem['text_html']}} />
+      <span dangerouslySetInnerHTML={{__html: materialItem.textHTML}} />
     )
   }
   return <code>{JSON.stringify(materialItem)}</code>

@@ -1,8 +1,9 @@
 import Head from 'next/head'
+import { createFragmentContainer, graphql } from 'react-relay'
 import Header from './Header'
 import Footer from './Footer'
 
-export default ({ children, user, activeItem, width }) => (
+const Layout = ({ children, currentUser, activeItem, width }) => (
   <div className='Layout'>
     <Head>
       <title>Pyladies Courseware</title>
@@ -16,7 +17,7 @@ export default ({ children, user, activeItem, width }) => (
         integrity="sha256-v5CcBJnFb3uNFDq7uhR4sIS7yihsXlBxN+cwxjtzp7c=" crossOrigin="anonymous" />
     </Head>
 
-    <Header user={user} activeItem={activeItem} />
+    <Header currentUser={currentUser} activeItem={activeItem} />
 
     <div className='pageContent' style={{ maxWidth: width }}>
       {children}
@@ -41,3 +42,11 @@ export default ({ children, user, activeItem, width }) => (
 
   </div>
 )
+
+export default createFragmentContainer(Layout, {
+  currentUser: graphql`
+    fragment Layout_currentUser on User {
+      ...Header_currentUser
+    }
+  `
+})

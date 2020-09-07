@@ -9,6 +9,10 @@ run: $(venv_dir)/packages-installed
 
 venv: $(venv_dir)/packages-installed
 
+schema.graphql: $(venv_dir)/packages-installed cw_backend/graphql/*
+	$(venv_dir)/bin/python3 print_schema.py > $@
+	cp $@ ../frontend/
+
 $(venv_dir)/packages-installed: requirements.txt requirements-tests.txt
 	$(python3) -c "import sys; print(sys.version_info); assert sys.version_info >= (3, 6)"
 	test -d $(venv_dir) || $(python3) -m venv $(venv_dir)

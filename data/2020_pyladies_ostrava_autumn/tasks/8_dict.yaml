@@ -1,0 +1,124 @@
+tasks:
+
+- section:
+    markdown: |
+      Těchto pár úkolů slouží k procvičení práce se slovníky, které se následně
+      pokusíš využít při programování známé skautské hry.
+
+- id: handout8_1
+  markdown: |
+    Napiš funkci, která pro argumentem zadané číslo `n` vytvoří a vrátí slovník,
+    kde jako klíče budou čísla od jedné do `n` a jako hodnoty k nim
+    jejich druhé mocniny. Například:
+
+    ```pycon
+    >>> mocniny(4)
+    {1: 1, 2: 4, 3: 9, 4: 16}
+    ```
+
+  mandatory: true
+
+- id: handout8_2
+  markdown: |
+    Napiš funkci, která sečte a vrátí sumu všech klíčů a sumu všech hodnot
+    ve slovníku, který dostane jako argument. K vyzkoušení můžeš použít
+    slovník z minulé úlohy. Například:
+
+    ```pycon
+    >>> soucet_klicu_a_hodnot(mocniny(4))
+    (10, 30)
+    ```
+
+- id: handout8_3
+  markdown: |
+    Napiš funkci, která jako argument dostane řetězec a vrátí slovník,
+    ve kterém budou jako klíče jednotlivé znaky ze zadaného řetězce a jako
+    hodnoty počty výskytů těchto znaků v řetězci. Například:
+
+    ```pycon
+    >>> pocet_znaku("hello world")
+    {'h': 1, 'e': 1, 'l': 3, 'o': 2, ' ': 1, 'w': 1, 'r': 1, 'd': 1}
+    ```
+
+- id: handout8_4
+  markdown: |
+    Napiš funkci, která vypíše obsah slovníku (klíče a k nim náležící
+    hodnoty) na jednotlivé řádky.
+
+    Funkci, která něco vypisuje, je vhodné
+    pojmenovat speciálně, zde třeba `vypis_slovnik`, aby bylo jasné,
+    že jen vypisuje a nic nevrací. Například:
+
+    ```pycon
+    >>> vypis_slovnik(mocniny(4))
+    Klíč 1, hodnota 1
+    Klíč 2, hodnota 4
+    Klíč 3, hodnota 9
+    Klíč 4, hodnota 16
+    ```
+
+  mandatory: true
+
+- section:
+    markdown: |
+      A teď už ke slíbené hře.
+
+- id: handout8_5
+  markdown: |
+    Úkolem je vytvořit známou skautskou hru „Kdo? S kým? Co dělali?“. Hra se
+    hráče zeptá postupně na různé otázky, například „Kdo?“, „S kým?“,
+    „Co dělali?“, „Kde?“, „Kdy?“, a nakonec „Proč?“, s tím, že mu umožní
+    na jednu otázku odpovědět vícekrát a všechny odpovědi si uloží.
+    Na závěr pak hra z každé sady odpovědí vybere náhodně jednu odpověď
+    a z takto vybraných odpovědí složí větu, kterou vypíše uživateli.
+    Seznam otázek by mělo být možné změnit v kódu na jednom místě bez zásahu
+    do logiky programu.
+
+- section:
+  markdown: |
+    Už máš hotovo a chceš další výzvy? Máme tu pro tebe další nepovinné úkoly.
+
+- id: handout8_6
+  markdown: |
+    V tomto úkolu si budeme hrát s Morseovou abecedou.
+    Na začátku máš k dispozici slovník, který obsahuje znak latinské abecedy (v našem případě bez číslic a speciálních znaků)
+    a k němu příslušný znak v Morseově abecedě jako kombinaci teček a čárek.
+
+    ```python
+    morseova_abeceda = {
+        'A': '.-',     'B': '-...',   'C': '-.-.',
+        'D': '-..',    'E': '.',      'F': '..-.',
+        'G': '--.',    'H': '....',   'I': '..',
+        'J': '.---',   'K': '-.-',    'L': '.-..',
+        'M': '--',     'N': '-.',     'O': '---',
+        'P': '.--.',   'Q': '--.-',   'R': '.-.',
+        'S': '...',    'T': '-',      'U': '..-',
+        'V': '...-',   'W': '.--',    'X': '-..-',
+        'Y': '-.--',   'Z': '--..',
+        }
+    ```
+
+    Tvým úkolem je napsat program, který převede text do Morseovy abecedy. Jako oddělovač jednotlivých morseových znaků
+    použij znak svislé čáry (|), kterou napíšeš pomocí ALT+124.
+
+    Můžeš použít jakýkoliv text. Pro začátek ti doporučuji použít text bez českých háčků a čárek.
+    Např. "Ucim se programovaci jazyk Python."
+
+    Pokud budeš chtít, můžeš rozšířit svůj program tak, aby si poradil i háčky a čárkami.
+
+- id: handout8_7
+  markdown: |
+    Program s Morseovou abecedou uprav tak, aby uměl převést Morseovu abecedu zpět na latinku.
+
+    Můžeš trénovat s touto zprávou:
+
+    ```python
+    zprava = "---|.--.|.-.|.-|...-|-..|..-|-..|---|-...|.-.|.-|.--.|.-.|.-|-.-.|."
+    ```
+
+- id: handout8_8
+  markdown: |
+    Rozšiř svou Skautskou hru o možnost uložit na konci hry slovník obsahující otázky a odpovědi do JSON souboru.
+    Dále uprav program tak, aby naopak na začátku hry bylo možné (volitelně) tyto uložené odpovědi ve hře použít.
+
+    Nezapomeň, že tohle je nepovinný projekt, který ti může zabrat více času a řeš ho jen tehdy, pokud máš čas a chuť. 
