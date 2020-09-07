@@ -20,3 +20,4 @@ courses:
 - file: 2020_pyladies_praha_spring/course_barclays.yaml
 - file: 2020_pyladies_praha_spring/course_olsanka.yaml
 - file: 2020_pyladies_brno_spring/course_monday.yaml
+- file: 2020_pyladies_ostrava_autumn/course.yaml
