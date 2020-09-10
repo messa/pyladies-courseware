@@ -22,9 +22,9 @@ tasks:
 
 
 - section:
-      markdown: |
-        Následující projekty jsou na procvičení dědičnosti, pokud jsme ji na kurzech ještě nestihli probrat,
-        můžeš je zatím vynechat.
+    markdown: |
+      Následující projekty jsou na procvičení dědičnosti, pokud jsme ji na kurzech ještě nestihli probrat,
+      můžeš je zatím vynechat.
 
 
 - id: handout11_00

@@ -8,8 +8,8 @@ tasks:
   markdown: |
     Během tohoto bloku úkolů budeme vylepšovat konzolovou kalkulačku,
     kterou jsme implementovali již v úkolu číslo 6 v domácích projektech na cykly.
-    Program měl za úkol načíst od uživatele od uživatele dvě čísla a
-    jednoznakový řetězec – buď `'+'`, `'-'`, `'*'` nebo `'/'`. Pak provést příslušnou operaci.
+    Program měl za úkol načíst  od uživatele dvě čísla a
+    jednoznakový řetězec – buď `'+'`, `'-'`, `'*'` nebo `'/'`. A pak provést příslušnou operaci.
     Pojďme si ji připravit pro lepší rozdělení do modulů a psaní testů.
 
     Napiš tedy znovu program, který postupně načte od uživatele dvě čísla a
@@ -31,19 +31,20 @@ tasks:
   
 - id: custom9_02
   markdown: |
-    Vytvoř testovací modul `test_kalkulacka.py`. Napiš do něj testy pro
-    otestování, zda počítají opravdu správně. Nezapomeň otestovat i nestandardní
-    vstupy a ověřit, zda dělení nulou opravdy vyhodí chybu.
+    Vytvoř testovací modul `test_operace.py`. Napiš do něj testy pro
+    otestování, zda funkce z modulu ``operace.py počítají opravdu správně.
+    Nezapomeň otestovat i nestandardní argumenty a ověřit, zda dělení nulou
+    opravdu vyhodí chybu.
 
   mandatory: true
   
 
 - id: custom9_03
   markdown: |
-    V modulu `kalkulacka` vytvoř funkci `proved_vypocet`, která bere tři argumenty.
+    V modulu `operace.py` vytvoř funkci `proved_vypocet`, která bere tři argumenty.
     První číslo, druhé číslo a znak, který nám definuje operaci.
     Funkce s čísly provede příslušnou operaci a vrátí výsledek.
-    Pro matematické operace se samozřejmě použijí funkce z modulu `operace`.
+    Pro matematické operace se samozřejmě použijí již hotové funkce.
 
   mandatory: true
   
@@ -53,7 +54,13 @@ tasks:
     funkce `proved_vypocet` z modulu `kalkulacka`.
 
   mandatory: true
-  
+
+- section:
+    markdown: |
+      V následujících příkladech vylepšíme uživatelské chování programu pomocí vyjímek.
+      Většina programů, se kterými běžně pracuješ je takto upravena, koncový uživatel
+      se setká s vyjímkou jen vyjímečně :-). Po každé větší úpravě nezapomeň spustit testy.
+
 - id: custom9_05
   markdown: |
     Pomocí `try`, `except` případně `finally` a `else` ošetři program pro následující případ.
@@ -72,7 +79,8 @@ tasks:
     _Uživatel chce dělit nulou._
   
     Program zachytí příslušnou výjimku, vypíše informaci o špatně zadaném vstupu a ukončí se,
-    aniž by prováděl nějaké výpočty.
+    aniž by prováděl nějaké výpočty. Nezapomeň, že funkce pro dělení musí pořád vyvolávat vyjímku,
+    aby prošla testy.
 
   mandatory: true
   

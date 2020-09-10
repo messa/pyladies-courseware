@@ -59,6 +59,27 @@ tasks:
     
   mandatory: true
 
+- id: custom8_00
+  markdown: |
+    Napište program, který přeloží zadaný řetězec do morseovy abecedy, tečku nahraďte slovem STOP,
+    ostatní interpunkci ignorujte, slova oddělujte svislítkem '|'.
+    Morseovu abecedu najdete níže (proč jsme ji pro vás připravili takto?):
+
+    ```python
+          {'0' : '-----', 'A' : '.-'   , 'K' : '-.-'  , 'U' : '..-'  ,
+           '1' : '.----', 'B' : '-...' , 'L' : '.-..' , 'V' : '...-' ,
+           '2' : '..---', 'C' : '-.-.' , 'M' : '--'   , 'W' : '.--'  ,
+           '3' : '...--', 'D' : '-..'  , 'N' : '-.'   , 'X' : '-..-' ,
+           '4' : '....-', 'E' : '.'    , 'O' : '---'  , 'Y' : '-.--' ,
+           '5' : '.....', 'F' : '..-.' , 'P' : '.--.' , 'Z' : '--..' ,
+           '6' : '-....', 'G' : '--.'  , 'Q' : '--.-' ,
+           '7' : '--...', 'H' : '....' , 'R' : '.-.'  ,
+           '8' : '---..', 'I' : '..'   , 'S' : '...'  ,
+           '9' : '----.', 'J' : '.---' , 'T' : '-'    }
+    ```
+
+
+
 - section:
     markdown: |
       A teď už ke slíbené hře.
