@@ -4,7 +4,7 @@ function Footer() {
   return (
     <div className='Footer-wrapper'>
       <div className='Footer-content'>
-        <a href='https://github.com/messa/pyladies-courseware'>github.com/messa/pyladies-courseware</a>
+        <a href='https://github.com/messa/pyladies-courseware'>github.com/messa/pyladies-courseware</a> (stable)
       </div>
 
       <style jsx>{`
