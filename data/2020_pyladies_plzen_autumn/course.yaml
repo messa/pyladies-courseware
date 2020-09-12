@@ -1,6 +1,6 @@
 id: pyladies-2020-plzen-podzim
-#naucse_api_url: https://naucse.python.cz/v0/2020/plzen-jaro-2020.json
-naucse_api_url: http://localhost:8003/v0/2020/plzen-podzim-2020.json
+naucse_api_url: https://naucse.python.cz/v0/2020/plzen-podzim-2020.json
+#naucse_api_url: http://localhost:8003/v0/2020/plzen-podzim-2020.json
 
 tasks_by_lesson_slug:
 
@@ -51,7 +51,7 @@ tasks_by_lesson_slug:
     - file: tasks/05_1d_piskvorky.yaml
 
 
-  "beginners/venv-setup":
+  "beginners/expressions":
   - file: tasks/06_procvicovani_print.yaml
   - file: tasks/06_procvicovani_orisky.yaml
   - file: tasks/06_procvicovani_zelva.yaml
