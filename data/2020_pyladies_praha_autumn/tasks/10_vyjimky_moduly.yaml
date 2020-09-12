@@ -1,0 +1,68 @@
+tasks:
+- id: handout10_00
+  markdown: |
+    Napiš funkci, do které se vloží dvě čísla a ona vrátí jejich podíl.
+    Pokud dojde na dělení nulou, tak vyhodí výjimku "Nulou dělit nelze!".
+
+- section:
+    markdown: |
+      Nyní se na chvíli vrátíme k piškvorkám.
+
+- id: handout10_01
+  markdown: |
+    Rozděl 1D Piškvorky na čtyři moduly:
+
+    - `ai.py`, kde bude funkce `tah_pocitace`,
+    - `piskvorky.py`, kde budou ostatní funkce,
+    - `hra.py`, kde bude import a volání hlavní funkce z `piskvorky.py` (a nic jiného),
+    - `test_piskvorky.py`, kde budou testy.
+    
+    Jak se do importů nezamotat? Podívej se do materiálů na sekci [cyklické importy](https://naucse.python.cz/course/pyladies/beginners/circular-imports/).
+
+- id: handout10_02
+  markdown: |
+    Doplň funkci `tah_pocitace` tak, aby brala jako argument symbol, za který má počítač hrát – buď `'x'`, nebo `'o'`.
+
+- section:
+    markdown: |
+      A nyní zpět ke hře had z minulých domácích projektů.
+      Tentokrát vylepšíš funkci pohyb, trochu hada zkrotíš a za odměnu mu přidáš potravu.
+
+- id: handout10_03
+  markdown: |
+    Doplň funkci `pohyb` tak, aby při pohybu umazala první bod ze seznamu
+    souřadnic. Výsledný seznam tak bude mít stejnou délku, jako před voláním.
+
+- id: handout10_04
+  markdown: |
+    Doplň funkci `pohyb` tak, aby zamezila:
+    
+    - pohybu ven z mapy,
+    - pohybu na políčko, které už v seznamu je.
+    
+    Vhodná výjimka pro tyto situace je `ValueError('Game over')`.
+
+- id: handout10_05
+  markdown: |
+    Přidej do hry hadí potravu. Tady jsou pravidla pro vegetariánského hada,
+    ale můžeš si je změnit podle chuti:
+
+    Seznam ovoce obsahuje na začátku jedno ovoce na políčku, na kterém není had
+    (například: `[(2, 3)]` znamená jedno ovoce na pozici (2, 3)).
+    
+    Když had sežere ovoce, vyroste („nesmaže“ se mu ocas, tedy neprovede se to, cos přidala v projektu 3),
+    a pokud na mapě zrovna není další ovoce, na náhodném místě (kde není had) vyroste ovoce nové.
+
+    Každých 30 tahů vyroste nové ovoce samo od sebe.
+
+    Na mapě se toto tajemné ovoce zobrazuje jako otazník (`?`).
+
+- section:
+    markdown: |
+      **Co po této lekci umím:**
+
+- section:
+    markdown: |
+      - Pomocí příkazu `try/except` zachytit a ošetřit některé chyby, které mohou při běhu programu nastat.
+      - Při nežádoucích situacích naopak výjimku v programu vyvolat.
+      - Strukturovat kód do modulů.
