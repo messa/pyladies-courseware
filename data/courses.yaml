@@ -23,3 +23,4 @@ courses:
 - file: 2020_pyladies_ostrava_autumn/course.yaml
 - file: 2020_pydata_praha_autumn/course.yaml
 - file: 2020_pyladies_praha_autumn/course.yaml
+- file: 2020_pyladies_plzen_autumn/course.yaml
