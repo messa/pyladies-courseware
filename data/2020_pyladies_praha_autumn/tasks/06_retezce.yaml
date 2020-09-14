@@ -1,0 +1,99 @@
+tasks:
+
+- id: handout06_00
+  markdown: |
+    Vytvoř funkci, která dostane jako argument příjmení 
+    a zkusí podle něj uhodnout pohlaví. Funkce bude vracet řetězec `"žena"` nebo `"muž"`.
+    Funkce bude součástí programu, který se na příjmení zeptá a následně vypíše
+    odhad pohlaví uživatele.
+
+- id: handout06_01
+  markdown: |
+    Napiš funkci, do které se vloží identifikační číslo (např. rodné číslo, číslo platební
+    karty, číslo OP) a ona vrátí řetězec, kde jsou všechna čísla mimo posledních čtyř
+    nahrazena symbolem `X`.
+
+    např. pro `1234567` funkce vrátí `XXX4567` 
+
+- id: handout06_02
+  markdown: |
+    Najdi na internetu text své oblíbené písně, zkopíruj si ho do řetězce
+    a zjisti, kolikrát je v něm použito písmeno `K`.
+      
+- id: handout06_03
+  markdown: |
+    Změň funkci `ano_nebo_ne` z materiálů k lekci [Vlastní funkce](https://naucse.python.cz/2020/pyladies-praha-jaro2020-barclays/beginners/def/)
+    (sekce Vracení) tak, aby se místo `ano` se dalo použít i `a`,
+    místo `ne` i `n`
+    a aby se nebral ohled na velikost písmen a mezery před/za odpovědí.
+
+    _Textům jako `možná` nebo `no tak určitě` by počítač dál neměl rozumět._
+
+- section:
+    markdown: |
+      Nakonec trošku delší projekt, budeme ho dokončovat v úkolech k další lekci.
+      Jedná se o hru piškvorky, následuje popis hry, ke které se postupně
+      dopracuješ:
+
+      <blockquote>
+      1-D piškvorky se hrají na řádku s dvaceti políčky.
+      Hráči střídavě přidávají kolečka ('o') a křížky ('x'),
+      třeba:
+      <pre>
+      1. kolo: -------<span style='color: red'>x</span>------------
+      2. kolo: -------x--<span style='color: red'>o</span>---------
+      3. kolo: -------x<span style='color: red'>x</span>-o---------
+      4. kolo: -------xx<span style='color: red'>o</span>o---------
+      5. kolo: ------<span style='color: red'>x</span>xxoo---------
+      </pre>
+      Hráč, který dá tři své symboly vedle sebe, vyhrál.
+      </blockquote>
+
+- id: handout06_04
+  markdown: |
+    Napiš funkci `vyhodnot`, která dostane řetězec
+    s herním polem 1-D piškvorek
+    a vrátí jednoznakový řetězec podle stavu hry:
+
+    - `"x"` – Vyhrál hráč s křížky (pole obsahuje `"xxx"`)
+    - `"o"` – Vyhrál hráč s kolečky (pole obsahuje `"ooo"`)
+    - `"!"` – Remíza (pole neobsahuje `"-"`, a nikdo nevyhrál)
+    - `"-"` – Ani jedna ze situací výše (t.j. hra ještě neskončila)
+
+- id: handout06_05
+  markdown: |
+    Napiš funkci `tah`, která dostane řetězec s herním polem,
+    číslo políčka (0-19), a symbol (`x` nebo `o`)
+    a vrátí herní pole _(t.j. řetězec)_ s daným symbolem umístěným na danou pozici.
+
+    Hlavička funkce by tedy měla vypadat nějak takhle:
+
+    ```
+    def tah(pole, cislo_policka, symbol):
+        "Vrátí herní pole s daným symbolem umístěným na danou pozici"
+        ...
+    ```
+
+    _Můžeš využít nějakou funkci, kterou jsme napsaly už na sraze?_
+
+- id: handout06_06
+  markdown: |
+    Napiš funkci `tah_hrace`, která dostane řetězec s herním polem,
+    zeptá se hráče, na kterou pozici chce hrát, a vrátí herní pole
+    se zaznamenaným tahem hráče.
+    Funkce by měla odmítnout záporná nebo příliš velká čísla
+    a tahy na obsazená políčka.
+    Pokud uživatel zadá špatný vstup, funkce mu vynadá a zeptá se znova.
+
+
+- section:
+    markdown: |
+      **Co po této lekci umím:**
+
+- section:
+    markdown: |
+      - Vím, co je řetězec.
+      - Umím základní operace s nimi (spojovat, násobit, vybrat znak).
+      - Zjistit délku řetězce, zjistit, zda konkrétní znak je obsažen v řetězci.
+      - Znám základní metody (např. upper, lower, count).
+      - Umím řetězec rozsekat na kousky :).

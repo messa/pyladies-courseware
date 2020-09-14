@@ -1,0 +1,67 @@
+tasks:
+
+- id: handout05_00
+  markdown: |
+    Vytvoř funkci `pocet_vterin`, která bude mít dva argumenty: čas v minutách a čas ve vteřinách.
+    A bude vracet celkový počet vteřin.
+
+- id: handout05_01
+  markdown: |
+    Napiš funkci, která vrátí maximální hodnotu ze tří zadaných čísel. 
+
+- id: handout05_02
+  markdown: |
+    Napiš funkci `kolik_vratit`, která pro zadanou celkovou cenu nákupu a předané hotovosti
+    napoví prodavači, kolik má vrátit.
+
+- id: handout05_03
+  markdown: |
+    Vytvoř funkci `nakresli_n_uhelnik`, která vykreslí pro zadaný počet stran n-úhelník.
+    Pomocí této funkce vykresli následující obrázek:
+
+    <img src="/static/tasks/handout3a_images/06_uhelniky.png" alt="mnohoúhelníky" style="max-width: 100%; max-height: 60px">
+
+    _Vnitřní úhel pravidelného `n`-úhelníka má `180 × (1-2/n)` stupňů._
+
+    _Aby byly tvary zhruba stejně veliké, použij pro `n`-úhelník délku strany např. `200/n`_
+
+- id: handout05_04
+  markdown: |
+    Napiš funkci, která s pomocí cyklu `for` a příkazu `if` vypíše z jednotlivých `'X'` a mezer následující
+    obrazec:
+
+        X X X X X X
+        X         X
+        X         X
+        X         X
+        X         X
+        X X X X X X
+
+- id: handout05_05
+  markdown: |
+    Vrať se k úkolu č. 4 z minulé lekce a zkus zpřehlednit kód použitím funkce. Funkce `hod_kostkou` bude vracet
+    počet pokusů než hráči padla šestka. 
+
+- id: handout05_06
+  markdown: |
+    Napiš funkci, která ověří, že zadaná teplota je v daném intervalu. Funkce bude mít tři parametry (teplota, dolní mez,
+    horní mez) a bude vracet `True`/`False`.
+
+- id: handout05_07
+  markdown: |
+    Napiš funkci, která pro zadanou teplotu doporučí vhodné oblečení. Využij funkci z předchozího úkolu.
+
+    Např.
+
+        >>> doporuc_obleceni(-3)
+        "Vezmi si rukavice a čepici."
+    
+- section:
+    markdown: |
+      **Co po této lekci umím:**
+
+- section:
+    markdown: |
+      - Definovat vlastní funkci a zavolat ji.
+      - Vím, co je návratová hodnota a co dělá příkaz `return`.
+      - Vím, co je lokální a globální proměnná.
