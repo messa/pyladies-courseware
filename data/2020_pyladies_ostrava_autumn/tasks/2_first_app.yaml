@@ -12,7 +12,7 @@ tasks:
   markdown: |
     Jak se jmenuje druh chyby, která nastane, když…
 
-    - Dáš uvozovky jen na jednu stranu řetězce? — SyntaxError
+    - Dáš uvozovky jen na jednu stranu řetězce? — odpověď: SyntaxError
     - Zkusíš odečíst číslo od řetězce? —
     - Dělíš nulou? —
     - Použiješ proměnnou, která neexistuje? —
@@ -95,8 +95,7 @@ tasks:
 
 - section:
     markdown: |
-      Další dva projekty doplňují program ze srazu.
-      Všechno bude vysvětleno později, takže jestli nemáš čas, přeskoč je.
+      Další tři úkoly jsou dobrovolné. Všechno bude vysvětleno později, takže jestli nemáš čas, přeskoč je.
 
 - id: handout2_9
   markdown: |
@@ -204,7 +203,7 @@ tasks:
     * <code>promenna = 'abc' < 'ABC' < 'def' < 'zajíc'</code> ?
 
     Tam, kde je hodnota proměnné `False`, dají se některé z porovnávaných hodnot mezi sebou vyměnit, aby
-    byla `True`?
+    byla `True`? (samotný operátor < neměň)
 
 - section:
     markdown: |
@@ -229,7 +228,7 @@ tasks:
 
 - id: handout2_16
   markdown: |
-    Projdi si v materiálech sekci _„Nebo anebo a”_:
+    Pokud jsme nestihli na lekci, projdi si v materiálech sekci _„Nebo anebo a”_:
 
     [naucse.python.cz/lessons/beginners/and-or/](https://naucse.python.cz/lessons/beginners/and-or/)
 
@@ -253,11 +252,7 @@ tasks:
   markdown: |
     Zkus přepsat Kámen, Nůžky, Papír pomocí `and` a `or`.
 
-    Dokážeš docílit toho, aby se každý z řetězců `'Plichta.'`, `'Počítač vyhrál.'` a `'Vyhrála jsi!'` objevil
+    Dokážeš docílit toho, aby se každý z řetězců `'Remíza.'`, `'Počítač vyhrál.'` a `'Vyhrála jsi!'` objevil
     v programu jen jednou, aniž bys tyhle řetězce musela přiřazovat do proměnných?
 
     Pokud ano, gratuluji!
-
-- id: handout2_19
-  markdown: |
-    Zkus program „šťastná/bohatá“ přepsat BEZ zanořených `if`ů. Která verze ti připadá čitelnější?
