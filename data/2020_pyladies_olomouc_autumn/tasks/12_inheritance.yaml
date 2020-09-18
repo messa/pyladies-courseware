@@ -1,0 +1,23 @@
+tasks:
+
+- section:
+    markdown: |
+      Dnes rozšíříme minulý domácí projekt o dědičnost.
+
+- id: handout12_1
+  markdown: |
+    Vytvoř třídu 'Kruh' s atributem 'polomer' a stejnými metodami 'obvod()'
+    a 'obsah()' jako měla minule třída 'Ctverec'.
+
+- id: handout12_2
+  markdown: |
+    Vytvoř třídu 'Obdelnik' s atributy pro délky stran a opět stejnými metodami 'obvod()'
+    a 'obsah()' jako měla minule třída 'Ctverec'.
+
+- id: handout12_3
+  markdown: |
+    Zkus použít dědičnost tak, aby třídy 'Ctverec', 'Kruh' i 'Obdelnik' mohly používat
+    společnou metodu *'rozdil_obsahu(jiny_objekt)'* a aby tato metoda fungovala i mezi
+    objekty různých tříd.
+
+    *Takže bude například možné zjistit rozdíl obsahu čtverce a kruhu*
