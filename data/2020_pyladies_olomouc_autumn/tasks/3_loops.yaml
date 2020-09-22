@@ -1,0 +1,148 @@
+tasks:
+
+- section:
+    markdown: |
+      V těchto projektech je určitě něco nového.
+      Nezadávají postup, jak na odpověď přijít, ale to určitě zvládneš!
+
+- id: handout3_1
+  markdown: |
+    Co vrací funkce `range`?
+
+- id: handout3_2
+  markdown: |
+    Co se stane, když pro příkaz `for`
+    zavoláš funkci `range` se dvěma parametry?
+
+- id: handout3_3
+  markdown: |
+    Se třemi?
+
+- section:
+    markdown: |
+      Želví kreslení! Tahle sekce tě naučí myslet jako programátorka počítačové grafiky.
+      Je dobré jednotlivé projekty dělat postupně, a když něco začne fungovat, znovu si
+      řešení projít a zamyslet se nad ním.
+
+- id: handout3_4
+  markdown: |
+    Nakresli trojúhelník.
+
+    <img src="/static/tasks/handout3a_images/03_trojuhelnik.png" alt="trojúhelník" style="max-width: 100%; max-height: 60px">
+
+    __Poznámka:__ Rovnostranný trojúhelník má vnitřní úhly 60°. Želva se ale otáčí o vedlejší úhel 180 - 60 = 120°.
+
+    <img src="/static/tasks/handout3a_images/03_diagram.png" alt="diagram" style="max-width: 100%; max-height: 80px">
+
+- id: handout3_5
+  markdown: |
+    Nakresli domeček!
+
+    <img src="/static/tasks/handout3a_images/04_domecek.png" alt="domeček" style="max-width: 100%; max-height: 60px">
+
+    _Jak pravil Pythagoras, délka šikmé čáry v domečku je √2-krát délka stěny. O funkci na odmocninu jsme mluvili na srazu._
+
+- id: handout3_6
+  markdown: |
+    Nakresli vesnici!
+
+    <img src="/static/tasks/handout3a_images/05_vesnice.png" alt="vesnice" style="max-width: 100%; max-height: 60px">
+
+- id: handout3_7
+  markdown: |
+    Nakresli pětiúhelník, šestiúhelník, sedmiúhelník, osmiúhelník.
+
+    <img src="/static/tasks/handout3a_images/06_uhelniky.png" alt="mnohoúhelníky" style="max-width: 100%; max-height: 60px">
+
+    _Vnitřní úhel pravidelného <var>n</var>-úhelníka má 180 × (1 - 2/<var>n</var>) stupňů._
+
+    _Aby byly tvary zhruba stejně veliké, použij pro <var>n</var>-úhelník délku strany např. 200/<var>n</var>_
+
+- id: handout3_8
+  markdown: |
+    Nakresli <var>n</var>-úhelník, kde <var>n</var> zadá uživatel.
+
+- id: handout3_9
+  markdown: |
+    Želva umí jen rovné čáry. Jde pomocí rovných čar nakreslit kolečko?
+
+    _Nevíš-li, přeskoč na další projekt a pak se sem vrať._
+
+- id: handout3_10
+  markdown: |
+    Nakresli pětadevadesátiúhelník.
+
+- id: handout3_11
+  markdown: |
+    Nakresli takovýto ornament:
+
+    <img src="/static/tasks/handout3a_images/10_ornament.png" alt="ornament" style="max-width: 100%; max-height: 80px">
+
+    _Nevíš-li si rady, vezmi pravítko a změř délky jednotlivých čar. Doporučuju začít od středu._
+
+- id: handout3_12
+  markdown: |
+    Nakresli takovýto ornament:
+
+    <img src="/static/tasks/handout3a_images/11_ornament.png" alt="ornament" style="max-width: 100%; max-height: 90px">
+
+- id: handout3_13
+  markdown: |
+    Nakresli spirálu.
+
+    <img src="/static/tasks/handout3a_images/12_spirala.png" alt="spirála" style="max-width: 100%; max-height: 140px">
+
+    _Od ornamentů ke spirále se dostaneš stejným způsobem jako od `n`-úhelníků ke kolečku._
+
+- id: handout3_14
+  markdown: |
+    Napiš obrázek! Třeba les ze stromů, město z domů, nebe z hvězd,
+    dav ze smajlíků, hradbu z věží, zikkurat ze schodů, ...
+
+    Můžeš použít i nějakou z funkcí modulu `random`.
+
+- section:
+    markdown: |
+        Další projekty jsou pro opravdové grafické mistryně. Nepouštěj se do nich, dokud nemáš hotové ostatní projekty. Nedostaneš-li se k nim, nevadí
+
+- id: handout3_15
+  markdown: |
+    Na sraze jsme nakreslili tři čtverce, každý otočený o 20°.
+    Nakresli 18 takových čtverců.
+
+- id: handout3_16
+  markdown: |
+    Vezmi program z minulé úlohy a dokresli stonek a listy.
+    Je jenom na tobě, jaký budou mít tvar.
+    Piš komentáře a snaž se opakovat pomocí `for`,
+    ne pomocí Ctrl+C Ctrl+V.
+
+    <img src="/static/tasks/handout3a_images/15_kvetina.png" alt="květina" style="max-width: 100%; max-height: 300px">
+
+  mandatory: true
+
+- section:
+    markdown: |
+       A až tě omrzí grafika, zkus zase naprogramovat něco v textovém režimu.
+
+- id: handout3_17
+  markdown: |
+    Napiš program, který postupně načte od uživatele dvě čísla a jednoznakový
+    řetězec – buď `'+'`, `'-'`, `'*'` nebo `'/'`. Program provede na číslech příslušnou operaci.
+
+    Příklad použití programu:
+
+    ```
+    První číslo: 123
+    Druhé číslo: 456
+    Operace: +
+    123 + 456 = 579
+    ```
+
+  mandatory: true
+
+- id: handout3_18
+  markdown: |
+    Napiš program, který se pětkrát zeptá na číslo a nejmenší zadané číslo vypíše.
+
+    _Nevíš-li si rady, podívej se do materiálů na sekci Přepisování proměnných. Místo sečítání budeš vybírat správnou hodnotu._

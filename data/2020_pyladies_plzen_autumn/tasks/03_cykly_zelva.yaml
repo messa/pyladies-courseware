@@ -1,0 +1,39 @@
+tasks:
+
+- section:
+    markdown: |
+      Želví kreslení! Tahle sekce tě seznámí se želví grafikou, kterou budeme
+      používat v procvičování později a se kterou si vyhrají zejména ti, kteří
+      mají rádi geometrii.
+
+- id: handout3a_03
+  markdown: |
+    Nakresli trojúhelník.
+
+    <img src="/static/tasks/handout3a_images/03_trojuhelnik.png" alt="trojúhelník" style="max-width: 100%; max-height: 60px">
+
+    __Poznámka:__ Rovnostranný trojúhelník má vnitřní úhly 60°. Želva se ale otáčí o vedlejší úhel 180 - 60 = 120°.
+
+    <img src="/static/tasks/handout3a_images/03_diagram.png" alt="diagram" style="max-width: 100%; max-height: 80px">
+
+  mandatory: true
+
+
+- id: handout3a_06
+  markdown: |
+    Nakresli pětiúhelník, šestiúhelník, sedmiúhelník, osmiúhelník.
+
+    <img src="/static/tasks/handout3a_images/06_uhelniky.png" alt="mnohoúhelníky" style="max-width: 100%; max-height: 60px">
+
+      _Vnitřní úhel pravidelného `n`-úhelníka má `180 × (1-2/n)` stupňů._
+
+    _Aby byly tvary zhruba stejně veliké, použij pro `n`-úhelník délku strany např. `200/n`_
+  
+  
+- id: handout3a_08
+  markdown: |
+    Nakresli `n`-úhelník, kde `n` zadá uživatel.
+    
+
+
+

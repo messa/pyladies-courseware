@@ -1,0 +1,37 @@
+tasks:
+
+- section:
+    markdown: |
+      Teď několik programovacích oříšků pro dlouhé chvíle. Nemáš-li čas, přeskoč je.
+
+- id: handout3b_19
+  markdown: |
+    Napiš program, který se zeptá na 3 čísla a zjistí, jestli je jejich součet větší než 10.
+    Dokážeš to napsat tak, aby funkce input byla v kódu zapsaná jen jednou? ;)
+    
+
+- id: handout3b_20
+  markdown: |
+    Napiš program, který načte číslo a zjistí, jestli je sudé.
+
+    _Sudá čísla jsou beze zbytku dělitelná dvěma._
+    
+  mandatory: true
+
+- id: handout3b_21
+  markdown: |
+    Napiš program, který vypíše čísla od jedné do 100, ale:
+
+    - Pokud je číslo dělitelné třemi, napíše místo něj „bum”.
+    - Pokud je číslo dělitelné pěti, napíše místo něj „bác”.
+    - Pokud je číslo dělitelné pěti i třemi zároveň, napíše místo toho „bum-bác”.
+
+- id: handout3b_22
+  markdown: |
+    Pokud máš ráda matematiku* a nebojíš se výzvy, načti od uživatele číslo _n_ a:
+
+    - Vypočti faktoriál _n!_ (součin všech celých čísel od 1 do _n_).
+    - Zjisti, jestli je _n_ prvočíslo.
+    - Vypiš prvních _n_ členů Fibonacciho posloupnosti (1, 1, 2, 3, 5, 8, 13, 21, …).
+
+    _*_ t.j. nemáš-li ráda matematiku, nedělej tenhle projekt :)

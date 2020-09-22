@@ -41,7 +41,7 @@ jobs:
       #    path: /docker_image_cw_frontend.tar.gz
       - deploy:
           command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+            if [ "${CIRCLE_BRANCH}" == "stable" ]; then
               set -ex
               apk add openssh rsync
               echo '207.154.235.213 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMd2qF3m1mtvgxq45xX8F+po9GLeGFgqXp051IsZZKKi' >> ~/.ssh/known_hosts
@@ -73,7 +73,7 @@ jobs:
       #    path: /docker_image_cw_backend.tar.gz
       - deploy:
           command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+            if [ "${CIRCLE_BRANCH}" == "stable" ]; then
               set -ex
               apk add openssh rsync
               echo '207.154.235.213 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMd2qF3m1mtvgxq45xX8F+po9GLeGFgqXp051IsZZKKi' >> ~/.ssh/known_hosts
@@ -139,7 +139,7 @@ workflows:
             - build_docker_image_backend
           filters:
             branches:
-              only: master
+              only: stable
       - build_and_deploy_demo:
           requires:
             - test_backend
