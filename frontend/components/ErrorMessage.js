@@ -1,7 +1,7 @@
 import React from 'react'
 import { Message } from 'semantic-ui-react'
 
-export default ({ active, title, message }) => {
+export default function ErrorMessage({ active, title, message }) {
   if (!active) return null
   return (
     <Message

@@ -9,7 +9,7 @@ if (!runningOnServer) {
   require('codemirror/mode/python/python.js')
 }
 
-export default class extends React.Component {
+export default class CodeEditor extends React.Component {
 
   state = {
     showEditor: !runningOnServer,
