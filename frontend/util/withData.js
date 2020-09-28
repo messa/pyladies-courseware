@@ -2,7 +2,7 @@ import React from 'react'
 import { fetchQuery, ReactRelayContext } from 'react-relay'
 import { initRelayEnvironment } from './relayEnvironment'
 
-export default (ComposedComponent, options = {}) => {
+export default function withData(ComposedComponent, options = {}) {
   return class WithData extends React.Component {
     static displayName = `WithData(${ComposedComponent.displayName})`
 
