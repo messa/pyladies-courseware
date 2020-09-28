@@ -27,7 +27,7 @@ export default class TaskReviewLessonSummary extends React.Component {
 
   async loadData() {
     const { courseId, tasks } = this.props
-    const taskIds = tasks.map(t => t.id)
+    const taskIds = tasks.map(t => t.taskItemId)
     try {
       const url = '/api/tasks/lesson-solutions' +
         `?course_id=${encodeURIComponent(courseId)}` +
@@ -128,12 +128,12 @@ const TaskReviewLessonSummaryTable = ({ courseId, sessionSlug, students, tasks, 
             )}
           </Table.Cell>
           {tasks.map((task, i) => (
-            <Table.Cell key={i} active={reviewTaskId === task.id}>
+            <Table.Cell key={i} active={reviewTaskId === task.taskItemId}>
               <TaskStatus
                 courseId={courseId}
                 sessionSlug={sessionSlug}
-                taskSolution={taskSolutionsByUserAndTaskId.get(`${student.id}|${task.id}`)}
-                taskId={task.id}
+                taskSolution={taskSolutionsByUserAndTaskId.get(`${student.id}|${task.taskItemId}`)}
+                taskId={task.taskItemId}
               />
             </Table.Cell>
           ))}

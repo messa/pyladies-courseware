@@ -74,7 +74,7 @@ class SessionPage extends React.Component {
                       courseId={courseId}
                       sessionSlug={sessionSlug}
                       tasks={tasks}
-                      reviewUserId={reviewUser ? reviewUser.id : null}
+                      reviewUserId={reviewUser ? reviewUser.userId : null}
                     />
                   ) : (userCanSubmitTasks && (
                     <TaskSubmissionLessonSummary
@@ -127,7 +127,7 @@ class SessionPage extends React.Component {
                       userCanSubmitTask={userCanSubmitTasks}
                       courseId={courseId}
                       sessionSlug={sessionSlug}
-                      reviewUserId={reviewUser ? reviewUser.id : null}
+                      reviewUserId={reviewUser ? reviewUser.userId : null}
                     />
                   )
                   case 'section': return (

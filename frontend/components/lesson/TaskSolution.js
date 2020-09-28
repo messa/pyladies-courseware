@@ -1,7 +1,7 @@
 import React from 'react'
 import { Label, Tab, Icon} from 'semantic-ui-react'
 
-export default class extends React.Component {
+export default class TaskSolution extends React.Component {
 
   copyToClipboard = (e) => {
     var dummy = document.createElement('textarea')

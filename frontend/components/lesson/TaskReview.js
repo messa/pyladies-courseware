@@ -69,13 +69,14 @@ export default class TaskReview extends React.Component {
         loading: false,
         loadError: null,
         reviewUserId,
-        taskSolution,
+        taskSolution: task_solution,
         comments,
       })
       if (anchorCheck) {
         holdAnchor()
       }
     } catch (err) {
+      console.error('TaskReview loadData error:', err)
       this.setState({
         loading: false,
         loadError: err.toString(),

@@ -57,6 +57,7 @@ class TaskSubmission extends React.Component {
         holdAnchor()
       }
     } catch (err) {
+      console.error('TaskSubmission loadData error:', err)
       this.setState({
         loading: false,
         loadError: err.toString(),
