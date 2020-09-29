@@ -1,0 +1,45 @@
+tasks:
+
+- section:
+    markdown: |
+      Načti data kromě Prahy-Ruzyně ještě z meteostanice Lysá Hora a:
+
+- id: eda3_01
+  markdown: |
+    Pomocí grafu porovnej vývoj ročního úhrnu srážek v jednotlivých stanicích.
+
+- id: eda3_02
+  markdown: |
+    Zjisti, ve které z těchto stanic byl nejteplejší den v roce 2010 a který to byl.
+
+- id: eda3_03
+  markdown: |
+    Zjisti, kde bylo (v průměru) nejteplejších 90 % dní v roce 2018 a kde nejstudenějších 10 %.
+
+- id: eda3_04
+  markdown: |
+    Porovnej průměrný denní svit v 90. letech (1990 - 1999) v Praze a na Lysé Hoře.
+
+- section:
+    markdown: |
+      V následujícím úkolu si zopakujeme práci s chybějícími hodnotami:
+
+- id: eda3_05
+  markdown: |
+    Načti data z https://data4pydata.s3-eu-west-1.amazonaws.com/pyladies/P1PRUZ01schibami.xls, kde jsou chybějící data označena jako `#CHYBA MĚŘENÍ`.
+    
+    - Pomocí volby `na_values` při načítání dat z Excel souboru správně označ chyby měření jako chybějící data.
+    - Odstraň pouze řádky, kde je špatné datum (tip: použij `dropna(subset=)`). Pomocí `fillna` pak nahraď chybějící měření poslední předchozí hodnotou.
+
+- section:
+    markdown: |
+      Poslední dva úkoly prověří pravdivost známých pranostik:
+
+- id: eda3_06
+  markdown: |
+    Jak často přijíždí Svatý Martin na bílém koni? Jaké je procento svátků Sv. Martina (11. 11.), kdy byla celková výška sněhu větší než 0?
+
+- id: eda3_07
+  markdown: |
+    Který z ledových mužů je nejmrazivější? Pankrác (12. 5.), Servác (13. 5.) nebo Bonifác (14. 5.)? Zjisti to porovnáním procent těchto dní s minimální teplotou < 0. Pokud budou procenta vyrovnaná, vyhraje den s nižší průměrnou teplotou.
+
