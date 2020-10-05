@@ -11,7 +11,7 @@
     git:
       repo: 'https://github.com/messa/pyladies-courseware.git'
       dest: /srv/cw-backend/data
-      version: master
+      version: stable
       update: yes
 
   - name: create backend conf
