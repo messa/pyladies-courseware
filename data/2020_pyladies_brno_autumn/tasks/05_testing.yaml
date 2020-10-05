@@ -1,0 +1,259 @@
+tasks:
+
+- section:
+    markdown: |
+        Dnešní úkoly budou asi povědomé. Vytvoříme totiž ... hru 1D piškvorky!
+        Tentokrát ale s moduly a předpřipravenými testy.
+
+        Máš-li Piškvorky už hotové, doporučuji je udělat znovu.
+        Ty původní můžeš mít vedle jako nápovědu.
+
+        Stáhni si soubor s testy, [`test_piskvorky.py`](/static/tasks/
+        handout_files/2019-autumn/test_piskvorky.py), a dej ho do adresáře, kde budeš tvořit
+        Piškvorky.
+
+        Na ulehčení testování si nainstaluj modul `pytest-level`.
+        Ten umožňuje pouštět jen určité testy – podle toho, jak jsi daleko.
+
+                python -m pip install pytest-level
+
+        Zkus pustit všechny testy. Asi ti neprojdou:
+
+                python -m pytest -v
+
+        Pak zkus pustit testy pro úroveň 0:
+
+                python -m pytest -v --level 0
+
+        Teď se nepustí žádné testy – všechny se přeskočí.
+        Výpis by měl končit nějak takto:
+
+                collected N items / N deselected
+                === N deselected in 0.01 seconds ===
+
+        Zadáš-li v posledním příkazu `--level 1`, aktivuje se první z testů.
+        Pravděpodobně neprojde – v dalším úkolu ho spravíš!
+
+        Tvůj postup vždycky bude:
+
+        * Když nějaký test neprochází, sprav ho.
+        * Když všechno zezelená, postup na další level.
+
+- id: handout4_09-test
+  markdown: |
+    V modulu `piskvorky` (tj. v souboru `piskvorky.py`)
+    napiš funkci `vyhodnot`, která dostane řetězec
+    s herním polem 1-D piškvorek
+    a vrátí jednoznakový řetězec podle stavu hry:
+
+    - `"x"` – Vyhrál hráč s křížky (pole obsahuje `"xxx"`)
+    - `"o"` – Vyhrál hráč s kolečky (pole obsahuje `"ooo"`)
+    - `"!"` – Remíza (pole neobsahuje `"-"`, a nikdo nevyhrál)
+    - `"-"` – Ani jedna ze situací výše (t.j. hra ještě neskončila)
+
+    Například:
+
+       *  `vyhodnot('--------------------')` vrátí `'-'`
+       *  `vyhodnot('--o--xxx---o--o-----')` vrátí `'x'`
+       *  `vyhodnot('xoxoxoxoxoxoxoxoxoxo')` vrátí `'!'`
+
+    Zatímco budeš psát tento úkol, průběžně ho kontroluj automatickými testy.
+    Pusť příkaz `python -m pytest -v --level N` podle toho, jak jsi daleko:
+
+    * `--level 1`: V modulu `piskvorky` je nějaká funkce `vyhodnot`.
+    * `--level 2`: V případě výhry dává funkce správný výsledek, `'x'` nebo `'o'`
+    * `--level 3`: V případě remízy dává funkce správný výsledek, `'!'`
+    * `--level 4`: Když hra neskončila, funkce dává správný výsledek, `'-'`
+
+    Odevzdej celý soubor `piskvorky.py`.
+
+- id: pisq1d_error_handling-test
+  markdown: |
+    V modulu `util` (tj. v souboru `util.py`)
+    napiš funkci `tah`, která dostane řetězec s herním polem,
+    číslo políčka (0-19), a symbol (`x` nebo `o`)
+    a vrátí herní pole _(t.j. řetězec)_ s daným symbolem umístěným na danou pozici.
+
+    Hlavička funkce by tedy měla vypadat nějak takhle:
+
+    ```
+    def tah(pole, pozice, symbol):
+        """Vrátí herní pole s daným symbolem umístěným na danou pozici
+
+        `pole` je herní pole, na které se hraje.
+        `pozice` je číslo políčka. Čísluje se od nuly.
+        `symbol` může být 'x' nebo 'o', podle toho jestli je tah za křížky
+        nebo za kolečka.
+        """
+        ...
+    ```
+
+    Například:
+
+       *  `tah('--------------------', 0, 'x')` vrátí `'x-------------------'`
+       *  `tah('--------------------', 19, 'o')` vrátí `'-------------------o'`
+       *  `tah('x-o-x-o-x-o-x-o-x-o-', 5, 'x')` vrátí `'x-o-xxo-x-o-x-o-x-o-'`
+
+
+    _Můžeš využít nějakou funkci, kterou jsme napsaly už na sraze?_
+
+    Zatímco funkci budeš psát, průběžně ji kontroluj automatickými testy.
+    Pusť příkaz `python -m pytest -v --level N` podle toho, jak jsi daleko:
+
+    * `--level 10`: V modulu `util` je nějaká funkce `tah`.
+
+    * `--level 11`: Funkce dává na prázdné pole `x` nebo `o` na dané místo
+
+    * `--level 20`: Hra na pozici, která není v poli, např.
+      `tah('--------------------', -1, 'x')`
+
+    * `--level 22`: Hra na obsazené políčko, např.
+      `tah('x-------------------', 0, 'o')`
+
+    * `--level 24`: Hra jiným symbolem než `'x'` nebo `'o'`, např.
+      `tah('--------------------', 0, 'řeřicha')`
+
+    Odevzdej celý soubor `util.py`.
+
+- id: handout4_11-test
+  markdown: |
+    V modulu `piskvorky` (tj. v souboru `piskvorky.py`)
+    napiš funkci `tah_hrace(pole, symbol)`, která dostane řetězec
+    s herním polem a symbol (`x` nebo `o`) a:
+
+    * dostane řetězec s herním polem,
+    * zeptá se hráče, na kterou pozici chce hrát,
+    * pomocí funkce `tah` zjistí, jak vypadá herní pole se zaznamenaným tahem
+      hráče
+    * vrátí toto herní pole se zaznamenaným tahem hráče.
+
+    Pokud uživatel zadá špatný vstup (nečíslo, záporné číslo,
+    obsazené políčko apod.), funkce mu vynadá a zeptá se znova.
+
+    Hlavička funkce by tedy měla vypadat nějak takhle:
+
+    ```
+    def tah_hrace(pole, symbol):
+        """Zeptá se hráče na tah a vrátí nové herní pole
+
+        `pole` je herní pole, na které se hraje.
+        `symbol` může být 'x' nebo 'o', podle toho jestli hráč hraje za křížky
+        nebo za kolečka.
+        """
+        ...
+    ```
+
+    Například zavolání `print(tah_hrace('o-------------------', 'x'))` by mohlo
+    dopadnout takto:
+
+    ```
+    Kam chceš hrát? nevím
+    Zadávej čísla!
+    Kam chceš hrát? 0
+    Tam nejde hrát!
+    Kam chceš hrát? -1
+    Tam nejde hrát!
+    Kam chceš hrát? 151
+    Tam nejde hrát!
+    Kam chceš hrát? 2
+    o-x-----------------
+    ```
+
+    Nezapomeň, že ve vedlejším modulu máš funkci `tah`, kterou si můžeš
+    naimportovat.
+
+    Funguje-li tahle funkce s příkladem výše, otestuj ji opět pomocí
+    automatických testů. Tentokrát nastavuj level na 30 až 34.
+    (Testuje se funkce, která volá `input`. Jak takový test napsat je nad rámec
+    tohoto kurzu.)
+
+    Odevzdej celý soubor `piskvorky.py` (i s funkcí `vyhodnot`).
+
+- id: handout4_12-test
+  markdown: |
+    V modulu `ai` (tj. v souboru `ai.py`)
+    napiš funkci `tah_pocitace(pole, symbol)`, která dostane řetězec s herním
+    polem a symbol, vybere pozici, na kterou hrát, a vrátí herní pole
+    se zaznamenaným tahem počítače.
+
+    Nejde-li na dané pole hrát, funkce musí skončit s chybou `ValueError`.
+
+    Použij jednoduchou náhodnou „strategii”:
+
+    1. Vyber číslo od 0 do 19.
+    2. Pokud je dané políčko volné, hrej na něj.
+    3. Pokud ne, opakuj od bodu 1.
+
+    Hlavička funkce by tedy měla vypadat nějak takhle:
+
+    ```
+    def tah_pocitace(pole, symbol):
+        """Vrátí herní pole se zaznamenaným tahem počítače
+
+        `pole` je herní pole, na které se hraje.
+        `symbol` může být 'x' nebo 'o', podle toho jestli hráč hraje za křížky
+        nebo za kolečka.
+        """
+        ...
+    ```
+
+    Zavolání `print(tah_pocitace('o-------------------', 'x'))` by
+    mohlo vypsat třeba `o---------x---------`.
+
+    Testy jsou v levelech 40 až 44.
+
+    Odevzdej celý soubor `ai.py`.
+
+- id: handout4_13-test
+  markdown: |
+    V modulu `piskvorky` (tj. v souboru `piskvorky.py`)
+    napiš funkci `piskvorky1d`, která:
+
+    * Vytvoří řetězec s herním polem
+    * Stále dokola:
+        * zavolá volá funkci `tah_hrace`, a výsledek uloží jako nové *pole*
+        * vypíše stav hry
+        * zavolá volá funkci `tah_pocitace`, a výsledek uloží jako nové *pole*
+        * vypíše stav hry
+
+    Zatím neřeš konec hry.
+
+    V modulu `hra` (tj. v souboru `hra.py`) přidej import a volání funkce
+    `piskvorky1d`.
+
+    Původní testy by měly stále procházet.
+    Automatické testy na celou hru ale nejsou – otestuj to ručně
+    pomocí `python hra.py`!
+
+    Tady odevzdej pouze modul `piskvorky.py`.
+
+- id: pisq1d_game_module-test
+  markdown: |
+
+    Tady odevzdej soubor `hra.py`.
+
+- id: pisq1d_endgame-test
+  markdown: |
+    Pošéfuj konec hry.
+    Když někdo vyhraje nebo dojde k remíze, cyklus se ukončí a vypíše
+    se výsledek – třeba s gratulací nebo povzbuzující zpráva.
+
+    Stav hry kontroluj po každém tahu.
+
+    Nezapomeň, že máš k dispozici funkci `vyhodnot`!
+
+    Automatické testy na celou hru nejsou – otestuj to ručně!
+    Nezapomeň zkontrolovat remízu.
+
+    Odevzdej celý soubor `piskvorky.py`.
+
+- id: handout4_14
+  markdown: |
+    Zvládneš pro počítač naprogramovat lepší strategii?
+    Třeba aby se snažil hrát vedle svých existujících symbolů
+    nebo aby bránil protihráčovi?
+    Stačí jen docela malé vylepšení!
+
+    Testy by stále měly procházet.
+
+    Odevzdej celý soubor `ai.py`.

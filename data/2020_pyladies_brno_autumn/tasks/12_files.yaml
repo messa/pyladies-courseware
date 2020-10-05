@@ -1,0 +1,250 @@
+tasks:
+
+- section:
+    markdown: |
+        Poslední úkol 1D piškvorek zůstává na další týden.
+
+- id: handout4_14
+  mandatory: true
+  markdown: |
+    Zvládneš pro počítač naprogramovat lepší strategii?
+    Třeba aby se snažil hrát vedle svých existujících symbolů
+    nebo aby bránil protihráčovi?
+    Stačí jen docela malé vylepšení!
+
+    Testy by stále měly procházet.
+
+    Odevzdej celý soubor `ai.py`.
+
+- section:
+    markdown: |
+        V dalším úkolu si zopakuješ práci se soubory.
+
+- id: upper-poetry
+  markdown: |
+    Napiš program, který vypíše básničku ze souboru `basnicka.txt`
+    VELKÝMI PÍSMENY.
+
+- section:
+    markdown: |
+        Následující úkol kombinuje soubory a sekvence.
+
+- id: wordlist-to-dict
+  markdown: |
+    Stáhni si soubor [index.dic](https://raw.githubusercontent.com/wooorm/dictionaries/5ede45bb705d3f9f525ea779f7b487f9fc062013/dictionaries/cs/index.dic) se všemi českými slovy.
+
+    > *(Seznam slov vytvořil Petr Kolář a další a [je poskytován pod licencí GNU GPL 2](https://github.com/wooorm/dictionaries/blob/5ede45bb705d3f9f525ea779f7b487f9fc062013/dictionaries/cs/license).)*
+
+    Soubor není úplně „čistý“.
+    Vytvoř seznam, kde budou opravdu jen slova.
+
+    * Vytvoř prázdný seznam
+    * Projdi `index.dic` po řádcích a postupně přidávej slova do seznamu
+
+    Na začátku souboru (řádek 0) je údaj s počtem řádků,
+    ten neber jako slovo. *(Jak při průchodu souborem – sekvencí –
+    zjistíš, číslo prvku?)*
+
+    Některá slova obsahují další informace za znakem `/`, ty bude potřeba
+    odstranit. *(Viz tahák na seznamy.)*
+
+    Můžeš se rozhodnout odstranit i slova začínající velkým písmenem.
+    (Většinou jde o vlastní jména a zkratky).
+
+- id: wordlist-to-file
+  markdown: |
+
+    Slova ze seznamu vytvořeného výše ulož do souboru `slova.txt`,
+    kde bude na každém řádku jedno slovo.
+
+- id: wordlist-hangman
+  markdown: |
+
+    Ve hře Šibenice vybírej slovo ze souboru `slova.txt`:
+
+    *Můžeš odevzdat jen kód, který načte soubor a náhodné slovo uloží do
+    proměnné `slovo`. Zbytek Šibenice se nemění.*
+
+- section:
+    markdown: |
+      Další úkoly jsou nepovinné, jde ale o hezké procvičení práce se seznamy
+      <var>n</var>-ticemi.
+
+      Naprogramuješ si karetní „hru“ [Válka](https://cs.wikibooks.org/wiki/Pokladnice_her/Klasick%C3%A9_karetn%C3%AD_hry/V%C4%9Bt%C5%A1%C3%AD_bere),
+      ve které jde pouze o štěstí: hráči v ní nedělají žádná rozhodnutí.
+      (Jestli tuhle „hru“ neznáš, přečti si pravidla na internetu.)
+
+- id: valka-definitions
+  markdown: |
+    *Karta* pro nás v tomto projektu bude dvojice (hodnota, barva).
+    Aby se karty dobře porovnávaly, hodnota bude vždy číslo: 2-10 budou karty
+    s čísly, 11 kluk, 12 dáma, 13 král, 1 eso.
+    Barva pak bude jeden z řetězců `'Sr', 'Pi', 'Ka', 'Kr'`.
+
+    Následující funkce umí vytvořit balíček a popsat kartu trochu hezčím
+    způsobem. Zkopíruj si je a prostuduj.
+
+    ```python
+    def vytvor_balicek():
+        """Vrátí nový zamíchaný balíček karet."""
+        karty = []
+        for barva in 'Sr', 'Pi', 'Ka', 'Kr':
+            for hodnota in range(1, 14):
+                karta = hodnota, barva
+                karty.append(karta)
+        random.shuffle(karty)
+        return karty
+
+
+    def popis_kartu(karta):
+        """Popíše danou kartu; vrací řetězec jako "7♣", "A♠" nebo "Q♥"."""
+        hodnota, barva = karta
+        if hodnota == 11:
+            popis_hodnoty = 'J'
+        elif hodnota == 12:
+            popis_hodnoty = 'Q'
+        elif hodnota == 13:
+            popis_hodnoty = 'K'
+        elif hodnota == 1:
+            popis_hodnoty = 'A'
+        elif hodnota == 10:
+            # Aby byly všechny hodnoty jednopísmenné,
+            # a líp se to pak vypisovalo,
+            # desítku označíme římským číslem.
+            popis_hodnoty = 'X'
+        else:
+            popis_hodnoty = str(hodnota)
+
+        if barva == 'Sr':
+            popis_barvy = '♥'
+        elif barva == 'Pi':
+            popis_barvy = '♠'
+        elif barva == 'Ka':
+            popis_barvy = '♦'
+        else:
+            popis_barvy = '♣'
+
+        return popis_hodnoty + popis_barvy
+    ```
+
+    Napiš proceduru, která vytvoří balíček a „hezky“ vypíše všechny karty v něm.
+    (Tuhle proceduru nebudeš dál potřebovat, je tu jenom pro pochopení
+    těchto funkcí.)
+
+- id: valka-porovnej
+  markdown: |
+    Napiš funkci `porovnej_karty` podle této hlavičky:
+
+    ```python
+    def porovnej_karty(karta_a, karta_b):
+        """Porovná hodnoty dvou karet.
+
+        Vrací:
+        * 'A', je-li lepší karta_a,
+        * 'B', je-li lepší karta_b,
+        * None, mají-li stejnou hodnotu.
+        """
+    ```
+
+- id: valka-rozdej
+  markdown: |
+    *Stav hry* bude trojice seznamů: balíček hráče A, balíček hráče B,
+    a karty co jsou aktuálně na stole.
+
+    Následující funkce takový stav hry vytvoří. Zkopíruj si ji a prostuduj.
+
+    ```python
+    def rozdej_balicky():
+        """Rozdá trojici balíčků: dva pro hráče a jeden pro "stůl"
+
+        Připraví zamíchaný balíček všech karet.
+        Balíček pro hráče A bude jeho první polovina; balíček pro hráče B druhá
+        """
+        balicek = vytvor_balicek()
+
+        # "polovina" musí být celé číslo, protože pak jí číslujeme seznam.
+        # Proto celočíselné dělení. Zbytek po dělení ignorujeme.
+        polovina = len(balicek) // 2
+
+        balicek_a = balicek[:polovina]
+        balicek_b = balicek[polovina:]
+
+        return balicek_a, balicek_b, []
+    ```
+
+    Napiš proceduru, která rozdá balíčky a „hezky“ je vypíše, např.
+
+    ```
+    Hráč A  Hráč B
+    9♠      2♦
+    K♣      Q♥
+    9♣      6♦
+    J♥      3♥
+    Q♠      Q♣
+    K♠      A♣
+    ... atd.
+    ```
+
+    *Co použiješ na procházení dvou seznamů naráz?)*
+
+    (Tuhle proceduru  nebudeš dál potřebovat, je tu jenom pro pochopení
+    těchto funkcí.)
+
+- id: valka-vyloz
+  markdown: |
+    Vytvoř funkci `vyloz_karty`, která dostane *stav hry* a simuluje
+    jedno vyložení karet.
+
+    ```python
+    def vyloz_karty(balicky):
+        """Vyloží karty obou hráčů na stůl.
+
+        "balicky" je trojice: balíček hráče A, balíček hráče B, karty na stole.
+
+        Každý z hráčů vyloží poslední kartu svého balíčku na stůl.
+        Nemá-li hráč co vyložit, nastane výjimka `SystemExit`.
+        (To zjednodušuje zbytek hry.)
+
+        Funkce vypisuje co dělá pomocí "print".
+        (To taky zjednodušuje zbytek hry.)
+        """
+        balicek_a, balicek_b, na_stole = balicky
+    ```
+
+    * Zkus:
+        * Lízni poslední kartu *balíčku A*. To bude *karta A*.
+    * Pokud to nešlo (balíček A byl prázdný):
+        * Vyhoď výjimku `SystemExit('Hráč B vyhrál')`
+    * Zkus:
+        * Lízni poslední kartu *balíčku B*. To bude *karta B*.
+    * Pokud to nešlo (balíček B byl prázdný):
+        * Vyhoď výjimku `SystemExit('Hráč A vyhrál')`
+    * Vypiš, že Hráč A hraje *kartu A*
+    * Vypiš, že Hráč B hraje *kartu B*
+    * Do *karet na stole* přidej *kartu A*
+    * Do *karet na stole* přidej *kartu B*
+
+    *(Výjimka `SystemExit` způsobí skončení proramu bez chybové hlášky.
+    Ta a výpisy pomocí `print` nejsou ve funkci která něco „počítá“,
+    úplně „košer“, ale zjednoduší ti práci.)*
+
+- id: valka-game
+  markdown: |
+    Vytvoř funkci `valka`, která:
+
+    * Rozdá *balíčky*
+    * *Balíčky* označí jako *balíček A*, *balíček B*, *karty na stole*.
+    * Pořád dokola:
+        * Vyloží karty
+        * Dokud mají předposlední a poslední karta na stole stejnou hodnotu:
+            * Vypíše „Válka!“
+            * Vyloží karty
+            * Vyloží karty
+            * Vyloží karty
+        * Jako *vítěze* tohoto kola označí hráče s vyšší kartou (A nebo B)
+        * Vypíše „Hráč <var>vitez</var> bere <var>N</var> karet!')
+        * Je-li *vítěz* hráč A:
+            * Karty na stole přidá *na začátek* *balíčku A* *(pozor, metoda `append` přidává na konec!)*
+        * Je-li *vítěz* hráč B:
+            * Karty na stole přidá *na začátek* *balíčku B*
+        * Seznam *karet na stole* vyprázdní.
