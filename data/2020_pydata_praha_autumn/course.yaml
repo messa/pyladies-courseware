@@ -8,3 +8,5 @@ tasks_by_lesson_slug:
   - file: tasks/eda_2.yaml
   "pydata/eda-univariate-timeseries":
   - file: tasks/eda_3.yaml
+  "pydata/pandas_correlations":
+  - file: tasks/eda_4.yaml
