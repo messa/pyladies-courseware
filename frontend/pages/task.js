@@ -50,24 +50,22 @@ export default class SessionPage extends React.Component {
   }
 
   async loadData() {
-    const { courseId, tasks } = this.props
-    //const taskIds = tasks.map(t => t.id)
+    const { courseId } = this.props
     try {
       const url = '/api/tasks/lesson-solutions' +
-        `?course_id=${encodeURIComponent(courseId)}`
+        `?course_id=${encodeURIComponent(courseId)}` +
+        `&task_ids=[]`
       const r = await fetch(url, {
         credentials: 'same-origin',
         headers: {
           'Accept': 'application/json',
         }
       })
-      const { task_solutions, students } = await r.json()
+      const { students } = await r.json()
       this.setState({
         loading: false,
         loadError: null,
         students: students.sort((a, b) => a.name.localeCompare(b.name)),
-        taskSolutionsByUserAndTaskId: new Map(
-          task_solutions.map(ts => ([`${ts.user_id}|${ts.task_id}`, ts]))),
       })
     } catch (err) {
       this.setState({
@@ -84,7 +82,7 @@ export default class SessionPage extends React.Component {
     const sessionSlug = session.slug
     const tasks = session['task_items'].filter(x => x.task_item_type === 'task')
     const reviewTask = session['task_items'].filter(x => x.number == reviewTaskId)[0];
-    const { loading, loadError, students, taskSolutionsByUserAndTaskId } = this.state
+    const { loading, loadError, students } = this.state
     return (
       <Layout user={user} width={1200}>
         <Grid relaxed padded>
