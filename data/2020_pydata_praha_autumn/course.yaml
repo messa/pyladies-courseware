@@ -14,7 +14,7 @@ tasks_by_lesson_slug:
   - file: tasks/eda_5.yaml
 
 sessions:
-- slug: "pydata_extra1"
+- slug: "opakovani"
   title: "Opakovací hodina"
   date: 2020-10-20
   tasks:
