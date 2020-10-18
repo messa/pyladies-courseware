@@ -12,3 +12,10 @@ tasks_by_lesson_slug:
   - file: tasks/eda_4.yaml
   "pydata/pandas_groupby":
   - file: tasks/eda_5.yaml
+
+sessions:
+- slug: "pydata_extra1"
+  title: "Opakovací hodina"
+  date: 2020-10-20
+  tasks:
+  - file: tasks/extra1.yaml
