@@ -220,5 +220,3 @@ tasks:
     konec = slovo[pozice + 1:]
     nove_slovo = zacatek + novy_znak + konec
     ```
-
-    *(upřesnění přidáno 2020-03-16)*
