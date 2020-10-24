@@ -9,8 +9,8 @@ tasks:
 
 - id: handout06_01
   markdown: |
-    Napiš funkci, do které se vloží identifikační číslo (např. rodné číslo, číslo platební
-    karty, číslo OP) a ona vrátí řetězec, kde jsou všechna čísla mimo posledních čtyř
+    Napiš funkci, do která dostane jako argument identifikační číslo (např. rodné číslo, číslo platební
+    karty, číslo OP) a která vrátí řetězec, kde jsou všechna čísla mimo posledních čtyř
     nahrazena symbolem `X`.
 
     např. pro `1234567` funkce vrátí `XXX4567` 
@@ -85,6 +85,7 @@ tasks:
     a tahy na obsazená políčka.
     Pokud uživatel zadá špatný vstup, funkce mu vynadá a zeptá se znova.
 
+    _Nezapomeň, že už máš funkci `tah` z předešlého úkolu._
 
 - section:
     markdown: |
@@ -93,7 +94,7 @@ tasks:
 - section:
     markdown: |
       - Vím, co je řetězec.
-      - Umím základní operace s nimi (spojovat, násobit, vybrat znak).
+      - Umím základní operace s řetězci (spojovat, násobit, vybrat znak).
       - Zjistit délku řetězce, zjistit, zda konkrétní znak je obsažen v řetězci.
       - Znám základní metody (např. upper, lower, count).
       - Umím řetězec rozsekat na kousky :).
