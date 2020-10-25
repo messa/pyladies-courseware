@@ -9,7 +9,7 @@ tasks:
 
 - id: handout06_01
   markdown: |
-    Napiš funkci, do která dostane jako argument identifikační číslo (např. rodné číslo, číslo platební
+    Napiš funkci, která dostane jako argument identifikační číslo (např. rodné číslo, číslo platební
     karty, číslo OP) a která vrátí řetězec, kde jsou všechna čísla mimo posledních čtyř
     nahrazena symbolem `X`.
 
