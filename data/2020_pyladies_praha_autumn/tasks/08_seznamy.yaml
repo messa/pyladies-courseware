@@ -7,6 +7,10 @@ tasks:
       nebudeš-li vědět jak dál, zeptej se na internetu nebo na sraze ostatních
       a řešte společně!
 
+      Většina funkcí, které budeš psát, dostane jako argument nějaký seznam a
+      má za úkol vracet nějaký jiný seznam. Dej si pozor, aby funkce vracela nový seznam
+      a seznam, který dostala argumentem, zůstal neporušen.
+
 - id: handout08_00
   markdown: |
     Udělej si seznam domácích zvířat. Budeš ho potřebovat v dalších úlohách.
