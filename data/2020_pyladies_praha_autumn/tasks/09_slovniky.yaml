@@ -34,6 +34,8 @@ tasks:
     ```
     Co vrátí funkce, když jejím argmentem bude "Máme rádi PyLadies!"?
 
+    _Zkus se obejít bez použítí metody `count`._
+
 - section:
     markdown: |
       Následující projekty závisí jeden na druhém, řeš je postupně.
@@ -102,5 +104,6 @@ tasks:
     markdown: |
       - Vím, co je slovník, jak ho vytvořit a kdy ho použít.
       - Umím přistoupit k hodnotě pomocí klíče.
+      - Umím přídávat nové hodnoty do slovníku.
       - Umím procházet klíče i hodnoty.
   

@@ -16,6 +16,10 @@ tasks:
     1. Vyber číslo od 0 do 19.
     2. Pokud je dané políčko volné, hrej na něj.
     3. Pokud ne, opakuj od bodu 1.
+
+    Můžeš předpokládat, že řetězec s herním polem vždy obsahuje alespoň
+    jednu volnou pozici.
+
     Hlavička funkce by tedy měla vypadat nějak takhle:
     ```
     def tah_pocitace(pole):
@@ -52,7 +56,7 @@ tasks:
 - id: handout07_03
   markdown: |
     Napiš program, který se zeptá na 3 čísla a zjistí, jestli je jejich součet větší než 10.
-    Dokážeš jej vymyslet tak, aby funkce input byla v kódu zapsaná jen jednou? ;)
+    Dokážeš jej vymyslet tak, aby funkce `input` byla v kódu zapsaná jen jednou? ;)
 
 - id: handout07_04
   markdown: |
