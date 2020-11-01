@@ -152,7 +152,8 @@ async def fb_redirect(req):
     conf = req.app['conf'].fb_oauth2
     oauth2_sess = get_fb_oauth2_session(conf)
     authorization_url, state = oauth2_sess.authorization_url(fb_authorization_base_url)
-    session['oauth2_state'] = state
+    logger.debug('/auth/facebook authorization_url: %r state: %r', authorization_url, state)
+    session['facebook_oauth2_state'] = state
     logger.debug('Redirecting to %s', authorization_url)
     raise web.HTTPFound(authorization_url)
 
@@ -160,7 +161,7 @@ async def fb_redirect(req):
 @routes.get('/auth/facebook/callback')
 async def fb_callback(req):
     session = await get_session(req)
-    if req.query['state'] != session['oauth2_state']:
+    if req.query['state'] != session['facebook_oauth2_state']:
         raise web.HTTPForbidden(text='state mismatch')
     del session['oauth2_state']
     conf = req.app['conf'].fb_oauth2
@@ -209,18 +210,31 @@ async def google_redirect(req):
     conf = req.app['conf'].google_oauth2
     oauth2_sess = get_google_oauth2_session(conf)
     authorization_url, state = oauth2_sess.authorization_url(google_authorization_base_url)
+    logger.debug('/auth/google authorization_url: %r state: %r', authorization_url, state)
     # access_type="offline", prompt="select_account")
-    session['oauth2_state'] = state
+    session['google_oauth2_state'] = state
     logger.debug('Redirecting to %s', authorization_url)
-    raise web.HTTPFound(authorization_url)
+    response = web.Response(
+        status=302,
+        text='Redirecting to authorization page',
+        headers={'Location': authorization_url})
+    response.set_cookie('cw_google_oauth2_state', state, httponly=True)
+    return response
 
 
 @routes.get('/auth/google/callback')
 async def google_callback(req):
     session = await get_session(req)
-    if req.query['state'] != session['oauth2_state']:
+    logger.debug('/auth/google/callback session: %r', session)
+    logger.debug('/auth/google/callback req.cookies: %r', req.cookies)
+    expected_state = session.get('google_oauth2_state') or req.cookies.get('cw_google_oauth2_state')
+    logger.debug('/auth/google/callback expected_state: %r', expected_state)
+    if req.query['state'] != session['google_oauth2_state']:
         raise web.HTTPForbidden(text='state mismatch')
-    del session['oauth2_state']
+    try:
+        del session['google_oauth2_state']
+    except KeyError as e:
+        logger.warning("KeyError del session['google_oauth2_state']: %r", e)
     conf = req.app['conf'].google_oauth2
 
     def fetch():
