@@ -155,15 +155,27 @@ async def fb_redirect(req):
     logger.debug('/auth/facebook authorization_url: %r state: %r', authorization_url, state)
     session['facebook_oauth2_state'] = state
     logger.debug('Redirecting to %s', authorization_url)
-    raise web.HTTPFound(authorization_url)
+    response = web.Response(
+        status=302,
+        text='Redirecting to authorization page',
+        headers={'Location': authorization_url})
+    response.set_cookie('cw_facebook_oauth2_state', state, httponly=True)
+    return response
 
 
 @routes.get('/auth/facebook/callback')
 async def fb_callback(req):
     session = await get_session(req)
-    if req.query['state'] != session['facebook_oauth2_state']:
+    logger.debug('/auth/facebook/callback session: %r', session)
+    logger.debug('/auth/facebook/callback req.cookies: %r', req.cookies)
+    expected_state = session.get('facebook_oauth2_state') or req.cookies.get('cw_facebook_oauth2_state')
+    logger.debug('/auth/facebook/callback expected_state: %r', expected_state)
+    if req.query['state'] != expected_state:
         raise web.HTTPForbidden(text='state mismatch')
-    del session['oauth2_state']
+    try:
+        del session['facebook_oauth2_state']
+    except KeyError as e:
+        logger.warning("KeyError del session['facebook_oauth2_state']: %r", e)
     conf = req.app['conf'].fb_oauth2
 
     def fetch():
@@ -229,7 +241,7 @@ async def google_callback(req):
     logger.debug('/auth/google/callback req.cookies: %r', req.cookies)
     expected_state = session.get('google_oauth2_state') or req.cookies.get('cw_google_oauth2_state')
     logger.debug('/auth/google/callback expected_state: %r', expected_state)
-    if req.query['state'] != session['google_oauth2_state']:
+    if req.query['state'] != expected_state:
         raise web.HTTPForbidden(text='state mismatch')
     try:
         del session['google_oauth2_state']
