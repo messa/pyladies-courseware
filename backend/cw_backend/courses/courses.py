@@ -127,6 +127,14 @@ class Course:
                     loader=loader))
 
             self.sessions.sort(key=lambda s: s.date)
+            if raw.get('autonumber_sessions', False):
+                for index, session in enumerate(self.sessions):
+                    if session.serial is not None:
+                        number = session.serial
+                    else:
+                        number = index + 1
+                    prefix = f"Lekce {number} - "
+                    session.add_title_prefix(prefix)
 
             # get course start/end date from sessions if not specified in course data
             if not self.data['start_date'] and self.sessions:
