@@ -257,6 +257,9 @@ tasks:
         . . . . . . . . . X
         . . . . . . . . . .
 
+    Funkci budeme používat jen na vypisování informací pro uživatele.
+    Použij v ní `print` a nic z ní nevracej.
+
     _Jak na to?_
 
     - Vzpomeň si, jak se vypisuje tabulka: pomocí dvou cyklů `for` zanořených
