@@ -224,9 +224,10 @@ tasks:
     * Do *karet na stole* přidej *kartu A*
     * Do *karet na stole* přidej *kartu B*
 
-    *(Výjimka `SystemExit` způsobí skončení proramu bez chybové hlášky.
-    Ta a výpisy pomocí `print` nejsou ve funkci která něco „počítá“,
-    úplně „košer“, ale zjednoduší ti práci.)*
+    *(Výjimka `SystemExit` způsobí skončení programu bez chybové hlášky.
+    Ta a výpisy pomocí `print` nejsou ve funkci která nedělá jen výpis
+    ideální, ale zjednoduší ti práci.
+    Až program dopíšeš, můžeš se k nim vrátit)*
 
 - id: valka-game
   markdown: |

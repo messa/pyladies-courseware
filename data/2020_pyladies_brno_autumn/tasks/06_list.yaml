@@ -257,6 +257,9 @@ tasks:
         . . . . . . . . . X
         . . . . . . . . . .
 
+    Funkci budeme používat jen na vypisování informací pro uživatele.
+    Použij v ní `print` a nic z ní nevracej.
+
     _Jak na to?_
 
     - Vzpomeň si, jak se vypisuje tabulka: pomocí dvou cyklů `for` zanořených
@@ -264,9 +267,6 @@ tasks:
     - Pro každou buňku tabulky (tedy vevnitř v cyklu) si vytvoř dvojici
       `souradnice = (cislo_radku, cislo_sloupce)`.
     - Napiš `X`, pokud je dvojice `souradnice` v seznamu. Jinak napiš `.`.
-
-    *Pondělí 2020-04-20: změněno zadání – souřadnice jsou `(číslo řádku, číslo sloupce)`,
-    ne naopak.*
 
 - id: handout7_15
   markdown: |
@@ -286,9 +286,6 @@ tasks:
 
     Funkce by neměla nic vracet. Jen mění už existující seznam.
 
-    *Pondělí 2020-04-20: změněno zadání – souřadnice jsou `(číslo řádku, číslo sloupce)`,
-    ne naopak.*
-
 - id: handout7_16
   markdown: |
     Napiš cyklus, který se bude ptát uživatele na světovou stranu,
@@ -296,8 +293,6 @@ tasks:
     Pak se opět se zeptá na stranu atd.
 
     Začínej se seznamem `[(0, 0), (0, 1), (0, 2)]`.
-
-    *Pondělí 2020-04-20: změněno zadání – začíná se s jiným seznamem.*
 
 - id: handout7_17
   markdown: |
