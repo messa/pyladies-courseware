@@ -1,0 +1,25 @@
+tasks:
+
+- section:
+    markdown: |
+      Použij databázi [Gapminder](https://raw.githubusercontent.com/janpipek/data-pro-pyladies/master/data/countries.csv) se statistikami o jednotlivých státech světa a pokus se aplikovat, co ses v hodině o PCA naučila:
+
+- id: pca_01
+  markdown: |
+    Spočítej, kolik je v každém sloupci chybějících hodnot `(countries.isnull().sum(axis = 0))`. Na základě toho (a případně dalších úvah), vyber sloupce, který budeš pro PCA analýzu používat.
+
+- id: pca_02
+  markdown: |
+    Do tabulky s vybranými sloupci doplň chybějící hodnoty pomocí `SimpleImputer` z balíčku sklearn.
+
+- id: pca_03
+  markdown: |
+    Normalizuj data pomocí `StandardScaler` a spočítej první dvě komponenty `PCA`. Vykresli data do souřadnicového grafu (scatter plot). Jsou země EU blízko sebe? Tvoří shluk?
+
+- id: pca_04
+  markdown: |
+    Dokážeš najít interpretaci pro PCA1 a PCA2 (první dvě komponenty PCA)? Pomoci může, když si nakreslíš interaktivní graf zobrazující jméno země (balíček `plotly`). Zkus si též spočítat, nakolik jednotlivé sloupečky z původní tabulky přispívají ke koeficientům (loadings) PCA1 a PCA2.
+
+- id: pca_05
+  markdown: |
+    Pokus se navrhnout, jak by šly do PCA zahrnout kategoriální veličiny, za předpokladu, že počet jejich kategorií není příliš velký (např. indikátor `is_eu`, zda je země v EU, nebo kontinent `world_6region`).

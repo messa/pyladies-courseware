@@ -14,7 +14,9 @@ tasks_by_lesson_slug:
   - file: tasks/eda_5.yaml
   "pydata/ml1_home_prep":
   - file: tasks/ml_1.yaml
-
+  "pydata/pca":
+  - file: tasks/pca.yaml
+  
 sessions:
 - slug: "opakovani"
   title: "Opakovací hodina"
