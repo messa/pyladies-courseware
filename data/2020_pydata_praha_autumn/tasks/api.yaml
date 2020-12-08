@@ -1,0 +1,27 @@
+tasks:
+
+- section:
+    markdown: |
+      Použij data o průjezdech cyklistů v Praze. Jejich umístění a aktuální počty průjezdů jsou vidět na [interaktivní mapě](https://unicam.camea.cz/Discoverer/BikeCounter/map), dokumentaci k API najdeš [tady](https://golemioapi.docs.apiary.io/#reference/traffic/bicyclecounters/get-all-bicyclecounters). Zkus zjistit:
+
+- id: api_01
+  markdown: |
+    Kolik cyklistů projelo dne 7. prosince 2020 v čase 6.00 - 11.00 přes měřák v Modřanech?
+
+- id: api_02
+  markdown: |
+    Které místo bylo 7. prosince 2020 nejfrekventovanější? A které druhé?
+
+- id: api_03
+  markdown: |
+    Jak se jezdilo v roce 2020 oproti roku předchozímu?
+
+- id: api_04
+  markdown: |
+    Kde je největší rozdíl mezi průjezdy jedním směrem a druhým za poslední měsíc?
+
+- id: api_05
+  markdown: |
+    Znamená větší teplota více cyklistů? Tip k zjištění teploty najdete [tady](https://golemioapi.docs.apiary.io/#reference/traffic/bicyclecounters/get-bicyclecounters-temperatures)
+    - Zkuste vizualizovat
+    - Jak velká je korelace?
