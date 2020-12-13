@@ -22,6 +22,8 @@ tasks:
 
 - id: api_05
   markdown: |
-    Znamená větší teplota více cyklistů? Tip k zjištění teploty najdete [tady](https://golemioapi.docs.apiary.io/#reference/traffic/bicyclecounters/get-bicyclecounters-temperatures)
+    Znamená větší teplota více cyklistů?
+    Tip k zjištění teploty najdete [tady](https://golemioapi.docs.apiary.io/#reference/traffic/bicyclecounters/get-bicyclecounters-temperatures)
+
     - Zkuste vizualizovat
     - Jak velká je korelace?
