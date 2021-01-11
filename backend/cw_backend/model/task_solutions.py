@@ -4,7 +4,7 @@ import logging
 from operator import itemgetter
 from pymongo import ASCENDING as ASC
 from pymongo import ReturnDocument
-import requests
+import aiohttp
 
 logger = logging.getLogger(__name__)
 
@@ -121,7 +121,8 @@ class TaskSolution:
         self.task_id = doc['task_id']
         self.user_id = doc['user_id']
         self.is_solved = None
-        self.current_version_id = str(doc['current_version_id']) if doc.get('current_version_id') else None
+        self.current_version_id = str(doc['current_version_id']) if doc.get(
+            'current_version_id') else None
         if doc.get('marked_as_solved'):
             self.is_solved = doc['marked_as_solved']['solved']
         self.last_action = None
@@ -183,15 +184,19 @@ class TaskSolution:
         cv = await self.get_current_version()
         test_result = {}
         try:
-            response = requests.post(
-                'http://localhost:5001',
-                json={
-                    'code': cv.code,
-                    'code_file_name': test_filename,
-                    'test': test_code
-                }
-            )
-            test_result = response.json()
+            async with aiohttp.ClientSession() as session:
+                async with session.post(
+                    'https://1uldyze5u0.execute-api.eu-west-1.amazonaws.com/tests-endpoint',
+                    json={
+                        'code': cv.code,
+                        'code_file_name': test_filename,
+                        'test': test_code
+                    },
+                    headers={
+                        'x-api-key': 'api_token'
+                    }
+                ) as response:
+                    test_result = await response.json()
         except Exception as e:
             logger.error(e, exc_info=True)
         await self._c_versions.find_one_and_update(

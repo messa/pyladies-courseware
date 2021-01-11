@@ -19,7 +19,7 @@ async def submit_task_solution(req):
     if not session.get('user'):
         raise web.HTTPForbidden()
     user = await model.users.get_by_id(session['user']['id'])
-    #if user.is_admin != True:
+    # if user.is_admin != True:
     #    raise web.HTTPForbidden()
     data = await req.json()
     ts = await model.task_solutions.create_revision(
@@ -32,7 +32,9 @@ async def submit_task_solution(req):
     course_session = course.get_session_by_slug(data['session_slug'])
     task = course_session.get_task_by_id(data['task_id'])
     if task and 'test' in task.data and task.data['test']:
-        await ts.test_current_version(task.data['test_code_file_name'], task.data['test'])
+        asyncio.create_task(ts.test_current_version(
+            task.data['test_code_file_name'], task.data['test'])
+        )
     return web.json_response({
         'task_solution': await ts.export(with_code=True),
     })

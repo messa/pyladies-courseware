@@ -6,6 +6,17 @@ tasks:
     3+(4+6)×8÷2−1 =
 
     (Závorky v Pythonu fungují jako v matematice)
+  test_code_file_name: uloha.py
+  test: |
+    from uloha import inc
+    import time
+
+    def test_answer():
+        assert inc(0) == 1
+
+    def test_for():
+        for n in range(100):
+            assert inc(n) == n+1
 
 - id: handout01_01
   markdown: |
