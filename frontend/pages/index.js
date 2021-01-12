@@ -16,6 +16,10 @@ export default class extends React.Component {
     const my_active_courses_ids = new Set(my_courses_ids.filter(cid => active_courses_ids.has(cid)))
     return (
       <Layout user={user} width={600}>
+      
+        <p>
+          Ahoj, komu nefungovalo přihlášení přes Facebook, zkuste to prosím znovu. – Petr M.
+        </p>
 
         { my_active_courses_ids.size > 0 && (
           <>
