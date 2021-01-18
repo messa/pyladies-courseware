@@ -112,6 +112,13 @@ export default class RegistrationForm extends React.Component {
             disabled={loading} error={!!password2Error} autoComplete="new-password"
           />
 
+          <Form.Input
+            required inline name='privacy-ok' label=<span>Souhlasím se <a href={'/privacy'} target='_blank'>zpracováním osobních ůdajů:</a></span>
+            id='reg-privacy-ok'
+            type='checkbox' onChange={this.handleInputChange}
+            disabled={loading} error={!!password2Error} autoComplete="new-password"
+          />
+
           <Form.Button primary size='small' loading={loading} disabled={loading}>
             Zaregistrovat se
           </Form.Button>
