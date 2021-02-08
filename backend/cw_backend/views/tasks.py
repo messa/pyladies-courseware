@@ -31,10 +31,13 @@ async def submit_task_solution(req):
     course = req.app['courses'].get().get_by_id(data['course_id'])
     course_session = course.get_session_by_slug(data['session_slug'])
     task = course_session.get_task_by_id(data['task_id'])
-    if task and 'test' in task.data and task.data['test']:
+    if task and 'test' in task.data and task.data['test'] and req.app['conf'].test_endpoint and req.app['conf'].test_api_key:
         asyncio.create_task(ts.test_current_version(
-            task.data['test_code_file_name'], task.data['test'])
-        )
+            task.data['test_code_file_name'],
+            task.data['test'],
+            req.app['conf'].test_endpoint,
+            req.app['conf'].test_api_key
+        ))
     return web.json_response({
         'task_solution': await ts.export(with_code=True),
     })

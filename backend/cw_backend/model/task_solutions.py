@@ -180,20 +180,20 @@ class TaskSolution:
         version_doc = await self._c_versions.find_one({'_id': self._doc['current_version_id']})
         return TaskSolutionVersion(version_doc)
 
-    async def test_current_version(self, test_filename, test_code):
+    async def test_current_version(self, test_filename, test_code, api_endpoint, api_key):
         cv = await self.get_current_version()
         test_result = {}
         try:
             async with aiohttp.ClientSession() as session:
                 async with session.post(
-                    'https://1uldyze5u0.execute-api.eu-west-1.amazonaws.com/tests-endpoint',
+                    api_endpoint,
                     json={
                         'code': cv.code,
                         'code_file_name': test_filename,
                         'test': test_code
                     },
                     headers={
-                        'x-api-key': 'api_token'
+                        'x-api-key': api_key
                     }
                 ) as response:
                     test_result = await response.json()
