@@ -94,7 +94,7 @@ async def auth_dev(req):
 @routes.post('/auth/register')
 async def register(req):
     data = await req.json()
-    if not data.get('privacy-ok'):
+    if not data.get('privacy_ok'):
         return web.json_response({
             'errors': ['nebyl udělen souhlas se zpracovním osobních údajů'],
         })

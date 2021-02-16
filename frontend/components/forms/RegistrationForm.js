@@ -19,7 +19,7 @@ export default class RegistrationForm extends React.Component {
   }
 
   handleSubmit = () => {
-    const { email, name, password, password2 } = this.state
+    const { email, name, password, password2, privacy_ok } = this.state
     this.setState({
       errors: [],
       loading: true,
@@ -42,7 +42,7 @@ export default class RegistrationForm extends React.Component {
     if (errors.length > 0) {
       this.setState({ errors, loading: false })
     } else {
-      this.sendData({ email, name, password })
+      this.sendData({ email, name, password, privacy_ok })
     }
   }
 
@@ -113,10 +113,10 @@ export default class RegistrationForm extends React.Component {
           />
 
           <Form.Input
-            required inline name='privacy-ok' label=<span>Souhlasím se <a href={'/privacy'} target='_blank'>zpracováním osobních ůdajů:</a></span>
-            id='reg-privacy-ok'
+            required inline name='privacy_ok' label=<span>Souhlasím se <a href={'/privacy'} target='_blank'>zpracováním osobních ůdajů:</a></span>
+            id='reg-privacy_ok'
             type='checkbox' onChange={this.handleInputChange}
-            disabled={loading} error={!!password2Error} autoComplete="new-password"
+            disabled={loading} error={!!password2Error}
           />
 
           <Form.Button primary size='small' loading={loading} disabled={loading}>
