@@ -2,13 +2,11 @@ tasks:
 
 - section:
     markdown: |
-      V této sekci se naučíš něco o textu – o řetězcích, které jsme na videu
-      jen naťukli.
+      První sekce bude o textu – o řetězcích, které jsme na videu jen naťukli.
 
 - id: hadnout1_07
   markdown: |
-    Python umí zpracovávat i jiné hodnoty než čísla.
-    Třeba takové **řetězce** – slova, věty nebo jiný text.
+    **Řetězce** obsahují slova, věty nebo jiný text.
     Řetězce se zadávají v uvozovkách – jednoduchých `'` nebo dvojitých `"`:
 
     ```
@@ -32,41 +30,38 @@ tasks:
   submit: false
 
 - id: handout01_09
-  mandatory: true
   markdown: |
     Co je tady špatně? Jak to spravit?
 
     ```
-    >>> 'Ahoj' + 'PyLadies!'
+    >>> 'Ahoj' + 'týmy!'
     ```
 
 - id: handout1_10
   markdown: |
     Řetězce se dají sčítat. Dají se i násobit? Dělit? Odečítat?
-    *(Odpověz slovně.)*
+    *(Odpovězte slovně.)*
 
 - id: handout1_11
   markdown: |
     Co se stane, když se pokusím sečíst číslo a řetězec?
-    *(Můžeš vložit výsledek z konzole, ale odpověz i slovně)*
+    *(Můžete vložit výsledek z příkazové řádky, ale odpověz i slovně)*
 
 - id: handout1_12
   markdown: |
     A vynásobit?
-    *(Můžeš vložit výsledek z konzole, ale odpověz i slovně)*
+    *(Můžete vložit výsledek z příkazové řádky, ale odpověz i slovně)*
 
 - section:
     markdown: |
-      Vzpomínáš si na chybové hlášky a na proměnné?
+      Vzpomínáte si na chybové hlášky a na proměnné?
 
 - id: handout2_03
-  mandatory: true
   markdown: |
 
     Jaká chyba nastane, když zkusíš podělit řetězec řetězcem?
 
 - id: handout2_02
-  mandatory: true
   markdown: |
 
     Jaká chyba nastane, když zkusíš použít proměnnou předtím, než do ní něco přiřadíš?
@@ -97,7 +92,7 @@ tasks:
 
 - section:
     markdown: |
-      Následující projekty jsou na procvičení toho, co jsme dělaly na srazu.
+      Následující projekty jsou na procvičení toho, co bylo ve videích.
 
 - id: handout2_06
   markdown: |
@@ -113,24 +108,28 @@ tasks:
 
 - section:
     markdown: |
-      Následuje prostor pro tvoji kreativitu. Tyto projekty jsou nepovinné.
+      Následuje prostor pro vaši kreativitu.
 
 - id: handout2_14
   markdown: |
-    Napiš program, který po zadání správného hesla vypíše nějakou tajnou informaci.
+    Napiš program, který po zadání správného hesla vypíše nějakou „tajnou informaci“.
 
-    _Vhodné tajemství je třeba: V pátek jsem viděla černého havrana._
+    _Vhodné tajemství je třeba: V pátek jsem viděl černého havrana._
 
 - id: handout2_13
   markdown: |
-    Na srazu jsme měli program, který píše různé nesmysly podle uživatelem zadaného věku.
+    Na videu byl program, který píše různé nesmysly podle uživatelem zadaného věku.
 
-    Zkus napsat program, který píše hlášky podle zadané rychlosti chůze, váhy ulovené ryby, počtu tykadel,
-    teploty vody nebo třeba vzdálenosti od rovníku. 
+    Zkuste napsat program, který píše hlášky podle zadané rychlosti chůze, váhy ulovené ryby, počtu tykadel,
+    teploty vody nebo třeba vzdálenosti od rovníku.
+
+    (Pošlete ten nejzdařilejší; kdybyste se chtěli pochlubit několika verzemi,
+    dejte je všechny do jedné odpovědi.)
 
 - section:
     markdown: |
-      A nakonec pár úkolů, které tvoří větší projekt. Dělej je postupně.
+      A nakonec pár úkolů, které tvoří větší projekt. Navazují na sebe.
+      Dělej je postupně.
 
 - id: handout2_08
   markdown: |
@@ -162,7 +161,6 @@ tasks:
     * Vypíše `tvar`.
 
 - id: rock_paper_scissors
-  mandatory: true
   markdown: |
     Vytvoř hru *Kámen nůžky papír*, která funguje následovně:
 
