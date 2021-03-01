@@ -64,3 +64,9 @@ def markdown_to_html(src):
             'mdx_linkify',
         ],
         output_format='html5')
+
+
+def escape_markdown(markdown_html):
+    import bleach
+    from bleach_allowlist import markdown_tags, markdown_attrs
+    return bleach.clean(markdown_html, markdown_tags, markdown_attrs)
