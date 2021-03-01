@@ -98,7 +98,7 @@ tasks:
   markdown: |
     Napiš program, který spočítá povrch a objem krychle o straně 2852 cm.
 
-    Abys nemusela tolik hledat v učebnici (vlastně Wikipedii): povrch S = 6a², objem V = a³
+    Abys nemusel tolik hledat v učebnici (vlastně Wikipedii): povrch S = 6a², objem V = a³
 
     _Řešení, pro kontrolu: S = 48803424 cm², V = 23197894208 cm³_
 
@@ -172,21 +172,21 @@ tasks:
         * je-li tah počítače `'kámen'`:
             * vypíše `'Remíza!'`;
         * jinak, je-li tah počítače `'nůžky'`:
-            * vypíše `'Vyhrála jsi!'`;
+            * vypíše `'Vyhrál jsi!'`;
         * jinak, je-li tah počítače `'papír'`:
-            * vypíše `'Prohrála jsi!'`.
+            * vypíše `'Prohrál jsi!'`.
     * Jinak, je-li tah hráče `'nůžky'`:
         * je-li tah počítače `'kámen'`:
-            * vypíše `'Prohrála jsi!'`;
+            * vypíše `'Prohrál jsi!'`;
         * jinak, je-li tah počítače `'nůžky'`:
             * vypíše `'Remíza!'`;
         * jinak, je-li tah počítače `'papír'`:
-            * vypíše `'Vyhrála jsi!'`.
+            * vypíše `'Vyhrál jsi!'`.
     * Jinak, je-li tah hráče `'papír'`:
         * je-li tah počítače `'kámen'`:
-            * vypíše `'Vyhrála jsi!'`;
+            * vypíše `'Vyhrál jsi!'`;
         * jinak, je-li tah počítače `'nůžky'`:
-            * vypíše `'Prohrála jsi!'`;
+            * vypíše `'Prohrál jsi!'`;
         * jinak, je-li tah počítače `'papír'`:
             * vypíše `'Remíza!'`.
     * Jinak,
