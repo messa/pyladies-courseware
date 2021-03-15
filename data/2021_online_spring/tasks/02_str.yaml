@@ -2,31 +2,46 @@ tasks:
 
 - section:
     markdown: |
-      Procvičení řetězců.
+      Procvičení řetězců. Mějte při ruce taháky!
+
+- id: in_case_insensitive
+  markdown: |
+    Napište program, který se zeptá na dva řetězce a zjistí,
+    jestli je jeden obsažen ve druhém.
+    Nebere přitom ohled na velikost písmen.
+
+    (Stejné zadání bylo i na videu.)
 
 - id: handout4_06
   markdown: |
-    Napiš program, který se zeptá na příjmení uživatelky/uživatele
+    Napište program, který se zeptá na příjmení uživatelky/uživatele
     a *zkusí* podle něj uhodnout její/jeho pohlaví.
     To pak vypíše.
 
-    (Pohlaví není možné určit přesně – stačí zvládnout ta nejčastější
-    česká příjmení.)
+    (Pohlaví není podle jména možné určit přesně – stačí zvládnout ta
+    nejčastější česká příjmení.)
 
 - id: handout4_07
   markdown: |
-    Najdi na internetu text své oblíbené písně, zkopíruj si ho do řetězce
-    a zjisti, kolikrát je v něm použito písmeno K.
+    Najděte na internetu text své oblíbené písně, zkopírujte si ho do řetězce
+    a zjistěte, kolikrát je v něm použito písmeno K. (Velké nebo malé.)
 
     Text by mělo jít jednoduše vyměnit za jiný.
 
+    Jako u všech úkolů odevzdejte prosím jen jedno řešení – ideálně
+    to nejzajímavější nebo jinak "nejlepší", ale klidně jakékoli co
+    splňuje zadání.
+    (V případě že se nedohodnete můžete vložit víc řešení najednou.
+    Doporučuju se pak ale o tom, proč jste se nedohodli, poradit v diskusi.)
+
 - section:
     markdown: |
-      Následující sada projektů procvičuje různá použití cyklu `for`.
+      Následující sada úkolů procvičuje různá použití cyklu `for`.
+      Úkoly na sebe navazují, řešte je postupně.
 
 - id: handout3b_05
   markdown: |
-    Pomocí cyklu `for` a funkce `range()` napiš program, který vypíše:
+    Pomocí cyklu `for` a funkce `range()` napište program, který vypíše:
 
         a
         a
@@ -35,7 +50,7 @@ tasks:
 
 - id: handout3b_06
   markdown: |
-    Pomocí cyklu `for` napiš program, který vypíše:
+    Pomocí cyklu `for` napište program, který vypíše:
 
         Řádek 0
         Řádek 1
@@ -45,14 +60,14 @@ tasks:
 
 - id: handout3b_07
   markdown: |
-    Jak jsi pojmenovala proměnnou, kterou jsi v minulém příkladu použila?
-    Vymysli pro ni název, který nejlépe vystihuje, co proměnná obsahuje.
+    Jak nejlépe pojmenovat proměnnou pro minulý příklad?
+    Vymyslete pro ni název, který nejlépe vystihuje co proměnná obsahuje.
 
-    _Je důležité proměnnou pojmenovat výstižně, jinak se v dalších projektech můžeš ztratit. Možné řešení je uvedeno na konci zadání._
+    _Je důležité proměnnou pojmenovat výstižně, jinak se v dalších úkolech můžete ztratit._
 
 - id: handout3b_08
   markdown: |
-    Pomocí cyklu `for` napiš program, který vypíše:
+    Pomocí cyklu `for` napište program, který vypíše:
 
         0 na druhou je 0
         1 na druhou je 1
@@ -60,11 +75,11 @@ tasks:
         3 na druhou je 9
         4 na druhou je 16
 
-    _Jak pojmenuješ proměnnou cyklu?_
+    _Jak pojmenujete proměnnou cyklu?_
 
 - id: handout3b_09
   markdown: |
-    Pomocí cyklů `for` a parametru `end` pro `print` napiš program, který postupně z jednotlivých `'X'` vypíše:
+    Pomocí cyklů `for` a parametru `end` pro `print` napište program, který postupně z jednotlivých `'X'` vypíše:
 
         X X X X X
         X X X X X
@@ -73,25 +88,28 @@ tasks:
         X X X X X
 
     „Z jednotlivých `'X'`“ znamená, že každý `print` vypíše maximálně jedno `X`.
-    Nepoužiješ tedy např. `print('X X X X X')` ani `print('X ' * 5)`.
+    Nepoužijete tedy např. `print('X X X X X')` ani `print('X ' * 5)`.
 
-    _Jak pojmenuješ proměnnou cyklu? A tu druhou?_
+    _Jak pojmenujete proměnnou cyklu? A tu druhou?_
 
 
 - id: handout3b_10
   markdown: |
-    Napiš program, který vypíše „tabulku“ s násobilkou.
+    Napište program, který vypíše „tabulku“ s násobilkou.
 
-        0 0 0 0 0
-        0 1 2 3 4
-        0 2 4 6 8
-        0 3 6 9 12
-        0 4 8 12 16
+        0       0       0       0       0
+        0       1       2       3       4
+        0       2       4       6       8
+        0       3       6       9       12
+        0       4       8       12      16
 
+    K oddělení sloupců použijte znak tabulátoru.
+
+    _Tabulka je podobná předchozí, jen má v každé "buňce" hodnotu "číslo řádku × číslo sloupce"._
 
 - id: handout3b_11
   markdown: |
-    Napiš program, který postupně z jednotlivých `'X'` vypíše:
+    Napište program, který postupně z jednotlivých `'X'` vypíše:
 
         X
         X X
@@ -103,8 +121,8 @@ tasks:
 
 - id: handout3b_12
   markdown: |
-    Pomocí cyklu `for` a příkazu `if` napiš program, který vypíše následující řádky.
-    Funkci `print` volej pouze uvnitř v cyklu:
+    Pomocí cyklu `for` a příkazu `if` napište program, který vypíše následující řádky.
+    Funkci `print` volejte pouze uvnitř v cyklu:
 
         první řádek
         není první
@@ -112,9 +130,8 @@ tasks:
         není první
 
 - id: handout3b_13
-  mandatory: true
   markdown: |
-    Pomocí cyklů `for` a příkazu `if` napiš program, který z jednotlivých `'X'` vypíše:
+    Pomocí cyklů `for` a příkazu `if` napište program, který z jednotlivých `'X'` vypíše:
 
         X X X X X X
         X         X
@@ -127,15 +144,14 @@ tasks:
     jedno `X`.
 
 - id: handout3b_14
-  mandatory: true
   markdown: |
-    Předchozí programy z této sekce uprav tak, aby počet řádků (či
+    Předchozí programy z této sekce upravte tak, aby počet řádků (či
     velikost čtverce/trojúhelníku/tabulky) mohl zadat uživatel.
 
 - section:
     markdown: |
-      Následující sada projektů ti ukáže zajímavou vlastnost řetězců.
-      Zpomal a zamysli se.
+      Následující sada úkolů vám ukáže zajímavou vlastnost řetězců.
+      Zpomalte a zamyslete se.
 
 - id: handout3b_15
   markdown: |
@@ -145,9 +161,8 @@ tasks:
             print(c)
 
 - id: handout3b_16
-  mandatory: true
   markdown: |
-    Vymyslíš lepší jméno pro proměnnou `c` z minulé úlohy?
+    Vymyslíte lepší jméno pro proměnnou `c` z minulé úlohy?
 
 - id: handout3b_17
   markdown: |
@@ -158,9 +173,9 @@ tasks:
 
 - id: count-letters
   markdown: |
-    Najdi na internetu text své oblíbené písně, zkopíruj si ho do řetězce
-    a zjisti, kolik je v něm písmen.
-    Nepočítej mezery, znaky nového řádku a znaky
+    Najděte na internetu text své oblíbené písně, zkopírujte si ho do řetězce
+    a zjistěte, kolik je v něm písmen.
+    Nepočítejte mezery, znaky nového řádku a znaky
     `!"#$%&\'()*+,-./:;<=>?@[\]^_{|}~`.
 
     Text písně by mělo jít jednoduše vyměnit za jiný.
@@ -179,14 +194,14 @@ tasks:
 
 - id: handout9_06
   markdown: |
-    Vytvoř hru Šibenice podle následujícího popisu.
+    Vytvořte hru Šibenice podle následujícího popisu.
 
     * Počítač náhodně zvolí **slovo** (zatím třeba ze tří možností).
-        Pro jednoduchost používej malá písmena a nepoužívej slova,
+        Pro jednoduchost používejte malá písmena a nepoužívejte slova,
         ve kterých se stejné písmeno opakuje dvakrát
         (třeba č<span style='color: red'>o</span>k<span style='color: red'>o</span>láda).
 
-        Zkus třeba slova: `trávník`, `stromek`, `stavení`.
+        Zkuste třeba slova: `trávník`, `stromek`, `stavení`.
 
     * Výchozí **stav** je řetězec s tolika podtržítky, kolik je
         ve vybraném slově písmen.
@@ -197,8 +212,8 @@ tasks:
         * Zeptej se hráče na **písmeno**.
         * Pokud je to **písmeno** ve vybraném **slově**:
             * Zaměň ve **stavu** příslušné podtržítko za ono **písmeno**.
-              (Bude se hodit řetězcová metoda `index` a podprogram `zamen`\* ze
-              srazu.)
+              (Bude se hodit řetězcová metoda `index` a podprogram `zamen`\*
+              z videa.)
         * Pokud dané **písmeno** _není_ ve vybraném slově:
             * započítej **neúspěšný pokus**.
         * Vypiš **stav** (slovo s případnými podtržítky).
@@ -212,7 +227,7 @@ tasks:
 
     ---
 
-    \* Podprogram `zamen` jsme si ukázali na srazu:
+    \* Podprogram `zamen` jsme si ukázali na videu:
     ```python
     # Ve slově `slovo` zaměnit znak na pozici `pozice` za `novy_znak`;
     # výsledek bude v proměnné `nove_slovo`.
