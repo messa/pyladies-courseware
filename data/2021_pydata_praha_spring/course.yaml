@@ -1,5 +1,6 @@
 id: pydata-2021-praha-jaro
 naucse_api_url: https://naucse.python.cz/v0/2021/pydata-praha-jaro.json
+end_date: 2021-06-09
 tasks_by_lesson_slug:
 
   "pydata/notebook":
