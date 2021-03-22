@@ -15,40 +15,49 @@ tasks:
 - section:
     markdown: |
       Trocha experimentování.
-      Zkus se zamyslet, jestli jsi „dobře” pochopila otázku.
+      Zadání si prosím pořádně přečtěte.
 
 - id: handout4_00
   markdown: |
-    Co se stane, když tělo nějaké funkce necháš úplně prázdné? Zkus vysvětlit proč. (Tělo funkce je odsazený blok za dvojtečkou)
+    Co se stane, když tělo nějaké funkce necháte úplně prázdné? Zkuste vysvětlit proč. (Tělo funkce je odsazený blok za dvojtečkou)
 
 - id: handout4_01
   markdown: |
-    Co se stane, když necháš úplně prázdné tělo cyklu? Zkus vysvětlit proč.
+    Co se stane, když necháte úplně prázdné tělo cyklu? Zkuste vysvětlit proč.
 
 
 - section:
     markdown: |
-      Umíš napsat funkci (nebo proceduru)?
+      Umíte napsat funkci (nebo proceduru)?
+
+      Pozor na slovíčka jako „vrátit“ a „vypsat“, která říkají co máte dělat.
 
 - id: handout4_06-func
   markdown: |
-    Napiš *funkci*, která jako argument bere příjmení uživatelky/uživatele
+    Napište *funkci*, která jako argument bere příjmení uživatelky/uživatele
     a zkusí podle něj uhodnout její/jeho pohlaví.
-    To vrátí jako řetězec.
+    To *vrátí* jako řetězec.
 
-    Funkci v programu několikrát zavolej (s různými příjmeními) a výsledky vypiš.
+    Funkci v programu několikrát zavolejte (s různými příjmeními – ty můžete
+    zadat přímo do kódu při volání funkcí). Výsledky vypište.
 
     (Pohlaví není možné určit přesně – stačí zvládnout ta nejčastější
     česká příjmení.)
 
-    *Program, který tohle dělá už máš – úkol spočívá v tom, že z něj
-    správný kousek „zabalíš“ do funkce.*
+    *Program který tohle dělá už máte – úkol spočívá v tom, že z něj
+    správný kousek „zabalíte“ do funkce.*
 
 - id: handout4_02
   mandatory: true
   markdown: |
-    Napiš proceduru, která vykreslí domeček dané velikosti.
-    Velikost se zadá argumentem.
+    Napište proceduru, která *vykreslí* domeček dané velikosti.
+    Velikost se zadá jako argument, např:
+
+    ```python
+    vykresli_domecek(30)
+    vykresli_domecek(40)
+    vykresli_domecek(80)
+    ```
 
     Proceduru v programu několikrát zavolej (s různými velikostmi).
 
@@ -56,7 +65,7 @@ tasks:
 
 - id: handout4_03
   markdown: |
-    Máš-li ráda geometrii*, můžeš zkusit dávat domečkové proceduře dva argumenty:
+    Má-li někdo z vás rád geometrii*, může zkusit dávat domečkové proceduře dva argumenty:
     šířku a výšku.
     Je potřeba si vzpomenout na Pythagorovu větu a funkci tangens.
     Pozor, funkce `tan` vrací výsletek v radiánech;
@@ -64,14 +73,16 @@ tasks:
 
     <img src="/static/tasks/handout4_images/03_domecky.png" alt="domečky" style="max-width: 100%; max-height: 80px">
 
-    \* t.j. jestli nemáš ráda geometrii, tak tenhle projekt přeskoč
+    \* t.j. jestli nemáte rádi geometrii, tak tenhle úkol přeskočte
 
 - section:
     markdown: |
       Procvičení programování.
       Často je jednoduché něco napsat, ale dotažení do konce může být časově náročné.
       Tyto úkoly jsou *nepovinné*.
-      Nemáš-li čas, zkus se ale aspoň zamyslet, jak bys projekt vyřešila.
+      Nemáte-li čas, zkuste úkoly rozdělit mezi členy týmu
+      (aby nedělal každý člen každý úkol),
+      nebo je přeskočit a jen se zamyslet, jak byste projekt vyřešili.
 
 - id: handout4_04
   markdown: |
@@ -81,8 +92,7 @@ tasks:
 - id: handout4_05
   markdown: |
     Změň funkci `ano_nebo_ne` tak,
-    aby se místo `ano` se dalo použít i `a`,
-    místo `ne` i `n`
+    aby se místo `ano` se dalo použít i `a`, místo `ne` i `n`
     a aby se nebral ohled na velikost písmen a mezery před/za odpovědí.
 
     Odpovědím jako `možná` nebo `no tak určitě` by počítač dál neměl rozumět.
@@ -91,28 +101,33 @@ tasks:
     markdown: |
       Teď několik programovacích oříšků pro dlouhé chvíle.
       Jsou *nepovinné*.
-      Nemáš-li čas, přeskoč je.
+      Nemáte-li čas, zkuste je opět rozdělit mezi členy týmu
+      (aby nedělal každý člen každý úkol),
+      nebo je přeskočit a jen se zamyslet, jak byste projekt vyřešili.
 
 - id: handout9_07
   markdown: |
-    Funguje-li ti hra `sibenice`, můžeš ji vylepšit.
+    Funguje-li vám hra `sibenice`, můžete ji vylepšit.
 
-    - Použij funkci `zamen` (místo toho, aby byl příslušný kód přímo v hlavním
+    - Pokud hráč nezadá přesně jeden znak (tj nezadá nic nebo zadá víc znaků),
+      vynadejte mu, ale nepočítejte to jako pokus.
+    - Použijte funkci `zamen` (místo toho, aby byl příslušný kód přímo v hlavním
       programu).
-    - Po vypsání počtu neúspěšných pokusů vypiš obrázek.
-      Funkci, která ti vrátí obrázek podle počtu pokusů, si můžeš
+    - Po vypsání počtu neúspěšných pokusů vypište obrázek.
+      Funkci, která vrátí obrázek podle počtu pokusů, si můžete
       zkopírovat [z Gistu](https://gist.github.com/encukou/77376e445356a9843e278ba387b168f0)
-    - Když hráč nezadá písmeno (zadá např. `ABC` nebo `!`), nepovažuj to za tah.
-    - Zařiď, aby hra fungovala pro slova s více stejnými písmeny.
-    - Po skončení dej hráči možnost hru opakovat.
+    - Když hráč nezadá písmeno (zadá např. `!`), nepovažujte to za tah.
+    - Zařiďte, aby hra fungovala pro slova s více stejnými písmeny
+      (např. č<span style='color: red'>o</span>k<span style='color: red'>o</span>láda).
+    - Po skončení dejte hráči možnost hru opakovat.
 
-    *Jednotlivá vylepšení dělej jednotlivě a v odpovědi napiš,
+    *Jednotlivá vylepšení dělejte jednotlivě a v odpovědi napište,
     která jsou hotová a která rozpracovaná. Jakmile nějaké vylepšení
-    začne fungovat, program odevzdej! (Je možné odevzdat několik verzí.)*
+    začne fungovat, program odevzdejte! Je možné odevzdat několik verzí.*
 
 - id: handout4_08
   markdown: |
-    Napiš program, který simuluje tuto „hru“:
+    Napište program, který simuluje tuto „hru“:
 
     První hráč hází kostkou
     _(t.j. vybírají se náhodná čísla od 1 do 6)_,
@@ -126,7 +141,7 @@ tasks:
 
     *Nápověda: průběžně stačí ukládat jen údaj o tom, kdo vede a kolik má bodů.*
 
-    *Tip: Program si napiš napřed v češtině; pak ho přelož do Pythonu.*
+    *Tip: Program si napište napřed v češtině; pak ho přeložte do Pythonu.*
 
 - section:
     markdown: |
@@ -135,10 +150,11 @@ tasks:
 - id: recursive_tree
   markdown: |
 
-    Tento úkol je nepovinný. Procvičuje rekurzi.
+    Tento úkol je nepovinný.
+    Procvičuje *rekurzi*; koukněte před ním na příslušné video.
 
-    Řekni želvě, aby nakreslila tento stromeček.
-    (Instrukce můžeš řádek po řádku přeložit do Pythonu.)
+    Řekněte želvě, aby nakreslila tento stromeček.
+    (Instrukce můžete řádek po řádku přeložit do Pythonu.)
 
     <img src="/static/tasks/handout_images/recursive-tree.png" alt="Rekurzivní želví stromek" style="max-width: 100%; max-height: 200px">
 
@@ -161,5 +177,5 @@ tasks:
             * Pohni se dopředu o polovinu **délky** *(aby želva byla na stejném místě jako na začátku)*
             * Otoč se zpátky, o 180° *(aby se želva dívala stejným směrem jako na začátku)*
 
-    * Řekni želvě, ať se otočí o 90° doleva *(aby se dívala nahoru)*
+    * Otoč želvu o 90° doleva *(aby se dívala nahoru)*
     * Nakresli stromeček o **délce** 200 a **úhlu** 60.
