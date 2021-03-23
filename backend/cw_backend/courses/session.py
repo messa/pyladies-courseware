@@ -85,6 +85,11 @@ class Session:
             d['task_items'] = [ti.export() for ti in self.task_items]
         return d
 
+    def get_task_by_id(self, task_id):
+        for task in self.task_items:
+            if isinstance(task, Task) and task.id == task_id:
+                return task
+
 
 def load_tasks_file(task_items, file_path, session_slug, loader):
     try:
@@ -207,6 +212,8 @@ class Task:
             'submit': bool(raw.get('submit', True)),
             'numbered': bool(raw.get('numbered', True)),
             'top': bool(raw.get('top', False)),
+            'test': str(raw.get('test', '')),
+            'test_code_file_name': str(raw.get('test_code_file_name', 'code_for_testing.py')),
         }
 
     def export(self):

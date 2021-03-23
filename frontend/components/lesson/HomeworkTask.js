@@ -1,9 +1,21 @@
 import React from 'react'
+import { Accordion } from 'semantic-ui-react'
 import TaskSubmission from '../TaskSubmission'
 import TaskReview from './TaskReview'
 
 function HomeworkTask({ taskItem, userCanSubmitTask, courseId, sessionSlug, reviewUserId, students }) {
   const taskId = taskItem.id ? `task-${taskItem.id}` : null
+  const test_pannel = [{
+    key: 'tests',
+    title: 'testy',
+    content: {
+      content: (
+        <pre>
+          {taskItem['test']}
+        </pre>
+      )
+    }
+  }]
   return (
     <div className='homework-task' id={taskId}>
       {(taskItem.number || taskItem.number === 0) && (
@@ -14,6 +26,9 @@ function HomeworkTask({ taskItem, userCanSubmitTask, courseId, sessionSlug, revi
           <div className='mandatory-sign'>☜</div>
         )}
         <span dangerouslySetInnerHTML={{ __html: taskItem['text_html'] }} />
+        {taskItem['test'] && (
+          <Accordion panels={test_pannel} />
+        )}
       </div>
       {reviewUserId && (
         <TaskReview

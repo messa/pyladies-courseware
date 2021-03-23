@@ -68,3 +68,7 @@ span.status-indicator {
   xcolor: #c03;
   color: #C51162;
 }
+
+pre.code {
+  overflow-x: auto;
+}
