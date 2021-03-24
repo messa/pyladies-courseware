@@ -69,9 +69,6 @@ export default class extends React.Component {
       arrayContains(user['attended_course_ids'], courseId) ||
       arrayContains(user['coached_course_ids'], courseId)
     )
-    const now = new Date()
-    const courseEnd = new Date(course['end_date'])
-    const activeCourse = (courseEnd >= now)
     return (
       <Layout user={this.props.user} width={1000}>
 
@@ -88,7 +85,7 @@ export default class extends React.Component {
             className='course-description'
             dangerouslySetInnerHTML={{__html: course['description_html']}}
           />
-          {activeCourse && (
+          {course['allows_registration'] && (
             <div className='course-attend'>
               {attendError && (
                 <div>

@@ -122,6 +122,12 @@ class Course:
                 self.data['start_date'] = self.sessions[0].date
             if not self.data['end_date'] and self.sessions:
                 self.data['end_date'] = self.sessions[-1].date
+
+            if 'registration_end' in raw:
+                self.data['registration_end'] = parse_date(raw['registration_end'])
+            else:
+                self.data['registration_end'] = self.data['end_date']
+
         except Exception as e:
             raise Exception(f'Failed to load course from {course_file}: {e}') from e
 
@@ -138,6 +144,9 @@ class Course:
     def is_past(self):
         return self.data['end_date'] < date.today()
 
+    def allows_registration(self):
+        return self.data['registration_end'] >= date.today()
+
     def get_session_by_slug(self, slug):
         assert isinstance(slug, str)
         for session in self.sessions:
@@ -150,6 +159,8 @@ class Course:
             **self.data,
             'start_date': self.data['start_date'].isoformat(),
             'end_date': self.data['end_date'].isoformat(),
+            'registration_end': self.data['registration_end'].isoformat(),
+            'allows_registration': self.allows_registration(),
         }
         if sessions:
             d['sessions'] = [lesson.export(tasks=tasks) for lesson in self.sessions]
