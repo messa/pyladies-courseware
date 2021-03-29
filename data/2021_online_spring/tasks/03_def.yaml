@@ -67,11 +67,13 @@ tasks:
   markdown: |
     Má-li někdo z vás rád geometrii*, může zkusit dávat domečkové proceduře dva argumenty:
     šířku a výšku.
-    Je potřeba si vzpomenout na Pythagorovu větu a funkci tangens.
-    Pozor, funkce `tan` vrací výsletek v radiánech;
+    Je potřeba si vzpomenout na Pythagorovu větu a na goniometrické funkce.
+    Konkrétně funkci *arkus tangens* `from math import atan`.
+
+    Pozor, funkce `atan` vrací výsledek v radiánech;
     je potřeba ho převést na stupně (`from math import degrees`).
 
-    <img src="/static/tasks/handout4_images/03_domecky.png" alt="domečky" style="max-width: 100%; max-height: 80px">
+    <img src="/static/tasks/handout4_images/03_domecky.png" alt="domečky" style="max-width: 100%; max-height: 200px">
 
     \* t.j. jestli nemáte rádi geometrii, tak tenhle úkol přeskočte
 
