@@ -30,6 +30,9 @@
           client_secret: '{{ google_333840391835_client_secret }}'
           callback_url: 'https://projekty.pyladies.cz/auth/google/callback'
         session_secret: '{{ session_secret }}'
+        mailgun:
+          api_key: '{{ mailgun_mg_projekty_messa_cz_api_key }}''
+          api_base_url: '{{ mailgun_mg_projekty_messa_cz_api_base_url }}''
 
   - name: Load backend image
     docker_image:
