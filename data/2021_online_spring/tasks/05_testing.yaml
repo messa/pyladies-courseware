@@ -271,3 +271,65 @@ tasks:
 
     Odevzdej celý soubor `ai.py` s jednou strategií – tou nejlepší na jakou
     váš tým přišel.
+
+- id: pisq1d_robobattle
+  markdown: |
+    **Úkol navíc** pro ty kdo se nudí.
+
+    Když každý člen týmu vytvoří vlastní strategii, jak zjistíte která
+    je nejlepší?
+    Můžete je postavit proti sobě!
+
+    Strategie dejte do souborů podle jmen členů týmu, např
+    `ai_julie.py` a `ai_stepan.py`.
+    Pak vytvořte soubor `robo.py`, do kterého vložte modifikovanou
+    verzi `piskvorky1d`, která strategie posle proti sobě.
+    Můžete se inspirovat následujícím příkladem:
+
+    ```python
+    import ai_julie
+    import ai_stepan
+
+    def zapas_robotu():
+        ...
+        pole = ai_julie.tah_pocitace(pole, 'x')
+        ...
+        pole = ai_stepan.tah_pocitace(pole, 'o')
+        ...
+
+    zapas_robotu()
+    ```
+
+    Máte-li nevyrovnaný tým (např. rodiče a děti) nebo jen chcete
+    spolupracovat, můžete takto zkoušet i předchozí verzi strategie
+    proti vylepšené.
+
+    Odevzdejte svoji verzi turnajového programu.
+
+    **Bonus 1**
+
+    Spusťte v turnaji víc her po sobě a počítejte skóre.
+    (Funkce `zapas_robotu` by měla vracet kdo vyhrál.)
+
+    **Bonus 2**
+
+    Moduly jsou hodnoty stejně jako čísla nebo řetězce; lze je uložit do
+    proměnných nebo dát funkci jako argumenty.
+    Takže lze psát i něco jako:
+
+    ```python
+    import ai_julie
+    import ai_stepan
+    import ai_betka
+
+    def zapas_robotu(ai_x, ai_o):
+        ...
+        pole = ai_x.tah_pocitace(pole, 'x')
+        ...
+        pole = ai_o.tah_pocitace(pole, 'o')
+        ...
+
+    zapas_robotu(ai_julie, ai_stepan)
+    zapas_robotu(ai_stepan, ai_betka)
+    zapas_robotu(ai_betka, ai_julie)
+    ```
