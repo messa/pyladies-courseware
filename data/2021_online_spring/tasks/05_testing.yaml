@@ -12,24 +12,32 @@ tasks:
         handout_files/2019-autumn/test_piskvorky.py), a dejte ho do adresáře
         kde budete tvořit Piškvorky.
 
-        Na ulehčení testování si nainstalujte modul `pytest-level`.
+        Na ulehčení testování si s aktivním virtuálním prostředím nainstalujte
+        modul `pytest-level`.
         Ten umožňuje pouštět jen určité testy – podle toho, jak jste daleko.
 
-                python -m pip install pytest-level
+        ```console
+        (venv)$ python -m pip install pytest-level
+        ```
 
         Zkuste pustit všechny testy. Asi vám neprojdou:
 
-                python -m pytest -v
+        ```console
+        (venv)$ python -m pytest -v
 
         Pak zkuste pustit testy pro úroveň 0:
 
-                python -m pytest -v --level 0
+        ```console
+        (venv)$ python -m pytest -v --level 0
+        ```
 
         Teď se nepustí žádné testy – všechny se přeskočí.
         Výpis by měl končit nějak takto:
 
-                collected N items / N deselected
-                === N deselected in 0.01 seconds ===
+        ```
+        collected N items / N deselected
+        === N deselected in 0.01 seconds ===
+        ```
 
         Zadáte-li v posledním příkazu `--level 1`, aktivuje se první z testů.
         Pravděpodobně neprojde – v dalším úkolu ho spravíte!
