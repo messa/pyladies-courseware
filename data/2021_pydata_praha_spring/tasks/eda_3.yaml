@@ -39,5 +39,5 @@ tasks:
 
 - id: eda3_07
   markdown: |
-    Který z ledových mužů je nejmrazivější? Pankrác (12. 5.), Servác (13. 5.) nebo Bonifác (14. 5.)? Zjisti to porovnáním mediánů minimálních templot těchto dní.
+    Který z ledových mužů je nejmrazivější? Pankrác (12. 5.), Servác (13. 5.) nebo Bonifác (14. 5.)? Zjisti to porovnáním mediánů minimálních teplot těchto dní.
 
