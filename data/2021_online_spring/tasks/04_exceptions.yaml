@@ -117,7 +117,6 @@ tasks:
     Napište funkci `tah_hrace(pole, symbol)`, která dostane řetězec
     s herním polem a symbol (`x` nebo `o`) a:
 
-    * dostane řetězec s herním polem,
     * zeptá se hráče, na kterou pozici chce hrát,
     * pomocí funkce `tah` zjistí, jak vypadá herní pole se zaznamenaným tahem
       hráče
