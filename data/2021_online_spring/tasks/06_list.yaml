@@ -247,8 +247,14 @@ tasks:
     - Vzpomeňte si, jak se vypisuje tabulka: pomocí dvou cyklů `for` zanořených
       do sebe.
     - Pro každou buňku tabulky (tedy vevnitř v cyklu) si vytvořte dvojici
-      `souradnice = (cislo_radku, cislo_sloupce)`.
-    - Napište `X`, pokud je dvojice `souradnice` v seznamu. Jinak napište `.`.
+      `radek_a_sloupec = (cislo_radku, cislo_sloupce)`.
+    - Napište `X`, pokud je dvojice `radek_a_sloupec` v seznamu. Jinak napište `.`.
+
+    *Slova jako „souřadice“ a „pozice“ bohužel vypadají v jednotném i množném
+    čísle stejně.
+    Abyste se nezamotali, doporučuju proměnnou s jednou dvojicí
+    pojmenovat `radek_a_sloupec` a seznam několika takových dvojic
+    `seznam_souradnic`.*
 
 - id: handout7_15
   markdown: |
@@ -256,15 +262,15 @@ tasks:
     (`"s"`, `"j"`, `"v"` nebo `"z"`)
     a přidá k seznamu poslední bod „posunutý“ v daném směru. Např.:
 
-        souradnice = [(0, 0)]
-        pohyb(souradnice, 'j')
-        print(souradnice)         # → [(0, 0), (1, 0)]
-        pohyb(souradnice, 'j')
-        print(souradnice)         # → [(0, 0), (1, 0), (2, 0)]
-        pohyb(souradnice, 'v')
-        print(souradnice)         # → [(0, 0), (1, 0), (2, 0), (2, 1)]
-        pohyb(souradnice, 'z')
-        print(souradnice)         # → [(0, 0), (1, 0), (2, 0), (2, 1), (2, 0)]
+        seznam_souradnic = [(0, 0)]
+        pohyb(seznam_souradnic, 'j')
+        print(seznam_souradnic)         # → [(0, 0), (1, 0)]
+        pohyb(seznam_souradnic, 'j')
+        print(seznam_souradnic)         # → [(0, 0), (1, 0), (2, 0)]
+        pohyb(seznam_souradnic, 'v')
+        print(seznam_souradnic)         # → [(0, 0), (1, 0), (2, 0), (2, 1)]
+        pohyb(seznam_souradnic, 'z')
+        print(seznam_souradnic)         # → [(0, 0), (1, 0), (2, 0), (2, 1), (2, 0)]
 
     Funkce by neměla nic vracet. Jen mění už existující seznam.
 
