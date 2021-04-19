@@ -2,28 +2,16 @@ tasks:
 
 - section:
     markdown: |
-        Poslední úkol 1D piškvorek zůstává na další týden.
-
-- id: handout4_14
-  mandatory: true
-  markdown: |
-    Zvládneš pro počítač naprogramovat lepší strategii?
-    Třeba aby se snažil hrát vedle svých existujících symbolů
-    nebo aby bránil protihráčovi?
-    Stačí jen docela malé vylepšení!
-
-    Testy by stále měly procházet.
-
-    Odevzdej celý soubor `ai.py`.
-
-- section:
-    markdown: |
-        V dalším úkolu si zopakuješ práci se soubory.
+        V těchto úkolech si zopakujete práci se soubory.
 
 - id: upper-poetry
   markdown: |
-    Napiš program, který vypíše básničku ze souboru `basnicka.txt`
+    Napište program, který vypíše básničku ze souboru `basnicka.txt`
     VELKÝMI PÍSMENY.
+
+    Zpracovávejte ji po jednotlivých řádcích.
+    *(Nebudete tak načítat celou dlouhou báseň jako řetězec do paměti počítače;
+    váš program bude vždycky potřebovat místo jen na jeden řádek.)*
 
 - section:
     markdown: |
@@ -31,48 +19,47 @@ tasks:
 
 - id: wordlist-to-dict
   markdown: |
-    Stáhni si soubor [index.dic](https://raw.githubusercontent.com/wooorm/dictionaries/5ede45bb705d3f9f525ea779f7b487f9fc062013/dictionaries/cs/index.dic) se všemi českými slovy.
+    Stáhněte si soubor [index.dic](https://raw.githubusercontent.com/wooorm/dictionaries/5ede45bb705d3f9f525ea779f7b487f9fc062013/dictionaries/cs/index.dic) se všemi českými slovy.
 
     > *(Seznam slov vytvořil Petr Kolář a další a [je poskytován pod licencí GNU GPL 2](https://github.com/wooorm/dictionaries/blob/5ede45bb705d3f9f525ea779f7b487f9fc062013/dictionaries/cs/license).)*
 
     Soubor není úplně „čistý“.
-    Vytvoř seznam, kde budou opravdu jen slova.
+    Vytvořte seznam, kde budou opravdu jen slova:
 
-    * Vytvoř prázdný seznam
-    * Projdi `index.dic` po řádcích a postupně přidávej slova do seznamu
+    * Vytvořte prázdný seznam.
+    * Projděte `index.dic` po řádcích a postupně přidávejte slova do seznamu.
 
     Na začátku souboru (řádek 0) je údaj s počtem řádků,
-    ten neber jako slovo. *(Jak při průchodu souborem – sekvencí –
-    zjistíš, číslo prvku?)*
+    ten neberte jako slovo. *(Jak při průchodu souborem – sekvencí –
+    zjistíte číslo prvku?)*
 
     Některá slova obsahují další informace za znakem `/`, ty bude potřeba
     odstranit. *(Viz tahák na seznamy.)*
 
-    Můžeš se rozhodnout odstranit i slova začínající velkým písmenem.
+    Můžete se rozhodnout odstranit i slova začínající velkým písmenem.
     (Většinou jde o vlastní jména a zkratky).
 
 - id: wordlist-to-file
   markdown: |
 
-    Slova ze seznamu vytvořeného výše ulož do souboru `slova.txt`,
+    Slova ze seznamu vytvořeného výše uložte do souboru `slova.txt`,
     kde bude na každém řádku jedno slovo.
 
 - id: wordlist-hangman
   markdown: |
 
-    Ve hře Šibenice vybírej slovo ze souboru `slova.txt`:
+    Ve hře Šibenice vybírejte slovo ze souboru `slova.txt`.
 
-    *Můžeš odevzdat jen kód, který načte soubor a náhodné slovo uloží do
+    *Můžete odevzdat jen kód, který načte soubor a náhodné slovo uloží do
     proměnné `slovo`. Zbytek Šibenice se nemění.*
 
 - section:
     markdown: |
-      Další úkoly jsou nepovinné, jde ale o hezké procvičení práce se seznamy
-      <var>n</var>-ticemi.
+      Další úkoly procvičují práci se seznamy a <var>n</var>-ticemi.
 
-      Naprogramuješ si karetní „hru“ [Válka](https://cs.wikibooks.org/wiki/Pokladnice_her/Klasick%C3%A9_karetn%C3%AD_hry/V%C4%9Bt%C5%A1%C3%AD_bere),
+      Naprogramujete si karetní „hru“ [Válka](https://cs.wikibooks.org/wiki/Pokladnice_her/Klasick%C3%A9_karetn%C3%AD_hry/V%C4%9Bt%C5%A1%C3%AD_bere),
       ve které jde pouze o štěstí: hráči v ní nedělají žádná rozhodnutí.
-      (Jestli tuhle „hru“ neznáš, přečti si pravidla na internetu.)
+      (Jestli tuhle „hru“ neznáte, přečtěte si pravidla na internetu.)
 
 - id: valka-definitions
   markdown: |
@@ -82,7 +69,7 @@ tasks:
     Barva pak bude jeden z řetězců `'Sr', 'Pi', 'Ka', 'Kr'`.
 
     Následující funkce umí vytvořit balíček a popsat kartu trochu hezčím
-    způsobem. Zkopíruj si je a prostuduj.
+    způsobem. Zkopírujte si je a prostudujte.
 
     ```python
     def vytvor_balicek():
@@ -127,13 +114,25 @@ tasks:
         return popis_hodnoty + popis_barvy
     ```
 
-    Napiš proceduru, která vytvoří balíček a „hezky“ vypíše všechny karty v něm.
-    (Tuhle proceduru nebudeš dál potřebovat, je tu jenom pro pochopení
+    Napište proceduru, která vytvoří balíček a „hezky“ vypíše všechny karty
+    v něm, každou na jeden řádek. Například:
+
+    ```
+    9♠
+    K♣
+    9♣
+    J♥
+    Q♠
+    K♠
+    ... atd.
+    ```
+
+    (Tuhle proceduru nebudete dál potřebovat, je tu jenom pro pochopení
     těchto funkcí.)
 
 - id: valka-porovnej
   markdown: |
-    Napiš funkci `porovnej_karty` podle této hlavičky:
+    Napište funkci `porovnej_karty` podle této hlavičky:
 
     ```python
     def porovnej_karty(karta_a, karta_b):
@@ -151,7 +150,7 @@ tasks:
     *Stav hry* bude trojice seznamů: balíček hráče A, balíček hráče B,
     a karty co jsou aktuálně na stole.
 
-    Následující funkce takový stav hry vytvoří. Zkopíruj si ji a prostuduj.
+    Následující funkce takový stav hry vytvoří. Zkopírujte si ji a prostudujte.
 
     ```python
     def rozdej_balicky():
@@ -172,7 +171,7 @@ tasks:
         return balicek_a, balicek_b, []
     ```
 
-    Napiš proceduru, která rozdá balíčky a „hezky“ je vypíše, např.
+    Napište proceduru, která rozdá balíčky a „hezky“ je vypíše, např.
 
     ```
     Hráč A  Hráč B
@@ -185,14 +184,14 @@ tasks:
     ... atd.
     ```
 
-    *Co použiješ na procházení dvou seznamů naráz?)*
+    *Co použijete na procházení dvou seznamů naráz?*
 
-    (Tuhle proceduru  nebudeš dál potřebovat, je tu jenom pro pochopení
-    těchto funkcí.)
+    (Tuhle proceduru nebudete dál potřebovat, je tu jenom pro vyzkoušení
+    práce s kartami.)
 
 - id: valka-vyloz
   markdown: |
-    Vytvoř funkci `vyloz_karty`, která dostane *stav hry* a simuluje
+    Vytvořte funkci `vyloz_karty`, která dostane *stav hry* a simuluje
     jedno vyložení karet.
 
     ```python
@@ -209,6 +208,7 @@ tasks:
         (To taky zjednodušuje zbytek hry.)
         """
         balicek_a, balicek_b, na_stole = balicky
+        ...
     ```
 
     * Zkus:
@@ -225,12 +225,12 @@ tasks:
     * Do *karet na stole* přidej *kartu B*
 
     *(Výjimka `SystemExit` způsobí skončení proramu bez chybové hlášky.
-    Ta a výpisy pomocí `print` nejsou ve funkci která něco „počítá“,
-    úplně „košer“, ale zjednoduší ti práci.)*
+    Ta a výpisy pomocí `print` nejsou ve funkci která něco „počítá“
+    úplně „košer“, ale zjednoduší vám práci.)*
 
 - id: valka-game
   markdown: |
-    Vytvoř funkci `valka`, která:
+    Vytvořte funkci `valka`, která:
 
     * Rozdá *balíčky*
     * *Balíčky* označí jako *balíček A*, *balíček B*, *karty na stole*.
@@ -241,10 +241,10 @@ tasks:
             * Vyloží karty
             * Vyloží karty
             * Vyloží karty
-        * Jako *vítěze* tohoto kola označí hráče s vyšší kartou (A nebo B)
-        * Vypíše „Hráč <var>vitez</var> bere <var>N</var> karet!')
+        * Jako *vítěze* tohoto kola označí hráče s vyšší kartou (`"A"` nebo `"B"`, podle toho jestli je vyšší poslední nebo předposlední karta)
+        * Vypíše „Hráč <var>vitez</var> bere <var>N</var> karet!'“, kde <var>N</var> je počet karet na stole
         * Je-li *vítěz* hráč A:
-            * Karty na stole přidá *na začátek* *balíčku A* *(pozor, metoda `append` přidává na konec!)*
+            * Všechny karty na stole přidá, po jedné, na začátek *balíčku A* *(pozor: metoda `append` nejde použít, ta přidává na konec!)*
         * Je-li *vítěz* hráč B:
-            * Karty na stole přidá *na začátek* *balíčku B*
+            * Karty na stole přidá na začátek *balíčku B*, podobně jako výše
         * Seznam *karet na stole* vyprázdní.
