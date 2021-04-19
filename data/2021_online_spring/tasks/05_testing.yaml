@@ -3,29 +3,31 @@ tasks:
 - section:
     markdown: |
         Dnešní úkoly budou asi povědomé. Vytvoříme totiž ... hru 1D piškvorky!
-        Tentokrát ale s předpřipravenými testy. (A rovnou v modulech.)
 
-        Máte-li Piškvorky už hotové, doporučuji je udělat znovu.
+        Dostanete ale tenntokrát *hotový* testovací soubor a s jeho použitím
+        budete postupně zkoušet znovu vytvářenou hru.
+
+        Máte-li Piškvorky už hotové z minula, doporučuji je udělat znovu.
         Ty původní můžete mít vedle a postupně z nich kopírovat kousky kódu.
 
         Stáhni si soubor s testy, [`test_piskvorky.py`](/static/tasks/
-        handout_files/2019-autumn/test_piskvorky.py), a dejte ho do adresáře
+        handout_files/2019-autumn/test_piskvorky.py) a dejte ho do adresáře
         kde budete tvořit Piškvorky.
 
         Na ulehčení testování si s aktivním virtuálním prostředím nainstalujte
         modul `pytest-level`.
-        Ten umožňuje pouštět jen určité testy – podle toho, jak jste daleko.
+        Ten umožňuje pouštět jen určité testy – podle toho, jak jste daleko:
 
         ```console
         (venv)$ python -m pip install pytest-level
         ```
 
-        Zkuste pustit všechny testy. Asi vám neprojdou:
+        Zkuste spustit všechny testy. Asi vám neprojdou:
 
         ```console
         (venv)$ python -m pytest -v
 
-        Pak zkuste pustit testy pro úroveň 0:
+        Pak zkuste spustit testy pro úroveň 0:
 
         ```console
         (venv)$ python -m pytest -v --level 0
