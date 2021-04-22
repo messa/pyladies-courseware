@@ -33,11 +33,14 @@ tasks:
     ten neberte jako slovo. *(Jak při průchodu souborem – sekvencí –
     zjistíte číslo prvku?)*
 
-    Některá slova obsahují další informace za znakem `/`, ty bude potřeba
-    odstranit. *(Viz tahák na seznamy.)*
+    Některá slova obsahují další informace za znakem `/`.
+    Tyto informace (i s lomítkem) ze slov odstraňte.
+    *Bude se hodit umět slovo rozdělit podle `/`, viz tahák na seznamy.*
 
     Můžete se rozhodnout odstranit i slova začínající velkým písmenem.
     (Většinou jde o vlastní jména a zkratky).
+
+    *22. 4. 2021 upřesněno zadání: slova s lomítkem neodstraňujte*
 
 - id: wordlist-to-file
   markdown: |

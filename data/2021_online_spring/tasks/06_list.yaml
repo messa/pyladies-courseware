@@ -287,6 +287,11 @@ tasks:
     Doplňte funkci `pohyb` tak, aby při pohybu umazala první bod ze seznamu
     souřadnic. Výsledný seznam tak bude mít stejnou délku jako před voláním.
 
+    Jestli hrajete počítačové hry a víte co je `WASD`,
+    můžete změnit ovládání na tyto klávesy místo `SZJV`.
+
+    *22. 4. 2021 změněno zadání: přidána zmínka o WASD*
+
 - id: handout7_18
   markdown: |
     Doplňte funkci `pohyb` tak, aby zamezila:
@@ -303,13 +308,16 @@ tasks:
 
     Pak přidejte do hry hadí potravu.
 
-    Seznam jídla obsahuje na začátku jedno jídlo na políčku, na kterém není had
-    (například: `jidlo = [(2, 3)]` znamená jedno jídlo na pozici (2, 3)).
+    Seznam jídla obsahuje na začátku dvě jídla na políčkách, na kterých není had
+    (například: `jidlo = [(2, 3), (4, 5)]` znamená jedno jídlo na pozici
+    (2, 3) a druhé na (4, 5)).
     Když had sežere jídlo, vyroste („nesmaže“ se mu ocas, tedy neprovede se to,
     co jste přidali v předminulém úkolu)
     a na náhodném místě (kde není had) se přidá jídlo nové.
 
     Na mapě se jídlo zobrazuje třeba jako otazník (`?`).
+
+    *22. 4. 2021 změněno zadání: seznam s jídlem může mít víc prvků.*
 
 - id: handout7_20
   markdown: |
