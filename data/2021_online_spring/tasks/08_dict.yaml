@@ -1,19 +1,4 @@
 tasks:
-- section:
-    markdown: |
-        Poslední šance dodělat strategii do piškvorek!
-
-- id: handout4_14
-  mandatory: true
-  markdown: |
-    Zvládneš pro počítač naprogramovat lepší strategii?
-    Třeba aby se snažil hrát vedle svých existujících symbolů
-    nebo aby bránil protihráčovi?
-    Stačí jen docela malé vylepšení!
-
-    Testy by stále měly procházet.
-
-    Odevzdej celý soubor `ai.py`.
 
 - section:
     markdown: |
@@ -21,26 +6,16 @@ tasks:
 
 - id: handout8_00
   markdown: |
-    Napiš funkci `mocniny`, která pro argumentem zadané číslo `n` vytvoří
+    Napište funkci `mocniny`, která pro argumentem zadané číslo `n` vytvoří
     a vrátí slovník,
     kde jako klíče budou čísla od jedné do `n` a jako hodnoty k nim
     jejich druhé mocniny.
 
     Například: `mocniny(4)` vrátí `{1: 1, 2: 4, 3: 9, 4: 16}`
 
-- id: handout8_02
-  markdown: |
-    Napiš funkci `pocet_znaku`, která jako argument dostane řetězec
-    a vrátí slovník,
-    ve kterém budou jako klíče jednotlivé znaky ze zadaného řetězce a jako
-    hodnoty počty výskytů těchto znaků v řetězci. Například:
-
-    Například: `pocet_znaku("hello world")`
-    vrátí `{'h': 1, 'e': 1, 'l': 3, 'o': 2, ' ': 1, 'w': 1, 'r': 1, 'd': 1}`
-
 - id: handout8_03
   markdown: |
-    Napiš proceduru, která vypíše obsah slovníku (klíče a k nim náležící
+    Napište proceduru, která vypíše obsah slovníku (klíče a k nim náležící
     hodnoty) na jednotlivé řádky.
 
     Například `vypis_slovnik(mocniny(4))` vypíše
@@ -52,13 +27,36 @@ tasks:
     Klíč 4, hodnota 16
     ```
 
+- id: reverse-dict
+  markdown: |
+    Na videu jsem používal česko-anglický překladový slovník jako tenhle:
+
+    ```python
+    {'Jablko': 'Apple', 'Knoflík': 'Button', 'Myš': 'Mouse'}
+    ```
+
+    Napište funkci, která z česko-anglického slovníku (zadaného argumentem)
+    vytvoří slovník anglicko-český.
+    Můžete předpokládat že každý anglický termín se ve slovníku vyskytuje
+    max. jednou.
+
+- id: handout8_02
+  markdown: |
+    Napište funkci `pocet_znaku`, která jako argument dostane řetězec
+    a vrátí slovník,
+    ve kterém budou jako klíče jednotlivé znaky ze zadaného řetězce a jako
+    hodnoty počty výskytů těchto znaků v řetězci. Například:
+
+    Například: `pocet_znaku("hello world")`
+    vrátí `{'h': 1, 'e': 1, 'l': 3, 'o': 2, ' ': 1, 'w': 1, 'r': 1, 'd': 1}`
+
 - section:
     markdown: |
       Další úkol kombinuje slovníky se soubory.
 
 - id: mirror-text
   markdown: |
-    Napiš program, který vypíše básničku ze souboru `basnicka.txt`, ale každé
+    Napište program, který vypíše básničku ze souboru `basnicka.txt`, ale každé
     písmeno nahradí jiným podle následujícího slovníku:
 
     ```python
@@ -78,42 +76,41 @@ tasks:
 
     Znaky, které ve slovníku nejsou, program vypíše nezměněné.
 
-    Nepovinný bonus: Každý řádek navíc vypiš pozpátku (od posledního písmena).
-    *(Který typ sekvencí umíš obrátit?)*
+    Nepovinný bonus: Každý řádek navíc vypište pozpátku (od posledního písmena).
+    *(Který typ sekvencí umíte obrátit?)*
 
 - section:
     markdown: |
-      Využij soubory a formát JSON pro ukládání informací v programech,
-      které už máš hotové.
+      Využijte soubory a formát JSON pro ukládání informací v programech,
+      které už máte hotové.
 
 - id: game-write-state
   markdown: |
-    Vyber si jednu hru, kterou už máš naprogramovanou: Piškvorky (jednodušší)
+    Vyberte si jednu hru, kterou už máte naprogramovanou: Piškvorky (jednodušší)
     nebo Šibenici (složitější).
 
-    1. Piškvorky
-    2. Šibenice
-
-    Po každém tahu hru hráče *ulož*: stav převeď na JSON a ulož do souboru
-    `stav.json`.
+    Po každém tahu hru hráče *uložte*: stav hry převeďte na JSON a uložte do
+    souboru `stav.json`.
 
 - id: game-read-state
   markdown: |
-    Při spuštění programu načti uložený stav se souboru.
+    Při spuštění programu načtěte uložený stav se souboru.
     Tedy:
 
     * Na začátku hry:
-      * pokud existuje soubor `stav.json`:
+      * Pokud existuje soubor `stav.json`:
         * přečti ho a nastav podle něj stav hry,
         * soubor smaž.
       * Jinak hru začni normálně.
 
 - id: game-unlink-state
   markdown: |
-    Když hra (nebo kolo) skončí, soubor `stav.json` odstraň, aby příští hra
+    Když hra (nebo, u Šibenice, hádání jednoho slova) skončí,
+    soubor `stav.json` odstraňte aby příští hra
     začala zase od začátku.
 
-    Na odstranění souboru můžeš použít funkci [`os.remove`](https://docs.python.org/3/library/os.html#os.remove).
+    Na odstranění souboru můžete použít funkci
+    [`os.remove`](https://docs.python.org/3/library/os.html#os.remove).
     POZOR: Funkce nepoužívá „odpadkový koš“ – daný soubor jednou provždy smaže:
 
     ```
@@ -172,10 +169,11 @@ tasks:
   markdown: |
     Bonusový nepovinný úkol.
 
-    Napiš program, který postupně načte od uživatele dvě čísla a jednoznakový
-    řetězec – buď `'+'`, `'-'`, `'*'` nebo `'/'`. Program provede na číslech příslušnou operaci.
+    Napište program, který postupně načte od uživatele dvě čísla a jednoznakový
+    řetězec – buď `'+'`, `'-'`, `'*'` nebo `'/'`.
+    Program provede na číslech příslušnou operaci.
 
-    Tenhle úkol už jsi jednou dělala. Tentokrát ale pro výběr operace použij 
+    Tenhle úkol už jste jednou dělali. Tentokrát ale pro výběr operace použijte
     následující slovník funkcí:
 
     ```
@@ -198,7 +196,7 @@ tasks:
 
     Hodnoty tohoto slovníku jsou *funkce*, takže výraz jako
     `slovnik_operaci['+']` teď označuje *funkci*: dosadí se za něj
-    funkce `secti`. Můžeš tedy např. zavolat `slovnik_operaci['+'](3, 4)`.
+    funkce `secti`. Můžete tedy např. zavolat `slovnik_operaci['+'](3, 4)`.
 
     Příklad použití programu (čísla za dvojtečkou doplnil uživatel):
     ```
