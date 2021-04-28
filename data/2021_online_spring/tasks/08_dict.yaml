@@ -99,9 +99,10 @@ tasks:
 
     * Na začátku hry:
       * Pokud existuje soubor `stav.json`:
-        * přečti ho a nastav podle něj stav hry,
-        * soubor smaž.
+        * přečti ho a nastav podle něj stav hry.
       * Jinak hru začni normálně.
+
+  *Oprava 28. 4. 2020: Mazání souboru je až v další úloze.*
 
 - id: game-unlink-state
   markdown: |
