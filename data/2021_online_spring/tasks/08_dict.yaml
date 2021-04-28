@@ -102,7 +102,7 @@ tasks:
         * přečti ho a nastav podle něj stav hry.
       * Jinak hru začni normálně.
 
-  *Oprava 28. 4. 2020: Mazání souboru je až v další úloze.*
+    *Oprava 28. 4. 2020: Mazání souboru je až v další úloze.*
 
 - id: game-unlink-state
   markdown: |
