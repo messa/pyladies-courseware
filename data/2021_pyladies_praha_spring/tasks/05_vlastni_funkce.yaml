@@ -44,7 +44,7 @@ tasks:
 
 - id: handout05_05
   markdown: |
-    Vrať se k úkolu č. 4 z minulé lekce a zkus zpřehlednit kód použitím funkce. Funkce `hod_kostkou` bude vracet
+    Vrať se k úkolu č. 4 z minulé lekce a zkus zpřehlednit kód použitím funkce. Funkce `hazej_kostkou` bude vracet
     počet pokusů než hráči padla šestka. 
 
 - id: handout05_06
