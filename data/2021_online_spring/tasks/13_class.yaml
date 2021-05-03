@@ -103,7 +103,7 @@ tasks:
     Normální zpětná vazba je anonymní a veřejná;
     tato je pro kouče a podepsaná jménem týmu.
 
-- id: course-feedback
+- id: bonus-wish
   markdown: |
     Máte nějaké přání ohledně bonusového tématu?
     Nic neslibuju, ale mohl bych něco natočit třeba o těchto:
