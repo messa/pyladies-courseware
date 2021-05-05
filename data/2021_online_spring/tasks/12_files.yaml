@@ -251,3 +251,6 @@ tasks:
         * Je-li *vítěz* hráč B:
             * Karty na stole přidá na začátek *balíčku B*, podobně jako výše
         * Seznam *karet na stole* vyprázdní.
+
+    *Poznámka (přidána 5. 5. 2021):* Podle toho jak jsou karty zamíchané
+    tahle hra nemusí skončit. Nekonečný cyklus tedy není na závadu.
