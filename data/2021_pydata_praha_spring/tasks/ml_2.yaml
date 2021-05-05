@@ -1,0 +1,8 @@
+tasks:
+
+- id: ml2_01
+  markdown: |
+    Podívej se na notebook [excercise.ipynb](https://github.com/PyDataCZ/naucse.python.cz/blob/praha-jaro2021/lessons/pydata/regression_exercises/static/excercise.ipynb) a datový soubor [population.csv](https://github.com/PyDataCZ/naucse.python.cz/blob/praha-jaro2020/lessons/pydata/regression_exercises/static/population.csv) (Možná už máš obojí stažené spolu s ostatními materiály z hodiny. Pokud ne, notebook a data ulož do stejného adresáře). V notebooku je vypracovaná úloha predikce počtu obyvatel v závislosti na velikosti oblasti/města. Naučený model (krabička) ale počet obyvatel často podhodnocuje.
+    
+    Prohlédni si řešení v notebooku a zkus přijít na to, co je v na něm špatně. Nehledej chyby v kódu, spíše si prohlédni obrázky, případně data, a podívej se, co se mohlo stát. Své nápady sepiš.
+
