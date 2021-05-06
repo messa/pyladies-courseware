@@ -15,3 +15,5 @@ tasks_by_lesson_slug:
   - file: tasks/eda_5.yaml
   "pydata/ml1_home_prep":
   - file: tasks/ml_1.yaml
+  "pydata/scikitlearn_api":
+  - file: tasks/ml_2.yaml
