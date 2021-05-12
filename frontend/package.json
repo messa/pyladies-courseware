@@ -14,7 +14,7 @@
   "license": "MIT",
   "dependencies": {
     "ajv": "6.8.1",
-    "codemirror": "^5.58.1",
+    "codemirror": "^5.58.2",
     "express": "^4.17.1",
     "graphql": "^15.3.0",
     "isomorphic-unfetch": "^3.1.0",
