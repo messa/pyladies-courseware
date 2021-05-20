@@ -11,7 +11,7 @@ tasks:
 
 - id: pca_01
   markdown: |
-    Spočítej, kolik je v každém sloupci chybějících hodnot `(countries.isnull().sum(axis = 0))`. Na základě toho (a případně dalších úvah), vyber sloupce, který budeš pro PCA analýzu používat.
+    Spočítej, kolik je v každém sloupci chybějících hodnot `(countries.isnull().sum(axis = 0))`. Zvaž, které sloupce chceš pro PCA použít. Nepoužívej sloupce s vysokým podílem chybějících pozorování, ani sloupce, které pro porovnávání států nedávají dobrý smysl (např. protože odrážejí velikost státu, nikoli jeho charakteristiky).
 
 - id: pca_02
   markdown: |
