@@ -1,0 +1,17 @@
+tasks:
+
+- section:
+    markdown: |
+      Použij předpřipravenou kostru Fishboardu z [Githubu](https://github.com/coobas/fishboard) a naklonuj si jí k sobě na počítač příkazem `git clone https://github.com/coobas/fishboard.git`. Doporučujeme pro ni také vytvořit samostatné virtuální prostředí, návod případně najdeš v materiálech na [Naučse](https://naucse.python.cz/2020/pydata-praha-podzim/pydata/dashboards-2/).
+
+- id: dashboards_01
+  markdown: |
+    Přidej do "fishboardu" naši předchozí aplikaci pro načítání a zobrazování dat. Asi bude potřeba někde místo `st.` použít `col1`.
+
+- id: dashboards_02
+  markdown: |
+    Přidej do fishboardu možnost klasifikace a / nebo klastrování (PCA).
+
+- id: dashboards_03
+  markdown: |
+    Spusť upravenou aplikaci na Heroku a zkopíruj sem odkaz. Jako bonus můžeš dát svůj kód k dispozici na Githubu.
