@@ -15,7 +15,6 @@ tasks:
     - `ai.py`, kde bude funkce `tah_pocitace`,
     - `piskvorky.py`, kde budou ostatní funkce,
     - `hra.py`, kde bude import a volání hlavní funkce z `piskvorky.py` (a nic jiného),
-    - `test_piskvorky.py`, kde budou testy.
     
     Jak se do importů nezamotat? Podívej se do materiálů na sekci [cyklické importy](https://naucse.python.cz/course/pyladies/beginners/circular-imports/).
 
