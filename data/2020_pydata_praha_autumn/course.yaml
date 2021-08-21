@@ -19,7 +19,7 @@ tasks_by_lesson_slug:
   "pydata/dashboards":
   - file: tasks/dashboards.yaml
   "pydata/api":
-  - file: tasks/api.yaml  
+  - file: tasks/api.yaml
   
 sessions:
 - slug: "opakovani"

@@ -1,0 +1,337 @@
+tasks:
+
+- section:
+    markdown: |
+        Dnešní úkoly budou asi povědomé. Vytvoříme totiž ... hru 1D piškvorky!
+
+        Dostanete ale tenntokrát *hotový* testovací soubor a s jeho použitím
+        budete postupně zkoušet znovu vytvářenou hru.
+
+        Máte-li Piškvorky už hotové z minula, doporučuji je udělat znovu.
+        Ty původní můžete mít vedle a postupně z nich kopírovat kousky kódu.
+
+        Stáhni si soubor s testy, [`test_piskvorky.py`](/static/tasks/
+        handout_files/2019-autumn/test_piskvorky.py) a dejte ho do adresáře
+        kde budete tvořit Piškvorky.
+
+        Na ulehčení testování si s aktivním virtuálním prostředím nainstalujte
+        modul `pytest-level`.
+        Ten umožňuje pouštět jen určité testy – podle toho, jak jste daleko:
+
+        ```console
+        (venv)$ python -m pip install pytest-level
+        ```
+
+        Zkuste spustit všechny testy. Asi vám neprojdou:
+
+        ```console
+        (venv)$ python -m pytest -v
+
+        Pak zkuste spustit testy pro úroveň 0:
+
+        ```console
+        (venv)$ python -m pytest -v --level 0
+        ```
+
+        Teď se nepustí žádné testy – všechny se přeskočí.
+        Výpis by měl končit nějak takto:
+
+        ```
+        collected N items / N deselected
+        === N deselected in 0.01 seconds ===
+        ```
+
+        Zadáte-li v posledním příkazu `--level 1`, aktivuje se první z testů.
+        Pravděpodobně neprojde – v dalším úkolu ho spravíte!
+
+        Váš postup vždycky bude:
+
+        * Když nějaký test neprochází, spravte ho.
+        * Když všechno zezelená, postupte na další level/úkol.
+
+- id: handout4_09-test
+  markdown: |
+    V modulu `piskvorky` (tj. v souboru `piskvorky.py`)
+    napište funkci `vyhodnot`, která dostane řetězec
+    s herním polem 1-D piškvorek
+    a vrátí jednoznakový řetězec podle stavu hry:
+
+    - `"x"` – Vyhrál hráč s křížky (pole obsahuje `"xxx"`)
+    - `"o"` – Vyhrál hráč s kolečky (pole obsahuje `"ooo"`)
+    - `"!"` – Remíza (pole neobsahuje `"-"`, a nikdo nevyhrál)
+    - `"-"` – Ani jedna ze situací výše (t.j. hra ještě neskončila)
+
+    Například:
+
+       *  `vyhodnot('--------------------')` vrátí `'-'`
+       *  `vyhodnot('--o--xxx---o--o-----')` vrátí `'x'`
+       *  `vyhodnot('xoxoxoxoxoxoxoxoxoxo')` vrátí `'!'`
+
+    Zatímco budete psát tento úkol, průběžně ho kontrolujte automatickými testy.
+    Pusťte příkaz `python -m pytest -v --level N` podle toho, jak jste daleko:
+
+    * `--level 1`: V modulu `piskvorky` je nějaká funkce `vyhodnot`.
+    * `--level 2`: V případě výhry dává funkce správný výsledek, `'x'` nebo `'o'`
+    * `--level 3`: V případě remízy dává funkce správný výsledek, `'!'`
+    * `--level 4`: Když hra neskončila, funkce dává správný výsledek, `'-'`
+
+    Odevzdejte celý soubor `piskvorky.py`.
+
+- id: pisq1d_error_handling-test
+  markdown: |
+    V modulu `util` (tj. v souboru `util.py`)
+    napište funkci `tah`, která dostane řetězec s herním polem,
+    číslo políčka (0-19), a symbol (`x` nebo `o`)
+    a vrátí herní pole _(t.j. řetězec)_ s daným symbolem umístěným na danou pozici.
+
+    Hlavička funkce by tedy měla vypadat nějak takhle:
+
+    ```
+    def tah(pole, pozice, symbol):
+        """Vrátí herní pole s daným symbolem umístěným na danou pozici
+
+        `pole` je herní pole, na které se hraje.
+        `pozice` je číslo políčka. Čísluje se od nuly.
+        `symbol` může být 'x' nebo 'o', podle toho jestli je tah za křížky
+        nebo za kolečka.
+        """
+        ...
+    ```
+
+    Například:
+
+       *  `tah('--------------------', 0, 'x')` vrátí `'x-------------------'`
+       *  `tah('--------------------', 19, 'o')` vrátí `'-------------------o'`
+       *  `tah('x-o-x-o-x-o-x-o-x-o-', 5, 'x')` vrátí `'x-o-xxo-x-o-x-o-x-o-'`
+
+
+    _Můžete využít nějakou funkci, kterou už máte napsanou?_
+
+    Zatímco funkci budete psát, průběžně ji kontrolujte automatickými testy.
+    Pusťte příkaz `python -m pytest -v --level N` podle toho, jak jste daleko:
+
+    * `--level 10`: V modulu `util` je nějaká funkce `tah`.
+
+    * `--level 11`: Funkce dává na prázdné pole `x` nebo `o` na dané místo
+
+    * `--level 20`: Hra na pozici, která není v poli, např.
+      `tah('--------------------', -1, 'x')`
+
+    * `--level 22`: Hra na obsazené políčko, např.
+      `tah('x-------------------', 0, 'o')`
+
+    * `--level 24`: Hra jiným symbolem než `'x'` nebo `'o'`, např.
+      `tah('--------------------', 0, 'řeřicha')`
+
+    Odevzdejte celý soubor `util.py`.
+
+- id: handout4_11-test
+  markdown: |
+    V modulu `piskvorky` (tj. v souboru `piskvorky.py`)
+    napište funkci `tah_hrace(pole, symbol)`, která dostane řetězec
+    s herním polem a symbol (`x` nebo `o`) a:
+
+    * dostane řetězec s herním polem,
+    * zeptá se hráče, na kterou pozici chce hrát,
+    * pomocí funkce `tah` zjistí, jak vypadá herní pole se zaznamenaným tahem
+      hráče
+    * vrátí toto herní pole se zaznamenaným tahem hráče.
+
+    Pokud uživatel zadá špatný vstup (nečíslo, záporné číslo,
+    obsazené políčko apod.), funkce mu vynadá a zeptá se znova.
+
+    Hlavička funkce by tedy měla vypadat nějak takhle:
+
+    ```
+    def tah_hrace(pole, symbol):
+        """Zeptá se hráče na tah a vrátí nové herní pole
+
+        `pole` je herní pole, na které se hraje.
+        `symbol` může být 'x' nebo 'o', podle toho jestli hráč hraje za křížky
+        nebo za kolečka.
+        """
+        ...
+    ```
+
+    Například zavolání `print(tah_hrace('o-------------------', 'x'))` by mohlo
+    dopadnout takto:
+
+    ```
+    Kam chceš hrát? nevím
+    Zadávej čísla!
+    Kam chceš hrát? 0
+    Tam nejde hrát!
+    Kam chceš hrát? -1
+    Tam nejde hrát!
+    Kam chceš hrát? 151
+    Tam nejde hrát!
+    Kam chceš hrát? 2
+    o-x-----------------
+    ```
+
+    Nezapomeňte, že ve vedlejším modulu máš funkci `tah`, kterou si můžete
+    naimportovat.
+
+    Funguje-li tahle funkce s příkladem výše, otestujte ji opět pomocí
+    automatických testů. Tentokrát nastavujte level na 30 až 34.
+    (Testuje se funkce, která volá `input`. Jak takový test napsat je nad rámec
+    tohoto kurzu.)
+
+    Odevzdejte celý soubor `piskvorky.py` (i s funkcí `vyhodnot`).
+
+- id: handout4_12-test
+  markdown: |
+    V modulu `ai` (tj. v souboru `ai.py`)
+    napište funkci `tah_pocitace(pole, symbol)`, která dostane řetězec s herním
+    polem a symbol, vybere pozici, na kterou hrát, a vrátí herní pole
+    se zaznamenaným tahem počítače.
+
+    Nejde-li na dané pole hrát, funkce musí skončit s chybou `ValueError`.
+
+    Použijte jednoduchou náhodnou „strategii”:
+
+    1. Vyber číslo od 0 do 19.
+    2. Pokud je dané políčko volné, hrej na něj.
+    3. Pokud ne, opakuj od bodu 1.
+
+    **Navíc k tomu** funkce nesmí „zamrznout“ (způsobit nekonečný cyklus),
+    ať jí předáte jakékoli hodnoty argumentů.
+    Kdyby strategie výše měla „zamrznout“, funkce ať místo toho způsobí
+    `ValueError`.
+
+    Hlavička funkce by tedy měla vypadat nějak takhle:
+
+    ```
+    def tah_pocitace(pole, symbol):
+        """Vrátí herní pole se zaznamenaným tahem počítače
+
+        `pole` je herní pole, na které se hraje.
+        `symbol` může být 'x' nebo 'o', podle toho jestli hráč hraje za křížky
+        nebo za kolečka.
+        """
+        ...
+    ```
+
+    Zavolání `print(tah_pocitace('o-------------------', 'x'))` by
+    mohlo vypsat třeba `o---------x---------`.
+
+    Testy jsou v levelech 40 až 44.
+
+    Odevzdejte celý soubor `ai.py`.
+
+- id: handout4_13-test
+  markdown: |
+    V modulu `piskvorky` (tj. v souboru `piskvorky.py`)
+    napište funkci `piskvorky1d`, která:
+
+    * Vytvoří řetězec s herním polem
+    * Stále dokola:
+        * zavolá volá funkci `tah_hrace`, a výsledek uloží jako nové *pole*
+        * vypíše stav hry
+        * zavolá volá funkci `tah_pocitace`, a výsledek uloží jako nové *pole*
+        * vypíše stav hry
+
+    Zatím nemusíte řešite konec hry (pokud ho už nemáte z minula).
+
+    V modulu `hra` (tj. v souboru `hra.py`) přidejte import a volání funkce
+    `piskvorky1d`.
+
+    Původní testy by měly stále procházet.
+    Automatické testy na celou hru ale nejsou – otestujte to ručně
+    pomocí `python hra.py`!
+
+    Tady odevzdejte pouze modul `piskvorky.py`.
+
+- id: pisq1d_game_module-test
+  markdown: |
+
+    Tady odevzdejte soubor `hra.py`.
+
+- id: pisq1d_endgame-test
+  markdown: |
+    Pošéfujte konec hry.
+    Když někdo vyhraje nebo dojde k remíze, cyklus se ukončí a vypíše
+    se výsledek – třeba s gratulací nebo povzbuzující zpráva.
+
+    Stav hry kontrolujte po každém tahu.
+
+    Nezapomeňte, že máte k dispozici funkci `vyhodnot`!
+
+    Automatické testy na celou hru nejsou – otestujte to ručně!
+    Nezapomeňte zkontrolovat remízu.
+
+    Odevzdejte celý soubor `piskvorky.py`.
+
+- id: handout4_14
+  markdown: |
+    Zvládnete pro počítač naprogramovat lepší strategii?
+    Třeba aby se snažil hrát vedle svých existujících symbolů
+    nebo aby bránil protihráčovi?
+    Stačí jen docela malé vylepšení!
+
+    Testy by stále měly procházet.
+
+    Odevzdej celý soubor `ai.py` s jednou strategií – tou nejlepší na jakou
+    váš tým přišel.
+
+- id: pisq1d_robobattle
+  markdown: |
+    **Úkol navíc** pro ty kdo se nudí.
+
+    Když každý člen týmu vytvoří vlastní strategii, jak zjistíte která
+    je nejlepší?
+    Můžete je postavit proti sobě!
+
+    Strategie dejte do souborů podle jmen členů týmu, např
+    `ai_julie.py` a `ai_stepan.py`.
+    Pak vytvořte soubor `robo.py`, do kterého vložte modifikovanou
+    verzi `piskvorky1d`, která strategie posle proti sobě.
+    Můžete se inspirovat následujícím příkladem:
+
+    ```python
+    import ai_julie
+    import ai_stepan
+
+    def zapas_robotu():
+        ...
+        pole = ai_julie.tah_pocitace(pole, 'x')
+        ...
+        pole = ai_stepan.tah_pocitace(pole, 'o')
+        ...
+
+    zapas_robotu()
+    ```
+
+    Máte-li nevyrovnaný tým (např. rodiče a děti) nebo jen chcete
+    spolupracovat, můžete takto zkoušet i předchozí verzi strategie
+    proti vylepšené.
+
+    Odevzdejte svoji verzi turnajového programu.
+
+    **Bonus 1**
+
+    Spusťte v turnaji víc her po sobě a počítejte skóre.
+    (Funkce `zapas_robotu` by měla vracet kdo vyhrál.)
+
+    **Bonus 2**
+
+    Moduly jsou hodnoty stejně jako čísla nebo řetězce; lze je uložit do
+    proměnných nebo dát funkci jako argumenty.
+    Takže lze psát i něco jako:
+
+    ```python
+    import ai_julie
+    import ai_stepan
+    import ai_betka
+
+    def zapas_robotu(ai_x, ai_o):
+        ...
+        pole = ai_x.tah_pocitace(pole, 'x')
+        ...
+        pole = ai_o.tah_pocitace(pole, 'o')
+        ...
+
+    zapas_robotu(ai_julie, ai_stepan)
+    zapas_robotu(ai_stepan, ai_betka)
+    zapas_robotu(ai_betka, ai_julie)
+    ```

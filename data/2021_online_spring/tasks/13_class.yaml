@@ -1,0 +1,120 @@
+tasks:
+
+- section:
+    markdown: |
+      Stáhni si [archiv s hrou](https://github.com/encukou/sachy/archive/master.zip).
+      Aktivuj si virtuální prostředí.
+      Nainstaluj knihovnu `pyglet` pomocí příkazu:
+
+      ```bash
+      $ python -m pip install pyglet
+      ```
+
+      a spusť `python ui.py`.
+
+      Doufám, že uvidíš šachovnici.
+      Figurkama se dá hýbat tažením myší,
+      ale není hotová kontrola pravidel.
+
+      Následující úkoly kontrolu pravidel doplňují.
+      Můžete je dělat (skoro) v jakémkoli pořadí, ale ty dřívější jsou většinou
+      jednodušší.
+
+      Pro jednoduchost neřešte šach, mat ani pat.
+
+      Toto jsou z velké části úkoly na *orientaci v cizím kódu*.
+      Nezapomeňte, že nemusíte úplně rozumět předpřipraveným
+      funkcím/třídám/metodám, dokud je nechcete měnit (nebo se jimi inspirovat).
+      Čtěte ale dokumentační řetězce, které popisují co která věc dělá.
+
+      Pravidla šachu jsou k dispozici např. [na Wikipedii](https://cs.wikipedia.org/wiki/%C5%A0achy#Terminologie_a_pravidla).
+
+- id: chess-knight
+  markdown: |
+    ♞ Doplňte třídu pro koně s příslušnými metodami `over_tah` a `__init__`.
+    Použijte ji v `Sachovnice.__init__`.
+
+    Odevzdejte novou třídu.
+
+- id: chess-king
+  markdown: |
+    ♚ Doplňte třídu pro krále s příslušnými metodami `over_tah` a `__init__`.
+    Použijte ji v `Sachovnice.__init__`.
+
+    Rošádu zatím neřešte.
+
+    Odevzdejte novou třídu.
+
+- id: chess-bishop
+  markdown: |
+    ♝ Doplňte třídu pro střelce s příslušnými metodami `over_tah` a `__init__`.
+    Použijte ji v `Sachovnice.__init__`.
+
+    Odevzdejte novou třídu.
+
+- id: chess-queen
+  markdown: |
+    ♛ Doplňte třídu pro dámu s příslušnými metodami `over_tah` a `__init__`.
+    Použijte ji v `Sachovnice.__init__`.
+
+    Odevzdejte novou třídu.
+
+- id: chess-alternate
+  markdown: |
+    Změňte třídu `Sachovnice` tak, aby se hráči museli ve hře střídat.
+    Začíná bílý.
+
+    (Nápověda: bude potřeba nový atribut `hrac_na_tahu`.)
+
+    Odevzdejte změněnou třídu `Sachovnice`.
+
+- id: chess-pawn
+  markdown: |
+    ♟ Doplňte třídu pro pěšce s příslušnými metodami `over_tah`, `tahni`
+    a `__init__`.
+    Použijte ji v `Sachovnice.__init__`.
+
+    Pozor na to, že:
+
+    * Pěšec se může pohybovat o jedno pole dopředu, pokud nebere figuru.
+    * Pěšec bere diagonálně (o jedno pole)
+    * Pěšec v základní pozici se může pohnout o dvě pole dopředu
+      (pokud nebere figuru).
+    * Pěšec, který dorazí na konec šachovnice, se povýší na dámu.
+      (Šachy umožňují i povýšení na koně, podle výběru hráče – ale to zatím neřeš).
+
+    Odevzdejte změněnou třídu.
+
+- id: chess-castling
+  markdown: |
+    Umožněte rošádu. Tu hráč zadá tak, že krále posune na věž.
+
+    Odevzdejte novou třídu.
+
+- section:
+    markdown: |
+      Díky za pozornost!
+      Doufám, že pro vás byl kurz přínosný :)
+
+- id: course-feedback
+  markdown: |
+    Chcete nám něco vzkázat?
+
+    Normální zpětná vazba je anonymní a veřejná;
+    tato je pro kouče a podepsaná jménem týmu.
+
+- id: bonus-wish
+  markdown: |
+    Máte nějaké přání ohledně bonusového tématu?
+    Nic neslibuju, ale mohl bych něco natočit třeba o těchto:
+
+    * Git – Spolupráce a správa verzí kódu
+    * Pyglet – Uživatelské rozhraní pro hry (jako Šachy z těchto úkolů)
+    * PySide – Uživatelské rozhraní pro „kancelářské“ aplikace (tlačítka, textová políčka, ...)
+    * Click – Uživatelské rozhraní pro programátory (příkazová řádka, barevný text, ...)
+    * Flask – Webové aplikace
+    * Pathlib – Práce se soubory (pojmenovávání, kopírování, mazání, procházení adresářů, ...)
+    * Víc o testování
+    * Informatika, teoretické základy
+
+    Nebo podobně :)
