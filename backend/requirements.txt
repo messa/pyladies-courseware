@@ -3,7 +3,7 @@
 #https://github.com/graphql-python/graphql-server/archive/f5e8302d1320b013b441844df059e90ae83d04a0.zip
 https://github.com/messa/graphql-server/archive//fix20200801.zip
 jinja2
-aiohttp==3.6.2
+aiohttp==3.7.4.post0
 #graphql-core<3
 #graphql-ws
 #aiohttp-graphql==1.1.0
@@ -14,7 +14,7 @@ bcrypt
 cchardet
 markdown
 motor
-PyYAML>=5.3
+PyYAML>=5.4.1
 requests
 requests_oauthlib
 simplejson
