@@ -40,6 +40,7 @@ function getFetchQuery(req) {
       throw new Error(`POST ${relayEndpoint} failed with status ${r.status}: ${text}`)
     }
     const data = await r.json()
+    //console.info(`POST ${relayEndpoint} => ${data}`)
     return data
   }
 }
@@ -82,7 +83,6 @@ function setupSubscription(config, variables, cacheConfig, observer) {
   }
 }
 
-
 let relayEnvironment = null
 
 export function getRelayEnvironment() {
@@ -101,7 +101,7 @@ export function initRelayEnvironment ({ req, records = {} } = {}) {
   if (!process.browser) {
     return new Environment({
       network: Network.create(getFetchQuery(req)),
-      store: new Store(new RecordSource(records))
+      store: new Store(new RecordSource(records)),
     })
   }
 
