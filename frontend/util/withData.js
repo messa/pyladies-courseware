@@ -25,7 +25,7 @@ export default function withData(ComposedComponent, options = {}) {
         // TODO: Consider RelayQueryResponseCache
         // https://github.com/facebook/relay/issues/1687#issuecomment-302931855
         try {
-          queryProps = await fetchQuery(environment, options.query, queryVariables)
+          queryProps = await fetchQuery(environment, options.query, queryVariables).toPromise()
         } catch (e) {
           throw new Error(`fetchQuery failed: ${e}`)
         }
