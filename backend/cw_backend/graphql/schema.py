@@ -242,6 +242,9 @@ User = GraphQLObjectType(
     })
 
 
+UserConnection = relay_connection_type(User)
+
+
 async def current_user_resolver(root, info):
     from aiohttp_session import get_session
     session = await get_session(info.context['request'])
@@ -265,6 +268,11 @@ async def user_resolver(root, info, userId=None):
     user = await model.users.get_by_id(userId)
     logger.info('user_resolver: %r', user)
     return user
+
+
+async def all_users_resolver(root, info, **kwargs):
+    model = get_model(info)
+    return connection_from_list(await model.users.list_all(), **kwargs)
 
 
 LoginMethods = GraphQLObjectType(
@@ -346,6 +354,10 @@ Schema = GraphQLSchema(
             'currentUser': GraphQLField(
                 User,
                 resolve=current_user_resolver),
+            'allUsers': GraphQLField(
+                UserConnection,
+                args=connection_args,
+                resolve=all_users_resolver),
             'user': GraphQLField(
                 User,
                 args={
