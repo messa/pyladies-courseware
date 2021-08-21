@@ -3,20 +3,22 @@ import Link from 'next/link'
 import { Button } from 'semantic-ui-react'
 import AdminLayout from '../../../components/admin/AdminLayout'
 import UserDetail from '../../../components/admin/UserDetail'
-import fetchPageData from '../../../util/fetchPageData'
+import withData from '../../../util/withData'
 
-export default class extends React.Component {
+class UserDetailPage extends React.Component {
 
-  static async getInitialProps({ req, query }) {
-    const { userId } = query
-    const data = await fetchPageData(req, {})
-    return { detailUserId: userId, ...data }
-  }
+  // static async getInitialProps({ req, query }) {
+  //   const { userId } = query
+  //   const data = await fetchPageData(req, {})
+  //   return { detailUserId: userId, ...data }
+  // }
 
   render() {
-    const { user, detailUserId } = this.props
+    //const { user, detailUserId } = this.props
+    const { currentUser } = this.props
+    const detailUserId = null
     return (
-      <AdminLayout user={user}>
+      <AdminLayout currentUser={currentUser}>
 
         <h1>Uživatel: <code>{detailUserId}</code></h1>
 
@@ -26,3 +28,13 @@ export default class extends React.Component {
     )
   }
 }
+
+export default withData(UserDetailPage, {
+  query: graphql`
+    query detailQuery {
+      currentUser {
+        ...AdminLayout_currentUser
+      }
+    }
+  `
+})
