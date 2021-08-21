@@ -5,8 +5,9 @@ import withData from '../util/withData'
 class PrivacyPolicyPage extends React.Component {
 
   render() {
+    const { currentUser } = this.props
     return (
-      <Layout width={600}>
+      <Layout currentUser={currentUser} width={600}>
 
         <p>
             Vytvořením uživatelského účtu na těchto stránkách udělujete souhlas spolku <a href="https://pyvec.org">Pyvec z.s.</a>, se sídlem:

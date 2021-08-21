@@ -4,20 +4,27 @@ import { Button } from 'semantic-ui-react'
 import AdminLayout from '../../components/admin/AdminLayout'
 import AdminNavigation from '../../components/admin/AdminNavigation'
 import fetchPageData from '../../util/fetchPageData'
+import withData from '../../util/withData'
 
-export default class extends React.Component {
-
-  static async getInitialProps({ req }) {
-    return await fetchPageData(req, {})
-  }
+class AdminIndexPage extends React.Component {
 
   render() {
-    const { userDetail } = this.props
+    const { currentUser } = this.props
     return (
-      <AdminLayout user={this.props.user} width={600}>
+      <AdminLayout currentUser={currentUser} width={600}>
         <h1>Administrace</h1>
         <AdminNavigation />
       </AdminLayout>
     )
   }
 }
+
+export default withData(AdminIndexPage, {
+  query: graphql`
+    query admin_indexQuery {
+      currentUser {
+        ...AdminLayout_currentUser
+      }
+    }
+  `
+})
