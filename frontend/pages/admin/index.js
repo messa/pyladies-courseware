@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { Button } from 'semantic-ui-react'
 import AdminLayout from '../../components/admin/AdminLayout'
 import AdminNavigation from '../../components/admin/AdminNavigation'
-import fetchPageData from '../../util/fetchPageData'
 import withData from '../../util/withData'
 
 class AdminIndexPage extends React.Component {

@@ -2,7 +2,6 @@ import React from 'react'
 import { createFragmentContainer, graphql } from 'react-relay'
 import { Button, Table, Dropdown, Form, Message } from 'semantic-ui-react'
 import ALink from '../ALink'
-import fetchPageData from '../../util/fetchPageData'
 
 class UserDetail extends React.Component {
 

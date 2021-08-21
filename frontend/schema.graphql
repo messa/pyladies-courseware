@@ -5,6 +5,7 @@ type Query {
   pastCourses(before: String, after: String, first: Int, last: Int): CourseConnection
   course(courseId: String): Course
   currentUser: User
+  allUsers(before: String, after: String, first: Int, last: Int): UserConnection
   user(userId: String): User
   loginMethods: LoginMethods
 }
@@ -85,6 +86,16 @@ type User implements Node {
   name: String
   attendedCourseIds: [String]
   coachedCourseIds: [String]
+}
+
+type UserConnection {
+  pageInfo: PageInfo!
+  edges: [UserEdge]
+}
+
+type UserEdge {
+  cursor: String!
+  node: User
 }
 
 type LoginMethods implements Node {

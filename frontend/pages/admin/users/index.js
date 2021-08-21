@@ -6,13 +6,13 @@ import withData from '../../../util/withData'
 class UserListPage extends React.Component {
 
   render() {
-    const { currentUser } = this.props
+    const { currentUser, allUsers } = this.props
     return (
       <AdminLayout currentUser={currentUser} width={1000}>
 
         <h1>Přehled uživatelů</h1>
 
-        <UserList />
+        <UserList allUsers={allUsers} />
 
       </AdminLayout>
     )
@@ -24,6 +24,9 @@ export default withData(UserListPage, {
     query users_indexQuery {
       currentUser {
         ...AdminLayout_currentUser
+      }
+      allUsers {
+        ...UserList_allUsers
       }
     }
   `

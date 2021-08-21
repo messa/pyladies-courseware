@@ -1,8 +1,9 @@
 import React from 'react'
+import { createFragmentContainer, graphql } from 'react-relay'
 import { Button, Table } from 'semantic-ui-react'
 import ALink from '../ALink'
 
-export default class UserList extends React.Component {
+class UserList extends React.Component {
 
   state = {
     loading: true,
@@ -10,36 +11,40 @@ export default class UserList extends React.Component {
     items: null,
   }
 
-  componentDidMount() {
-    this.fetchData()
-  }
+  // componentDidMount() {
+  //   this.fetchData()
+  // }
 
-  async fetchData() {
-    try {
-      const r = await fetch('/api/admin/users', {
-        headers: {
-          'Accept-Type': 'application/json',
-        },
-        credentials: 'same-origin',
-      })
-      const { items } = await r.json()
-      this.setState({
-        loading: false,
-        items,
-      })
-    } catch (err) {
-      this.setState({
-        loading: false,
-        error: err.toString()
-      })
-    }
-  }
+  // async fetchData() {
+  //   try {
+  //     const r = await fetch('/api/admin/users', {
+  //       headers: {
+  //         'Accept-Type': 'application/json',
+  //       },
+  //       credentials: 'same-origin',
+  //     })
+  //     const { items } = await r.json()
+  //     this.setState({
+  //       loading: false,
+  //       items,
+  //     })
+  //   } catch (err) {
+  //     this.setState({
+  //       loading: false,
+  //       error: err.toString()
+  //     })
+  //   }
+  // }
 
   render() {
-    const { items } = this.state
+    const { allUsers } = this.props
     return (
       <div>
-        {items && <UserListView items={items} />}
+        {allUsers && (
+          <UserListView
+            items={allUsers.edges.map(edge => edge.node)}
+          />
+        )}
       </div>
     )
   }
@@ -88,7 +93,7 @@ function UserListView({ items }) {
 function UserRoles({ user }) {
   return (
     <>
-      {user.is_admin && (
+      {user.isAdmin && (
         <div><strong>Admin</strong></div>
       )}
       {user.coached_course_ids && user.coached_course_ids.map(courseId => (
@@ -124,3 +129,18 @@ function UserActions({ user }) {
     </>
   )
 }
+
+export default createFragmentContainer(UserList, {
+  allUsers: graphql`
+    fragment UserList_allUsers on UserConnection {
+      edges {
+        node {
+          id
+          userId
+          name
+          isAdmin
+        }
+      }
+    }
+  `,
+})
