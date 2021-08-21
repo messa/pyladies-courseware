@@ -1,6 +1,4 @@
 import React from 'react'
-import Link from 'next/link'
-import { Button } from 'semantic-ui-react'
 import AdminLayout from '../../../components/admin/AdminLayout'
 import UserList from '../../../components/admin/UserList'
 import withData from '../../../util/withData'

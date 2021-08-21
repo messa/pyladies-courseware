@@ -1,9 +1,10 @@
 import React from 'react'
+import { createFragmentContainer, graphql } from 'react-relay'
 import { Button, Table, Dropdown, Form, Message } from 'semantic-ui-react'
 import ALink from '../ALink'
 import fetchPageData from '../../util/fetchPageData'
 
-export default class UserDetail extends React.Component {
+class UserDetail extends React.Component {
 
   state = {
     loading: true,
@@ -13,34 +14,34 @@ export default class UserDetail extends React.Component {
     courses: [],
   }
 
-  componentDidMount() {
-    this.fetchData()
-  }
+  // componentDidMount() {
+  //   this.fetchData()
+  // }
 
-  async fetchData() {
-    try {
-      const { detailUserId } = this.props
-      const r = await fetch(`/api/admin/user/${detailUserId}`, {
-        headers: {
-          'Accept-Type': 'application/json',
-        },
-        credentials: 'same-origin',
-      })
-      const { user } = await r.json()
-      const { courses } = await await fetchPageData(null, { courses: 'list_courses' })
-      const courses_all = courses.active.concat(courses.past)
-      this.setState({
-        loading: false,
-        detailUser: user,
-        courses: courses_all,
-      })
-    } catch (err) {
-      this.setState({
-        loading: false,
-        error: err.toString(),
-      })
-    }
-  }
+  // async fetchData() {
+  //   try {
+  //     const { detailUserId } = this.props
+  //     const r = await fetch(`/api/admin/user/${detailUserId}`, {
+  //       headers: {
+  //         'Accept-Type': 'application/json',
+  //       },
+  //       credentials: 'same-origin',
+  //     })
+  //     const { user } = await r.json()
+  //     const { courses } = await await fetchPageData(null, { courses: 'list_courses' })
+  //     const courses_all = courses.active.concat(courses.past)
+  //     this.setState({
+  //       loading: false,
+  //       detailUser: user,
+  //       courses: courses_all,
+  //     })
+  //   } catch (err) {
+  //     this.setState({
+  //       loading: false,
+  //       error: err.toString(),
+  //     })
+  //   }
+  // }
 
   handleInputChange = ({ target }) => {
     const { detailUser } = this.state
@@ -69,41 +70,48 @@ export default class UserDetail extends React.Component {
     this.sendData(detailUser)
   }
 
-  async sendData(payload) {
-    const fetchOptions = {
-      method: 'POST',
-      credentials: 'same-origin',
-      headers: {
-        'Accept': 'application/json',
-        "Content-Type": 'application/json',
-      },
-      body: JSON.stringify(payload),
-    }
-    try {
-      const { detailUserId } = this.props
-      const res = await fetch(`/api/admin/user/${detailUserId}`, fetchOptions)
-      const { errors } = await res.json()
-      if (errors && errors.length) {
-        this.setState({
-          errors,
-          loading: false,
-        })
-      } else {
-        window.location = '/admin/users'
-      }
-    } catch (err) {
-      this.setState({
-        errors: [`Aktualizace uživatele se nezdařila: ${err}`],
-        loading: false,
-      })
-    }
-  }
+  // async sendData(payload) {
+  //   const fetchOptions = {
+  //     method: 'POST',
+  //     credentials: 'same-origin',
+  //     headers: {
+  //       'Accept': 'application/json',
+  //       "Content-Type": 'application/json',
+  //     },
+  //     body: JSON.stringify(payload),
+  //   }
+  //   try {
+  //     const { detailUserId } = this.props
+  //     const res = await fetch(`/api/admin/user/${detailUserId}`, fetchOptions)
+  //     const { errors } = await res.json()
+  //     if (errors && errors.length) {
+  //       this.setState({
+  //         errors,
+  //         loading: false,
+  //       })
+  //     } else {
+  //       window.location = '/admin/users'
+  //     }
+  //   } catch (err) {
+  //     this.setState({
+  //       errors: [`Aktualizace uživatele se nezdařila: ${err}`],
+  //       loading: false,
+  //     })
+  //   }
+  // }
 
   render() {
-    const { detailUser, courses } = this.state
+    const { detailUser, allCourses } = this.props
     const { loading, errors } = this.state
 
-    const courses_options = courses.map(e => ({ key: e.id, text: e.id, value: e.id,}))
+    const courses_options = allCourses.edges.map(edge => edge.node)
+      .map(c => ({
+        key: c.courseId,
+        text: c.courseId,
+        value: c.courseId,
+      }))
+
+
     return (
       <div>
         {detailUser && (
@@ -113,7 +121,7 @@ export default class UserDetail extends React.Component {
             )}
             <Form.Field>
               <label>ID</label>
-              <input placeholder='ID' value={detailUser.id} readOnly disabled />
+              <input placeholder='ID' value={detailUser.userId} readOnly disabled />
             </Form.Field>
             <Form.Field>
               <label>Login</label>
@@ -231,3 +239,22 @@ function UserDetailView ({ detailUser }) {
     <pre>{JSON.stringify(detailUser, null, 2)}</pre>
   )
 }
+
+export default createFragmentContainer(UserDetail, {
+  detailUser: graphql`
+    fragment UserDetail_detailUser on User {
+      id
+      userId
+      name
+    }
+  `,
+  allCourses: graphql`
+    fragment UserDetail_allCourses on CourseConnection {
+      edges {
+        node {
+          courseId
+        }
+      }
+    }
+  `
+})

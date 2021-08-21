@@ -1,9 +1,7 @@
 import React from 'react'
-import Link from 'next/link'
-import { Button, Grid } from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react'
 import Layout from '../components/Layout'
 import fetchPageData from '../util/fetchPageData'
-import ALink from '../components/ALink'
 import MaterialItems from '../components/MaterialItems'
 import formatDate from '../util/formatDate'
 import HomeworkTask from '../components/lesson/HomeworkTask'
@@ -18,6 +16,7 @@ function arrayContains(array, item) {
 }
 
 export default class SessionPage extends React.Component {
+
   state = {
     loading: true,
     loadError: null,
@@ -35,6 +34,7 @@ export default class SessionPage extends React.Component {
     })
     return { courseId, reviewTaskId, ...data }
   }
+
   componentDidMount() {
     this.loadData()
     if (!this.loadIntervalId) {

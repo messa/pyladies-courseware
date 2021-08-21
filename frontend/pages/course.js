@@ -1,5 +1,4 @@
 import React from 'react'
-import Link from 'next/link'
 import { Button, Message } from 'semantic-ui-react'
 import { graphql } from 'react-relay'
 import Layout from '../components/Layout'

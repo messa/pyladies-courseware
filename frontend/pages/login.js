@@ -1,5 +1,4 @@
 import React from 'react'
-import Link from 'next/link'
 import { Button, Tab, Message } from 'semantic-ui-react'
 import Layout from '../components/Layout'
 import LoginForm from '../components/forms/LoginForm'
