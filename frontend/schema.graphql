@@ -84,6 +84,9 @@ type User implements Node {
   userId: String!
   isAdmin: Boolean
   name: String
+  email: String
+  facebookId: String
+  googleId: String
   attendedCourseIds: [String]
   coachedCourseIds: [String]
 }

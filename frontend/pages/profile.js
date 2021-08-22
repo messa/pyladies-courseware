@@ -1,31 +1,27 @@
 import React from 'react'
-import Link from 'next/link'
-import { Button } from 'semantic-ui-react'
 import Layout from '../components/Layout'
-import fetchPageData from '../util/fetchPageData'
+import withData from '../util/withData'
 
-export default class ProfilePage extends React.Component {
-
-  static async getInitialProps({ req }) {
-    return await fetchPageData(req, {})
-  }
+class ProfilePage extends React.Component {
 
   render() {
-    const { user } = this.props
+    const { currentUser } = this.props
+    const attendedCourseIds = []
+    const coachedCourseIds = []
     return (
-      <Layout user={user}>
+      <Layout currentUser={currentUser}>
 
         <h1>Tvůj profil</h1>
 
-        <p>Jméno: {user.name}</p>
-        <p>E-mail: {user.email}</p>
-        <p>id: <code>{user.id}</code></p>
+        <p>Jméno: {currentUser.name}</p>
+        <p>E-mail: {currentUser.email}</p>
+        <p>id: <code>{currentUser.userId}</code></p>
 
-        {user.attended_course_ids.length > 0 && (
+        {attendedCourseIds.length > 0 && (
           <>
             <p>Navštěvované kurzy:</p>
             <ul>
-              {user.attended_course_ids.map(course_id => (
+              {attendedCourseIds.map(course_id => (
                 <li key={course_id}>
                   {course_id}
                 </li>
@@ -34,11 +30,11 @@ export default class ProfilePage extends React.Component {
           </>
         )}
 
-        {user.coached_course_ids.length > 0 && (
+        {coachedCourseIds.length > 0 && (
           <>
             <p>Koučované kurzy:</p>
             <ul>
-              {user.coached_course_ids.map(course_id => (
+              {coachedCourseIds.map(course_id => (
                 <li key={course_id}>
                   {course_id}
                 </li>
@@ -47,13 +43,26 @@ export default class ProfilePage extends React.Component {
           </>
         )}
 
-        {user.is_admin && (
+        {currentUser.isAdmin && (
           <p>Admin</p>
         )}
 
-        <pre className='debug' style={{ display: 'none' }}>{JSON.stringify(user, null, 2)}</pre>
+        <pre className='debug' style={{ display: 'none' }}>{JSON.stringify(currentUser, null, 2)}</pre>
 
       </Layout>
     )
   }
 }
+
+export default withData(ProfilePage, {
+  query: graphql`
+    query profileQuery {
+      currentUser {
+        ...Layout_currentUser
+        name
+        email
+        userId
+      }
+    }
+  `
+})
