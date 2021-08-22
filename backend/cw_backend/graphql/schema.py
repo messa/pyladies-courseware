@@ -233,6 +233,15 @@ User = GraphQLObjectType(
             resolve=lambda user, info: user.is_admin),
         'name': GraphQLField(
             GraphQLString),
+        'email': GraphQLField(
+            GraphQLString,
+            resolve=lambda user, info: user.email),
+        'facebookId': GraphQLField(
+            GraphQLString,
+            resolve=lambda user, info: user.fb_id),
+        'googleId': GraphQLField(
+            GraphQLString,
+            resolve=lambda user, info: user.google_id),
         'attendedCourseIds': GraphQLField(
             GraphQLList(GraphQLString),
             resolve=lambda user, info: user.attended_course_ids),
@@ -271,6 +280,7 @@ async def user_resolver(root, info, userId=None):
 
 
 async def all_users_resolver(root, info, **kwargs):
+    # TODO: check access permission
     model = get_model(info)
     return connection_from_list(await model.users.list_all(), **kwargs)
 

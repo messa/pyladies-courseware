@@ -216,6 +216,7 @@ class UserView:
         return self.is_admin or course_id in self.coached_course_ids
 
     def export(self, details=False):
+        # TODO: perhaps remove this method after migrating to GraphQL
         data = {
             'id': self.id,
             'name': self.name,
