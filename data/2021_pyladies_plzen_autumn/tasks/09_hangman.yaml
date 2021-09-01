@@ -1,0 +1,56 @@
+tasks:
+
+- section:
+    markdown: |
+      Máš-li Piškvorky hotové, můžeš si naprogramovat ještě jednu hru!
+      Jestli na to tedy máš čas a chuť.
+
+- id: handout9_06
+  markdown: |
+    Vytvoř hru `sibenice` podle následujícího popisu.
+    Snaž se projekt rozdělit do funkcí a modulů s hezkými jmény,
+    piš testy a dokumentační řetězce, funkční kousky dávej postupně do Gitu.
+
+    - Počítač náhodně zvolí slovo (zatím třeba ze tří možností).
+        Pro jednoduchost používej malá písmena a nepoužívej slova,
+        ve kterých se stejné písmeno opakuje dvakrát
+        (třeba č<span style='color: pink'>o</span>k<span style='color: red'>o</span>láda).
+    - Nastav výchozí stav: řetězec s tolika podtržítky, kolik je
+         ve vybraném slově písmen.
+    - Nastav počet neúspěšných pokusů na nulu.
+    - Každý tah:
+        - Zeptej se hráče na písmeno.
+        - Pokud je to písmeno ve vybraném slově, zaměň příslušná
+            podtržítka za ono písmeno.
+            Bude se hodit řetězcová metoda _`index_`
+            a funkce `zamen` z piškvorek._
+        - Pokud dané písmeno _není_ ve vybraném slově,
+            započítej neúspěšný pokus.
+        - Vypiš stav (slovo s případnými podtržítky).
+        - Pokud už ve slově nejsou podtržítka, pogratuluj hráči
+            a ukonči hru.
+        - Podle počtu neúspěšných pokusů vypiš „obrázek”.
+            Obrázky jsou ke stažení na http://pyladies.cz/v1/s005-modules/obrazky.txt
+            a můžeš je dát do víceřádkových řetězců (s trojitými uvozovkami).
+        - Pokud jsi právě vypsala poslední obrázek, hráč prohrál.
+            Dej mu to najevo a ukonči program.
+
+    <pre>
+    +---.
+    |   |
+    |   O
+    | --|--
+    |  /
+    |
+    ~~~~~~~
+
+    p_t__n
+    </pre>
+
+- id: handout9_07
+  markdown: |
+    Funguje-li ti předchozí hra, můžeš ji vylepšit.
+
+    - Zařiď, aby fungovala slova s více stejnými písmeny.
+    - Když hráč nezadá písmeno (zadá např. `ABC` nebo `!`), nepovažuj to za tah.
+    - Po skončení dej hráči možnost hru opakovat.
