@@ -1,0 +1,27 @@
+id: pyladies-2021-ostrava-podzim
+naucse_api_url: https://naucse.python.cz/v0/2021/pyladies-ostrava-podzim.json
+registration_end: 2021-09-20
+tasks_by_lesson_slug:
+
+  "beginners/install":
+  - file: tasks/00_install.yaml
+  "beginners/hello-world":
+  - file: tasks/01_expressions.yaml
+  "beginners/while":
+  - file: tasks/02_cycles.yaml
+  "beginners/str":
+  - file: tasks/02_str.yaml
+  "beginners/def":
+  - file: tasks/03_def.yaml
+  "beginners/exceptions":
+  - file: tasks/04_exceptions.yaml
+  "beginners/testing":
+  - file: tasks/05_testing.yaml
+  "beginners/list":
+  - file: tasks/06_list.yaml
+  "beginners/files":
+  - file: tasks/12_files.yaml
+  "beginners/dict":
+  - file: tasks/08_dict.yaml
+  "beginners/class":
+  - file: tasks/13_class.yaml
