@@ -6,6 +6,7 @@ import json
 import logging
 from pathlib import Path
 
+from .events import TaskSolutionCommentAddedEvent, TaskSolutionUpdatedEvent
 
 logger = logging.getLogger(__name__)
 
@@ -116,6 +117,15 @@ async def mark_solution_solved(req):
         raise web.HTTPForbidden()
     await solution.set_marked_as_solved(data['solved'], user)
     await solution.set_last_action('coach', user)
+
+    await req.app['event'](TaskSolutionUpdatedEvent(
+        course=req.app['courses'].get().get_by_course_id(solution.course_id),
+        solved=data['solved'],
+        user=await model.users.get_by_id(solution.user_id),
+        initiator=user,
+        solution=solution
+    ))
+
     return web.json_response({
         'task_solution': await solution.export(with_code=True),
     })
@@ -138,10 +148,22 @@ async def add_solution_comment(req):
         reply_to_comment_id=data['reply_to_comment_id'],
         author_user=user,
         body=data['body'])
+
+    event_user = user
     if user.id == solution.user_id:
         await solution.set_last_action('student', user)
     elif user.can_review_course(course_id=solution.course_id):
         await solution.set_last_action('coach', user)
+        event_user = await model.users.get_by_id(solution.user_id)
+
+    await req.app['event'](TaskSolutionCommentAddedEvent(
+        course=req.app['courses'].get().get_by_course_id(solution.course_id),
+        comment=data['body'],
+        user=event_user,
+        initiator=user,
+        solution=solution
+    ))
+
     task_comments = await model.task_solution_comments.find_by_task_solution_id(solution.id)
     return web.json_response({
         'task_solution': await solution.export(with_code=True),
