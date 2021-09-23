@@ -28,7 +28,7 @@ tasks:
 - id: term_cycle
   markdown: |
       … *cyklus*
- 
+
 - section:
     markdown: |
       Želví kreslení! Tahle sekce vás naučí myslet jako programátoři počítačové grafiky.
@@ -133,9 +133,7 @@ tasks:
 
     Když budete mít obrázků víc, odevzdejte je všechny!
 
-    Z obrázků připravím video.
-    Jestli se budete chtít na videu pod obrázek veřejně podepsat,
-    přidejte komentář (např. `# Podepíšeme se jako <jméno týmu>`).
+    Obrázky si pro inspiraci ukážeme na srazu.
 
 - id: handout3a_15
   markdown: |
