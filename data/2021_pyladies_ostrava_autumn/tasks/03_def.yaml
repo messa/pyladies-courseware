@@ -65,7 +65,7 @@ tasks:
 
 - id: handout4_03
   markdown: |
-    Má-li někdo z vás rád geometrii*, může zkusit dávat domečkové proceduře dva argumenty:
+    Má-li někdo z vás rád geometrii\*, může zkusit dávat domečkové proceduře dva argumenty:
     šířku a výšku.
     Je potřeba si vzpomenout na Pythagorovu větu a na goniometrické funkce.
     Konkrétně funkci *arkus tangens* `from math import atan`.
