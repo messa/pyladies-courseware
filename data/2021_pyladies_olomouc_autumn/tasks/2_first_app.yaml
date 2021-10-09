@@ -1,13 +1,5 @@
 tasks:
 
-- id: handout2_1
-  markdown: |
-    Jakou používáš verzi Pythonu?
-
-- section:
-    markdown: |
-      Následující projekty procvičí orientaci v chybových hláškách. Doporučuji je udělat.
-
 - id: handout2_2
   markdown: |
     Jak se jmenuje druh chyby, která nastane, když…
@@ -38,11 +30,11 @@ tasks:
 - id: handout2_5
   markdown: |
     Lomítko (`/`) je operátor, ale nedá se použít na řetězce. Vykřičník (`!`) v Pythonu není operátor.
-    Jak se liší „jejich“ chyby?
+    Jak se liší chyby, které vzniknou, když se pokusíš použít lomítko na řetězci nebo vykřičník na čísle?
 
 - section:
     markdown: |
-      Tenhle projekt by měl přivést k tomu, jak zjišťovat, co v Pythonu jde a co ne.
+      Tenhle projekt by tě měl přivést k tomu, jak zjišťovat, co v Pythonu jde a co ne.
       Druhá část je trochu na zamyšlení.
 
 - id: handout2_6
@@ -71,7 +63,7 @@ tasks:
 
 - section:
     markdown: |
-      Následující projekty jsou na procvičení toho, co jsme dělaly na srazu. Nemáš-li čas, zatím je přeskoč.
+      Následující projekty jsou na procvičení toho, co jsme dělaly na srazu.
 
 - id: handout2_7
   markdown: |
