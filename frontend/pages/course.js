@@ -61,6 +61,14 @@ export default class extends React.Component {
     }
   }
 
+  handleCourseReloadClick = async () => {
+    const { user, courseId } = this.props
+    try {
+      const r = await fetch('/api/admin/course/' + courseId + '/reload_course')
+      await r.json()
+    } finally { window.location = '/course?course=' + courseId }
+  }
+
   render() {
     const { user, courseId, course } = this.props
     const { attendInProgress, attendError } = this.state
@@ -86,7 +94,7 @@ export default class extends React.Component {
             dangerouslySetInnerHTML={{__html: course['description_html']}}
           />
           {course['allows_registration'] && (
-            <div className='course-attend'>
+            <div className='course-button-groups'>
               {attendError && (
                 <div>
                   <Message
@@ -102,6 +110,17 @@ export default class extends React.Component {
                   disabled={belongToCourse || attendInProgress}
                   loading={attendInProgress}
                   content={belongToCourse ? 'Jste součástí kurzu' : 'Přihlásit se do kurzu'}
+                />
+              </Button.Group>
+            </div>
+          )}
+          {user && user['is_admin'] && (
+            <div className='course-button-groups'>
+              <Button.Group>
+                <Button
+                  primary
+                  onClick={this.handleCourseReloadClick}
+                  content='Přenačíst kurz'
                 />
               </Button.Group>
             </div>
@@ -171,7 +190,7 @@ export default class extends React.Component {
             max-width: 550px;
             margin: 0 auto;
           }
-          .overview .course-attend {
+          .overview .course-button-groups {
             text-align: center;
             max-width: 550px;
             margin: 0 auto;

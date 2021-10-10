@@ -75,21 +75,26 @@ class Courses:
 class Course:
 
     def __init__(self, course_file, loader):
-        assert isinstance(course_file, Path)
-        logger.debug('Loading course from %s', course_file)
+        self.course_file = course_file
+        self.loader = loader
+        self.load_course()
+
+    def load_course(self):
+        assert isinstance(self.course_file, Path)
+        logger.debug('Loading course from %s', self.course_file)
 
         try:
-            raw = yaml_load(loader.read_text(course_file))
+            raw = yaml_load(self.loader.read_text(self.course_file))
         except Exception as e:
-            raise Exception(f'Failed to load course file {course_file}: {e}')
+            raise Exception(f'Failed to load course file {self.course_file}: {e}')
 
         try:
             if raw.get('naucse_api_url'):
-                nc = loader.get_json(raw['naucse_api_url'])['course']
+                nc = self.loader.get_json(raw['naucse_api_url'])['course']
             else:
                 nc = {}
 
-            course_dir = course_file.parent
+            course_dir = self.course_file.parent
             self.data = {
                 'id': raw['id'],
                 'title_html': to_html(raw.get('title') or nc.get('title')),
@@ -113,7 +118,7 @@ class Course:
                     naucse_data=naucse_sessions.get(slug),
                     course_dir=course_dir,
                     tasks_by_lesson_slug=raw.get('tasks_by_lesson_slug') or {},
-                    loader=loader))
+                    loader=self.loader))
 
             self.sessions.sort(key=lambda s: s.date)
 
@@ -129,7 +134,7 @@ class Course:
                 self.data['registration_end'] = self.data['end_date']
 
         except Exception as e:
-            raise Exception(f'Failed to load course from {course_file}: {e}') from e
+            raise Exception(f'Failed to load course from {self.course_file}: {e}') from e
 
     id = DataProperty('id')
     start_date = DataProperty('start_date')
@@ -163,5 +168,6 @@ class Course:
             'allows_registration': self.allows_registration(),
         }
         if sessions:
-            d['sessions'] = [lesson.export(tasks=tasks) for lesson in self.sessions]
+            d['sessions'] = [lesson.export(tasks=tasks)
+                             for lesson in self.sessions]
         return d
