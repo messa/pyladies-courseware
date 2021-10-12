@@ -168,6 +168,5 @@ class Course:
             'allows_registration': self.allows_registration(),
         }
         if sessions:
-            d['sessions'] = [lesson.export(tasks=tasks)
-                             for lesson in self.sessions]
+            d['sessions'] = [lesson.export(tasks=tasks) for lesson in self.sessions]
         return d
