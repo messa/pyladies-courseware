@@ -238,3 +238,6 @@ tasks:
     * Příkaz `python hra.py` v příkazové řádce spustí funkční hru.
     * Příkaz `import piskvorky` v Pythonu *nespustí* hru (a nemá ani další
       vedlejší efekty).
+
+    Pokud si nejste jisti, nebo program nefunguje, neváhejte napsat na Slack
+    a nezapoměňte přiložit kód jako zip archiv se všemi soubory.
