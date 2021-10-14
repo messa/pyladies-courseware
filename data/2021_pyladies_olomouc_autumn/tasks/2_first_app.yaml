@@ -1,6 +1,6 @@
 tasks:
 
-- id: handout2_2
+- id: handout2_1
   markdown: |
     Jak se jmenuje druh chyby, která nastane, když…
 
@@ -15,29 +15,24 @@ tasks:
     - Zkusíš použít vykřičník (`!`) jako operátor? —
     - Napíšeš v příkazu `print(1, 2, 3)` čárku navíc? —
 
-- id: handout2_3
+- id: handout2_2
   markdown: |
     _Podívej se na odpovědi na předchozí otázku, ale Python zkus použít jen na ověření._
 
     Jaká chyba nastane, když zkusíš použít proměnnou předtím, než do ní něco přiřadíš?
 
-- id: handout2_4
+- id: handout2_3
   markdown: |
     _Podívej se na odpovědi na otázku 1, ale Python použij jen na ověření._
 
     Jaká chyba nastane, když zkusíš podělit řetězec řetězcem?
 
-- id: handout2_5
+- id: handout2_4
   markdown: |
     Lomítko (`/`) je operátor, ale nedá se použít na řetězce. Vykřičník (`!`) v Pythonu není operátor.
     Jak se liší chyby, které vzniknou, když se pokusíš použít lomítko na řetězci nebo vykřičník na čísle?
 
-- section:
-    markdown: |
-      Tenhle projekt by tě měl přivést k tomu, jak zjišťovat, co v Pythonu jde a co ne.
-      Druhá část je trochu na zamyšlení.
-
-- id: handout2_6
+- id: handout2_5
   markdown: |
     Ne všechno se dá použít jako jméno proměnné.
     Fungují pro proměnné následující jména? Pokud ne, proč asi?
@@ -65,7 +60,7 @@ tasks:
     markdown: |
       Následující projekty jsou na procvičení toho, co jsme dělaly na srazu.
 
-- id: handout2_7
+- id: handout2_6
   markdown: |
     _Zkus se nedívat na programy ze srazu._
 
@@ -77,7 +72,7 @@ tasks:
 
   mandatory: true
 
-- id: handout2_8
+- id: handout2_7
   markdown: |
     Změň program tak, aby stranu/poloměr mohl uživatel zadat.
 
@@ -85,44 +80,11 @@ tasks:
 
   mandatory: true
 
-- section:
-    markdown: |
-      Další dva projekty doplňují program ze srazu.
-      Všechno bude vysvětleno později, takže jestli nemáš čas, přeskoč je.
-
-- id: handout2_9
-  markdown: |
-    Ulož si následující program jako `pokus.py` a spusť ho několikrát za sebou. Co dělá?
-
-    ```
-    from random import randrange
-    cislo = randrange(3)
-    print(cislo)
-    ```
-
-    _Jak to funguje, to se dozvíme příště; zatím to ber jako kouzelné zaříkadlo._
-
-    _Aby všechno fungovalo správně, nesmíš mít v aktuálním adresáři soubor jménem `random.py`._
-
-  mandatory: true
-
-- id: handout2_10
-  markdown: |
-    Zkombinuj program z předchozího projektu s programem kámen-nůžky-papír a nastav `tah_pocitace` na:
-
-    - `'kámen'`, pokud je cislo 0,
-    - `'nůžky'`, pokud je cislo 1,
-    - jinak na `'papír'`.
-
-- section:
-    markdown: |
-      Tyhle projekty kombinují opakování a nové informace. Doporučuji si je projít.
-
-- id: handout2_11
+- id: handout2_8
   markdown: |
     Které pythonní _operátory_ dokážeš z hlavy vyjmenovat?
 
-- id: handout2_12
+- id: handout2_9
   markdown: |
     Zkusila jsi porovnávat řetězce?
     Doplň tuhle tabulku tužkou; pak ověř odpovědi pomocí Pythonu:
@@ -139,7 +101,7 @@ tasks:
     | `'abc'` |      | `'ábč'`   |
     | `'abc'` |      | ``10``    |
 
-- id: handout2_13
+- id: handout2_10
   markdown: |
     Jaká je hodnota proměnné po provedení příkazů:
 
@@ -153,36 +115,20 @@ tasks:
     Tam, kde je hodnota proměnné `False`, dají se některé z porovnávaných hodnot mezi sebou vyměnit, aby
     byla `True`?
 
-- section:
-    markdown: |
-      Další dva projekty ti umožní kreativně využít, co ses naučila.
+- id: handout2_11
+  markdown: |
+    Napiš program, který po zadání správného hesla vypíše nějakou tajnou informaci.
 
-- id: handout2_14
+    _Vhodné tajemství je třeba: V pátek jsem viděla černého havrana._
+
+- id: handout2_12
   markdown: |
     Na srazu jsme měli program, který píše různé nesmysly podle uživatelem zadaného věku.
 
     Zkus napsat program, který píše hlášky podle zadané rychlosti chůze, váhy ulovené ryby, počtu tykadel,
     teploty vody nebo třeba vzdálenosti od rovníku.
 
-- id: handout2_15
-  markdown: |
-    Napiš program, který po zadání správného hesla vypíše nějakou tajnou informaci.
-
-    _Vhodné tajemství je třeba: V pátek jsem viděla černého havrana._
-
-- section:
-    markdown: |
-      Poslední projekty jsou pokročilejší. Jestli nemáš čas, radši udělej pořádně ty ostatní.
-
-- id: handout2_16
-  markdown: |
-    Projdi si v materiálech bonusovou sekci _„Nebo anebo a”_:
-
-    [naucse.python.cz/lessons/beginners/and-or/](https://naucse.python.cz/lessons/beginners/and-or/)
-
-  submit: false
-
-- id: handout2_17
+- id: handout2_13
   markdown: |
     Doplň tuhle tabulku:
 
@@ -196,15 +142,9 @@ tasks:
     Tohle je takzvaná _pravdivostní_ tabulka:
     _Obsahuje jeden řádek pro každou kombinaci booleovských hodnot, které `a` a `b` můžou mít. Když se stane, že se v složitějších `and` a `or` ztratíš, doporučuji napsat si podobnou tabulku a na každý řádek se podívat zvlášť._
 
-- id: handout2_18
+- id: handout2_14
   markdown: |
-    Zkus přepsat Kámen, Nůžky, Papír pomocí `and` a `or`.
+    Zkus napsat program, který si bude "myslet" nějaké číslo (to v kódu ulož do proměnné) a vyzve
+    uživatele, aby číslo uhodl.
 
-    Dokážeš docílit toho, aby se každý z řetězců `'Plichta.'`, `'Počítač vyhrál.'` a `'Vyhrála jsi!'` objevil
-    v programu jen jednou, aniž bys tyhle řetězce musela přiřazovat do proměnných?
-
-    Pokud ano, gratuluji!
-
-- id: handout2_19
-  markdown: |
-    Zkus program „šťastná/bohatá“ přepsat pomocí zanořených `if`ů. Která verze ti připadá čitelnější?
+    Pokud uživatel číslo uhodne, pogratuluj mu. Pokud ne, napiš, jak daleko byl od správného výsledku.
