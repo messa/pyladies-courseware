@@ -40,7 +40,7 @@ tasks:
       4. kolo: -------xx<span style='color: red'>o</span>o---------
       5. kolo: ------<span style='color: red'>x</span>xxoo---------
       </pre>
-      Hráč, která dá tři své symboly vedle sebe, vyhrál.
+      Hráč, který dá tři své symboly vedle sebe, vyhrál.
       </blockquote>
 
       Hru budete skládat postupně z malých částí.
@@ -48,7 +48,7 @@ tasks:
 
       Úkoly dělejte postupně.
 
-      Odevzdávejte prosím *celé soubory* se všemy potřebnými importy
+      Odevzdávejte prosím *celé soubory* se všemi potřebnými importy
       a pomocnými funkcemi.
 
 - id: handout4_09
@@ -221,7 +221,7 @@ tasks:
     * Funkce `tah_pocitace` patří do modulu `ai` (tj. souboru `ai.py`).
     * Funkci `tah` zařaďte podle videa o cyklických importech.
 
-    Protože samotná *hra* – vypisování a praní na otázky – je vedlejší efekt,
+    Protože samotná *hra* – vypisování a ptaní se na otázky – je vedlejší efekt,
     tak teď nepůjde spustit. Aby to šlo, vytvořte ještě „spouštěcí“ modul `hra`
     (tj. soubor `hra.py`) s následujícím obsahem:
 
@@ -238,3 +238,6 @@ tasks:
     * Příkaz `python hra.py` v příkazové řádce spustí funkční hru.
     * Příkaz `import piskvorky` v Pythonu *nespustí* hru (a nemá ani další
       vedlejší efekty).
+
+    Pokud si nejste jisti, nebo program nefunguje, neváhejte napsat na Slack
+    a nezapoměňte přiložit kód jako zip archiv se všemi soubory.

@@ -25,3 +25,5 @@ tasks_by_lesson_slug:
   - file: tasks/08_dict.yaml
   "beginners/class":
   - file: tasks/13_class.yaml
+
+
