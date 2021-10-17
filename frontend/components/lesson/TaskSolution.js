@@ -1,5 +1,5 @@
 import React from 'react'
-import { Label, Tab, Icon} from 'semantic-ui-react'
+import { Label, Tab, Icon, Accordion } from 'semantic-ui-react'
 
 export default class extends React.Component {
 
@@ -24,8 +24,46 @@ export default class extends React.Component {
     var cntr = sortedVersions.length
     const panes = sortedVersions.slice(0, 8).map(
       function (v) {
+        // console.log(v)
         name = 'Verze ' + cntr
         cntr -= 1
+        const test_results = v.test_result && ('tests' in v.test_result) ? v.test_result.tests.map((test, i) => {
+          const test_name = test.nodeid.split('::', 2)[1]
+          return {
+            key: test_name,
+            title: {
+              content: (
+                <span style={{ color: test.outcome == 'failed' ? 'red' : 'green' }} > {test_name} </span>
+              )
+            },
+            content: {
+              content: test.outcome == 'failed' ? (
+                <pre className='code'>
+                  {test.call.longrepr}
+                </pre >
+              ) : ('Vše v pořádku')
+            }
+          }
+        }) : []
+        const collector_results = v.test_result && ('collectors' in v.test_result) ? v.test_result.collectors.filter(c => c.nodeid && c.outcome == 'failed').map((collector, i) => {
+          const collector_name = collector.nodeid
+          return {
+            key: collector_name,
+            title: {
+              content: (
+                <span style={{ color: 'red' }} > {collector_name} </span>
+              )
+            },
+            content: {
+              content: (
+                <pre className='code'>
+                  {collector.longrepr}
+                </pre >
+              )
+            }
+          }
+        }) : []
+        const combined_tests_results = collector_results.concat(test_results)
         return {
           menuItem: name,
           render: () => <Tab.Pane>
@@ -35,22 +73,20 @@ export default class extends React.Component {
                 attached='bottom left'
                 as='button'
                 onClick={copyToClipboard}>
-                <Icon name='copy'/>
+                <Icon name='copy' />
                 <Label.Detail>Kopírovat</Label.Detail>
               </Label>
-              <pre>{v.code}</pre>
-              <style jsx>{`
-                .TaskSolution pre {
-                  overflow-x: auto;
-                }
-              `}</style>
+              <pre className='code'>{v.code}</pre>
+              {combined_tests_results.length > 0 && (
+                <Accordion panels={combined_tests_results} styled fluid />
+              )}
             </div>
           </Tab.Pane>
         }
       })
     return (
-      <div className='TaskSolutionTab'>
-        <Tab panes={panes}/>
+      <div className='TaskSolutionTab' >
+        <Tab panes={panes} />
         <style jsx global>{`
           .TaskSolutionTab {
             margin-bottom: 1rem;

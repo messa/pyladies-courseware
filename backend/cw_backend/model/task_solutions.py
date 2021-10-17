@@ -4,7 +4,7 @@ import logging
 from operator import itemgetter
 from pymongo import ASCENDING as ASC
 from pymongo import ReturnDocument
-
+import aiohttp
 
 logger = logging.getLogger(__name__)
 
@@ -121,7 +121,8 @@ class TaskSolution:
         self.task_id = doc['task_id']
         self.user_id = doc['user_id']
         self.is_solved = None
-        self.current_version_id = str(doc['current_version_id']) if doc.get('current_version_id') else None
+        self.current_version_id = str(doc['current_version_id']) if doc.get(
+            'current_version_id') else None
         if doc.get('marked_as_solved'):
             self.is_solved = doc['marked_as_solved']['solved']
         self.last_action = None
@@ -179,6 +180,34 @@ class TaskSolution:
         version_doc = await self._c_versions.find_one({'_id': self._doc['current_version_id']})
         return TaskSolutionVersion(version_doc)
 
+    async def test_current_version(self, test_filename, test_code, api_endpoint, api_key):
+        cv = await self.get_current_version()
+        test_result = {}
+        try:
+            async with aiohttp.ClientSession() as session:
+                async with session.post(
+                    api_endpoint,
+                    json={
+                        'code': cv.code,
+                        'code_file_name': test_filename,
+                        'test': test_code
+                    },
+                    headers={
+                        'x-api-key': api_key
+                    }
+                ) as response:
+                    test_result = await response.json()
+        except Exception as e:
+            logger.error(e, exc_info=True)
+        await self._c_versions.find_one_and_update(
+            {
+                '_id': ObjectId(cv.id),
+            }, {
+                '$set': {
+                    'test_result': test_result
+                }
+            }, return_document=ReturnDocument.AFTER)
+
     async def get_all_versions(self):
         if not self._doc['current_version_id']:
             return []
@@ -209,10 +238,12 @@ class TaskSolutionVersion:
         self.id = str(doc['_id'])
         self.date = doc['_id'].generation_time
         self.code = doc['code']
+        self.test_result = doc['test_result'] if 'test_result' in doc else {}
 
     def export(self):
         return {
             'id': self.id,
             'date': self.date.strftime('%Y-%m-%dT%H:%M:%SZ'),
             'code': self.code,
+            'test_result': self.test_result,
         }
