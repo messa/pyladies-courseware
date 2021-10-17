@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { Table, Message } from 'semantic-ui-react'
+import holdAnchor from './Helpers'
 
 export default class TaskReviewLessonSummary extends React.Component {
 
@@ -12,7 +13,7 @@ export default class TaskReviewLessonSummary extends React.Component {
   }
 
   componentDidMount() {
-    this.loadData()
+    this.loadData(true)
     if (!this.loadIntervalId) {
       this.loadIntervalId = setInterval(() => this.loadData(), 20 * 1000)
     }
@@ -25,7 +26,7 @@ export default class TaskReviewLessonSummary extends React.Component {
     }
   }
 
-  async loadData() {
+  async loadData(anchorCheck = false) {
     const { courseId, tasks } = this.props
     const taskIds = tasks.map(t => t.id)
     try {
@@ -46,6 +47,9 @@ export default class TaskReviewLessonSummary extends React.Component {
         taskSolutionsByUserAndTaskId: new Map(
           task_solutions.map(ts => ([`${ts.user_id}|${ts.task_id}`, ts]))),
       })
+      if (anchorCheck) {
+        holdAnchor()
+      }
     } catch (err) {
       this.setState({
         loading: false,
