@@ -2,8 +2,7 @@ tasks:
 
 - section:
     markdown: |
-      V těchto projektech je určitě něco nového.
-      Nezadávají postup, jak na odpověď přijít, ale to určitě zvládneš!
+      Nejprve pár dotazů na rozehřátí a připomenutí, že jsme si ukazovali cyklus for.
 
 - id: handout3_1
   markdown: |
@@ -11,12 +10,22 @@ tasks:
 
 - id: handout3_2
   markdown: |
-    Co se stane, když pro příkaz `for`
-    zavoláš funkci `range` se dvěma parametry?
+    Co se stane, když pomocí příkazu `for`
+    procházíš ("iteruješ") tím, co vrátí funkce `range` zavolaná se dvěma parametry?
 
 - id: handout3_3
   markdown: |
-    Se třemi?
+    A co se třemi?
+
+- id: handout3_3_1
+  markdown: |
+    Napiš program, který vypíše čísla 9, 8, 7, 6, 5, 4, 3, 2, 1. Použij cyklus, abys nemusel(a)
+    kopírovat kód neustále pod sebe.
+
+- id: handout3_3_2
+  markdown: |
+    Napiš program, který vypíše prvních 30 mocnin trojky (včetně "nulté" mocniny). Takže `1`, `3`,
+    `9`, `27`, …
 
 - section:
     markdown: |
@@ -40,7 +49,8 @@ tasks:
 
     <img src="/static/tasks/handout3a_images/04_domecek.png" alt="domeček" style="max-width: 100%; max-height: 60px">
 
-    _Jak pravil Pythagoras, délka šikmé čáry v domečku je √2-krát délka stěny. O funkci na odmocninu jsme mluvili na srazu._
+    _Jak pravil Pythagoras, délka šikmé čáry v domečku je √2-krát délka stěny. O funkci na odmocninu jsme mluvili na srazu
+    (anglicky je druhá odmocnina square root)._
 
 - id: handout3_6
   markdown: |
@@ -103,7 +113,8 @@ tasks:
 
 - section:
     markdown: |
-        Další projekty jsou pro opravdové grafické mistryně. Nepouštěj se do nich, dokud nemáš hotové ostatní projekty. Nedostaneš-li se k nim, nevadí
+      Další projekty jsou pro opravdové grafické mistryně a mistry. Nepouštěj se do nich, dokud
+      nemáš hotové ostatní projekty. Nedostaneš-li se k nim, nevadí.
 
 - id: handout3_15
   markdown: |
@@ -128,7 +139,7 @@ tasks:
 - id: handout3_17
   markdown: |
     Napiš program, který postupně načte od uživatele dvě čísla a jednoznakový
-    řetězec – buď `'+'`, `'-'`, `'*'` nebo `'/'`. Program provede na číslech příslušnou operaci.
+    řetězec: buď `'+'`, `'-'`, `'*'` nebo `'/'`. Program provede na číslech příslušnou operaci.
 
     Příklad použití programu:
 
