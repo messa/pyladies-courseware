@@ -6,3 +6,5 @@ tasks_by_lesson_slug:
   - file: tasks/1_install.yaml
   "beginners/hello-world":
   - file: tasks/2_first_app.yaml
+  "beginners/functions":
+  - file: tasks/3_loops.yaml
