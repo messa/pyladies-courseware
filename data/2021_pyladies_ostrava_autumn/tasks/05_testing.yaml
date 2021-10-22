@@ -4,13 +4,13 @@ tasks:
     markdown: |
         Dnešní úkoly budou asi povědomé. Vytvoříme totiž ... hru 1D piškvorky!
 
-        Dostanete ale tenntokrát *hotový* testovací soubor a s jeho použitím
-        budete postupně zkoušet znovu vytvářenou hru.
+        Dostanete ale tentokrát *hotový* testovací soubor a s jeho použitím
+        budete postupně zkoušet znovu vytvářet hru.
 
         Máte-li Piškvorky už hotové z minula, doporučuji je udělat znovu.
         Ty původní můžete mít vedle a postupně z nich kopírovat kousky kódu.
 
-        Stáhni si soubor s testy, [`test_piskvorky.py`](/static/tasks/
+        Stáhněte si soubor s testy, [`test_piskvorky.py`](/static/tasks/
         handout_files/2019-autumn/test_piskvorky.py) a dejte ho do adresáře
         kde budete tvořit Piškvorky.
 
@@ -226,12 +226,12 @@ tasks:
 
     * Vytvoří řetězec s herním polem
     * Stále dokola:
-        * zavolá volá funkci `tah_hrace`, a výsledek uloží jako nové *pole*
+        * zavolá funkci `tah_hrace`, a výsledek uloží jako nové *pole*
         * vypíše stav hry
-        * zavolá volá funkci `tah_pocitace`, a výsledek uloží jako nové *pole*
+        * zavolá funkci `tah_pocitace`, a výsledek uloží jako nové *pole*
         * vypíše stav hry
 
-    Zatím nemusíte řešite konec hry (pokud ho už nemáte z minula).
+    Zatím nemusíte řešit konec hry (pokud ho už nemáte z minula).
 
     V modulu `hra` (tj. v souboru `hra.py`) přidejte import a volání funkce
     `piskvorky1d`.
@@ -251,7 +251,7 @@ tasks:
   markdown: |
     Pošéfujte konec hry.
     Když někdo vyhraje nebo dojde k remíze, cyklus se ukončí a vypíše
-    se výsledek – třeba s gratulací nebo povzbuzující zpráva.
+    se výsledek – třeba s gratulací nebo povzbuzující zprávou.
 
     Stav hry kontrolujte po každém tahu.
 
@@ -271,7 +271,7 @@ tasks:
 
     Testy by stále měly procházet.
 
-    Odevzdej celý soubor `ai.py` s jednou strategií – tou nejlepší na jakou
+    Odevzdejte celý soubor `ai.py` s jednou strategií – tou nejlepší na jakou
     váš tým přišel.
 
 - id: pisq1d_robobattle
@@ -285,7 +285,7 @@ tasks:
     Strategie dejte do souborů podle jmen členů týmu, např
     `ai_julie.py` a `ai_stepan.py`.
     Pak vytvořte soubor `robo.py`, do kterého vložte modifikovanou
-    verzi `piskvorky1d`, která strategie posle proti sobě.
+    verzi `piskvorky1d`, která strategie pošle proti sobě.
     Můžete se inspirovat následujícím příkladem:
 
     ```python
