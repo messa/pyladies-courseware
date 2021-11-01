@@ -33,3 +33,4 @@ courses:
 - file: 2021_pydata_praha_autumn/course.yaml
 - file: 2021_pyladies_plzen_autumn/course.yaml
 - file: 2021_pyladies_olomouc_autumn/course.yaml
+- file: 2021_pyladies_praha_autumn/course.yaml
