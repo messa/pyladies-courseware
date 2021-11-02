@@ -290,8 +290,6 @@ tasks:
     Jestli hrajete počítačové hry a víte co je `WASD`,
     můžete změnit ovládání na tyto klávesy místo `SZJV`.
 
-    *22. 4. 2021 změněno zadání: přidána zmínka o WASD*
-
 - id: handout7_18
   markdown: |
     Doplňte funkci `pohyb` tak, aby zamezila:
@@ -316,8 +314,6 @@ tasks:
     a na náhodném místě (kde není had) se přidá jídlo nové.
 
     Na mapě se jídlo zobrazuje třeba jako otazník (`?`).
-
-    *22. 4. 2021 změněno zadání: seznam s jídlem může mít víc prvků.*
 
 - id: handout7_20
   markdown: |
