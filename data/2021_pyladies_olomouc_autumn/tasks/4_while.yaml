@@ -1,5 +1,3 @@
-# https://pyladies.cz/v1/s003-looping/handout/handout3b-ostrava.pdf
-
 tasks:
 
 - section:
@@ -32,10 +30,6 @@ tasks:
     - `int('8.9')`
     - `int(8.9)`
 
-- section:
-    markdown: |
-      Následující sada projektů není jednoduchá, ale uděláš-li ji, pochopíš různá použití cyklu for.
-
 - id: handout4_6
   markdown: |
     Pomocí cyklu `for` a funkce `range()` napiš program, který vypíše:
@@ -57,7 +51,7 @@ tasks:
 
 - id: handout4_8
   markdown: |
-    Jak jsi pojmenovala proměnnou, kterou jsi v minulém příkladu použila?
+    Jak jsi pojmenoval(a) proměnnou, kterou jsi v minulém příkladu použil(a)?
     Vymysli pro ni název, který nejlépe vystihuje, co proměnná obsahuje.
 
     _Je důležité proměnnou pojmenovat výstižně, jinak se v dalších projektech můžeš ztratit. Možné řešení je uvedeno na konci zadání._
@@ -164,7 +158,7 @@ tasks:
 
 - section:
     markdown: |
-      Teď několik programovacích oříšků pro dlouhé chvíle. Nemáš-li čas, přeskoč je.
+      Teď znovu několik programovacích oříšků pro dlouhé chvíle.
 
 - id: handout4_20
   markdown: |
@@ -186,13 +180,11 @@ tasks:
 
 - id: handout4_23
   markdown: |
-    Máš-li ráda matematiku* a nebojíš-li se výzvy, načti od uživatele číslo _n_ a:
+    Máš-li rád(a) matematiku a nebojíš-li se výzvy, načti od uživatele číslo _n_ a:
 
     - Vypočti faktoriál _n!_ (součin všech celých čísel od 1 do _n_).
     - Zjisti, jestli je _n_ prvočíslo.
     - Vypiš prvních _n_ členů Fibonacciho posloupnosti (1, 1, 2, 3, 5, 8, 13, 21, …).
-
-    _*_ t.j. nemáš-li ráda matematiku, nedělej tenhle projekt :)
 
 - section:
     markdown: |
