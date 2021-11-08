@@ -6,6 +6,7 @@ from operator import itemgetter
 from pymongo import ASCENDING as ASC
 from pymongo import ReturnDocument
 
+from ..courses.helpers import escape_markdown, markdown_to_html
 from ..util import smart_repr, to_oid, to_str
 
 
@@ -89,7 +90,7 @@ class TaskSolutionComment:
         data = {
             'id': self.id,
             'date': self.date.strftime('%Y-%m-%dT%H:%M:%SZ'),
-            'body': self.body,
+            'body': escape_markdown(markdown_to_html(self.body, enable_tables=False)),
             'author': {
                 'user_id': self.author_user_id,
                 'name': self.author_name,

@@ -54,13 +54,21 @@ def parse_date(s):
     raise Exception(f'Invalid date format: {s!r}')
 
 
-def markdown_to_html(src):
+def markdown_to_html(src, enable_tables=True):
     from markdown import markdown
+    extensions = [
+        'markdown.extensions.fenced_code',
+        'mdx_linkify',
+    ]
+    if enable_tables:
+        extensions.append('markdown.extensions.tables')
     return markdown(
         src,
-        extensions=[
-            'markdown.extensions.fenced_code',
-            'markdown.extensions.tables',
-            'mdx_linkify',
-        ],
+        extensions=extensions,
         output_format='html5')
+
+
+def escape_markdown(markdown_html):
+    import bleach
+    from bleach_allowlist import markdown_tags, markdown_attrs
+    return bleach.clean(markdown_html, markdown_tags, markdown_attrs)
