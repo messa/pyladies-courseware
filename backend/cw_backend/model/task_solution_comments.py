@@ -90,7 +90,7 @@ class TaskSolutionComment:
         data = {
             'id': self.id,
             'date': self.date.strftime('%Y-%m-%dT%H:%M:%SZ'),
-            'body': escape_markdown(markdown_to_html(self.body)),
+            'body': escape_markdown(markdown_to_html(self.body, enable_tables=False)),
             'author': {
                 'user_id': self.author_user_id,
                 'name': self.author_name,
