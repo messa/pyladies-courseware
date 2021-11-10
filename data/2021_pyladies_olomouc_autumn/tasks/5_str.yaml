@@ -2,41 +2,33 @@ tasks:
 
 - section:
     markdown: |
-      Procvičení řetězců. Mějte při ruce taháky!
+      Procvičení řetězců. Měj při ruce tahák!
 
 - id: handout5_00
   markdown: |
-    Napište program, který se zeptá na dva řetězce a zjistí,
+    Napiš program, který se zeptá na dva řetězce a zjistí,
     jestli je jeden obsažen ve druhém.
     Nebere přitom ohled na velikost písmen.
 
 - id: handout5_01
   markdown: |
-    Napište program, který se zeptá na příjmení uživatelky/uživatele
+    Napiš program, který se zeptá na příjmení uživatelky/uživatele
     a *zkusí* podle něj uhodnout její/jeho pohlaví.
     To pak vypíše.
 
-    (Pohlaví není podle příjmení možné určit přesně – stačí zvládnout ta
-    nejčastější česká příjmení.)
+    (Pohlaví není podle příjmení možné určit přesně – stačí zvládnout ty
+    nejčastější podoby českých příjmení.)
 
 - id: handout5_02
   markdown: |
-    Najděte na internetu text své oblíbené písně, zkopírujte si ho do řetězce
-    a zjistěte, kolikrát je v něm použito písmeno K. (Velké nebo malé.)
+    Najdi si na internetu text své oblíbené písně, zkopíruj si ho do řetězce
+    a zjisti, kolikrát je v něm použito písmeno K. (Ať už velké, nebo malé.)
 
     Text by mělo jít jednoduše vyměnit za jiný.
 
-    Jako u všech úkolů odevzdejte prosím jen jedno řešení – ideálně
-    to nejzajímavější nebo jinak "nejlepší", ale klidně jakékoli co
-    splňuje zadání.
-    (V případě že se nedohodnete můžete vložit víc řešení najednou.
-    Doporučuju se pak ale o tom, proč jste se nedohodli, poradit v diskusi.)
-
 - id: handout5_03
   markdown: |
-    Najděte na internetu text své oblíbené písně, zkopírujte si ho do řetězce
-    a zjistěte, kolik je v něm písmen.
-    Nepočítejte mezery, znaky nového řádku a znaky
+    Zjisti, kolik je v textu tvé oblíbené písně písmen. Nepočítej mezery, znaky nového řádku a znaky
     `!"#$%&\'()*+,-./:;<=>?@[\]^_{|}~`.
 
     Text písně by mělo jít jednoduše vyměnit za jiný.
@@ -49,32 +41,38 @@ tasks:
             * Zvyš **počet nalezených písmen** o 1.
     * Vypiš **počet nalezených písmen**.
 
-- section:
-    markdown: |
-      Máme tu i tradiční hru!
-
 - id: handout5_04
   markdown: |
-    Vytvořte hru Šibenice podle následujícího popisu.
+    Napiš program, který přijme od uživatele řetězec a zjistí, jestli je zadaný řetězec [palindrom](https://cs.wikipedia.org/wiki/Palindrom).
 
-    * Počítač náhodně zvolí **slovo** (zatím třeba ze tří možností).
+    Pokud ano, program vypíše "Je palindrom". Pokud není, program vypíše "Není palindrom".
+
+- section:
+    markdown: |
+      A teď nás čeká oblíbená hra!
+
+- id: handout5_05
+  markdown: |
+    Vytvoř hru Šibenice podle následujícího popisu.
+
+    * Program si zvolí nějaké slovo, které bude uživatel hádat (slovo ulož do proměnné).
         Pro jednoduchost používejte malá písmena a nepoužívejte slova,
         ve kterých se stejné písmeno opakuje dvakrát
         (třeba č<span style='color: red'>o</span>k<span style='color: red'>o</span>láda).
 
-        Zkuste třeba slova: `trávník`, `stromek`, `stavení`.
+        Zkus třeba slova: `trávník`, `stromek`, `stavení`.
 
     * Výchozí **stav** je řetězec s tolika podtržítky, kolik je
         ve vybraném slově písmen.
 
     * Výchozí počet **neúspěšných pokusů** je nula.
 
-    * Stále dokola:
+    * Prováděj stále dokola:
         * Zeptej se hráče na **písmeno**.
         * Pokud je to **písmeno** ve vybraném **slově**:
             * Zaměň ve **stavu** příslušné podtržítko za ono **písmeno**.
-              (Bude se hodit řetězcová metoda `index` a podprogram `zamen`\*
-              z videa.)
+              (Bude se hodit řetězcová metoda `index` a nahrazení písmena v řetězci, které jsme si
+               ukazovali na lekci.)
         * Pokud dané **písmeno** _není_ ve vybraném slově:
             * započítej **neúspěšný pokus**.
         * Vypiš **stav** (slovo s případnými podtržítky).
@@ -86,13 +84,23 @@ tasks:
             * Dej hráči najevo, že prohrál.
             * Ukonči hru.
 
+- section:
+    markdown: |
+      Následující úkol je určen pro "fajnšmekry". Pokud si s ním nebudeš vědět rady, zkus kontaktovat
+      kouče, případně se k němu můžeš vrátit později, až si budeš s Pythonem rozumět lépe.
+
+- id: handout5_06
+  markdown: |
+    Napiš program, který bude převádět řetězec na celé číslo **bez použití funkce `int`**. Pro
+    otestování převodu načti od uživatele řetězec, přičti k němu jedničku a výsledek vypiš.
+
     ---
 
-    \* Podprogram `zamen` jsme si ukázali na videu:
-    ```python
-    # Ve slově `slovo` zaměnit znak na pozici `pozice` za `novy_znak`;
-    # výsledek bude v proměnné `nove_slovo`.
-    zacatek = slovo[:pozice]
-    konec = slovo[pozice + 1:]
-    nove_slovo = zacatek + novy_znak + konec
-    ```
+    Níže je návod. Zkus program nejprve napsat bez něj.
+
+    1. Vytvoř si proměnnou, která bude obsahovat výsledné celé číslo.
+    2. Projdi řetězec znak po znaku.
+    3. Každý znak převeď na odpovídající číselnou hodnotu.
+        - Bude se k tomu hodit funkce `ord`, která převede znak na jeho ASCII hodnotu.
+        - ASCII tabulku si lze prohlédnout např. [zde](https://www.asciitable.com/).
+    4. Proměnnou s výsledkem vynásob desíti a přičti k ní číselnou hodnotu znaku.
