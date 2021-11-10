@@ -10,3 +10,5 @@ tasks_by_lesson_slug:
   - file: tasks/3_loops.yaml
   "beginners/while":
   - file: tasks/4_while.yaml
+  "beginners/str":
+  - file: tasks/5_str.yaml
