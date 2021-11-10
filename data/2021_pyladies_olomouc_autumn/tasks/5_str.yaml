@@ -75,9 +75,9 @@ tasks:
     Program se na otázku bude ptát neustále dokola, dokud uživatel nezadá odpověď, která bude
     reprezentovat buď ANO nebo NE.
 
-    Odpověď může být zadána v malých či velkých písmenech (či jejich kombinaci). Na začátku, konci,
-    či kdekoliv uprostřed odpovědi mohou být mezery. A lze také zadat libovolně zkrácenou variantu
-    ANO či NE, nesmí se však jednat o prázdný řetězec (aby šlo odlišit kladnou a zápornou odpověď).
+    Odpověď může být zadána v malých či velkých písmenech (či jejich kombinaci). Na začátku či konci
+    odpovědi mohou být mezery. A lze také zadat libovolně zkrácenou variantu ANO či NE, nesmí se
+    však jednat o prázdný řetězec (aby šlo odlišit kladnou a zápornou odpověď).
 
     Jakmile uživatel zadá odpověď ve správném formátu, program vypíše `1`, pokud uživatel odpověděl
     kladně, nebo `0`, pokud uživatel odpověděl záporně.
@@ -88,10 +88,13 @@ tasks:
     "an" -> správná odpověď
     "a" -> správná odpověď
     "AnO" -> správná odpověď
-    "  a N     o " -> správná odpověď
     "ne" -> správná odpověď
     "nE" -> správná odpověď
+    "   ne" -> správná odpověď
+    "ne   " -> správná odpověď
+    "   ano   " -> správná odpověď
 
+    "a  no" -> špatná odpověď
     "" -> špatná odpověď
     "e" -> špatná odpověď
     "jo" -> špatná odpověď
