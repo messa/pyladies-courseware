@@ -6,27 +6,17 @@ tasks:
 
 - id: handout5_00
   markdown: |
-    Napiš program, který se zeptá na dva řetězce a zjistí,
-    jestli je jeden obsažen ve druhém.
+    Napiš program, který se zeptá na dva řetězce a zjistí, jestli je ten první obsažen v tom druhém.
     Nebere přitom ohled na velikost písmen.
 
 - id: handout5_01
-  markdown: |
-    Napiš program, který se zeptá na příjmení uživatelky/uživatele
-    a *zkusí* podle něj uhodnout její/jeho pohlaví.
-    To pak vypíše.
-
-    (Pohlaví není podle příjmení možné určit přesně – stačí zvládnout ty
-    nejčastější podoby českých příjmení.)
-
-- id: handout5_02
   markdown: |
     Najdi si na internetu text své oblíbené písně, zkopíruj si ho do řetězce
     a zjisti, kolikrát je v něm použito písmeno K. (Ať už velké, nebo malé.)
 
     Text by mělo jít jednoduše vyměnit za jiný.
 
-- id: handout5_03
+- id: handout5_02
   markdown: |
     Zjisti, kolik je v textu tvé oblíbené písně písmen. Nepočítej mezery, znaky nového řádku a znaky
     `!"#$%&\'()*+,-./:;<=>?@[\]^_{|}~`.
@@ -41,22 +31,83 @@ tasks:
             * Zvyš **počet nalezených písmen** o 1.
     * Vypiš **počet nalezených písmen**.
 
-- id: handout5_04
+- id: handout5_03
   markdown: |
     Napiš program, který přijme od uživatele řetězec a zjistí, jestli je zadaný řetězec [palindrom](https://cs.wikipedia.org/wiki/Palindrom).
 
     Pokud ano, program vypíše "Je palindrom". Pokud není, program vypíše "Není palindrom".
 
+- id: handout5_04
+  markdown: |
+    Napiš program, který bude umět přepsat světovou stranu (např. `východ`, `západ`, `severozápad`,
+    `jihovýchod`) na jeho zkratku. Použij k tomu funkce, které zjišťují, jestli nějakým řetězcem
+    jiný řetězec začíná či končí.
+
+    Příklad:
+    ```
+    "východ" -> "V"
+    "západ" -> "Z"
+    "severovýchod" -> "SV"
+    "jihozápad" -> "JZ"
+    ```
+
+- id: handout5_05
+  markdown: |
+    Napiš program, který bude převádět řetězec zadaný uživatelem z formátu [Camel case](https://en.wikipedia.org/wiki/Camel_case)
+    na formát [Snake case](https://en.wikipedia.org/wiki/Snake_case).
+
+    Víceslovný název, kde jsou jednotlivá slova oddělená velkým písmenem, tak převede na víceslovný
+    název, kde jsou slova oddělena podtržítkem, a kde jsou všechny znaky malé.
+
+    Příklad:
+    ```
+    "JanNovak" -> "jan_novak"
+    "MojeNoveAuto" -> "moje_nove_auto"
+    "Vesnice" -> "vesnice"
+    ```
+
+    **Nápověda:** Pro rozpoznání, zdali je znak velkým písmenem, můžeš použít metodu řetězců
+    [`isupper`](https://docs.python.org/3/library/stdtypes.html#str.isupper).
+
+- id: handout5_06
+  markdown: |
+    Napiš program, který se uživatele zeptá na nějakou otázku, na kterou lze odpovědět pomocí ANO/NE.
+    Program se na otázku bude ptát neustále dokola, dokud uživatel nezadá odpověď, která bude
+    reprezentovat buď ANO nebo NE.
+
+    Odpověď může být zadána v malých či velkých písmenech (či jejich kombinaci). Na začátku, konci,
+    či kdekoliv uprostřed odpovědi mohou být mezery. A lze také zadat libovolně zkrácenou variantu
+    ANO či NE, nesmí se však jednat o prázdný řetězec (aby šlo odlišit kladnou a zápornou odpověď).
+
+    Jakmile uživatel zadá odpověď ve správném formátu, program vypíše `1`, pokud uživatel odpověděl
+    kladně, nebo `0`, pokud uživatel odpověděl záporně.
+
+    Příklad:
+    ```
+    "ano" -> správná odpověď
+    "an" -> správná odpověď
+    "a" -> správná odpověď
+    "AnO" -> správná odpověď
+    "  a N     o " -> správná odpověď
+    "ne" -> správná odpověď
+    "nE" -> správná odpověď
+
+    "" -> špatná odpověď
+    "e" -> špatná odpověď
+    "jo" -> špatná odpověď
+    "pes" -> špatná odpověď
+    ```
+
 - section:
     markdown: |
       A teď nás čeká oblíbená hra!
 
-- id: handout5_05
+- id: handout5_07
   markdown: |
     Vytvoř hru Šibenice podle následujícího popisu.
 
     * Program si zvolí nějaké slovo, které bude uživatel hádat (slovo ulož do proměnné).
-        Pro jednoduchost používejte malá písmena a nepoužívejte slova,
+        Pro jednoduchost používej malá písmena a nepoužívej slova,
         ve kterých se stejné písmeno opakuje dvakrát
         (třeba č<span style='color: red'>o</span>k<span style='color: red'>o</span>láda).
 
@@ -89,7 +140,7 @@ tasks:
       Následující úkol je určen pro "fajnšmekry". Pokud si s ním nebudeš vědět rady, zkus kontaktovat
       kouče, případně se k němu můžeš vrátit později, až si budeš s Pythonem rozumět lépe.
 
-- id: handout5_06
+- id: handout5_08
   markdown: |
     Napiš program, který bude převádět řetězec na celé číslo **bez použití funkce `int`**. Pro
     otestování převodu načti od uživatele řetězec, přičti k němu jedničku a výsledek vypiš.
