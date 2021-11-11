@@ -84,21 +84,21 @@ tasks:
 
     Příklad:
     ```
-    "ano" -> správná odpověď
-    "an" -> správná odpověď
-    "a" -> správná odpověď
-    "AnO" -> správná odpověď
-    "ne" -> správná odpověď
-    "nE" -> správná odpověď
-    "   ne" -> správná odpověď
-    "ne   " -> správná odpověď
-    "   ano   " -> správná odpověď
+    "ano" -> výstup "1"
+    "an" -> výstup "1"
+    "a" -> výstup "1"
+    "AnO" -> výstup "1"
+    "ne" -> výstup "0"
+    "nE" -> výstup "0"
+    "   ne" -> výstup "0"
+    "ne   " -> výstup "0"
+    "   ano   " -> výstup "1"
 
-    "a  no" -> špatná odpověď
-    "" -> špatná odpověď
-    "e" -> špatná odpověď
-    "jo" -> špatná odpověď
-    "pes" -> špatná odpověď
+    "a  no" -> zeptat se znovu
+    "" -> zeptat se znovu
+    "e" -> zeptat se znovu
+    "jo" -> zeptat se znovu
+    "pes" -> zeptat se znovu
     ```
 
 - section:
