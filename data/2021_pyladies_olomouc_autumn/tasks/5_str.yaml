@@ -1,0 +1,160 @@
+tasks:
+
+- section:
+    markdown: |
+      Procvičení řetězců. Měj při ruce tahák!
+
+- id: handout5_00
+  markdown: |
+    Napiš program, který se zeptá na dva řetězce a zjistí, jestli je ten první obsažen v tom druhém.
+    Nebere přitom ohled na velikost písmen.
+
+- id: handout5_01
+  markdown: |
+    Najdi si na internetu text své oblíbené písně, zkopíruj si ho do řetězce
+    a zjisti, kolikrát je v něm použito písmeno K. (Ať už velké, nebo malé.)
+
+    Text by mělo jít jednoduše vyměnit za jiný.
+
+- id: handout5_02
+  markdown: |
+    Zjisti, kolik je v textu tvé oblíbené písně písmen. Nepočítej mezery, znaky nového řádku a znaky
+    `!"#$%&\'()*+,-./:;<=>?@[\]^_{|}~`.
+
+    Text písně by mělo jít jednoduše vyměnit za jiný.
+
+    Postup:
+
+    * Na začátku nastav **počet nalezených písmen** na 0.
+    * Pro každý znak textu:
+        * Když znak není obsažen v `!` `"` `#` `$` `%` `&` …:
+            * Zvyš **počet nalezených písmen** o 1.
+    * Vypiš **počet nalezených písmen**.
+
+- id: handout5_03
+  markdown: |
+    Napiš program, který přijme od uživatele řetězec a zjistí, jestli je zadaný řetězec [palindrom](https://cs.wikipedia.org/wiki/Palindrom).
+
+    Pokud ano, program vypíše "Je palindrom". Pokud není, program vypíše "Není palindrom".
+
+- id: handout5_04
+  markdown: |
+    Napiš program, který bude umět přepsat světovou stranu (např. `východ`, `západ`, `severozápad`,
+    `jihovýchod`) na jeho zkratku. Použij k tomu funkce, které zjišťují, jestli nějakým řetězcem
+    jiný řetězec začíná či končí.
+
+    Příklad:
+    ```
+    "východ" -> "V"
+    "západ" -> "Z"
+    "severovýchod" -> "SV"
+    "jihozápad" -> "JZ"
+    ```
+
+- id: handout5_05
+  markdown: |
+    Napiš program, který bude převádět řetězec zadaný uživatelem z formátu [Camel case](https://en.wikipedia.org/wiki/Camel_case)
+    na formát [Snake case](https://en.wikipedia.org/wiki/Snake_case).
+
+    Víceslovný název, kde jsou jednotlivá slova oddělená velkým písmenem, tak převede na víceslovný
+    název, kde jsou slova oddělena podtržítkem, a kde jsou všechny znaky malé.
+
+    Příklad:
+    ```
+    "JanNovak" -> "jan_novak"
+    "MojeNoveAuto" -> "moje_nove_auto"
+    "Vesnice" -> "vesnice"
+    ```
+
+    **Nápověda:** Pro rozpoznání, zdali je znak velkým písmenem, můžeš použít metodu řetězců
+    [`isupper`](https://docs.python.org/3/library/stdtypes.html#str.isupper).
+
+- id: handout5_06
+  markdown: |
+    Napiš program, který se uživatele zeptá na nějakou otázku, na kterou lze odpovědět pomocí ANO/NE.
+    Program se na otázku bude ptát neustále dokola, dokud uživatel nezadá odpověď, která bude
+    reprezentovat buď ANO nebo NE.
+
+    Odpověď může být zadána v malých či velkých písmenech (či jejich kombinaci). Na začátku či konci
+    odpovědi mohou být mezery. A lze také zadat libovolně zkrácenou variantu ANO či NE, nesmí se
+    však jednat o prázdný řetězec (aby šlo odlišit kladnou a zápornou odpověď).
+
+    Jakmile uživatel zadá odpověď ve správném formátu, program vypíše `1`, pokud uživatel odpověděl
+    kladně, nebo `0`, pokud uživatel odpověděl záporně.
+
+    Příklad:
+    ```
+    "ano" -> výstup "1"
+    "an" -> výstup "1"
+    "a" -> výstup "1"
+    "AnO" -> výstup "1"
+    "ne" -> výstup "0"
+    "nE" -> výstup "0"
+    "   ne" -> výstup "0"
+    "ne   " -> výstup "0"
+    "   ano   " -> výstup "1"
+
+    "a  no" -> zeptat se znovu
+    "" -> zeptat se znovu
+    "e" -> zeptat se znovu
+    "jo" -> zeptat se znovu
+    "pes" -> zeptat se znovu
+    ```
+
+- section:
+    markdown: |
+      A teď nás čeká oblíbená hra!
+
+- id: handout5_07
+  markdown: |
+    Vytvoř hru Šibenice podle následujícího popisu.
+
+    * Program si zvolí nějaké slovo, které bude uživatel hádat (slovo ulož do proměnné).
+        Pro jednoduchost používej malá písmena a nepoužívej slova,
+        ve kterých se stejné písmeno opakuje dvakrát
+        (třeba č<span style='color: red'>o</span>k<span style='color: red'>o</span>láda).
+
+        Zkus třeba slova: `trávník`, `stromek`, `stavení`.
+
+    * Výchozí **stav** je řetězec s tolika podtržítky, kolik je
+        ve vybraném slově písmen.
+
+    * Výchozí počet **neúspěšných pokusů** je nula.
+
+    * Prováděj stále dokola:
+        * Zeptej se hráče na **písmeno**.
+        * Pokud je to **písmeno** ve vybraném **slově**:
+            * Zaměň ve **stavu** příslušné podtržítko za ono **písmeno**.
+              (Bude se hodit řetězcová metoda `index` a nahrazení písmena v řetězci, které jsme si
+               ukazovali na lekci.)
+        * Pokud dané **písmeno** _není_ ve vybraném slově:
+            * započítej **neúspěšný pokus**.
+        * Vypiš **stav** (slovo s případnými podtržítky).
+        * Pokud už ve **stavu** nejsou podtržítka:
+            * Pogratuluj hráči.
+            * Ukonči hru.
+        * Vypiš počet **neúspěšných pokusů**.
+        * Pokud je počet **neúspěšných pokusů** 9 (nebo víc):
+            * Dej hráči najevo, že prohrál.
+            * Ukonči hru.
+
+- section:
+    markdown: |
+      Následující úkol je určen pro "fajnšmekry". Pokud si s ním nebudeš vědět rady, zkus kontaktovat
+      kouče, případně se k němu můžeš vrátit později, až si budeš s Pythonem rozumět lépe.
+
+- id: handout5_08
+  markdown: |
+    Napiš program, který bude převádět řetězec na celé číslo **bez použití funkce `int`**. Pro
+    otestování převodu načti od uživatele řetězec, přičti k němu jedničku a výsledek vypiš.
+
+    ---
+
+    Níže je návod. Zkus program nejprve napsat bez něj.
+
+    1. Vytvoř si proměnnou, která bude obsahovat výsledné celé číslo.
+    2. Projdi řetězec znak po znaku.
+    3. Každý znak převeď na odpovídající číselnou hodnotu.
+        - Bude se k tomu hodit funkce `ord`, která převede znak na jeho ASCII hodnotu.
+        - ASCII tabulku si lze prohlédnout např. [zde](https://www.asciitable.com/).
+    4. Proměnnou s výsledkem vynásob desíti a přičti k ní číselnou hodnotu znaku.
