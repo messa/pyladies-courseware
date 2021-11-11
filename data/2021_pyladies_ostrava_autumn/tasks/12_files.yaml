@@ -40,8 +40,6 @@ tasks:
     Můžete se rozhodnout odstranit i slova začínající velkým písmenem.
     (Většinou jde o vlastní jména a zkratky).
 
-    *22. 4. 2021 upřesněno zadání: slova s lomítkem neodstraňujte*
-
 - id: wordlist-to-file
   markdown: |
 
@@ -252,5 +250,5 @@ tasks:
             * Karty na stole přidá na začátek *balíčku B*, podobně jako výše
         * Seznam *karet na stole* vyprázdní.
 
-    *Poznámka (přidána 5. 5. 2021):* Podle toho jak jsou karty zamíchané
+    *Poznámka:* Podle toho jak jsou karty zamíchané
     tahle hra nemusí skončit. Nekonečný cyklus tedy není na závadu.
