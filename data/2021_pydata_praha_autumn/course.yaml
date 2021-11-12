@@ -13,3 +13,5 @@ tasks_by_lesson_slug:
   - file: tasks/eda_4.yaml
   "pydata/pandas_groupby":
   - file: tasks/eda_5.yaml
+  "pydata/regression_exercises":
+  - file: tasks/ml_1.yaml
