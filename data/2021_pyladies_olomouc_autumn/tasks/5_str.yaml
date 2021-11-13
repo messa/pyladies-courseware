@@ -40,8 +40,8 @@ tasks:
 - id: handout5_04
   markdown: |
     Napiš program, který bude umět přepsat světovou stranu (např. `východ`, `západ`, `severozápad`,
-    `jihovýchod`) na jeho zkratku. Použij k tomu funkce, které zjišťují, jestli nějakým řetězcem
-    jiný řetězec začíná či končí.
+    `jihovýchod`) na jeho zkratku. Použij k tomu řetězcové metody a subscripting. Nezapomeň ošetřit
+    uživatelský vstup.
 
     Příklad:
     ```
