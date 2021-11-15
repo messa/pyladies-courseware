@@ -1,0 +1,232 @@
+# https://pyladies.cz/v1/s004-strings/handout/handout4-ostrava.pdf
+
+tasks:
+
+- section:
+    markdown: |
+      Trocha zamyšlení na rozehřátí.
+
+- id: handout5_1
+  markdown: |
+    Co se stane, když tělo nějaké funkce necháš prázdné?
+
+- id: handout5_2
+  markdown: |
+    Co se stane, když necháš prázdné tělo cyklu?
+
+- section:
+    markdown: |
+      Procvičení funkcí.
+
+- id: handout5_3
+  mandatory: true
+  markdown: |
+    Napiš funkci (proceduru) `vykresli_domecek`, která *vykreslí* domeček dané velikosti.
+    Velikost se zadá jako argument. Proceduru v programu několikrát zavolej s různými velikostmi:
+
+    ```python
+    vykresli_domecek(30)
+    vykresli_domecek(40)
+    vykresli_domecek(80)
+    ```
+
+    <img src="/static/tasks/handout4_images/02_domecky.png" alt="domečky" style="max-width: 100%; max-height: 80px">
+
+- id: handout5_4
+  mandatory: true
+  markdown: |
+    Napiš funkci, která *vykreslí* vesnici se zadaným počtem domů, kde každý dům bude mít zadanou
+    velikost. Jednotlivé domy budou umístěny vedle sebe.
+
+    **Při tvorbě této procedury využij funkci `vykresli_domecek` z předchozí úlohy!**
+
+    ```python
+    vykresli_vesnici(5, 30) # 5 domečků, každý má velikost 30
+    vykresli_vesnici(3, 50) # 3 domečky, každý má velikost 50
+    ```
+
+- id: handout5_5
+  mandatory: true
+  markdown: |
+    Vyber si nějakou úlohu z minulé lekce (např. vytvoření zkratky pro světovou stranu nebo převod
+    na snake_case), a udělej z ní funkci. Tato funkce obdrží řetězec pomocí argumentu, a poté
+    *vrátí* vypočtený výsledek.
+
+    Funkci v programu několikrát zavolej (s různými argumenty) a vypiš výsledky těchto volání.
+
+- id: handout5_6
+  mandatory: true
+  markdown: |
+    Připomeň si záměnu znaku v řetězci z lekce o [řetězcích](https://naucse.python.cz/2021/pyladies-olomouc-podzim/beginners/str-index-slice/)
+    a vytvoř funkci `zamen`, která dostane jako argument vstupní řetězec, pozici a nový znak, který
+    má nahradit původní znak na zadané pozici.
+
+    ```python
+    vysledek = zamen("ahoj", 2, "x")
+    # v proměnné vysledek by nyní mělo být "ahxj"
+    ```
+
+- id: handout5_7
+  mandatory: true
+  markdown: |
+    Vylepši předchozí funkci tak, že funkce místo pozice dostane znak, který má být nahrazen.
+    Všechny výskyty tohoto znaku v původním řetězci budou v navráceném řetězci nahrazeny novým znakem.
+
+    ```python
+    zamen("ahoj", "o", "x") # "ahxj"
+    zamen("cokolada", "o", "u") # "cukulada"
+    ```
+
+- section:
+    markdown: |
+      Procvičení programování.
+      Často je jednoduché něco napsat, ale dotažení do konce může být časově náročné.
+      _Nemáš-li čas, zkus se aspoň zamyslet, jak bys projekt vyřešil(a)._
+
+- id: handout5_8
+  markdown: |
+    Funguje-li ti hra `sibenice` z předchozí lekce, můžeš ji vylepšit.
+
+    - Pokud hráč nezadá přesně jeden znak (tj. nezadá nic nebo zadá více znaků),
+      vynadej mu, ale nepočítej to jako pokus.
+    - Použij funkci `zamen` pro nahrazení podtržítka (místo toho, aby byl příslušný kód přímo v
+      hlavním programu).
+    - Po vypsání počtu neúspěšných pokusů vypiš obrázek.
+      Funkci, která vrátí obrázek podle počtu pokusů, si můžeš
+      zkopírovat [odsud](https://gist.github.com/encukou/77376e445356a9843e278ba387b168f0)
+    - Když hráč nezadá písmeno (zadá např. `!`), nepovažuj to za tah.
+    - Zařiď, aby hra fungovala pro slova s více stejnými písmeny
+      (např. č<span style='color: red'>o</span>k<span style='color: red'>o</span>láda).
+    - Po skončení dej hráči možnost hru opakovat.
+
+    *Jednotlivá vylepšení dělej jednotlivě a v odpovědi napiš,
+    která jsou hotová a která rozpracovaná. Jakmile nějaké vylepšení
+    začne fungovat, program odevzdej! Je možné odevzdat několik verzí.*
+
+- section:
+    markdown: |
+      Nakonec trošku delší projekt.
+      Budeme na něm stavět dál; nedokončíš-li ho teď, budeš ho muset dodělat později.
+
+      <blockquote>
+      1-D piškvorky se hrají na řádku s dvaceti políčky.
+      Hráči střídavě přidávají kolečka (`o`) a křížky (`x`),
+      třeba:
+      <pre>
+      1. kolo: -------<span style='color: red'>x</span>------------
+      2. kolo: -------x--<span style='color: red'>o</span>---------
+      3. kolo: -------x<span style='color: red'>x</span>-o---------
+      4. kolo: -------xx<span style='color: red'>o</span>o---------
+      5. kolo: ------<span style='color: red'>x</span>xxoo---------
+      </pre>
+      Hráč, která dá tři své symboly vedle sebe, vyhrál.
+      </blockquote>
+
+
+- id: handout5_9
+  mandatory: true
+  markdown: |
+    Napiš funkci `vyhodnot`, která dostane řetězec
+    s herním polem 1-D piškvorek
+    a vrátí jednoznakový řetězec podle stavu hry:
+
+    - `"x"` – Vyhrál hráč s křížky (pole obsahuje `"xxx"`)
+    - `"o"` – Vyhrál hráč s kolečky (pole obsahuje `"ooo"`)
+    - `"!"` – Remíza (pole neobsahuje `"-"`, a nikdo nevyhrál)
+    - `"-"` – Ani jedna ze situací výše (t.j. hra ještě neskončila)
+
+- id: handout5_10
+  mandatory: true
+  markdown: |
+    Napiš funkci `tah`, která dostane řetězec s herním polem,
+    číslo políčka (0-19), a symbol (`x` nebo `o`)
+    a vrátí herní pole _(t.j. řetězec)_ s daným symbolem umístěným na danou pozici.
+
+    Hlavička funkce by tedy měla vypadat nějak takhle:
+
+    ```
+    def tah(pole, cislo_policka, symbol):
+        "Vrátí herní pole s daným symbolem umístěným na danou pozici"
+        ...
+    ```
+
+    _Můžeš využít nějakou funkci, kterou jsme napsaly už na sraze?_
+
+- id: handout5_11
+  markdown: |
+    Napiš funkci `tah_hrace`, která dostane řetězec s herním polem,
+    zeptá se hráče, na kterou pozici chce hrát, a vrátí herní pole
+    se zaznamenaným tahem hráče.
+    Funkce by měla odmítnout záporná nebo příliš velká čísla
+    a tahy na obsazená políčka.
+    Pokud uživatel zadá špatný vstup, funkce mu vynadá a zeptá se znova.
+
+- id: handout5_12
+  markdown: |
+    Napiš funkci `tah_pocitace`, která dostane řetězec s herním polem,
+    vybere pozici, na kterou hrát, a vrátí herní pole
+    se zaznamenaným tahem počítače.
+
+    Použij jednoduchou náhodnou „strategii”:
+
+    1. Vyber číslo od 0 do 19.
+    2. Pokud je dané políčko volné, hrej na něj.
+    3. Pokud ne, opakuj od bodu 1.
+
+    Hlavička funkce by tedy měla vypadat nějak takhle:
+
+    ```
+    def tah_pocitace(pole):
+        "Vrátí herní pole se zaznamenaným tahem počítače"
+        ...
+    ```
+
+- id: handout5_13
+  markdown: |
+    Napiš funkci `piskvorky1d`, která vytvoří řetězec s herním polem
+    a střídavě volá funkce `tah_hrace` a `tah_pocitace`,
+    dokud někdo nevyhraje nebo nedojde k remíze.
+
+    Nezapomeň kontrolovat stav hry po každém tahu.
+
+- id: handout5_14
+  markdown: |
+    Zvládneš pro počítač naprogramovat lepší strategii?
+    Třeba aby se snažil hrát vedle svých existujících symbolů
+    nebo aby bránil protihráčovi?
+
+    Stačí jen docela malé vylepšení!
+
+- section:
+    markdown: |
+      Poslední projekt je bonusový, slouží k procvičení [rekurze](https://naucse.python.cz/2021/pyladies-olomouc-podzim/beginners/recursion/).
+
+- id: handout5_5
+  markdown: |
+
+    Řekněte želvě, aby nakreslila tento stromeček.
+    (Instrukce můžeš řádek po řádku přeložit do Pythonu.)
+
+    <img src="/static/tasks/handout_images/recursive-tree.png" alt="Rekurzivní želví stromek" style="max-width: 100%; max-height: 200px">
+
+    * Stromeček dané **délky** a **úhlu** se kreslí takto:
+        * *(Malý stromeček je jen jedna větvička.)* Je-li **délka** menší než 20:
+            * Pohni se dopředu o danou **délku**.
+            * Otoč se zpátky, o 180°
+            * Pohni se dopředu o **délku** *(aby želva byla na stejném místě jako na začátku)*
+            * Otoč se zpátky, o 180° *(aby se želva dívala stejným směrem jako na začátku)*
+        * Jinak *(je stromeček rozvětvený)*:
+            * Pohni se dopředu o polovinu **délky** *(nakreslíš tak kmen)*
+            * Otoč se doprava o **úhel**
+            * Nakresli stromeček s poloviční **délkou** (`delka/2`) a dvoutřetinovým **úhlem** (`uhel*2/3`)
+            * Otoč se doleva o **úhel**
+            * Nakresli stromeček s poloviční **délkou** a dvoutřetinovým **úhlem**
+            * Otoč se doleva o **úhel**
+            * Nakresli stromeček s poloviční **délkou** a dvoutřetinovým **úhlem**
+            * Otoč se doprava o **úhel**
+            * Otoč se zpátky, o 180°
+            * Pohni se dopředu o polovinu **délky** *(aby želva byla na stejném místě jako na začátku)*
+            * Otoč se zpátky, o 180° *(aby se želva dívala stejným směrem jako na začátku)*
+
+    * Otoč želvu o 90° doleva *(aby se dívala nahoru)*
+    * Nakresli stromeček o **délce** 200 a **úhlu** 60.
