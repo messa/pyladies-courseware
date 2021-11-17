@@ -105,8 +105,9 @@ tasks:
 
 - id: bonus-wish
   markdown: |
-    Máte nějaké přání ohledně bonusového tématu?
-    Nic neslibuju, ale mohl bych něco natočit třeba o těchto:
+    Měly/i byste zájem o bonusovou lekci, víkendový workshop
+    nebo nějaké speciální téma na Pyvo?
+    Tady je pár nápadů, ale pokud máte něco vlastního, neváhejte napsat:
 
     * Git – Spolupráce a správa verzí kódu
     * Pyglet – Uživatelské rozhraní pro hry (jako Šachy z těchto úkolů)
