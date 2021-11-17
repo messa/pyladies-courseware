@@ -55,7 +55,7 @@ function HomeworkTask({ taskItem, userCanSubmitTask, courseId, sessionSlug, revi
         }
         .homework-task .mandatory-sign {
           position: absolute;
-          right: 0;
+          right: -40px;
           margin-top: 4px;
           font-weight: 600;
           font-size: 36px;
