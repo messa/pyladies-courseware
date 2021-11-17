@@ -102,8 +102,6 @@ tasks:
         * přečti ho a nastav podle něj stav hry.
       * Jinak hru začni normálně.
 
-    *Oprava 28. 4. 2020: Mazání souboru je až v další úloze.*
-
 - id: game-unlink-state
   markdown: |
     Když hra (nebo, u Šibenice, hádání jednoho slova) skončí,
