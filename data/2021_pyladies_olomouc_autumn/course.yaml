@@ -14,3 +14,5 @@ tasks_by_lesson_slug:
   - file: tasks/5_str.yaml
   "beginners/def":
   - file: tasks/6_functions.yaml
+  "beginners/files":
+  - file: tasks/7_files.yaml
