@@ -21,7 +21,7 @@ export default class extends React.Component {
   static async getInitialProps({ req, query }) {
     const courseId = query.course
     const data = await fetchPageData(req, {
-      course: { 'course_detail': { 'course_id': courseId } },
+      course: { 'course_detail': { 'course_id': courseId, 'check-new-events': true } },
     })
     return { courseId, ...data }
   }
@@ -135,6 +135,7 @@ export default class extends React.Component {
 
               <h2 className='session-title'>
                 <span dangerouslySetInnerHTML={{__html: session['title_html']}} />
+                {session['has-new-events'] && <b title='V této lekci jsou neopravené úkoly'>*</b>}
               </h2>
               <div className='sessionDate'>{formatDate(session['date'])}</div>
 

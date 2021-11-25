@@ -84,7 +84,17 @@ async def course_detail(req, params):
         user = await model.users.get_by_id(session['user']['id'])
         if datetime.utcnow().strftime('%Y-%m-%d') <= '2018-10-30':
             await user.add_attended_courses([course.id], author_user_id=None)
-    return course.export(sessions=True)
+
+    if params.get('check-new-events'):
+        course_data = course.export(sessions=True, tasks=True)
+        for session in course_data['sessions']:
+            task_ids = [task['id'] for task in session['task_items'] if 'id' in task]
+            solutions = await model.task_solutions.find_by_course_and_task_ids(course_id=course.id,
+                                                                               task_ids=task_ids)
+            session['has-new-events'] = any(s.last_action == 'student' for s in solutions)
+        return course_data
+    else:
+        return course.export(sessions=True)
 
 
 @resolver
