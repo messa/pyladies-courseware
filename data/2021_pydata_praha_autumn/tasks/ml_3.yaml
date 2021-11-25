@@ -1,0 +1,24 @@
+tasks:
+
+- id: ml3_01
+  markdown: |
+    V 1. úkolu se budeš snažit vylepšit model na klasifikaci vín.
+    Celé zadání najdeš v tomto [DeepNote notebooku](https://deepnote.com/project/Uloha-ML-1-Podzim-2021-eUK5ckvgTn24WyYqeho-vg/%2F%C3%9Akol_1_klasifikace_vina.ipynb).
+    
+    Notebook si klasicky zduplikuj a sem poté zkopíruj odkaz (nezapomeň změnit práva na "Edit" a přejmenovat soubor).
+
+- id: ml3_02
+  markdown: |
+    V 2. úkolu budeš vytvářet model, který bude dle charakteristiky příšery predikovat její magickou sílu.
+    Celé zadání najdeš v tomto [DeepNote notebooku](https://deepnote.com/project/Uloha-ML-2-Podzim-2021-I-12nHutSMukxKJdYWsM1A/%2Fukol_2_magicke_prisery.ipynb).
+    
+    Notebook si klasicky zduplikuj a sem poté zkopíruj odkaz (nezapomeň změnit práva na "Edit" a přejmenovat soubor).
+
+- id: ml3_03
+  markdown: |
+    Ve 3. úkolu budeš klasifikovat bankovky na pravé a falešné s cílem minimalizovat počet falešně negativních bankovek.
+
+    Celé zadání najdeš v tomto [DeepNote notebooku](https://deepnote.com/project/Uloha-ML-3-Podzim-2021-o9_CnUdTSIKvvKGWfvsQTA/%2Fukol_3_padelane_bankovky.ipynb).
+    
+    Notebook si klasicky zduplikuj a sem poté zkopíruj odkaz (nezapomeň změnit práva na "Edit" a přejmenovat soubor).
+
