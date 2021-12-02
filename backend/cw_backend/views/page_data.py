@@ -84,6 +84,18 @@ async def course_detail(req, params):
         user = await model.users.get_by_id(session['user']['id'])
         if datetime.utcnow().strftime('%Y-%m-%d') <= '2018-10-30':
             await user.add_attended_courses([course.id], author_user_id=None)
+
+        if params.get('check-unreviewed') and user.can_review_course(course.id):
+            course_data = course.export(sessions=True, tasks=True)
+            for session in course_data['sessions']:
+                task_ids = [task['id'] for task in session['task_items'] if 'id' in task]
+                solutions = await model.task_solutions.find_by_course_and_task_ids(
+                    course_id=course.id,
+                    task_ids=task_ids
+                )
+                session['unreviewed-count'] = sum(
+                    1 if s.last_action == 'student' else 0 for s in solutions)
+            return course_data
     return course.export(sessions=True)
 
 

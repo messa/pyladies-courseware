@@ -11,6 +11,18 @@ function arrayContains(array, item) {
   return array && array.indexOf(item) !== -1
 }
 
+function UnreviewedSolutionsHint(props) {
+  if (!props.session.hasOwnProperty('unreviewed-count')) return null;
+
+  const count = props.session['unreviewed-count'];
+  if (count > 0) {
+    return (
+        <b title={`V této lekci jsou neopravené úkoly (${count})`} className='notification'>&nbsp;(*{count})</b>
+    );
+  }
+  return null;
+}
+
 export default class extends React.Component {
 
   state = {
@@ -21,7 +33,7 @@ export default class extends React.Component {
   static async getInitialProps({ req, query }) {
     const courseId = query.course
     const data = await fetchPageData(req, {
-      course: { 'course_detail': { 'course_id': courseId } },
+      course: { 'course_detail': { 'course_id': courseId, 'check-unreviewed': true } },
     })
     return { courseId, ...data }
   }
@@ -135,6 +147,7 @@ export default class extends React.Component {
 
               <h2 className='session-title'>
                 <span dangerouslySetInnerHTML={{__html: session['title_html']}} />
+                <UnreviewedSolutionsHint session={session} />
               </h2>
               <div className='sessionDate'>{formatDate(session['date'])}</div>
 
