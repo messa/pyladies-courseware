@@ -14,21 +14,24 @@ tasks:
 
 - id: handout7_2
   markdown: |
-    Napiš funkci, která vrací jména domácích zvířat (zadaných argumentem), která jsou kratší než 5 písmen.
+    Napiš funkci, která jako parametr přijme seznam s jmény domácích zvířat, a vrátí seznam
+    jmen, které jsou kratší než než 5 písmen.
 
 - id: handout7_3
   markdown: |
-    Napiš funkci, která vrací jména domácích zvířat (zadaných argumentem), která začínají na `k`.
+    Napiš funkci, která jako parametr přijme seznam s jmény domácích zvířat, a vrátí seznam
+    jmen, které začínají na `k`.
 
 - id: handout7_4
   markdown: |
-    Napiš funkci, která dostane slovo a zjistí, jestli je v seznamu domácích zvířat.
+    Napiš funkci, která jako parametr přijme slovo a seznam s jmény domácích zvířat a zjistí,
+    jestli se dané slovo v seznamu nachází.
 
     _„Zjistí“ znamená, že funkce vrátí `True` nebo `False`._
 
 - id: handout7_5
   markdown: |
-    Napiš funkci, která dostane dva seznamy jmen zvířat a vrátí tři seznamy:
+    Napiš funkci, která přijme dva seznamy jmen zvířat a vrátí tři seznamy:
 
     - zvířata, která jsou v obou seznamech (sjednocení množin: první ∪ druhá),
     - zvířata, která jsou jen v prvním seznamu (rozdíl množin: první - druhá),
@@ -36,7 +39,7 @@ tasks:
 
 - id: handout7_6
   markdown: |
-    Napiš program, který seřadí seznam domácích zvířat podle abecedy.
+    Napiš funkci, která přijme seznam domácích zvířat a vrátí seznam jmen seřazený podle abecedy.
 
 - id: handout7_7
   markdown: |
@@ -93,7 +96,7 @@ tasks:
 
 - id: handout7_11
   markdown: |
-    Napiš program, který obrátí pořadí slov v jednotlivých verších
+    Napiš program, který obrátí pořadí slov v jednotlivých verších.
 
 - id: handout7_12
   markdown: |
