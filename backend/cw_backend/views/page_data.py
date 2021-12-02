@@ -7,7 +7,7 @@ from pathlib import Path
 import simplejson as json
 
 from .auth import get_login_methods
-
+from ..model.task_solutions import TaskSolution
 
 logger = logging.getLogger(__name__)
 
@@ -75,6 +75,10 @@ async def user(req, params):
     return user.export(details=True)
 
 
+def has_new_event(solution: TaskSolution) -> bool:
+    return solution.last_action == 'student' and not solution.is_solved
+
+
 @resolver
 async def course_detail(req, params):
     session = await get_session(req)
@@ -93,8 +97,7 @@ async def course_detail(req, params):
                     course_id=course.id,
                     task_ids=task_ids
                 )
-                session['unreviewed-count'] = sum(
-                    1 if s.last_action == 'student' else 0 for s in solutions)
+                session['unreviewed-count'] = sum(1 if has_new_event(s) else 0 for s in solutions)
             return course_data
     return course.export(sessions=True)
 
