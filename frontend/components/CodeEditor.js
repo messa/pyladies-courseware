@@ -40,7 +40,6 @@ export default class extends React.Component {
   render() {
     const options = {
       mode: 'python',
-      theme: 'solarized',
       lineNumbers: true,
     }
     return (

@@ -1,12 +1,40 @@
 import React from 'react'
 import { Label, Tab, Icon} from 'semantic-ui-react'
+import {Controlled as CodeMirror} from 'react-codemirror2'
+
+function SourceCode(props) {
+  const code = props.code;
+  const options = {
+    mode: 'python',
+    lineNumbers: true,
+    readOnly: 'nocursor',
+    scrollbarStyle: null,
+  };
+
+  return (
+      <>
+        <CodeMirror
+            value={code}
+            options={options}
+        />
+        <style jsx global>{`
+          .CodeMirror {
+            height: auto;
+          }
+          .CodeMirror-scroll {
+            overflow: hidden !important;
+          }
+        `}</style>
+      </>
+    );
+}
 
 export default class extends React.Component {
 
-  copyToClipboard = (e) => {
+  copyToClipboard = (code) => {
     var dummy = document.createElement('textarea')
     document.body.appendChild(dummy)
-    dummy.value = e.currentTarget.nextSibling.innerText
+    dummy.value = code
     dummy.select()
     document.execCommand('copy')
     document.body.removeChild(dummy)
@@ -20,30 +48,24 @@ export default class extends React.Component {
     const allVersions = taskSolution.all_versions
     if (!allVersions) return null
     const sortedVersions = allVersions.slice().sort(function (a, b) { return b.date.localeCompare(a.date) })
-    const copyToClipboard = this.copyToClipboard
     var cntr = sortedVersions.length
     const panes = sortedVersions.slice(0, 8).map(
-      function (v) {
-        name = 'Verze ' + cntr
+      (v) => {
+        const name = 'Verze ' + cntr
         cntr -= 1
         return {
           menuItem: name,
-          render: () => <Tab.Pane>
+          render: () => <Tab.Pane style={{padding: 0}}>
             <div className='TaskSolution'>
               <Label attached='bottom right'>{v.date}</Label>
               <Label
                 attached='bottom left'
                 as='button'
-                onClick={copyToClipboard}>
+                onClick={() => this.copyToClipboard(v.code)}>
                 <Icon name='copy'/>
                 <Label.Detail>Kopírovat</Label.Detail>
               </Label>
-              <pre>{v.code}</pre>
-              <style jsx>{`
-                .TaskSolution pre {
-                  overflow-x: auto;
-                }
-              `}</style>
+              <SourceCode code={v.code} />
             </div>
           </Tab.Pane>
         }
