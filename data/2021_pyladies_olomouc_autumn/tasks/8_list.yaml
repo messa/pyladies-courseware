@@ -7,29 +7,29 @@ tasks:
       nebudeš-li vědět jak dál, zeptej se na internetu nebo na sraze ostatních
       a řešte společně!
 
-- id: handout7_1
+- id: handout8_1
   markdown: |
     Udělej si seznam domácích zvířat. Budeš ho potřebovat v dalších úlohách.
     Domácí zvířata známe tato: `"pes", "kočka", "králík", "had"`.
 
-- id: handout7_2
+- id: handout8_2
   markdown: |
     Napiš funkci, která jako parametr přijme seznam s jmény domácích zvířat, a vrátí seznam
     jmen, které jsou kratší než než 5 písmen.
 
-- id: handout7_3
+- id: handout8_3
   markdown: |
     Napiš funkci, která jako parametr přijme seznam s jmény domácích zvířat, a vrátí seznam
     jmen, které začínají na `k`.
 
-- id: handout7_4
+- id: handout8_4
   markdown: |
     Napiš funkci, která jako parametr přijme slovo a seznam s jmény domácích zvířat a zjistí,
     jestli se dané slovo v seznamu nachází.
 
     _„Zjistí“ znamená, že funkce vrátí `True` nebo `False`._
 
-- id: handout7_5
+- id: handout8_5
   markdown: |
     Napiš funkci, která přijme dva seznamy jmen zvířat a vrátí tři seznamy:
 
@@ -37,11 +37,11 @@ tasks:
     - zvířata, která jsou jen v prvním seznamu (rozdíl množin: první - druhá),
     - zvířata, která jsou jen ve druhém seznamu (rozdíl množin: druhá - první).
 
-- id: handout7_6
+- id: handout8_6
   markdown: |
     Napiš funkci, která přijme seznam domácích zvířat a vrátí seznam jmen seřazený podle abecedy.
 
-- id: handout7_7
+- id: handout8_7
   markdown: |
     Had byl pyšný na to, že je v abecedě první.
     Dokud nepřiletěla `"andulka"`.
@@ -74,7 +74,7 @@ tasks:
       tvé logické myšlení. Je nepovinná, nemáš-li na ni aspoň pár hodin,
       tak ji přeskoč.
 
-- id: handout7_8
+- id: handout8_8
   markdown: |
     Napiš funkci, která převede římské číslice na číslo (`int`).
 
@@ -83,26 +83,26 @@ tasks:
       Dadaistický koutek: procvičení práce se seznamy, řetězci a soubory.
       Opět: nebudeš-li vědět jak dál, zeptej se!
 
-- id: handout7_9
+- id: handout8_9
   markdown: |
     Vyber si básničku, která má aspoň tři sloky po aspoň třech verších.
     Ulož ji do souboru _basnicka.txt_.
 
-- id: handout7_10
+- id: handout8_10
   markdown: |
     Napiš program, který vypíše básničku ze souboru _basnicka.txt_, ale obrátí
     pořadí veršů (t.j. jako první vypíše poslední řádek atd.). Nápověda: Každý
     seznam má metodu `reverse`, která ho „obrátí”.
 
-- id: handout7_11
+- id: handout8_11
   markdown: |
     Napiš program, který obrátí pořadí slov v jednotlivých verších.
 
-- id: handout7_12
+- id: handout8_12
   markdown: |
     Obrať pořadí slok (ty by měly být oddělené jedním prázdným řádkem).
 
-- id: handout7_13
+- id: handout8_13
   markdown: |
     Vypiš slova básně v náhodném pořadí.
     
@@ -116,7 +116,7 @@ tasks:
       Tahle sekce není jednoduchá (a poslední dva projekty jsou obzvláště náročné).
       Můžeš zkusit spojit síly s ostatními účastnicemi kurzu!}
 
-- id: handout7_14
+- id: handout8_14
   markdown: |
     Napiš funkci, která dostane seznam souřadnic (párů čísel menších než 10,
     která určují sloupec a řádek)
@@ -143,7 +143,7 @@ tasks:
     - Na příslušných místech nahraď tečky X-ky.
     - Tabulku vypiš pomocí dvou cyklů `for` zanořených do sebe.
 
-- id: handout7_15
+- id: handout8_15
   markdown: |
     Napiš funkci `pohyb`, která dostane seznam souřadnic a světovou stranu
     (`"s"`, `"j"`, `"v"` nebo `"z"`)
@@ -161,7 +161,7 @@ tasks:
 
     Funkce by neměla nic vracet. Jen mění už existující seznam.
 
-- id: handout7_16
+- id: handout8_16
   markdown: |
     Napiš cyklus, který se bude ptát uživatele na světovou stranu,
     podle ní zavolá `pohyb`, a následně vykreslí seznam jako mapu.
@@ -169,12 +169,12 @@ tasks:
 
     Začínej se seznamem `[(0, 0), (1, 0), (2, 0)]`.
 
-- id: handout7_17
+- id: handout8_17
   markdown: |
     Doplň funkci `pohyb` tak, aby při pohybu umazala první bod ze seznamu
     souřadnic. Výsledný seznam tak bude mít stejnou délku, jako před voláním.
 
-- id: handout7_18
+- id: handout8_18
   markdown: |
     Doplň funkci `pohyb` tak, aby zamezila:
 
@@ -183,7 +183,7 @@ tasks:
 
     Vhodná výjimka pro tyto situace je `ValueError('Game over')`.
 
-- id: handout7_19
+- id: handout8_19
   markdown: |
     Přidej do hry hadí potravu. Tady jsou pravidla pro vegetariánského hada,
     ale můžeš si je změnit podle chuti:
@@ -198,7 +198,7 @@ tasks:
 
     Na mapě se toto tajemné ovoce zobrazuje jako otazník (`?`).
 
-- id: handout7_20
+- id: handout8_20
   markdown: |
     Hadí hřiště může mít libovolné rozměry větší než 4×1.
     Třeba 20×20 nebo 10×30.
@@ -207,7 +207,7 @@ tasks:
     markdown: |
       A nakonec projekt na přemýšlení.
 
-- id: handout7_21
+- id: handout8_21
   markdown: |
     Může seznam obsahovat sám sebe? Zkus co nejjednodušeji udělat takový seznam, aby platilo:
 
