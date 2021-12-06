@@ -1,0 +1,27 @@
+id: autonumber
+title: Začátečnický kurz PyLadies
+subtitle: Praha (NTK) - jaro 2018
+autonumber_sessions: True
+description:
+  markdown: |
+    Národní technická knihovna, Technická 2710/6, Praha 6, 18:00–20:00
+
+    Tady najdeš všechny materiály k brněnské verzi začátečnického kurzu PyLadies.
+
+sessions:
+
+- title: Instalace
+  date: 7. 3. 2018
+  slug: 1-instalace
+  materials:
+  - attachment: Úvodní prezentace
+    url: http://pyladies.cz/v1/s001-install/uvod-praha.html
+  - lesson: Úvod do příkazové řádky
+    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/cmdline/
+
+- title: První program
+  date: 14. 3. 2018
+  slug: 2-prvni-program
+  materials:
+  - lesson: První program
+    url: https://naucse.python.cz/2018/pyladies-praha-jaro-ntk/beginners/hello-world/

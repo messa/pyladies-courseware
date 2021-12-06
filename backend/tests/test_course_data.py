@@ -27,3 +27,14 @@ def test_all_courses_can_be_loaded_and_exported(top_dir):
     # check that course.export() works
     for course in courses:
         assert course.export()
+
+
+def test_sessions_are_autonumbered(data_dir):
+    course = load_course(data_dir / 'autonumber/autonumber.yaml')
+    assert course.sessions[0].title_html == "Lekce 1 - Instalace"
+    assert course.sessions[1].title_html == "Lekce 2 - První program"
+
+
+def test_autonumbering_respects_serial_attribute(data_dir):
+    course = load_course(data_dir / 'autonumber/autonumber-naucse.yaml')
+    assert course.sessions[0].title_html == "Lekce 1 - Instalace"
