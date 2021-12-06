@@ -16,9 +16,10 @@ function SourceCode(props) {
         <CodeMirror
             value={code}
             options={options}
+            className="task-solution-code"
         />
         <style jsx global>{`
-          .CodeMirror {
+          .task-solution-code > .CodeMirror {
             height: auto;
           }
           .CodeMirror-scroll {
