@@ -13,6 +13,15 @@ function selectDefaultVersions(versions) {
   return [1, 0]
 }
 
+function pad(value) {
+  return value.toString().padStart(2, '0')
+}
+
+function formatDate(dt) {
+  dt = new Date(dt)
+  return `${pad(dt.getDate())}. ${pad(dt.getMonth())}. ${pad(dt.getFullYear())} ${pad(dt.getHours())}:${pad(dt.getMinutes())}:${pad(dt.getSeconds())}`
+}
+
 function VersionColumn(props) {
   const versions = props.versions
   const selectedIndex = props.selectedIndex
@@ -28,13 +37,15 @@ function VersionColumn(props) {
                    checked={index === selectedIndex}
                    onChange={() => onChange(index)}
             />
-            <div className='label'>Verze #{versions.length - index} ({version.date})</div>
+            <div className='label'>
+              Verze #{versions.length - index} ({formatDate(version.date)})
+            </div>
           </div>
         )}
       </div>
       <style jsx>{`
-      .wrapper {
-        margin-right: 10px;
+      .wrapper:first-child {
+        margin-right: 205px;
       }
       .row {
         display: flex;
