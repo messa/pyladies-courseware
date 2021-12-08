@@ -13,13 +13,8 @@ function selectDefaultVersions(versions) {
   return [1, 0]
 }
 
-function pad(value) {
-  return value.toString().padStart(2, '0')
-}
-
 function formatDate(dt) {
-  dt = new Date(dt)
-  return `${pad(dt.getDate())}. ${pad(dt.getMonth())}. ${pad(dt.getFullYear())} ${pad(dt.getHours())}:${pad(dt.getMinutes())}:${pad(dt.getSeconds())}`
+  return new Date(dt).toLocaleString()
 }
 
 function VersionColumn(props) {
