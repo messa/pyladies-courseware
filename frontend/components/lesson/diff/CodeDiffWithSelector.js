@@ -1,16 +1,21 @@
 import React, {PureComponent} from 'react'
 import CodeDiffView from './CodeDiffView'
+import ReactDiffViewer from 'react-diff-viewer';
 
+
+/**
+ * Sorts versions from newest to oldest.
+ */
 function sortVersions(versions) {
   return versions.slice().sort((a, b) => b.date.localeCompare(a.date))
 }
 
 function selectDefaultVersions(versions) {
   if (versions.length === 1) {
-    return [0, 0]
+    return [versions[0].id, versions[0].id]
   }
 
-  return [1, 0]
+  return [versions[1].id, versions[0].id]
 }
 
 function formatDate(dt) {
@@ -19,8 +24,8 @@ function formatDate(dt) {
 
 function VersionColumn(props) {
   const versions = props.versions
-  const selectedIndex = props.selectedIndex
-  const disabledIndex = props.disabledIndex
+  const selectedId = props.selectedId
+  const disabledId = props.disabledIndex
   const onChange = props.onChange
 
   return (
@@ -28,9 +33,9 @@ function VersionColumn(props) {
       <div className='wrapper'>
         {versions.map((version, index) => <div key={version.id} className='row'>
             <input type='checkbox'
-                   disabled={index === disabledIndex ? 'disabled' : null}
-                   checked={index === selectedIndex}
-                   onChange={() => onChange(index)}
+                   disabled={version.id === disabledId ? 'disabled' : null}
+                   checked={version.id === selectedId}
+                   onChange={() => onChange(version.id)}
             />
             <div className='label'>
               Verze #{versions.length - index} ({formatDate(version.date)})
@@ -59,10 +64,10 @@ function VersionSelector(props) {
   return (
     <>
       <div className='wrapper'>
-        <VersionColumn className='column' versions={versions} selectedIndex={left}
+        <VersionColumn className='column' versions={versions} selectedId={left}
                        disabledIndex={right}
                        onChange={onChangeLeft}/>
-        <VersionColumn className='column' versions={versions} selectedIndex={right}
+        <VersionColumn className='column' versions={versions} selectedId={right}
                        disabledIndex={left}
                        onChange={onChangeRight}/>
       </div>
@@ -76,25 +81,41 @@ function VersionSelector(props) {
   )
 }
 
+function findVersionById(versions, id) {
+  return versions.find((version) => version.id === id) ?? null
+}
+
 class CodeDiffWithSelector extends PureComponent {
   constructor(props) {
     super(props)
 
-    const [left, right] = selectDefaultVersions(props.versions)
+    const versions = sortVersions(props.versions)
+    const [left, right] = selectDefaultVersions(versions)
     this.state = {
       left,
       right,
-      versions: sortVersions(props.versions)
+      versions
     }
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (prevProps.versions !== this.props.versions) {
-      const [left, right] = selectDefaultVersions(this.props.versions)
+      const versions = sortVersions(this.props.versions)
+
+      let left = this.state.left
+      if (findVersionById(versions, left) === null) {
+        left = versions[0].id
+      }
+
+      let right = this.state.right
+      if (findVersionById(versions, right) === null) {
+        right = versions[0].id
+      }
+
       this.setState({
         left,
         right,
-        versions: sortVersions(this.props.versions)
+        versions
       })
     }
   }
@@ -112,13 +133,21 @@ class CodeDiffWithSelector extends PureComponent {
   }
 
   render() {
-    const left = this.state.versions[this.state.left].code
-    const right = this.state.versions[this.state.right].code
+    const left = findVersionById(this.state.versions, this.state.left)?.code ?? ""
+    const right = findVersionById(this.state.versions, this.state.right)?.code ?? ""
 
     return (
       <>
         <div>
-          <CodeDiffView left={left} right={right}/>
+          {/*<CodeDiffView left={left} right={right}/>*/}
+          <div className="diff-wrapper">
+            <ReactDiffViewer
+              oldValue={left}
+              newValue={right}
+              splitView={false}
+              showDiffOnly={false}
+            />
+          </div>
           <VersionSelector
             versions={this.state.versions}
             left={this.state.left}
@@ -127,6 +156,12 @@ class CodeDiffWithSelector extends PureComponent {
             onChangeRight={this.changeRight}
           />
         </div>
+        <style jsx>{`
+          .diff-wrapper {
+            font-size: 12px;
+            line-height: 16px !important;
+          }
+        `}</style>
       </>
     )
   }
