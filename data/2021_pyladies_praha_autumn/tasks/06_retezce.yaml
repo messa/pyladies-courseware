@@ -31,6 +31,26 @@ tasks:
 
 - section:
     markdown: |
+      Teď několik opakovacích úkolů, ať si před opakovací lekcí ověříte, co už umíte
+
+- id: handout06_refresher_01
+  markdown: |
+    Napiš funkci, která načte číslo a zjistí, jestli je sudé
+
+- id: handout06_refresher_02
+  markdown: |
+    Napiš funkci, která se zeptá na 3 čísla a zjistí, jestli je jejich součet větší než 10
+
+- id: handout06_refresher_03
+  markdown: |
+    Napiš funkci, která vypíše čísla od jedné do 100, ale:
+
+    - Pokud je číslo dělitelné třemi, napíše místo něj `"bum"`.
+    - Pokud je číslo dělitelné pěti, napíše místo něj `"bác"`.
+    - Pokud je číslo dělitelné pěti i třemi zároveň, napíše místo toho `"bum-bác"`.
+
+- section:
+    markdown: |
       Nakonec trošku delší projekt, budeme ho dokončovat v úkolech k další lekci.
       Jedná se o hru piškvorky, následuje popis hry, ke které se postupně
       dopracuješ:
