@@ -12,6 +12,9 @@ export default ({ children, user, activeItem, width }) => (
       <link rel="stylesheet" href="/static/main2.css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.40.0/codemirror.min.css"
         integrity="sha256-I8NyGs4wjbMuBSUE40o55W6k6P7tu/7G28/JGUUYCIs=" crossOrigin="anonymous" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css" />
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js" />
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-python.min.js" />
     </Head>
 
     <Header user={user} activeItem={activeItem} />

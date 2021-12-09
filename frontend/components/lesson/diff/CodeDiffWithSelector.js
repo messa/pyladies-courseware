@@ -132,6 +132,16 @@ class CodeDiffWithSelector extends PureComponent {
     })
   }
 
+  highlightSyntax = (str)  => (
+    <code
+      className='language-python'
+      style={{display: 'inline'}}
+      dangerouslySetInnerHTML={{
+        __html: Prism.highlight(str, Prism.languages.python),
+      }}
+    />
+  )
+
   render() {
     const left = findVersionById(this.state.versions, this.state.left)?.code ?? ""
     const right = findVersionById(this.state.versions, this.state.right)?.code ?? ""
@@ -146,6 +156,7 @@ class CodeDiffWithSelector extends PureComponent {
               newValue={right}
               splitView={false}
               showDiffOnly={false}
+              renderContent={this.highlightSyntax}
             />
           </div>
           <VersionSelector
