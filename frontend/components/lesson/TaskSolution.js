@@ -7,7 +7,7 @@ function SourceCode(props) {
   const options = {
     mode: 'python',
     lineNumbers: true,
-    readOnly: 'nocursor',
+    readOnly: true,
     scrollbarStyle: null,
   };
 
