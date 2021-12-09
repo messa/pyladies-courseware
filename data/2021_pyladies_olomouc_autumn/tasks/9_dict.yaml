@@ -7,42 +7,46 @@ tasks:
       Těchto pár úkolů slouží k procvičení práce se slovníky, které se následně
       pokusíš využít při programování známé skautské hry.
 
-- id: handout8_1
+- id: handout9_1
   markdown: |
     Napiš funkci, která pro argumentem zadané číslo `n` vytvoří a vrátí slovník,
     kde jako klíče budou čísla od jedné do `n` a jako hodnoty k nim
     jejich druhé mocniny. Například:
 
-    ```pycon
+    ```python
     >>> mocniny(4)
     {1: 1, 2: 4, 3: 9, 4: 16}
     ```
     
   mandatory: true
 
-- id: handout8_2
+- id: handout9_2
   markdown: |
-    Napiš funkci, která sečte a vrátí sumu všech klíčů a sumu všech hodnot
+    Napiš funkci, která sečte a vrátí součet všech klíčů a součet všech hodnot
     ve slovníku, který dostane jako argument. K vyzkoušení můžeš použít
-    slovník z minulé úlohy. Například:
+    slovník z minulé úlohy.
 
-    ```pycon
+    Součet bude z funkce navrácen jako dvojice (*tuple*).
+
+    Například:
+
+    ```python
     >>> soucet_klicu_a_hodnot(mocniny(4))
     (10, 30)
     ```
 
-- id: handout8_3
+- id: handout9_3
   markdown: |
     Napiš funkci, která jako argument dostane řetězec a vrátí slovník,
     ve kterém budou jako klíče jednotlivé znaky ze zadaného řetězce a jako
     hodnoty počty výskytů těchto znaků v řetězci. Například:
 
-    ```pycon
+    ```python
     >>> pocet_znaku("hello world")
     {'h': 1, 'e': 1, 'l': 3, 'o': 2, ' ': 1, 'w': 1, 'r': 1, 'd': 1}
     ```
 
-- id: handout8_4
+- id: handout9_4
   markdown: |
     Napiš funkci, která vypíše obsah slovníku (klíče a k nim náležící
     hodnoty) na jednotlivé řádky.
@@ -58,14 +62,12 @@ tasks:
     Klíč 3, hodnota 9
     Klíč 4, hodnota 16
     ```
-    
-  mandatory: true
 
 - section:
     markdown: |
       A teď už ke slíbené hře.
 
-- id: handout8_5
+- id: handout9_5
   markdown: |
     Úkolem je vytvořit známou skautskou hru „Kdo? S kým? Co dělali?“. Hra se
     hráče zeptá postupně na různé otázky, například „Kdo?“, „S kým?“,
