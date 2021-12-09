@@ -19,3 +19,5 @@ tasks_by_lesson_slug:
   - file: tasks/ml_3.yaml
   "pydata/pca":
   - file: tasks/pca.yaml
+  "pydata/dashboards":
+  - file: tasks/dashboards.yaml
