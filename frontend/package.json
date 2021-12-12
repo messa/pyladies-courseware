@@ -13,13 +13,15 @@
   "license": "MIT",
   "dependencies": {
     "codemirror": "^5.58.1",
+    "diff_match_patch": "^0.1.1",
     "express": "^4.17.1",
     "isomorphic-unfetch": "^3.1.0",
     "next": "^9.5.5",
     "react": "^16.14.0",
     "react-codemirror2": "^5.1.0",
     "react-dom": "^16.14.0",
-    "semantic-ui-react": "^0.88.2"
+    "semantic-ui-react": "^0.88.2",
+    "react-diff-viewer": "^3.1.1"
   },
   "devDependencies": {
     "http-proxy-middleware": "^0.19.1"
