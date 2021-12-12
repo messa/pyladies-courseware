@@ -145,6 +145,13 @@ class CodeDiffWithSelector extends PureComponent {
   render() {
     const left = findVersionById(this.state.versions, this.state.left)?.code ?? ""
     const right = findVersionById(this.state.versions, this.state.right)?.code ?? ""
+    const stylesOverride = {
+      diffContainer: {
+        pre: {
+          lineHeight: 'inherit',
+        },
+      },
+    }
 
     return (
       <>
@@ -157,6 +164,7 @@ class CodeDiffWithSelector extends PureComponent {
               splitView={false}
               showDiffOnly={false}
               renderContent={this.highlightSyntax}
+              styles={stylesOverride}
             />
           </div>
           <VersionSelector
