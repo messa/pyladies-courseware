@@ -5,7 +5,7 @@ import LoadErrorMessage from '../LoadErrorMessage'
 import TaskSolution from './TaskSolution'
 import TaskComments from './TaskComments'
 import holdAnchor from '../Helpers'
-import CodeDiffWithSelector from "./diff/CodeDiffWithSelector";
+import CodeDiffWithSelector from "./CodeDiffWithSelector";
 
 export default class TaskReview extends React.Component {
 

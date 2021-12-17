@@ -1,5 +1,4 @@
 import React, {PureComponent} from 'react'
-import CodeDiffView from './CodeDiffView'
 import ReactDiffViewer from 'react-diff-viewer';
 
 
@@ -156,7 +155,6 @@ class CodeDiffWithSelector extends PureComponent {
     return (
       <>
         <div>
-          {/*<CodeDiffView left={left} right={right}/>*/}
           <div className="diff-wrapper">
             <ReactDiffViewer
               oldValue={left}
@@ -164,6 +162,7 @@ class CodeDiffWithSelector extends PureComponent {
               splitView={false}
               showDiffOnly={false}
               renderContent={this.highlightSyntax}
+              disableWordDiff={true}
               styles={stylesOverride}
             />
           </div>
