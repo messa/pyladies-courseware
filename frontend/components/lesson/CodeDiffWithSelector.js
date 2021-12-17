@@ -162,6 +162,7 @@ class CodeDiffWithSelector extends PureComponent {
               splitView={false}
               showDiffOnly={false}
               renderContent={this.highlightSyntax}
+              disableWordDiff={true}
               styles={stylesOverride}
             />
           </div>
