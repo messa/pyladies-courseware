@@ -158,7 +158,7 @@ const TaskReviewLessonSummaryTable = ({ courseId, sessionSlug, students, tasks, 
           <div className='stats-row-item'>Odevzdáno:</div>
           <div className='stats-row-item'>Vyřešeno:</div>
           <div className='stats-row-item'>Verzí:</div>
-          <div className='stats-row-item'>Komnetářů:</div>
+          <div className='stats-row-item'>Komentářů:</div>
         </Table.HeaderCell>
         {tasks.map((task, i) => {
           return (
