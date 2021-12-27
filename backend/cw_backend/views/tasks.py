@@ -80,6 +80,11 @@ async def list_lesson_solutions(req):
             course_id=req.rel_url.query['course_id'])
     students = await model.users.find_by_attended_course_id(
         course_id=req.rel_url.query['course_id'])
+    ts_ids = [ts.id for ts in solutions]
+    n_comments_by_ts_id = await model.task_solution_comments.number_by_task_solution_ids(
+            task_solution_ids=ts_ids)
+    for ts in solutions:
+        ts.n_comments = n_comments_by_ts_id[ts.id]
     return web.json_response({
         'task_solutions': [await ts.export() for ts in solutions],
         'students': [u.export() for u in students]

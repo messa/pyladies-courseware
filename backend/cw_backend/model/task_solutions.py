@@ -195,11 +195,17 @@ class TaskSolution:
             'is_solved': self.is_solved,
             'last_action': self.last_action,
         }
+
+        # Available only for task review lesson summary
+        if hasattr(self, 'n_comments'):
+            d['n_comments'] = self.n_comments
+
         if with_code:
             cv = await self.get_current_version()
             avs = await self.get_all_versions()
             d['current_version'] = cv.export() if cv else None
             d['all_versions'] = [v.export() for v in avs]
+
         return d
 
 
