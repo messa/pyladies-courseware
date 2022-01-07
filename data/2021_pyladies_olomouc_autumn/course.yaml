@@ -22,3 +22,5 @@ tasks_by_lesson_slug:
   - file: tasks/9_dict.yaml
   "beginners/modules":
   - file: tasks/10_testing.yaml
+  "intro/pyglet":
+  - file: tasks/11_pyglet.yaml

@@ -6,7 +6,7 @@ tasks:
     markdown: |
       V rámci domácích projektů vylepšíme projekt z hodiny.
 
-- id: handout10_1
+- id: handout11_1
   markdown: |
     Uprav projekt z hodiny tak, aby obrázek létal po okně a nikdy jej
     neopustil tzn. aby nikdy neuletěl zcela mimo viditelnou plochu.
