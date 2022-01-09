@@ -35,6 +35,36 @@ tasks:
     Změn funkci z předchozího úkolu tak, aby funkce měla tři argumenty – číslo,
     počet vypisovaných násobků, znak pro oddělení vypsaných násobků.
 
+- section:
+    markdown: |
+      Proč používat funkce? Protože ti umožní znovu používat (recyklovat) již napsaný kód 
+      a udělají tvůj program přehlednější. Nechceme přeci psát ty samé řádky kódu znovu a znovu, 
+      raději si usnadníme práci :) V následujících úkolech si ukážeme koncept kdy je funkce, která
+      vykonává jeden určitý úkol, volána v jiné funkci. Tímto způsobem můžeme zařídit relativně 
+      složité chování programu za pomoci pár řádek kódu. 
+
+  - id: sprint4_01
+    - markdown: |
+        Nejprve si napiš funkci, která rozhodne jestli zadané číslo je liché. Funkci si vhodně pojmenuj. 
+        Pokud nevíš jak zjistíš, že dané číslo je liché, zkus se podívat na operátor modulo % a zamysli 
+        se, jak by se dal použít pro vyřešení úkolu.
+
+    mandatory: true
+
+  - id: sprint4_02
+    - markdown: |
+        Napiš funkci která pro zadaný počet vygeneruje N náhodných čísel, dané číslo vypíše a k tomu 
+        ještě přidá informaci zda-li je liché či nikoliv. Tuto funkci si pojmenuj jednoduše 
+        `lichost_nahodnych_cisel`.
+
+    mandatory: true
+
+  - id: sprint4_03
+    - markdown: |
+      Teď už potřebuješ jen hlavní kód programu, který zavolá funkci `lichost_nahodnych_cisel`,
+      abys mohla ověřit, že tvůj kód funguje správně.
+
+    mandatory: true
 
 - section:
     markdown: |
@@ -63,7 +93,7 @@ tasks:
   # řetězců (které byly na konci handout4) se nehodí. Spíš sem k funkcím.
   #   -- Petr Messner
   markdown: |
-    Napiš program, který simuluje tuto hru:
+    <span style='color: #c39;font-weight: bold'>Výzva&nbsp;&nbsp;</span> Napiš program, který simuluje tuto hru:
 
     První hráč hází kostkou
     _(t.j. vybírají se náhodná čísla od 1 do 6)_,
