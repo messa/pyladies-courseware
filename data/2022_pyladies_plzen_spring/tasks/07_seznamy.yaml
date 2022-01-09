@@ -1,15 +1,5 @@
 tasks:
 
-- id: handout6_01
-  markdown: |
-    Napiš funkci, která vrací jména domácích zvířat (zadaných argumentem), která jsou kratší než 5 písmen.
-   
-
-- id: handout6_02
-  markdown: |
-    Napiš funkci, která vrací jména domácích zvířat (zadaných argumentem), která začínají na `k`.
-
-
 - section:
     markdown: |
       Čeká tě procvičování práce se seznamy.
@@ -17,26 +7,48 @@ tasks:
       nebudeš-li vědět jak dál, zeptej se na internetu nebo na sraze ostatních
       a řešte společně!
 
+
 - id: handout6_03
   markdown: |
     Udělej si seznam domácích zvířat. Budeš ho potřebovat v dalších úlohách.
-    Domácí zvířata známe tato: `"pes", "kočka", "králík", "had"`.
+    Domácí zvířata známe tato: `"pes", "kočka", "králík", "had"`, můžeš přidat 
+    nějaké svoje oblíbené, žádné ale neubírej.
     
     Napiš funkci, která přebere seznam a slovo a zjistí, jestli je to slovo v seznamu domácích zvířat.
 
     _„Zjistí“ znamená, že funkce vrátí `True` nebo `False`._
-    
+
   mandatory: true
+
+- id: sprint7_01
+  markdown: |
+    Napiš program, který na konec seznamu zvířat přidá zvíře zadané uživatelem, 
+    ale pozor jen, pokud tam ještě není. Upravený seznam program vypíše.
+
+  mandatory: True
 
 - id: handout6_04
   markdown: |
-    Napiš funkci, která dostane dva seznamy jmen zvířat a vrátí tři seznamy:
+    Napiš funkci, která dostane dva seznamy jmen domácích zvířat a vrátí tři seznamy:
 
     - zvířata, která jsou v obou seznamech (bez opakování, tedy sjednocení množin: první ∪ druhá),
     - zvířata, která jsou jen v prvním seznamu (bez opakování, tedy rozdíl množin: první - druhá),
     - zvířata, která jsou jen ve druhém seznamu (bez opakování, tedy rozdíl množin: druhá - první).
 
-  mandatory: true
+
+- id: handout6_01
+  markdown: |
+    Napiš funkci, která ze seznamu jmen domácích zvířat (zadaný argumentem) vrátí ta, 
+    která jsou kratší než 5 písmen.
+   
+
+- id: handout6_02
+  markdown: |
+    Napiš funkci, která ze seznamu jmen domácích zvířat (zadaný argumentem) vrátí ta, 
+    která začínají na písmeno `k`.
+
+  mandatory: True
+
 
 - id: handout6_05
   markdown: |
@@ -71,16 +83,19 @@ tasks:
 
 - id: handout6_07
   markdown: |
-    Napiš tyto funkce. Každá z nich dostane jako argument řetězec s rodným číslem, které
+    Napiš tyto funkce. Každá z nich dostane jako argument řetězec s rodným číslem, který
     určitým způsobem zanalyzuje.
+    
     - Je ve správném formátu: 6 číslice, lomítko, 4 číslice? (vrací True nebo False)
+    
     - Je dělitelné jedenácti? (vrací True nebo False)
+    
     - Jaké datum narození je v čísle zakódováno? (vrací trojici čísel – den, měsíc, rok)
+    
     - Jaké pohlaví je v čísle zakódováno? (vrací 'muž' nebo 'žena')
 
     Pro účely lekce by to bylo dostačující. Pokud máš chuť, podívej se, jaká pravidla platila
     pro rodná čísla před rokem 1985. A co rodná čísla pro cizince?
-
 
 - section:
     markdown: |
@@ -90,6 +105,7 @@ tasks:
 
 - id: handout6_09
   markdown: |
+    <span style='color: #c39;font-weight: bold'>Výzva&nbsp;&nbsp;</span>
     Napiš funkci, která převede římské číslice na číslo (`int`).
 
 
@@ -97,8 +113,12 @@ tasks:
     markdown: |
         A nakonec projekt na přemýšlení.
 
-- id: handout6_17
+- id: sprint7_02
   markdown: |
-    Může seznam obsahovat sám sebe? Zkus co nejjednodušeji udělat takový seznam, aby platilo:
-
-        seznam[5][5][5][5][5][5][5][5][5][5][5][5][5][5][5][5][5][5][0] == 5
+    <span style='color: #c39;font-weight: bold'>Výzva&nbsp;&nbsp;</span>
+    Napište program, který vyřeší následující úlohu:
+    Na dlouhé chodbě je 100 dveří, všechny jsou na začátku zavřené. Při prvním průchodu
+    otočíme (tzn. zavřeme pokud byly otevřené/otevřeme pokud byly zavřené) všechny dveře, 
+    při druhém průchodu otočíme pouze každé druhé dveře, při třetím průchodu každé třetí atd.
+    až do 100 průchodů, kdy otočíme pouze poslední dveře. Které dveře zůstanou na konci
+    otevřené? Vypište jejich pořadová čísla.

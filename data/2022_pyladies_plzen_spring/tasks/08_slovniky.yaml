@@ -29,6 +29,26 @@ tasks:
     (10, 30)
     ```
 
+- id: handout8_03
+  markdown: |
+    Napiš funkci, která vypíše obsah slovníku (klíče a k nim náležící
+    hodnoty) na jednotlivé řádky.
+
+    Funkci, která něco vypisuje, je vhodné
+    pojmenovat speciálně, zde třeba `vypis_slovnik`, aby bylo jasné,
+    že jen vypisuje a nic nevrací. K vyzkoušení můžeš zase použít
+    slovník z minulé úlohy. Například:
+
+    ```pycon
+    >>> vypis_slovnik(mocniny(4))
+    Klíč 1, hodnota 1
+    Klíč 2, hodnota 4
+    Klíč 3, hodnota 9
+    Klíč 4, hodnota 16
+    ```
+
+  mandatory: true
+
 - id: handout8_02
   markdown: |
     Napiš funkci, která jako argument dostane řetězec a vrátí slovník,
@@ -39,25 +59,8 @@ tasks:
     >>> pocet_znaku("hello world")
     {'h': 1, 'e': 1, 'l': 3, 'o': 2, ' ': 1, 'w': 1, 'r': 1, 'd': 1}
     ```
-
-- id: handout8_03
-  markdown: |
-    Napiš funkci, která vypíše obsah slovníku (klíče a k nim náležící
-    hodnoty) na jednotlivé řádky.
-
-    Funkci, která něco vypisuje, je vhodné
-    pojmenovat speciálně, zde třeba `vypis_slovnik`, aby bylo jasné,
-    že jen vypisuje a nic nevrací. Například:
-
-    ```pycon
-    >>> vypis_slovnik(mocniny(4))
-    Klíč 1, hodnota 1
-    Klíč 2, hodnota 4
-    Klíč 3, hodnota 9
-    Klíč 4, hodnota 16
-    ```
     
-  mandatory: true
+  mandatory: True
 
 - section:
     markdown: |
@@ -73,5 +76,13 @@ tasks:
     a z takto vybraných odpovědí složí větu, kterou vypíše uživateli.
     Seznam otázek by mělo být možné změnit v kódu na jednom místě bez zásahu
     do logiky programu.
+
+- id: sprint8_01
+  markdown: |
+    <span style='color: #c39;font-weight: bold'>Výzva&nbsp;&nbsp;</span>
+    U skautů ještě zůstaneme. Napiš program, který přeloží zadaný řetězec 
+    do morseovy abecedy, tečku nahraď slovem STOP,
+    ostatní interpunkci můžeš ignoruj, slova oddělujte svislítkem '|'.
+    Morseovu abecedu připravenou pro python najdeš [tady](https://raw.githubusercontent.com/pyladies-pilsen/ukoly_zacatecnicky_kurz/master/08_slovniky/morse.py).
     
 
