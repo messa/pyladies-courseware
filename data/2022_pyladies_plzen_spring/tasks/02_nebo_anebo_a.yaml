@@ -16,6 +16,7 @@ tasks:
 
 - id: handout2_16
   markdown: |
+    <span style='color: #c39;font-weight: bold'>Výzva&nbsp;&nbsp;</span>
     Doplň tuhle tabulku:
 
     | `a`     | `b`     | `a and b` | `a or b` | `not a` |
@@ -30,13 +31,23 @@ tasks:
 
 - id: handout2_17
   markdown: |
+    <span style='color: #c39;font-weight: bold'>Výzva&nbsp;&nbsp;</span>
     Zkus přepsat Kámen, Nůžky, Papír pomocí `and` a `or`.
 
     Dokážeš docílit toho, aby se každý z řetězců `'Plichta.'`, `'Počítač vyhrál.'` a `'Vyhrála jsi!'` objevil
     v programu jen jednou, aniž bys tyhle řetězce musela přiřazovat do proměnných?
 
-    Pokud ano, gratuluji!
+    Pokud ano, gratuluji! Nasdílej nám tvoje řešení.
+
+    _Kód ze srazu najdeš i [zde](https://naucse.python.cz/2021/plzen-podzim-2021/beginners/comparisons/)._
 
 - id: handout2_18
   markdown: |
-    Zkus program „šťastná/bohatá“, který je uvedený v materiálech, přepsat pomocí zanořených `if`ů. Která verze ti připadá čitelnější?
+    <span style='color: #c39;font-weight: bold'>Výzva&nbsp;&nbsp;</span>
+    Zkus napsat program, který ti poradí, co si vzít na sebe podle počasí (prší/je slunečno). Použij k tomu zanořené `if`y. 
+    
+    Program může vypadat následovně.
+    Pokud venku prší, vem si kabát. Pokud prší a fouká k tomu, vem si větrovku a dlouhé kalhoty.
+    Pokud svítí sluníčko, obleč si šaty/kraťasy. Pokud svítí slunce a k tomu fouká, vem si kabátek.
+    
+    _Kreativitě se meze nekladou._ 
