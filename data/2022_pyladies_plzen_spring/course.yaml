@@ -29,8 +29,6 @@ tasks_by_lesson_slug:
   "intro/turtle":
   - file: tasks/03_cykly.yaml
   - file: tasks/03_cykly_zelva.yaml
-  - file: tasks/03_cykly_konzole.yaml
-  - file: tasks/04_procvicovani_for.yaml
   "beginners/while": []
 
 

@@ -4,7 +4,7 @@ tasks:
     markdown: |
       Želví kreslení! Tahle sekce tě seznámí se želví grafikou, kterou budeme
       používat v procvičování později a se kterou si vyhrají zejména ti, kteří
-      mají rádi geometrii.
+      mají rádi geometrii a matematiku.
 
 - id: handout3a_03
   markdown: |
@@ -32,6 +32,7 @@ tasks:
   
 - id: handout3a_08
   markdown: |
+    <span style='color: #c39;font-weight: bold'>Výzva&nbsp;&nbsp;</span>
     Nakresli `n`-úhelník, kde `n` zadá uživatel.
     
 

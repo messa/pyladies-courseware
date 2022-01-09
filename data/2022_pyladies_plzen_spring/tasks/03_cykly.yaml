@@ -2,20 +2,207 @@ tasks:
 
 - section:
     markdown: |
-      V těchto projektech je určitě něco nového.
-      Nezadávají postup, jak na odpověď přijít, ale to určitě zvládneš!
+      V následující sadě úkolů pochopíš různá použití cyklu for.
 
-- id: handout3a_00
+- id: handout3_01
+  markdown: |
+    Popiš, co dělá tenhle kód? Zkus si ho zkopírovat a pustit.
+
+        for p in 'Ahoj světe!':
+            print(p)
+
+- id: handout3_02
+  markdown: |
+    Popiš, co dělá tenhle kód? Zkus si ho zkopírovat a pustit.
+
+        for z in ['had', 'králík', 'pes', 'vlaštovka']:
+            print(z)
+
+- id: handout3_03
+  markdown: |
+    Popiš, co dělá tenhle kód? Zkus si ho zkopírovat a pustit.
+
+        for c in [0, 1, 2, 3, 4]:
+            print(c)
+
+- id: handout3_04
+  markdown: |
+    Vymyslíš lepší jména pro iterační proměnné z minulých úloh.
+    Pro proměnnou 'p' z (for c in 'Ahoj světe!')?
+    Pro proměnnou 'z' z (for z in ['had', 'králík', 'pes', 'vlaštovka'])?
+    Pro proměnnou 'c' z (for c in (0, 1, 2, 3, 4))?
+    
+    _Je důležité proměnnou pojmenovat výstižně, jinak se v dalších projektech můžeš ztratit._
+
+- id: handout3_05
+  markdown: |
+    Popiš, co dělá tenhle kód? Zkus si ho zkopírovat a pustit.
+
+        for c in range(5):
+            print(c)
+
+- id: handout3_06
+  markdown: |
+    Už víš, co dělá výraz `for` s řetězcem, výčtem hodnot a funkcí `range()`.
+    Dokážeš to zobecnit – popsat `for` jednodušeji, než jak je popsán v materiálech?
+
+  mandatory: true
+
+- id: handout3_07
   markdown: |
     Popiš slovně, co vrací funkce `range`? 
 
   mandatory: true
 
-- id: handout3a_01
+- id: handout3_08
+  markdown: |
+    Pomocí cyklu `for` napiš program, který vypíše:
+
+        Řádek 0
+        Řádek 1
+        Řádek 2
+        Řádek 3
+        Řádek 4
+
+- id: handout3_09
+  markdown: |
+    Pomocí cyklu `for` napiš program, který vypíše:
+
+        0 na druhou je 0
+        1 na druhou je 1
+        2 na druhou je 4
+        3 na druhou je 9
+        4 na druhou je 16
+
+- id: handout3_10
+  markdown: |
+    Pomocí cyklu `for` a funkce `range()` napiš program, který vypíše:
+
+        a
+        a
+        a
+        a
+    
+    Budeš v těle cyklu vůbec muset použít iterační proměnnou?
+
+- id: handout3_11
+  markdown: |
+    Co dělá tenhle kód? Funguje vůbec?
+
+        for c in 38:
+            print(c)
+    
+    Podle toho, co jsi si dosud zkusila, zkus popsat,
+    jakou vlastnost by tedy měla mít proměnná, která je ve for cyklu za slovíčkem `in`.
+
+- id: handout3_12
   markdown: |
     Co se stane, když pro příkaz `for`
     zavoláš funkci `range` se dvěma parametry?
+    například `range(4, 10)`
 
-- id: handout3a_02
+- id: handout3_13
   markdown: |
-    Se třemi?
+    Napiš program, který postupně z jednotlivých `'X'` vypíše:
+
+        X
+        X X
+        X X X
+        X X X X
+    
+    _První řádek nesmí být prázdný._
+
+- id: handout3_14
+  markdown: |
+    Co se stane, když pro příkaz `for` zavoláš funkci `range` se třemi parametry?
+    například `range(10, 20, 2)`
+
+- section:
+    markdown: |
+      V těle cyků smíš samozřejmě používat vše, co jsi se dosud naučila.
+      Například provádět výpočty, používat `if`, ptát se uživatele na vstup a vše ostatní.
+
+- id: handout3_15
+  markdown: |
+    Pomocí cyklu `for` a příkazu `if` napiš program, který vypíše následující řádky.
+    Funkci `print` volej pouze uvnitř v cyklu:
+
+        první řádek
+        není první
+        není první
+        není první
+
+- id: handout3_22
+  markdown: |
+    Uhodni číslo.
+    Pomocí cyklu `while` napiš program, který si vygeneruje náhodné číslo 
+    a bude se tě ptát na tvůj typ dokud ho neuhodneš.
+    Po tvém tipu ti dá nápovědu, jestli je tvůj tip větší, nebo menší než hádané číslo.
+    Pokud ho uhodneš, program skončí a napíše: "Uhodla jsi!".
+
+- id: handout3_23
+  markdown: |
+    <span style='color: #c39;font-weight: bold'>Výzva&nbsp;&nbsp;</span>
+    Předchozí program doplň o počítadlo pokusů.
+
+- id: handout3_21
+  markdown: |
+    <span style='color: #c39;font-weight: bold'>Výzva&nbsp;&nbsp;</span>
+    Napiš program, který se desetkrát zeptá na číslo a nejmenší zadané číslo vypíše.
+    
+    _V tomto případě známe počet opakování, použij tedy cyklus `for`._
+    _Nevíš-li si rady, podívej se do materiálů na sekci Přepisování proměnných.
+    Místo sečítání budeš vybírat správnou hodnotu._
+
+  mandatory: true
+
+- section:
+    markdown: |
+      Cykly můžeš i zanořovat (mít jeden uprostřed druhého).
+      V této sekci si to procvičíš.
+      Dávej dobrý pozor na správné pojmenování proměnných, aby ses nezamotala.
+
+- id: handout3_16
+  markdown: |
+    Pomocí dvou cyklů `for` a parametru `end` pro `print` napiš program,
+    který vypíše následující tvar:
+
+        X X X X X
+        X X X X X
+        X X X X X
+        X X X X X
+        X X X X X
+
+- id: handout3_17
+  markdown: |
+    <span style='color: #c39;font-weight: bold'>Výzva&nbsp;&nbsp;</span>
+    Zkus přepsat svůj předchozí program tak, aby jsi v něm použila znak `'X'`
+    jen jednou.
+
+- id: handout3_18
+  markdown: |
+    Pomocí dvou cyklů `for` a parametru `end` pro `print` napiš program,
+    který vypíše „tabulku“ s násobilkou. 
+
+        0 0 0 0 0
+        0 1 2 3 4
+        0 2 4 6 8
+        0 3 6 9 12
+        0 4 8 12 16
+
+- id: handout3_19
+  markdown: |
+    <span style='color: #c39;font-weight: bold'>Výzva&nbsp;&nbsp;</span>
+    Pomocí cyklů `for` a příkazu `if` napiš program, který z jednotlivých `'X'` a mezer vypíše:
+
+        X X X X X X
+        X         X
+        X         X
+        X         X
+        X         X
+        X X X X X X
+
+- id: handout3_20
+  markdown: |
+    <span style='color: #c39;font-weight: bold'>Výzva&nbsp;&nbsp;</span>
+    Předchozí program uprav tak, aby počet řádků a sloupců mohl zadat uživatel.
