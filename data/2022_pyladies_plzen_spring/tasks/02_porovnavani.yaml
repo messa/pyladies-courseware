@@ -14,7 +14,7 @@ tasks:
 
     _Jak to funguje, to si vysvětlíme příště; zatím to ber jako kouzelné zaříkadlo._
 
-    _Aby všechno fungovalo správně, nesmíš mít v aktuálním adresáři soubor jménem `random.py`._
+    _Nápověda: Aby všechno fungovalo správně, nesmíš mít v aktuálním adresáři soubor jménem `random.py`._
 
   mandatory: true
 
@@ -26,6 +26,8 @@ tasks:
     - `'nůžky'`, pokud je cislo 1,
     - jinak na `'papír'`.
 
+    _Kód ze srazu najdeš i [zde](https://naucse.python.cz/2021/plzen-podzim-2021/beginners/comparisons/), ale výrazně ho stačí zjednodušit jen na `tah_pocitace`. _
+
 - section:
     markdown: |
       Tyhle projekty kombinují opakování a nové informace. Doporučujeme si je projít.
@@ -33,6 +35,7 @@ tasks:
 - id: handout2_10
   markdown: |
     Které pythonní _operátory_ dokážeš z hlavy vyjmenovat?
+  mandatory: true
 
 - id: handout2_11
   markdown: |
@@ -49,23 +52,40 @@ tasks:
     | `'abC'` |      | `'abc'`   |
     | `'abc'` |      | `'abcde'` |
     | `'abc'` |      | `'ábč'`   |
-    | `'abc'` |      | ``10``    |
+
+    _Nápověda: Každé písmeno má svůj kód v [ASCII](https://www.asciitable.com/) tabulce (porovnávají se tedy hodnoty z ní). Proto lze
+    porovnávat velká a malá písmena, čísla a další symboly._
 
 - id: handout2_12
   markdown: |
-    Jaká je hodnota proměnné `res` po provedení příkazu:
+    Lze porovnávat i více řětezců za sebou.
+    Jaká je hodnota proměnné, když 
+    ``` 
+    res1 = 1 > 4 > 2  
+    ``` 
+    Pokud je hodnota proměnné `False`, dá se porovnání mezi sebou upravit tak, aby byla `True`?
+    
+    Zkusila jsi porovnávat řetězce u malých a velkých písmen u úkolů výše? Čeho si si všimla?
+    ```res2 = 'abc' < 'ABC' ```
 
-    ```
-    res = 1 < 2 ?
-    res = 2 < 2 ?
-    res = 1 < 2 < 3 ?
-    res = 1 < 3 < 2 ?
-    res = 1 < 3 < 3 ?
-    res = 'abc' < 'ABC' < 'def' < 'zajíc' ?
-    ```
+    _Nápověda: Každé písmeno má svůj kód v [ASCII](https://www.asciitable.com/) tabulce (porovnávají se tedy hodnoty z ní). Proto lze
+    porovnávat velká a malá písmena, čísla a další symboly._
 
-    Tam, kde je hodnota proměnné `False`, dají se některé z porovnávaných hodnot mezi sebou vyměnit, aby
-    byla `True`?
+#- id: handout2_12
+#  markdown: |
+#    Jaká je hodnota proměnné `res` po provedení příkazu:
+
+#     ```
+#     res = 1 < 2 ?
+#     res = 2 < 2 ?
+#     res = 1 < 2 < 3 ?
+#     res = 1 < 3 < 2 ?
+#     res = 1 < 3 < 3 ?
+#     res = 'abc' < 'ABC' < 'def' < 'zajíc' ?
+#     ```
+
+#     Tam, kde je hodnota proměnné `False`, dají se některé z porovnávaných hodnot mezi sebou vyměnit, aby
+#     byla `True`?
 
 - section:
     markdown: |
