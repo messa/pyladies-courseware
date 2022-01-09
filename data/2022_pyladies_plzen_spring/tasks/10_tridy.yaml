@@ -14,7 +14,7 @@ tasks:
 - id: pilsen_custom_12_oop_1
   markdown:
     Vytvoř třídu Ctverec s jedním atributem `strana` a metodami `obvod()`, `obsah()` a
-    `rozdil_obsahu(jiny_ctverec Ctverec)`, která vrátí rozdíl obsahů dvou čtverců - zadaného a toho
+    `rozdil_obsahu(jiny_ctverec)`, která vrátí rozdíl obsahů dvou čtverců - zadaného a toho
     jehož metodu voláme.
 
   mandatory: true
@@ -65,15 +65,16 @@ tasks:
     že určitý kód (často na začátku nebo v prvních částech/úrovních) programu nezajímá, že objekt je konkrétního typu. Stačí, 
     že je odvozen od třídy, která obsahuje danou funkci nebo atribut. Nám v tom případě stačí brát konkrétní objekt odvozený od
     dané základní třídy. Vytvoř si tak třídu Obrazec, která bude definovat metody `obvod()`, `obsah()` a
-    `rozdil_obsahu(jiny_obrazec Obrazec)`. Metody `obvod()`, `obsah()` nebudou dělat nic, protože to záleží na konkrétní implementaci
-    daného obrazce. Metoda `rozdil_obsahu(jiny_obrazec Obrazec)` však naimplementovaná výt může. Od třídy Obrazec pak odvoď třídy
-    Ctverec, Trojuhlenik, Kruh, které budou naimplementovány, tak jak mají být. Nezapomeň u každé třídy naimplementovat i textovou
-    reprezentaci, kterou dostaneš po použítí proměnné s objektem v příkazu `print()`.
+    `rozdil_obsahu(jiny_obrazec)`. Metody `obvod()`, `obsah()` nebudou dělat nic, protože to záleží na konkrétní implementaci
+    daného obrazce. Metoda `rozdil_obsahu(jiny_obrazec)` však naimplementovaná výt může. Od třídy Obrazec pak odvoď třídy
+    Ctverec, Trojuhlenik (rovnostraný), Kruh. Každá bude mít jeden atribut: délku strany pro Ctverec a Trojuhelnik, poloměr pro Kruh a
+    budou implementovat odpovídající výpočty obvodu a obsahu. Nezapomeň u každé třídy naimplementovat i textovou reprezentaci, 
+    kterou dostaneš po použítí proměnné s objektem v příkazu `print()`.
 
   mandatory: true
 
 - id: sprint10_3
   markdown: |
     <span style='color: #c39;font-weight: bold'>Výzva&nbsp;&nbsp;</span> Za použití tříd z přechozího příkadu si vytvoř 
-    seznam náhodně vytvořených Obrazců. Pro každý Obrazec v seznamu vypiš jeho typ, specifickou informaci o objektu, Která
+    seznam náhodně vytvořených Obrazců. Pro každý Obrazec v seznamu vypiš jeho typ a specifickou informaci o objektu, která
     je daná jeho typem, obsah i objem. Nekoukej při tom jestli se jedná konkrétně o Ctverec, Trojuhelnik, nebo Kruh.
