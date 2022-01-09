@@ -26,7 +26,7 @@ tasks:
     - `'nůžky'`, pokud je cislo 1,
     - jinak na `'papír'`.
 
-    _Kód ze srazu najdeš i [zde](https://naucse.python.cz/2021/plzen-podzim-2021/beginners/comparisons/), ale výrazně ho stačí zjednodušit jen na `tah_pocitace`. _
+    _Kód ze srazu najdeš i [zde](https://naucse.python.cz/2021/plzen-podzim-2021/beginners/comparisons/), ale výrazně ho stačí zjednodušit jen na `tah_pocitace`._
 
 - section:
     markdown: |
