@@ -102,6 +102,6 @@ tasks:
   markdown: |
     A teď trochu kreativity. Napiš program, který po zadání správného hesla vypíše nějakou tajnou informaci.
 
-    _Vhodné tajemství je třeba: V pátek jsem viděla černého havrana._
+    _Vhodné tajemství je třeba: Dnes koukáme na Harryho Pottera._
 
   mandatory: true    
