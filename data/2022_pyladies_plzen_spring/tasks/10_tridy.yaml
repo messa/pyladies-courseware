@@ -73,8 +73,10 @@ tasks:
 
   mandatory: true
 
-- id: sprint10_3
+- id: sprint10_4
   markdown: |
     <span style='color: #c39;font-weight: bold'>Výzva&nbsp;&nbsp;</span> Za použití tříd z přechozího příkadu si vytvoř 
     seznam náhodně vytvořených Obrazců. Pro každý Obrazec v seznamu vypiš jeho typ a specifickou informaci o objektu, která
-    je daná jeho typem, obsah i objem. Nekoukej při tom jestli se jedná konkrétně o Ctverec, Trojuhelnik, nebo Kruh.
+    je daná jeho typem, obsah i objem. Nekoukej při tom jestli se jedná konkrétně o Ctverec, Trojuhelnik, nebo Kruh. Než začneš
+    pracovat s objektem ze seznamu, ujisti se, že objekt je typu, který je odvozen od třídy Obrazec. Pokud není, tak pokračuj na
+    další prvek v seznamu. Hodí se ti to v případě, že by se ti tam "zatoulal" objekt jiného typu, který nemá např. metodu `obsah()`.
