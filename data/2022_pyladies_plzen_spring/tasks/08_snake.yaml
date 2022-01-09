@@ -2,10 +2,13 @@ tasks:
 
 - section:
     markdown: |
-      Projekty závisí jeden na druhém, řeš je postupně.
-      Až to uděláš, můžeš si zahrát hru!
+      Následující projekty závisí jeden na druhém, řeš je postupně.
+      Až je uděláš, můžeš si zahrát hru!
       Tahle sekce není jednoduchá (a poslední dva projekty jsou obzvláště náročné).
-      Můžeš zkusit spojit síly s ostatními účastnicemi kurzu!}
+      Můžeš zkusit spojit síly s ostatními účastnicemi kurzu!
+      
+      Pro usnadnění orientace v celém projektu jsme připravili kostru, kterou najdeš 
+      [tady](https://raw.githubusercontent.com/pyladies-pilsen/pyladies-courseware/pilsen_spring_2022_sprint/data/2022_pyladies_plzen_spring/templates/had_template.py)
 
 - id: handout6_10
   markdown: |
