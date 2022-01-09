@@ -16,7 +16,7 @@ tasks:
 
 - id: handout2_16
   markdown: |
-   <span style='color: #c39;font-weight: bold'>Výzva&nbsp;&nbsp;</span>
+    <span style='color: #c39;font-weight: bold'>Výzva&nbsp;&nbsp;</span>
     Doplň tuhle tabulku:
 
     | `a`     | `b`     | `a and b` | `a or b` | `not a` |
@@ -43,7 +43,7 @@ tasks:
 
 - id: handout2_18
   markdown: |
-#    Zkus program „šťastná/bohatá“, který je uvedený v materiálech, přepsat pomocí zanořených `if`ů. Která verze ti připadá čitelnější?
+    <span style='color: #c39;font-weight: bold'>Výzva&nbsp;&nbsp;</span>
     Zkus napsat program, který ti poradí, co si vzít na sebe podle počasí (prší/je slunečno). Použij k tomu zanořené `if`y. 
     
     Program může vypadat následovně.
