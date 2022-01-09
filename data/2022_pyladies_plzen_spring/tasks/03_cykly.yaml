@@ -11,6 +11,7 @@ tasks:
         for p in 'Ahoj světe!':
             print(p)
 
+
 - id: handout3_02
   markdown: |
     Popiš, co dělá tenhle kód? Zkus si ho zkopírovat a pustit.
@@ -28,9 +29,10 @@ tasks:
 - id: handout3_04
   markdown: |
     Vymyslíš lepší jména pro iterační proměnné z minulých úloh.
-    Pro proměnnou 'p' z (for c in 'Ahoj světe!')?
-    Pro proměnnou 'z' z (for z in ['had', 'králík', 'pes', 'vlaštovka'])?
-    Pro proměnnou 'c' z (for c in (0, 1, 2, 3, 4))?
+    
+     - Pro proměnnou 'p' z (for c in 'Ahoj světe!')?
+     - Pro proměnnou 'z' z (for z in ['had', 'králík', 'pes', 'vlaštovka'])?
+     - Pro proměnnou 'c' z (for c in (0, 1, 2, 3, 4))?
     
     _Je důležité proměnnou pojmenovat výstižně, jinak se v dalších projektech můžeš ztratit._
 
@@ -40,6 +42,8 @@ tasks:
 
         for c in range(5):
             print(c)
+
+
 
 - id: handout3_06
   markdown: |
@@ -53,6 +57,20 @@ tasks:
     Popiš slovně, co vrací funkce `range`? 
 
   mandatory: true
+
+- id: handout3_11
+  markdown: |
+    Co dělá tenhle kód? Funguje vůbec?
+
+        for c in 38:
+            print(c)
+    
+    Podle toho, co jsi si dosud zkusila, zkus popsat,
+    jakou vlastnost by tedy měla mít proměnná, která je ve for cyklu za slovíčkem `in`.
+
+- section:
+    markdown: |
+      A teď už nějaké praktické příklady na programování.
 
 - id: handout3_08
   markdown: |
@@ -85,15 +103,6 @@ tasks:
     
     Budeš v těle cyklu vůbec muset použít iterační proměnnou?
 
-- id: handout3_11
-  markdown: |
-    Co dělá tenhle kód? Funguje vůbec?
-
-        for c in 38:
-            print(c)
-    
-    Podle toho, co jsi si dosud zkusila, zkus popsat,
-    jakou vlastnost by tedy měla mít proměnná, která je ve for cyklu za slovíčkem `in`.
 
 - id: handout3_12
   markdown: |
@@ -173,12 +182,6 @@ tasks:
         X X X X X
         X X X X X
 
-- id: handout3_17
-  markdown: |
-    <span style='color: #c39;font-weight: bold'>Výzva&nbsp;&nbsp;</span>
-    Zkus přepsat svůj předchozí program tak, aby jsi v něm použila znak `'X'`
-    jen jednou.
-
 - id: handout3_18
   markdown: |
     Pomocí dvou cyklů `for` a parametru `end` pro `print` napiš program,
@@ -193,7 +196,7 @@ tasks:
 - id: handout3_19
   markdown: |
     <span style='color: #c39;font-weight: bold'>Výzva&nbsp;&nbsp;</span>
-    Pomocí cyklů `for` a příkazu `if` napiš program, který z jednotlivých `'X'` a mezer vypíše:
+    Pomocí dvou cyklů `for` a příkazu `if` napiš program, který z jednotlivých `'X'` a mezer vypíše:
 
         X X X X X X
         X         X
@@ -204,5 +207,5 @@ tasks:
 
 - id: handout3_20
   markdown: |
-    <span style='color: #c39;font-weight: bold'>Výzva&nbsp;&nbsp;</span>
-    Předchozí program uprav tak, aby počet řádků a sloupců mohl zadat uživatel.
+    Vyber si jeden z předchozích úkolů a uprav jej tak, aby počet řádků a 
+    sloupců mohl zadat uživatel.
