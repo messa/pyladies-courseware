@@ -86,13 +86,13 @@ tasks:
     Nezapomeň kontrolovat stav hry po každém tahu.
 
 - section:
-    markdown: |
-      Poslední projekt je nepovinný, ale, jak to u podobných projektů bývá, můžeš na něj dostat zpětnou vazbu.
-      Doporučuju toho využít!
+  markdown: |
+    Poslední projekt je nepovinný, ale, jak to u podobných projektů bývá, můžeš na něj dostat zpětnou vazbu.
+    Doporučuju toho využít!
 
 - id: handout4_14
   markdown: |
-    Zvládneš pro počítač naprogramovat lepší strategii?
+    <span style='color: #c39;font-weight: bold'>Výzva&nbsp;&nbsp;</span>Zvládneš pro počítač naprogramovat lepší strategii?
     Třeba aby se snažil hrát vedle svých existujících symbolů
     nebo aby bránil protihráčovi?
 
