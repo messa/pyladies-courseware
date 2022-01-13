@@ -1,0 +1,54 @@
+tasks:
+
+- id: handout12_1
+  markdown: |
+    Vytvoř třidu `Ctverec` s jedním atributem `strana` a metodami `obvod()`, `obsah()`
+    a *`rozdil_obsahu(jiny_ctverec)`*, která vrátí rozdíl obsahů dvou
+    čtverců – zadaného a toho jehož metodu voláme.
+
+- id: handout12_2
+  markdown: |
+    Vytvoř třídu 'Kruh' s atributem 'polomer' a stejnými metodami 'obvod()'
+    a 'obsah()' jako měla třída 'Ctverec'.
+
+- id: handout12_3
+  markdown: |
+    Vytvoř třídu 'Obdelnik' s atributy pro délky stran a opět stejnými metodami 'obvod()'
+    a 'obsah()' jako měla minule třída 'Ctverec'.
+
+- id: handout12_4
+  markdown: |
+    Zkus použít dědičnost tak, aby třídy 'Ctverec', 'Kruh' i 'Obdelnik' mohly používat
+    společnou metodu *'rozdil_obsahu(jiny_objekt)'* a aby tato metoda fungovala i mezi
+    objekty různých tříd.
+
+    *Takže bude například možné zjistit rozdíl obsahu čtverce a kruhu*
+
+- id: handout12_5
+  markdown: |
+    Vytvoř třídu `Osoba`, která bude reprezentovat osobu a její rodiče. Každá osoba bude mít
+    své jméno a dva rodiče (každý rodič bude také instancí třídy `Osoba`). Vytvoř funkce, které
+    budou zjišťovat příbuzenské vztahy mezi osobami:
+
+    ```python
+    def je_vlastni_sourozenec(a, b):
+      """Vrátí True, pokud `a` a `b` jsou vlastní sourozenci.
+      V opačném případě vrátí False."""
+      pass
+
+    def je_sourozenec(a, b):
+      """Vrátí True, pokud `a` a `b` jsou sourozenci (ať už vlastní nebo nevlastní).
+      V opačném případě vrátí False."""
+      pass
+
+    def je_prarodic(a, b):
+      """Vrátí True, pokud osoba `a` je prarodičem osoby `b`.
+      V opačném případě vrátí False."""
+      pass
+
+    def je_potomek(a, b):
+      """Vrátí True, pokud osoba `a` je (libovolným) potomkem osoby `b`.
+      Tj. `a` může být synem/dcerou, vnukem/vnučkou, pravnukem/pravnučkou, atd.
+      V opačném případě vrátí False."""
+      pass
+    ```
