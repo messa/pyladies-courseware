@@ -41,24 +41,6 @@ tasks:
       Následující projekty jsou na procvičení dědičnosti, pokud jsme ji na kurzech ještě nestihli probrat,
       můžeš je zatím vynechat.
 
-
-- id: handout11_00
-  markdown: |
-    Vytvoř si vlastní třídu pro celá čísla tak, aby tato nová třída měla
-    všechny vlastnosti a schopnosti běžných celých čísel v Pythonu (objekty
-    bude možné sčítat, odečítat, porovnávat atp.) a navíc měla metodu
-    pro rozpoznání, zda je číslo v objektu sudé nebo liché jménem `je_sude()`,
-    která bude vracet `True` nebo `False`.
-
-  mandatory: true
-
-- id: handout11_01
-  markdown: |
-    Jako bonus je možné vlastní třídě z 
-    předchozího příkladu přepsat metodu
-    `__repr__()` tak, aby bylo v interaktivním režimu poznat, které číslo je
-    standardní `int` a které je z tebou vytvořené třídy.
-
 - id: sprint10_3
   markdown: |
     <span style='color: #c39;font-weight: bold'>Výzva&nbsp;&nbsp;</span> Jednou z výhod použití objektů v programu, je ten,
@@ -70,8 +52,6 @@ tasks:
     Ctverec, Trojuhlenik (rovnostraný), Kruh. Každá bude mít jeden atribut: délku strany pro Ctverec a Trojuhelnik, poloměr pro Kruh a
     budou implementovat odpovídající výpočty obvodu a obsahu. Nezapomeň u každé třídy naimplementovat i textovou reprezentaci, 
     kterou dostaneš po použítí proměnné s objektem v příkazu `print()`.
-
-  mandatory: true
 
 - id: sprint10_4
   markdown: |

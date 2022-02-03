@@ -82,6 +82,8 @@ tasks:
         Řádek 3
         Řádek 4
 
+  mandatory: true
+
 - id: handout3_09
   markdown: |
     Pomocí cyklu `for` napiš program, který vypíše:
@@ -141,13 +143,17 @@ tasks:
         není první
         není první
 
+  mandatory: true
+
 - id: handout3_22
   markdown: |
     Uhodni číslo.
     Pomocí cyklu `while` napiš program, který si vygeneruje náhodné číslo 
-    a bude se tě ptát na tvůj typ dokud ho neuhodneš.
+    a bude se tě ptát na tvůj tip dokud ho neuhodneš.
     Po tvém tipu ti dá nápovědu, jestli je tvůj tip větší, nebo menší než hádané číslo.
     Pokud ho uhodneš, program skončí a napíše: "Uhodla jsi!".
+
+  mandatory: true
 
 - id: handout3_23
   markdown: |
@@ -192,6 +198,8 @@ tasks:
         0 2 4 6 8
         0 3 6 9 12
         0 4 8 12 16
+
+  mandatory: true
 
 - id: handout3_19
   markdown: |

@@ -81,21 +81,21 @@ tasks:
 
     Proč má zrovna had takovéhle výsadní postavení, zjistíš později.
 
-- id: handout6_07
-  markdown: |
-    Napiš tyto funkce. Každá z nich dostane jako argument řetězec s rodným číslem, který
-    určitým způsobem zanalyzuje.
-    
-    - Je ve správném formátu: 6 číslice, lomítko, 4 číslice? (vrací True nebo False)
-    
-    - Je dělitelné jedenácti? (vrací True nebo False)
-    
-    - Jaké datum narození je v čísle zakódováno? (vrací trojici čísel – den, měsíc, rok)
-    
-    - Jaké pohlaví je v čísle zakódováno? (vrací 'muž' nebo 'žena')
-
-    Pro účely lekce by to bylo dostačující. Pokud máš chuť, podívej se, jaká pravidla platila
-    pro rodná čísla před rokem 1985. A co rodná čísla pro cizince?
+#- id: handout6_07
+#  markdown: |
+#    Napiš tyto funkce. Každá z nich dostane jako argument řetězec s rodným číslem, který
+#    určitým způsobem zanalyzuje.
+#
+#    - Je ve správném formátu: 6 číslice, lomítko, 4 číslice? (vrací True nebo False)
+#
+#    - Je dělitelné jedenácti? (vrací True nebo False)
+#
+#    - Jaké datum narození je v čísle zakódováno? (vrací trojici čísel – den, měsíc, rok)
+#
+#    - Jaké pohlaví je v čísle zakódováno? (vrací 'muž' nebo 'žena')
+#
+#    Pro účely lekce by to bylo dostačující. Pokud máš chuť, podívej se, jaká pravidla platila
+#    pro rodná čísla před rokem 1985. A co rodná čísla pro cizince?
 
 - section:
     markdown: |
@@ -106,7 +106,7 @@ tasks:
 - id: handout6_09
   markdown: |
     <span style='color: #c39;font-weight: bold'>Výzva&nbsp;&nbsp;</span>
-    Napiš funkci, která převede římské číslice na číslo (`int`).
+    Napiš funkci, která převede římské číslice zadané jako řetězec `str` na číslo `int`.
 
 
 - section:

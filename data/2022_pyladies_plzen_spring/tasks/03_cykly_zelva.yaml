@@ -16,8 +16,6 @@ tasks:
 
     <img src="/static/tasks/handout3a_images/03_diagram.png" alt="diagram" style="max-width: 100%; max-height: 80px">
 
-  mandatory: true
-
 
 - id: handout3a_06
   markdown: |

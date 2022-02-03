@@ -72,13 +72,12 @@ tasks:
     Často je jednoduché něco napsat, ale dotažení do konce může být časově náročné.
     _Nemáš-li čas, zkus se aspoň zamyslet, jak bys projekt vyřešila._
 
+
 - id: handout4_04
   markdown: |
     Změň program Kámen, Nůžky, Papír tak, aby opakoval hru dokud
     uživatel nezadá `konec`.
     
-  mandatory: true
-
 - id: handout4_05
   markdown: |
     Změň funkci `ano_nebo_ne` tak,
@@ -105,5 +104,3 @@ tasks:
     Program by měl vypisovat všechny hody a nakonec napsat, kdo vyhrál.
     
     Nápověda: průběžně stačí ukládat jen údaj, kdo vede.
-    
-  mandatory: true
