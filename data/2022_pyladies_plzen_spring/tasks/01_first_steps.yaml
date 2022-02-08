@@ -138,8 +138,8 @@ tasks:
      
     ``` "Tohle je můj první prográmek a dokážu ho uložit a spustit! Juchů!"  ```
     
-    Tento program ulož pod jménem `01_mujprogram.py` ve svém pracovním adresáři. 
-    Program spusť z příkazové řádky. 
+    Který po spuštění výpíše. Tento program ulož pod jménem `01_mujprogram.py` 
+    ve svém pracovním adresáři. Program spusť z příkazové řádky. 
     Napiš nám, zda-li se ti to povedlo (společně s výpisem z konzole).
     
   mandatory: true
