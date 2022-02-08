@@ -10,7 +10,8 @@ tasks:
 - id: handout2_05
   markdown: |
     Ne všechno se dá použít jako jméno proměnné.
-    Fungují pro proměnné následující jména? Pokud ne, proč asi?
+    Fungují pro proměnné následující jména? 
+    Do odpovědi nám napiš konkrétně, které lze a nelze použít jako proměnnou (a proč).
 
     <div style='column-count: 4'>
       <code>x</code><br>
@@ -30,10 +31,13 @@ tasks:
       <code>__name__</code><br>
       <code>while</code><br>
     </div>
+
+    _Nápověda: Všechny si vyzkoušej v Pythonu a zjistíš, jaké se dají použít a jaké ne. Některé tě třeba i překvapí._
+  mandatory: true
     
 - section:
     markdown: |
-      První dva projekty jsou na procvičení toho, co jsme dělaly na srazu.
+      První dva projekty jsou na procvičení toho, co jsme dělali na srazu.
       
   mandatory: true
 
@@ -51,8 +55,23 @@ tasks:
 
 - id: handout2_07
   markdown: |
-    Změň program tak, aby stranu/poloměr mohl uživatel zadat.
+    Změň program pro výpočet povrchu a objemu krychle tak, aby stranu/poloměr mohl uživatel zadat.
 
     _Tady už se na materiály ze srazu klidně podívej._
 
+  mandatory: true
+
+- id: handout3a_17
+  markdown: |
+    Napiš program, který postupně načte od uživatele dvě čísla a jednoznakový
+    řetězec – buď `'+'`, `'-'`, `'*'` nebo `'/'`. Program provede na číslech příslušnou operaci.
+
+    Příklad použití programu:
+
+    ```
+    První číslo: 123
+    Druhé číslo: 456
+    Operace: +
+    123 + 456 = 579
+    ```
   mandatory: true

@@ -2,41 +2,61 @@ tasks:
 
 - section:
     markdown: |
-      Základní cvičení na vytváření objektů a tříd.
+      Základní cvičení na vytváření tříd a jejich použití jako objekty.
 
 - id: pilsen_custom_12_oop_0
   markdown:
     Na srazu jsme vytvářeli cvičné třídy pro koťátka/čtverce vytvoř
     seznam alespoň pěti _ruzných_ koťátek/čtverců.
 
-
     _Dokážeš to udělat v cyklu? Jak ověříš, že jde skutečně o různé objekty?_
-
 
 - id: pilsen_custom_12_oop_1
   markdown:
-      Vytvoř třidu Ctverec s jedním atributem `strana` a metodami `obvod()`, `obsah()` a
-      `rozdil_obsahu(jiny_ctverec Ctverec)`, která vrátí rozdíl obsahů dvou čtverců - zadaného a toho
-      jehož metodu voláme.
+    Vytvoř třídu Ctverec s jedním atributem `strana` a metodami `obvod()`, `obsah()` a
+    `rozdil_obsahu(jiny_ctverec)`, která vrátí rozdíl obsahů dvou čtverců - zadaného a toho
+    jehož metodu voláme.
 
+  mandatory: true
 
+- id: sprint10_1
+  markdown: |
+    Třídu Ctverec si uprav tak, aby jsi při zavolání `print(objekt_typu_ctverec)` dostala smysluplnou
+    informaci o objektu (např. jak velká je jeho strana).
+
+- id: sprint10_2
+  markdown: |
+    Vygeneruj slovník s libovolným počtem čtverců a různou velikostí strany. Klíčem slovníku bude velikost jeho strany. 
+    Všechny tyto čtverce vypiš i s jejich obvody a obsahy.
+    
+    _Tato technika (cachování) se používá, když víme, že často budeme potřebovat objekt se stejným nastavením (stejnými daty).
+    Namísto toho, abychom takovýto objekt vytvářeli pořád dokola, když ho potřebujeme použít, tak si jej uložíme bokem
+    a vytáhneme si jej ze slovníku pomocí klíče. Jednak tím ušetříme čas potřebný k vytvoření objektu a často si ušetříme 
+    i paměť._
+
+  mandatory: true
 
 - section:
-      markdown: |
-        Následující projekty jsou na procvičení dědičnosti, pokud jsme ji na kurzech ještě nestihli probrat,
-        můžeš je zatím vynechat.
+    markdown: |
+      Následující projekty jsou na procvičení dědičnosti, pokud jsme ji na kurzech ještě nestihli probrat,
+      můžeš je zatím vynechat.
 
-
-- id: handout11_00
+- id: sprint10_3
   markdown: |
-    Vytvoř si vlastní třídu pro celá čísla tak, aby tato nová třída měla
-    všechny vlastnosti a schopnosti běžných celých čísel v Pythonu (objekty
-    bude možné sčítat, odečítat, porovnávat atp.) a navíc měla metodu
-    pro rozpoznání, zda je číslo v objektu sudé nebo liché jménem `je_sude()`,
-    která bude vracet `True` nebo `False`.
+    <span style='color: #c39;font-weight: bold'>Výzva&nbsp;&nbsp;</span> Jednou z výhod použití objektů v programu, je ten,
+    že určitý kód (často na začátku nebo v prvních částech/úrovních) programu nezajímá, že objekt je konkrétního typu. Stačí, 
+    že je odvozen od třídy, která obsahuje danou funkci nebo atribut. Nám v tom případě stačí brát konkrétní objekt odvozený od
+    dané základní třídy. Vytvoř si tak třídu Obrazec, která bude definovat metody `obvod()`, `obsah()` a
+    `rozdil_obsahu(jiny_obrazec)`. Metody `obvod()`, `obsah()` nebudou dělat nic, protože to záleží na konkrétní implementaci
+    daného obrazce. Metoda `rozdil_obsahu(jiny_obrazec)` však naimplementovaná výt může. Od třídy Obrazec pak odvoď třídy
+    Ctverec, Trojuhlenik (rovnostraný), Kruh. Každá bude mít jeden atribut: délku strany pro Ctverec a Trojuhelnik, poloměr pro Kruh a
+    budou implementovat odpovídající výpočty obvodu a obsahu. Nezapomeň u každé třídy naimplementovat i textovou reprezentaci, 
+    kterou dostaneš po použítí proměnné s objektem v příkazu `print()`.
 
-- id: handout11_01
+- id: sprint10_4
   markdown: |
-    Jako bonus je možné vlastní třídě z předchozího příkladu přepsat metodu
-    `__repr__()` tak, aby bylo v interaktivním režimu poznat, které číslo je
-    standardní `int` a které je z tebou vytvořené třídy.
+    <span style='color: #c39;font-weight: bold'>Výzva&nbsp;&nbsp;</span> Za použití tříd z přechozího příkadu si vytvoř 
+    seznam náhodně vytvořených Obrazců. Pro každý Obrazec v seznamu vypiš jeho typ a specifickou informaci o objektu, která
+    je daná jeho typem, obsah i objem. Nekoukej při tom jestli se jedná konkrétně o Ctverec, Trojuhelnik, nebo Kruh. Než začneš
+    pracovat s objektem ze seznamu, ujisti se, že objekt je typu, který je odvozen od třídy Obrazec. Pokud není, tak pokračuj na
+    další prvek v seznamu. Hodí se ti to v případě, že by se ti tam "zatoulal" objekt jiného typu, který nemá např. metodu `obsah()`.

@@ -18,6 +18,7 @@ tasks:
     Program bude napsán v jendom modulu `kalkulacka.py` ve kterém budeme mít funkce
     pro výpočetní operace sčítání, odčítání, násobení a dělení.
     Můžeš vyjít z rámcového kódu, který jsme ukazovali na cvičení.
+    Nezapomeň také do modulu doplnit konstrukci `if __name__ == '__main__':`.
 
   mandatory: true
 
@@ -56,7 +57,7 @@ tasks:
   
 - id: custom9_05
   markdown: |
-    Pomocí `try`, `except` případně `finally` a `else` ošetři program pro následující případ.
+    Pomocí `try`, `except` ošetři program pro následující případ.
     
     _Uživatel je vyzván, aby zadal číslo, ale zadá něco, co nelze na číslo převést._
 
@@ -67,7 +68,7 @@ tasks:
   
 - id: custom9_06
   markdown: |
-    Pomocí `try`, `except` případně `finally` a `else` ošetři program pro následující případ.
+    Pomocí `try`, `except` ošetři program pro následující případ.
       
     _Uživatel chce dělit nulou._
   
@@ -78,7 +79,7 @@ tasks:
   
 - id: custom9_07
   markdown: |
-    Pomocí `try`, `except` případně `finally` a `else` ošetři program pro následující případ.
+    Pomocí `try`, `except` ošetři program pro následující případ.
 
     _Uživatel zadá neplatný operand._
 

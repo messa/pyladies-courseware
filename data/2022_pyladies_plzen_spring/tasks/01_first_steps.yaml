@@ -94,14 +94,23 @@ tasks:
 
 - id: handout01_09
   markdown: |
-    Co je tady špatně? Jak to spravit?
+    Co je tady špatně? Jak to spravit, abych dosáhla odpovědi: "Ahoj PyLadies!"?
 
     ```
     >>> 'Ahoj' + 'PyLadies!'
     ```
+    _Vyzkoušej si to a zkus najít jedno správné řešení._
+  mandatory: true
 
-    Jakým příkazem dosáhnu odpovědi: "Ahoj PyLadies!"?
-  
+- id: sprint01_1
+  markdown: |
+    Jakým příkazem dokážeš sám ukončit příkazový řádek Pythonu?
+
+    ```
+    > python
+    >>> 'Chci vyskočit z Pythonu, jak?'
+    >>> 
+    ```
   mandatory: true
   
 - id: handout1_10
@@ -120,5 +129,17 @@ tasks:
 - id: handout1_12
   markdown: |
     A vynásobit? (Můžeš vložit výsledek z konzole, ale odpověz i slovně)
+    
+  mandatory: 
+  
+- id: sprint01_2
+  markdown: |
+    Napiš svůj první program, který bude mít v sobě uložený text 
+     
+    ``` "Tohle je můj první prográmek a dokážu ho uložit a spustit! Juchů!"  ```
+    
+    Který po spuštění výpíše. Tento program ulož pod jménem `01_mujprogram.py` 
+    ve svém pracovním adresáři. Program spusť z příkazové řádky. 
+    Napiš nám, zda-li se ti to povedlo (společně s výpisem z konzole).
     
   mandatory: true
