@@ -1,8 +1,9 @@
 import logging
 import os
 from pathlib import Path
+from typing import Optional
+
 import pymongo
-from secrets import token_hex
 from yaml import safe_load as yaml_load
 
 
@@ -32,6 +33,7 @@ class Configuration:
         self.fb_oauth2 = OAuth2('fb', cfg)
         self.google_oauth2 = OAuth2('google', cfg)
         self.allow_dev_login = bool(os.environ.get('ALLOW_DEV_LOGIN'))
+        self.slack = Slack.from_cfg(cfg)
         self.mongodb = MongoDB(cfg)
 
 
@@ -61,6 +63,23 @@ class MongoDB:
                        or cfg_section.get('db_name') \
                        or db_name_from_uri(self.connection_uri) \
                        or 'courseware_dev'
+
+
+class Slack:
+
+    @staticmethod
+    def from_cfg(cfg) -> Optional["Slack"]:
+        user_auth = cfg.get('slack_user_token')
+        bot_auth = cfg.get('slack_bot_token')
+        web_url = cfg.get('slack_web_url')
+        if user_auth is None or bot_auth is None or web_url is None:
+            return None
+        return Slack(user_auth, bot_auth, web_url)
+
+    def __init__(self, user_auth: str, bot_auth: str, web_url: str):
+        self.user_auth = user_auth
+        self.bot_auth = bot_auth
+        self.web_url = web_url
 
 
 def db_name_from_uri(mongo_uri):

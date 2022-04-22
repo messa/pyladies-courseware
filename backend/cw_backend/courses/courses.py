@@ -159,6 +159,13 @@ class Course:
                 return session
         raise Exception(f'Session with slug {slug!r} not found in {self}')
 
+    def get_session_by_task_id(self, task_id):
+        for session in self.sessions:
+            for task in session.task_items:
+                if task.id == task_id:
+                    return session
+        return None
+
     def export(self, sessions=False, tasks=False):
         d = {
             **self.data,
