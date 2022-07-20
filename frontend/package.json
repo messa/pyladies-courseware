@@ -25,7 +25,7 @@
     "react-relay": "^11.0.2",
     "semantic-ui-react": "^0.88.2",
     "subscriptions-transport-ws": "^0.9.19",
-    "terser": "3.14.1"
+    "terser": "4.8.1"
   },
   "devDependencies": {
     "babel-plugin-relay": "^10.1.3",
