@@ -1,0 +1,7 @@
+id: pydata-2022-praha-podzim
+naucse_api_url: https://naucse.python.cz/v0/2022/pydata-praha-podzim.json
+end_date: 2022-12-24
+tasks_by_lesson_slug:
+
+  "pydata/notebook":
+  - file: tasks/eda_1.yaml
