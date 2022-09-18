@@ -37,3 +37,4 @@ courses:
 - file: 2022_pyladies_plzen_spring/course.yaml
 - file: 2022_pyladies_brno_autumn/course_tuesday.yaml
 - file: 2022_pydata_praha_autumn/course.yaml
+- file: 2022_pyladies_praha_autumn/course.yaml
