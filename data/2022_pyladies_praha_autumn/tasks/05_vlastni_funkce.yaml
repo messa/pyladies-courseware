@@ -7,12 +7,13 @@ tasks:
 
 - id: handout05_01
   markdown: |
-    Napiš funkci, která vrátí maximální hodnotu ze tří zadaných čísel. 
+    Napiš funkci, která vrátí maximální hodnotu ze tří zadaných čísel. Zjištění maxima naprogramuj sama,
+    pomocí příkazů `if`.
 
 - id: handout05_02
   markdown: |
     Vytvoř funkci, která spočítá *Body Mass Index* pro kočky. Vstupem (parametry) funkce bude
-    obvod hrudníku (cm) a délka zadní nohy od kolena ke kotníku (cm). Funkce vrátí číslo (*feline body mass index*, fBMI).
+    obvod hrudníku (cm) a délka zadní nohy od kolena ke kotníku (cm). Funkce vrátí číslo *feline body mass index* (fBMI).
 
     Postup výpočtu fBMI:
     1. Vydělit obvod hrudníku 0.7062 a odečíst délku nohy.
@@ -49,17 +50,22 @@ tasks:
 
 - id: handout05_06
   markdown: |
-    Napiš funkci, která ověří, že zadaná teplota je v daném intervalu. Funkce bude mít tři parametry (teplota, dolní mez,
-    horní mez) a bude vracet `True`/`False`.
+    Napiš funkci, která bude mít jako parametr jedno číslo a vrátí "Bum", je-li toto číslo liché, a "Bác", je-li
+    toto číslo sudé.
 
 - id: handout05_07
   markdown: |
-    Napiš funkci, která pro zadanou teplotu doporučí vhodné oblečení. Využij funkci z předchozího úkolu.
+    Napiš funkci, která bude mít jako parametr jedno číslo (`n`) a vypíše `n` řádek. Na prvním řádku bude "Bum", na druhém
+    "Bác", na třetím "Bum", atd. Využij funkci z předchozího úkolu.
 
     Např.
 
-        >>> doporuc_obleceni(-3)
-        "Vezmi si rukavice a čepici."
+        >>> vypis_bum_bac(5) 
+        Bum
+        Bác
+        Bum
+        Bác
+        Bum
     
 - section:
     markdown: |
