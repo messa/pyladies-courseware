@@ -18,7 +18,7 @@ tasks:
 - id: handout06_02
   markdown: |
     Najdi na internetu text své oblíbené písně, zkopíruj si ho do řetězce
-    a zjisti, kolikrát je v něm použito písmeno `K`.
+    a zjisti, kolikrát je v něm použito písmeno `K` (započítej malá i velká písmena).
       
 - id: handout06_03
   markdown: |
@@ -35,11 +35,12 @@ tasks:
 
 - id: handout06_refresher_01
   markdown: |
-    Napiš funkci, která načte číslo a zjistí, jestli je sudé
+    Napiš funkci, která dostane jako parametr číslo a zjistí, jestli je sudé. Funkce by měla vracet `True` nebo `False`.
 
 - id: handout06_refresher_02
   markdown: |
-    Napiš funkci, která se zeptá na 3 čísla a zjistí, jestli je jejich součet větší než 10
+    Napiš funkci, která dostane jako parametry tři čísla a zjistí, jestli je jejich součet větší než 10.
+    Funkce by měla vracet vracet `True` nebo `False`.
 
 - id: handout06_refresher_03
   markdown: |

@@ -28,7 +28,7 @@ tasks:
         3 na druhou je 9
         4 na druhou je 16
 
-    _Jak pojmenuješ proměnnou cyklu?_
+    _Jak pojmenuješ proměnnou cyklu? Slovně zdůvodni._
 
 - id: handout03_03
   markdown: |
@@ -42,7 +42,7 @@ tasks:
 
     „Z jednotlivých `'X'`“ znamená, že nepoužiješ např. `print('X X X X X')`, ani násobení řetězců, t. j. např. `5 * "X"`.
 
-    _Jak pojmenuješ proměnnou cyklu? A tu druhou?_
+    _Jak pojmenuješ proměnnou cyklu? A tu druhou? Slovně zdůvodni._
 
 - id: handout03_04
   markdown: |
