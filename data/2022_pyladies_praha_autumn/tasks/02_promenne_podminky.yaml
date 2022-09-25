@@ -73,8 +73,8 @@ tasks:
     - Vytvoř si dvě proměnné, `tah_cloveka` a `tah_pocitace`
     - Nastav `tah_pocitace` na "kámen", na `tah_cloveka` se uživatele zeptej
     - Vypiš výsledky hry dle tahu člověka - buď `'Plichta.'`, `'Počítač vyhrál.'` nebo `'Vyhrála jsi!'`.
-      Vyhodnocení výsledku hry naprogramuj tak, jako by počítač mohl náhodně losovat ze všech tří
-      variant - naučíš ho to v příští lekci.
+      **Vyhodnocení výsledku hry naprogramuj tak, jako by počítač mohl náhodně losovat ze všech tří
+      variant** - naučíš ho to v příští lekci.
 
     Pokud nevíš, odevzdej i nekompletní řešení, koučové tě navedou!
 
