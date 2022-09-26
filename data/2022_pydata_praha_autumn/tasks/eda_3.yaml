@@ -7,42 +7,38 @@ tasks:
 
 - id: eda3_00
   markdown: |
-    Odkaz na tvůj notebook na DeepNote a případné poznámky:
+    Odkaz na tvůj notebook na DeepNote a případné poznámky(nezapomeň změnit práva na "Edit" a přejmenovat soubor):
 
 - id: eda3_01
   markdown: |
-    Pomocí stejného postupu jako v hodině načti data z Mošnova (data viz template na DeepNote).
+    Načti data pro alespoň 3 stanice pomocí funkce `load_chmi_excel_files`. 
+    Pomocí `sns.lineplot` vykresli rychlost větru v červnu, červenci a srpnu 2021.
+
+    Zkuste vypozorovat nějaké rozdíly mezi stanicemi. Poté použijte `sns.boxplot` nebo `px.box` a ověřte, jestli jsou vypozorované rozdíly vidět.
+
 
 - id: eda3_02
   markdown: |
-    Vytvoř graf, který porovná vývoj ročních úhrnů srážek (tj. vždy suma srážek za daný rok) v jednotlivých stanicích.
+    Vytvoř graf, který porovná vývoj ročních úhrnů srážek (tj. vždy suma srážek za daný rok - na to se ti bude hodit `resample`) ve dvou libovolných stanicích.
 
 - id: eda3_03
   markdown: |
-    Zjisti, ve které z těchto stanic byl nejteplejší den (nejvyšší maximální teplota) v roce 2010 a který to byl.
+    Zjisti, ve které z těchto stanic byl nejteplejší den (den s nejvyšší maximální teplotou) v roce 2010 a který den to byl.
 
 - id: eda3_04
   markdown: |
     Podnikavý zemědělec by rád začal pěstovat novou plodinu, která ale v daném roce plodí jen pokud je splněno:
-    - maximálně 30 % dní klesne minimální denní teplota pod nulu,
-    - alespoň 40 % dní svítí slunce více než pět hodin,
-    - průměrná vlhkost za celý rok je větší než 75 %.
-    
+
+    * maximálně 35 % dní klesne minimální denní teplota pod nulu,
+    * alespoň 40 % dní svítí slunce více než pět hodin,
+    * průměrná vlhkost vzduchu za celý rok je větší než 70 %.
+
     Doporučila bys na pěstování této plodiny na základě počtu let v historii, ve kterých byly tyto podmínky splněny, Ruzyni nebo Mošnov? Jak velkou pravděpodobnost má zemědělec, že mu další rok bude tato nová plodina plodit?
+
+    Tip: Pro řešení úlohy se hodí `resample` a `quantile`.
 
 - id: eda3_05
   markdown: |
-    Uložila sis data z Ruzyně do souboru ruzyne_tidy.csv. Jenže nějaký diskový šotek do některých řádků vložil chybu: Ve sloupci tlak vzduchu je hodnota vlhkosti. Data se sice už zachránit nepodaří, nicméně bude dobré chybu napravit alespoň označeních chybných dat jako NA. Pro kolegu, který bohužel s chybějícími daty pracovat neumí, bude navíc potřeba připravit ještě jeden csv soubor, který bude obsahovat alespoň nějaké rozumné hodnoty. Data viz template na DeepNote.
-
-- section:
-    markdown: |
-      Poslední dva úkoly prověří pravdivost známých pranostik. Stačí, když splníš jeden z nich:
-
-- id: eda3_06
-  markdown: |
-    Jak často přijíždí Svatý Martin na bílém koni do Mošnova? Jaké je procento svátků Sv. Martina (11. 11.), kdy byla celková výška sněhu větší než 0?
-
-- id: eda3_07
-  markdown: |
-    Který z ledových mužů je nejmrazivější? Pankrác (12. 5.), Servác (13. 5.) nebo Bonifác (14. 5.)? Zjisti to porovnáním mediánů minimálních teplot těchto dní.
-
+    Který z ledových mužů je nejmrazivější? Pankrác (12. 5.), Servác (13. 5.) nebo Bonifác (14. 5.)? 
+    
+    Zjisti to porovnáním mediánů minimálních teplot těchto dní, pro výpočet ale použij pouze dny kdy mrzlo, tj. kdy byla minimální teplota pod nulou.
