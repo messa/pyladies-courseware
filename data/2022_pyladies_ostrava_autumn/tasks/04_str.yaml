@@ -2,7 +2,7 @@ tasks:
 
 - section:
     markdown: |
-      Procvičení řetězců. Měj při ruce taháky!
+      Na začátek si trochu procvičíme řetězce. Měj při ruce taháky!
 
 - id: handout4_18
   markdown: |
@@ -10,7 +10,7 @@ tasks:
     jestli je jeden obsažen ve druhém.
     Nebere přitom ohled na velikost písmen.
 
-    (Stejné zadání bylo i na srazu.)
+    (na srazu jsme si ukazovali, jak testovat, zda řetězec obsahuje daný podřetězec)
 
 - id: handout4_19
   markdown: |

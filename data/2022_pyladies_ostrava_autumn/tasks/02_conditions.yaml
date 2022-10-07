@@ -30,7 +30,7 @@ tasks:
     Ulož si následující program jako `pokus.py` a spusť ho několikrát za sebou.
     Co dělá?
 
-    ```
+    ```python
     from random import randrange
     cislo = randrange(3)
     print(cislo)
@@ -90,8 +90,8 @@ tasks:
     porovnávání (`==`) a přiřazení (`=`); pro výpis `print` a pro vstup `input`.*
 
 - section:
-  markdown: |
-    Tyto projekty kombinují opakování a nové informace. Doporučuji si je projít.
+    markdown: |
+      Tyto projekty kombinují opakování a nové informace. Doporučuji si je projít.
 
 - id: handout2_06
   markdown: |

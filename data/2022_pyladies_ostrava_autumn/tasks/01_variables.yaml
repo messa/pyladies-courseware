@@ -83,6 +83,7 @@ tasks:
   markdown: |
     Ne všechno se dá použít jako jméno proměnné.
     Fungují pro proměnné následující jména? Pokud ne, proč asi?
+    Zkus každé jméno použít jako proměnnou a přiřadit si do ní nějakou hodnotu, např. číslo nebo slovo.
 
     <div style='column-count: 4'>
       <code>x</code><br>

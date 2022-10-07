@@ -2,7 +2,7 @@ tasks:
 
 - section:
     markdown: |
-      Následující sada projektů není jednoduchá, ale uděláš-li ji, pochopíš různá použití cyklu for.
+      Následující sada projektů ti ukáže různá použití cyklu for.
 
 - id: handout4_00
   markdown: |
@@ -25,10 +25,10 @@ tasks:
 
 - id: handout4_03
   markdown: |
-    Jak jsi pojmenovala proměnnou, kterou jsi v minulém příkladu použila?
+    Jak jsi pojmenoval/a proměnnou, kterou jsi v minulém příkladu použil/a?
     Vymysli pro ni název, který nejlépe vystihuje, co proměnná obsahuje.
 
-    _Je důležité proměnnou pojmenovat výstižně, jinak se v dalších projektech můžeš ztratit. Možné řešení je uvedeno na konci zadání._
+    _Je důležité proměnnou pojmenovat výstižně, jinak se v dalších projektech můžeš ztratit._
 
 - id: handout4_04
   markdown: |
@@ -124,11 +124,11 @@ tasks:
 
 - id: handout4_17
   markdown: |
-    Máš-li ráda matematiku* a nebojíš-li se výzvy, načti od uživatele číslo _n_ a:
+    Máš-li rád/a matematiku\* a nebojíš-li se výzvy, načti od uživatele číslo _n_ a:
 
     - Vypočti faktoriál _n!_ (součin všech celých čísel od 1 do _n_).
     - Zjisti, jestli je _n_ prvočíslo.
     - Vypiš prvních _n_ členů Fibonacciho posloupnosti (1, 1, 2, 3, 5, 8, 13, 21, …).
 
-    _*_ t.j. nemáš-li ráda matematiku, nedělej tenhle projekt :)
+    _*_ t.j. nemáš-li rád/a matematiku, nedělej tenhle projekt :)
 

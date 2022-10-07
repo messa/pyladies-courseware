@@ -2,7 +2,7 @@ tasks:
 
 - section:
     markdown: |
-      Na chvilku se vrátíme k úkolu z lekce "Podmínky a funkce", kde jsi programoval jednoduchou kalkulačku.
+      Na chvilku se vrátíme k úkolu z lekce "Podmínky a funkce", kde jsi programoval/a jednoduchou kalkulačku.
 
 - id: handout6_00
   markdown: |
@@ -30,7 +30,7 @@ tasks:
 
 - section:
     markdown: |
-      Dnešním úkolem je naprogramovat hru *1D Piškvorky*.
+      Dnešním hlavním úkolem je naprogramovat hru *1D Piškvorky*.
       Nakonec bude fungovat následovně:
 
       <blockquote>

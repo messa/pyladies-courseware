@@ -9,13 +9,11 @@ tasks:
 
 - id: os_name
   markdown: |
-    Jaký používáte operační systém?
-    (Jestli používáte v tyḿu různé systémy, napište všechny!)
+    Jaký používáš operační systém?
 
 - id: editor_name
   markdown: |
-    Který používáte editor?
-    (Zase - jestli každý jiný, napište všechny!)
+    Jaký používáš editor?
 
 - section:
     markdown: |
@@ -57,9 +55,8 @@ tasks:
 
 - id: handout1_05
   markdown: |
-    Až budeš příště sahat po kalkulačce, použij místo ní Python.
-
-  submit: false
+    Přijdeš na to, co dělá operátor `%` (procento)?
+    *(Odpověz slovně.)*
 
 - id: handout1_06
   markdown: |

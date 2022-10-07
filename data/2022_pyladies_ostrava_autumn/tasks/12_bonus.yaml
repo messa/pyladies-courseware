@@ -1,0 +1,184 @@
+tasks:
+
+- section:
+    markdown: |
+      Tato lekce obsahuje různé úkoly, které se nám nikde jinde nevešly. Můžeš je řešit v náhodném pořadí a jsou všechny nepovinné. Některé z nich ti mohou zabrat několik hodin. Na všechny tvoje dotazy rádi odpovíme na Slacku nebo si domluv online konzultaci s koučem.
+
+- section:
+    markdown: |
+      Jedna klasická programovací úloha, která nejspíš pořádně potrápí
+      tvé logické myšlení.
+
+- id: roman_numbers
+  markdown: |
+    Napiš funkci, která převede římské číslice na arabské (`int`).
+
+- id: roman_numbers_2
+  markdown: |
+    Napiš funkci, která převede arabské číslice na římské.
+
+- section:
+    markdown: |
+      Dadaistický koutek: procvičení práce se seznamy, řetězci a soubory.
+
+- id: poem1
+  markdown: |
+    Vyber si básničku, která má aspoň tři sloky po aspoň třech verších.
+    Ulož ji do souboru _basnicka.txt_. Básničku ulož tak, aby mezi každou slokou byl volný řádek.
+    Můžeš použít třeba kousek Máje od K. H. Máchy nebo některou baladu z Kytice od K. J. Erbena.
+
+- id: poem2
+  markdown: |
+    Napiš program, který vypíše básničku ze souboru _basnicka.txt_, ale obrátí
+    pořadí veršů (t.j. jako první vypíše poslední řádek atd.). Nápověda: Každý
+    seznam má metodu `reverse`, která ho „obrátí”.
+
+- id: poem3
+  markdown: |
+    Napiš program, který obrátí pořadí slov v jednotlivých verších
+
+- id: poem4
+  markdown: |
+    Obrať pořadí slok (ty by měly být oddělené jedním prázdným řádkem).
+
+- id: poem5
+  markdown: |
+    Vypiš slova básně v náhodném pořadí.
+
+    _Bonusový projekt: Snaž se přitom co nejlépe zachovat strukturu básně (sloky,
+    verše, interpunkci, velká písmena, ..._
+
+- section:
+    markdown: |
+      Několik matematických úkolů:
+
+- id: math1
+  markdown: |
+    Suma čísel dělitelných trojkou nebo pětkou¶
+
+    Vezmeme li čísla menší než 10 dělitelná beze zbytku trojkou nebo pětkou, dostaneme 3, 5, 6 a 9. Jejich součet je 23. Jaký je součet čísel dělitelných beze zbytku trojkou nebo pětkou v intervalu od 0 do 100?
+
+    (Výsledek: 2318)
+
+- id: math2
+  markdown: |
+    Prvočísla
+
+    Na seznamu prvočísel (2, 3, 5, 7, 11, a 13) je vidět, že šesté prvočíslo je 13. Jaké je sté prvočíslo? A které je na pozici s číslem deset tisíc?
+
+    (Výsledek: 104729)
+
+- id: math3
+  markdown: |
+    Dělitelnost čísel
+
+    2520 je nejmenší číslo, které je beze zbytku dělitelné všemi čísly od 1 po 10. Najděte nejmenší kladné celé číslo, které je beze zbytku dělitelné všemi císly od 1 do 20.
+
+    (Výsledek: 232792560)
+
+- id: math4
+  markdown: |
+    Prvočíselná dvojčata
+
+    Prvočíselné dvojče je taková dvojice čísel, kde obě čísla jsou prvočísla a jedno je o dvě větší než to první. Nejmenší prvočíselné dvojče je 3 a 5. Najdi deset prvních prvočíselných dvojčat!
+
+    (Výsledek: 3-5, 5-7, 11-13, 17-19, 29-31, 41-43, 59-61, 71-73, 101-103, 107-109)
+
+- section:
+    markdown: |
+      Želví kreslení.
+
+- id: bonus_turtle01
+  markdown: |
+    Nakresli želvu želvou. Výsledek může vypadat např. takto.
+
+    <img src="/static/tasks/handout_images/zelva_zelvou.png" alt="Jedna želva nakreslená želvou" style="max-width: 100%; max-height: 100px">
+
+
+- id: bonus_turtle02
+  markdown: |
+    V tomto úkolu bude potřeba trochu hledat v [dokumentaci](https://docs.python.org/3/library/turtle.html). Cílem je nakreslit želvou obrázek na pozadí nějaké fotky.
+  
+    **Jak na to?**
+
+    * Nakresli libovolný tvar (ideálně uzavřený), třeba domeček. Použij pro velikost proměnnou, protože tu budeš určitě měnit.
+    * S pomocí dokumentace zjisti, jak tvar vybarvit. Chceš-li si s barvami pohrát více, nastav jinou barvu obrysu a jinou barvu výplně.
+    * Najdi si obrázek, který dáš do pozadí, buď vlastní, nebo se podívej na stránku Unsplash.
+    * Zjisti, jak dát tento obrázek do pozadí.
+    * Je celkem pravděpodobné, že obrázek je příliš velký na to, aby se do okna vešel. Zkus změnit velikost obrázku a/nebo velikost okna.
+    * Je-li to nutné, změň velikost objektu.
+    * Přesuň objekt, tak aby byl tam, kde ho chceš.
+
+    <img src="/static/tasks/handout_images/zelva_pozadi.png" alt="Jedna želva nakreslená želvou" style="max-width: 100%; max-height: 100px">
+
+- id: bonus_turtle03
+  markdown: |
+    Tento úkol vznikl jako reakce na dotaz jedné účastnice předchozího kurzu Pythonu od PyLadies. Otázka byla: "Šlo by to nějak udělat, že se okno s želvou zavře po stisknutí nějaké klávesy? Třeba K?".
+
+    V tomto úkolu tedy odevzdej libovolný obrázek nakreslený želvou (můžeš využít nějaký tvůj předchozí projekt) a zároveň nastav, aby se okno s výsledným obrázkem zavřelo po stisknutí klávesy "k".
+
+    [Dokumentace](https://docs.python.org/3/library/turtle.html) bude tvým dobrým kamarádem.
+
+- id: bonus_turtle04
+  markdown: |
+    Modul `turtle` je celkem zajímavý. Např. `forward` je možno použít dvěma následujícími způsoby.
+
+    ```python
+    # Způsob č. 1
+    from turtle import forward, exitonclick
+
+    forward(50)
+    exitonclick()
+    ```
+    nebo
+
+    ```python
+    # Způsob č. 2
+    from turtle import Turtle, exitonclick
+
+    zelva = Turtle()
+    zelva.forward(50)
+    exitonclick()
+    ```
+
+    V prvním případě je `forward` funkcí, ale v druhém případě je `forward` metodou třídy.
+
+    Zadání zní: Vytvořte vlastní třídu, která buď dělá něco, co standardní želva neumí, nebo něco, co želva umí, ale pod jiným názvem. Kreativitě se (jako vždy) meze nekladou.
+
+- section:
+    markdown: |
+      Další úkol se týká kontroly vstupu od uživatele.
+
+- id: separator
+  markdown: |
+    Jak to udělat, aby šlo desetinné číslo zadat i s desetinnou čárkou? Cílem je napsat program, který se zeptá uživatele na číslo a vrátí číslo (datový typ `int` nebo `float`) a je jedno, zda uživatel použije desetinnou tečku nebo desetinnou čárku. Fungovat tedy musí obě varianty.
+
+- section: 
+    markdown: |
+      Tento úkol navazuje na to, co jsme si ukazovali na lekci o třídách.
+
+- id: class_cat
+  markdown: |
+    Na lekci o třídách jsme si ukázali, jak vytvořít třídu pro koťátka. V rámci tohoto úkolu vytvořte třídu pro kočku, která:
+
+    * umí mňoukat metodou `zamnoukej`
+    * při vytvoření má 9 životů (a nikdy nemůže mít více než 9 a méně než 0)
+    * umí říct, zda je nebo není živá (= má 0 životů) metodou `je_ziva`
+    * umí ztratit život metodou `uber_zivot`
+    * může být nakrmena metodou `snez`, která bere jako argument konkrétní jídlo (řetězec), pokud je toto jídlo `ryba`, pak se kočce obnoví 1 život (pokud tedy už není mrtvá nebo nemá maximální počet životů)
+
+- section: 
+    markdown: |
+      V lekci o seznamech jste v úkolech tvořili hru "Had". Při pohybu hada v herním poli se na terminálu vždy vypsalo nové herní pole s novým stavem hry. 
+      
+- id: snake_clear_terminal
+  markdown: |
+    Zkuste zajistit, jak to udělat, aby na terminálu byl vidět jen poslední stav. Tedy herní pole se nebude vypisovat znovu a znovu s novým stavem, ale bude se v terminálu přepisovat. Vizuálně to pak bude vypadat, jako by se herní pole měnilo. Na internetu zkus najít toto téma pod heslem "How to Clear Screen in Python?".
+
+- section:
+    markdown: |
+      Přestupný rok.
+
+- id: leap_year
+  markdown: |
+    Napiš program, který na vstupu dostane rok a na terminál vypíše informaci, zda se jedná o přestupný rok. Nejdříve však zkus najít na internetu, podle jakých pravidel se určuje, zda rok bude nebo nebude přestupný.
