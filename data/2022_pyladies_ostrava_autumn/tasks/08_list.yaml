@@ -5,7 +5,7 @@ tasks:
         Pojďme si procvičit práci se seznamem.
 
         Některé z projektů – a zvlášť ten poslední – potřebují trochu přemýšlení;
-        nebudeš-li vědět, jak dál, požádej na Discordu o radu!
+        nebudeš-li vědět, jak dál, požádej na Slacku o radu!
 
 - id: handout8_00
   markdown: |
@@ -14,7 +14,7 @@ tasks:
     Domácí zvířata známe tato: `"pes", "kočka", "králík", "had"`.
 
     *Tuto funkci použiješ pro otestování dalších úloh.
-    Nehledej v ní nic složitého.*
+    Nehledej v ní nic složitého. Pozor jen na rozdíl mezi slovy "vypsat" a "vrátit".*
 
     Příklad:
 
@@ -22,6 +22,8 @@ tasks:
     >>> vytvor_seznam_zvirat()
     ['pes', 'kočka', 'králík', 'had']
     ```
+
+    _Tento příklad ukazuje výpis v interaktivním režimu Pythonu (>>>). Ty si však svůj kód můžeš testovat i pouštěním pythoních souborů. Je na tobě, jaký způsob si vybereš._
 
     Každé zavolání funkce by mělo vytvořit nový, nezávislý seznam.
     Vyzkoušej si to následujícím „dialogem“:
@@ -323,11 +325,15 @@ tasks:
     Hadí hřiště může mít libovolné rozměry větší než 4×1.
     Třeba 20×20 nebo 10×30.
 
+- id: handout8_15
+  markdown: |
+    Hru "Had" si můžeš vylepšit podle své fantazie. Zde můžeš odevzat své řešení a pochlubit se. Úkol je nepovinný. 
+
 - section:
     markdown: |
-      A nakonec projekt na přemýšlení.
+      A nakonec nepovinný projekt na přemýšlení.
 
-- id: handout8_15
+- id: handout8_16
   markdown: |
     Zkus co nejjednodušeji udělat takový seznam, aby platilo:
 

@@ -10,7 +10,7 @@ tasks:
 
 - id: handout2_11
   markdown: |
-    Napiš program, který se zeptá uživatele na dvě čísla a jako výsledek porovná tato čísla.
+    Napiš program, který se zeptá uživatele na dvě čísla a jako výsledek tato dvě čísla porovná.
 
     Příklad použití programu:
 

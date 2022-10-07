@@ -15,7 +15,7 @@ tasks_by_lesson_slug:
   - file: tasks/02_functions.yaml
 
 # Lekce 3 - Želva a cykly
-  "beginners/turtle":
+  "intro/turtle":
   - file: tasks/03_turtle.yaml
   "beginners/while":
   - file: tasks/03_loops.yaml
@@ -55,6 +55,8 @@ tasks_by_lesson_slug:
   - file: tasks/11_class.yaml
 
 # Lekce 12 - Opakování
+  "adm/refresh":
+  - file: tasks/12_bonus.yaml
 
 # Lekce 13 - Grafika
   "intro/pyglet":
