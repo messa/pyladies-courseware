@@ -11,3 +11,5 @@ tasks_by_lesson_slug:
   - file: tasks/eda_3.yaml
   "pydata/pandas_correlations":
   - file: tasks/eda_4.yaml
+  "pydata/pandas_groupby":
+  - file: tasks/eda_5.yaml
