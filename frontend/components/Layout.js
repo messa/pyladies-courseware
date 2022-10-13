@@ -7,6 +7,9 @@ export default ({ children, user, activeItem, width }) => (
     <Head>
       <title>Pyladies Courseware</title>
       <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/static/icons/apple-touch-icon.png" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon-32x32.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/static/icons/favicon-16x16.png" />
       <link rel="stylesheet" href="/static/font-lato/lato.css" />
       <link rel="stylesheet" href="/static/semantic-ui/semantic-2.3.3.no-font.css" />
       <link rel="stylesheet" href="/static/main2.css" />
