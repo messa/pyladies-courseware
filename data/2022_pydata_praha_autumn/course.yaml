@@ -17,3 +17,5 @@ tasks_by_lesson_slug:
   - file: tasks/pca.yaml
   "pydata/regression_exercises":
   - file: tasks/ml_1.yaml
+  "pydata/classification_metrics":
+  - file: tasks/ml_3.yaml
