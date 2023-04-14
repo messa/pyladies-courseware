@@ -125,9 +125,10 @@ tasks:
   markdown: |
     Napiš program, který vyzve uživatele k zadání řetězce složeného z otevíracích a zavíracích závorek jednoho typu, např. `()`. Program ověří, jestli jsou závorky správně, to znamená každá otevřená závorka je uzavřena, a výsledek vypíše. Pokud program narazí na jiný znak než závorky, vypíše chybu a ukončí se.
 
-      Příklad:
-      * `()(()(()))` je správně
-      * `())(` je špatně
+    Příklad:
+
+    - `()(()(()))` je správně
+    - `())(` je špatně
 
     **Bonus:** vypiš index znaku, kde program odhalil chybu v řetězci
 
@@ -135,11 +136,12 @@ tasks:
   markdown: |
     Napiš program, který vypíše pyramidu. Uživatel zadá počet poschodí na vstupu. Nezapomeň na správné odsazení.
 
-      Příklad:
-      ```
-          *
-         * *
-        * * *
-       * * * *
-      * * * * *
-      ```
+    Příklad:
+    
+    ```
+        *
+       * *
+      * * *
+     * * * *
+    * * * * *
+    ```
