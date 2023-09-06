@@ -1,0 +1,78 @@
+tasks:
+
+- id: handout05_00
+  markdown: |
+    Vytvoř funkci `pocet_vterin`, která bude mít dva argumenty: čas v minutách a čas ve vteřinách.
+    A bude vracet celkový počet vteřin.
+
+- id: handout05_01
+  markdown: |
+    Napiš funkci, která vrátí maximální hodnotu ze tří zadaných čísel. Zjištění maxima naprogramuj sama,
+    pomocí příkazů `if`.
+
+- id: handout05_02
+  markdown: |
+    Vytvoř funkci, která spočítá *Body Mass Index* pro kočky. Vstupem (parametry) funkce bude
+    obvod hrudníku (cm) a délka zadní nohy od kolena ke kotníku (cm). Funkce vrátí číslo *feline body mass index* (fBMI).
+
+    Postup výpočtu fBMI:
+    1. Vydělit obvod hrudníku 0.7062 a odečíst délku nohy.
+    2. Vydělit výsledek  0.9156.
+    3. Od výsledku bodu 2 odečíst délku nohy.
+    
+- id: handout05_03
+  markdown: |
+    Vytvoř funkci `nakresli_n_uhelnik`, která vykreslí pro zadaný počet stran n-úhelník.
+    Pomocí této funkce vykresli následující obrázek:
+
+    <img src="/static/tasks/handout3a_images/06_uhelniky.png" alt="mnohoúhelníky" style="max-width: 100%; max-height: 60px">
+
+    _Vnitřní úhel pravidelného `n`-úhelníka má `180 × (1-2/n)` stupňů._
+
+    _Aby byly tvary zhruba stejně veliké, použij pro `n`-úhelník délku strany např. `200/n`_
+
+- id: handout05_04
+  markdown: |
+    Napiš funkci, která s pomocí cyklu `for` a příkazu `if` vypíše z jednotlivých `'X'` a mezer následující
+    obrazec:
+
+        X X X X X X
+        X         X
+        X         X
+        X         X
+        X         X
+        X X X X X X
+
+- id: handout05_05
+  markdown: |
+    Vrať se k úkolu č. 4 z minulé lekce a zkus zpřehlednit kód použitím funkce. Funkce `hazej_kostkou` bude vracet
+    počet pokusů než hráči padla šestka. 
+
+- id: handout05_06
+  markdown: |
+    Napiš funkci, která bude mít jako parametr jedno číslo a vrátí "Bum", je-li toto číslo liché, a "Bác", je-li
+    toto číslo sudé.
+
+- id: handout05_07
+  markdown: |
+    Napiš funkci, která bude mít jako parametr jedno číslo (`n`) a vypíše `n` řádek. Na prvním řádku bude "Bum", na druhém
+    "Bác", na třetím "Bum", atd. Využij funkci z předchozího úkolu.
+
+    Např.
+
+        >>> vypis_bum_bac(5) 
+        Bum
+        Bác
+        Bum
+        Bác
+        Bum
+    
+- section:
+    markdown: |
+      **Co po této lekci umím:**
+
+- section:
+    markdown: |
+      - Definovat vlastní funkci a zavolat ji.
+      - Vím, co je návratová hodnota a co dělá příkaz `return`.
+      - Vím, co je lokální a globální proměnná.

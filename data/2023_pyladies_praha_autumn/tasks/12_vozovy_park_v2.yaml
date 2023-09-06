@@ -1,0 +1,105 @@
+tasks:
+
+- section:
+    markdown: |
+      Pro následující úlohy můžete použít tuto základní třídu reprezentující vozidlo.
+      ```
+      class Vozidlo:
+      def __init__(self, spz):
+          self.spz = spz
+          self.spotreba = 10
+          self.velikost_nadrze = 50
+          self.stav_nadrze = 0
+
+      def dojezd(self):
+          '''
+          Vrátí dojezd vozidla v km.
+          '''
+          return self.stav_nadrze / self.spotreba * 100
+      ```
+
+- id: vozovy_park_v2_01
+  markdown: |
+    Vytvoř třídu `Auto`, která dědí z třídy `Vozidlo`. `Auto` má totožné parametry jako `Vozidlo`.
+
+    Otestujte (například) pomocí:
+    ```
+    auto = Auto('1A10000')
+    print(auto.spz, auto.velikost_nadrze, auto.spotreba) # 1A10000 50 10
+    ```
+
+- id: vozovy_park_v2_02
+  markdown: |
+    Vytvoř třídu `Motorka`, která dědí z třídy `Vozidlo`. `Motorka` má spotřebu 5 (l na 100 km) a velikost nádrže 15 l.
+
+    Otestujte (například) pomocí:
+    ```
+    moto = Motorka('2A10000')
+    print(moto.spz, moto.velikost_nadrze, moto.spotreba) # 2A10000 15 5
+    ```
+
+- id: vozovy_park_v2_03
+  markdown: |
+    Vytvoř třídu `Autobus`, která dědí z třídy `Vozidlo`. `Autobus` má spotřebu 25 (l na 100 km) a velikost nádrže 400 l.
+
+    Otestujte (například) pomocí:
+    ```
+    bus = Autobus('3A10000')
+    print(bus.spz, bus.velikost_nadrze, bus.spotreba) # 3A10000 400 25
+    ```
+
+- id: vozovy_park_v2_04
+  markdown: |
+    Vytvoř seznam `vozovy_park`, který obsahuje alespoň jedno `Auto`, `Autobus` a `Motorka`. Následně zkontroluj, jaký je stav paliva a dojezd všech vozidel ve vozovém parku.
+
+- id: vozovy_park_v2_05
+  markdown: |
+    Z výroby mají všechna vozidla prázdnou nádrž. Bohužel jsme při výrobě zapomněli přidat kontrolku paliva, která by nás na prázdnou či docházející nádrž upozornila.  
+    Přidej všem vozidlům (Auto, Autobus, Motorka) metodu `kontrolka_paliva`, která svítí (vrací True), pokud je stav paliva pod 10 % kapacity nádrže (v opačném případě vrací False).
+
+- id: vozovy_park_v2_06
+  markdown: |
+    Svítí nám kontrolka_paliva, takže je potřeba tankovat.
+
+    Přidej všem vozidlům (Auto, Autobus, Motorka) metodu `natankuj`, která má jeden parametr - počet litrů paliva.  
+    Metoda zařídí natankování paliva a zajistí, abychom nádrž nepřeplnili (pokud má nádrž 60 l a my chceme tankovat 100 l, natankuje se pouze maximum, které se do nádrže vejde).  
+    Metoda vrací počet natankovaných litrů.
+
+    Otestujte (například) pomocí:
+    ```
+    auto2 = Auto('1B10000')
+    print(auto2.natankuj(20), auto2.stav_nadrze)  # 20 20
+    print(auto2.natankuj(20), auto2.stav_nadrze)  # 20 40
+    print(auto2.natankuj(25), auto2.stav_nadrze)  # 10 50
+    print(auto2.natankuj(25), auto2.stav_nadrze)  # 0 50
+    ```
+
+- id: vozovy_park_v2_07
+  markdown: |
+    **[Bonus]** Jsme skoro ready vyrazit. Schází 2 věci. Namontovat do vozidla počítadlo kilometrů (atribut `najete_km`) a metodu `ujed`.  
+    Metoda ujed dostane jako parametr kolik km má vozidlo ujet. Vozidlo ujede maximální počet km (s ohledem na dojezd). Metoda aktualizuje počítadlo km a stav nádrže a vrátí kolik km jsme v reálu ujeli.
+
+    Otestujte (například) pomocí:
+    ```
+    auto3 = Auto('1C10000')
+    print(auto3.natankuj(20), auto3.stav_nadrze, auto3.najete_km)  # 20 20 0
+    print(auto3.ujed(100), auto3.stav_nadrze, auto3.najete_km)  # 100 10 100
+    print(auto3.natankuj(20), auto3.stav_nadrze, auto3.najete_km)  # 20 30 100
+    print(auto3.ujed(1000), auto3.stav_nadrze, auto3.najete_km)  # 300 0 400
+    ```
+
+- id: vozovy_park_v2_08
+  markdown: |
+    **[Bonus]** Konečně můžeme vyrazit. Natankuj všem vozidlům ve vozovém parku plnou nádrž. Cílem je ujet 2000 km. Po každém ujetém km se podíváme na stav kontrolky paliva. Pokud danému vozidlu svítí, zastavíme, natankujeme plnou nádrž a vypíšeme SPZ a ujetou vzdálenost. Kolikrát které vozidlo potřebovalo cestou natankovat?
+
+- section:
+    markdown: |
+      **Co po této lekci umím:**
+
+- section:
+    markdown: |
+      - Vytvářet nové třídy s využitím dědičnosti.
+      - Přepisovat metody.
+      - Rozšiřovat podtřídy pomocí úpravy předka.
+      - Využívat polymorfismus.
+      - Provozovat menší až středně velkou dopravní společnost.
