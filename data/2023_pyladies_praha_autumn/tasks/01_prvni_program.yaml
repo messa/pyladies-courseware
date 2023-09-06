@@ -1,0 +1,91 @@
+tasks:
+
+- id: handout01_00
+  markdown: |
+    Na hodině jsme se naučili pracovat s interaktivní Python konzolí. Zkus pomocí Pythonu vypočítat:
+    3+(4+6)×8÷2−1 =
+
+    (Závorky v Pythonu fungují jako v matematice)
+
+- id: handout01_01
+  markdown: |
+    Jsou i jiné operátory než `+`, `-` a ty pro násobení a dělení.
+    Co dělá s čísly operátor `%` (procento)?
+
+- id: handout01_02
+  markdown: |
+    A co dělá operátor `**` (dvě hvězdičky)?
+
+- id: handout01_03
+  markdown: |
+    Jaký je v Pythonu rozdíl mezi dělením pomocí `/` a `//`? (Zkus si v Pythonu a odpověz slovně)
+
+- id: handout01_04
+  markdown: |
+    Řetězce jdou spojovat sčítáním. Například:
+
+    ```python
+    >>> 'A' + "B"
+    'AB'
+    ```
+
+    Poznáš, co je tady špatně? Jak bys to spravila?
+
+    ```python
+    >>> 'Ahoj' + 'PyLadies!'
+    ```
+
+- id: handout01_05
+  markdown: |
+    Řetězce se dají sčítat. Dají se i násobit? Dělit? Odečítat? (Odpověz slovně)
+
+- id: handout01_06
+  markdown: |
+    Co se stane, když se pokusím sečíst číslo a řetězec? (Můžeš vložit výsledek z konzole, ale odpověz i slovně)
+
+- id: handout01_07
+  markdown: |
+    A vynásobit? (Můžeš vložit výsledek z konzole, ale odpověz i slovně)
+
+- section:
+    markdown: |
+      Poslední úkol se neodevzdává. Je pro tebe, aby sis před další hodinou ověřila, že vše funguje, jak má:
+
+- id: handout01_08
+  markdown: |
+    V adresáři 01 ve složce pro kurz si vytvoř soubor `funguju.py` . Do souboru ulož:
+
+    ```
+    print("Hurá, funguju!")
+    ```
+
+    Pak se v příkazové řádce přepni do adresáře, kde jsi vytvořila soubor, aktivuj virtuální prostředí a do příkazové řádky napiš:
+
+    ```
+    python funguju.py
+    ```
+
+    Objevila se oslavná hláška? Gratulujeme, jsi připravena na další hodinu!
+
+  submit: false
+
+- section:
+    markdown: |
+      **Co po této lekci umím:**
+
+- section:
+    markdown: |
+      - Spustit příkazovou řádku a ukončit práci v ní
+      - Základní příkazy v příkazové řádce:
+        - zeptat se na adresář, ve kterém jsem
+        - zjistit, co v adresáři je
+        - přesunout se do daného adresáře
+        - vytvořit či smazat adresář
+      - Mám nainstalovaný a funkční Python 3.6 nebo 3.7 a vytvořené virtuální prostředí
+      - Mám adresář pro kurz PyLadies a v něm složky/adresáře pro jednotlivé hodiny
+      - Umím aktivovat virtuální prostředí (určitě si doma zkus, že funguje)
+      - Umím spustit a ukončit interaktivní Python
+      - Umím použít základní operátory (`+`,`-`,`/`,`//`,`*`,`%`) v Pythonu
+      - Mám nainstalovaný textový editor a umím si v něm vytvořit a uložit soubory
+
+      **Pokud ti něco z výše uvedeného nefunguje, prosím, kontaktuj organizátorky, rády ti pomohou.**
