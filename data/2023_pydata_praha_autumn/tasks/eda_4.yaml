@@ -2,7 +2,7 @@ tasks:
 
 - section:
     markdown: |
-      Template s úkoly na DeepNote si zduplikuj [TADY](https://deepnote.com/workspace/PyDataLadies-Jaro-2021-0579e7e7-50f6-4c4b-ba8a-1b39758bff4d/project/pydatakurzpodzim2022eda4tvojejmeno-0beaabb8-1d94-4525-98eb-7fae8b78935c/%2Fpydata_eda4.ipynb).
+      Template s úkoly na DeepNote si zduplikuj [TADY](https://deepnote.com/workspace/pydata23-883d73ac-8ab0-4b61-a477-5fa9b206edd2/project/pydatakurzpodzim2023eda4tvojejmeno-fc9a7d0e-c9e5-4840-a603-ff3deea65e04/notebook/pydata_eda4-8b7a9d9af7c3436286a354aa8aa88193).
 
 - id: eda4_00
   markdown: |
