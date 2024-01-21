@@ -45,3 +45,4 @@ courses:
 - file: 2023_pyladies_praha_autumn/course.yaml
 - file: 2023_pydata_praha_autumn/course.yaml
 - file: 2023_pyladies_brno_autumn/course.yaml
+- file: 2024_pyladies_plzen_spring/course.yaml
