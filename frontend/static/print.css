@@ -1,0 +1,31 @@
+div.Layout, div.pageContent, .pageContent {
+    max-width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+/* make space for "mandatory" signs */
+div.Layout {
+    padding-right: 20px !important;
+}
+
+div.Header, div.Footer-wrapper {
+    display: none !important;
+}
+
+div:has(> div.CourseOverview) {
+    display: none !important;
+}
+/* in case :has is not supported by your browser*/
+div.CourseOverview {
+    display: none !important;
+}
+
+/*
+ * Hide all subsequent siblings of h1
+ * which are not #tasks or subsequent siblings of it.
+ * Those are all elements between the lesson topic (h1) and "Domácí projekty"
+ * heading (#tasks).
+ * */
+h1 ~ *:not(#tasks, #tasks ~ *) {
+    display: none !important;
+}
