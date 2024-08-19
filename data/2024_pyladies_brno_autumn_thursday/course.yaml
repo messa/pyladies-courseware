@@ -1,0 +1,15 @@
+id: pyladies-2024-brno-podzim-ctvrtek
+naucse_api_url: https://naucse.python.cz/v0/2024/brno-podzim-ctvrtek.json
+registration_end: 2024-11-30
+tasks_by_lesson_slug:
+
+  "beginners/testing":
+  - file: tasks/06_testing.yaml
+  "beginners/list":
+  - file: tasks/07_list.yaml
+  "beginners/files":
+  - file: tasks/08_files.yaml
+  "beginners/dict":
+  - file: tasks/09_dict.yaml
+  "beginners/class":
+  - file: tasks/10_class.yaml
