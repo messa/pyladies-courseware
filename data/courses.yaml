@@ -47,3 +47,4 @@ courses:
 - file: 2024_pyladies_plzen_spring/course.yaml
 - file: 2024_pyladies_brno_spring/course.yaml
 - file: 2024_pyladies_brno_autumn_thursday/course.yaml
+- file: 2024_pyladies_brno_autumn_tuesday/course.yaml
