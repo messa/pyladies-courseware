@@ -1,0 +1,80 @@
+tasks:
+
+- section:
+    markdown: |
+      Začneme pár úkoly pro ověření, že umíš spustit Python.
+
+      Jako vždycky: Jestli něco vypadá příliš složitě i po tom, co se zamyslíš
+      a znovu přečteš zadání, zeptej se!
+
+- id: install_010
+  submit: false
+  markdown: |
+    * Otevři terminál
+    * Donaviguj pomocí známých příkazů do složky s kurzem PyLadies
+    * Aktivuj virtuální prostředí
+    * Spusť Python
+    * Zkus, jestli stále funguje jako kalkulačka
+    * Hezky zavři Python
+    * Deaktivuj virtuální prostředí
+    * Hezky zavři terminál (bez použití myši)
+
+- id: install_020
+  markdown: |
+    Jakou používáš verzi Pythonu?
+    *(Ke správné odpovědi patří i způsob, jak jsi na odpověď přišla.)*
+
+- id: install_030
+  markdown: |
+    Jak poznáš, že "mluvíš" s příkazovou řádkou, a jak, že s Pythonem?
+
+- id: install_040
+  markdown: |
+    Jak poznáš, že máš aktivní virtuální prostředí?
+    (Zajímá tě, k čemu tohle vůbec je? Zeptej se kouče!)
+
+- id: install_050
+  markdown: |
+    Jakým příkazem zjistíš obsah stávající složky?
+
+- id: install_060
+  markdown: |
+    Jaký příkaz použiješ pro posun do jedné složky výš v hierarchii?
+
+- id: install_070
+  markdown: |
+    Co dělá zmáčknutí tabulátoru v příkazové řádce?
+
+- id: install_080
+  markdown: |
+    Co dělá zmáčknutí šipky nahoru v příkazové řádce?
+
+- id: install_090
+  markdown: |
+    Kde máš na klávesnici znaky: `[` `]` `{` `}` `#` `/` `\` `<` `>` ?
+
+- id: install_100
+  markdown: |
+    Kolik je 395868 + 4483924 × 893?
+    *(Opět: důležité není číslo, ale postup – příkaz v Pythonu)*
+
+- id: install_110
+  markdown: |
+    Jaký je zbytek po dělení 458593873 sedmi?
+
+- id: install_120
+  markdown: |
+    Přijdeš na to, co dělá operátor `**` (dvě hvězdičky)?
+    *(Odpověz slovně. Odpověď není povinná; když na ni nepřijdeš,
+    dozvíš se ji příště.)*
+
+- id: install_130
+  submit: false
+  markdown: |
+    Až budeš příště sahat po kalkulačce, použij místo ní Python.
+
+- id: install_140
+  submit: false
+  markdown: |
+    Den až dva po instalaci (nebo i později) si znovu zkus aktivovat virtuální
+    prostředí a spustit Python.
