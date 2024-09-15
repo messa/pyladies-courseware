@@ -2,7 +2,7 @@ tasks:
 
 - section:
     markdown: |
-      Napiš nám prosím zpětnou vazbu na poslední hodinu.
+      Napiš nám prosím zpětnou vazbu na [poslední hodinu](https://docs.google.com/forms/d/1H9xBmcsqa1pbGCdrYRzk4m8xxT2m5_Gswk4swQ09wbQ).
 
 - id: handout09_00
   markdown: |
