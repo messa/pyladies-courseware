@@ -49,3 +49,4 @@ courses:
 - file: 2024_pyladies_brno_autumn_thursday/course.yaml
 - file: 2024_pyladies_brno_autumn_tuesday/course.yaml
 - file: 2024_pyladies_praha_autumn/course.yaml
+- file: 2024_pydata_praha_autumn/course.yaml
