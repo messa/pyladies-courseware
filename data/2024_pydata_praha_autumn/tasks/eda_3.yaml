@@ -1,0 +1,44 @@
+tasks:
+
+- section:
+    markdown: |
+      Template s úkoly na DeepNote si zduplikuj [TADY](https://deepnote.com/workspace/pydata23-883d73ac-8ab0-4b61-a477-5fa9b206edd2/project/pydatakurzpodzim2023eda3tvojejmeno-025c5104-04ec-49b8-8743-063b33df80c3/notebook/EDA3%202022%20podzim%20-%20zad%C3%A1n%C3%AD-6182d2c151b7457fad967088d7689cc5).
+
+
+- id: eda3_00
+  markdown: |
+    Odkaz na tvůj notebook na DeepNote a případné poznámky(nezapomeň změnit práva na "Edit" a přejmenovat soubor):
+
+- id: eda3_01
+  markdown: |
+    Načti data pro alespoň 3 stanice pomocí funkce `load_chmi_excel_files`. 
+    Pomocí `sns.lineplot` vykresli rychlost větru v červnu, červenci a srpnu 2021.
+
+    Zkuste vypozorovat nějaké rozdíly mezi stanicemi. Poté použijte `sns.boxplot` nebo `px.box` a ověřte, jestli jsou vypozorované rozdíly vidět.
+
+
+- id: eda3_02
+  markdown: |
+    Vytvoř graf, který porovná vývoj ročních úhrnů srážek (tj. vždy suma srážek za daný rok - na to se ti bude hodit `resample`) ve dvou libovolných stanicích.
+
+- id: eda3_03
+  markdown: |
+    Zjisti, ve které z těchto stanic byl nejteplejší den (den s nejvyšší maximální teplotou) v roce 2010 a který den to byl.
+
+- id: eda3_04
+  markdown: |
+    Podnikavý zemědělec by rád začal pěstovat novou plodinu, která ale v daném roce plodí jen pokud je splněno:
+
+    * maximálně 35 % dní klesne minimální denní teplota pod nulu,
+    * alespoň 40 % dní svítí slunce více než pět hodin,
+    * průměrná vlhkost vzduchu za celý rok je větší než 70 %.
+
+    Doporučila bys na pěstování této plodiny na základě počtu let v historii, ve kterých byly tyto podmínky splněny, Ruzyni nebo Mošnov? Jak velkou pravděpodobnost má zemědělec, že mu další rok bude tato nová plodina plodit?
+
+    Tip: Pro řešení úlohy se hodí `resample` a `quantile`.
+
+- id: eda3_05
+  markdown: |
+    Který z ledových mužů je nejmrazivější? Pankrác (12. 5.), Servác (13. 5.) nebo Bonifác (14. 5.)? 
+    
+    Zjisti to porovnáním mediánů minimálních teplot těchto dní, pro výpočet ale použij pouze dny kdy mrzlo, tj. kdy byla minimální teplota pod nulou.
