@@ -1,0 +1,24 @@
+tasks:
+
+- id: ml3_01
+  markdown: |
+    V 1. úkolu se budeš snažit vylepšit model na klasifikaci vín.
+    Celé zadání najdeš v tomto [DeepNote notebooku](https://deepnote.com/workspace/PyDataLadies-Jaro-2021-0579e7e7-50f6-4c4b-ba8a-1b39758bff4d/project/Uloha-ML-1-Podzim-2022-vino-8b4b6edf-5b40-40d7-8865-ba7470350fb5).
+    
+    Notebook si klasicky zduplikuj a sem poté zkopíruj odkaz (nezapomeň změnit práva na "Edit" a přejmenovat soubor).
+
+- id: ml3_02
+  markdown: |
+    V 2. úkolu budeš vytvářet model, který bude dle charakteristiky příšery predikovat její magickou sílu.
+    Celé zadání najdeš v tomto [DeepNote notebooku](https://deepnote.com/workspace/PyDataLadies-Jaro-2021-0579e7e7-50f6-4c4b-ba8a-1b39758bff4d/project/Uloha-ML-2-Podzim-2022-prisery-3a72c947-11c1-4eec-84c1-468ad97a6c13).
+    
+    Notebook si klasicky zduplikuj a sem poté zkopíruj odkaz (nezapomeň změnit práva na "Edit" a přejmenovat soubor).
+
+- id: ml3_03
+  markdown: |
+    Ve 3. úkolu budeš klasifikovat bankovky na pravé a falešné s cílem minimalizovat počet falešně negativních bankovek.
+
+    Celé zadání najdeš v tomto [DeepNote notebooku](https://deepnote.com/workspace/PyDataLadies-Jaro-2021-0579e7e7-50f6-4c4b-ba8a-1b39758bff4d/project/Uloha-ML-3-Podzim-2022-bankovky-e7982c85-dbec-4cde-b438-2b6d784fb9c9).
+    
+    Notebook si klasicky zduplikuj a sem poté zkopíruj odkaz (nezapomeň změnit práva na "Edit" a přejmenovat soubor).
+
