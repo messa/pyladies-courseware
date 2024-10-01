@@ -50,3 +50,4 @@ def setup_logging():
         format=log_format,
         level=logging.DEBUG)
     logging.getLogger('MARKDOWN').setLevel(logging.INFO)
+    logging.getLogger('pymongo').setLevel(logging.INFO)
