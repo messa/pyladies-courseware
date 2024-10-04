@@ -1,0 +1,30 @@
+tasks:
+
+- section:
+    markdown: |
+      Na rozjezd trochu opakování funkce `print`.
+
+- id: handout5_10
+  markdown: |
+    Co dělá funkce `print`?
+
+- id: handout5_11
+  markdown: |
+    Co _vrací_ funkce `print`?
+
+- id: handout5_12
+  markdown: |
+    Co dělá pojmenovaný argument `end` funkce `print`?
+
+- id: handout5_13
+  markdown: |
+    Co dělá pojmenovaný argument `sep` funkce `print`?
+
+- id: handout5_14
+  markdown: |
+    Jaká chyba nastane, když napíšeš v příkazu `print(1, 2, 3)` čárku navíc?
+
+- id: handout5_15
+  markdown: |
+    Jaká chyba nastane, když zapomeneš v příkazu `print(1, 2, 3)` napsat na konci závorku?
+

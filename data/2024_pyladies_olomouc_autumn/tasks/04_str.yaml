@@ -1,0 +1,109 @@
+tasks:
+
+- section:
+    markdown: |
+      Na začátek si trochu procvičíme řetězce. Měj při ruce taháky!
+
+- id: handout4_18
+  markdown: |
+    Napiš program, který se zeptá na dva řetězce a zjistí,
+    jestli je jeden obsažen ve druhém.
+    Nebere přitom ohled na velikost písmen.
+
+    (na srazu jsme si ukazovali, jak testovat, zda řetězec obsahuje daný podřetězec)
+
+- id: handout4_19
+  markdown: |
+    Napiš program, který se zeptá na příjmení uživatelky/uživatele
+    a *zkusí* podle něj uhodnout její/jeho pohlaví.
+    To pak vypíše.
+
+    (Pohlaví není podle jména možné určit přesně – stačí zvládnout ta
+    nejčastější česká příjmení.)
+
+- id: handout4_20
+  markdown: |
+    Najdi na internetu text své oblíbené písně, zkopíruj si ho do řetězce
+    a zjisti, kolikrát je v něm použito písmeno K. (Velké nebo malé.)
+
+    Text by mělo jít jednoduše vyměnit za jiný.
+
+- section:
+    markdown: |
+      Následující sada úkolů ti ukáže zajímavou vlastnost řetězců.
+      Zpomal a zamysli se.
+
+- id: handout4_21
+  markdown: |
+    Co dělá tenhle kód?
+
+        for c in 'Ahoj světe!':
+            print(c)
+
+- id: handout4_22
+  markdown: |
+    Vymyslíš lepší jméno pro proměnnou `c` z minulé úlohy?
+
+- id: handout4_23
+  markdown: |
+    Co dělá tenhle kód?
+
+        for c in 38:
+            print(c)
+
+- id: handout4_24
+  markdown: |
+    Najdi na internetu text své oblíbené písně, zkopíruj si ho do řetězce
+    a zjisti, kolik je v něm písmen.
+    Nepočítej mezery, znaky nového řádku a znaky
+    `!"#$%&\'()*+,-./:;<=>?@[\]^_{|}~`.
+
+    Text písně by mělo jít jednoduše vyměnit za jiný.
+
+    Postup:
+
+    * Na začátku nastav **počet nalezených písmen** na 0.
+    * Pro každý znak textu:
+        * Když znak není obsažen v `!` `"` `#` `$` `%` `&` …:
+            * Zvyš **počet nalezených písmen** o 1.
+    * Vypiš **počet nalezených písmen**.
+
+    Bonus: Zkusíš najít v dokumentaci řetězcovou metodu, která ti pomůže spočítat jen alfanumerické znaky? Získáš stejný výsledek?
+
+- section:
+    markdown: |
+      Máme tu i tradiční hru!
+
+- id: handout4_25
+  markdown: |
+    Vytvoř hru Šibenice podle následujícího popisu.
+
+    * Počítač náhodně zvolí **slovo** (zatím třeba ze tří možností).
+        Pro jednoduchost používej malá písmena a nepoužívej slova,
+        ve kterých se stejné písmeno opakuje dvakrát
+        (třeba č<span style='color: red'>o</span>k<span style='color: red'>o</span>láda).
+
+        Zkus třeba slova: `trávník`, `stromek`, `stavení`.
+
+    * Výchozí **stav** je řetězec s tolika podtržítky, kolik je
+        ve vybraném slově písmen.
+
+    * Výchozí počet **neúspěšných pokusů** je nula.
+
+    * Stále dokola:
+        * Zeptej se hráče na **písmeno**.
+        * Pokud je to **písmeno** ve vybraném **slově**:
+            * Zaměň ve **stavu** příslušné podtržítko za ono **písmeno**.
+              (Bude se hodit řetězcová metoda `index` a podprogram `zamen`\*
+              ze srazu.)
+        * Pokud dané **písmeno** _není_ ve vybraném slově:
+            * započítej **neúspěšný pokus**.
+        * Vypiš **stav** (slovo s případnými podtržítky).
+        * Pokud už ve **stavu** nejsou podtržítka:
+            * Pogratuluj hráči.
+            * Ukonči hru.
+        * Vypiš počet **neúspěšných pokusů**.
+        * Pokud je počet **neúspěšných pokusů** 9 (nebo víc):
+            * Dej hráči najevo, že prohrál.
+            * Ukonči hru.
+

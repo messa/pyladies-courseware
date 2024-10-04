@@ -1,0 +1,47 @@
+tasks:
+
+- section:
+    markdown: |
+      Následující projekty jsou na procvičení funkcí, které jsme si ukazovali na srazu.
+
+- id: handout2_10
+  markdown: |
+    Napiš program, který se zeptá uživatele na text (může to být slovo nebo i věta) a jako výsledek vypíše délku (počet znaků) zadaného textu. Udělej program uživatelsky přívětivý (tzv. user friendly) = uživateli se na terminálu zobrazí otázka a pak i hezká odpověď.
+
+- id: handout2_11
+  markdown: |
+    Napiš program, který se zeptá uživatele na dvě čísla a jako výsledek tato dvě čísla porovná.
+
+    Příklad použití programu:
+
+    ```
+    První číslo: 10
+    Druhé číslo: 5
+    Číslo 10 je větší než číslo 5
+    ```
+
+- id: handout2_12
+  markdown: |
+    Napiš program, který postupně načte od uživatele dvě čísla a jednoznakový
+    řetězec - buď `'+'`, `'-'`, `'*'` nebo `'/'`. Program provede na číslech příslušnou operaci.
+
+    Příklad použití programu:
+
+    ```
+    První číslo: 123
+    Druhé číslo: 456
+    Operace: +
+    123 + 456 = 579
+    ```
+
+- id: handout2_13
+  markdown: |
+    Napiš program, který bude simulovat hod dvěmi kostkami a vypíše hody na obou kostkách a celkové body.
+
+    Příklad výstupu programu:
+
+    ```
+    První kostka: 2
+    Druhá kostka: 4
+    Celkový součet: 6
+    ```
