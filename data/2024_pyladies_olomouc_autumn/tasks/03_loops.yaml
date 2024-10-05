@@ -1,0 +1,64 @@
+tasks:
+
+- section:
+    markdown: |
+      V těchto úkolech se na chvilku vrátíme k funkci `range`. Než napíšeš odpověď, tak si úkol vyzkoušej. Můžeš nám tu zkopírovat i výstup z terminálu, důležitá je ale hlavně tvá slovní odpověď.
+
+- id: handout3c_00
+  markdown: |
+    Jakou sekvenci dostaneš, když funkci `range` zavoláš se dvěma argumenty?
+
+- id: handout3c_01
+  markdown: |
+    Se třemi?
+
+- section:
+    markdown: |
+      A nakonec několik bonusových úkolů
+
+- id: oko_bere
+  markdown: |
+
+    Naprogramuj hru *Oko bere*:
+
+    * Začínáš se <var>skóre</var> 0 bodů.
+    * V každém kole:
+        * Počítač vypíše, kolik máš bodů.
+        * Počítač se zeptá, jestli chceš pokračovat.
+        * Pokud byla odpověď „ne“:
+            * Hra končí.
+        * Jinak:
+            * Počítač „vybere kartu“ – náhodně vybere číslo od 2 do 10;
+            * vybranou hodnotu vypíše;
+            * přičte tuto hodnotu ke <var>skóre</var>.
+        * Pokud máš víc než 21 bodů:
+            * Počítač vypíše, že prohráváš;
+            * hra končí.
+    * Po skončení hry počítač vypíše dosažené <var>skóre</var>.
+
+    Cílem hry je neprohrát a získat přitom co nejvíc bodů, ideálně 21.
+
+- id: handout3c_02
+  markdown: |
+    Napiš program, který se pětkrát zeptá na číslo a nejmenší zadané číslo vypíše.
+
+    Program by mělo jít snadno upravit tak, aby se ptal na deset nebo sto čísel.
+
+    _Nevíš-li si rady, podívej se do materiálů k Přepisování proměnných.
+    Místo přičítání do proměnné `celkem` zkus dávat správnou hodnotu do
+    proměnné `zatim_nejmensi`._
+
+- id: handout3c_03
+  markdown: |
+    Napiš program na hádání čísel od 1 do 9. Program si bude "myslet" nějaké číslo od 1 do 9 včetně a uživatel bude toto číslo hádat. Při uhádnutí se vypíše počet pokusů, které uživatel potřeboval pro uhádnutí čísla.
+
+    Příklad použití programu:
+
+    ```
+    Myslím na číslo od 1 do 9.
+    Zkus hádat, jaké číslo to je!
+    Zadej číslo zde: 1
+    Zadej číslo zde: 5
+    Zadej číslo zde: 8
+    Gratuluji! Myslel jsem na číslo 8. Uhádl/a jsi na 3. pokus.
+    ```

@@ -1,0 +1,121 @@
+tasks:
+
+- section:
+    markdown: |
+      Tato sekce bude o textu - o řetězcích, které jsme na srazu jen naťukli.
+
+- id: handout1_07
+  markdown: |
+    **Řetězce** obsahují slova, věty nebo jiný text.
+    Řetězce se zadávají v uvozovkách - jednoduchých `'` nebo dvojitých `"`:
+
+    ```
+    >>> 'Ahoj!'
+    'Ahoj!'
+    >>> "Ahoj!"
+    "Ahoj!"
+    ```
+  submit: false
+
+- id: handout1_08
+  markdown: |
+    Řetězce jdou spojovat sčítáním. Vyzkoušej si to:
+
+    ```
+    >>> 'A' + "B"
+    'AB'
+    ```
+  submit: false
+
+- id: handout01_09
+  markdown: |
+    Co je tady špatně? Jak to spravit?
+
+    ```
+    >>> 'Ahoj' + 'PyLadies!'
+    ```
+
+- id: handout1_10
+  markdown: |
+    Řetězce se dají sčítat. Dají se i násobit? Dělit? Odečítat?
+    *(Odpověz slovně.)*
+
+- id: handout1_11
+  markdown: |
+    Co se stane, když se pokusíš sečíst číslo a řetězec?
+    *(Můžeš vložit výsledek z příkazové řádky, ale odpověz i slovně)*
+
+- id: handout1_12
+  markdown: |
+    A vynásobit?
+    *(Můžeš vložit výsledek z příkazové řádky, ale odpověz i slovně)*
+
+- section:
+    markdown: |
+      Vzpomínáš si na chybové hlášky a na proměnné?
+
+- id: handout1_13
+  markdown: |
+
+    Jaká chyba nastane, když zkusíš podělit řetězec řetězcem?
+
+- id: handout1_14
+  markdown: |
+
+    Jaká chyba nastane, když zkusíš použít proměnnou předtím, než do ní něco přiřadíš?
+
+- id: handout1_15
+  markdown: |
+
+    Jaká chyba nastane, když dělíš nulou?
+
+- id: handout1_16
+  markdown: |
+
+    Jaká chyba nastane, když se program ptá na vstup a ty místo odpovědi zmáčkneš CTRL+C?
+
+- id: handout1_17
+  markdown: |
+
+    Jaká chyba nastane, když dáš uvozovky jen na jednu stranu řetězce?
+
+- id: handout1_19
+  markdown: |
+    Ne všechno se dá použít jako jméno proměnné.
+    Fungují pro proměnné následující jména? Pokud ne, proč asi?
+    Zkus každé jméno použít jako proměnnou a přiřadit si do ní nějakou hodnotu, např. číslo nebo slovo.
+
+    <div style='column-count: 4'>
+      <code>x</code><br>
+      <code>tlacitko4</code><br>
+      <code>34</code><br>
+      <code>3e4</code><br>
+      <code>krůta</code><br>
+      <code>$i</code><br>
+      <code>druha-odmocnina</code><br>
+      <code>readme.txt</code><br>
+      <code>kratsiStrana</code><br>
+      <code>POCET_BODU</code><br>
+      <code>_</code> (podtržítko)<br>
+      <code>π</code> (pí)<br>
+      <code>True</code><br>
+      <code>_cache</code><br>
+      <code>__name__</code><br>
+      <code>while</code><br>
+    </div>
+
+- section:
+    markdown: |
+      Následující projekty jsou na procvičení toho, co jsme probírali na srazu.
+
+- id: handout1_20
+  markdown: |
+    Napiš program, který spočítá povrch a objem krychle o straně 2852 cm.
+
+    Abys nemusel/a tolik hledat v učebnici (vlastně Wikipedii): povrch S = 6a², objem V = a³
+
+    _Řešení, pro kontrolu: S = 48803424 cm², V = 23197894208 cm³_
+
+- id: handout1_21
+  markdown: |
+    Změň program tak, aby stranu/poloměr mohl uživatel zadat.
