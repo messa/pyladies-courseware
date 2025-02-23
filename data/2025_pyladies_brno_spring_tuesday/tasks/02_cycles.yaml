@@ -174,32 +174,6 @@ tasks:
 
 - section:
     markdown: |
-      Hra pro tento týden!
-
-- id: oko_bere
-  markdown: |
-
-    Naprogramuj hru *Oko bere*:
-
-    * Začínáš se <var>skóre</var> 0 bodů.
-    * V každém kole:
-        * Počítač vypíše, kolik máš bodů.
-        * Počítač se zeptá, jestli chceš pokračovat.
-        * Pokud byla odpověď „ne“:
-            * Hra končí.
-        * Jinak:
-            * Počítač „vybere kartu“ – náhodně vybere číslo od 2 do 10;
-            * vybranou hodnotu vypíše;
-            * přičte tuto hodnotu ke <var>skóre</var>.
-        * Pokud máš víc než 21 bodů:
-            * Počítač vypíše, že prohráváš;
-            * hra končí.
-    * Po skončení hry počítač vypíše dosažené <var>skóre</var>.
-
-    Cílem hry je neprohrát a získat přitom co nejvíc bodů, ideálně 21.
-
-- section:
-    markdown: |
       A na konec pár nepovinných úkolů.
       Nestíháš-li, zaměř se na jiné úkoly.
 
