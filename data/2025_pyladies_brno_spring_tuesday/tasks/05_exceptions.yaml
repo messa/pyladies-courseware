@@ -111,7 +111,7 @@ tasks:
     Než začneš pracovat na tomto úkolu, počkej, až ti kouč schválí řešení toho
     předchozího.
 
-    Přepiš funkci `tah`, aby skončila s chybou `ValueError` v těchto případech:
+    Přepiš funkci `tah`, aby skončila s chybou `RuntimeError` v těchto případech:
 
     * Hra na pozici, která není v poli, např.
       `tah('--------------------', -1, 'x')`

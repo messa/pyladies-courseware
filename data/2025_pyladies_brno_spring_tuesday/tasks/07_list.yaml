@@ -300,7 +300,7 @@ tasks:
     - pohybu ven z mapy,
     - pohybu na políčko, které už v seznamu je.
 
-    Vhodná výjimka pro tyto situace je `ValueError('Game over')`.
+    Vhodná výjimka pro tyto situace je `RuntimeError('Game over')`.
 
 - id: list_snake_08
   markdown: |

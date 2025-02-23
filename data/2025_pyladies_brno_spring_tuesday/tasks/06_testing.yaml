@@ -203,7 +203,7 @@ tasks:
     polem a symbol, vybere pozici, na kterou hrát, a vrátí herní pole
     se zaznamenaným tahem počítače.
 
-    Nejde-li na dané pole hrát, funkce musí skončit s chybou `ValueError`.
+    Nejde-li na dané pole hrát, funkce musí skončit s chybou `RuntimeError`.
 
     Použij jednoduchou náhodnou „strategii”:
 
@@ -214,7 +214,7 @@ tasks:
     **Navíc k tomu** funkce nesmí „zamrznout“ (způsobit nekonečný cyklus),
     ať jí předáš jakékoli hodnoty argumentů.
     Kdyby strategie výše měla „zamrznout“, funkce ať místo toho způsobí
-    `ValueError`.
+    `RuntimeError`.
 
     Hlavička funkce by tedy měla vypadat nějak takhle:
 
