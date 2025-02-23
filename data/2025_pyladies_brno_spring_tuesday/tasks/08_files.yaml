@@ -124,8 +124,8 @@ tasks:
         return popis_hodnoty + popis_barvy
     ```
 
-    Napiš proceduru, která vytvoří balíček a „hezky“ vypíše všechny karty
-    v něm, každou na jeden řádek. Například:
+    Napiš proceduru, která vezme vytvořený balíček a „hezky“ vypíše všechny
+    karty v něm, každou na jeden řádek. Například:
 
     ```
     9♠
