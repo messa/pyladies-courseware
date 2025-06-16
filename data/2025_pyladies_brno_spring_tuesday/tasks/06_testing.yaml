@@ -29,7 +29,7 @@ tasks:
         nebudeš moct vzpomenout.
 
         Stáhni si soubor s testy, [`test_piskvorky.py`](/static/tasks/
-        handout_files/2019-autumn/test_piskvorky.py) a dej ho do adresáře,
+        handout_files/brno/test_piskvorky.py) a dej ho do adresáře,
         kde budeš tvořit Piškvorky.
 
         Na ulehčení testování si s aktivním virtuálním prostředím nainstaluj
