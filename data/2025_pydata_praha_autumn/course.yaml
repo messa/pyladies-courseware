@@ -5,7 +5,7 @@ end_date: 2025-12-24
 sessions:
 
   - title: Představení, Jupyter notebook, základy pandas
-    date: 15.9.2025
+    date: 2025-09-15
     slug: 1-predstaveni-jupyter-notebook-zaklady-pandas
     materials:
       - attachment: Instalace
@@ -16,7 +16,7 @@ sessions:
         url: https://pydatacz.github.io/pyladies-kurz/pydata/pandas-core/
 
   - title: Datové typy a základy vizualizace v pandas
-    date: 22.9.2025
+    date: 2025-09-22
     slug: 2-datove-typy-zaklady-vizualizace
     materials:
       - attachment: Pandas - datové typy a základní operace
@@ -25,14 +25,14 @@ sessions:
         url: https://pydatacz.github.io/pyladies-kurz/pydata/visualization-basics/
 
   - title: Statistika jedné proměnné a časové řady
-    date: 29.9.2025
+    date: 2025-09-29
     slug: 3-statistika-jedne-promenne-a-casove-rady
     materials:
       - attachment: Explorativní analýza a statistika jedné proměnné
         url: https://pydatacz.github.io/pyladies-kurz/pydata/eda-univariate-timeseries/
 
   - title: Explorativní datová analýza a více zdrojů / proměnných
-    date: 6.10.2025
+    date: 2025-10-06
     slug: 4-explorativni-datova-analyza-a-vice-zdroju-promennych
     materials:
       - attachment: Pandas - spojování tabulek
@@ -41,14 +41,14 @@ sessions:
         url: https://pydatacz.github.io/pyladies-kurz/pydata/pandas-correlations/
 
   - title: Explorativní datová analýza - agregace a transformace
-    date: 13.10.2025
+    date: 2025-10-13
     slug: 5-explorativni-datova-analyza-agregace-a-transformace
     materials:
       - attachment: EDA 5, Pokročilejší manipulace a agregace
         url: https://pydatacz.github.io/pyladies-kurz/pydata/pandas-groupby/
 
   - title: Strojové učení - úvod, regrese
-    date: 20.10.2025
+    date: 2025-10-20
     slug: 6-strojove-uceni-uvod-regrese
     materials:
       - attachment: Úvod do strojového učení
@@ -61,7 +61,7 @@ sessions:
         url: https://pydatacz.github.io/pyladies-kurz/pydata/regression-resume/
 
   - title: Strojové učení - Scikit-learn, ML workflow
-    date: 27.10.2025
+    date: 2025-10-27
     slug: 7-scikit-learn-ml-workflow
     materials:
       - attachment: Knihovna Scikit-learn
@@ -72,7 +72,7 @@ sessions:
         url: https://pydatacz.github.io/pyladies-kurz/pydata/scikitlearn-resume/
 
   - title: Strojové učení - klasifikační úlohy
-    date: 3.11.2025
+    date: 2025-11-03
     slug: 8-strojove-uceni-klasifikacni-ulohy
     materials:
       - attachment: Úvod klasifikace
@@ -83,14 +83,14 @@ sessions:
         url: https://pydatacz.github.io/pyladies-kurz/pydata/classification-resume/
 
   - title: Analýza hlavních komponent (PCA)
-    date: 10.11.2025
+    date: 2025-11-10
     slug: 9-analyza-hlavnich-komponent-pca
     materials:
       - attachment: Analýza hlavních komponent (PCA)
         url: https://pydatacz.github.io/pyladies-kurz/pydata/pca/
 
   - title: Interaktivní vizualizace a aplikace
-    date: 24.11.2025
+    date: 2025-11-24
     slug: 10-interaktivni-vizualizace-a-aplikace
     materials:
       - attachment: Interaktivní vizualizace a aplikace I.
