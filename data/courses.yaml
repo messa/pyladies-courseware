@@ -55,3 +55,4 @@ courses:
 - file: 2025_pyladies_brno_spring_tuesday/course.yaml
 - file: 2025_pyladies_praha_spring/course.yaml
 - file: 2025_pyladies_olomouc_autumn/course.yaml
+- file: 2025_pydata_praha_autumn/course.yaml
