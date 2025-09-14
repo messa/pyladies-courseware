@@ -1,23 +1,97 @@
 id: pydata-2025-praha-podzim
 naucse_api_url: https://naucse.python.cz/v0/2025/pydata-praha-podzim.json
 end_date: 2025-12-24
-tasks_by_lesson_slug:
 
-  "pydata/notebook":
-  - file: tasks/eda_1.yaml
-  "pydata/pandas_types":
-  - file: tasks/eda_2.yaml
-  "pydata/eda-univariate-timeseries":
-  - file: tasks/eda_3.yaml
-  "pydata/pandas_correlations":
-  - file: tasks/eda_4.yaml
-  "pydata/pandas_groupby":
-  - file: tasks/eda_5.yaml
-  "pydata/regression_exercises":
-  - file: tasks/ml_1.yaml
-  "pydata/classification_metrics":
-  - file: tasks/ml_3.yaml
-  "pydata/pca":
-  - file: tasks/pca.yaml
-  "pydata/dashboards":
-  - file: tasks/dashboards.yaml
+sessions:
+
+  - title: Představení, Jupyter notebook, základy pandas
+    date: 2025-09-15
+    slug: 1-predstaveni-jupyter-notebook-zaklady-pandas
+    materials:
+      - attachment: Instalace
+        url: https://pydatacz.github.io/pyladies-kurz/pydata/install/
+      - attachment: Jupyter Notebook intro
+        url: https://pydatacz.github.io/pyladies-kurz/pydata/notebook/
+      - attachment: Knihovna pandas a základní manipulace s tabulkovými daty
+        url: https://pydatacz.github.io/pyladies-kurz/pydata/pandas-core/
+
+  - title: Datové typy a základy vizualizace v pandas
+    date: 2025-09-22
+    slug: 2-datove-typy-zaklady-vizualizace
+    materials:
+      - attachment: Pandas - datové typy a základní operace
+        url: https://pydatacz.github.io/pyladies-kurz/pydata/pandas-types/
+      - attachment: Základy vizualizace
+        url: https://pydatacz.github.io/pyladies-kurz/pydata/visualization-basics/
+
+  - title: Statistika jedné proměnné a časové řady
+    date: 2025-09-29
+    slug: 3-statistika-jedne-promenne-a-casove-rady
+    materials:
+      - attachment: Explorativní analýza a statistika jedné proměnné
+        url: https://pydatacz.github.io/pyladies-kurz/pydata/eda-univariate-timeseries/
+
+  - title: Explorativní datová analýza a více zdrojů / proměnných
+    date: 2025-10-06
+    slug: 4-explorativni-datova-analyza-a-vice-zdroju-promennych
+    materials:
+      - attachment: Pandas - spojování tabulek
+        url: https://pydatacz.github.io/pyladies-kurz/pydata/pandas-joins/
+      - attachment: Pandas - vztahy mezi více proměnnými
+        url: https://pydatacz.github.io/pyladies-kurz/pydata/pandas-correlations/
+
+  - title: Explorativní datová analýza - agregace a transformace
+    date: 2025-10-13
+    slug: 5-explorativni-datova-analyza-agregace-a-transformace
+    materials:
+      - attachment: EDA 5, Pokročilejší manipulace a agregace
+        url: https://pydatacz.github.io/pyladies-kurz/pydata/pandas-groupby/
+
+  - title: Strojové učení - úvod, regrese
+    date: 2025-10-20
+    slug: 6-strojove-uceni-uvod-regrese
+    materials:
+      - attachment: Úvod do strojového učení
+        url: https://pydatacz.github.io/pyladies-kurz/pydata/intro-regression/
+      - attachment: Regresní metriky
+        url: https://pydatacz.github.io/pyladies-kurz/pydata/regression-metrics/
+      - attachment: Příklady pro zamyšlení
+        url: https://pydatacz.github.io/pyladies-kurz/pydata/regression-exercises/
+      - attachment: Regrese - Co bych měla po této lekci znát ..
+        url: https://pydatacz.github.io/pyladies-kurz/pydata/regression-resume/
+
+  - title: Strojové učení - Scikit-learn, ML workflow
+    date: 2025-10-27
+    slug: 7-scikit-learn-ml-workflow
+    materials:
+      - attachment: Knihovna Scikit-learn
+        url: https://pydatacz.github.io/pyladies-kurz/pydata/scikitlearn-api/
+      - attachment: Implementace úlohy z domácího úkolu
+        url: https://pydatacz.github.io/pyladies-kurz/pydata/homework-revisited/
+      - attachment: Scikitlearn - Co bych měla po této lekci znát ..
+        url: https://pydatacz.github.io/pyladies-kurz/pydata/scikitlearn-resume/
+
+  - title: Strojové učení - klasifikační úlohy
+    date: 2025-11-03
+    slug: 8-strojove-uceni-klasifikacni-ulohy
+    materials:
+      - attachment: Úvod klasifikace
+        url: https://pydatacz.github.io/pyladies-kurz/pydata/intro-classification/
+      - attachment: Klasifikační metriky
+        url: https://pydatacz.github.io/pyladies-kurz/pydata/classification-metrics/
+      - attachment: Klasifikace - Co bych měla po této lekci znát ..
+        url: https://pydatacz.github.io/pyladies-kurz/pydata/classification-resume/
+
+  - title: Analýza hlavních komponent (PCA)
+    date: 2025-11-10
+    slug: 9-analyza-hlavnich-komponent-pca
+    materials:
+      - attachment: Analýza hlavních komponent (PCA)
+        url: https://pydatacz.github.io/pyladies-kurz/pydata/pca/
+
+  - title: Interaktivní vizualizace a aplikace
+    date: 2025-11-24
+    slug: 10-interaktivni-vizualizace-a-aplikace
+    materials:
+      - attachment: Interaktivní vizualizace a aplikace I.
+        url: https://pydatacz.github.io/pyladies-kurz/pydata/dashboards/
