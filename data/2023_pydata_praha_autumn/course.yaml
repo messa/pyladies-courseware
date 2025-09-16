@@ -1,0 +1,23 @@
+id: pydata-2023-praha-podzim
+naucse_api_url: https://naucse.python.cz/v0/2023/pydata-praha-podzim.json
+end_date: 2023-12-24
+tasks_by_lesson_slug:
+
+  "pydata/notebook":
+  - file: tasks/eda_1.yaml
+  "pydata/pandas_types":
+  - file: tasks/eda_2.yaml
+  "pydata/eda-univariate-timeseries":
+  - file: tasks/eda_3.yaml
+  "pydata/pandas_correlations":
+  - file: tasks/eda_4.yaml
+  "pydata/pandas_groupby":
+  - file: tasks/eda_5.yaml
+  "pydata/pca":
+  - file: tasks/pca.yaml
+  "pydata/regression_exercises":
+  - file: tasks/ml_1.yaml
+  "pydata/classification_metrics":
+  - file: tasks/ml_3.yaml
+  "pydata/dashboards":
+  - file: tasks/dashboards.yaml

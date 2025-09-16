@@ -1,0 +1,57 @@
+# https://pyladies.cz/v1/s005-modules/handout/handout5b-ostrava.pdf
+# https://pyladies.cz/v1/s005-modules/handout/handout5c-ostrava.pdf
+
+tasks:
+
+- section:
+    markdown: |
+      Pro následující projekty už musíš mít hotové 1D [piškvorky](https://projekty.pyladies.cz/session?course=pyladies-2021-olomouc-podzim&session=functions#task-handout5_9).
+      Hotové 1D piškvorky si rozdělíme do samostatných modulů a vylepšíme je.
+
+- id: handout10_1
+  markdown: |
+    Rozděl 1D Piškvorky na tři moduly:
+
+    * _ai.py_, kde bude funkce *tah_pocitace*,
+    * _piskvorky.py_, kde budou ostatní funkce,
+    * _hra.py_, kde bude import a volání hlavní funkce z _piskvorky.py_ (a nic jiného).
+
+- id: handout10_2
+  markdown: |
+    Doplň funkci *tah_pocitace* tak, aby brala jako argument symbol, za který
+    má počítač hrát – buď 'x',nebo 'o'. Ověř, že se funkce *tah_pocitace* umí
+    vyrovnat s jinou délkou hracího pole než 20. Ověř si,že se *tah_pocitace*
+    chová rozumně když dostane plné hrací pole, nebo pole s délkou 0.
+
+    _Rozumné chování v tomto případě znamená vyvolání rozumné výjimky._
+
+- section:
+    markdown: |
+      Teď přijde řada na testování.
+
+- id: handout10_3
+  markdown: |
+    Stáhni si [odsud](/static/tasks/handout_files/2021-autumn/olomouc/test_piskvorky.py) soubor
+    `test_piskvorky.py`, který obsahuje testy. Ulož si jej do složky, ve které máš soubory s kódem
+    piškvorek (`ai.py`, `piskvorky.py` atd.). Uprav své piškvorky tak, aby všechny testy procházely.
+
+    Testy můžeš spustit pomocí příkazu
+    ```bash
+    (venv) $ python -m pytest test_piskvorky.py
+    ```
+
+- id: handout10_4
+  markdown: |
+    Dopiš do každé z testovacích funkcí alespoň dva testy.
+
+- id: handout10_5
+  markdown: |
+    Ověř, že se funkce *tah_pocitace* umí vyrovnat s jinou délkou hracího pole než 20.
+    
+    _„Ověření” znamená napsání příslušného testu._
+
+- id: handout10_6
+  markdown: |
+    Ověř si, že se *tah_pocitace* chová rozumně když dostane plné hrací pole, nebo pole s délkou 0.
+    
+    _Rozumné chování v tomto případě znamená vyvolání rozumné výjimky._

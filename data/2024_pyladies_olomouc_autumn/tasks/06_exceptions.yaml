@@ -1,0 +1,247 @@
+tasks:
+
+- section:
+    markdown: |
+      Na chvilku se vrátíme k úkolu z lekce "Podmínky a funkce", kde jsi programoval/a jednoduchou kalkulačku.
+
+- id: handout6_00
+  markdown: |
+    Uprav program z Lekce "Podmínky a funkce", který postupně načte od
+    uživatele dvě čísla a operaci (`'+'`, `'-'`, `'*'` nebo `'/'`)
+    a provede na číslech příslušnou operaci.
+
+    Program uprav tak, aby:
+
+    * při špatném vstupu napověděl co očekává a zeptal se znovu a
+    * při dělení nulou vypsal hlášku `Nulou nelze dělit.`
+
+    Použij na to ošetření příslušné chyby (tj. ne `if delitel == 0:`).
+
+    Příklad použití:
+
+    ```
+    První číslo: třistatřiatřicet
+    Zadávej jen čísla
+    První číslo: 333
+    Druhé číslo: 0
+    Operace: /
+    Nulou nelze dělit.
+    ```
+
+- section:
+    markdown: |
+      Dnešním hlavním úkolem je naprogramovat hru *1D Piškvorky*.
+      Nakonec bude fungovat následovně:
+
+      <blockquote>
+      1-D piškvorky se hrají na řádku s dvaceti políčky.
+      Hráči střídavě přidávají kolečka (`o`) a křížky (`x`),
+      třeba:
+      <pre>
+      1. kolo: -------<span style='color: red'>x</span>------------
+      2. kolo: -------x--<span style='color: red'>o</span>---------
+      3. kolo: -------x<span style='color: red'>x</span>-o---------
+      4. kolo: -------xx<span style='color: red'>o</span>o---------
+      5. kolo: ------<span style='color: red'>x</span>xxoo---------
+      </pre>
+      Hráč, která dá tři své symboly vedle sebe, vyhrál.
+      </blockquote>
+
+      Hru budeš skládat postupně z malých částí.
+      Napřed tedy musíš vytvořit malé části; ty pak poskládáš dohromady.
+
+      Úkoly dělej postupně.
+
+      Odevzdávej prosím *celé soubory* se všemi potřebnými importy
+      a pomocnými funkcemi.
+
+- id: handout6_01
+  markdown: |
+    Napiš funkci `vyhodnot`, která dostane řetězec
+    s herním polem 1-D piškvorek
+    a vrátí jednoznakový řetězec podle stavu hry:
+
+    - `"x"` – Vyhrál hráč s křížky (pole obsahuje `"xxx"`)
+    - `"o"` – Vyhrál hráč s kolečky (pole obsahuje `"ooo"`)
+    - `"!"` – Remíza (pole neobsahuje `"-"`, a nikdo nevyhrál)
+    - `"-"` – Ani jedna ze situací výše (t.j. hra ještě neskončila)
+
+    Například:
+
+       *  `vyhodnot('--------------------')` vrátí `'-'`
+       *  `vyhodnot('--o--xxx---o--o-----')` vrátí `'x'`
+       *  `vyhodnot('xoxoxoxoxoxoxoxoxoxo')` vrátí `'!'`
+
+- id: handout6_02
+  markdown: |
+    Napiš funkci `tah`, která dostane řetězec s herním polem,
+    číslo políčka (0-19), a symbol (`x` nebo `o`),
+    a vrátí herní pole _(t.j. řetězec)_ s daným symbolem umístěným na danou pozici.
+
+    Hlavička funkce by tedy měla vypadat nějak takhle:
+
+    ```
+    def tah(pole, pozice, symbol):
+        """Vrátí herní pole s daným symbolem umístěným na danou pozici
+
+        `pole` je herní pole, na které se hraje.
+        `pozice` je číslo políčka. Čísluje se od nuly.
+        `symbol` může být 'x' nebo 'o', podle toho jestli je tah za křížky
+        nebo za kolečka.
+        """
+        ...
+    ```
+
+    Například:
+
+       *  `tah('--------------------', 0, 'x')` vrátí `'x-------------------'`
+       *  `tah('--------------------', 19, 'o')` vrátí `'-------------------o'`
+       *  `tah('x-o-x-o-x-o-x-o-x-o-', 5, 'x')` vrátí `'x-o-xxo-x-o-x-o-x-o-'`
+
+
+    _Můžeš využít nějakou funkci, kterou už máš napsanou?_
+
+- id: handout6_03
+  markdown: |
+    Přepiš funkci `tah`, aby skončila s chybou `ValueError` v těchto případech:
+
+    * Hra na pozici, která není v poli, např.
+      `tah('--------------------', -1, 'x')`
+
+    * Hra na obsazené políčko, např.
+      `tah('x-------------------', 0, 'o')`
+
+    * Hra jiným symbolem než `'x'` nebo `'o'`, např.
+      `tah('--------------------', 0, 'řeřicha')`
+
+    *Odevzdané řešení předchozího úkolu můžeš nechat tak, jak je.*
+
+- id: handout6_04
+  markdown: |
+    Napiš funkci `tah_hrace(pole, symbol)`, která dostane řetězec
+    s herním polem a symbol (`x` nebo `o`) a:
+
+    * zeptá se hráče, na kterou pozici chce hrát,
+    * pomocí funkce `tah` zjistí, jak vypadá herní pole se zaznamenaným tahem
+      hráče
+    * vrátí toto herní pole se zaznamenaným tahem hráče.
+
+    Pokud uživatel zadá špatný vstup (nečíslo, záporné číslo,
+    obsazené políčko apod.), funkce mu vynadá a zeptá se znova.
+    (Není potřeba použít pro každý případ jinou hlášku.)
+
+    Hlavička funkce by tedy měla vypadat nějak takhle:
+
+    ```
+    def tah_hrace(pole, symbol):
+        """Zeptá se hráče na tah a vrátí nové herní pole
+
+        `pole` je herní pole, na které se hraje.
+        `symbol` může být 'x' nebo 'o', podle toho jestli hráč hraje za křížky
+        nebo za kolečka.
+        """
+        ...
+    ```
+
+    Například zavolání `print("Nový stav hry je:", tah_hrace('o-------------------', 'x'))`
+    by mohlo dopadnout takto:
+
+    ```
+    Kam chceš hrát? nevím
+    Zadávej čísla!
+    Kam chceš hrát? 0
+    Tam nejde hrát!
+    Kam chceš hrát? -1
+    Tam nejde hrát!
+    Kam chceš hrát? 151
+    Tam nejde hrát!
+    Kam chceš hrát? 2
+    Nový stav hry je: o-x-----------------
+    ```
+
+    *Pozor: pravděpodobně budeš potřebovat ošetřit různé chyby na
+    různých místech.*
+
+- id: handout6_05
+  markdown: |
+    Napiš funkci `tah_pocitace(pole, symbol)`, která dostane řetězec s herním
+    polem a symbol, vybere pozici, na kterou hrát, a vrátí herní pole
+    se zaznamenaným tahem počítače.
+
+    Použij jednoduchou náhodnou „strategii”:
+
+    1. Vyber číslo od 0 do 19.
+    2. Pokud je dané políčko volné, hrej na něj.
+    3. Pokud ne, opakuj od bodu 1.
+
+    Hlavička funkce by tedy měla vypadat nějak takhle:
+
+    ```
+    def tah_pocitace(pole, symbol):
+        """Vrátí herní pole se zaznamenaným tahem počítače
+
+        `pole` je herní pole, na které se hraje.
+        `symbol` může být 'x' nebo 'o', podle toho jestli hráč hraje za křížky
+        nebo za kolečka.
+        """
+        ...
+    ```
+
+    Zavolání `print(tah_pocitace('o-------------------', 'x'))` by
+    mohlo vypsat třeba `o---------x---------`.
+
+- id: handout6_06
+  markdown: |
+    Napiš funkci `piskvorky1d`, která:
+
+    * Vytvoří řetězec s herním **polem**, `'--------------------'`
+    * Stále dokola:
+        * zavolá volá funkci `tah_hrace`, a výsledek uloží jako nové **pole**
+        * vypíše herní **pole**
+        * zavolá volá funkci `tah_pocitace`, a výsledek uloží jako nové **pole**
+        * vypíše herní **pole**
+
+    Zatím neřeš konec hry.
+
+- id: handout6_07
+  markdown: |
+    Teď pošéfuj konec hry.
+    Když někdo vyhraje nebo dojde k remíze, cyklus se ukončí a vypíše
+    se výsledek – třeba s gratulací nebo povzbuzující zprávou.
+
+    Stav hry kontroluj po každém tahu.
+
+    Nezapomeň, že máš k dispozici funkci `vyhodnot`!
+
+- id: handout6_08
+  submit: false
+  markdown: |
+    Program rozděl do modulů a uprav importy tak,
+    aby program stále fungoval.
+    Moduly by neměly mít vedlejší efekty.
+
+    * Funkce `vyhodnot`, `tah_hrace` a `piskvorky1d`
+      patří do modulu `piskvorky` (tj. souboru `piskvorky.py`).
+    * Funkce `tah_pocitace` patří do modulu `ai` (tj. souboru `ai.py`).
+    * Funkci `tah` zařaď podle materiálů o cyklických importech.
+
+    Protože samotná *hra* – vypisování a ptaní na otázky – je vedlejší efekt,
+    tak teď nepůjde spustit. Aby to šlo, vytvoř ještě „spouštěcí“ modul `hra`
+    (tj. soubor `hra.py`) s následujícím obsahem:
+
+    ```python
+    from piskvorky import piskvorky1d
+
+    piskvorky1d()
+    ```
+
+    Odevzdávání několika souborů v našem "odevzdávátku" není možné, proto si tento
+    úkol zkontroluj sam/a:
+
+    * Všechny funkce jsou kde mají být (podle zadání).
+    * Příkaz `python hra.py` v příkazové řádce spustí funkční hru.
+    * Příkaz `import piskvorky` v Pythonu *nespustí* hru (a nemá ani další
+      vedlejší efekty).
+
+    Pokud chceš přesto úkol zkontrolovat nebo zkonzultovat, zabal všechny potřebné soubory se hrou do archivu (např. ZIP) a pošli tento soubor (po domluvě) některému kouči ke kontrole na Slack.
+

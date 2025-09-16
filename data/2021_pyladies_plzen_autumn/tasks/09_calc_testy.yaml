@@ -1,0 +1,112 @@
+tasks:
+
+- section:
+    markdown: |
+      Následující úkoly na sebe navazují. Nejlepší je proto je dělat jeden po druhém.
+
+- id: custom9_00
+  markdown: |
+    Během tohoto bloku úkolů budeme vylepšovat konzolovou kalkulačku,
+    kterou jsme implementovali již v úkolu číslo 6 v domácích projektech na cykly.
+    Program měl za úkol načíst od uživatele od uživatele dvě čísla a
+    jednoznakový řetězec – buď `'+'`, `'-'`, `'*'` nebo `'/'`. Pak provést příslušnou operaci.
+    Pojďme si ji připravit pro lepší rozdělení do modulů a psaní testů.
+
+    Napiš tedy znovu program, který postupně načte od uživatele dvě čísla a
+    jednoznakový řetězec – buď `'+'`, `'-'`, `'*'` nebo `'/'`.
+    Program provede na číslech příslušnou operaci.
+    Program bude napsán v jendom modulu `kalkulacka.py` ve kterém budeme mít funkce
+    pro výpočetní operace sčítání, odčítání, násobení a dělení.
+    Můžeš vyjít z rámcového kódu, který jsme ukazovali na cvičení.
+
+  mandatory: true
+
+- id: custom9_01
+  markdown: |
+    Vytvoř modul `operace.py` do kterého přesuň funkce na výpočty.
+    Z tohoto modulu je pak naimportuj v modulu `kalkulacka.py` aby
+    se v něm daly používat.
+
+  mandatory: true
+  
+- id: custom9_02
+  markdown: |
+    Vytvoř testovací modul `test_kalkulacka.py`. Napiš do něj testy pro
+    otestování, zda počítají opravdu správně. Nezapomeň otestovat i nestandardní
+    vstupy a ověřit, zda dělení nulou opravdy vyhodí chybu.
+
+  mandatory: true
+  
+
+- id: custom9_03
+  markdown: |
+    V modulu `kalkulacka` vytvoř funkci `proved_vypocet`, která bere tři argumenty.
+    První číslo, druhé číslo a znak, který nám definuje operaci.
+    Funkce s čísly provede příslušnou operaci a vrátí výsledek.
+    Pro matematické operace se samozřejmě použijí funkce z modulu `operace`.
+
+  mandatory: true
+  
+- id: custom9_04
+  markdown: |
+    Do testovacího modulu doplň test, který otestuje správné chování
+    funkce `proved_vypocet` z modulu `kalkulacka`.
+
+  mandatory: true
+  
+- id: custom9_05
+  markdown: |
+    Pomocí `try`, `except` případně `finally` a `else` ošetři program pro následující případ.
+    
+    _Uživatel je vyzván, aby zadal číslo, ale zadá něco, co nelze na číslo převést._
+
+    Program zachytí příslušnou výjimku, vypíše informaci o špatně zadaném vstupu a ukončí se,
+    aniž by prováděl nějaké výpočty.
+
+  mandatory: true
+  
+- id: custom9_06
+  markdown: |
+    Pomocí `try`, `except` případně `finally` a `else` ošetři program pro následující případ.
+      
+    _Uživatel chce dělit nulou._
+  
+    Program zachytí příslušnou výjimku, vypíše informaci o špatně zadaném vstupu a ukončí se,
+    aniž by prováděl nějaké výpočty.
+
+  mandatory: true
+  
+- id: custom9_07
+  markdown: |
+    Pomocí `try`, `except` případně `finally` a `else` ošetři program pro následující případ.
+
+    _Uživatel zadá neplatný operand._
+
+    Program zachytí příslušnou výjimku, vypíše informaci o špatně zadaném vstupu a ukončí se,
+    aniž by prováděl nějaké výpočty.
+    
+
+- section:
+    markdown: |
+      Následující úkoly slouží pouze pro lepší seznámení se s modulem logging.
+      Pro připomenutí, rychlé nastavení logovacího modulu vypadá takto:
+      ```
+      logging.basicConfig(filename='muj_log.log',level=logging.DEBUG)
+      ```
+      Modul `logging` musí být samozřejmě naimportován.
+
+- id: custom9_08
+  markdown: |
+    Dokážeš popsat, co nám v nastavení logování dělá parametr `level`?
+
+- id: custom9_09
+  markdown: |
+    V modulu `kalkulacka.py` nastav logování. Ty části kódu, ve kterých zachycuješ
+    výjimky (to jsou ty hned za `except:`) doplň o logovací zprávu s důležitostí `error`.
+
+- id: custom9_10
+  markdown: |
+    Doplň další vhodná místa v kódu o informační a debugovací zprávy.
+    Rozhodnutí, co to jsou vhodná místa, je zcela na tobě.
+    Pokud cheš o logy doplnit i další moduly, konfigurovat logging modul
+    v nich už nemusíš.

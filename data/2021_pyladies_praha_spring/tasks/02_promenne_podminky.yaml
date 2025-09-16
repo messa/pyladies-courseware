@@ -1,0 +1,103 @@
+tasks:
+
+- id: handout02_00
+  markdown: |
+    Jak se jmenuje druh chyby, která nastane, když…
+
+    1. Dáš uvozovky jen na jednu stranu řetězce?
+    2. Zkusíš odečíst číslo od řetězce?
+    3. Dělíš nulou?
+    4. Použiješ proměnnou, která neexistuje?
+    5. Stiskneš Ctrl+C, když se program ptá na vstup (pomocí input)?
+    6. Odsadíš příkaz bez předchozího if:?
+    7. Po `if:` odsadíš jeden příkaz o čtyři mezery a druhý jen o dvě?
+    8. Neuzavřeš závorku?
+    9. Zkusíš použít vykřičník (`!`) jako operátor?
+    10. Napíšeš v příkazu `print(1, 2, 3)` čárku navíc? Např. `print(1,2,,3)`?
+    11. Zkusíš porovnat řetězec a číslo, např. `2 >"3"`?
+
+- id: handout02_01
+  markdown: |
+    _Zkus se nedívat na programy ze srazu._
+
+    Napiš program, který spočítá povrch a objem krychle o straně 2852 cm.
+
+    Abys nemusela tolik hledat v učebnici (vlastně Wikipedii): povrch S = 6a², objem V = a³
+
+    _Řešení, pro kontrolu: S = 48803424 cm², V = 23197894208 cm³_
+
+- id: handout02_02
+  markdown: |
+    Změň program tak, aby délku strany mohl zadat uživatel.
+
+    _Tady už se na materiály ze srazu klidně podívej._
+
+- id: handout02_03
+  markdown: |
+
+    Představ si, že napíšeš následující kód do interaktivního Pythonu:
+
+    ```
+    >>> pocet_jablek = 10
+    >>> pocet_hrusek = 20
+    >>> vice_jablek = pocet_jablek > pocet_hrusek
+
+    >>> barva_jablek = "cervena"
+    >>> jablka_cervena = barva_jablek == "cervena"
+
+    >>> jablka_v_lednici = True
+    >>> hrusky_v_lednici = False
+
+    >>> ovoce_v_lednici = jablka_v_lednici or hrusky_v_lednici
+    ```
+
+    Jakou hodnotu budou mít proměnné `vice_jablek`, `jablka_cervena` a `ovoce_v_lednici` po spustění kódu výše?
+
+- id: handout02_05
+  markdown: |
+    A teď trochu kreativity. Napiš program, který po zadání správného hesla vypíše nějakou tajnou informaci.
+
+    _Vhodné tajemství je třeba: V pátek jsem viděla černého havrana._
+
+- id: handout02_06
+  markdown: |
+    Na srazu jsme měli program, který píše různé nesmysly podle uživatelem zadaného věku.
+
+    Zkus napsat program, který píše hlášky podle zadané rychlosti chůze, váhy ulovené ryby, počtu tykadel,
+    teploty vody nebo třeba vzdálenosti od rovníku.
+
+- id: handout02_07
+  markdown: |
+    Zkus napsat hru `Kámen, nůžky, papír`. Jak na to:
+
+    - Vytvoř si dvě proměnné, `tah_cloveka` a `tah_pocitace`
+    - Nastav `tah_pocitace` na "kámen", na `tah_cloveka` se uživatele zeptej
+    - Vypiš výsledky hry dle tahu člověka - buď `'Plichta.'`, `'Počítač vyhrál.'` nebo `'Vyhrála jsi!'`.
+      Vyhodnocení výsledku hry naprogramuj tak, jako by počítač mohl náhodně losovat ze všech tří
+      variant - naučíš ho to v příští lekci.
+
+    Pokud nevíš, odevzdej i nekompletní řešení, koučové tě navedou!
+
+- id: handout02_08
+  markdown: |
+    Zkus přepsat hru `Kámen, nůžky, papír` z předchozího úkolu pomocí `and` a `or`.
+
+    Dokážeš docílit toho, aby se každý z řetězců `'Plichta.'`, `'Počítač vyhrál.'` a `'Vyhrála jsi!'` objevil
+    v programu jen jednou, aniž bys tyhle řetězce musela přiřazovat do proměnných?
+
+    Pokud ano, gratuluji!
+
+- section:
+    markdown: |
+      **Co po této lekci umím:**
+
+- section:
+    markdown: |
+      - Použít příkaz `print`
+      - Vím, co je proměnná
+      - Napsat komentář do kódu
+      - Umím načíst vstup od uživatele a v případě potřeby ho převést na celé nebo desetinné číslo
+      - Umím použít porovnávací operátory
+      - Znám booleovské hodnoty `True` a `False`
+      - Vím, jak fungují podmínky, a umím použít příkazy `if`, `elif` a `else`
+      - Umím vytvořit složené podmínky pomocí logických operátorů `and`, `or` a `not`

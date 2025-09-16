@@ -1,0 +1,91 @@
+tasks:
+
+- id: handout04_00
+  markdown: |
+    Napiš program, který se bude uživatele ptát na tajné heslo do té doby, než ho
+    uživatel správně vyplní.
+    
+- id: handout04_01
+  markdown: |
+    Změň program `Kámen, nůžky, papír` z úkolu 7 po druhé lekci tak, aby opakoval hru, dokud uživatel
+    nezadá `konec`.
+
+- id: handout04_02 
+  markdown: |
+    Změň program `Kámen, nůžky, papír` tak, aby se tah počítače určoval náhodně.
+
+    Nápověda: můžeš použít funkci `randrange` a nastavit `tah_pocitace` na:
+
+    - `'kámen'`, pokud je náhodné číslo 0,
+    - `'nůžky'`, pokud je náhodné číslo 1,
+    - jinak na `'papír'`.
+
+
+- id: handout04_03
+  markdown: |
+    Napiš program, který se ptá uživatele na čísla do té doby, než zadá `0`. Poté vypíše nejmenší ze
+    zadaných čísel. (Pozor: nula se mezi porovnávaná čísla nepočítá.)
+
+    Nápověda: průběžně stačí ukládat jen údaj, které číslo je aktuálně to nejmenší.
+
+- id: handout04_04
+  markdown: |
+    Napiš program, který simuluje tuto hru:
+
+    První hráč hází kostkou
+    _(t.j. vybírají se náhodná čísla od 1 do 6)_,
+    dokud nepadne šestka.
+    Potom hází další hráč, dokud nepadne šestka i jemu.
+    Potom hází hráč třetí a nakonec čtvrtý.
+    Vyhrává ten, kdo na hození šestky potřeboval nejvíc hodů.
+    (V případě shody vyhraje ten, kdo házel dřív.)
+
+    Program by měl vypisovat všechny hody a nakonec napsat, kdo vyhrál.
+
+    Poznámka: pokud nemáš předchozí úkol, tento také přeskoč.
+
+
+- id: handout04_05
+  markdown: |
+    Napiš program, který postupně načte od uživatele dvě čísla a jednoznakový
+    řetězec – buď `'+'`, `'-'`, `'*'` nebo `'/'`. 
+    Program provede na číslech příslušnou operaci.
+
+    Příklad použití programu:
+
+    ```
+    První číslo: 123
+    Druhé číslo: 456
+    Operace: +
+    123 + 456 = 579
+    ```
+
+- id: handout04_06
+  markdown: |
+    Pomocí cyklu `for` a příkazu `if` napiš program, který vypíše následující řádky.
+    Funkci `print` volej pouze uvnitř v cyklu:
+
+        první řádek
+        není první
+        není první
+        není první
+
+
+- id: handout04_07
+  markdown: |
+    Co vypíše tenhle kód?
+
+    ```
+    for c in 'Ahoj světe!':
+        print(c)
+    ```
+
+- section:
+    markdown: |
+      **Co po této lekci umím:**
+
+- section:
+    markdown: |
+      - Použít cyklus `while`.
+      - Vím, kdy použít příkaz `break` a `continue`.
+      - Vím, kdy je lepší použít cyklus `for` a kdy cyklus `while`.

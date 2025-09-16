@@ -1,0 +1,30 @@
+tasks:
+
+- section:
+    markdown: |
+      Použij databázi Gapminder se statistikami o jednotlivých státech světa a pokus se aplikovat, co ses v hodině o PCA naučila.
+      Template s úkoly na DeepNote si zduplikuj [TADY](https://deepnote.com/workspace/PyDataLadies-Jaro-2021-0579e7e7-50f6-4c4b-ba8a-1b39758bff4d/project/pydatakurzpodzim2022pcatvojejmeno-0dc81071-fb52-4fc1-a782-ca5e9cf56df8).
+
+- id: pca_00
+  markdown: |
+    Odkaz na tvůj notebook na DeepNote (nezapomeň změnit práva na "Edit" a přejmenovat soubor):
+
+- id: pca_01
+  markdown: |
+    Spočítej, kolik je v každém sloupci chybějících hodnot `(countries.isnull().sum(axis = 0))`. Zvaž, které sloupce chceš pro PCA použít. Nepoužívej sloupce s vysokým podílem chybějících pozorování, ani sloupce, které pro porovnávání států nedávají dobrý smysl (např. protože odrážejí velikost státu, nikoli jeho charakteristiky).
+
+- id: pca_02
+  markdown: |
+    Do tabulky s vybranými sloupci doplň chybějící hodnoty pomocí `SimpleImputer` z balíčku sklearn.
+
+- id: pca_03
+  markdown: |
+    Normalizuj data pomocí `StandardScaler` a spočítej první dvě komponenty `PCA`. Vykresli data do souřadnicového grafu (scatter plot). Jsou země EU blízko sebe? Tvoří shluk?
+
+- id: pca_04
+  markdown: |
+    Dokážeš najít interpretaci pro PCA1 a PCA2 (první dvě komponenty PCA)? Pomoci může, když si nakreslíš interaktivní graf zobrazující jméno země (balíček `plotly`). Zkus si též spočítat, nakolik jednotlivé sloupečky z původní tabulky přispívají ke koeficientům (loadings) PCA1 a PCA2.
+
+- id: pca_05
+  markdown: |
+    Pokus se navrhnout, jak by šly do PCA zahrnout kategoriální veličiny, za předpokladu, že počet jejich kategorií není příliš velký (např. indikátor `is_eu`, zda je země v EU, nebo kontinent `world_6region`).

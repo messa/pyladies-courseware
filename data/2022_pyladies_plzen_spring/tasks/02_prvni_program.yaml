@@ -1,0 +1,14 @@
+# https://github.com/PyLadiesCZ/pyladies.cz/raw/master/original/v1/s002-hello-world/handout/handout2.pdf
+
+tasks:
+
+- section:
+    markdown: |
+      A na závěr zdánlivě triviální otázka.
+      
+- id: handout2_00
+  markdown: |
+    Jakou používáš verzi Pythonu? (Ke správné odpovědi patří i způsob, jak jsi na odpověď přišla!)
+
+    Zkus najít zbůsob, který bude fungovat i na cizím počítači, který ti někdo půjčil.
+

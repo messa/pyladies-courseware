@@ -1,0 +1,147 @@
+tasks:
+
+- id: theotherwayaround_07
+  markdown: |
+    Změň program Kámen, Nůžky, Papír tak, aby opakoval hru, dokud
+    uživatel nezadá slovo `konec`.
+
+- id: theotherwayaround_10
+  markdown: |
+   Napiš program, který se zeptá na 3 čísla a zjistí, jestli je jejich součet větší než 10.
+
+- id: theotherwayaround_11
+  markdown: |
+    Napiš program, který načte číslo a zjistí, jestli je sudé.
+
+    _Sudá čísla jsou beze zbytku dělitelná dvěma._
+
+- id: theotherwayaround_12
+  markdown: |
+    Napiš program, který vypíše čísla od jedné do 100, ale:
+
+    - Pokud je číslo dělitelné třemi, napíše místo něj „bum”.
+    - Pokud je číslo dělitelné pěti, napíše místo něj „bác”.
+    - Pokud je číslo dělitelné pěti i třemi zároveň, napíše místo toho „bum-bác”.
+
+- id: theotherwayaround_05
+  markdown: |
+    Naprogramuj hádání čísla: počítač vygeneruje náhodné číslo z rozsahu 1 až 100, ale nevypíše ho.
+    Nechá uživatele v cyklu se ptát na to číslo a vypíše pouze informaci, jestli je hádané číslo větší nebo menší než náhodné číslo.
+
+- id: theotherwayaround_13
+  markdown: |
+    Napiš program, který se zeptá uživatele na heslo a zjistí, jestli:
+
+    - heslo obsahuje minimálně 1 malé písmeno
+    - heslo obsahuje minimálně 1 velké písmeno
+    - heslo obsahuje minimálně jeden speciální znak: `+@#$%^&*`
+    - heslo neobsahuje ani jednu mezeru
+
+    Pokud heslo nesplňuje aspoň jednu z těchto podmínek, program poinformuje o tom uživatele, a ukončí se.
+    Pokud je heslo správně (= splňuje všechny podmínky), program řekne uživateli tajemství.
+
+- id: theotherwayaround_14
+  markdown: |
+    Napiš program, který se zepta uživatele na uživatelské jméno, a porovná ho se jménem, které je uloženo v jeho databázi.
+    (Pro jednoduchost tvoje databáze bude zatím obsahovat jen jednoho uživatele - ulož si libovolné uživatelské jméno do proměnné jako řetězec).
+    Pokud uživatel nezadá jméno správně, program se zeptá znovu. Uživatel má 3 pokusy, pak se program ukončí.
+
+- id: theotherwayaround_24
+  markdown: |
+    Uprav předchozí program: Program se bude uživatele ptát tak dlouho, dokud nezadá správné (čili existující) uživatelské jméno.
+
+- id: theotherwayaround_15
+  markdown: |
+    Bonus:
+
+    - místo ukládání jednoho řetězce do proměnné, použij seznam několika řetězcu, v Pythonu se vytváří takto: `muj_seznam = ["test", "admin", "maruska"]`
+    - se seznamem můžeš pracovat velmi podobně jako s řetězci, tzn.
+
+        - můžeš přístupovat k jednotlivým prvkům pomocí indexů - vyzkoušej si např. `muj_seznam[0]`
+        - můžeš procházet seznam pomocí `for` cyklu
+        - můžeš zjistit, jestli je daný prvek obsažen v seznamu pomocí operátoru `in`, např. 
+    ```
+    >>> "maruska" in muj_seznam
+    True
+    >>> "maru" in muj_seznam
+    False
+    ```
+
+- id: theotherwayaround_16
+  markdown: |
+    Rozšíření programu na uživatelské jméno a heslo. Použij stejnou "databázi" uživatelů jako předchozí úloze.
+    Napiš program, který se zeptá uživatele na uživatelské jméno a heslo, a následně:
+
+    - pokud uživatelské jméno neexistuje, zahlásí tento fakt a zeptá se uživatele, jestli chce jméno zase zadat
+    - pokud uživatel řekne "ano", program ho vyzve k zadání jména a provede kontrolu, zda jméno existuje
+    - v opačném případě, pokud uživatel řekne "ne", program se ukončí
+    - pokud uživatelské jméno existuje, ale heslo neodpovídá pravidlům nastaveným v úloze č. 6, program se opět uživatele, jestli chce heslo zase zadat
+    - pokud "ano", vyzve uživatele k zadání hesla a provede kontrolu.
+    - v opačném případě, pokud uživatel řekne "ne", program se ukončí
+    - na konci se vždy vypíše poděkování za použití programu (i v případě, že uživatel přerušil zadávání jména nebo hesla)
+
+    **bonus**: zařiď, aby počítač rozuměl odpovědím jako "ano", "ANO", "aNO", "a", "A" - a obdobně pro "ne", "NE", "Ne", "n", atp.
+
+- id: theotherwayaround_08
+  markdown: |
+    Napiš program, který se ptá uživatele na čísla do té doby, než zadá 0.
+    Poté vypíše nejmenší ze zadaných čísel. (Pozor: nula se mezi porovnávaná čísla nepočítá.)
+
+    _Nápověda: průběžně stačí ukládat jen údaj, které číslo je aktuálně to nejmenší._
+
+- id: theotherwayaround_09
+  markdown: |
+    Napiš program, který simuluje tuto "hru":
+
+    První hráč hází kostkou (t.j. vybírají se náhodná čísla od 1 do 6), dokud nepadne šestka.
+    Potom hází další hráč, dokud nepadne šestka i jemu.
+    Potom hází hráč třetí a nakonec čtvrtý.
+    Vyhrává ten, kdo na hození šestky potřeboval nejvíc hodů. (V případě shody vyhraje ten, kdo házel dřív.)
+
+    Program by měl vypisovat všechny hody a nakonec napsat, kdo vyhrál.
+
+    _Poznámka: pokud nemáš předchozí úkol, tento také přeskoč._
+
+    *Nápověda: průběžně stačí ukládat jen údaj o tom, kdo vede a kolik má bodů.*
+    *Tip: Program si napiš napřed v češtině; pak ho přelož do Pythonu.*
+
+- id: theotherwayaround_17
+  markdown: |
+    Funguje-li ti hra `sibenice`, můžeš ji vylepšit.
+
+    - Pokud hráč nezadá přesně jeden znak (tj nezadá nic nebo zadá víc znaků),
+      vynadej mu, ale nepočítej to jako pokus.
+    - Když hráč nezadá písmeno (zadá např. `!`), nepovažuj to za tah.
+    - Zařiď, aby hra fungovala pro slova s více stejnými písmeny
+      (např. č<span style='color: red'>o</span>k<span style='color: red'>o</span>láda).
+    - Po skončení dej hráči možnost hru opakovat.
+    - Po vypsání počtu neúspěšných pokusů vypiš obrázek.
+      Funkci, která vrátí obrázek podle počtu pokusů, si můžeš
+      zkopírovat [z Gistu](https://gist.github.com/encukou/77376e445356a9843e278ba387b168f0)
+
+    *Jednotlivá vylepšení dělej jednotlivě.*
+
+- id: theotherwayaround_18
+  markdown: |
+    Napiš program, který vyzve uživatele k zadání řetězce složeného z otevíracích a zavíracích závorek jednoho typu, např. `()`. Program ověří, jestli jsou závorky správně, to znamená každá otevřená závorka je uzavřena, a výsledek vypíše. Pokud program narazí na jiný znak než závorky, vypíše chybu a ukončí se.
+
+    Příklad:
+
+    - `()(()(()))` je správně
+    - `())(` je špatně
+
+    **Bonus:** vypiš index znaku, kde program odhalil chybu v řetězci
+
+- id: theotherwayaround_19
+  markdown: |
+    Napiš program, který vypíše pyramidu. Uživatel zadá počet poschodí na vstupu. Nezapomeň na správné odsazení.
+
+    Příklad:
+    
+    ```
+        *
+       * *
+      * * *
+     * * * *
+    * * * * *
+    ```

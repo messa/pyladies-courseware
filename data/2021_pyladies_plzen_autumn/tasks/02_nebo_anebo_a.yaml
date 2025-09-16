@@ -1,0 +1,42 @@
+# https://github.com/PyLadiesCZ/pyladies.cz/raw/master/original/v1/s002-hello-world/handout/handout2.pdf
+
+tasks:
+
+- section:
+    markdown: |
+      Poslední projekty jsou pokročilejší. Jestli nemáš čas, radši udělej pořádně ty ostatní.
+
+- id: handout2_15
+  markdown: |
+    Projdi si v materiálech sekci _„Nebo anebo a”_:
+
+    [naucse.python.cz/lessons/beginners/and-or/](https://naucse.python.cz/lessons/beginners/and-or/)
+
+  submit: false
+
+- id: handout2_16
+  markdown: |
+    Doplň tuhle tabulku:
+
+    | `a`     | `b`     | `a and b` | `a or b` | `not a` |
+    |---------|---------|-----------|----------|---------|
+    | `True`  | `True`  |           |          |         |
+    | `False` | `True`  |           |          |         |
+    | `True`  | `False` |           |          |         |
+    | `False` | `False` |           |          |         |
+
+    Tohle je takzvaná _pravdivostní_ tabulka:
+    _Obsahuje jeden řádek pro každou kombinaci booleovských hodnot, které `a` a `b` můžou mít. Když se stane, že se v složitějších `and` a `or` ztratíš, doporučuji napsat si podobnou tabulku a na každý řádek se podívat zvlášť._
+
+- id: handout2_17
+  markdown: |
+    Zkus přepsat Kámen, Nůžky, Papír pomocí `and` a `or`.
+
+    Dokážeš docílit toho, aby se každý z řetězců `'Plichta.'`, `'Počítač vyhrál.'` a `'Vyhrála jsi!'` objevil
+    v programu jen jednou, aniž bys tyhle řetězce musela přiřazovat do proměnných?
+
+    Pokud ano, gratuluji!
+
+- id: handout2_18
+  markdown: |
+    Zkus program „šťastná/bohatá“, který je uvedený v materiálech, přepsat pomocí zanořených `if`ů. Která verze ti připadá čitelnější?

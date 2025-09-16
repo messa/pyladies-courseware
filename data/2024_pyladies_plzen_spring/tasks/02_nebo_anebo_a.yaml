@@ -1,0 +1,53 @@
+# https://github.com/PyLadiesCZ/pyladies.cz/raw/master/original/v1/s002-hello-world/handout/handout2.pdf
+
+tasks:
+
+- section:
+    markdown: |
+      Poslední projekty jsou pokročilejší. Jestli nemáš čas, radši udělej pořádně ty ostatní.
+
+- id: handout2_15
+  markdown: |
+    Projdi si v materiálech sekci _„Nebo anebo a”_:
+
+    [naucse.python.cz/lessons/beginners/and-or/](https://naucse.python.cz/lessons/beginners/and-or/)
+
+  submit: false
+
+- id: handout2_16
+  markdown: |
+    <span style='color: #c39;font-weight: bold'>Výzva&nbsp;&nbsp;</span>
+    Doplň tuhle tabulku:
+
+    | `a`     | `b`     | `a and b` | `a or b` | `not a` |
+    |---------|---------|-----------|----------|---------|
+    | `True`  | `True`  |           |          |         |
+    | `False` | `True`  |           |          |         |
+    | `True`  | `False` |           |          |         |
+    | `False` | `False` |           |          |         |
+
+    Tohle je takzvaná _pravdivostní_ tabulka:
+    _Obsahuje jeden řádek pro každou kombinaci booleovských hodnot, které `a` a `b` můžou mít. Když se stane, že se v složitějších `and` a `or` ztratíš, doporučuji napsat si podobnou tabulku a na každý řádek se podívat zvlášť._
+
+- id: handout2_17
+  markdown: |
+    <span style='color: #c39;font-weight: bold'>Výzva&nbsp;&nbsp;</span>
+    Zkus přepsat Kámen, Nůžky, Papír pomocí `and` a `or`.
+
+    Dokážeš docílit toho, aby se každý z řetězců `'Plichta.'`, `'Počítač vyhrál.'` a `'Vyhrála jsi!'` objevil
+    v programu jen jednou, aniž bys tyhle řetězce musela přiřazovat do proměnných?
+
+    Pokud ano, gratuluji! Nasdílej nám tvoje řešení.
+
+    _Kód ze srazu najdeš i [zde](https://naucse.python.cz/2021/plzen-podzim-2021/beginners/comparisons/)._
+
+- id: handout2_18
+  markdown: |
+    <span style='color: #c39;font-weight: bold'>Výzva&nbsp;&nbsp;</span>
+    Zkus napsat program, který ti poradí, co si vzít na sebe podle počasí (prší/je slunečno). Použij k tomu zanořené `if`y. 
+    
+    Program může vypadat následovně.
+    Pokud venku prší, vem si kabát. Pokud prší a fouká k tomu, vem si větrovku a dlouhé kalhoty.
+    Pokud svítí sluníčko, obleč si šaty/kraťasy. Pokud svítí slunce a k tomu fouká, vem si kabátek.
+    
+    _Kreativitě se meze nekladou._ 

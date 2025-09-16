@@ -9,7 +9,7 @@ if (!runningOnServer) {
   require('codemirror/mode/python/python.js')
 }
 
-export default class CodeEditor extends React.Component {
+export default class extends React.Component {
 
   state = {
     showEditor: !runningOnServer,
@@ -40,7 +40,6 @@ export default class CodeEditor extends React.Component {
   render() {
     const options = {
       mode: 'python',
-      theme: 'solarized',
       lineNumbers: true,
     }
     return (

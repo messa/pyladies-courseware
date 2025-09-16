@@ -1,0 +1,60 @@
+tasks:
+
+- section:
+    markdown: |
+      Na začátek trocha zdánlivě nudného opakování, ať si trochu osvěžíme programování.
+      To ale neznamená, že tu nemůžeš najít něco zvláštního a překvapivého!
+
+- id: handout3b_00
+  markdown: |
+    Co dělá funkce `print`?
+
+- id: handout3b_01
+  markdown: |
+    Co _vrací_ funkce `print`?
+    
+  mandatory: true
+
+- id: handout3b_02
+  markdown: |
+    Co dělá pojmenovaný argument `end` funkce `print`?
+
+- id: handout3b_03
+  markdown: |
+    Co dělá pojmenovaný argument `sep` funkce `print`?
+
+- id: handout3b_04
+  markdown: |
+    Čím se liší chyby, které dostaneš když zadáš tyhle příkazy?
+
+    - `int('blabla')`
+    - `float('blabla')`
+    - `int('8.9')`
+    - `int(8.9)`
+
+  mandatory: true
+
+- section:
+    markdown: |
+      A teď možná trochu záludný ale zajímavý příklad na procvičení práce se
+      soubory.
+
+- id: handout7_01
+  markdown: |
+    Můj bratr, který píše japonské texty, mě požádal o program, který počítá znaky.
+    Program přečte soubor `rozsypanycaj.txt` a zjistí, kolik znaků je psáno kterou
+    z japonských slabikových abeced:
+
+    • ひらがな (hiragana):
+    ぁ あ ぃ い ぅ う ぇ え ぉ お か が き ぎ く ぐ け げ こ ご さ ざ し じ す ず せ ぜ そ ぞ た だ ち
+    ぢ っ つ づ て で と ど な に ぬ ね の は ば ぱ ひ び ぴ ふ ぶ ぷ へ べ ぺ ほ ぼ ぽ ま み む め も
+    ゃ や ゅ ゆ ょ よ ら り る れ ろ ゎ わ ゐ ゑ を ん ゔ
+
+    • カタカナ (katakana):
+    ァ ア ィ イ ゥ ウ ェ エ ォ オ カ ガ キ ギ ク グ ケ ゲ コ ゴ サ ザ シ ジ ス ズ セ ゼ ソ ゾ タ ダ チ
+    ヂ ッ ツ ヅ テ デ ト ド ナ ニ ヌ ネ ノ ハ バ パ ヒ ビ ピ フ ブ プ ヘ ベ ペ ホ ボ ポ マ ミ ム メ モ
+    ャ ヤ ュ ユ ョ ヨ ラ リ ル レ ロ ヮ ワ ヰ ヱ ヲ ン ヴ ヵ ヶ ヷ ヸ ヹ ヺ
+
+    Abecedy jsou ke zkopírování na stránkách s materiály.
+    Program vypíše dvě čísla – počet znaků pro každou z abeced. Znaky, které
+    nejsou ani v jedné z abeced, ignoruj.

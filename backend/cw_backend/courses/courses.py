@@ -32,17 +32,12 @@ def load_course(course_file):
 def load_courses(courses_file):
     '''
     Load all files courses/*/course.yaml from a given directory.
-
-    Returns Courses wrapped inside ReloadingContainer, so the actual
-    courses can be retrieved like this: load_courses(courses_file).get()
+    Returns Courses wrapped inside ReloadingContainer.
     '''
     return ReloadingContainer(factory=partial(Courses, courses_file=courses_file))
 
 
 class Courses:
-    '''
-    Top-level object for access to course data.
-    '''
 
     def __init__(self, courses_file, loader):
         assert isinstance(courses_file, Path)
@@ -59,9 +54,6 @@ class Courses:
     def __len__(self):
         return len(self.courses)
 
-    def list_courses(self):
-        return list(self.courses)
-
     def list_active(self):
         courses = [c for c in self.courses if c.is_active()]
         courses.sort(key=lambda c: c.start_date)
@@ -73,9 +65,6 @@ class Courses:
         return courses
 
     def get_by_id(self, course_id):
-        raise Exception('Removed - use get_by_course_id()')
-
-    def get_by_course_id(self, course_id):
         assert isinstance(course_id, str)
         for c in self.courses:
             if c.id == course_id:
@@ -86,21 +75,26 @@ class Courses:
 class Course:
 
     def __init__(self, course_file, loader):
-        assert isinstance(course_file, Path)
-        logger.debug('Loading course from %s', course_file)
+        self.course_file = course_file
+        self.loader = loader
+        self.load_course()
+
+    def load_course(self):
+        assert isinstance(self.course_file, Path)
+        logger.debug('Loading course from %s', self.course_file)
 
         try:
-            raw = yaml_load(loader.read_text(course_file))
+            raw = yaml_load(self.loader.read_text(self.course_file))
         except Exception as e:
-            raise Exception(f'Failed to load course file {course_file}: {e}')
+            raise Exception(f'Failed to load course file {self.course_file}: {e}')
 
         try:
             if raw.get('naucse_api_url'):
-                nc = loader.get_json(raw['naucse_api_url'])['course']
+                nc = self.loader.get_json(raw['naucse_api_url'])['course']
             else:
                 nc = {}
 
-            course_dir = course_file.parent
+            course_dir = self.course_file.parent
             self.data = {
                 'id': raw['id'],
                 'title_html': to_html(raw.get('title') or nc.get('title')),
@@ -124,7 +118,7 @@ class Course:
                     naucse_data=naucse_sessions.get(slug),
                     course_dir=course_dir,
                     tasks_by_lesson_slug=raw.get('tasks_by_lesson_slug') or {},
-                    loader=loader))
+                    loader=self.loader))
 
             self.sessions.sort(key=lambda s: s.date)
 
@@ -133,15 +127,18 @@ class Course:
                 self.data['start_date'] = self.sessions[0].date
             if not self.data['end_date'] and self.sessions:
                 self.data['end_date'] = self.sessions[-1].date
+
+            if 'registration_end' in raw:
+                self.data['registration_end'] = parse_date(raw['registration_end'])
+            else:
+                self.data['registration_end'] = self.data['end_date']
+
         except Exception as e:
-            raise Exception(f'Failed to load course from {course_file}: {e}') from e
+            raise Exception(f'Failed to load course from {self.course_file}: {e}') from e
 
     id = DataProperty('id')
     start_date = DataProperty('start_date')
     end_date = DataProperty('end_date')
-    title_html = DataProperty('title_html')
-    subtitle_html = DataProperty('subtitle_html')
-    description_html = DataProperty('description_html')
 
     def __repr__(self):
         return f'<{self.__class__.__name__} id={self.id!r}>'
@@ -151,6 +148,9 @@ class Course:
 
     def is_past(self):
         return self.data['end_date'] < date.today()
+
+    def allows_registration(self):
+        return self.data['registration_end'] >= date.today()
 
     def get_session_by_slug(self, slug):
         assert isinstance(slug, str)
@@ -164,6 +164,8 @@ class Course:
             **self.data,
             'start_date': self.data['start_date'].isoformat(),
             'end_date': self.data['end_date'].isoformat(),
+            'registration_end': self.data['registration_end'].isoformat(),
+            'allows_registration': self.allows_registration(),
         }
         if sessions:
             d['sessions'] = [lesson.export(tasks=tasks) for lesson in self.sessions]

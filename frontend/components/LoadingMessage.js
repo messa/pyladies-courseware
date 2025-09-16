@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function LoadingMessage ({ active }) {
+export default ({ active }) => {
   if (!active) return null
   return (<p><em>Loading</em></p>)
 }

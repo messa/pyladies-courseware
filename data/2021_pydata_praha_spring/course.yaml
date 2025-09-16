@@ -9,3 +9,17 @@ tasks_by_lesson_slug:
   - file: tasks/eda_2.yaml
   "pydata/eda-univariate-timeseries":
   - file: tasks/eda_3.yaml
+  "pydata/pandas_correlations":
+  - file: tasks/eda_4.yaml
+  "pydata/pandas_groupby":
+  - file: tasks/eda_5.yaml
+  "pydata/ml1_home_prep":
+  - file: tasks/ml_1.yaml
+  "pydata/scikitlearn_api":
+  - file: tasks/ml_2.yaml
+  "pydata/classification_metrics":
+  - file: tasks/ml_3.yaml
+  "pydata/pca":
+  - file: tasks/pca.yaml
+  "pydata/dashboards":
+  - file: tasks/dashboards.yaml

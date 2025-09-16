@@ -1,0 +1,42 @@
+tasks:
+
+- section:
+    markdown: |
+      Template s úkoly na DeepNote si zduplikuj [TADY](https://deepnote.com/project/pydatakurzpodzim2021eda3tvojejmeno-l8Zm8y3aT2CaaVwqZZZEsQ/%2FEDA3%202021%20podzim%20-%20zadani.ipynb).
+
+- id: eda3_00
+  markdown: |
+    Odkaz na tvůj notebook na DeepNote (nezapomeň změnit práva na "Edit" a přejmenovat soubor):
+
+- id: eda3_01
+  markdown: |
+    Pomocí stejného postupu jako v hodině načti data z Mošnova.
+
+- id: eda3_02
+  markdown: |
+    Vytvoř graf, který porovná vývoj ročních úhrnů srážek (tj. vždy suma srážek za daný rok) v jednotlivých stanicích. Dokážeš z grafu vyčíst nějakou zajímavou informaci?
+
+- id: eda3_03
+  markdown: |
+    Zjisti, ve které z těchto stanic byl nejteplejší den (den s nejvyšší maximální teplotou) v roce 2010 a který den to byl.
+
+- id: eda3_04
+  markdown: |
+    Podnikavý zemědělec by rád začal pěstovat novou plodinu, která ale v daném roce plodí jen pokud je splněno:
+    
+    - maximálně 35 % dní klesne minimální denní teplota pod nulu,
+    - alespoň 40 % dní svítí slunce více než pět hodin,
+    - průměrná vlhkost za celý rok je větší než 70 %.
+
+    Doporučila bys na pěstování této plodiny na základě počtu let v historii, ve kterých byly tyto podmínky splněny, Ruzyni nebo Mošnov? Jak velkou pravděpodobnost má zemědělec, že mu další rok bude tato nová plodina plodit?
+
+    Tip: Pro řešení úlohy se hodí `resample` a `quantile`.
+
+- id: eda3_05
+  markdown: |
+    Uložila sis data z Ruzyně do souboru `ruzyne_tidy.csv`. Jenže nějaký diskový šotek do některých řádků vložil chybu: Ve sloupci tlak vzduchu je hodnota vlhkosti. Data se sice už zachránit nepodaří, nicméně bude dobré chybu napravit alespoň označením chybných dat jako nedefinované hodnoty (`NaN`). Pro kolegu, který bohužel s chybějícími daty pracovat neumí, bude navíc potřeba připravit ještě jeden csv soubor, který bude obsahovat alespoň nějaké rozumné hodnoty, tj. je potřeba `NaN` hodnoty nahradit vhodnou hodnotou.
+
+- id: eda3_06
+  markdown: |
+    Který z ledových mužů je nejmrazivější? Pankrác (12. 5.), Servác (13. 5.) nebo Bonifác (14. 5.)? Zjisti to porovnáním mediánů minimálních teplot těchto dní.
+

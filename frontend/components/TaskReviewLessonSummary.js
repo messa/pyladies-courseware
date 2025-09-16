@@ -1,6 +1,8 @@
 import React from 'react'
 import Link from 'next/link'
-import { Table, Message } from 'semantic-ui-react'
+import { Table, Message, Popup } from 'semantic-ui-react'
+import holdAnchor from './Helpers'
+import ALink from './ALink'
 
 export default class TaskReviewLessonSummary extends React.Component {
 
@@ -9,10 +11,11 @@ export default class TaskReviewLessonSummary extends React.Component {
     loadError: null,
     students: null,
     taskSolutionsByUserAndTaskId: null,
+    taskSolutionsTaskId: null,
   }
 
   componentDidMount() {
-    this.loadData()
+    this.loadData(true)
     if (!this.loadIntervalId) {
       this.loadIntervalId = setInterval(() => this.loadData(), 20 * 1000)
     }
@@ -25,9 +28,9 @@ export default class TaskReviewLessonSummary extends React.Component {
     }
   }
 
-  async loadData() {
+  async loadData(anchorCheck = false) {
     const { courseId, tasks } = this.props
-    const taskIds = tasks.map(t => t.taskItemId)
+    const taskIds = tasks.map(t => t.id)
     try {
       const url = '/api/tasks/lesson-solutions' +
         `?course_id=${encodeURIComponent(courseId)}` +
@@ -39,13 +42,21 @@ export default class TaskReviewLessonSummary extends React.Component {
         }
       })
       const { task_solutions, students } = await r.json()
+      const taskSolutionsByTaskId = new Map(taskIds.map(t => [t, new Array()]))
+      task_solutions.forEach(ts => {
+        taskSolutionsByTaskId.get(ts.task_id).push(ts)
+      })
       this.setState({
         loading: false,
         loadError: null,
         students: students.sort((a, b) => a.name.localeCompare(b.name)),
         taskSolutionsByUserAndTaskId: new Map(
           task_solutions.map(ts => ([`${ts.user_id}|${ts.task_id}`, ts]))),
+        taskSolutionsByTaskId: taskSolutionsByTaskId,
       })
+      if (anchorCheck) {
+        holdAnchor()
+      }
     } catch (err) {
       this.setState({
         loading: false,
@@ -55,7 +66,7 @@ export default class TaskReviewLessonSummary extends React.Component {
   }
 
   render() {
-    const { loading, loadError, students, taskSolutionsByUserAndTaskId } = this.state
+    const { loading, loadError, students, taskSolutionsByUserAndTaskId, taskSolutionsByTaskId } = this.state
     const { courseId, sessionSlug, tasks, reviewUserId, reviewTaskId } = this.props
     return (
       <div>
@@ -76,6 +87,7 @@ export default class TaskReviewLessonSummary extends React.Component {
               students={students}
               tasks={tasks.filter(t => t.submit)}
               taskSolutionsByUserAndTaskId={taskSolutionsByUserAndTaskId}
+              taskSolutionsByTaskId={taskSolutionsByTaskId}
               reviewUserId={reviewUserId}
               reviewTaskId={reviewTaskId}
             />
@@ -89,24 +101,24 @@ export default class TaskReviewLessonSummary extends React.Component {
   }
 }
 
-const TaskReviewLessonSummaryTable = ({ courseId, sessionSlug, students, tasks, taskSolutionsByUserAndTaskId, reviewUserId, reviewTaskId }) => (
+const TaskReviewLessonSummaryTable = ({ courseId, sessionSlug, students, tasks, taskSolutionsByUserAndTaskId, reviewUserId, reviewTaskId, taskSolutionsByTaskId }) => (
   <Table basic celled size='small' compact unstackable>
     <Table.Header>
       <Table.Row>
         <Table.HeaderCell>Jméno</Table.HeaderCell>
         {tasks.map((task, i) => {
-            const href = {
-                pathname: '/task',
-                query: {
-                    course: courseId,
-                    session: sessionSlug,
-                    reviewTaskId: task.number,
-                },
-                hash: 'tasks'
-            };
+          const href = {
+            pathname: '/task',
+            query: {
+              course: courseId,
+              session: sessionSlug,
+              reviewTaskId: task.number,
+            },
+            hash: 'tasks'
+          };
           return (
             <Table.HeaderCell key={i}>
-                <Link href={href}><a>{task.number}</a></Link>
+              <Link href={href}><a>{task.number}</a></Link>
             </Table.HeaderCell>
           );
         })}
@@ -128,20 +140,62 @@ const TaskReviewLessonSummaryTable = ({ courseId, sessionSlug, students, tasks, 
             )}
           </Table.Cell>
           {tasks.map((task, i) => (
-            <Table.Cell key={i} active={reviewTaskId === task.taskItemId}>
+            <Table.Cell key={i} active={reviewTaskId === task.id}>
               <TaskStatus
                 courseId={courseId}
                 sessionSlug={sessionSlug}
-                taskSolution={taskSolutionsByUserAndTaskId.get(`${student.id}|${task.taskItemId}`)}
-                taskId={task.taskItemId}
+                taskSolution={taskSolutionsByUserAndTaskId.get(`${student.id}|${task.id}`)}
+                taskId={task.id}
               />
             </Table.Cell>
           ))}
         </Table.Row>
       ))}
     </Table.Body>
+    <Table.Footer>
+      <Table.Row className='stats-row'>
+        <Table.HeaderCell>
+          <div className='stats-row-item'>Odevzdáno:</div>
+          <div className='stats-row-item'>Vyřešeno:</div>
+          <div className='stats-row-item'>Verzí:</div>
+          <div className='stats-row-item'>Komentářů:</div>
+        </Table.HeaderCell>
+        {tasks.map((task, i) => {
+          return (
+            <Table.HeaderCell key={i}>
+              <TaskStats taskSolutions={taskSolutionsByTaskId.get(task.id)} />
+            </Table.HeaderCell>
+          );
+        })}
+      </Table.Row>
+    </Table.Footer>
+    <style jsx global>{`
+      .stats-row {
+        text-align: right;
+      }
+      .stats-row-item {
+       color: #666;
+      }
+    `}</style>
   </Table>
 )
+
+const TaskStats = ({ taskSolutions }) => {
+  const submitedSolutions = taskSolutions.length
+  const solvedSolutions = taskSolutions.filter(t => t.is_solved).length
+  const versionsReducer = (acc, val) => acc + val.all_versions.length
+  const submitedVersions = taskSolutions.reduce(versionsReducer, 0)
+  const commentsReducer = (acc, val) => acc + val.n_comments
+  const submitedComments = taskSolutions.reduce(commentsReducer, 0)
+  return (
+    <>
+      <div className='stats-row-item'>{submitedSolutions ? submitedSolutions : '-'}</div>
+      <div className='stats-row-item'>{solvedSolutions ? solvedSolutions : '-'}</div>
+      <div className='stats-row-item'>{submitedVersions ? submitedVersions : '-'}</div>
+      <div className='stats-row-item'>{submitedComments ? submitedComments : '-'}</div>
+    </>
+  )
+}
 
 
 const TaskStatus = ({ courseId, sessionSlug, taskSolution, taskId }) => {
@@ -164,6 +218,7 @@ const TaskStatus = ({ courseId, sessionSlug, taskSolution, taskId }) => {
   if (taskSolution.is_solved) {
     content = '✓'
   }
+
   const href = {
     pathname: '/session',
     query: {
@@ -174,8 +229,10 @@ const TaskStatus = ({ courseId, sessionSlug, taskSolution, taskId }) => {
     hash: 'task-' + taskId
   }
   return (
-    <Link href={href}><a>
-      {content}
-    </a></Link>
+    // <Link href={href}>
+    <Popup position='top center' trigger={<ALink href={href}> {content} </ALink>}>
+      <div>{taskSolution.all_versions.length} odevzdaných řešení</div>
+      <div>{taskSolution.n_comments} komentářů</div>
+    </Popup>
   )
 }

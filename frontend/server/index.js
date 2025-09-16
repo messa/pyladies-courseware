@@ -10,9 +10,10 @@ app.prepare().then(() => {
   server = express()
 
   if (dev || process.env.BACKEND_PROXY) {
-    const { createProxyMiddleware } = require('http-proxy-middleware')
+    const proxyMiddleware = require('http-proxy-middleware')
     const backendUrl = process.env.BACKEND_URL || 'http://127.0.0.1:5000'
-    server.use(createProxyMiddleware(['/api/', '/auth/'], { target: backendUrl }))
+    server.use(proxyMiddleware('/api/', { target: backendUrl }))
+    server.use(proxyMiddleware('/auth/', { target: backendUrl }))
   }
 
   server.get('*', (req, res) => handle(req, res))

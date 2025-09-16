@@ -2,10 +2,10 @@ import React from 'react'
 import { Icon, Button } from 'semantic-ui-react'
 import LoadingMessage from '../LoadingMessage'
 import LoadErrorMessage from '../LoadErrorMessage'
-import ErrorMessage from '../ErrorMessage'
 import TaskSolution from './TaskSolution'
 import TaskComments from './TaskComments'
 import holdAnchor from '../Helpers'
+import CodeDiffWithSelector from "./CodeDiffWithSelector";
 
 export default class TaskReview extends React.Component {
 
@@ -21,6 +21,8 @@ export default class TaskReview extends React.Component {
 
     savingMarkedAsSolved: false,
     saveMarkedAsSolvedError: null,
+
+    showDiff: false
   }
 
   componentDidMount() {
@@ -48,12 +50,12 @@ export default class TaskReview extends React.Component {
   }
 
   async loadData(anchorCheck = false) {
-    const { courseId, sessionSlug, taskItemId, reviewUserId } = this.props
+    const { courseId, sessionSlug, taskId, reviewUserId } = this.props
     try {
       const url = '/api/tasks/solution' +
         `?course_id=${encodeURIComponent(courseId)}` +
         `&session_slug=${encodeURIComponent(sessionSlug)}` +
-        `&task_id=${encodeURIComponent(taskItemId)}` +
+        `&task_id=${encodeURIComponent(taskId)}` +
         `&user_id=${encodeURIComponent(reviewUserId)}`
       const r = await fetch(url, {
         credentials: 'same-origin',
@@ -70,13 +72,12 @@ export default class TaskReview extends React.Component {
         loadError: null,
         reviewUserId,
         taskSolution: task_solution,
-        comments,
+        comments: comments,
       })
       if (anchorCheck) {
         holdAnchor()
       }
     } catch (err) {
-      console.error('TaskReview loadData error:', err)
       this.setState({
         loading: false,
         loadError: err.toString(),
@@ -90,6 +91,12 @@ export default class TaskReview extends React.Component {
 
   handleUnmarkAsSolvedButtonClick = async () => {
     await this.saveMarkedAsSolved(false)
+  }
+
+  toggleDiffDisplay = async () => {
+    this.setState((state) => ({
+      showDiff: !state.showDiff
+    }))
   }
 
   async saveMarkedAsSolved(solved) {
@@ -170,15 +177,25 @@ export default class TaskReview extends React.Component {
   }
 
   render() {
-    const { loading, loadError, taskSolution, savingMarkedAsSolved, comments, showAddComment } = this.state
-    const { taskSubmit, title } = this.props
+    const {
+      loading,
+      loadError,
+      taskSolution,
+      savingMarkedAsSolved,
+      comments,
+      showAddComment,
+      showDiff
+    } = this.state
+    const {taskSubmit, title} = this.props
+    const hasMultipleVersions = taskSolution !== null && taskSolution.all_versions.length > 1
+
     return (
       <div className='TaskReview'>
         {taskSubmit ? (
           <>
             <h4>
-                {title ? title + ' ' : 'Odevzdané řešení'}
-                <TaskStatus taskSolution={taskSolution} />
+              {title ? title + ' ' : 'Odevzdané řešení '}
+              <TaskStatus taskSolution={taskSolution} />
             </h4>
             <LoadingMessage active={loading} />
             <LoadErrorMessage active={loadError} message={loadError} />
@@ -187,7 +204,11 @@ export default class TaskReview extends React.Component {
                 <p>–</p>
               ) : (
                 <>
-                  <TaskSolution taskSolution={taskSolution} />
+                  {
+                    (showDiff && taskSolution.all_versions !== null) ?
+                      <CodeDiffWithSelector versions={taskSolution.all_versions} /> :
+                      <TaskSolution taskSolution={taskSolution} />
+                  }
                   <div>
                     {!taskSolution.is_solved ? (
                       <Button
@@ -225,6 +246,14 @@ export default class TaskReview extends React.Component {
                       icon='comment alternate'
                       onClick={this.handleAddCommentButtonClick}
                     />
+                    {hasMultipleVersions && <Button
+                      color='blue'
+                      content={showDiff ? 'Skrýt porovnání' : 'Porovnat změny'}
+                      size='small'
+                      icon='arrows alternate horizontal'
+                      inverted={showDiff}
+                      onClick={this.toggleDiffDisplay}
+                    />}
                   </div>
                   <TaskComments
                     comments={comments}

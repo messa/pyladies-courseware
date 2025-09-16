@@ -1,0 +1,28 @@
+id: pyladies-2021-olomouc-podzim
+naucse_api_url: https://naucse.python.cz/v0/2021/pyladies-olomouc-podzim.json
+tasks_by_lesson_slug:
+
+  "beginners/install":
+  - file: tasks/1_install.yaml
+  "beginners/hello-world":
+  - file: tasks/2_first_app.yaml
+  "beginners/functions":
+  - file: tasks/3_loops.yaml
+  "beginners/while":
+  - file: tasks/4_while.yaml
+  "beginners/str":
+  - file: tasks/5_str.yaml
+  "beginners/def":
+  - file: tasks/6_functions.yaml
+  "beginners/files":
+  - file: tasks/7_files.yaml
+  "beginners/list":
+  - file: tasks/8_list.yaml
+  "beginners/dict":
+  - file: tasks/9_dict.yaml
+  "beginners/modules":
+  - file: tasks/10_testing.yaml
+  "intro/pyglet":
+  - file: tasks/11_pyglet.yaml
+  "beginners/class":
+  - file: tasks/12_class.yaml

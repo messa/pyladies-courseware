@@ -155,7 +155,7 @@ export default class UserDetail extends React.Component {
               <label>Google ID</label>
               <input
                 placeholder='Google ID'
-                value={detailUser.goodle_id === null ? '' : detailUser.doodle_id}
+                value={detailUser.google_id === null ? '' : detailUser.google_id}
                 name='google_id'
                 onChange={this.handleInputChange}
               />

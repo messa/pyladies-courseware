@@ -1,15 +1,16 @@
 from bson import ObjectId
 from collections import defaultdict
 from datetime import datetime
-from logging import getLogger
+import logging
 from operator import itemgetter
 from pymongo import ASCENDING as ASC
 from pymongo import ReturnDocument
 
+from ..courses.helpers import escape_markdown, markdown_to_html
 from ..util import smart_repr, to_oid, to_str
 
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 
 class TaskSolutionComments:
@@ -57,6 +58,15 @@ class TaskSolutionComments:
             c.fill_replies(replies_by_comment_id)
         return top_comments
 
+    async def number_by_task_solution_ids(self, task_solution_ids):
+        q = {'task_solution_id': {'$in': [to_oid(id) for id in task_solution_ids]}}
+        all_docs = await self._c_comments.find(q).to_list(None)
+        all_comments = [self._build(doc) for doc in all_docs]
+        n_comments_by_ts_id = defaultdict(int)
+        for comment in all_comments:
+            n_comments_by_ts_id[comment.task_solution_id] += 1
+        return n_comments_by_ts_id
+
     def _build(self, doc):
         return TaskSolutionComment(doc)
 
@@ -70,6 +80,7 @@ class TaskSolutionComment:
         self.body = doc['body']
         self.author_user_id = doc['author_user']['id']
         self.author_name = doc['author_user']['name']
+        self.task_solution_id = to_str(doc['task_solution_id'])
         self.replies = None
 
     def fill_replies(self, replies_by_comment_id):
@@ -89,7 +100,7 @@ class TaskSolutionComment:
         data = {
             'id': self.id,
             'date': self.date.strftime('%Y-%m-%dT%H:%M:%SZ'),
-            'body': self.body,
+            'body': escape_markdown(markdown_to_html(self.body, enable_tables=False)),
             'author': {
                 'user_id': self.author_user_id,
                 'name': self.author_name,

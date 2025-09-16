@@ -1,13 +1,12 @@
 import React from 'react'
 import Link from 'next/link'
 import { Button, Menu, Input } from 'semantic-ui-react'
-import { createFragmentContainer, graphql } from 'react-relay'
 import ALink from './ALink'
 
-class Header extends React.Component {
+export default class Header extends React.Component {
 
   render() {
-    const { currentUser, activeItem } = this.props
+    const { user, activeItem } = this.props
     return (
       <div className='Header'>
         <Menu secondary>
@@ -31,7 +30,7 @@ class Header extends React.Component {
               icon='external'
             />
 
-          {currentUser && currentUser.isAdmin && (
+            {user && user.is_admin && (
               <Menu.Item
                 as={ALink}
                 content='Administrace'
@@ -59,7 +58,7 @@ class Header extends React.Component {
             </Menu.Item>
             */}
 
-            {!currentUser ? (
+            {!user ? (
               <Menu.Item
                 as={ALink}
                 content='Přihlásit se'
@@ -109,15 +108,6 @@ class Header extends React.Component {
   }
 
 }
-
-export default createFragmentContainer(Header, {
-  currentUser: graphql`
-    fragment Header_currentUser on User {
-      id
-      isAdmin
-    }
-  `
-})
 
 /*
 export default ({ user }) => (

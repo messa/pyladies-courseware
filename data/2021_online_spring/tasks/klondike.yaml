@@ -1,0 +1,10 @@
+tasks:
+
+- section:
+    markdown: |
+      Tady je místo k odevzdání logiky pro Klondike Solitaire.
+
+- id: klondike_logic
+  markdown: |
+    Odevzdej funkce `hrac_vyhral` a `udelej_tah`.
+    Zadání najdeš v materiálech.

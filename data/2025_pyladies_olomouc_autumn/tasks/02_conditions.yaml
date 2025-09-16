@@ -1,0 +1,153 @@
+tasks:
+
+- section:
+    markdown: |
+      Následující projekty jsou na procvičení podmínek a porovnávání.
+
+- id: handout2_00
+  markdown: |
+    Napiš program, který po zadání správného hesla vypíše nějakou „tajnou informaci“.
+
+    _Vhodné tajemství je třeba: V pátek jsem viděl/a černého havrana._
+
+- id: handout2_01
+  markdown: |
+    Na srazu jsme spolu vytvářeli program, který píše různé nesmysly podle uživatelem zadaného věku.
+
+    Zkus napsat program, který píše hlášky podle zadané rychlosti chůze, váhy ulovené ryby, počtu tykadel,
+    teploty vody nebo třeba vzdálenosti od rovníku.
+
+    (Pošli ten nejzdařilejší; kdyby ses chtěl/a pochlubit několika verzemi,
+    dej je všechny do jedné odpovědi.)
+
+- section:
+    markdown: |
+      A nakonec pár úkolů, které tvoří větší projekt. Navazují na sebe.
+      Dělej je postupně.
+
+- id: handout2_03
+  markdown: |
+    Ulož si následující program jako `pokus.py` a spusť ho několikrát za sebou.
+    Co dělá?
+
+    ```python
+    from random import randrange
+    cislo = randrange(3)
+    print(cislo)
+    ```
+
+    _Aby všechno fungovalo správně, nesmíš mít v aktuálním adresáři soubor jménem `random.py`._
+
+- id: handout2_04
+  markdown: |
+    Vytvoř program, který dělá následující:
+
+    * Vybere náhodné číslo ze tří možností (0, 1, nebo 2).
+      *(Koukni na předchozí úkol!)*
+    * Je-li číslo 0:
+        * do proměnné `tvar` uloží slovo `'trojúhelník'`;
+    * jinak, je-li číslo 1:
+        * do proměnné `tvar` uloží slovo `'čtverec'`;
+    * jinak:
+        * do proměnné `tvar` uloží slovo `'kolečko'`.
+    * Vypíše `tvar`.
+
+- id: handout2_05
+  markdown: |
+    Vytvoř hru *Kámen nůžky papír*, která funguje následovně:
+
+    * Do proměnné `tah_pocitace` dá náhodně slovo `'kámen'`, `'nůžky'`
+      nebo `'papír'`.
+      *(Koukni na předchozí úkol!)*
+    * Zeptá se uživatele na tah; výsledek uloží do proměnné `tah_hrace`
+    * Je-li tah hráče `'kámen'`:
+        * je-li tah počítače `'kámen'`:
+            * vypíše `'Remíza!'`;
+        * jinak, je-li tah počítače `'nůžky'`:
+            * vypíše `'Vyhrál jsi!'`;
+        * jinak, je-li tah počítače `'papír'`:
+            * vypíše `'Prohrál jsi!'`.
+    * Jinak, je-li tah hráče `'nůžky'`:
+        * je-li tah počítače `'kámen'`:
+            * vypíše `'Prohrál jsi!'`;
+        * jinak, je-li tah počítače `'nůžky'`:
+            * vypíše `'Remíza!'`;
+        * jinak, je-li tah počítače `'papír'`:
+            * vypíše `'Vyhrál jsi!'`.
+    * Jinak, je-li tah hráče `'papír'`:
+        * je-li tah počítače `'kámen'`:
+            * vypíše `'Vyhrál jsi!'`;
+        * jinak, je-li tah počítače `'nůžky'`:
+            * vypíše `'Prohrál jsi!'`;
+        * jinak, je-li tah počítače `'papír'`:
+            * vypíše `'Remíza!'`.
+    * Jinak,
+        * Omluví se *(vypíše hlášku)*, že zná jen tři slova: kámen, nůžky a papír.
+
+    *Je to celkem dlouhý program, ale můžeš ho psát postupně:
+    každý jednotlivý řádek "přelož" do Pythonu.
+    Budeš potřebovat `if`, `elif`, a `else`;
+    porovnávání (`==`) a přiřazení (`=`); pro výpis `print` a pro vstup `input`.*
+
+- section:
+    markdown: |
+      Tyto projekty kombinují opakování a nové informace. Doporučuji si je projít.
+
+- id: handout2_06
+  markdown: |
+    Zkusil/a jsi porovnávat řetězce?
+    Zkus si tuto tabulku doplnit na papíře a pak ověř odpovědi pomocí Pythonu
+    Pokud to jde, použij pro porovnání < nebo >.
+
+    | `a`     |      | `b`       |
+    |---------|:----:|-----------|
+    | `2`     |  >   | `1`       |
+    | `1`     |  <   | `2`       |
+    | `'abc'` |  ==  | `'abc'`   |
+    | `'aaa'` |      | `'abc'`   |
+    | `'abc'` |      | `'Abc'`   |
+    | `'abC'` |      | `'abc'`   |
+    | `'abc'` |      | `'abcde'` |
+    | `'abc'` |      | `'ábč'`   |
+    | `'abc'` |      | ``10``    |
+
+- id: handout2_07
+  markdown: |
+    Jaká je hodnota proměnné po provedení příkazů:
+
+    * <code>promenna = 1 < 2</code> ?
+    * <code>promenna = 2 < 2</code> ?
+    * <code>promenna = 1 < 2 < 3</code> ?
+    * <code>promenna = 1 < 3 < 2</code> ?
+    * <code>promenna = 1 < 3 < 3</code> ?
+    * <code>promenna = 'abc' < 'ABC' < 'def' < 'zajíc'</code> ?
+
+    Tam, kde je hodnota proměnné `False`, dají se některé z porovnávaných hodnot mezi sebou vyměnit, aby
+    byla `True`? (samotný operátor < neměň)
+
+- section:
+    markdown: |
+      Poslední projekty jsou pokročilejší. Jestli nemáš čas, radši udělej pořádně ty ostatní.
+
+- id: handout2_08
+  markdown: |
+    Doplň tuhle tabulku:
+
+    | `a`     | `b`     | `a and b` | `a or b` | `not a` |
+    |---------|---------|-----------|----------|---------|
+    | `True`  | `True`  |           |          |         |
+    | `False` | `True`  |           |          |         |
+    | `True`  | `False` |           |          |         |
+    | `False` | `False` |           |          |         |
+
+    Tohle je takzvaná _pravdivostní_ tabulka:
+    _Obsahuje jeden řádek pro každou kombinaci booleovských hodnot, které `a` a `b` můžou mít. Když se stane, že se v složitějších `and` a `or` ztratíš, doporučuji napsat si podobnou tabulku a na každý řádek se podívat zvlášť._
+
+- id: handout2_09
+  markdown: |
+    Zkus přepsat Kámen, Nůžky, Papír pomocí `and` a `or`.
+
+    Dokážeš docílit toho, aby se každý z řetězců `'Remíza.'`, `'Počítač vyhrál.'` a `'Vyhrála jsi!'` objevil
+    v programu jen jednou, aniž bys tyhle řetězce musela přiřazovat do proměnných?
+
+    Pokud ano, gratuluji!

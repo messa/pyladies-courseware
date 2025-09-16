@@ -1,22 +1,41 @@
 import React from 'react'
 import Link from 'next/link'
 import { Button, Message } from 'semantic-ui-react'
-import { graphql } from 'react-relay'
 import Layout from '../components/Layout'
+import fetchPageData from '../util/fetchPageData'
 import ALink from '../components/ALink'
 import MaterialItems from '../components/MaterialItems'
 import formatDate from '../util/formatDate'
-import withData from '../util/withData'
 
 function arrayContains(array, item) {
   return array && array.indexOf(item) !== -1
 }
 
-class CoursePage extends React.Component {
+function UnreviewedSolutionsHint(props) {
+  if (!props.session.hasOwnProperty('unreviewed-count')) return null;
+
+  const count = props.session['unreviewed-count'];
+  if (count > 0) {
+    return (
+        <b title={`V této lekci jsou neopravené úkoly (${count})`} className='notification'>&nbsp;(*{count})</b>
+    );
+  }
+  return null;
+}
+
+export default class extends React.Component {
 
   state = {
     attendInProgress: false,
     attendError: null,
+  }
+
+  static async getInitialProps({ req, query }) {
+    const courseId = query.course
+    const data = await fetchPageData(req, {
+      course: { 'course_detail': { 'course_id': courseId, 'check-unreviewed': true } },
+    })
+    return { courseId, ...data }
   }
 
   handleEnrollClick = async () => {
@@ -24,7 +43,7 @@ class CoursePage extends React.Component {
       attendInProgress: true,
     })
     try {
-      const { courseId } = this.props.course
+      const { user, courseId } = this.props
       const payload = {
         'course_id': courseId,
       }
@@ -54,37 +73,40 @@ class CoursePage extends React.Component {
     }
   }
 
+  handleCourseReloadClick = async () => {
+    const { user, courseId } = this.props
+    try {
+      const r = await fetch('/api/admin/course/' + courseId + '/reload_course')
+      await r.json()
+    } finally { window.location = '/course?course=' + courseId }
+  }
+
   render() {
-    const { currentUser, course } = this.props
-    const courseId = course.courseId
+    const { user, courseId, course } = this.props
     const { attendInProgress, attendError } = this.state
-    const belongsToCourse = currentUser && (
-      currentUser['isAdmin'] ||
-      arrayContains(currentUser['attendedCourseIds'], courseId) ||
-      arrayContains(currentUser['coachedCourseIds'], courseId)
+    const belongToCourse = user && (
+      user['is_admin'] ||
+      arrayContains(user['attended_course_ids'], courseId) ||
+      arrayContains(user['coached_course_ids'], courseId)
     )
-    const now = new Date()
-    const courseEnd = new Date(course['endDate'])
-    const activeCourse = (courseEnd >= now)
     return (
-      <Layout currentUser={currentUser} width={1000}>
+      <Layout user={this.props.user} width={1000}>
 
         <div className='overview'>
 
           <h1 className='course-title'>
-            <strong dangerouslySetInnerHTML={{__html: course.titleHTML }} />
-            {course.subtitleHTML && (
-              <div dangerouslySetInnerHTML={{__html: course.subtitleHTML }} />
+            <strong dangerouslySetInnerHTML={{__html: course['title_html']}} />
+            {course['subtitle_html'] && (
+              <div dangerouslySetInnerHTML={{__html: course['subtitle_html']}} />
             )}
           </h1>
 
           <div
             className='course-description'
-            dangerouslySetInnerHTML={{__html: course.descriptionHTML }}
+            dangerouslySetInnerHTML={{__html: course['description_html']}}
           />
-
-          {activeCourse && (
-            <div className='course-attend'>
+          {course['allows_registration'] && (
+            <div className='course-button-groups'>
               {attendError && (
                 <div>
                   <Message
@@ -97,9 +119,20 @@ class CoursePage extends React.Component {
                 <Button
                   primary
                   onClick={this.handleEnrollClick}
-                  disabled={belongsToCourse || attendInProgress}
+                  disabled={belongToCourse || attendInProgress}
                   loading={attendInProgress}
-                  content={belongsToCourse ? 'Jste součástí kurzu' : 'Přihlásit se do kurzu'}
+                  content={belongToCourse ? 'Jste součástí kurzu' : 'Přihlásit se do kurzu'}
+                />
+              </Button.Group>
+            </div>
+          )}
+          {user && user['is_admin'] && (
+            <div className='course-button-groups'>
+              <Button.Group>
+                <Button
+                  primary
+                  onClick={this.handleCourseReloadClick}
+                  content='Přenačíst kurz'
                 />
               </Button.Group>
             </div>
@@ -109,23 +142,24 @@ class CoursePage extends React.Component {
 
         <div className='sessions'>
 
-          {course.sessions && course.sessions.map(session => (
+          {course['sessions'].map(session => (
             <div key={session['slug']} className='session'>
 
               <h2 className='session-title'>
-                <span dangerouslySetInnerHTML={{__html: session.titleHTML}} />
+                <span dangerouslySetInnerHTML={{__html: session['title_html']}} />
+                <UnreviewedSolutionsHint session={session} />
               </h2>
-              <div className='sessionDate'>{formatDate(session.date)}</div>
+              <div className='sessionDate'>{formatDate(session['date'])}</div>
 
-              <MaterialItems materialItems={session.materialItems} />
+              <MaterialItems materialItems={session['material_items']} />
 
-              {session.hasTasks && (
+              {session['has_tasks'] && (
                 <div>
                   <Button
                     as={ALink}
                     href={{
                       pathname: '/session',
-                      query: { course: course.courseId, session: session.slug }
+                      query: { course: course.id, session: session['slug'] }
                     }}
                     basic
                     color='blue'
@@ -169,7 +203,7 @@ class CoursePage extends React.Component {
             max-width: 550px;
             margin: 0 auto;
           }
-          .overview .course-attend {
+          .overview .course-button-groups {
             text-align: center;
             max-width: 550px;
             margin: 0 auto;
@@ -218,38 +252,3 @@ class CoursePage extends React.Component {
     )
   }
 }
-
-export default withData(CoursePage, {
-  variables: ({ query }) => ({ courseId: query.course }),
-  query: graphql`
-    query courseQuery($courseId: String!) {
-      currentUser {
-        isAdmin
-        coachedCourseIds
-        attendedCourseIds
-        ...Layout_currentUser
-      }
-      course(courseId: $courseId) {
-        id
-        courseId
-        titleHTML
-        subtitleHTML
-        descriptionHTML
-        endDate
-        sessions {
-          id
-          slug
-          titleHTML
-          date
-          hasTasks
-          materialItems {
-            materialItemType
-            titleHTML
-            textHTML
-            url
-          }
-        }
-      }
-    }
-  `
-})

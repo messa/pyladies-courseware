@@ -3,23 +3,23 @@ import TaskSubmission from '../TaskSubmission'
 import TaskReview from './TaskReview'
 
 function HomeworkTask({ taskItem, userCanSubmitTask, courseId, sessionSlug, reviewUserId, students }) {
-  const elementId = taskItem.taskId ? `task-${taskItem.taskId}` : null
+  const taskId = taskItem.id ? `task-${taskItem.id}` : null
   return (
-    <div className='homework-task' id={elementId}>
+    <div className='homework-task' id={taskId}>
       {(taskItem.number || taskItem.number === 0) && (
-        <div className='number'>{taskItem.number}.</div>
+        <div className='number'>{taskItem['number']}.</div>
       )}
       <div className='homework-body'>
         {taskItem.mandatory && (
           <div className='mandatory-sign'>☜</div>
         )}
-        <span dangerouslySetInnerHTML={{ __html: taskItem.textHTML }} />
+        <span dangerouslySetInnerHTML={{ __html: taskItem['text_html'] }} />
       </div>
       {reviewUserId && (
         <TaskReview
           courseId={courseId}
           sessionSlug={sessionSlug}
-          taskItemId={taskItem.taskItemId}
+          taskId={taskItem.id}
           taskSubmit={taskItem.submit}
           reviewUserId={reviewUserId}
         />
@@ -29,9 +29,9 @@ function HomeworkTask({ taskItem, userCanSubmitTask, courseId, sessionSlug, revi
           key={`${taskItem.id} ${student.id}`}
           courseId={courseId}
           sessionSlug={sessionSlug}
-          taskId={taskItem.taskItemId}
+          taskId={taskItem.id}
           taskSubmit={taskItem.submit}
-          reviewUserId={student.userId}
+          reviewUserId={student.id}
           title={student.name}
         />
       ))}
@@ -39,7 +39,7 @@ function HomeworkTask({ taskItem, userCanSubmitTask, courseId, sessionSlug, revi
         <TaskSubmission
           courseId={courseId}
           sessionSlug={sessionSlug}
-          taskId={taskItem.taskItemId}
+          taskId={taskItem.id}
         />
       )}
       <style jsx>{`
@@ -55,7 +55,7 @@ function HomeworkTask({ taskItem, userCanSubmitTask, courseId, sessionSlug, revi
         }
         .homework-task .mandatory-sign {
           position: absolute;
-          right: 0;
+          right: -40px;
           margin-top: 4px;
           font-weight: 600;
           font-size: 36px;

@@ -2,23 +2,14 @@ import aiohttp
 from aiohttp import web
 from aiohttp_session import get_session
 import asyncio
-import simplejson as json
-from simplejson import JSONDecodeError
+import json
 import logging
 from pathlib import Path
-from urllib.parse import unquote
 
 
 logger = logging.getLogger(__name__)
 
 routes = web.RouteTableDef()
-
-
-def load_json(s):
-    try:
-        return json.loads(s)
-    except JSONDecodeError as e:
-        raise Exception(f'Failed to decode JSON {s!r}: {e}')
 
 
 @routes.post('/api/tasks/submit-solution')
@@ -80,15 +71,20 @@ async def list_lesson_solutions(req):
     user = await model.users.get_by_id(session['user']['id'])
     if not user.can_review_course(course_id=req.query['course_id']):
         raise web.HTTPForbidden()
-    if 'task_ids' in req.query:
+    if 'task_ids' in req.rel_url.query:
         solutions = await model.task_solutions.find_by_course_and_task_ids(
-            course_id=unquote(req.query['course_id']),
-            task_ids=load_json(unquote(req.query['task_ids'])))
+            course_id=req.rel_url.query['course_id'],
+            task_ids=json.loads(req.rel_url.query['task_ids']))
     else:
         solutions = await model.task_solutions.find_by_course_id(
-            course_id=req.query['course_id'])
+            course_id=req.rel_url.query['course_id'])
     students = await model.users.find_by_attended_course_id(
-        course_id=req.query['course_id'])
+        course_id=req.rel_url.query['course_id'])
+    ts_ids = [ts.id for ts in solutions]
+    n_comments_by_ts_id = await model.task_solution_comments.number_by_task_solution_ids(
+            task_solution_ids=ts_ids)
+    for ts in solutions:
+        ts.n_comments = n_comments_by_ts_id[ts.id]
     return web.json_response({
         'task_solutions': [await ts.export() for ts in solutions],
         'students': [u.export() for u in students]

@@ -22,10 +22,10 @@ async def assign_student_to_course(req):
     model = req.app['model']
     user = await model.users.get_by_id(session['user']['id'])
     courses = req.app['courses']
-    active_course_ids = [c.id for c in courses.get().list_active()]
     data = await req.json()
     course_id = data['course_id']
-    if course_id in active_course_ids and course_id not in user.attended_course_ids:
+    course = courses.get().get_by_id(course_id)
+    if course.allows_registration() and course_id not in user.attended_course_ids:
         await user.add_attended_courses([course_id], author_user_id=user.id)
     return web.json_response({
         'attended_course_ids': user.attended_course_ids,

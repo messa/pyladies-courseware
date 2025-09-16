@@ -7,7 +7,7 @@ from pathlib import Path
 import simplejson as json
 
 from .auth import get_login_methods
-
+from ..model.task_solutions import TaskSolution
 
 logger = logging.getLogger(__name__)
 
@@ -75,21 +75,36 @@ async def user(req, params):
     return user.export(details=True)
 
 
+def has_new_event(solution: TaskSolution) -> bool:
+    return solution.last_action == 'student' and not solution.is_solved
+
+
 @resolver
 async def course_detail(req, params):
     session = await get_session(req)
     model = req.app['model']
-    course = req.app['courses'].get().get_by_course_id(params['course_id'])
+    course = req.app['courses'].get().get_by_id(params['course_id'])
     if session.get('user'):
         user = await model.users.get_by_id(session['user']['id'])
         if datetime.utcnow().strftime('%Y-%m-%d') <= '2018-10-30':
             await user.add_attended_courses([course.id], author_user_id=None)
+
+        if params.get('check-unreviewed') and user.can_review_course(course.id):
+            course_data = course.export(sessions=True, tasks=True)
+            for session in course_data['sessions']:
+                task_ids = [task['id'] for task in session['task_items'] if 'id' in task]
+                solutions = await model.task_solutions.find_by_course_and_task_ids(
+                    course_id=course.id,
+                    task_ids=task_ids
+                )
+                session['unreviewed-count'] = sum(1 if has_new_event(s) else 0 for s in solutions)
+            return course_data
     return course.export(sessions=True)
 
 
 @resolver
 def session_detail(req, params):
-    course = req.app['courses'].get().get_by_course_id(params['course_id'])
+    course = req.app['courses'].get().get_by_id(params['course_id'])
     session = course.get_session_by_slug(params['session_slug'])
     return {
         **session.export(tasks=True),

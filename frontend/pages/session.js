@@ -1,7 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
 import { Button, Grid, Message } from 'semantic-ui-react'
-import { graphql } from 'react-relay'
 import Layout from '../components/Layout'
 import fetchPageData from '../util/fetchPageData'
 import ALink from '../components/ALink'
@@ -12,38 +11,45 @@ import TaskReviewLessonSummary from '../components/TaskReviewLessonSummary'
 import TaskSubmissionLessonSummary from '../components/TaskSubmissionLessonSummary'
 import CourseOverview from '../components/lesson/CourseOverview'
 import TaskReview from '../components/lesson/TaskReview'
-import withData from '../util/withData'
 
-function TaskSection({ taskItem }) {
-  return (
-    <div className='task-section'>
-      <div dangerouslySetInnerHTML={{__html: taskItem['text_html'] }} />
-      <style jsx>{`
-        .task-section {
-          margin: 2rem 0;
-          color: #038;
-          font-weight: 600;
-        }
-      `}</style>
-    </div>
-  )
-}
+const TaskSection = ({ taskItem }) => (
+  <div className='task-section'>
+    <div dangerouslySetInnerHTML={{__html: taskItem['text_html'] }} />
+    <style jsx>{`
+      .task-section {
+        margin: 2rem 0;
+        color: #038;
+        font-weight: 600;
+      }
+    `}</style>
+  </div>)
 
 function arrayContains(array, item) {
   return array && array.indexOf(item) !== -1
 }
 
-class SessionPage extends React.Component {
+export default class SessionPage extends React.Component {
+
+  static async getInitialProps({ req, query }) {
+    const courseId = query.course
+    const sessionSlug = query.session
+    const { reviewUserId } = query
+    const data = await fetchPageData(req, {
+      course: { 'course_detail': { 'course_id': courseId } },
+      session: { 'session_detail': { 'course_id': courseId, 'session_slug': sessionSlug } },
+      reviewUser: { 'review_user': { 'user_id': reviewUserId } },
+    })
+    return { courseId, ...data }
+  }
 
   render() {
-    const { currentUser, reviewUser, course } = this.props
-    const { courseId, session } = course
-    const userCanSubmitTasks = currentUser && (currentUser.isAdmin || arrayContains(currentUser.attendedCourseIds, courseId))
-    const userCanReviewTasks = currentUser && (currentUser.isAdmin || arrayContains(currentUser.coachedCourseIds, courseId))
+    const { user, courseId, session, course, reviewUser } = this.props
+    const userCanSubmitTasks = user && (user['is_admin'] || arrayContains(user['attended_course_ids'], courseId))
+    const userCanReviewTasks = user && (user['is_admin'] || arrayContains(user['coached_course_ids'], courseId))
     const sessionSlug = session.slug
-    const tasks = session['taskItems'].filter(x => x.taskItemType === 'task')
+    const tasks = session['task_items'].filter(x => x.task_item_type === 'task')
     return (
-      <Layout currentUser={currentUser} width={1200}>
+      <Layout user={user} width={1200}>
         <Grid relaxed padded>
           <Grid.Row>
             <Grid.Column width={4} only='computer'>
@@ -51,10 +57,10 @@ class SessionPage extends React.Component {
               <CourseOverview course={course} />
 
             </Grid.Column>
-            <Grid.Column mobile={16} computer={12}>
+            <Grid.Column width={16} computer={12}>
 
               <h1 style={{ marginTop: '1rem' }}>
-                <span dangerouslySetInnerHTML={{__html: session['titleHTML']}} />
+                <span dangerouslySetInnerHTML={{__html: session['title_html']}} />
                 {' '}&nbsp;
                 <small style={{ fontWeight: 300, color: '#c39', whiteSpace: 'nowrap' }}>
                   {formatDate(session['date'])}
@@ -63,9 +69,9 @@ class SessionPage extends React.Component {
 
               <h2>Materiály</h2>
 
-              <MaterialItems materialItems={session.materialItems} />
+              <MaterialItems materialItems={session['material_items']} />
 
-              {currentUser && (
+              {user && (
                 <>
                   <h2>Odevzdané projekty</h2>
                   {userCanReviewTasks ? (
@@ -74,14 +80,14 @@ class SessionPage extends React.Component {
                       courseId={courseId}
                       sessionSlug={sessionSlug}
                       tasks={tasks}
-                      reviewUserId={reviewUser ? reviewUser.userId : null}
+                      reviewUserId={reviewUser ? reviewUser.id : null}
                     />
                   ) : (userCanSubmitTasks && (
                     <TaskSubmissionLessonSummary
                       key={`${courseId} ${sessionSlug}`}
-                      session={session}
                       courseId={courseId}
                       sessionSlug={sessionSlug}
+                      tasks={tasks}
                     />
                   ))}
                 </>
@@ -90,7 +96,7 @@ class SessionPage extends React.Component {
               {!userCanSubmitTasks && !userCanReviewTasks && (
                 <Message>
                   <Message.Header>Nejste účastníkem kurzu</Message.Header>
-                  {currentUser ? (
+                  {user ? (
                     <>
                       Pro zápis do kurzu použijte tlačítko v
                       <Link href={{ pathname: '/course', query: { course: courseId } }}><a> přehledu kurzu</a></Link>.
@@ -118,8 +124,8 @@ class SessionPage extends React.Component {
                 )}
               </h2>
 
-              {session['taskItems'].map((taskItem, i) => {
-                switch (taskItem.taskItemType) {
+              {session['task_items'].map((taskItem, i) => {
+                switch (taskItem.task_item_type) {
                   case 'task': return (
                     <HomeworkTask
                       key={`${courseId} ${sessionSlug} ${i}`}
@@ -127,7 +133,7 @@ class SessionPage extends React.Component {
                       userCanSubmitTask={userCanSubmitTasks}
                       courseId={courseId}
                       sessionSlug={sessionSlug}
-                      reviewUserId={reviewUser ? reviewUser.userId : null}
+                      reviewUserId={reviewUser ? reviewUser.id : null}
                     />
                   )
                   case 'section': return (
@@ -151,63 +157,3 @@ class SessionPage extends React.Component {
     )
   }
 }
-
-export default withData(SessionPage, {
-  variables: ({ query }) => ({
-    courseId: query.course,
-    sessionSlug: query.session,
-    reviewUserId: query.reviewUserId || null,
-  }),
-  query: graphql`
-    query sessionQuery($courseId: String!, $sessionSlug: String!, $reviewUserId: String) {
-      currentUser {
-        id
-        userId
-        isAdmin
-        attendedCourseIds
-        coachedCourseIds
-        ...Layout_currentUser
-      }
-      reviewUser: user(userId: $reviewUserId) {
-        id
-        userId
-        name
-      }
-      course(courseId: $courseId) {
-        id
-        courseId
-        titleHTML
-        subtitleHTML
-        sessions {
-          id
-          slug
-          titleHTML
-          date
-          hasTasks
-        }
-        session(slug: $sessionSlug) {
-          id
-          slug
-          titleHTML
-          date
-          hasTasks
-          materialItems {
-            materialItemType
-            titleHTML
-            textHTML
-            url
-          }
-          taskItems {
-            taskItemType
-            taskItemId
-            textHTML
-            number
-            mandatory
-            submit
-          }
-          ...TaskSubmissionLessonSummary_session
-        }
-      }
-    }
-  `
-})

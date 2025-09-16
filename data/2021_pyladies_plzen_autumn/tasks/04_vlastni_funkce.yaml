@@ -1,0 +1,80 @@
+tasks:
+
+- section:
+    markdown: |
+      Trocha experimentování.
+      Zkus se zamyslet, jestli jsi „dobře” pochopila otázku.
+
+- id: handout4_00
+  markdown: |
+    Co se stane, když tělo nějaké funkce necháš prázdné? Zkus vysvětlit proč. (Tělo funkce je odsazený blok za dvojtečkou)
+
+- id: handout4_01
+  markdown: |
+    Co se stane, když necháš prázdné tělo cyklu? Zkus vysvětlit proč.
+
+- id: cunstom4_01
+  markdown: |
+    Zkus se nedívat na kódy ze srazu.
+    Napiš funkci, která vrátí obvod čtverce, kdy délka strany čtverce je zadána parametrem
+    funkce. Výsledek funkce vypiš v těle hlavního programu pomocí print. (Tzn. tělo
+    funkce nebude obsahovat `print`)
+
+  mandatory: true
+
+- id: custom4_02
+  markdown: |
+    Napiš funkci, která vypíše do jednoho řádku prvních 11 násobků zvoleného
+    čísla (argument funkce). Např.: pro vstup 2 vypíše funkce
+    `0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20`.
+
+  mandatory: true
+
+- id: custom4_03
+  markdown: |
+    Změn funkci z předchozího úkolu tak, aby funkce měla tři argumenty – číslo,
+    počet vypisovaných násobků, znak pro oddělení vypsaných násobků.
+
+
+- section:
+    markdown: |
+      Procvičení programování.
+      Často je jednoduché něco napsat, ale dotažení do konce může být časově náročné.
+      _Nemáš-li čas, zkus se aspoň zamyslet, jak bys projekt vyřešila._
+
+- id: handout4_04
+  markdown: |
+    Změň program Kámen, Nůžky, Papír tak, aby opakoval hru dokud
+    uživatel nezadá `konec`.
+    
+  mandatory: true
+
+- id: handout4_05
+  markdown: |
+    Změň funkci `ano_nebo_ne` tak,
+    aby se místo `ano` se dalo použít i `a`,
+    místo `ne` i `n`
+    a aby se nebral ohled na velikost písmen a mezery před/za odpovědí.
+
+    _Textům jako `možná` nebo `no tak určitě` by počítač dál neměl rozumět._
+
+- id: handout4_08
+  # Tento projekt byl na konci handout4. Úplně nevím, kam ho zařadit, do
+  # řetězců (které byly na konci handout4) se nehodí. Spíš sem k funkcím.
+  #   -- Petr Messner
+  markdown: |
+    Napiš program, který simuluje tuto hru:
+
+    První hráč hází kostkou
+    _(t.j. vybírají se náhodná čísla od 1 do 6)_,
+    dokud nepadne šestka.
+    Potom hází další hráč, dokud nepadne šestka i jemu.
+    Potom hází hráč třetí a nakonec čtvrtý.
+    Vyhrává ten, kdo na hození šestky potřeboval nejvíc hodů.
+    (V případě shody vyhraje ten, kdo házel dřív.)
+
+    Program by měl vypisovat všechny hody a nakonec napsat, kdo vyhrál.
+    
+    Nápověda: průběžně stačí ukládat jen údaj, kdo vede.
+    
+  mandatory: true

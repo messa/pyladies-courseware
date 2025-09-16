@@ -1,0 +1,37 @@
+tasks:
+
+- section:
+    markdown: |
+      Template s úkoly na DeepNote si zduplikuj [TADY](https://deepnote.com/workspace/PyDataLadies-Jaro-2021-0579e7e7-50f6-4c4b-ba8a-1b39758bff4d/project/pydatakurzpodzim2022eda4tvojejmeno-0beaabb8-1d94-4525-98eb-7fae8b78935c/%2Fpydata_eda4.ipynb).
+
+- id: eda4_00
+  markdown: |
+    Odkaz na tvůj notebook na DeepNote (nezapomeň změnit práva na "Edit" a přejmenovat soubor):
+
+- id: eda4_01
+  markdown: |
+    Použij data z tabulky `countries` a spočti korelační koeficienty mezi jednotlivými sloupci. Slovně popiš, které hodnoty tě zaujaly a proč.
+
+- id: eda4_02
+  markdown: |
+    Dál pracuj s tabulkou `countries` a spočítej průměrnou dobu dožití (`life_expectancy`) pro jednotlivé příjmové skupiny (`income_groups`) a regiony (`world_6region`). (Nápověda: vzpomeň si, jak jsme v minulé hodině analyzovali vztah mezi dvěma kategorickými proměnnými).
+
+- id: eda4_03
+  markdown: |
+    Pomocí jedné funkce graficky zobraz vztahy všech dvojic těchto proměnných: `life_expectancy`, `life_expectancy_male` a `life_expectancy_female` v tabulce `countries`. Porovnej s korelačními koeficienty a popřemýšlej, proč vycházejí jinak, než by někdo mohl čekat.
+
+- id: eda4_04
+  markdown: |
+    Použij data o filmech z minulé hodiny (`movies_complete`) a graficky zobraz distribuci příjmů (`lifetime_gross`) těchto filmových studií: _['BV', 'WB', 'Par.', 'Uni.', 'Fox', 'Sony', 'DW', 'NL', 'FoxS', 'Col.']_. Nápověda - pro filtraci studií použij metodu `isin()` viz [dokumentace](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.isin.html).
+
+- id: eda4_05
+  markdown: |
+    Stáhni si tabulku `OMdb_mojo_clean.csv` z [této adresy](https://github.com/zacharyang/movies-project/blob/master/data/clean/OMdb_mojo_clean.csv) a udělej join s finální tabulkou z minulé hodiny. Potom spočítej cross-korelace všech hodnocení ve výsledném datasetu.
+
+- id: eda4_06
+  markdown: |
+    Spočtěte korelační koeficient pro oběžnou poloosu a oběžnou dobu a pomocí korelace dokažte, že existuje vztah mezi těmito veličinam.
+
+- id: eda4_07
+  markdown: |
+    Poslední úkol je spíše k zamyšlení (nemusíš psát kód): Zjisti, které z TOP 20 filmů z [oficiálního žebříčku IMDB](https://www.imdb.com/chart/top/?ref_=nv_mv_250) nejsou v naší finální tabulce z minulé hodiny. Dokážeš zdůvodnit proč?

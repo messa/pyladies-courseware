@@ -1,0 +1,70 @@
+# https://projekty.pyladies.cz/session?course=pyladies-2021-olomouc-podzim&session=strings#task-handout5_07
+# https://projekty.pyladies.cz/session?course=pyladies-2021-olomouc-podzim&session=functions#task-handout5_9
+
+tasks:
+
+- section:
+    markdown: |
+      Pokud jsi ještě nenaprogramoval(a) hry Šibenice([základní verze](https://projekty.pyladies.cz/session?course=pyladies-2021-olomouc-podzim&session=strings#task-handout5_07),
+      [rozšířená verze](https://projekty.pyladies.cz/session?course=pyladies-2021-olomouc-podzim&session=functions#task-handout5_8))
+      a [Piškvorky](https://projekty.pyladies.cz/session?course=pyladies-2021-olomouc-podzim&session=functions#task-handout5_9),
+      tak se k nim prosím vrať a zkus je dodělat. Obzvláště Piškvorky jsou důležité, protože je
+      budeme využívat i v následujících lekcích.
+
+      V následujících projektech můžeš zkusit tyto hry trochu vylepšit pomocí výjimek a práce se soubory.
+
+- id: handout7_1
+  markdown: |
+    Načítej „obrázky” v Šibenici ze souborů, místo řetězců ve zdrojovém kódu.
+
+    *Obrázky k Šibenici nalezneš v popisu [rozšířeného zadání](https://projekty.pyladies.cz/session?course=pyladies-2021-olomouc-podzim&session=functions#task-handout5_8)
+    Šibenice.*
+
+    *Nahraj k tomuto úkolu upravené řešení Šibenice*
+
+- id: handout7_2
+  markdown: |
+    Přepiš funkci `tah` v Piškvorkách tak, aby skončila s chybou `ValueError` v těchto případech:
+
+    * Hra na pozici, která není v poli, např.
+      `tah('--------------------', -1, 'x')`
+
+    * Hra na obsazené políčko, např.
+      `tah('x-------------------', 0, 'o')`
+
+    * Hra jiným symbolem než `'x'` nebo `'o'`, např.
+      `tah('--------------------', 0, 'řeřicha')`
+
+    *Nahraj k tomuto úkolu upravené řešení funkce `tah`*
+
+- id: handout7_3
+  markdown: |
+    Uprav piškvorky tak, aby se stav hry po každém tahu (jak hráče, tak počítače) uložil do souboru.
+    Soubory by se měly jmenovat `tah-<cislo-tahu>.txt`, takže postupně `tah-0.txt`, `tah-1.txt` atd.
+    Půjde si tak zpětně prohlédnout, jak probíhala hra 1D piškvorek.
+
+    *Nahraj k tomuto úkolu upravené řešení Piškvorek (celý kód dohromady)*
+
+- section:
+    markdown: |
+        V následujících projektech si můžeš ještě více procvičit práci se soubory.
+
+- id: handout7_4
+  markdown: |
+    Napiš program, který zkopíruje soubor na jiné místo.
+    (Zeptá se na původní jméno a nové jméno, načte původní soubor a zapíše
+    obsah do nového.)
+
+    **Program zkoušej v adresáři, který neobsahuje nic důležitého – pro Python není těžké přepsat
+    soubor, ve kterém jsou důležité informace!**
+
+- id: handout7_5
+  markdown: |
+    Napiš program, který načte soubor (cestu k souboru zadá uživatel) a vypíše základní statistiky
+    o obsahu souboru:
+
+    - Celkový počet znaků
+    - Počet znaků malé abecedy (`a-z`)
+    - Počet znaků velké abecedy (`A-Z`)
+    - Počet číslic (`0-9`)
+    - Počet mezer

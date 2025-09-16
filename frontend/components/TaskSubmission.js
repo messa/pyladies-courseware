@@ -6,7 +6,7 @@ import TaskSolution from './lesson/TaskSolution'
 import TaskComments from './lesson/TaskComments'
 import holdAnchor from './Helpers'
 
-class TaskSubmission extends React.Component {
+export default class TaskSubmission extends React.Component {
 
   state = {
     open: false,
@@ -51,13 +51,12 @@ class TaskSubmission extends React.Component {
         loading: false,
         loadError: null,
         taskSolution: task_solution,
-        comments,
+        comments: comments,
       })
       if (anchorCheck) {
         holdAnchor()
       }
     } catch (err) {
-      console.error('TaskSubmission loadData error:', err)
       this.setState({
         loading: false,
         loadError: err.toString(),
@@ -263,5 +262,3 @@ const TaskStatus = ({ taskSolution }) => {
     </span>
   )
 }
-
-export default TaskSubmission

@@ -72,7 +72,7 @@ function UserListView({ items }) {
                 <div>FB: <small>{user.fb_id}</small></div>
               )}
               {user.google_id && (
-                <div>Google: <a href={`https://plus.google.com/${user.google_id}`}><small>{user.google_id}</small></a></div>
+                <div>Google: <small>{user.google_id}</small></div>
               )}
             </Table.Cell>
             <Table.Cell><UserRoles user={user} /></Table.Cell>

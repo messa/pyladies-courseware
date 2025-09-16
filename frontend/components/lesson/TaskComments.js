@@ -64,7 +64,7 @@ export default class TaskComments extends React.Component {
                   <div>{comment.date.toString()}</div>
                   <Label>Verze {this.getCodeVersion(comment.date, codeVersions)}</Label>
                 </Comment.Metadata>
-                <Comment.Text>{comment.body}</Comment.Text>
+                <Comment.Text dangerouslySetInnerHTML={{__html: comment.body}} />
                 <Comment.Actions>
                   <Comment.Action
                     content='Odpovědět'
@@ -86,7 +86,7 @@ export default class TaskComments extends React.Component {
                           <div>{reply.date.toString()}</div>
                           <Label>Verze {this.getCodeVersion(reply.date, codeVersions)}</Label>
                         </Comment.Metadata>
-                        <Comment.Text>{reply.body}</Comment.Text>
+                        <Comment.Text dangerouslySetInnerHTML={{__html: reply.body}} />
                         <Comment.Actions>
                           <Comment.Action
                             content='Odpovědět'
@@ -124,5 +124,4 @@ export default class TaskComments extends React.Component {
       </div>
     )
   }
-
 }

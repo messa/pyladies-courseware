@@ -8,9 +8,9 @@ function CourseOverview({ course }) {
 
       <div className='course-title'>
         <Link href={{ pathname: '/course', query: { course: course.id } }}><a>
-          <strong dangerouslySetInnerHTML={{__html: course['titleHTML']}} />
-          {course['subtitleHTML'] && (
-            <div dangerouslySetInnerHTML={{__html: course['subtitleHTML']}} />
+          <strong dangerouslySetInnerHTML={{__html: course['title_html']}} />
+          {course['subtitle_html'] && (
+            <div dangerouslySetInnerHTML={{__html: course['subtitle_html']}} />
           )}
         </a></Link>
       </div>
@@ -20,7 +20,7 @@ function CourseOverview({ course }) {
           <li key={session.slug} className='lesson'>
             <div className='lesson-title'>
               <Link href={{ pathname: '/session', query: { course: course.id, session: session.slug } }}><a>
-                <span dangerouslySetInnerHTML={{__html: session['titleHTML']}} />
+                <span dangerouslySetInnerHTML={{__html: session['title_html']}} />
               </a></Link>
             </div>
             <div className='lessonDate'>{formatDate(session['date'])}</div>

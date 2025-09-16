@@ -1,0 +1,229 @@
+tasks:
+
+- id: handout1_07
+  markdown: |
+    **Řetězce** obsahují slova, věty nebo jiný text.
+    Řetězce se zadávají v uvozovkách – jednoduchých `'` nebo dvojitých `"`:
+
+    ```
+    >>> 'Ahoj!'
+    'Ahoj!'
+    >>> "Ahoj!"
+    "Ahoj!"
+    ```
+
+  submit: false
+
+- id: handout1_08
+  markdown: |
+    Řetězce jdou spojovat sčítáním. Vyzkoušej si to:
+
+    ```
+    >>> 'A' + "B"
+    'AB'
+    ```
+
+  submit: false
+
+- id: handout01_09
+  markdown: |
+    Co je tady špatně? Jak to spravit?
+
+    ```
+    >>> 'Ahoj' + 'světe!'
+    ```
+
+- id: handout1_10
+  markdown: |
+    Řetězce se dají sčítat. Dají se i násobit? Dělit? Odečítat?
+    *(Odpověz slovně.)*
+
+- id: handout1_11
+  markdown: |
+    Co se stane, když se pokusím sečíst číslo a řetězec?
+    *(Můžeš vložit výsledek z příkazové řádky, ale odpověz i slovně)*
+
+- id: handout1_12
+  markdown: |
+    A vynásobit?
+    *(Můžeš vložit výsledek z příkazové řádky, ale odpověz i slovně)*
+
+- section:
+    markdown: |
+      Vzpomínáš si na chybové hlášky a na proměnné?
+
+- id: handout2_03
+  markdown: |
+
+    Jaká chyba nastane, když zkusíš podělit řetězec řetězcem?
+
+- id: handout2_02
+  markdown: |
+
+    Jaká chyba nastane, když zkusíš použít proměnnou předtím, než do ní něco přiřadíš?
+
+- id: handout2_05
+  markdown: |
+    Ne všechno se dá použít jako jméno proměnné.
+    Fungují pro proměnné následující jména? Pokud ne, proč asi?
+
+    <div style='column-count: 4'>
+      <code>x</code><br>
+      <code>tlacitko4</code><br>
+      <code>34</code><br>
+      <code>3e4</code><br>
+      <code>krůta</code><br>
+      <code>$i</code><br>
+      <code>druha-odmocnina</code><br>
+      <code>readme.txt</code><br>
+      <code>kratsiStrana</code><br>
+      <code>POCET_BODU</code><br>
+      <code>_</code> (podtržítko)<br>
+      <code>π</code> (pí)<br>
+      <code>True</code><br>
+      <code>_cache</code><br>
+      <code>__name__</code><br>
+      <code>while</code><br>
+    </div>
+
+- id: handout2_06
+  markdown: |
+    Napiš program, který spočítá povrch a objem krychle o straně 2852 cm.
+
+    Abys nemusela tolik hledat v učebnici (vlastně Wikipedii): povrch S = 6a², objem V = a³
+
+    _Řešení, pro kontrolu: S = 48803424 cm², V = 23197894208 cm³_
+
+- id: handout2_07
+  markdown: |
+    Změň program tak, aby stranu/poloměr mohl uživatel zadat.
+
+- id: handout2_14
+  markdown: |
+    Napiš program, který po zadání správného hesla vypíše nějakou „tajnou informaci“.
+
+    _Vhodné tajemství je třeba: V pátek jsem viděl černého havrana._
+
+- id: handout2_13
+  markdown: |
+    Na srazu jsme spolu vytvářeli program, který píše různé nesmysly podle uživatelem zadaného věku.
+
+    Zkus napsat program, který píše hlášky podle zadané rychlosti chůze, váhy ulovené ryby, počtu tykadel,
+    teploty vody nebo třeba vzdálenosti od rovníku.
+
+    (Pošli ten nejzdařilejší; kdyby ses chtěla pochlubit několika verzemi,
+    dej je všechny do jedné odpovědi.)
+
+- id: theotherwayaround_01
+  markdown: |
+    Čím se liší program:
+
+    ```python
+    if pocet_tykadel > 12:
+        print("Odkud jste přiletěli?")
+    if pocet_tykadel > 6:
+        print("Že by pavouček?")
+    else:
+        print("Tak málo tykadel mě nezajímá!")
+    ```    
+    od programu:
+    
+    ```python
+    if pocet_tykadel > 12:
+        print("Odkud jste přiletěli?")
+    elif pocet_tykadel > 6:
+        print("Že by pavouček?")
+    else:
+        print("Tak málo tykadel mě nezajímá!")
+    ```
+
+- section:
+    markdown: |
+      Následuje pár úkolů, které tvoří větší projekt. Navazují na sebe.
+      Dělej je postupně.
+
+- id: handout2_08
+  markdown: |
+    Ulož si následující program jako `pokus.py` a spusť ho několikrát za sebou.
+    Co dělá?
+
+    ```
+    from random import randrange
+    cislo = randrange(3)
+    print(cislo)
+    ```
+
+    _Jak to funguje, to si vysvětlíme příště; zatím to ber jako kouzelné zaříkadlo._
+
+    _Aby všechno fungovalo správně, nesmíš mít v aktuálním adresáři soubor jménem `random.py`._
+
+- id: choose_word
+  markdown: |
+    Vytvoř program, který dělá následující:
+
+    * Vybere náhodné číslo ze tří možností (0, 1, nebo 2).
+      *(Koukni na předchozí úkol!)*
+    * Je-li číslo 0:
+        * do proměnné `tvar` uloží slovo `'trojúhelník'`;
+    * jinak, je-li číslo 1:
+        * do proměnné `tvar` uloží slovo `'čtverec'`;
+    * jinak:
+        * do proměnné `tvar` uloží slovo `'kolečko'`.
+    * Vypíše `tvar`.
+
+- id: rock_paper_scissors
+  markdown: |
+    Vytvoř hru *Kámen nůžky papír*, která funguje následovně:
+
+    * Do proměnné `tah_pocitace` dá náhodně slovo `'kámen'`, `'nůžky'`
+      nebo `'papír'`.
+      *(Koukni na předchozí úkol!)*
+    * Zeptá se uživatele na tah; výsledek uloží do proměnné `tah_hrace`
+    * Je-li tah hráče `'kámen'`:
+        * je-li tah počítače `'kámen'`:
+            * vypíše `'Remíza!'`;
+        * jinak, je-li tah počítače `'nůžky'`:
+            * vypíše `'Vyhrál jsi!'`;
+        * jinak, je-li tah počítače `'papír'`:
+            * vypíše `'Prohrál jsi!'`.
+    * Jinak, je-li tah hráče `'nůžky'`:
+        * je-li tah počítače `'kámen'`:
+            * vypíše `'Prohrál jsi!'`;
+        * jinak, je-li tah počítače `'nůžky'`:
+            * vypíše `'Remíza!'`;
+        * jinak, je-li tah počítače `'papír'`:
+            * vypíše `'Vyhrál jsi!'`.
+    * Jinak, je-li tah hráče `'papír'`:
+        * je-li tah počítače `'kámen'`:
+            * vypíše `'Vyhrál jsi!'`;
+        * jinak, je-li tah počítače `'nůžky'`:
+            * vypíše `'Prohrál jsi!'`;
+        * jinak, je-li tah počítače `'papír'`:
+            * vypíše `'Remíza!'`.
+    * Jinak,
+        * Omluví se *(vypíše hlášku)*, že zná jen tři slova: kámen, nůžky a papír.
+
+    *Je to celkem dlouhý program, ale můžeš ho psát postupně:
+    každý jednotlivý řádek „přelož“ do Pythonu.
+    Budeš potřebovat `if`, `elif`, a `else`;
+    porovnávání (`==`) a přiřazení (`=`); pro výpis `print` a pro vstup `input`.*
+
+- section:
+    markdown: |
+      Bonus: tyto úkoly jsou nepovinné
+
+- id: theotherwayaround_02
+  markdown: |
+    Testování malé násobilky
+    Nech počítač náhodně vygenerovat dvě čísla v rozsahu 1 až 10, a uživatele vyzvi k zadání jejich součinu.
+    Ověř, jestli uživatel odpověděl správně.
+
+- id: theotherwayaround_03
+  markdown: |
+    Napiš program, který se nejprve uživatele zeptá na těleso, které má vypočítat (krychle, kvádr, koule).
+    Potom se zeptejte, jakou metriku má vypočítat (objem, povrh).
+
+- id: theotherwayaround_04
+  markdown: |
+    _Pozn. _Nutná znalost cyklu_ `while`_
+    Změň cvičení na zadávání hesla (to s černým havranem :)) a nechej uživatele zadávat heslo, dokud ho nezadá správně.

@@ -1,0 +1,237 @@
+tasks:
+
+- section:
+    markdown: |
+      Procvičení řetězců. Mějte při ruce taháky!
+
+- id: in_case_insensitive
+  markdown: |
+    Napište program, který se zeptá na dva řetězce a zjistí,
+    jestli je jeden obsažen ve druhém.
+    Nebere přitom ohled na velikost písmen.
+
+    (Stejné zadání bylo i na videu.)
+
+- id: handout4_06
+  markdown: |
+    Napište program, který se zeptá na příjmení uživatelky/uživatele
+    a *zkusí* podle něj uhodnout její/jeho pohlaví.
+    To pak vypíše.
+
+    (Pohlaví není podle jména možné určit přesně – stačí zvládnout ta
+    nejčastější česká příjmení.)
+
+- id: handout4_07
+  markdown: |
+    Najděte na internetu text své oblíbené písně, zkopírujte si ho do řetězce
+    a zjistěte, kolikrát je v něm použito písmeno K. (Velké nebo malé.)
+
+    Text by mělo jít jednoduše vyměnit za jiný.
+
+    Jako u všech úkolů odevzdejte prosím jen jedno řešení – ideálně
+    to nejzajímavější nebo jinak "nejlepší", ale klidně jakékoli co
+    splňuje zadání.
+    (V případě že se nedohodnete můžete vložit víc řešení najednou.
+    Doporučuju se pak ale o tom, proč jste se nedohodli, poradit v diskusi.)
+
+- section:
+    markdown: |
+      Následující sada úkolů procvičuje různá použití cyklu `for`.
+      Úkoly na sebe navazují, řešte je postupně.
+
+- id: handout3b_05
+  markdown: |
+    Pomocí cyklu `for` a funkce `range()` napište program, který vypíše:
+
+        a
+        a
+        a
+        a
+
+- id: handout3b_06
+  markdown: |
+    Pomocí cyklu `for` napište program, který vypíše:
+
+        Řádek 0
+        Řádek 1
+        Řádek 2
+        Řádek 3
+        Řádek 4
+
+- id: handout3b_07
+  markdown: |
+    Jak nejlépe pojmenovat proměnnou pro minulý příklad?
+    Vymyslete pro ni název, který nejlépe vystihuje co proměnná obsahuje.
+
+    _Je důležité proměnnou pojmenovat výstižně, jinak se v dalších úkolech můžete ztratit._
+
+- id: handout3b_08
+  markdown: |
+    Pomocí cyklu `for` napište program, který vypíše:
+
+        0 na druhou je 0
+        1 na druhou je 1
+        2 na druhou je 4
+        3 na druhou je 9
+        4 na druhou je 16
+
+    _Jak pojmenujete proměnnou cyklu?_
+
+- id: handout3b_09
+  markdown: |
+    Pomocí cyklů `for` a parametru `end` pro `print` napište program, který postupně z jednotlivých `'X'` vypíše:
+
+        X X X X X
+        X X X X X
+        X X X X X
+        X X X X X
+        X X X X X
+
+    „Z jednotlivých `'X'`“ znamená, že každý `print` vypíše maximálně jedno `X`.
+    Nepoužijete tedy např. `print('X X X X X')` ani `print('X ' * 5)`.
+
+    _Jak pojmenujete proměnnou cyklu? A tu druhou?_
+
+
+- id: handout3b_10
+  markdown: |
+    Napište program, který vypíše „tabulku“ s násobilkou.
+
+        0       0       0       0       0
+        0       1       2       3       4
+        0       2       4       6       8
+        0       3       6       9       12
+        0       4       8       12      16
+
+    K oddělení sloupců použijte znak tabulátoru.
+
+    _Tabulka je podobná předchozí, jen má v každé "buňce" hodnotu "číslo řádku × číslo sloupce"._
+
+- id: handout3b_11
+  markdown: |
+    Napište program, který postupně z jednotlivých `'X'` vypíše:
+
+        X
+        X X
+        X X X
+        X X X X
+
+    „Z jednotlivých `'X'`“ opět znamená, že každý `print` vypíše maximálně
+    jedno `X`.
+
+- id: handout3b_12
+  markdown: |
+    Pomocí cyklu `for` a příkazu `if` napište program, který vypíše následující řádky.
+    Funkci `print` volejte pouze uvnitř v cyklu:
+
+        první řádek
+        není první
+        není první
+        není první
+
+- id: handout3b_13
+  markdown: |
+    Pomocí cyklů `for` a příkazu `if` napište program, který z jednotlivých `'X'` vypíše:
+
+        X X X X X X
+        X         X
+        X         X
+        X         X
+        X         X
+        X X X X X X
+
+    „Z jednotlivých `'X'`“ opět znamená, že každý `print` vypíše maximálně
+    jedno `X`.
+
+- id: handout3b_14
+  markdown: |
+    Předchozí programy z této sekce upravte tak, aby počet řádků (či
+    velikost čtverce/trojúhelníku/tabulky) mohl zadat uživatel.
+
+- section:
+    markdown: |
+      Následující sada úkolů vám ukáže zajímavou vlastnost řetězců.
+      Zpomalte a zamyslete se.
+
+- id: handout3b_15
+  markdown: |
+    Co dělá tenhle kód?
+
+        for c in 'Ahoj světe!':
+            print(c)
+
+- id: handout3b_16
+  markdown: |
+    Vymyslíte lepší jméno pro proměnnou `c` z minulé úlohy?
+
+- id: handout3b_17
+  markdown: |
+    Co dělá tenhle kód?
+
+        for c in 38:
+            print(c)
+
+- id: count-letters
+  markdown: |
+    Najděte na internetu text své oblíbené písně, zkopírujte si ho do řetězce
+    a zjistěte, kolik je v něm písmen.
+    Nepočítejte mezery, znaky nového řádku a znaky
+    `!"#$%&\'()*+,-./:;<=>?@[\]^_{|}~`.
+
+    Text písně by mělo jít jednoduše vyměnit za jiný.
+
+    Postup:
+
+    * Na začátku nastav **počet nalezených písmen** na 0.
+    * Pro každý znak textu:
+        * Když znak není obsažen v `!` `"` `#` `$` `%` `&` …:
+            * Zvyš **počet nalezených písmen** o 1.
+    * Vypiš **počet nalezených písmen**.
+
+- section:
+    markdown: |
+      Máme tu i tradiční hru!
+
+- id: handout9_06
+  markdown: |
+    Vytvořte hru Šibenice podle následujícího popisu.
+
+    * Počítač náhodně zvolí **slovo** (zatím třeba ze tří možností).
+        Pro jednoduchost používejte malá písmena a nepoužívejte slova,
+        ve kterých se stejné písmeno opakuje dvakrát
+        (třeba č<span style='color: red'>o</span>k<span style='color: red'>o</span>láda).
+
+        Zkuste třeba slova: `trávník`, `stromek`, `stavení`.
+
+    * Výchozí **stav** je řetězec s tolika podtržítky, kolik je
+        ve vybraném slově písmen.
+
+    * Výchozí počet **neúspěšných pokusů** je nula.
+
+    * Stále dokola:
+        * Zeptej se hráče na **písmeno**.
+        * Pokud je to **písmeno** ve vybraném **slově**:
+            * Zaměň ve **stavu** příslušné podtržítko za ono **písmeno**.
+              (Bude se hodit řetězcová metoda `index` a podprogram `zamen`\*
+              z videa.)
+        * Pokud dané **písmeno** _není_ ve vybraném slově:
+            * započítej **neúspěšný pokus**.
+        * Vypiš **stav** (slovo s případnými podtržítky).
+        * Pokud už ve **stavu** nejsou podtržítka:
+            * Pogratuluj hráči.
+            * Ukonči hru.
+        * Vypiš počet **neúspěšných pokusů**.
+        * Pokud je počet **neúspěšných pokusů** 9 (nebo víc):
+            * Dej hráči najevo, že prohrál.
+            * Ukonči hru.
+
+    ---
+
+    \* Podprogram `zamen` jsme si ukázali na videu:
+    ```python
+    # Ve slově `slovo` zaměnit znak na pozici `pozice` za `novy_znak`;
+    # výsledek bude v proměnné `nove_slovo`.
+    zacatek = slovo[:pozice]
+    konec = slovo[pozice + 1:]
+    nove_slovo = zacatek + novy_znak + konec
+    ```

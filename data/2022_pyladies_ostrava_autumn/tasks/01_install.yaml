@@ -1,0 +1,66 @@
+tasks:
+
+- section:
+    markdown: |
+      Vítejte v kurzu!
+
+      Začneme zlehka.
+      První úkoly ověří, že vám funguje samotné odevzdávání úkolů.
+
+- id: os_name
+  markdown: |
+    Jaký používáš operační systém?
+
+- id: editor_name
+  markdown: |
+    Jaký používáš editor?
+
+- section:
+    markdown: |
+      A dalších pár úkolů od ověření, že umíte spustit Python.
+
+      Jako vždycky: Jestli něco vypadá příliš složitě i po tom, co se zamyslíte
+      a znovu přečtete zadání, zeptejte se!
+
+- id: handout1_00
+  markdown: |
+    Znovu aktivuj virtuální prostředí, spusť Python
+    a zkus, jestli stále funguje jako kalkulačka.
+
+    ```
+    >>> 1 + 1
+    2
+    ```
+
+  submit: false
+
+- id: handout1_01
+  markdown: |
+    Jakou používáš verzi Pythonu?
+    *(Ke správné odpovědi patří i způsob, jak jsi na odpověď přišel/přišla.)*
+
+- id: handout1_02
+  markdown: |
+    Kolik je 395868 + 4483924 × 893?
+    *(Opět: důležité není číslo, ale postup - příkaz v Pythonu)*
+
+- id: handout1_03
+  markdown: |
+    Jaký je zbytek po dělení 458593873 sedmi?
+
+- id: handout1_04
+  markdown: |
+    Přijdeš na to, co dělá operátor `**` (dvě hvězdičky)?
+    *(Odpověz slovně.)*
+
+- id: handout1_05
+  markdown: |
+    Přijdeš na to, co dělá operátor `%` (procento)?
+    *(Odpověz slovně.)*
+
+- id: handout1_06
+  markdown: |
+    Den až dva po instalaci (nebo i později) si znovu zkus aktivovat virtuální
+    prostředí a spustit Python.
+
+  submit: false
