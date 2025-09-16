@@ -18,6 +18,8 @@ sessions:
         url: https://pydatacz.github.io/pyladies-kurz/pydata/notebook/
       - attachment: Knihovna pandas a základní manipulace s tabulkovými daty
         url: https://pydatacz.github.io/pyladies-kurz/pydata/pandas-core/
+    tasks:
+      - file: tasks/eda_1.yaml
 
   - title: Datové typy a základy vizualizace v pandas
     date: 2025-09-22
@@ -27,6 +29,8 @@ sessions:
         url: https://pydatacz.github.io/pyladies-kurz/pydata/pandas-types/
       - attachment: Základy vizualizace
         url: https://pydatacz.github.io/pyladies-kurz/pydata/visualization-basics/
+    tasks:
+      - file: tasks/eda_2.yaml
 
   - title: Statistika jedné proměnné a časové řady
     date: 2025-09-29
@@ -34,6 +38,8 @@ sessions:
     materials:
       - attachment: Explorativní analýza a statistika jedné proměnné
         url: https://pydatacz.github.io/pyladies-kurz/pydata/eda-univariate-timeseries/
+    tasks:
+      - file: tasks/eda_3.yaml
 
   - title: Explorativní datová analýza a více zdrojů / proměnných
     date: 2025-10-06
@@ -43,6 +49,8 @@ sessions:
         url: https://pydatacz.github.io/pyladies-kurz/pydata/pandas-joins/
       - attachment: Pandas - vztahy mezi více proměnnými
         url: https://pydatacz.github.io/pyladies-kurz/pydata/pandas-correlations/
+    tasks:
+      - file: tasks/eda_4.yaml
 
   - title: Explorativní datová analýza - agregace a transformace
     date: 2025-10-13
@@ -50,6 +58,8 @@ sessions:
     materials:
       - attachment: EDA 5, Pokročilejší manipulace a agregace
         url: https://pydatacz.github.io/pyladies-kurz/pydata/pandas-groupby/
+    tasks:
+      - file: tasks/eda_5.yaml
 
   - title: Strojové učení - úvod, regrese
     date: 2025-10-20
@@ -63,6 +73,8 @@ sessions:
         url: https://pydatacz.github.io/pyladies-kurz/pydata/regression-exercises/
       - attachment: Regrese - Co bych měla po této lekci znát ..
         url: https://pydatacz.github.io/pyladies-kurz/pydata/regression-resume/
+    tasks:
+      - file: tasks/ml_1.yaml
 
   - title: Strojové učení - Scikit-learn, ML workflow
     date: 2025-10-27
@@ -85,6 +97,8 @@ sessions:
         url: https://pydatacz.github.io/pyladies-kurz/pydata/classification-metrics/
       - attachment: Klasifikace - Co bych měla po této lekci znát ..
         url: https://pydatacz.github.io/pyladies-kurz/pydata/classification-resume/
+    tasks:
+      - file: tasks/ml_3.yaml
 
   - title: Analýza hlavních komponent (PCA)
     date: 2025-11-10
@@ -92,6 +106,8 @@ sessions:
     materials:
       - attachment: Analýza hlavních komponent (PCA)
         url: https://pydatacz.github.io/pyladies-kurz/pydata/pca/
+    tasks:
+      - file: tasks/pca.yaml
 
   - title: Interaktivní vizualizace a aplikace
     date: 2025-11-24
@@ -99,3 +115,5 @@ sessions:
     materials:
       - attachment: Interaktivní vizualizace a aplikace I.
         url: https://pydatacz.github.io/pyladies-kurz/pydata/dashboards/
+    tasks:
+      - file: tasks/dashboards.yaml
