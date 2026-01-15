@@ -295,11 +295,6 @@ tasks:
     Pokud je heslo správně (= splňuje všechny podmínky), program řekne
     uživateli tajemství.
 
-- id: oko_bere_while
-  markdown: |
-    Uprav hru Oko bere, aby hra trvala tolik kol, dokud hráč nevyhraje nebo
-    neprohraje - ani jedno kolo déle.
-
 - section:
     markdown: |
       Máme tu i tradiční hru!
