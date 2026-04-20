@@ -16,7 +16,7 @@ tasks:
 - id: odd-poetry
   markdown: |
     Napiš program, který vypíše básničku ze souboru `basnicka.txt`,
-    ale vynechá včechny sudé řádky.
+    ale vynechá všechny sudé řádky.
 
     Zpracovávej ji po jednotlivých řádcích.
     *(Nebudeš tak načítat celou dlouhou báseň jako řetězec do paměti počítače;
