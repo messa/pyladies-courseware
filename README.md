@@ -100,6 +100,11 @@ $ make run-backend
 $ make run-frontend
 ```
 
+Pokud z nějakého důvodu nechceš nebo nemůžeš pouštět MongoDB nebo instalovat balíčky
+pro Node.js přímo ve svém systému, můžeš tyto dvě komponenty spustit v kontejnerech
+pomocí `make run-mongod-in-docker` resp. `make run-frontend-in-docker`. Backend má vlastní
+virtuální prostředí a potřebuješ pro něj jen Python 3, takže pro backend tato možnost není.
+
 Otevři http://localhost:3000/
 
 | Port  | Služba
