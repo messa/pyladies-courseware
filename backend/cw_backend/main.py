@@ -7,6 +7,7 @@ from motor.motor_asyncio import AsyncIOMotorClient
 
 from .configuration import Configuration
 from .courses import load_courses
+from .integration.slack import Slackbot
 from .model import Model
 from .views import all_routes
 
@@ -25,6 +26,13 @@ def cw_backend_main():
     web.run_app(get_app(conf), port=args.port)
 
 
+def setup_event_listeners(event_listeners, conf):
+    if conf.slack is not None:
+        event_listeners.append(Slackbot(conf.slack.user_auth, conf.slack.bot_auth, conf.slack.web_url).handle_event)
+    else:
+        logger.warning("Slack tokens missing")
+
+
 async def get_app(conf):
     mongo_client = AsyncIOMotorClient(conf.mongodb.connection_uri)
     mongo_db = mongo_client[conf.mongodb.db_name]
@@ -37,10 +45,21 @@ async def get_app(conf):
 
     app.on_cleanup.append(close_mongo)
 
+    event_listeners = []
+
+    async def send_event(e):
+        for listener in event_listeners:
+            await listener(e)
+
     session_setup(app, MongoStorage(mongo_db['sessions'], max_age=3600*24*365*10))
+
     app['conf'] = conf
     app['courses'] = load_courses(conf.courses_file)
     app['model'] = model
+    app['event'] = send_event
+
+    setup_event_listeners(event_listeners, conf)
+
     app.add_routes(all_routes)
     return app
 
