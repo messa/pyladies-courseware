@@ -121,9 +121,12 @@ class TaskSolution:
         self.task_id = doc['task_id']
         self.user_id = doc['user_id']
         self.is_solved = None
+        self.reviewed_by = None
         self.current_version_id = str(doc['current_version_id']) if doc.get('current_version_id') else None
         if doc.get('marked_as_solved'):
             self.is_solved = doc['marked_as_solved']['solved']
+            if self.is_solved:
+                self.reviewed_by = doc['marked_as_solved']['by_user']['name']
         self.last_action = None
         if doc.get('last_action'):
             self.last_action = doc['last_action']['role']
@@ -193,6 +196,7 @@ class TaskSolution:
             'task_id': self.task_id,
             'user_id': self.user_id,
             'is_solved': self.is_solved,
+            'reviewed_by': self.reviewed_by,
             'last_action': self.last_action,
         }
 

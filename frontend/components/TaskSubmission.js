@@ -254,7 +254,7 @@ const TaskStatus = ({ taskSolution }) => {
   }
   if (taskSolution.is_solved) {
     content = '✓'
-    text = '- vyřešené'
+    text = '- vyřešené (' + taskSolution.reviewed_by + ')'
   }
   return (
     <span>
