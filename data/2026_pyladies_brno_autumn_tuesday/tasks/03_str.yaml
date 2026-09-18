@@ -1,0 +1,362 @@
+tasks:
+
+- id: str_010
+  markdown: |
+    Napiš program, který se zeptá na dva řetězce a zjistí,
+    jestli je jeden obsažen ve druhém.
+    Nebere přitom ohled na velikost písmen.
+
+- section:
+    markdown: |
+      Následující sada úkolů procvičuje různá použití cyklu `for`.
+      Úkoly na sebe navazují, řeš je postupně.
+
+- id: str_020
+  markdown: |
+    Pomocí cyklu `for` a funkce `range()` napiš program, který vypíše:
+
+    ```
+    a
+    a
+    a
+    a
+    ```
+
+- id: str_030
+  markdown: |
+    Pomocí cyklu `for` napiš program, který vypíše:
+
+    ```
+    Řádek 0
+    Řádek 1
+    Řádek 2
+    Řádek 3
+    Řádek 4
+    ```
+
+- id: str_040
+  markdown: |
+    Jak nejlépe pojmenovat proměnnou pro minulý příklad?
+    Vymysli pro ni název, který nejlépe vystihuje, co proměnná obsahuje.
+
+    _Je důležité proměnnou pojmenovat výstižně, jinak se v dalších úkolech
+    můžeš ztratit._
+
+- id: str_050
+  markdown: |
+    Pomocí cyklu `for` napiš program, který vypíše:
+
+    ```
+    0 na druhou je 0
+    1 na druhou je 1
+    2 na druhou je 4
+    3 na druhou je 9
+    4 na druhou je 16
+    ```
+
+    _Jak pojmenuješ proměnnou cyklu?_
+
+- id: str_060
+  markdown: |
+    Pomocí cyklů `for` a parametru `end` pro `print` napiš program, který
+    postupně z jednotlivých `'X'` vypíše:
+
+    ```
+    X X X X X
+    X X X X X
+    X X X X X
+    X X X X X
+    X X X X X
+    ```
+
+    „Z jednotlivých `'X'`“ znamená, že každý `print` vypíše maximálně jedno `'X'`.
+    Nepoužívej tedy např. `print('X X X X X')` ani `print('X ' * 5)`.
+
+    _Jak pojmenuješ proměnnou cyklu? A tu druhou?_
+
+- id: str_070
+  markdown: |
+    Napiš program, který vypíše „tabulku“ s násobilkou.
+
+    ```
+    0       0       0       0       0
+    0       1       2       3       4
+    0       2       4       6       8
+    0       3       6       9       12
+    0       4       8       12      16
+    ```
+
+    K oddělení sloupců použij znak tabulátoru.
+
+    _Tabulka je podobná předchozí, jen má v každé "buňce" hodnotu "číslo řádku
+    × číslo sloupce"._
+
+- id: str_080
+  markdown: |
+    Napiš program, který postupně z jednotlivých `'X'` vypíše:
+
+    ```
+    X
+    X X
+    X X X
+    X X X X
+    ```
+
+    „Z jednotlivých `'X'`“ opět znamená, že každý `print` vypíše maximálně
+    jedno `'X'`.
+
+- id: str_090
+  markdown: |
+    Pomocí cyklu `for` a příkazu `if` napiš program, který vypíše následující řádky.
+    Funkci `print` volej pouze uvnitř v cyklu:
+
+    ```
+    první řádek
+    není první
+    není první
+    není první
+    ```
+
+- id: str_100
+  markdown: |
+    Pomocí cyklů `for` a příkazu `if` napiš program, který z jednotlivých `'X'`
+    vypíše:
+
+    ```
+    X X X X X X
+    X         X
+    X         X
+    X         X
+    X         X
+    X X X X X X
+    ```
+
+    „Z jednotlivých `'X'`“ opět znamená, že každý `print` vypíše maximálně
+    jedno `'X'`.
+
+- id: str_110
+  markdown: |
+    Napiš program, který vypíše „tabulku“ s násobilkou.
+
+    **Počet řádků a sloupců zadá uživatel.**
+
+    ```
+    0       0       0       0       0
+    0       1       2       3       4
+    0       2       4       6       8
+    0       3       6       9       12
+    0       4       8       12      16
+    ```
+
+    K oddělení sloupců použij znak tabulátoru.
+
+- id: str_120
+  markdown: |
+    Napiš program, který postupně z jednotlivých `'X'` vypíše:
+
+    ```
+    X
+    X X
+    X X X
+    X X X X
+    ```
+
+    **Počet řádků zadá uživatel.**
+
+    „Z jednotlivých `'X'`“ opět znamená, že každý `print` vypíše maximálně
+    jedno `'X'`.
+
+- id: str_130
+  markdown: |
+    Pomocí cyklů `for` a příkazu `if` napiš program, který z jednotlivých `'X'`
+    vypíše:
+
+    ```
+    X X X X X X
+    X         X
+    X         X
+    X         X
+    X         X
+    X X X X X X
+    ```
+
+    **Počet řádků a sloupců zadá uživatel.**
+
+    „Z jednotlivých `'X'`“ opět znamená, že každý `print` vypíše maximálně
+    jedno `'X'`.
+
+- id: str_140
+  markdown: |
+    Napiš program, který z jednotlivých `'X'` vypíše pyramidu.
+    Nezapomeň na správné odsazení.
+
+    Příklad:
+
+    ```
+        X
+       X X
+      X X X
+     X X X X
+    X X X X X
+    ```
+
+    **Počet řádků zadá uživatel.**
+
+    „Z jednotlivých `'X'`“ opět znamená, že každý `print` vypíše maximálně
+    jedno `'X'`.
+
+- section:
+    markdown: |
+      Následující sada úkolů ti ukáže zajímavou vlastnost řetězců.
+      Zpomal a zamysli se.
+
+- id: str_150
+  markdown: |
+    Co dělá tenhle kód?
+
+    ```
+    for c in 'Ahoj světe!':
+        print(c)
+    ```
+
+- id: str_160
+  markdown: |
+    Vymyslíš lepší jméno pro proměnnou `c` z minulé úlohy?
+
+- id: str_170
+  markdown: |
+    Co dělá tenhle kód?
+
+    ```
+    for c in 38:
+        print(c)
+    ```
+
+- id: count-k
+  markdown: |
+    Najdi na internetu text své oblíbené písně, zkopíruj si ho do řetězce
+    a zjisti, kolikrát je v něm použito písmeno K. (Velké nebo malé.)
+    Vyhni se použití `count()`.
+
+    Text by mělo jít jednoduše vyměnit za jiný.
+
+- id: count-letters
+  markdown: |
+    Najdi na internetu text své oblíbené písně, zkopíruj si ho do řetězce
+    a zjisti, kolik je v něm písmen.
+    Nepočítej mezery, znaky nového řádku a znaky
+    `!"#$%&\'()*+,-./:;<=>?@[\]^_{|}~`.
+
+    Text písně by mělo jít jednoduše vyměnit za jiný.
+
+    Postup:
+
+    * Na začátku nastav **počet nalezených písmen** na 0.
+    * Pro každý znak textu:
+        * Když znak není obsažen v `!` `"` `#` `$` `%` `&` … :
+            * Zvyš **počet nalezených písmen** o 1.
+    * Vypiš **počet nalezených písmen**.
+
+- section:
+    markdown: Další úkoly na procvičení cyklů
+
+- id: str_180
+  markdown: |
+    Napiš program, který se ptá uživatele na čísla do té doby, než zadá 0.
+    Poté vypíše nejmenší ze zadaných čísel.
+    (Pozor: nula se mezi porovnávaná čísla nepočítá.)
+
+    _Nápověda: průběžně stačí ukládat jen údaj, které číslo je aktuálně to nejmenší._
+
+- id: str_190
+  markdown: |
+    Napiš program, který po zadání správného hesla vypíše nějakou „tajnou
+    informaci“. Nechej uživatele zadávat heslo, dokud ho nezadá správně.
+
+    _Vhodné tajemství je třeba: V pátek jsem viděl černého havrana._
+
+- id: str_200
+  markdown: |
+    Naprogramuj hádání čísla: počítač vygeneruje náhodné číslo z rozsahu 1 až
+    100, ale nevypíše ho. Nechá uživatele v cyklu se ptát na to číslo a vypíše
+    pouze informaci, jestli je hádané číslo větší nebo menší než náhodné číslo.
+
+- id: str_210
+  markdown: |
+    Napiš program, který se zeptá uživatele na heslo a zjistí, jestli:
+
+    * heslo obsahuje minimálně 1 malé písmeno
+    * heslo obsahuje minimálně 1 velké písmeno
+    * heslo obsahuje minimálně jeden speciální znak: `+@#$%^&*`
+    * heslo neobsahuje ani jednu mezeru
+
+    Pokud heslo nesplňuje aspoň jednu z těchto podmínek, program poinformuje o
+    tom uživatele, a ukončí se.
+    Pokud je heslo správně (= splňuje všechny podmínky), program řekne
+    uživateli tajemství.
+
+- id: oko_bere_while
+  markdown: |
+    Uprav hru Oko bere, aby hra trvala tolik kol, dokud hráč nevyhraje nebo
+    neprohraje - ani jedno kolo déle.
+
+- section:
+    markdown: |
+      Máme tu i tradiční hru!
+
+- id: sibenice_zaklad
+  markdown: |
+    Vytvoř hru Šibenice podle následujícího popisu.
+
+    * Počítač náhodně zvolí **slovo** (zatím třeba ze tří možností).
+      Pro jednoduchost používej malá písmena a nepoužívej slova,
+      ve kterých se stejné písmeno opakuje dvakrát
+      (třeba č<span style='color: red'>o</span>k<span style='color: red'>o</span>láda).
+      Zkus třeba slova: `trávník`, `stromek`, `stavení`.
+    * Výchozí **stav** je řetězec s tolika podtržítky, kolik je
+      ve vybraném slově písmen.
+    * Výchozí počet **neúspěšných pokusů** je nula.
+    * Stále dokola:
+        * Zeptej se hráče na **písmeno**.
+        * Pokud je to **písmeno** ve vybraném **slově**:
+            * Zaměň ve **stavu** příslušné podtržítko za ono **písmeno**.
+              (Bude se hodit řetězcová metoda `index` a podprogram `zamen`\*
+              z materiálů.)
+        * Pokud dané **písmeno** _není_ ve vybraném slově:
+            * započítej **neúspěšný pokus**.
+        * Vypiš **stav** (slovo s případnými podtržítky).
+        * Pokud už ve **stavu** nejsou podtržítka:
+            * Pogratuluj hráči.
+            * Ukonči hru.
+        * Vypiš počet **neúspěšných pokusů**.
+        * Pokud je počet **neúspěšných pokusů** 9 (nebo víc):
+            * Dej hráči najevo, že prohrál.
+            * Ukonči hru.
+
+    ---
+
+    \* Podprogram `zamen` jsme měli v materiálech:
+    ```python
+    # Ve slově `slovo` zaměnit znak na pozici `pozice` za `novy_znak`;
+    # výsledek bude v proměnné `nove_slovo`.
+    zacatek = slovo[:pozice]
+    konec = slovo[pozice + 1:]
+    nove_slovo = zacatek + novy_znak + konec
+    ```
+
+- id: sibenice_rozsireni
+  markdown: |
+    Funguje-li ti hra `sibenice`, můžeš ji vylepšit.
+
+    * Pokud hráč nezadá přesně jeden znak (tj. nezadá nic nebo zadá víc znaků),
+      vynadej mu, ale nepočítej to jako pokus.
+    * Když hráč nezadá písmeno (zadá např. `!`), nepovažuj to za tah.
+    * Zařiď, aby hra fungovala pro slova s více stejnými písmeny
+      (např. č<span style='color: red'>o</span>k<span style='color: red'>o</span>láda).
+    * Po skončení dej hráči možnost hru opakovat.
+    * Po vypsání počtu neúspěšných pokusů vypiš obrázek.
+      Funkci, která vrátí obrázek podle počtu pokusů, si můžeš
+      zkopírovat [z Gistu](https://gist.github.com/encukou/77376e445356a9843e278ba387b168f0)
+
+    *Jednotlivá vylepšení dělej jednotlivě.*
+    Počkej, až ti kouč řešení vylepšení schválí, než postoupíš na další.

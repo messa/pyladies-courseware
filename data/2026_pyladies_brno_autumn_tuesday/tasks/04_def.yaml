@@ -1,0 +1,248 @@
+tasks:
+
+- section:
+    markdown: |
+      Na začátek trocha teoretického opakování.
+
+- id: def_010
+  markdown: |
+    Co _dělá_ funkce `print`?
+
+- id: def_020
+  markdown: |
+    Co _vrací_ funkce `print`?
+
+- section:
+    markdown: |
+      Trocha experimentování.
+      Zadání si prosím pořádně přečti.
+
+- id: def_030
+  markdown: |
+    Co se stane, když tělo nějaké funkce necháš úplně prázdné?
+    Zkus vysvětlit proč. (Tělo funkce je odsazený blok za dvojtečkou.)
+
+- id: def_040
+  markdown: |
+    Co se stane, když necháš úplně prázdné tělo cyklu? Zkus vysvětlit proč.
+
+- section:
+    markdown: |
+      Umíš napsat funkci (nebo proceduru)?
+
+      Pozor na slovíčka jako „vrátit“ a „vypsat“, která říkají, co máš dělat.
+
+- id: def_050
+  markdown: |
+    Napiš *funkci*, která jako argument bere příjmení uživatelky/uživatele
+    a zkusí podle něj uhodnout její/jeho pohlaví.
+    To *vrátí* jako řetězec.
+
+    Funkci v programu několikrát zavolej (s různými příjmeními – ty můžeš
+    zadat přímo do kódu při volání funkcí). Výsledky vypiš.
+
+    (Pohlaví není možné určit přesně – stačí zvládnout ta nejčastější
+    česká příjmení.)
+
+- id: def_060
+  markdown: |
+    Vytvoř funkci `pocet_vterin`, která bude mít dva argumenty: čas v minutách
+    a čas ve vteřinách a bude vracet celkový počet vteřin.
+
+- id: def_070
+  markdown: |
+    Napiš proceduru, která vypíše do jednoho řádku prvních 10 násobků zvoleného
+    čísla (argument funkce). Např.: pro vstup 2 vypíše funkce
+    `2, 4, 6, 8, 10, 12, 14, 16, 18, 20`.
+
+- id: def_080
+  markdown: |
+    Změn proceduru z předchozího úkolu tak, aby funkce měla tři argumenty – číslo,
+    počet vypisovaných násobků, znak pro oddělení vypsaných násobků.
+
+- section:
+    markdown: |
+      Proč používat funkce? Protože ti umožní znovu používat již napsaný kód a
+      udělají tvůj program přehlednější. Nechceme přeci psát ty samé řádky kódu
+      znovu a znovu, raději si usnadníme práci :) V následujících úkolech si
+      procvičíš koncept, kdy je funkce, která vykonává jeden určitý úkol,
+      volána v jiné funkci. Tímto způsobem můžeš zařídit relativně složité
+      chování programu za pomoci pár řádek kódu.
+
+- id: def_090
+  markdown: |
+    Nejprve si napiš funkci, která rozhodne, jestli zadané číslo je sudé.
+    Funkci si vhodně pojmenuj.
+    Pokud nevíš, jak zjistíš, že dané číslo je sudé, zkus se podívat na
+    operátor modulo `%` a zamysli se, jak by se dal použít pro vyřešení úkolu.
+
+    Potom napiš funkci, která pro zadaný počet `n` vygeneruje `n` náhodných čísel,
+    a každé vygenerované číslo vypíše spolu s informací, jestli je liché nebo sudé.
+    Tuto funkci si pojmenuj jednoduše `sudost_nahodnych_cisel(pocet)`.
+
+    V hlavním kódu programu funkci `sudost_nahodnych_cisel` zavolej.
+
+- id: def_100
+  markdown: |
+    Napiš funkci, která bude mít jako parametr jedno číslo
+    a vrátí "Bum", je-li toto číslo liché, a "Bác", je-li toto číslo sudé.
+
+    Pak napiš funkci, která bude mít jako parametr jedno číslo (`n`) a vypíše
+    `n` řádek.
+    Na prvním řádku bude "Bum", na druhém "Bác", na třetím "Bum", atd.
+
+    Např.
+
+    ```
+    >>> vypis_bum_bac(5)
+    Bum
+    Bác
+    Bum
+    Bác
+    Bum
+    ```
+
+- id: fbmi
+  markdown: |
+    Vytvoř funkci, která spočítá *Body Mass Index* pro kočky.
+    Vstupem (parametry) funkce bude obvod hrudníku (cm) a délka zadní nohy od
+    kolena ke kotníku (cm).
+    Funkce vrátí číslo *feline body mass index* (fBMI).
+
+    Postup výpočtu fBMI:
+
+    1. Obvod hrudníku vyděl číslem 0.7062 a odečti délku nohy.
+    2. Výsledek vyděl číslem 0.9156.
+    3. Od výsledku z bodu 2 odečti délku nohy.
+
+    Napiš funkci, která na základě hodnoty fBMI rozhodne, jaká kočka je.
+    Čtyři kategorie vychrtlosti nebo sádelnatosti kočky jsou určeny hranicemi
+    15, 30, a 42.
+    Funkce vrátí textový popis stavu kočky, například 'podvyživená', 'zdravá',
+    'tlustá', 'jako kopačák'. Použij fantazii a třeba i přidej několik kategorií.
+
+    Funkce a jejich parametry vhodně pojmenuj.
+
+    Napiš hlavní kód programu, který se uživatele zeptá na parametry kočky a
+    vypíše, jaká kočka je.
+
+- id: def_110
+  markdown: |
+    Napiš program, který vypíše čísla od jedné do 33, ale:
+
+    * Pokud je číslo dělitelné třemi, napíše místo něj „bum”.
+    * Pokud je číslo dělitelné pěti, napíše místo něj „bác”.
+    * Pokud je číslo dělitelné pěti i třemi zároveň, napíše místo toho „bum-bác”.
+
+    Program vhodně rozděl do funkcí.
+
+- id: def_120
+  markdown: |
+    Napiš program, který simuluje tuto „hru“:
+
+    První hráč hází kostkou (tj. vybírají se náhodná čísla od 1 do 6), dokud
+    nepadne šestka.
+    Potom hází další hráč, dokud nepadne šestka i jemu.
+    Potom hází hráč třetí, čtvrtý a nakonec pátý.
+    Vyhrává ten, kdo na hození šestky potřeboval nejvíc hodů.
+    (V případě shody vyhraje ten, kdo házel dřív.)
+
+    Program by měl vypisovat všechny hody a nakonec napsat, kdo vyhrál.
+
+    *Nápověda: průběžně stačí ukládat jen údaj o tom, kdo vede a kolik má hodů.*
+
+    *Tip: Program si napiš napřed v češtině; pak ho přelož do Pythonu.*
+
+- id: def_130
+  markdown: |
+    Napiš proceduru, která nakreslí pravidelný `n`-úhelník.
+    Pomocí této funkce nakresli vedle sebe
+    pětiúhelník, šestiúhelník, sedmiúhelník, osmiúhelník.
+
+    _Vnitřní úhel pravidelného `n`-úhelníka má `180 × (1-2/n)` stupňů._
+
+    _Aby byly tvary zhruba stejně veliké, použij pro `n`-úhelník délku strany např. `200/n`_
+
+    <img src="/static/tasks/handout3a_images/06_uhelniky.png" alt="mnohoúhelníky" style="max-width: 100%; max-height: 60px">
+
+- id: def_140
+  markdown: |
+    Napiš proceduru, která *vykreslí* domeček dané velikosti.
+    Velikost se zadá jako argument, např:
+
+    ```python
+    vykresli_domecek(30)
+    vykresli_domecek(40)
+    vykresli_domecek(80)
+    ```
+
+    Proceduru v programu několikrát zavolej (s různými velikostmi).
+
+    <img src="/static/tasks/handout4_images/02_domecky.png" alt="domečky" style="max-width: 100%; max-height: 80px">
+
+- section:
+    markdown: |
+      Procvičení programování.
+      Často je jednoduché něco napsat, ale dotažení do konce může být časově náročné.
+      Tyto úkoly jsou *nepovinné*.
+      Nemáš-li čas, přeskoč je a jen se zamysli, jak bys projekt vyřešila.
+
+- id: def_150
+  markdown: |
+    Máš-li ráda geometrii\*, můžeš zkusit dávat domečkové proceduře dva argumenty:
+    šířku a výšku.
+    Je potřeba si vzpomenout na Pythagorovu větu a na goniometrické funkce.
+    Konkrétně funkci *arkus tangens*: `from math import atan`.
+
+    Pozor, funkce `atan` vrací výsledek v radiánech;
+    je potřeba ho převést na stupně (`from math import degrees`).
+
+    <img src="/static/tasks/handout4_images/03_domecky.png" alt="domečky" style="max-width: 100%; max-height: 200px">
+
+    \* tj. jestli nemáš ráda geometrii, tak tenhle úkol přeskoč
+
+- id: def_160
+  markdown: |
+    Změň funkci `ano_nebo_ne` z materiálů tak,
+    aby se místo `ano` dalo použít i `a`, místo `ne` i `n`
+    a aby se nebral ohled na velikost písmen a mezery před/za odpovědí.
+    Mezer před nebo za odpovědí může být libovolný počet.
+
+    Odpovědím jako `možná` nebo `no tak určitě` by počítač dál neměl rozumět.
+
+- section:
+    markdown: |
+      Obrázek na konec.
+
+- id: recursive_tree
+  markdown: |
+    Tento úkol je nepovinný.
+    Procvičuje *rekurzi*; koukni před ním na příslušné materiály.
+
+    Řekni želvě, aby nakreslila tento stromeček.
+    (Instrukce můžeš řádek po řádku přeložit do Pythonu.)
+
+    <img src="/static/tasks/handout_images/recursive-tree.png" alt="Rekurzivní želví stromek" style="max-width: 100%; max-height: 200px">
+
+    * Stromeček dané **délky** a **úhlu** se kreslí takto:
+        * *(Malý stromeček je jen jedna větvička.)* Je-li **délka** menší než 20:
+            * Pohni se dopředu o danou **délku**.
+            * Otoč se zpátky, o 180°
+            * Pohni se dopředu o **délku** *(aby želva byla na stejném místě jako na začátku)*
+            * Otoč se zpátky, o 180° *(aby se želva dívala stejným směrem jako na začátku)*
+        * Jinak *(je stromeček rozvětvený)*:
+            * Pohni se dopředu o polovinu **délky** *(nakreslíš tak kmen)*
+            * Otoč se doprava o **úhel**
+            * Nakresli stromeček s poloviční **délkou** (`delka/2`) a dvoutřetinovým **úhlem** (`uhel*2/3`)
+            * Otoč se doleva o **úhel**
+            * Nakresli stromeček s poloviční **délkou** a dvoutřetinovým **úhlem**
+            * Otoč se doleva o **úhel**
+            * Nakresli stromeček s poloviční **délkou** a dvoutřetinovým **úhlem**
+            * Otoč se doprava o **úhel**
+            * Otoč se zpátky, o 180°
+            * Pohni se dopředu o polovinu **délky** *(aby želva byla na stejném místě jako na začátku)*
+            * Otoč se zpátky, o 180° *(aby se želva dívala stejným směrem jako na začátku)*
+
+    Vlastní nakreslení uděláš ve dvou krocích.
+    Otočíš želvu o 90° doleva *(aby se dívala nahoru)*.
+    Nakreslíš stromeček o **délce** 200 a **úhlu** 60.
